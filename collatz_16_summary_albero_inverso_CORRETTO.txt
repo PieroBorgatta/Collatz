@@ -1,0 +1,235 @@
+ALBERO INVERSO DEL TRONCO COMUNE - VERSIONE CORRETTA
+========================================================================================================================
+
+Root: 8216025965
+Target limit: 5000000
+Search max value: 8216025965
+Max depth: 200
+
+Nodi totali generati: 116129
+Nodi <= target limit: 133
+
+Membri attesi: 62
+Membri trovati: 62
+Membri mancanti: 0
+Nodi extra <= target limit: 71
+
+Distribuzione nodi totali per profondità:
+------------------------------------------------------------------------------------------------------------------------
+depth=   0 | count=1
+depth=   1 | count=1
+depth=   2 | count=1
+depth=   3 | count=1
+depth=   4 | count=1
+depth=   5 | count=1
+depth=   6 | count=2
+depth=   7 | count=3
+depth=   8 | count=3
+depth=   9 | count=4
+depth=  10 | count=4
+depth=  11 | count=5
+depth=  12 | count=7
+depth=  13 | count=7
+depth=  14 | count=10
+depth=  15 | count=9
+depth=  16 | count=10
+depth=  17 | count=10
+depth=  18 | count=13
+depth=  19 | count=14
+depth=  20 | count=12
+depth=  21 | count=12
+depth=  22 | count=8
+depth=  23 | count=9
+depth=  24 | count=9
+depth=  25 | count=8
+depth=  26 | count=8
+depth=  27 | count=7
+depth=  28 | count=9
+depth=  29 | count=9
+depth=  30 | count=10
+depth=  31 | count=11
+depth=  32 | count=8
+depth=  33 | count=9
+depth=  34 | count=7
+depth=  35 | count=7
+depth=  36 | count=8
+depth=  37 | count=6
+depth=  38 | count=8
+depth=  39 | count=8
+depth=  40 | count=9
+depth=  41 | count=8
+depth=  42 | count=11
+depth=  43 | count=13
+depth=  44 | count=11
+depth=  45 | count=12
+depth=  46 | count=11
+depth=  47 | count=12
+depth=  48 | count=14
+depth=  49 | count=15
+depth=  50 | count=17
+depth=  51 | count=15
+depth=  52 | count=13
+depth=  53 | count=16
+depth=  54 | count=17
+depth=  55 | count=23
+depth=  56 | count=20
+depth=  57 | count=22
+depth=  58 | count=21
+depth=  59 | count=26
+depth=  60 | count=32
+depth=  61 | count=32
+depth=  62 | count=39
+depth=  63 | count=36
+depth=  64 | count=44
+depth=  65 | count=57
+depth=  66 | count=59
+depth=  67 | count=72
+depth=  68 | count=73
+depth=  69 | count=86
+depth=  70 | count=85
+depth=  71 | count=109
+depth=  72 | count=148
+depth=  73 | count=160
+depth=  74 | count=209
+depth=  75 | count=212
+depth=  76 | count=270
+depth=  77 | count=371
+depth=  78 | count=382
+depth=  79 | count=501
+depth=  80 | count=519
+depth=  81 | count=662
+depth=  82 | count=661
+depth=  83 | count=830
+depth=  84 | count=1067
+depth=  85 | count=1055
+depth=  86 | count=1287
+depth=  87 | count=1233
+depth=  88 | count=1480
+depth=  89 | count=1878
+depth=  90 | count=1822
+depth=  91 | count=2200
+depth=  92 | count=2073
+depth=  93 | count=2451
+depth=  94 | count=2262
+depth=  95 | count=2641
+depth=  96 | count=3202
+depth=  97 | count=2930
+depth=  98 | count=3359
+depth=  99 | count=2920
+depth= 100 | count=3253
+depth= 101 | count=3875
+depth= 102 | count=3425
+depth= 103 | count=3838
+depth= 104 | count=3256
+depth= 105 | count=3506
+depth= 106 | count=4013
+depth= 107 | count=3365
+depth= 108 | count=3623
+depth= 109 | count=2965
+depth= 110 | count=3150
+depth= 111 | count=2529
+depth= 112 | count=2652
+depth= 113 | count=2957
+depth= 114 | count=2416
+depth= 115 | count=2502
+depth= 116 | count=1941
+depth= 117 | count=1982
+depth= 118 | count=2164
+depth= 119 | count=1738
+depth= 120 | count=1775
+depth= 121 | count=1350
+depth= 122 | count=1360
+depth= 123 | count=1037
+depth= 124 | count=1057
+depth= 125 | count=1159
+depth= 126 | count=914
+depth= 127 | count=926
+depth= 128 | count=697
+depth= 129 | count=709
+depth= 130 | count=776
+depth= 131 | count=618
+depth= 132 | count=611
+depth= 133 | count=454
+depth= 134 | count=453
+depth= 135 | count=337
+depth= 136 | count=335
+depth= 137 | count=363
+depth= 138 | count=284
+depth= 139 | count=284
+depth= 140 | count=196
+depth= 141 | count=194
+depth= 142 | count=180
+depth= 143 | count=130
+depth= 144 | count=119
+depth= 145 | count=83
+depth= 146 | count=68
+depth= 147 | count=42
+depth= 148 | count=36
+depth= 149 | count=38
+depth= 150 | count=25
+depth= 151 | count=23
+depth= 152 | count=21
+depth= 153 | count=22
+depth= 154 | count=27
+depth= 155 | count=25
+depth= 156 | count=25
+depth= 157 | count=17
+depth= 158 | count=16
+depth= 159 | count=19
+depth= 160 | count=14
+depth= 161 | count=13
+depth= 162 | count=9
+depth= 163 | count=9
+depth= 164 | count=6
+depth= 165 | count=6
+depth= 166 | count=5
+depth= 167 | count=4
+depth= 168 | count=5
+depth= 169 | count=3
+depth= 170 | count=2
+depth= 171 | count=2
+depth= 172 | count=1
+
+Distribuzione nodi <= target limit per profondità:
+------------------------------------------------------------------------------------------------------------------------
+depth=  68 | count=1
+depth=  69 | count=1
+depth=  70 | count=2
+depth=  72 | count=1
+depth=  73 | count=2
+depth=  74 | count=2
+depth=  75 | count=3
+depth=  76 | count=3
+depth=  77 | count=4
+depth=  78 | count=3
+depth=  79 | count=4
+depth=  80 | count=5
+depth=  81 | count=5
+depth=  82 | count=6
+depth=  83 | count=4
+depth=  84 | count=4
+depth=  85 | count=6
+depth=  86 | count=5
+depth=  87 | count=7
+depth=  88 | count=7
+depth=  89 | count=9
+depth=  90 | count=6
+depth=  91 | count=8
+depth=  92 | count=8
+depth=  93 | count=4
+depth=  94 | count=4
+depth=  95 | count=1
+depth=  96 | count=3
+depth=  97 | count=6
+depth=  98 | count=1
+depth=  99 | count=2
+depth= 100 | count=1
+depth= 101 | count=3
+depth= 103 | count=1
+depth= 109 | count=1
+
+Membri mancanti:
+nessuno
+
+Extra entro target limit non nei 62 membri:
+2432443, 2432445, 2465639, 2562565, 2562571, 2562575, 2597541, 2699657, 2736499, 2736503, 2844095, 2882893, 2882895, 2882897, 2922237, 3037113, 3037115, 3037123, 3078563, 3078565, 3120575, 3199593, 3243257, 3243261, 3287519, 3370779, 3416753, 3416755, 3416761, 3416763, 3416765, 3463389, 3599543, 3599551, 3648665, 3648669, 3698459, 3792111, 3792127, 3843853, 3843857, 3843859, 3843863, 3896317, 4049487, 4049497, 4049499, 4104749, 4104753, 4104755, 4160767, 4266123, 4266143, 4324341, 4324343, 4383357, 4555671, 4555673, 4555681, 4555685, 4555687, 4617845, 4680863, 4734811, 4799389, 4799391, 4799401, 4799403, 4864887, 4864893, 4931279

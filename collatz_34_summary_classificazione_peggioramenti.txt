@@ -1,0 +1,121 @@
+CLASSIFICAZIONE PEGGIORAMENTI H PRUDENTE
+========================================================================================================================
+
+Totale peggioramenti: 86
+
+Conteggi principali:
+------------------------------------------------------------------------------------------------------------------------
+VERO_RIBELLE: 29
+FALSO_ALLARME: 22
+INTERMEDIO: 20
+VERO_RIBELLE_ESTREMO: 15
+
+Statistiche per gruppo:
+------------------------------------------------------------------------------------------------------------------------
+VERI_RIBELLI
+  count: 44
+  loss medio: 46.295455
+  max_ratio medio: 2055.268505
+  ratio_1 medio: 0.650916
+  dmax_delta medio: 1.835818
+  cmax_delta medio: -0.327955
+
+FALSI_ALLARMI
+  count: 22
+  loss medio: 1.272727
+  max_ratio medio: 1.668857
+  ratio_1 medio: 0.283460
+  dmax_delta medio: 1.165552
+  cmax_delta medio: -0.381476
+
+INTERMEDI
+  count: 20
+  loss medio: 7.450000
+  max_ratio medio: 11.240017
+  ratio_1 medio: 0.548801
+  dmax_delta medio: 1.334889
+  cmax_delta medio: -0.378646
+
+Top 25 per loss
+------------------------------------------------------------------------------------------------------------------------
+n=   4941897 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss= 107 | max_ratio=  6086.675 | ratio_1=0.694444 | dmax_delta=+1.000000 | cmax_delta=-0.415037
+n=   3378047 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss= 105 | max_ratio=  8904.470 | ratio_1=0.690647 | dmax_delta=+4.000000 | cmax_delta=-0.111275
+n=   3800303 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss= 105 | max_ratio=  7915.084 | ratio_1=0.686131 | dmax_delta=+4.169925 | cmax_delta=-0.281200
+n=   4809759 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss= 105 | max_ratio=  6253.893 | ratio_1=0.676692 | dmax_delta=+3.000000 | cmax_delta=-0.621050
+n=   3706423 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss= 104 | max_ratio=  8115.565 | ratio_1=0.700935 | dmax_delta=+1.000000 | cmax_delta=-0.245112
+n=   3082295 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ESPLOSIONE_FORTE | loss= 101 | max_ratio=  1925.864 | ratio_1=0.615385 | dmax_delta=+0.830075 | cmax_delta=-0.245112
+n=   1896063 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss=  94 | max_ratio=  4333.203 | ratio_1=0.672727 | dmax_delta=+2.150375 | cmax_delta=-0.640600
+n=    769641 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss=  88 | max_ratio= 10675.141 | ratio_1=0.662921 | dmax_delta=+1.000000 | cmax_delta=-0.415037
+n=    912167 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss=  88 | max_ratio=  9007.151 | ratio_1=0.655914 | dmax_delta=+1.415037 | cmax_delta=-0.075187
+n=   4993319 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE | loss=  88 | max_ratio=   844.419 | ratio_1=0.645161 | dmax_delta=+2.209025 | cmax_delta=-0.075187
+n=   1216223 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss=  87 | max_ratio=  6755.361 | ratio_1=0.666667 | dmax_delta=+1.849625 | cmax_delta=-0.490225
+n=   1368251 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss=  87 | max_ratio=  6004.765 | ratio_1=0.659341 | dmax_delta=+2.000000 | cmax_delta=-0.660150
+n=    810815 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss=  85 | max_ratio= 10133.046 | ratio_1=0.663158 | dmax_delta=+1.509775 | cmax_delta=-0.150375
+n=   2826655 | class=VERO_RIBELLE+DMAX_CRESCE | loss=  70 | max_ratio=   140.737 | ratio_1=0.635294 | dmax_delta=+1.454138 | cmax_delta=+2.657137
+n=   2959003 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ESPLOSIONE_FORTE | loss=  65 | max_ratio=  1424.957 | ratio_1=0.645833 | dmax_delta=+3.000000 | cmax_delta=-0.866162
+n=   3328879 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ESPLOSIONE_FORTE | loss=  65 | max_ratio=  1266.628 | ratio_1=0.648936 | dmax_delta=+3.169925 | cmax_delta=-1.036087
+n=   1835049 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE | loss=  40 | max_ratio=    37.494 | ratio_1=0.634146 | dmax_delta=+1.000000 | cmax_delta=-0.415037
+n=   1883311 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE | loss=  35 | max_ratio=   110.967 | ratio_1=0.625000 | dmax_delta=+0.660150 | cmax_delta=-0.075187
+n=   2972615 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE | loss=  34 | max_ratio=     7.406 | ratio_1=0.564103 | dmax_delta=+0.908275 | cmax_delta=-0.075187
+n=   3131643 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE | loss=  34 | max_ratio=     7.030 | ratio_1=0.590909 | dmax_delta=+0.983463 | cmax_delta=-0.150375
+n=   3523099 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE | loss=  34 | max_ratio=     6.249 | ratio_1=0.595238 | dmax_delta=+1.153388 | cmax_delta=-0.320300
+n=   4128863 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1 | loss=  34 | max_ratio=    16.664 | ratio_1=0.666667 | dmax_delta=+1.000000 | cmax_delta=-0.075187
+n=   4644971 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE | loss=  34 | max_ratio=    14.812 | ratio_1=0.621622 | dmax_delta=+1.169925 | cmax_delta=-0.245112
+n=   1959595 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE | loss=  31 | max_ratio=    35.111 | ratio_1=0.617647 | dmax_delta=+0.584963 | cmax_delta=-0.245112
+n=   1653409 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE | loss=  30 | max_ratio=    41.613 | ratio_1=0.645161 | dmax_delta=+1.000000 | cmax_delta=-0.415037
+
+Top 25 per max_ratio
+------------------------------------------------------------------------------------------------------------------------
+n=    769641 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss=  88 | max_ratio= 10675.141 | ratio_1=0.662921 | dmax_delta=+1.000000 | cmax_delta=-0.415037
+n=    810815 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss=  85 | max_ratio= 10133.046 | ratio_1=0.663158 | dmax_delta=+1.509775 | cmax_delta=-0.150375
+n=    912167 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss=  88 | max_ratio=  9007.151 | ratio_1=0.655914 | dmax_delta=+1.415037 | cmax_delta=-0.075187
+n=   3378047 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss= 105 | max_ratio=  8904.470 | ratio_1=0.690647 | dmax_delta=+4.000000 | cmax_delta=-0.111275
+n=   3706423 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss= 104 | max_ratio=  8115.565 | ratio_1=0.700935 | dmax_delta=+1.000000 | cmax_delta=-0.245112
+n=   3800303 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss= 105 | max_ratio=  7915.084 | ratio_1=0.686131 | dmax_delta=+4.169925 | cmax_delta=-0.281200
+n=   1216223 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss=  87 | max_ratio=  6755.361 | ratio_1=0.666667 | dmax_delta=+1.849625 | cmax_delta=-0.490225
+n=   4809759 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss= 105 | max_ratio=  6253.893 | ratio_1=0.676692 | dmax_delta=+3.000000 | cmax_delta=-0.621050
+n=   4941897 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss= 107 | max_ratio=  6086.675 | ratio_1=0.694444 | dmax_delta=+1.000000 | cmax_delta=-0.415037
+n=   1368251 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss=  87 | max_ratio=  6004.765 | ratio_1=0.659341 | dmax_delta=+2.000000 | cmax_delta=-0.660150
+n=   1896063 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss=  94 | max_ratio=  4333.203 | ratio_1=0.672727 | dmax_delta=+2.150375 | cmax_delta=-0.640600
+n=   3082295 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ESPLOSIONE_FORTE | loss= 101 | max_ratio=  1925.864 | ratio_1=0.615385 | dmax_delta=+0.830075 | cmax_delta=-0.245112
+n=   2959003 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ESPLOSIONE_FORTE | loss=  65 | max_ratio=  1424.957 | ratio_1=0.645833 | dmax_delta=+3.000000 | cmax_delta=-0.866162
+n=   3328879 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ESPLOSIONE_FORTE | loss=  65 | max_ratio=  1266.628 | ratio_1=0.648936 | dmax_delta=+3.169925 | cmax_delta=-1.036087
+n=   4993319 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE | loss=  88 | max_ratio=   844.419 | ratio_1=0.645161 | dmax_delta=+2.209025 | cmax_delta=-0.075187
+n=   2826655 | class=VERO_RIBELLE+DMAX_CRESCE | loss=  70 | max_ratio=   140.737 | ratio_1=0.635294 | dmax_delta=+1.454138 | cmax_delta=+2.657137
+n=   1883311 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE | loss=  35 | max_ratio=   110.967 | ratio_1=0.625000 | dmax_delta=+0.660150 | cmax_delta=-0.075187
+n=   1240057 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1 | loss=  29 | max_ratio=    55.484 | ratio_1=0.666667 | dmax_delta=+1.000000 | cmax_delta=-0.415037
+n=   1376287 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1 | loss=  25 | max_ratio=    49.992 | ratio_1=0.650000 | dmax_delta=+2.660150 | cmax_delta=-0.225562
+n=   1653409 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE | loss=  30 | max_ratio=    41.613 | ratio_1=0.645161 | dmax_delta=+1.000000 | cmax_delta=-0.415037
+n=   4213113 | class=INTERMEDIO+DMAX_CRESCE+CMAX_SCENDE | loss=  24 | max_ratio=    41.053 | ratio_1=0.600000 | dmax_delta=+1.000000 | cmax_delta=-0.415037
+n=   1754395 | class=INTERMEDIO+DMAX_CRESCE+CMAX_SCENDE | loss=   1 | max_ratio=    38.968 | ratio_1=0.612903 | dmax_delta=+1.983463 | cmax_delta=-0.451125
+n=   1835049 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE | loss=  40 | max_ratio=    37.494 | ratio_1=0.634146 | dmax_delta=+1.000000 | cmax_delta=-0.415037
+n=   1959595 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE | loss=  31 | max_ratio=    35.111 | ratio_1=0.617647 | dmax_delta=+0.584963 | cmax_delta=-0.245112
+n=   1973695 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE | loss=   1 | max_ratio=    34.638 | ratio_1=0.620690 | dmax_delta=+2.153388 | cmax_delta=-0.621050
+
+Top 25 per ratio v2=1
+------------------------------------------------------------------------------------------------------------------------
+n=   2845903 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1 | loss=  12 | max_ratio=    12.989 | ratio_1=0.714286 | dmax_delta=+2.490225 | cmax_delta=-0.735337
+n=   3706423 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss= 104 | max_ratio=  8115.565 | ratio_1=0.700935 | dmax_delta=+1.000000 | cmax_delta=-0.245112
+n=   2134427 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1 | loss=  12 | max_ratio=    17.319 | ratio_1=0.700000 | dmax_delta=+1.490225 | cmax_delta=-0.320300
+n=   2529691 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1 | loss=  12 | max_ratio=    14.613 | ratio_1=0.695652 | dmax_delta=+2.679700 | cmax_delta=-0.565412
+n=   4941897 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss= 107 | max_ratio=  6086.675 | ratio_1=0.694444 | dmax_delta=+1.000000 | cmax_delta=-0.415037
+n=   4899807 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1 | loss=   3 | max_ratio=     5.063 | ratio_1=0.692308 | dmax_delta=+0.415037 | cmax_delta=-0.150375
+n=   3378047 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss= 105 | max_ratio=  8904.470 | ratio_1=0.690647 | dmax_delta=+4.000000 | cmax_delta=-0.111275
+n=   3800303 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss= 105 | max_ratio=  7915.084 | ratio_1=0.686131 | dmax_delta=+4.169925 | cmax_delta=-0.281200
+n=   4809759 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss= 105 | max_ratio=  6253.893 | ratio_1=0.676692 | dmax_delta=+3.000000 | cmax_delta=-0.621050
+n=   4644975 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1 | loss=  24 | max_ratio=    14.812 | ratio_1=0.675676 | dmax_delta=+3.830075 | cmax_delta=-1.395487
+n=   2752575 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1 | loss=  26 | max_ratio=    24.996 | ratio_1=0.675000 | dmax_delta=+3.245112 | cmax_delta=-0.810525
+n=   1896063 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss=  94 | max_ratio=  4333.203 | ratio_1=0.672727 | dmax_delta=+2.150375 | cmax_delta=-0.640600
+n=   1216223 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss=  87 | max_ratio=  6755.361 | ratio_1=0.666667 | dmax_delta=+1.849625 | cmax_delta=-0.490225
+n=   4128863 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1 | loss=  34 | max_ratio=    16.664 | ratio_1=0.666667 | dmax_delta=+1.000000 | cmax_delta=-0.075187
+n=   1240057 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1 | loss=  29 | max_ratio=    55.484 | ratio_1=0.666667 | dmax_delta=+1.000000 | cmax_delta=-0.415037
+n=   4893471 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1 | loss=  25 | max_ratio=    14.060 | ratio_1=0.666667 | dmax_delta=+3.643613 | cmax_delta=-0.055637
+n=   4679479 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1 | loss=   3 | max_ratio=     2.250 | ratio_1=0.666667 | dmax_delta=+0.627075 | cmax_delta=-0.245112
+n=    810815 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss=  85 | max_ratio= 10133.046 | ratio_1=0.663158 | dmax_delta=+1.509775 | cmax_delta=-0.150375
+n=    769641 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss=  88 | max_ratio= 10675.141 | ratio_1=0.662921 | dmax_delta=+1.000000 | cmax_delta=-0.415037
+n=   1368251 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss=  87 | max_ratio=  6004.765 | ratio_1=0.659341 | dmax_delta=+2.000000 | cmax_delta=-0.660150
+n=   1583007 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1 | loss=  19 | max_ratio=    24.659 | ratio_1=0.656250 | dmax_delta=+0.980450 | cmax_delta=-0.395487
+n=    912167 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1+ESPLOSIONE_FORTE | loss=  88 | max_ratio=  9007.151 | ratio_1=0.655914 | dmax_delta=+1.415037 | cmax_delta=-0.075187
+n=   1376287 | class=VERO_RIBELLE+DMAX_CRESCE+CMAX_SCENDE+ALTA_DENSITA_V2_1 | loss=  25 | max_ratio=    49.992 | ratio_1=0.650000 | dmax_delta=+2.660150 | cmax_delta=-0.225562
+n=   3328879 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ESPLOSIONE_FORTE | loss=  65 | max_ratio=  1266.628 | ratio_1=0.648936 | dmax_delta=+3.169925 | cmax_delta=-1.036087
+n=   2959003 | class=VERO_RIBELLE_ESTREMO+DMAX_CRESCE+CMAX_SCENDE+ESPLOSIONE_FORTE | loss=  65 | max_ratio=  1424.957 | ratio_1=0.645833 | dmax_delta=+3.000000 | cmax_delta=-0.866162

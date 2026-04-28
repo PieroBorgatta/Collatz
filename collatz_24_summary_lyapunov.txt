@@ -1,0 +1,101 @@
+TEST FUNZIONE DI LYAPUNOV CANDIDATA
+========================================================================================================================
+
+Funzione testata:
+
+H_lambda(n) = log(n) + lambda * penalty(n)
+
+penalty(n) = initial_run_v2_1(n) + 5 * density_v2_1_first_20_steps(n)
+
+LIMIT = 5000000
+MAX_BLOCK_STEPS = 200
+
+------------------------------------------------------------------------------------------------------------------------
+lambda = 0.05
+success ratio = 1.00000000
+failures = 0
+max descent step = 142
+avg descent step = 3.5580978232391294
+worst number = None
+worst best delta = 0.0
+
+------------------------------------------------------------------------------------------------------------------------
+lambda = 0.1
+success ratio = 1.00000000
+failures = 0
+max descent step = 142
+avg descent step = 3.7920251168100467
+worst number = None
+worst best delta = 0.0
+
+------------------------------------------------------------------------------------------------------------------------
+lambda = 0.15
+success ratio = 1.00000000
+failures = 0
+max descent step = 142
+avg descent step = 3.901635560654224
+worst number = None
+worst best delta = 0.0
+
+------------------------------------------------------------------------------------------------------------------------
+lambda = 0.2
+success ratio = 1.00000000
+failures = 0
+max descent step = 143
+avg descent step = 3.861943544777418
+worst number = None
+worst best delta = 0.0
+
+------------------------------------------------------------------------------------------------------------------------
+lambda = 0.25
+success ratio = 1.00000000
+failures = 0
+max descent step = 143
+avg descent step = 3.9412291764916705
+worst number = None
+worst best delta = 0.0
+
+------------------------------------------------------------------------------------------------------------------------
+lambda = 0.3
+success ratio = 1.00000000
+failures = 0
+max descent step = 143
+avg descent step = 3.969297187718875
+worst number = None
+worst best delta = 0.0
+
+------------------------------------------------------------------------------------------------------------------------
+lambda = 0.4
+success ratio = 1.00000000
+failures = 0
+max descent step = 143
+avg descent step = 2.6271198508479405
+worst number = None
+worst best delta = 0.0
+
+------------------------------------------------------------------------------------------------------------------------
+lambda = 0.5
+success ratio = 1.00000000
+failures = 0
+max descent step = 143
+avg descent step = 1.9582627833051134
+worst number = None
+worst best delta = 0.0
+
+------------------------------------------------------------------------------------------------------------------------
+lambda = 0.75
+success ratio = 1.00000000
+failures = 0
+max descent step = 143
+avg descent step = 2.0041172016468805
+worst number = None
+worst best delta = 0.0
+
+------------------------------------------------------------------------------------------------------------------------
+lambda = 1.0
+success ratio = 1.00000000
+failures = 0
+max descent step = 143
+avg descent step = 2.0343052137220856
+worst number = None
+worst best delta = 0.0

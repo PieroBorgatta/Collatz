@@ -1,0 +1,78 @@
+ANALISI PRE-INGRESSO NELL'AUTOSTRADA GRAVITAZIONALE
+========================================================================================================================
+
+Tronco comune: 8216025965
+Numeri analizzati: 62
+
+Entry step medio: 85.000000
+avg_v2 medio pre-ingresso: 1.433575
+ratio_1 medio pre-ingresso: 0.688817
+
+Top 20 massimo debito pre-ingresso:
+------------------------------------------------------------------------------------------------------------------------
+n=    270271 | entry=  87 | max_debt=14.891738 | debt_step=  87 | ratio_max=   30399.214 | avg_v2=1.413793 | ratio_1=0.701149 | max_run_1=7
+n=    288615 | entry=  80 | max_debt=14.797000 | debt_step=  80 | ratio_max=   28467.079 | avg_v2=1.400000 | ratio_1=0.700000 | max_run_1=7
+n=    360361 | entry=  88 | max_debt=14.476700 | debt_step=  88 | ratio_max=   22799.432 | avg_v2=1.420455 | ratio_1=0.693182 | max_run_1=7
+n=    405407 | entry=  86 | max_debt=14.306775 | debt_step=  86 | ratio_max=   20266.118 | avg_v2=1.418605 | ratio_1=0.697674 | max_run_1=7
+n=    432923 | entry=  79 | max_debt=14.212038 | debt_step=  79 | ratio_max=   18978.031 | avg_v2=1.405063 | ratio_1=0.696203 | max_run_1=7
+n=    480481 | entry=  89 | max_debt=14.061663 | debt_step=  89 | ratio_max=   17099.586 | avg_v2=1.426966 | ratio_1=0.685393 | max_run_1=7
+n=    487039 | entry=  77 | max_debt=14.042113 | debt_step=  77 | ratio_max=   16869.339 | avg_v2=1.402597 | ratio_1=0.701299 | max_run_1=7
+n=    540543 | entry=  87 | max_debt=13.891738 | debt_step=  87 | ratio_max=   15199.579 | avg_v2=1.425287 | ratio_1=0.701149 | max_run_1=7
+n=    577231 | entry=  80 | max_debt=13.797000 | debt_step=  80 | ratio_max=   14233.515 | avg_v2=1.412500 | ratio_1=0.700000 | max_run_1=7
+n=    608111 | entry=  85 | max_debt=13.721813 | debt_step=  85 | ratio_max=   13510.734 | avg_v2=1.423529 | ratio_1=0.694118 | max_run_1=7
+n=    640641 | entry=  90 | max_debt=13.646625 | debt_step=  90 | ratio_max=   12824.696 | avg_v2=1.433333 | ratio_1=0.677778 | max_run_1=7
+n=    649385 | entry=  78 | max_debt=13.627075 | debt_step=  78 | ratio_max=   12652.011 | avg_v2=1.410256 | ratio_1=0.692308 | max_run_1=7
+n=    720723 | entry=  88 | max_debt=13.476700 | debt_step=  88 | ratio_max=   11399.700 | avg_v2=1.431818 | ratio_1=0.693182 | max_run_1=7
+n=    730559 | entry=  76 | max_debt=13.457150 | debt_step=  76 | ratio_max=   11246.218 | avg_v2=1.407895 | ratio_1=0.697368 | max_run_1=7
+n=    769641 | entry=  81 | max_debt=13.381963 | debt_step=  81 | ratio_max=   10675.141 | avg_v2=1.419753 | ratio_1=0.691358 | max_run_1=7
+n=    810815 | entry=  86 | max_debt=13.306775 | debt_step=  86 | ratio_max=   10133.046 | avg_v2=1.430233 | ratio_1=0.697674 | max_run_1=7
+n=    854191 | entry=  91 | max_debt=13.231588 | debt_step=  91 | ratio_max=    9618.488 | avg_v2=1.439560 | ratio_1=0.692308 | max_run_1=7
+n=    865847 | entry=  79 | max_debt=13.212038 | debt_step=  79 | ratio_max=    9489.004 | avg_v2=1.417722 | ratio_1=0.696203 | max_run_1=7
+n=    912167 | entry=  84 | max_debt=13.136850 | debt_step=  84 | ratio_max=    9007.151 | avg_v2=1.428571 | ratio_1=0.690476 | max_run_1=7
+n=    960963 | entry=  89 | max_debt=13.061663 | debt_step=  89 | ratio_max=    8549.784 | avg_v2=1.438202 | ratio_1=0.696629 | max_run_1=7
+
+Top 20 massimo rapporto pre-ingresso:
+------------------------------------------------------------------------------------------------------------------------
+n=    270271 | entry=  87 | ratio_max=   30399.214 | max_debt=14.891738 | avg_v2=1.413793 | ratio_1=0.701149 | max_run_1=7
+n=    288615 | entry=  80 | ratio_max=   28467.079 | max_debt=14.797000 | avg_v2=1.400000 | ratio_1=0.700000 | max_run_1=7
+n=    360361 | entry=  88 | ratio_max=   22799.432 | max_debt=14.476700 | avg_v2=1.420455 | ratio_1=0.693182 | max_run_1=7
+n=    405407 | entry=  86 | ratio_max=   20266.118 | max_debt=14.306775 | avg_v2=1.418605 | ratio_1=0.697674 | max_run_1=7
+n=    432923 | entry=  79 | ratio_max=   18978.031 | max_debt=14.212038 | avg_v2=1.405063 | ratio_1=0.696203 | max_run_1=7
+n=    480481 | entry=  89 | ratio_max=   17099.586 | max_debt=14.061663 | avg_v2=1.426966 | ratio_1=0.685393 | max_run_1=7
+n=    487039 | entry=  77 | ratio_max=   16869.339 | max_debt=14.042113 | avg_v2=1.402597 | ratio_1=0.701299 | max_run_1=7
+n=    540543 | entry=  87 | ratio_max=   15199.579 | max_debt=13.891738 | avg_v2=1.425287 | ratio_1=0.701149 | max_run_1=7
+n=    577231 | entry=  80 | ratio_max=   14233.515 | max_debt=13.797000 | avg_v2=1.412500 | ratio_1=0.700000 | max_run_1=7
+n=    608111 | entry=  85 | ratio_max=   13510.734 | max_debt=13.721813 | avg_v2=1.423529 | ratio_1=0.694118 | max_run_1=7
+n=    640641 | entry=  90 | ratio_max=   12824.696 | max_debt=13.646625 | avg_v2=1.433333 | ratio_1=0.677778 | max_run_1=7
+n=    649385 | entry=  78 | ratio_max=   12652.011 | max_debt=13.627075 | avg_v2=1.410256 | ratio_1=0.692308 | max_run_1=7
+n=    720723 | entry=  88 | ratio_max=   11399.700 | max_debt=13.476700 | avg_v2=1.431818 | ratio_1=0.693182 | max_run_1=7
+n=    730559 | entry=  76 | ratio_max=   11246.218 | max_debt=13.457150 | avg_v2=1.407895 | ratio_1=0.697368 | max_run_1=7
+n=    769641 | entry=  81 | ratio_max=   10675.141 | max_debt=13.381963 | avg_v2=1.419753 | ratio_1=0.691358 | max_run_1=7
+n=    810815 | entry=  86 | ratio_max=   10133.046 | max_debt=13.306775 | avg_v2=1.430233 | ratio_1=0.697674 | max_run_1=7
+n=    854191 | entry=  91 | ratio_max=    9618.488 | max_debt=13.231588 | avg_v2=1.439560 | ratio_1=0.692308 | max_run_1=7
+n=    865847 | entry=  79 | ratio_max=    9489.004 | max_debt=13.212038 | avg_v2=1.417722 | ratio_1=0.696203 | max_run_1=7
+n=    912167 | entry=  84 | ratio_max=    9007.151 | max_debt=13.136850 | avg_v2=1.428571 | ratio_1=0.690476 | max_run_1=7
+n=    960963 | entry=  89 | ratio_max=    8549.784 | max_debt=13.061663 | avg_v2=1.438202 | ratio_1=0.696629 | max_run_1=7
+
+Top 20 ingresso più tardivo:
+------------------------------------------------------------------------------------------------------------------------
+n=   1896063 | entry= 101 | max_debt=12.081213 | ratio_max=    4333.203 | avg_v2=1.465347 | ratio_1=0.702970 | max_run_1=7
+n=   1199847 | entry=  97 | max_debt=12.741363 | ratio_max=    6847.561 | avg_v2=1.453608 | ratio_1=0.680412 | max_run_1=7
+n=   2399695 | entry=  97 | max_debt=11.741363 | ratio_max=    3423.779 | avg_v2=1.463918 | ratio_1=0.680412 | max_run_1=7
+n=   1799771 | entry=  96 | max_debt=12.156400 | ratio_max=    4565.040 | avg_v2=1.458333 | ratio_1=0.677083 | max_run_1=7
+n=   2024743 | entry=  94 | max_debt=11.986475 | ratio_max=    4057.812 | avg_v2=1.457447 | ratio_1=0.680851 | max_run_1=7
+n=   1518561 | entry=  93 | max_debt=12.401513 | ratio_max=    5410.402 | avg_v2=1.451613 | ratio_1=0.677419 | max_run_1=7
+n=   1138921 | entry=  92 | max_debt=12.816550 | ratio_max=    7213.868 | avg_v2=1.445652 | ratio_1=0.684783 | max_run_1=7
+n=   2277835 | entry=  92 | max_debt=11.816550 | ratio_max=    3606.945 | avg_v2=1.456522 | ratio_1=0.673913 | max_run_1=7
+n=   2277843 | entry=  92 | max_debt=11.816550 | ratio_max=    3606.933 | avg_v2=1.456522 | ratio_1=0.684783 | max_run_1=7
+n=    854191 | entry=  91 | max_debt=13.231588 | ratio_max=    9618.488 | avg_v2=1.439560 | ratio_1=0.692308 | max_run_1=7
+n=   1708377 | entry=  91 | max_debt=12.231588 | ratio_max=    4809.258 | avg_v2=1.450549 | ratio_1=0.681319 | max_run_1=7
+n=   1708383 | entry=  91 | max_debt=12.231588 | ratio_max=    4809.241 | avg_v2=1.450549 | ratio_1=0.703297 | max_run_1=7
+n=    640641 | entry=  90 | max_debt=13.646625 | ratio_max=   12824.696 | avg_v2=1.433333 | ratio_1=0.677778 | max_run_1=7
+n=   1281283 | entry=  90 | max_debt=12.646625 | ratio_max=    6412.343 | avg_v2=1.444444 | ratio_1=0.688889 | max_run_1=7
+n=   1281287 | entry=  90 | max_debt=12.646625 | ratio_max=    6412.323 | avg_v2=1.444444 | ratio_1=0.688889 | max_run_1=7
+n=    480481 | entry=  89 | max_debt=14.061663 | ratio_max=   17099.586 | avg_v2=1.426966 | ratio_1=0.685393 | max_run_1=7
+n=    960963 | entry=  89 | max_debt=13.061663 | ratio_max=    8549.784 | avg_v2=1.438202 | ratio_1=0.696629 | max_run_1=7
+n=   1921925 | entry=  89 | max_debt=12.061663 | ratio_max=    4274.894 | avg_v2=1.449438 | ratio_1=0.685393 | max_run_1=7
+n=   1921929 | entry=  89 | max_debt=12.061663 | ratio_max=    4274.885 | avg_v2=1.449438 | ratio_1=0.662921 | max_run_1=7
+n=   1921931 | entry=  89 | max_debt=12.061663 | ratio_max=    4274.881 | avg_v2=1.449438 | ratio_1=0.685393 | max_run_1=7

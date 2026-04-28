@@ -1,0 +1,92 @@
+TEST LYAPUNOV CON DEBITO FUTURO SCONTATO
+========================================================================================================================
+
+LIMIT = 5000000
+MAX_BLOCK_STEPS = 300
+DEBT_LOOKAHEAD = 80
+
+Criterio ordinamento:
+failures_h, worsened, max_h_step, avg_h_step
+
+Top combinazioni:
+------------------------------------------------------------------------------------------------------------------------
+lambda=0.20 | rho=0.99 | avg_H=3.387034 | max_H=141 | improved=131071 | worsened=3045 | failures=0
+lambda=0.20 | rho=0.98 | avg_H=3.432148 | max_H=141 | improved=121759 | worsened=11585 | failures=0
+lambda=0.20 | rho=0.92 | avg_H=3.468826 | max_H=141 | improved=90634 | worsened=12134 | failures=0
+lambda=0.30 | rho=0.99 | avg_H=3.309775 | max_H=141 | improved=298006 | worsened=13501 | failures=0
+lambda=0.20 | rho=0.94 | avg_H=3.464721 | max_H=141 | improved=100512 | worsened=14068 | failures=0
+lambda=0.20 | rho=0.97 | avg_H=3.448857 | max_H=141 | improved=115641 | worsened=14813 | failures=0
+lambda=0.20 | rho=0.96 | avg_H=3.456092 | max_H=141 | improved=110070 | worsened=14939 | failures=0
+lambda=0.30 | rho=0.92 | avg_H=3.410560 | max_H=141 | improved=245141 | worsened=16424 | failures=0
+lambda=0.30 | rho=0.94 | avg_H=3.398413 | max_H=141 | improved=256818 | worsened=17555 | failures=0
+lambda=0.30 | rho=0.96 | avg_H=3.379353 | max_H=141 | improved=269037 | worsened=18584 | failures=0
+lambda=0.30 | rho=0.98 | avg_H=3.346671 | max_H=141 | improved=289333 | worsened=19168 | failures=0
+lambda=0.30 | rho=0.97 | avg_H=3.367973 | max_H=141 | improved=277760 | worsened=19463 | failures=0
+lambda=0.40 | rho=0.99 | avg_H=3.266098 | max_H=141 | improved=346258 | worsened=21886 | failures=0
+lambda=0.40 | rho=0.98 | avg_H=3.315227 | max_H=141 | improved=338842 | worsened=24629 | failures=0
+lambda=0.40 | rho=0.97 | avg_H=3.361249 | max_H=141 | improved=325999 | worsened=27432 | failures=0
+lambda=0.50 | rho=0.99 | avg_H=3.214790 | max_H=141 | improved=423209 | worsened=29619 | failures=0
+lambda=0.40 | rho=0.96 | avg_H=3.392574 | max_H=141 | improved=319449 | worsened=29886 | failures=0
+lambda=0.40 | rho=0.94 | avg_H=3.434437 | max_H=141 | improved=302988 | worsened=34028 | failures=0
+lambda=0.40 | rho=0.92 | avg_H=3.456024 | max_H=141 | improved=285814 | worsened=35769 | failures=0
+lambda=0.50 | rho=0.98 | avg_H=3.311174 | max_H=141 | improved=406239 | worsened=39561 | failures=0
+lambda=0.50 | rho=0.97 | avg_H=3.372190 | max_H=141 | improved=399927 | worsened=51773 | failures=0
+lambda=0.50 | rho=0.96 | avg_H=3.400850 | max_H=141 | improved=392535 | worsened=54794 | failures=0
+lambda=0.60 | rho=0.99 | avg_H=3.242770 | max_H=140 | improved=469155 | worsened=54869 | failures=0
+lambda=0.50 | rho=0.92 | avg_H=3.473491 | max_H=141 | improved=325486 | worsened=56216 | failures=0
+lambda=0.50 | rho=0.94 | avg_H=3.458117 | max_H=141 | improved=343448 | worsened=58219 | failures=0
+lambda=0.60 | rho=0.92 | avg_H=3.443609 | max_H=141 | improved=391325 | worsened=62246 | failures=0
+lambda=0.60 | rho=0.94 | avg_H=3.439915 | max_H=141 | improved=406431 | worsened=69944 | failures=0
+lambda=0.60 | rho=0.96 | avg_H=3.415311 | max_H=141 | improved=438559 | worsened=75992 | failures=0
+lambda=0.60 | rho=0.98 | avg_H=3.352151 | max_H=141 | improved=455426 | worsened=76923 | failures=0
+lambda=0.60 | rho=0.97 | avg_H=3.391693 | max_H=141 | improved=445242 | worsened=77411 | failures=0
+
+Migliore combinazione:
+------------------------------------------------------------------------------------------------------------------------
+lambda=0.20, rho=0.99, avg_H=3.387034, max_H=141, improved=131071, worsened=3045
+
+Top peggioramenti della migliore combinazione:
+------------------------------------------------------------------------------------------------------------------------
+n=3378047 | log_step=34 | h_step=140 | loss=106 | discounted_debt=4.744789 | raw_debt=6.039100 | debt_step=24
+n=3800303 | log_step=32 | h_step=138 | loss=106 | discounted_debt=4.704910 | raw_debt=5.869175 | debt_step=22
+n=854191 | log_step=5 | h_step=106 | loss=101 | discounted_debt=6.273626 | raw_debt=9.568425 | debt_step=42
+n=572591 | log_step=5 | h_step=104 | loss=99 | discounted_debt=5.551260 | raw_debt=7.209025 | debt_step=26
+n=4799271 | log_step=5 | h_step=100 | loss=95 | discounted_debt=6.697314 | raw_debt=11.757900 | debt_step=56
+n=810815 | log_step=10 | h_step=101 | loss=91 | discounted_debt=6.648780 | raw_debt=9.643613 | debt_step=37
+n=4555559 | log_step=5 | h_step=95 | loss=90 | discounted_debt=7.087499 | raw_debt=11.833088 | debt_step=51
+n=2346095 | log_step=10 | h_step=94 | loss=84 | discounted_debt=5.872136 | raw_debt=10.003013 | debt_step=53
+n=3732423 | log_step=5 | h_step=89 | loss=84 | discounted_debt=8.960911 | raw_debt=14.663163 | debt_step=49
+n=1777407 | log_step=22 | h_step=105 | loss=83 | discounted_debt=5.795599 | raw_debt=6.604513 | debt_step=13
+n=1379687 | log_step=32 | h_step=114 | loss=82 | discounted_debt=4.225264 | raw_debt=5.114288 | debt_step=19
+n=1284827 | log_step=5 | h_step=86 | loss=81 | discounted_debt=5.877601 | raw_debt=7.114288 | debt_step=19
+n=1561327 | log_step=37 | h_step=118 | loss=81 | discounted_debt=4.106295 | raw_debt=4.774438 | debt_step=15
+n=3522799 | log_step=17 | h_step=98 | loss=81 | discounted_debt=6.153375 | raw_debt=10.587975 | debt_step=54
+n=3570863 | log_step=5 | h_step=86 | loss=81 | discounted_debt=6.929285 | raw_debt=10.568425 | debt_step=42
+n=3531559 | log_step=5 | h_step=85 | loss=80 | discounted_debt=6.428403 | raw_debt=11.172938 | debt_step=55
+n=3919527 | log_step=15 | h_step=95 | loss=80 | discounted_debt=5.735486 | raw_debt=11.022563 | debt_step=65
+n=2113871 | log_step=5 | h_step=84 | loss=79 | discounted_debt=6.590591 | raw_debt=10.153388 | debt_step=43
+n=4414703 | log_step=15 | h_step=94 | loss=79 | discounted_debt=6.629361 | raw_debt=13.532338 | debt_step=71
+n=2259911 | log_step=5 | h_step=83 | loss=78 | discounted_debt=6.042496 | raw_debt=11.267675 | debt_step=62
+
+Top miglioramenti della migliore combinazione:
+------------------------------------------------------------------------------------------------------------------------
+n=601727 | log_step=104 | h_step=19 | gain=85
+n=3270895 | log_step=74 | h_step=25 | gain=49
+n=365807 | log_step=60 | h_step=12 | gain=48
+n=2189311 | log_step=76 | h_step=28 | gain=48
+n=2303771 | log_step=72 | h_step=24 | gain=48
+n=4906343 | log_step=71 | h_step=24 | gain=47
+n=3822063 | log_step=66 | h_step=20 | gain=46
+n=802983 | log_step=64 | h_step=19 | gain=45
+n=819199 | log_step=69 | h_step=26 | gain=43
+n=1242471 | log_step=91 | h_step=48 | gain=43
+n=2109055 | log_step=71 | h_step=28 | gain=43
+n=2326687 | log_step=69 | h_step=26 | gain=43
+n=1552231 | log_step=61 | h_step=19 | gain=42
+n=4484967 | log_step=76 | h_step=35 | gain=41
+n=4724903 | log_step=81 | h_step=40 | gain=41
+n=3107327 | log_step=58 | h_step=18 | gain=40
+n=158459 | log_step=63 | h_step=24 | gain=39
+n=2364143 | log_step=51 | h_step=12 | gain=39
+n=2993663 | log_step=61 | h_step=23 | gain=38
+n=3367871 | log_step=59 | h_step=21 | gain=38

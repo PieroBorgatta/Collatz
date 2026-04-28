@@ -1,0 +1,27 @@
+ANALISI V2 - TRAIETTORIA COLLATZ/SYRACUSE
+================================================================================
+
+Numero iniziale: 3041127
+Valore finale: 1
+Salti Syracuse totali: 132
+
+Soglia critica log2(3): 1.584962501
+v2 totale accumulato: 231
+avg_v2 finale: 1.750000000
+surplus_v2 finale: 21.784949905
+
+Step del picco massimo: 36
+Valore massimo: 207572633873
+Rapporto massimo rispetto allo start: 68255.167861
+
+Primo step con surplus_v2 positivo: 62
+Primo step sotto il valore iniziale: 62
+Massima sequenza consecutiva di v2=1: 17
+
+INTERPRETAZIONE
+--------------------------------------------------------------------------------
+Il valore avg_v2 finale è superiore a log2(3). Questo significa che, sull'intera traiettoria, la contrazione dovuta alle divisioni per 2 supera l'espansione dovuta ai fattori 3.
+
+I tratti con v2=1 sono le fasi antigravitazionali: in quei passaggi il numero viene circa moltiplicato per 3/2.
+
+I passaggi con v2 grandi sono le cadute gravitazionali: recuperano il debito accumulato durante l'ascesa.

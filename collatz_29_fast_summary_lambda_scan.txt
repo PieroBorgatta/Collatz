@@ -1,0 +1,103 @@
+SCANSIONE FINE LAMBDA PARALLELA
+========================================================================================================================
+
+LIMIT = 5000000
+MAX_BLOCK_STEPS = 300
+DEBT_LOOKAHEAD = 80
+LAMBDAS = 0.01 ... 0.6
+CPU_COUNT = 8
+WORKERS = 7
+CHUNK_SIZE = 25000
+Tempo totale secondi = 79.72
+
+Migliori per pochi peggioramenti
+------------------------------------------------------------------------------------------------------------------------
+lambda=0.01 | avg_H=3.478984 | max_H=141 | improved=   11046 | worsened=       0 | worst_loss=   0 | score=+0.008807 | worst_n=None | best_n=181695
+lambda=0.02 | avg_H=3.473542 | max_H=141 | improved=   15917 | worsened=       2 | worst_loss= 106 | score=+0.014249 | worst_n=3378047 | best_n=4906343
+lambda=0.03 | avg_H=3.466978 | max_H=141 | improved=   25152 | worsened=       3 | worst_loss= 106 | score=+0.020813 | worst_n=3378047 | best_n=4906343
+lambda=0.04 | avg_H=3.458517 | max_H=141 | improved=   36130 | worsened=       4 | worst_loss= 106 | score=+0.029274 | worst_n=3378047 | best_n=4906343
+lambda=0.05 | avg_H=3.450898 | max_H=141 | improved=   45762 | worsened=       6 | worst_loss= 106 | score=+0.036893 | worst_n=3378047 | best_n=4906343
+lambda=0.06 | avg_H=3.443799 | max_H=141 | improved=   53248 | worsened=       9 | worst_loss= 106 | score=+0.043992 | worst_n=3378047 | best_n=4906343
+lambda=0.07 | avg_H=3.437923 | max_H=141 | improved=   59275 | worsened=      10 | worst_loss= 106 | score=+0.049868 | worst_n=3378047 | best_n=4906343
+lambda=0.09 | avg_H=3.423844 | max_H=141 | improved=   72743 | worsened=      14 | worst_loss= 106 | score=+0.063947 | worst_n=3378047 | best_n=4906343
+lambda=0.08 | avg_H=3.430655 | max_H=141 | improved=   66553 | worsened=      14 | worst_loss= 106 | score=+0.057136 | worst_n=3378047 | best_n=4906343
+lambda=0.10 | avg_H=3.418101 | max_H=141 | improved=   77705 | worsened=      16 | worst_loss= 106 | score=+0.069690 | worst_n=3378047 | best_n=2189311
+lambda=0.11 | avg_H=3.412719 | max_H=141 | improved=   82310 | worsened=      19 | worst_loss= 106 | score=+0.075072 | worst_n=3378047 | best_n=2189311
+lambda=0.12 | avg_H=3.405836 | max_H=141 | improved=   87036 | worsened=      21 | worst_loss= 106 | score=+0.081955 | worst_n=3378047 | best_n=2189311
+lambda=0.13 | avg_H=3.399586 | max_H=141 | improved=   92287 | worsened=      26 | worst_loss= 106 | score=+0.088205 | worst_n=3378047 | best_n=2189311
+lambda=0.14 | avg_H=3.389198 | max_H=141 | improved=  107931 | worsened=      30 | worst_loss= 106 | score=+0.098593 | worst_n=3378047 | best_n=2189311
+lambda=0.15 | avg_H=3.383772 | max_H=141 | improved=  112630 | worsened=      35 | worst_loss= 106 | score=+0.104019 | worst_n=3378047 | best_n=1822367
+lambda=0.16 | avg_H=3.375218 | max_H=141 | improved=  119846 | worsened=      38 | worst_loss= 106 | score=+0.112573 | worst_n=3378047 | best_n=3270895
+lambda=0.17 | avg_H=3.369439 | max_H=141 | improved=  124411 | worsened=      40 | worst_loss= 106 | score=+0.118352 | worst_n=3378047 | best_n=3270895
+lambda=0.18 | avg_H=3.364038 | max_H=141 | improved=  127551 | worsened=      41 | worst_loss= 106 | score=+0.123753 | worst_n=3378047 | best_n=3270895
+lambda=0.19 | avg_H=3.356524 | max_H=141 | improved=  135005 | worsened=      44 | worst_loss= 106 | score=+0.131267 | worst_n=3378047 | best_n=3270895
+lambda=0.20 | avg_H=3.350457 | max_H=141 | improved=  138493 | worsened=      47 | worst_loss= 106 | score=+0.137334 | worst_n=3378047 | best_n=3270895
+
+Migliori per media H più bassa
+------------------------------------------------------------------------------------------------------------------------
+lambda=0.60 | avg_H=2.962669 | max_H=140 | improved=  478946 | worsened=     175 | worst_loss= 138 | score=+0.525122 | worst_n=3002707 | best_n=1242471
+lambda=0.59 | avg_H=2.972182 | max_H=140 | improved=  475806 | worsened=     174 | worst_loss= 138 | score=+0.515609 | worst_n=3002707 | best_n=1242471
+lambda=0.58 | avg_H=2.979371 | max_H=140 | improved=  473874 | worsened=     174 | worst_loss= 138 | score=+0.508420 | worst_n=3002707 | best_n=1242471
+lambda=0.57 | avg_H=2.990508 | max_H=140 | improved=  466106 | worsened=     169 | worst_loss= 138 | score=+0.497283 | worst_n=3002707 | best_n=1214911
+lambda=0.56 | avg_H=3.000634 | max_H=141 | improved=  461920 | worsened=     167 | worst_loss= 139 | score=+0.487157 | worst_n=3002707 | best_n=1214911
+lambda=0.55 | avg_H=3.006930 | max_H=141 | improved=  459533 | worsened=     161 | worst_loss= 139 | score=+0.480861 | worst_n=3002707 | best_n=1214911
+lambda=0.54 | avg_H=3.019126 | max_H=141 | improved=  453793 | worsened=     159 | worst_loss= 139 | score=+0.468665 | worst_n=3002707 | best_n=1214911
+lambda=0.53 | avg_H=3.025702 | max_H=141 | improved=  452159 | worsened=     155 | worst_loss= 139 | score=+0.462089 | worst_n=3002707 | best_n=1214911
+lambda=0.52 | avg_H=3.042100 | max_H=141 | improved=  434830 | worsened=     151 | worst_loss= 139 | score=+0.445691 | worst_n=3002707 | best_n=2189311
+lambda=0.51 | avg_H=3.047596 | max_H=141 | improved=  433499 | worsened=     149 | worst_loss= 139 | score=+0.440195 | worst_n=3002707 | best_n=827503
+lambda=0.50 | avg_H=3.054211 | max_H=141 | improved=  429888 | worsened=     148 | worst_loss= 139 | score=+0.433580 | worst_n=3002707 | best_n=827503
+lambda=0.49 | avg_H=3.061608 | max_H=141 | improved=  427382 | worsened=     141 | worst_loss= 139 | score=+0.426183 | worst_n=3002707 | best_n=827503
+lambda=0.48 | avg_H=3.068470 | max_H=141 | improved=  421309 | worsened=     138 | worst_loss= 139 | score=+0.419321 | worst_n=3002707 | best_n=827503
+lambda=0.47 | avg_H=3.078885 | max_H=141 | improved=  412043 | worsened=     134 | worst_loss= 139 | score=+0.408906 | worst_n=3002707 | best_n=827503
+lambda=0.46 | avg_H=3.086876 | max_H=141 | improved=  408811 | worsened=     131 | worst_loss= 139 | score=+0.400915 | worst_n=3002707 | best_n=1822367
+lambda=0.45 | avg_H=3.093229 | max_H=140 | improved=  406826 | worsened=     129 | worst_loss= 107 | score=+0.394562 | worst_n=4941897 | best_n=2189311
+lambda=0.44 | avg_H=3.118229 | max_H=140 | improved=  372741 | worsened=     126 | worst_loss= 107 | score=+0.369562 | worst_n=4941897 | best_n=3542887
+lambda=0.43 | avg_H=3.125454 | max_H=140 | improved=  370063 | worsened=     124 | worst_loss= 107 | score=+0.362337 | worst_n=4941897 | best_n=3542887
+lambda=0.42 | avg_H=3.130995 | max_H=140 | improved=  368352 | worsened=     123 | worst_loss= 107 | score=+0.356796 | worst_n=4941897 | best_n=3542887
+lambda=0.41 | avg_H=3.137251 | max_H=140 | improved=  365620 | worsened=     120 | worst_loss= 107 | score=+0.350540 | worst_n=4941897 | best_n=3542887
+
+Migliori per guadagno medio
+------------------------------------------------------------------------------------------------------------------------
+lambda=0.60 | avg_H=2.962669 | max_H=140 | improved=  478946 | worsened=     175 | worst_loss= 138 | score=+0.525122 | worst_n=3002707 | best_n=1242471
+lambda=0.59 | avg_H=2.972182 | max_H=140 | improved=  475806 | worsened=     174 | worst_loss= 138 | score=+0.515609 | worst_n=3002707 | best_n=1242471
+lambda=0.58 | avg_H=2.979371 | max_H=140 | improved=  473874 | worsened=     174 | worst_loss= 138 | score=+0.508420 | worst_n=3002707 | best_n=1242471
+lambda=0.57 | avg_H=2.990508 | max_H=140 | improved=  466106 | worsened=     169 | worst_loss= 138 | score=+0.497283 | worst_n=3002707 | best_n=1214911
+lambda=0.56 | avg_H=3.000634 | max_H=141 | improved=  461920 | worsened=     167 | worst_loss= 139 | score=+0.487157 | worst_n=3002707 | best_n=1214911
+lambda=0.55 | avg_H=3.006930 | max_H=141 | improved=  459533 | worsened=     161 | worst_loss= 139 | score=+0.480861 | worst_n=3002707 | best_n=1214911
+lambda=0.54 | avg_H=3.019126 | max_H=141 | improved=  453793 | worsened=     159 | worst_loss= 139 | score=+0.468665 | worst_n=3002707 | best_n=1214911
+lambda=0.53 | avg_H=3.025702 | max_H=141 | improved=  452159 | worsened=     155 | worst_loss= 139 | score=+0.462089 | worst_n=3002707 | best_n=1214911
+lambda=0.52 | avg_H=3.042100 | max_H=141 | improved=  434830 | worsened=     151 | worst_loss= 139 | score=+0.445691 | worst_n=3002707 | best_n=2189311
+lambda=0.51 | avg_H=3.047596 | max_H=141 | improved=  433499 | worsened=     149 | worst_loss= 139 | score=+0.440195 | worst_n=3002707 | best_n=827503
+lambda=0.50 | avg_H=3.054211 | max_H=141 | improved=  429888 | worsened=     148 | worst_loss= 139 | score=+0.433580 | worst_n=3002707 | best_n=827503
+lambda=0.49 | avg_H=3.061608 | max_H=141 | improved=  427382 | worsened=     141 | worst_loss= 139 | score=+0.426183 | worst_n=3002707 | best_n=827503
+lambda=0.48 | avg_H=3.068470 | max_H=141 | improved=  421309 | worsened=     138 | worst_loss= 139 | score=+0.419321 | worst_n=3002707 | best_n=827503
+lambda=0.47 | avg_H=3.078885 | max_H=141 | improved=  412043 | worsened=     134 | worst_loss= 139 | score=+0.408906 | worst_n=3002707 | best_n=827503
+lambda=0.46 | avg_H=3.086876 | max_H=141 | improved=  408811 | worsened=     131 | worst_loss= 139 | score=+0.400915 | worst_n=3002707 | best_n=1822367
+lambda=0.45 | avg_H=3.093229 | max_H=140 | improved=  406826 | worsened=     129 | worst_loss= 107 | score=+0.394562 | worst_n=4941897 | best_n=2189311
+lambda=0.44 | avg_H=3.118229 | max_H=140 | improved=  372741 | worsened=     126 | worst_loss= 107 | score=+0.369562 | worst_n=4941897 | best_n=3542887
+lambda=0.43 | avg_H=3.125454 | max_H=140 | improved=  370063 | worsened=     124 | worst_loss= 107 | score=+0.362337 | worst_n=4941897 | best_n=3542887
+lambda=0.42 | avg_H=3.130995 | max_H=140 | improved=  368352 | worsened=     123 | worst_loss= 107 | score=+0.356796 | worst_n=4941897 | best_n=3542887
+lambda=0.41 | avg_H=3.137251 | max_H=140 | improved=  365620 | worsened=     120 | worst_loss= 107 | score=+0.350540 | worst_n=4941897 | best_n=3542887
+
+Migliori per max step
+------------------------------------------------------------------------------------------------------------------------
+lambda=0.60 | avg_H=2.962669 | max_H=140 | improved=  478946 | worsened=     175 | worst_loss= 138 | score=+0.525122 | worst_n=3002707 | best_n=1242471
+lambda=0.59 | avg_H=2.972182 | max_H=140 | improved=  475806 | worsened=     174 | worst_loss= 138 | score=+0.515609 | worst_n=3002707 | best_n=1242471
+lambda=0.58 | avg_H=2.979371 | max_H=140 | improved=  473874 | worsened=     174 | worst_loss= 138 | score=+0.508420 | worst_n=3002707 | best_n=1242471
+lambda=0.57 | avg_H=2.990508 | max_H=140 | improved=  466106 | worsened=     169 | worst_loss= 138 | score=+0.497283 | worst_n=3002707 | best_n=1214911
+lambda=0.45 | avg_H=3.093229 | max_H=140 | improved=  406826 | worsened=     129 | worst_loss= 107 | score=+0.394562 | worst_n=4941897 | best_n=2189311
+lambda=0.44 | avg_H=3.118229 | max_H=140 | improved=  372741 | worsened=     126 | worst_loss= 107 | score=+0.369562 | worst_n=4941897 | best_n=3542887
+lambda=0.43 | avg_H=3.125454 | max_H=140 | improved=  370063 | worsened=     124 | worst_loss= 107 | score=+0.362337 | worst_n=4941897 | best_n=3542887
+lambda=0.42 | avg_H=3.130995 | max_H=140 | improved=  368352 | worsened=     123 | worst_loss= 107 | score=+0.356796 | worst_n=4941897 | best_n=3542887
+lambda=0.41 | avg_H=3.137251 | max_H=140 | improved=  365620 | worsened=     120 | worst_loss= 107 | score=+0.350540 | worst_n=4941897 | best_n=3542887
+lambda=0.40 | avg_H=3.152425 | max_H=140 | improved=  356839 | worsened=     116 | worst_loss= 107 | score=+0.335366 | worst_n=4941897 | best_n=3542887
+lambda=0.39 | avg_H=3.161083 | max_H=140 | improved=  352134 | worsened=     113 | worst_loss= 108 | score=+0.326708 | worst_n=4941897 | best_n=3542887
+lambda=0.38 | avg_H=3.167138 | max_H=140 | improved=  349308 | worsened=     110 | worst_loss= 108 | score=+0.320653 | worst_n=4941897 | best_n=3542887
+lambda=0.37 | avg_H=3.173283 | max_H=140 | improved=  346813 | worsened=     108 | worst_loss= 108 | score=+0.314508 | worst_n=4941897 | best_n=3542887
+lambda=0.36 | avg_H=3.182861 | max_H=140 | improved=  339234 | worsened=     104 | worst_loss= 108 | score=+0.304930 | worst_n=4941897 | best_n=1941199
+lambda=0.35 | avg_H=3.191460 | max_H=140 | improved=  334903 | worsened=     101 | worst_loss= 108 | score=+0.296331 | worst_n=4941897 | best_n=2189311
+lambda=0.56 | avg_H=3.000634 | max_H=141 | improved=  461920 | worsened=     167 | worst_loss= 139 | score=+0.487157 | worst_n=3002707 | best_n=1214911
+lambda=0.55 | avg_H=3.006930 | max_H=141 | improved=  459533 | worsened=     161 | worst_loss= 139 | score=+0.480861 | worst_n=3002707 | best_n=1214911
+lambda=0.54 | avg_H=3.019126 | max_H=141 | improved=  453793 | worsened=     159 | worst_loss= 139 | score=+0.468665 | worst_n=3002707 | best_n=1214911
+lambda=0.53 | avg_H=3.025702 | max_H=141 | improved=  452159 | worsened=     155 | worst_loss= 139 | score=+0.462089 | worst_n=3002707 | best_n=1214911
+lambda=0.52 | avg_H=3.042100 | max_H=141 | improved=  434830 | worsened=     151 | worst_loss= 139 | score=+0.445691 | worst_n=3002707 | best_n=2189311

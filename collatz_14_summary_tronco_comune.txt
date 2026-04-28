@@ -1,0 +1,91 @@
+ANALISI TRONCO COMUNE COLLATZ/SYRACUSE
+========================================================================================================================
+
+Valore iniziale tronco: 8216025965
+Valore finale: 1
+Salti Syracuse totali: 63
+
+Soglia critica log2(3): 1.584962501
+v2 totale accumulato: 133
+avg_v2 tronco: 2.111111111
+surplus_v2 finale: 33.147362455
+
+Massimo debito v2: 0.000000000
+Step massimo debito: 0
+
+Massimo valore nel tronco: 8216025965
+Step massimo valore: 0
+
+Caduta più violenta:
+Step: 16
+Da: 428885
+A: 2513
+v2: 9
+Ratio: 0.005859379554
+
+Primi 80 step:
+------------------------------------------------------------------------------------------------------------------------
+step=   0 | value=          8216025965 | v2= 1 | avg_v2=0.000000 | surplus=+0.000000 | debt=+0.000000 | ratio_start=1.000000000000
+step=   1 | value=          3081009737 | v2= 3 | avg_v2=3.000000 | surplus=+1.415037 | debt=-1.415037 | ratio_start=0.375000000015
+step=   2 | value=          2310757303 | v2= 2 | avg_v2=2.500000 | surplus=+1.830075 | debt=-1.830075 | ratio_start=0.281250000042
+step=   3 | value=          3466135955 | v2= 1 | avg_v2=2.000000 | surplus=+1.245112 | debt=-1.245112 | ratio_start=0.421875000124
+step=   4 | value=          5199203933 | v2= 1 | avg_v2=1.750000 | surplus=+0.660150 | debt=-0.660150 | ratio_start=0.632812500246
+step=   5 | value=          1949701475 | v2= 3 | avg_v2=2.000000 | surplus=+2.075187 | debt=-2.075187 | ratio_start=0.237304687608
+step=   6 | value=          2924552213 | v2= 1 | avg_v2=1.833333 | surplus=+1.490225 | debt=-1.490225 | ratio_start=0.355957031472
+step=   7 | value=           137088385 | v2= 6 | avg_v2=2.428571 | surplus=+5.905262 | debt=-5.905262 | ratio_start=0.016685485852
+step=   8 | value=           102816289 | v2= 2 | avg_v2=2.375000 | surplus=+6.320300 | debt=-6.320300 | ratio_start=0.012514114420
+step=   9 | value=            77112217 | v2= 2 | avg_v2=2.333333 | surplus=+6.735337 | debt=-6.735337 | ratio_start=0.009385585845
+step=  10 | value=            57834163 | v2= 2 | avg_v2=2.300000 | surplus=+7.150375 | debt=-7.150375 | ratio_start=0.007039189414
+step=  11 | value=            86751245 | v2= 1 | avg_v2=2.181818 | surplus=+6.565412 | debt=-6.565412 | ratio_start=0.010558784182
+step=  12 | value=            32531717 | v2= 3 | avg_v2=2.250000 | surplus=+7.980450 | debt=-7.980450 | ratio_start=0.003959544084
+step=  13 | value=             6099697 | v2= 4 | avg_v2=2.384615 | surplus=+10.395487 | debt=-10.395487 | ratio_start=0.000742414523
+step=  14 | value=             4574773 | v2= 2 | avg_v2=2.357143 | surplus=+10.810525 | debt=-10.810525 | ratio_start=0.000556810923
+step=  15 | value=              428885 | v2= 5 | avg_v2=2.533333 | surplus=+14.225562 | debt=-14.225562 | ratio_start=0.000052201028
+step=  16 | value=                2513 | v2= 9 | avg_v2=2.937500 | surplus=+21.640600 | debt=-21.640600 | ratio_start=0.000000305866
+step=  17 | value=                1885 | v2= 2 | avg_v2=2.882353 | surplus=+22.055637 | debt=-22.055637 | ratio_start=0.000000229430
+step=  18 | value=                 707 | v2= 3 | avg_v2=2.888889 | surplus=+23.470675 | debt=-23.470675 | ratio_start=0.000000086051
+step=  19 | value=                1061 | v2= 1 | avg_v2=2.789474 | surplus=+22.885712 | debt=-22.885712 | ratio_start=0.000000129138
+step=  20 | value=                 199 | v2= 4 | avg_v2=2.850000 | surplus=+25.300750 | debt=-25.300750 | ratio_start=0.000000024221
+step=  21 | value=                 299 | v2= 1 | avg_v2=2.761905 | surplus=+24.715787 | debt=-24.715787 | ratio_start=0.000000036392
+step=  22 | value=                 449 | v2= 1 | avg_v2=2.681818 | surplus=+24.130825 | debt=-24.130825 | ratio_start=0.000000054649
+step=  23 | value=                 337 | v2= 2 | avg_v2=2.652174 | surplus=+24.545862 | debt=-24.545862 | ratio_start=0.000000041017
+step=  24 | value=                 253 | v2= 2 | avg_v2=2.625000 | surplus=+24.960900 | debt=-24.960900 | ratio_start=0.000000030793
+step=  25 | value=                  95 | v2= 3 | avg_v2=2.640000 | surplus=+26.375937 | debt=-26.375937 | ratio_start=0.000000011563
+step=  26 | value=                 143 | v2= 1 | avg_v2=2.576923 | surplus=+25.790975 | debt=-25.790975 | ratio_start=0.000000017405
+step=  27 | value=                 215 | v2= 1 | avg_v2=2.518519 | surplus=+25.206012 | debt=-25.206012 | ratio_start=0.000000026168
+step=  28 | value=                 323 | v2= 1 | avg_v2=2.464286 | surplus=+24.621050 | debt=-24.621050 | ratio_start=0.000000039313
+step=  29 | value=                 485 | v2= 1 | avg_v2=2.413793 | surplus=+24.036087 | debt=-24.036087 | ratio_start=0.000000059031
+step=  30 | value=                  91 | v2= 4 | avg_v2=2.466667 | surplus=+26.451125 | debt=-26.451125 | ratio_start=0.000000011076
+step=  31 | value=                 137 | v2= 1 | avg_v2=2.419355 | surplus=+25.866162 | debt=-25.866162 | ratio_start=0.000000016675
+step=  32 | value=                 103 | v2= 2 | avg_v2=2.406250 | surplus=+26.281200 | debt=-26.281200 | ratio_start=0.000000012536
+step=  33 | value=                 155 | v2= 1 | avg_v2=2.363636 | surplus=+25.696237 | debt=-25.696237 | ratio_start=0.000000018866
+step=  34 | value=                 233 | v2= 1 | avg_v2=2.323529 | surplus=+25.111275 | debt=-25.111275 | ratio_start=0.000000028359
+step=  35 | value=                 175 | v2= 2 | avg_v2=2.314286 | surplus=+25.526312 | debt=-25.526312 | ratio_start=0.000000021300
+step=  36 | value=                 263 | v2= 1 | avg_v2=2.277778 | surplus=+24.941350 | debt=-24.941350 | ratio_start=0.000000032011
+step=  37 | value=                 395 | v2= 1 | avg_v2=2.243243 | surplus=+24.356387 | debt=-24.356387 | ratio_start=0.000000048077
+step=  38 | value=                 593 | v2= 1 | avg_v2=2.210526 | surplus=+23.771425 | debt=-23.771425 | ratio_start=0.000000072176
+step=  39 | value=                 445 | v2= 2 | avg_v2=2.205128 | surplus=+24.186462 | debt=-24.186462 | ratio_start=0.000000054162
+step=  40 | value=                 167 | v2= 3 | avg_v2=2.225000 | surplus=+25.601500 | debt=-25.601500 | ratio_start=0.000000020326
+step=  41 | value=                 251 | v2= 1 | avg_v2=2.195122 | surplus=+25.016537 | debt=-25.016537 | ratio_start=0.000000030550
+step=  42 | value=                 377 | v2= 1 | avg_v2=2.166667 | surplus=+24.431575 | debt=-24.431575 | ratio_start=0.000000045886
+step=  43 | value=                 283 | v2= 2 | avg_v2=2.162791 | surplus=+24.846612 | debt=-24.846612 | ratio_start=0.000000034445
+step=  44 | value=                 425 | v2= 1 | avg_v2=2.136364 | surplus=+24.261650 | debt=-24.261650 | ratio_start=0.000000051728
+step=  45 | value=                 319 | v2= 2 | avg_v2=2.133333 | surplus=+24.676687 | debt=-24.676687 | ratio_start=0.000000038827
+step=  46 | value=                 479 | v2= 1 | avg_v2=2.108696 | surplus=+24.091725 | debt=-24.091725 | ratio_start=0.000000058301
+step=  47 | value=                 719 | v2= 1 | avg_v2=2.085106 | surplus=+23.506762 | debt=-23.506762 | ratio_start=0.000000087512
+step=  48 | value=                1079 | v2= 1 | avg_v2=2.062500 | surplus=+22.921800 | debt=-22.921800 | ratio_start=0.000000131329
+step=  49 | value=                1619 | v2= 1 | avg_v2=2.040816 | surplus=+22.336837 | debt=-22.336837 | ratio_start=0.000000197054
+step=  50 | value=                2429 | v2= 1 | avg_v2=2.020000 | surplus=+21.751875 | debt=-21.751875 | ratio_start=0.000000295642
+step=  51 | value=                 911 | v2= 3 | avg_v2=2.039216 | surplus=+23.166912 | debt=-23.166912 | ratio_start=0.000000110881
+step=  52 | value=                1367 | v2= 1 | avg_v2=2.019231 | surplus=+22.581950 | debt=-22.581950 | ratio_start=0.000000166382
+step=  53 | value=                2051 | v2= 1 | avg_v2=2.000000 | surplus=+21.996987 | debt=-21.996987 | ratio_start=0.000000249634
+step=  54 | value=                3077 | v2= 1 | avg_v2=1.981481 | surplus=+21.412025 | debt=-21.412025 | ratio_start=0.000000374512
+step=  55 | value=                 577 | v2= 4 | avg_v2=2.018182 | surplus=+23.827062 | debt=-23.827062 | ratio_start=0.000000070229
+step=  56 | value=                 433 | v2= 2 | avg_v2=2.017857 | surplus=+24.242100 | debt=-24.242100 | ratio_start=0.000000052702
+step=  57 | value=                 325 | v2= 2 | avg_v2=2.017544 | surplus=+24.657137 | debt=-24.657137 | ratio_start=0.000000039557
+step=  58 | value=                  61 | v2= 4 | avg_v2=2.051724 | surplus=+27.072175 | debt=-27.072175 | ratio_start=0.000000007425
+step=  59 | value=                  23 | v2= 3 | avg_v2=2.067797 | surplus=+28.487212 | debt=-28.487212 | ratio_start=0.000000002799
+step=  60 | value=                  35 | v2= 1 | avg_v2=2.050000 | surplus=+27.902250 | debt=-27.902250 | ratio_start=0.000000004260
+step=  61 | value=                  53 | v2= 1 | avg_v2=2.032787 | surplus=+27.317287 | debt=-27.317287 | ratio_start=0.000000006451
+step=  62 | value=                   5 | v2= 5 | avg_v2=2.080645 | surplus=+30.732325 | debt=-30.732325 | ratio_start=0.000000000609
+step=  63 | value=                   1 | v2= 4 | avg_v2=2.111111 | surplus=+33.147362 | debt=-33.147362 | ratio_start=0.000000000122

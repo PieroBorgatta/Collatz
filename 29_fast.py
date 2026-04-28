@@ -1,0 +1,378 @@
+import csv
+import math
+import os
+import time
+from concurrent.futures import ProcessPoolExecutor, as_completed
+from functools import lru_cache
+
+
+OUTPUT_FILE = "collatz_29_fast_lambda_scan.csv"
+SUMMARY_FILE = "collatz_29_fast_summary_lambda_scan.txt"
+
+LIMIT = 5_000_000
+MAX_BLOCK_STEPS = 300
+DEBT_LOOKAHEAD = 80
+
+# Scansione fine fino a 0.60, che è la zona interessante.
+LAMBDAS = [round(x / 100, 2) for x in range(1, 61)]
+
+CRITICAL = math.log2(3)
+
+# Su M1 conviene lasciare 1 core libero.
+CPU_COUNT = os.cpu_count() or 4
+WORKERS = max(1, CPU_COUNT - 1)
+
+# Chunk più grandi = meno overhead. Su M1 va bene così.
+CHUNK_SIZE = 25_000
+
+
+def v2(x: int) -> int:
+    count = 0
+    while x % 2 == 0:
+        x //= 2
+        count += 1
+    return count
+
+
+def syracuse(n: int):
+    x = 3 * n + 1
+    a = v2(x)
+    return x >> a, a
+
+
+@lru_cache(maxsize=500_000)
+def max_future_debt(n: int):
+    """
+    Dmax80(n): massimo debito futuro nei prossimi DEBT_LOOKAHEAD passi.
+    Cache per processo.
+    """
+    current = n
+    cumulative_v2 = 0
+    max_debt = 0.0
+
+    for step in range(1, DEBT_LOOKAHEAD + 1):
+        if current == 1:
+            break
+
+        current, a = syracuse(current)
+        cumulative_v2 += a
+
+        debt = step * CRITICAL - cumulative_v2
+
+        if debt > max_debt:
+            max_debt = debt
+
+    return max_debt
+
+
+def empty_stats():
+    return {
+        "total": 0,
+        "sum_log": 0,
+        "sum_h": 0,
+        "max_log": 0,
+        "max_h": 0,
+        "improved": 0,
+        "worsened": 0,
+        "same": 0,
+        "worst_loss": 0,
+        "worst_loss_n": None,
+        "best_gain": 0,
+        "best_gain_n": None,
+    }
+
+
+def merge_stats(target, source):
+    target["total"] += source["total"]
+    target["sum_log"] += source["sum_log"]
+    target["sum_h"] += source["sum_h"]
+
+    target["max_log"] = max(target["max_log"], source["max_log"])
+    target["max_h"] = max(target["max_h"], source["max_h"])
+
+    target["improved"] += source["improved"]
+    target["worsened"] += source["worsened"]
+    target["same"] += source["same"]
+
+    if source["worst_loss"] > target["worst_loss"]:
+        target["worst_loss"] = source["worst_loss"]
+        target["worst_loss_n"] = source["worst_loss_n"]
+
+    if source["best_gain"] > target["best_gain"]:
+        target["best_gain"] = source["best_gain"]
+        target["best_gain_n"] = source["best_gain_n"]
+
+
+def analyze_number_for_all_lambdas(start: int):
+    """
+    Calcola una volta sola la traiettoria e valuta tutti i lambda.
+    Questa è la parte che accelera davvero rispetto a 29.py.
+    """
+    trajectory = [start]
+    n = start
+
+    log_step = None
+
+    for step in range(1, MAX_BLOCK_STEPS + 1):
+        n, _ = syracuse(n)
+        trajectory.append(n)
+
+        if log_step is None and n < start:
+            log_step = step
+
+        if n == 1:
+            break
+
+    if log_step is None:
+        log_step = MAX_BLOCK_STEPS + 1
+
+    start_log = math.log(start)
+    start_debt = max_future_debt(start)
+
+    h_steps = {lam: None for lam in LAMBDAS}
+
+    for step, value in enumerate(trajectory[1:], start=1):
+        value_log = math.log(value)
+        value_debt = max_future_debt(value)
+
+        for lam in LAMBDAS:
+            if h_steps[lam] is not None:
+                continue
+
+            h_initial = start_log + lam * start_debt
+            h_current = value_log + lam * value_debt
+
+            if h_current < h_initial:
+                h_steps[lam] = step
+
+        # Se tutti i lambda hanno già trovato discesa, possiamo fermare.
+        if all(v is not None for v in h_steps.values()):
+            break
+
+    for lam in LAMBDAS:
+        if h_steps[lam] is None:
+            h_steps[lam] = MAX_BLOCK_STEPS + 1
+
+    return log_step, h_steps
+
+
+def process_chunk(start_odd: int, end_odd: int):
+    """
+    Analizza tutti i dispari da start_odd a end_odd inclusi.
+    """
+    local_stats = {lam: empty_stats() for lam in LAMBDAS}
+
+    processed = 0
+
+    for n in range(start_odd, end_odd + 1, 2):
+        processed += 1
+
+        log_step, h_steps = analyze_number_for_all_lambdas(n)
+
+        for lam in LAMBDAS:
+            h_step = h_steps[lam]
+            st = local_stats[lam]
+
+            st["total"] += 1
+            st["sum_log"] += log_step
+            st["sum_h"] += h_step
+
+            st["max_log"] = max(st["max_log"], log_step)
+            st["max_h"] = max(st["max_h"], h_step)
+
+            if h_step < log_step:
+                st["improved"] += 1
+                gain = log_step - h_step
+
+                if gain > st["best_gain"]:
+                    st["best_gain"] = gain
+                    st["best_gain_n"] = n
+
+            elif h_step > log_step:
+                st["worsened"] += 1
+                loss = h_step - log_step
+
+                if loss > st["worst_loss"]:
+                    st["worst_loss"] = loss
+                    st["worst_loss_n"] = n
+
+            else:
+                st["same"] += 1
+
+    return {
+        "start": start_odd,
+        "end": end_odd,
+        "processed": processed,
+        "stats": local_stats,
+    }
+
+
+def make_chunks():
+    chunks = []
+
+    current = 3
+
+    while current <= LIMIT:
+        end = min(current + (CHUNK_SIZE * 2) - 2, LIMIT)
+
+        if end % 2 == 0:
+            end -= 1
+
+        chunks.append((current, end))
+        current = end + 2
+
+    return chunks
+
+
+def export_csv(filename: str, rows: list):
+    fieldnames = list(rows[0].keys())
+
+    with open(filename, "w", encoding="utf-8-sig", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames, delimiter=";")
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def export_summary(filename: str, rows: list, elapsed: float):
+    by_worsened = sorted(rows, key=lambda r: (r["worsened",] if False else r["worsened"], r["avg_h_step"]))
+    by_avg = sorted(rows, key=lambda r: r["avg_h_step"])
+    by_score = sorted(rows, key=lambda r: r["score_avg_gain"], reverse=True)
+    by_max = sorted(rows, key=lambda r: (r["max_h_step"], r["avg_h_step"]))
+
+    lines = []
+
+    lines.append("SCANSIONE FINE LAMBDA PARALLELA")
+    lines.append("=" * 120)
+    lines.append("")
+    lines.append(f"LIMIT = {LIMIT}")
+    lines.append(f"MAX_BLOCK_STEPS = {MAX_BLOCK_STEPS}")
+    lines.append(f"DEBT_LOOKAHEAD = {DEBT_LOOKAHEAD}")
+    lines.append(f"LAMBDAS = {LAMBDAS[0]} ... {LAMBDAS[-1]}")
+    lines.append(f"CPU_COUNT = {CPU_COUNT}")
+    lines.append(f"WORKERS = {WORKERS}")
+    lines.append(f"CHUNK_SIZE = {CHUNK_SIZE}")
+    lines.append(f"Tempo totale secondi = {elapsed:.2f}")
+    lines.append("")
+
+    sections = [
+        ("Migliori per pochi peggioramenti", by_worsened),
+        ("Migliori per media H più bassa", by_avg),
+        ("Migliori per guadagno medio", by_score),
+        ("Migliori per max step", by_max),
+    ]
+
+    for title, data in sections:
+        lines.append(title)
+        lines.append("-" * 120)
+
+        for r in data[:20]:
+            lines.append(
+                f"lambda={r['lambda']:.2f} | "
+                f"avg_H={r['avg_h_step']:.6f} | "
+                f"max_H={r['max_h_step']:3d} | "
+                f"improved={r['improved']:8d} | "
+                f"worsened={r['worsened']:8d} | "
+                f"worst_loss={r['worst_loss']:4d} | "
+                f"score={r['score_avg_gain']:+.6f} | "
+                f"worst_n={r['worst_loss_n']} | "
+                f"best_n={r['best_gain_n']}"
+            )
+
+        lines.append("")
+
+    with open(filename, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+
+
+def main():
+    started = time.time()
+
+    chunks = make_chunks()
+
+    global_stats = {lam: empty_stats() for lam in LAMBDAS}
+
+    print("Scansione fine lambda parallela")
+    print("-" * 120)
+    print(f"LIMIT = {LIMIT}")
+    print(f"LAMBDA da {LAMBDAS[0]} a {LAMBDAS[-1]}")
+    print(f"CPU_COUNT = {CPU_COUNT}")
+    print(f"WORKERS = {WORKERS}")
+    print(f"CHUNK_SIZE = {CHUNK_SIZE}")
+    print(f"Chunks = {len(chunks)}")
+    print()
+
+    completed = 0
+    processed_total = 0
+
+    with ProcessPoolExecutor(max_workers=WORKERS) as executor:
+        futures = [
+            executor.submit(process_chunk, start, end)
+            for start, end in chunks
+        ]
+
+        for future in as_completed(futures):
+            result = future.result()
+
+            completed += 1
+            processed_total += result["processed"]
+
+            for lam in LAMBDAS:
+                merge_stats(global_stats[lam], result["stats"][lam])
+
+            elapsed = time.time() - started
+
+            print(
+                f"chunk {completed:4d}/{len(chunks)} | "
+                f"range={result['start']}-{result['end']} | "
+                f"processed_total={processed_total:,} | "
+                f"elapsed={elapsed:.1f}s"
+            )
+
+    rows = []
+
+    for lam in LAMBDAS:
+        st = global_stats[lam]
+        total = st["total"]
+
+        row = {
+            "lambda": lam,
+            "total": total,
+            "avg_log_step": st["sum_log"] / total,
+            "avg_h_step": st["sum_h"] / total,
+            "max_log_step": st["max_log"],
+            "max_h_step": st["max_h"],
+            "improved": st["improved"],
+            "worsened": st["worsened"],
+            "same": st["same"],
+            "improved_ratio": st["improved"] / total,
+            "worsened_ratio": st["worsened"] / total,
+            "same_ratio": st["same"] / total,
+            "worst_loss": st["worst_loss"],
+            "worst_loss_n": st["worst_loss_n"],
+            "best_gain": st["best_gain"],
+            "best_gain_n": st["best_gain_n"],
+            "score_avg_gain": (st["sum_log"] - st["sum_h"]) / total,
+        }
+
+        rows.append(row)
+
+    rows.sort(key=lambda r: r["lambda"])
+
+    elapsed = time.time() - started
+
+    export_csv(OUTPUT_FILE, rows)
+    export_summary(SUMMARY_FILE, rows, elapsed)
+
+    print()
+    print("Completato.")
+    print(f"Tempo totale: {elapsed:.2f} secondi")
+    print(f"CSV generato: {OUTPUT_FILE}")
+    print(f"Summary generato: {SUMMARY_FILE}")
+    print()
+    print("Per aprirli:")
+    print(f"open '{OUTPUT_FILE}'")
+    print(f"open '{SUMMARY_FILE}'")
+
+
+if __name__ == "__main__":
+    main()
