@@ -1,3 +1,15 @@
 .DS_Store
 *.csv
 *.txt
+__pycache__/
+*.pyc
+.claude/
+.venv/
+venv/
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk

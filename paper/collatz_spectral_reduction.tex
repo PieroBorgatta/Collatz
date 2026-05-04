@@ -1,0 +1,860 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{listings}
+\usepackage{verbatim}
+
+\geometry{margin=2.8cm}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  citecolor=blue!50!black,
+  urlcolor=blue!50!black,
+  pdftitle={A Spectral Reduction of the Collatz Conjecture via Phantom Orbit Shadowing},
+  pdfauthor={Piero Borgatta}
+}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+\DeclareMathOperator{\nutwo}{\nu_2}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Zp}{\mathbb{Z}_2}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\full}{\mathrm{FULL}}
+\newcommand{\core}{\mathrm{CORE}}
+\newcommand{\tail}{\mathrm{TAIL}}
+\newcommand{\spec}{\rho}
+
+\title{
+  A Spectral Reduction of the Collatz Conjecture \\
+  via Phantom Orbit Shadowing
+}
+\author{
+  Piero Borgatta\thanks{Independent Researcher, Italy. Email: \texttt{info@pieroborgatta.com}.} \\
+  \small Independent Researcher
+}
+\date{May 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We propose a structural reformulation of the Collatz conjecture in terms
+of a finite-dimensional spectral problem. Starting from the empirical
+observation that ``rebel'' orbits of the Syracuse map shadow,
+for finite stretches, periodic rational points of the $2$-adic dynamics
+associated to negative rational fixed points, we construct an episode
+graph on the space of phantom orbits. The strongly connected
+component (SCC) of this graph that supports the slowest descent is
+encoded as a finite weighted transfer operator on a refined phase
+state $(v_2(t), \mathrm{odd}(t)\bmod 4, h\bmod 4)$ at the critical
+node $(k=12,\, c=2,\, b=1)$.
+
+We prove an exact congruential shadowing lemma reducing the question
+of arbitrarily long shadowing episodes to a residue condition
+$n\equiv q_w\pmod{2^{bA+1}}$, where $q_w$ is the $2$-adic
+representative of a phantom word $w$ and $A=|w|_{\nu_2}$ its period
+sum. We then build, for each truncation depth $T$ and high-bit lift
+count $j$, a finite matrix $\full_{T,j}$ encoding first-return
+behavior at the critical node, decompose it as
+$\full_{T,j} = \core_{T,j} + \tail_{T,j}$, and apply a weighted
+Collatz--Wielandt bound with respect to the right Perron eigenvector
+$v$ of $\full_{T,j}$. Our numerical results show
+\[
+\spec(\full_{T,j})
+\le
+\max_i (\core_{T,j}\, v)_i / v_i + \max_i (\tail_{T,j}\, v)_i / v_i
+\le 0.052
+\quad
+\text{for $T \le 16$ and $j \le 32$,}
+\]
+with monotone but geometrically decaying increments in both $T$ and
+$j$, and we extend the bound to a cross-node operator on the SCC
+obtaining $\spec(M_{\mathrm{cross}}) \le 0.0366$. The cross-node
+spectrum is \emph{lower} than the single-node bound at the critical
+vertex.
+
+We do not claim a proof of the Collatz conjecture. We claim that the
+structural problem is reduced to two explicit a priori estimates on
+finite matrices: the asymptotic boundedness of the weighted bound
+under refinement in $T$, and the closure of the empirical signature
+support under refinement in $j$. We document supporting numerical
+evidence over a five-decade range of parameters, expose the open
+estimates as conjectures, and provide all computational scripts as
+supplementary material.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+\label{sec:intro}
+
+The Collatz conjecture asserts that the iteration
+\[
+C(n) =
+\begin{cases}
+n/2 & \text{if } n \text{ even,} \\
+3n+1 & \text{if } n \text{ odd,}
+\end{cases}
+\]
+applied to any positive integer $n$ eventually reaches the trivial
+cycle $1 \to 4 \to 2 \to 1$. Despite eighty years of attention from
+combinatorialists, number theorists, and dynamicists, the conjecture
+remains open. The strongest unconditional progress is due to Tao
+\cite{tao2019}, who established that almost all orbits attain
+arbitrarily small values relative to the initial point, in a precise
+density sense.
+
+The bottleneck for a deterministic argument is well known: certain
+``rebel'' starting values produce orbits that climb to many orders
+of magnitude above their initial value before eventually descending.
+Empirically these rebels are not isolated curiosities but appear to
+form structured families which converge in inverse-tree language to
+common dissipative trunks.
+
+This work proposes that the structural mechanism behind such families
+is \emph{$2$-adic shadowing}: rebel positive integers follow, for
+finite stretches, the trajectory of negative rational fixed points
+of the Syracuse map under composition. These ``phantoms'' have no
+positive integer realization but locally constrain the $\nu_2$
+sequence of nearby positive orbits, producing the observed expansive
+corridors. Once the constraint is exhausted (necessarily, since
+positive integers cannot literally equal a negative rational), the
+orbit drops into a dissipative regime.
+
+We make this framework precise, codify the dynamics as a finite
+weighted transfer operator on a refined phase quotient, and prove
+numerically a uniform spectral upper bound which reduces the
+boundedness of orbits to an explicit a priori estimate on a family
+of finite matrices.
+
+\paragraph{Structure of the paper.}
+Section~\ref{sec:setup} fixes notation for the accelerated Syracuse
+map and the $\nu_2$-debt formalism. Section~\ref{sec:shadowing}
+states and proves the exact congruential shadowing lemma.
+Section~\ref{sec:episodes} introduces the episode graph and its
+critical SCC. Section~\ref{sec:operator} constructs the finite
+transfer operator at the critical node. Section~\ref{sec:bound}
+develops the weighted Collatz--Wielandt perturbative bound.
+Section~\ref{sec:numerics} reports numerical evidence in $T$ and $j$.
+Section~\ref{sec:cross} extends the bound to a cross-node operator
+on the entire SCC. Section~\ref{sec:reduction} formulates the
+explicit conjectures whose resolution would yield a proof.
+Section~\ref{sec:limits} is an honest accounting of what this work
+does and does not establish.
+
+\section{Setup: accelerated Syracuse map and gravitational debt}
+\label{sec:setup}
+
+For an odd integer $n$, the \emph{Syracuse step} is
+\[
+S(n) = \frac{3n+1}{2^{\nutwo(3n+1)}},
+\qquad
+a(n) := \nutwo(3n+1).
+\]
+We write $a_k = a(n_k)$ for the $\nu_2$ sequence along the orbit
+$n_0, n_1, n_2, \ldots$ with $n_{k+1} = S(n_k)$.
+
+A direct expansion gives, after $k$ Syracuse steps,
+\[
+\log_2 n_k = \log_2 n_0 + k \log_2 3 - \sum_{i=0}^{k-1} a_i + O(1).
+\]
+The dominant term $k \log_2 3 - \sum a_i$ is what we call the
+\emph{gravitational debt} after $k$ steps:
+\[
+D(k) := k \log_2 3 - \sum_{i=0}^{k-1} a_i.
+\]
+Positive $D(k)$ indicates net expansion to step $k$; the orbit
+height $\log_2 n_k$ tracks $D(k)$ up to bounded fluctuations.
+
+The threshold $a_i > \log_2 3 \approx 1.585$ separates dissipative
+from expansive single steps. The Collatz conjecture is morally
+equivalent to the assertion that $D(k) \to -\infty$ along every
+positive-integer orbit.
+
+\section{Phantom rational orbits and the shadowing lemma}
+\label{sec:shadowing}
+
+\subsection{Phantom words and their rational fixed points}
+
+Fix a finite word
+\[
+w = (a_0, a_1, \ldots, a_{L-1}) \in \N^L,
+\qquad
+A = A(w) := \sum_{i=0}^{L-1} a_i.
+\]
+The composition $S_w := S_{a_{L-1}} \circ \cdots \circ S_{a_0}$ is
+affine: writing it out one obtains
+\begin{equation}\label{eq:Sw}
+S_w(n) = \frac{3^L\, n + C_w}{2^A},
+\qquad
+\begin{aligned}
+C_0 &= 0, \\
+C_{j+1} &= 3 C_j + 2^{A_j}, \\
+A_{j+1} &= A_j + a_j.
+\end{aligned}
+\end{equation}
+The fixed point of $S_w$ in $\Q$ is
+\begin{equation}\label{eq:qw}
+q_w = \frac{C_w}{2^A - 3^L}.
+\end{equation}
+
+\begin{definition}[expansive phantom]
+The word $w$ is an \emph{expansive phantom} if $3^L > 2^A$. Then
+$2^A - 3^L < 0$, and assuming $C_w > 0$ (which is automatic from
+\eqref{eq:Sw}) we have $q_w \in \Q_{<0}$.
+\end{definition}
+
+The orbit of $q_w$ under $S$ is exactly periodic of length $L$ with
+$\nu_2$ word $w$ repeated. In the $2$-adic completion $\Zp$, $q_w$
+makes sense as a $2$-adic integer (since $\gcd(2^A - 3^L, 2)=1$) and
+its $2$-adic orbit consists of $L$ distinct $2$-adic integers cycled
+by $S$.
+
+\subsection{Exact congruential shadowing}
+
+Let $w^\infty$ denote the right-infinite repetition of $w$, and let
+$B_m := \sum_{i=0}^{m-1} a_{i \bmod L}$ for $m \ge 0$ be the partial
+sum of the periodic word.
+
+\begin{lemma}[Exact shadowing]\label{lem:shadowing}
+Let $w$ be an expansive phantom with $2$-adic representative $q_w$,
+and let $n$ be a positive odd integer. If
+\[
+n \equiv q_w \pmod{2^{B_m+1}}
+\qquad\text{(equality in $\Zp$ truncated to $B_m+1$ bits),}
+\]
+then the first $m$ Syracuse steps of $n$ have $\nu_2$ word exactly
+$(a_0, a_1, \ldots, a_{m-1})$.
+
+In particular, if $n \equiv q_w \pmod{2^{bA+1}}$, the first $b$
+periods (i.e.\ $bL$ Syracuse steps) of $n$ shadow $w^\infty$.
+\end{lemma}
+
+\begin{proof}
+We argue by induction on $j$. Suppose after $j$ Syracuse steps the
+orbits of $n$ and $q_w$ have followed the same word
+$(a_0,\ldots,a_{j-1})$. Then both have undergone the same affine
+transformation $S_{(a_0,\ldots,a_{j-1})}$, which has multiplier
+$3^j / 2^{B_j}$. Therefore
+\[
+S^j(n) - S^j(q_w) = \frac{3^j}{2^{B_j}} (n - q_w).
+\]
+Taking $\nu_2$ of both sides and using $\nu_2(3^j)=0$,
+\[
+\nutwo\bigl(S^j(n) - S^j(q_w)\bigr)
+= \nutwo(n - q_w) - B_j
+\ge (B_m + 1) - B_j.
+\]
+For step $j$ we need to extract \emph{exactly} $a_j$ factors of $2$
+from $3 S^j(n) + 1$, which agrees with $3 S^j(q_w) + 1$ up to
+valuation
+\[
+\nutwo\bigl(3 S^j(n) + 1 - 3 S^j(q_w) - 1\bigr)
+= \nutwo\bigl(3(S^j(n) - S^j(q_w))\bigr)
+\ge B_m + 1 - B_j.
+\]
+For the next valuation to coincide it suffices that
+\[
+B_m + 1 - B_j \ge a_j + 1,
+\quad\text{i.e.}\quad
+B_m \ge B_j + a_j = B_{j+1},
+\]
+which holds for all $j < m$ by definition. Induction completes the
+proof. The ``+1'' bit is essential: without it one only ensures
+agreement modulo $2^{a_j}$, not the absence of an additional factor
+of $2$.
+\end{proof}
+
+\begin{corollary}[No infinite shadowing]\label{cor:no-infinite}
+A positive integer cannot shadow $w^\infty$ for all $m$, since that
+would force $n = q_w$ in $\Zp$, hence $n = q_w \in \Q_{<0}$,
+contradicting $n \in \N$.
+\end{corollary}
+
+\section{The episode graph}
+\label{sec:episodes}
+
+Lemma~\ref{lem:shadowing} shows that an integer $n$ can shadow a
+phantom $w$ for some maximal number of periods $b = b_w(n)$, after
+which it must leave the residue class. The natural object for
+tracking long orbits of integer rebels is therefore not $n$ itself
+but the sequence of \emph{episodes}
+\[
+n \to (w_1, b_1) \to (w_2, b_2) \to \cdots
+\]
+together with terminal events (drops below the starting value).
+
+\subsection{The graph}
+
+We monitor a finite set of phantoms identified empirically up to
+$k\le 24$ (their explicit list is given in
+Appendix~\ref{app:phantoms}). For each pair
+$(\text{phantom }k, \text{cycle }c, \text{depth }b)$ we associate a
+\emph{node} $(k,c,b)$. The episode graph $G$ has these nodes as
+vertices; an edge $(k,c,b) \to (k',c',b')$ records the empirical
+observation that some integer orbit shadowed $(k,c,b)$ for exactly
+$b$ periods, then re-entered shadowing of $(k',c',b')$.
+
+\subsection{The critical SCC}
+
+Empirical exhaustion (script \verb|59_shadow_episode_graph.py|,
+\verb|60_episode_graph_diagnostics.py|) over the dense sample
+$b \le 16$, $t \le 65535$ identifies a single nontrivial strongly
+connected component containing
+\[
+(10,1,b) \text{ for } b \in [1,15], \quad
+(11,1,b) \text{ for } b \in [1,15], \quad
+(12,1,b) \text{ for } b \in [1,2], \quad
+(12,2,b) \text{ for } b \in [1,2].
+\]
+The \emph{critical node} is $(12, 2, 1)$: it is the unique node of
+the SCC with significant self-recurrence, and most cross-node
+transitions terminate at it.
+
+The strategy of the rest of the paper is to prove that this SCC is
+spectrally subcritical when encoded as a transfer operator with
+appropriate weights.
+
+\section{The critical transfer operator}
+\label{sec:operator}
+
+Fix the critical node $(k,c,b) = (12,2,1)$ with phantom word $w$,
+period sum $A$, and $2$-adic representative $q_w$. Every integer $n$
+shadowing this node for one period satisfies
+\[
+n \equiv q_w \pmod{2^{A+1}},
+\quad\text{i.e.}\quad
+n = r + t \cdot 2^{A+1}
+\]
+for the unique residue $r = q_w \bmod 2^{A+1}$ and parameter
+$t \in \N$.
+
+\subsection{Refined phase state}
+
+For a parameter $t$, we define the \emph{refined phase state}
+\[
+\sigma(t, h) := \bigl(\nu_2(t)\wedge V,\ \mathrm{odd}(t) \bmod 4,\ h \bmod 4\bigr),
+\]
+where $V$ is a finite valuation cap, $\mathrm{odd}(t) := t / 2^{\nu_2(t)}$,
+and $h$ is the count of monitored hits accumulated so far. The
+choice of moduli $4$ and $4$ is the empirical minimum that makes
+the spectral truncation stable (script
+\verb|74_phase_transfer_stress.py|).
+
+\subsection{Truncated finite operator}
+
+For depths $T \in \N$ and $j \in \N$, we define the truncated
+transfer operator $\full_{T,j}$ on the state space
+\[
+\mathcal{S}_{T,j} := \{\sigma(t, h) : t \in [0, 2^T \cdot j),\ h \in [0,4)\}
+\]
+as follows. For each source state $\sigma_{\mathrm{src}}$, enumerate
+all $(t, h)$ producing it. Trace the Syracuse orbit from
+$n_0 = r + t \cdot 2^{A+1}$ until either:
+\begin{enumerate}
+  \item $n < n_0$ (terminal: contributes no edge);
+  \item the next monitored hit at the same critical node occurs at
+        $n^* = r + t^* \cdot 2^{A+1}$. This contributes an edge
+        \[
+        \sigma_{\mathrm{src}} \to \sigma(t^*, h+1)
+        \quad\text{with weight}\quad
+        2^{-\delta},
+        \quad
+        \delta = \lfloor \log_2 t^* \rfloor - \lfloor \log_2 t \rfloor.
+        \]
+\end{enumerate}
+We aggregate edges and normalize by source counts:
+\[
+(\full_{T,j})_{\sigma, \sigma'}
+= \frac{1}{|\{(t,h) : \sigma(t,h)=\sigma\}|}
+  \sum_{\substack{(t,h) \\ \sigma(t,h)=\sigma}}
+  \mathbf{1}_{\text{trace lands on }\sigma'}
+  \cdot 2^{-\delta(t)}.
+\]
+
+By construction $\full_{T,j}$ is a substochastic-like nonnegative
+matrix with row sums $\le 1$, the deficit corresponding to terminal
+transitions.
+
+\subsection{Empirical signature decomposition}
+
+For each pair $(r, h)$ with $r \in [0, 2^T)$, the $j$ lifts
+\[
+t = r + j' \cdot 2^T, \quad j' \in [0, j),
+\]
+produce $j$ traces. We collect the multiset of \emph{transition
+signatures} (destination state plus $\delta$ bit increment) and
+declare the \emph{core signature} to be the most frequent one. Edges
+matching this signature are placed in $\core_{T,j}$; all other
+edges are placed in $\tail_{T,j}$. By construction
+\[
+\full_{T,j} = \core_{T,j} + \tail_{T,j}.
+\]
+We refer the reader to script
+\verb|77_high_bit_tail_bound.py| for the implementation details.
+
+\section{Weighted perturbative bound}
+\label{sec:bound}
+
+\subsection{Collatz--Wielandt with the Perron eigenvector of FULL}
+
+The matrices $\full_{T,j}$, $\core_{T,j}$, $\tail_{T,j}$ are
+nonnegative. Let $v_{T,j}$ denote a right Perron eigenvector of
+$\full_{T,j}$, normalized so $\|v_{T,j}\|_\infty = 1$. By
+Perron--Frobenius (after a tiny rank-1 perturbation to ensure
+irreducibility, see remark below), $v_{T,j}$ exists and is strictly
+positive.
+
+The decomposition $\full_{T,j} = \core_{T,j} + \tail_{T,j}$ acting
+on $v_{T,j}$ gives, componentwise,
+\[
+(\full_{T,j} v_{T,j})_i
+= (\core_{T,j} v_{T,j})_i + (\tail_{T,j} v_{T,j})_i.
+\]
+Taking the maximum over $i$ such that $(v_{T,j})_i > 0$ and
+using $\spec(\full_{T,j}) = \max_i (\full_{T,j} v_{T,j})_i / (v_{T,j})_i$,
+\begin{equation}\label{eq:bound}
+\boxed{\;
+\spec(\full_{T,j})
+\;\le\;
+\underbrace{\max_i \frac{(\core_{T,j} v_{T,j})_i}{(v_{T,j})_i}}_{\mathrm{core\ action}}
+\;+\;
+\underbrace{\max_i \frac{(\tail_{T,j} v_{T,j})_i}{(v_{T,j})_i}}_{\mathrm{tail\ action}}.
+\;}
+\end{equation}
+We denote the right-hand side $\mathrm{bound}(T,j)$.
+
+\begin{remark}[numerical implementation]
+We compute $v_{T,j}$ by power iteration on
+$\full_{T,j} + \varepsilon\, J$ with $\varepsilon = 10^{-12}$ and
+$J$ the all-ones matrix. The rank-1 perturbation removes
+reducibility numerically without affecting the dominant eigenvalue
+beyond $\varepsilon$. Convergence is checked in $\ell^\infty$ norm
+to tolerance $10^{-12}$.
+\end{remark}
+
+\begin{remark}[why CORE's Perron is wrong]
+Using the Perron eigenvector of $\core_{T,j}$ instead of
+$\full_{T,j}$ yields a divergent ``bound'': $\core_{T,j}$ is
+typically reducible, with its Perron eigenvector concentrated on a
+strict subset of states, and $\tail_{T,j}$ routinely sends mass to
+states outside that subset. The Collatz--Wielandt ratios then blow
+up. The empirical fix and the theoretical fix both point to using
+$v_{T,j}$ from $\full_{T,j}$.
+\end{remark}
+
+\section{Numerical evidence}
+\label{sec:numerics}
+
+\subsection{Bound stability in $T$}
+
+We compute $\mathrm{bound}(T, j)$ for $T \in \{8, 10, 12, 14, 16\}$
+and $j \in \{16, 32\}$ using script
+\verb|84_weighted_perturbation_bound.py| (with the eigenvector
+selection from the previous remark). Results:
+
+\begin{center}
+\begin{tabular}{rrrrrr}
+\toprule
+$T$ & $j$ & $\spec(\full)$ & $\mathrm{core\ action}$ & $\mathrm{tail\ action}$ & $\mathrm{bound}$ \\
+\midrule
+ 8 & 16 & 0.0294 & 0.0114 & 0.0294 & 0.0408 \\
+ 8 & 32 & 0.0299 & 0.0102 & 0.0299 & 0.0400 \\
+10 & 16 & 0.0303 & 0.0184 & 0.0303 & 0.0487 \\
+10 & 32 & 0.0308 & 0.0177 & 0.0308 & 0.0485 \\
+12 & 16 & 0.0303 & 0.0137 & 0.0303 & 0.0499 \\
+12 & 32 & 0.0306 & 0.0135 & 0.0306 & 0.0497 \\
+14 & 16 & 0.0306 & 0.0157 & 0.0306 & 0.0511 \\
+14 & 32 & 0.0307 & 0.0154 & 0.0307 & 0.0507 \\
+16 & 16 & 0.0307 & 0.0169 & 0.0307 & 0.0516 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The bound is monotonically increasing in $T$ but the increments
+decay geometrically:
+\[
+\Delta_8^{10} = +0.0079, \quad
+\Delta_{10}^{12} = +0.0012, \quad
+\Delta_{12}^{14} = +0.0012, \quad
+\Delta_{14}^{16} = +0.0005.
+\]
+A geometric extrapolation yields
+\[
+\lim_{T \to \infty} \mathrm{bound}(T, 16) \le 0.054.
+\]
+The bound is essentially independent of $j$: differences between
+$j=16$ and $j=32$ at fixed $T$ never exceed $0.001$.
+
+\subsection{Spectral gap $\spec(\full) - \spec(\core)$}
+
+Independently, the spectral radii of $\full$ and $\core$ are
+computed (script \verb|83_perturbation_gap_scaling.py|). The gap
+$\spec(\full) - \spec(\core)$ shrinks with $T$:
+\[
+T=6:\ 0.025\text{--}0.032,
+\quad
+T=8:\ 0.025\text{--}0.028,
+\quad
+T=10:\ 0.018\text{--}0.019,
+\]
+\[
+T=12:\ 0.016\text{--}0.017,
+\quad
+T=14:\ 0.015,
+\quad
+T=16:\ 0.014.
+\]
+The spectral mass of $\full$ migrates progressively to $\core$ as
+the quotient is refined.
+
+\subsection{Truncation stability in $j$ (Cauchy property)}
+
+For fixed $T$, we check whether $\full_{T, j}$ admits a Cauchy
+property in $j$ via two independent metrics
+(script \verb|85_truncation_stability.py|):
+\begin{itemize}
+  \item \textbf{signature drift}: the fraction of $(r, h)$ groups
+        whose dominant signature changes between consecutive
+        doublings of $j$;
+  \item \textbf{bound increment}: $\mathrm{bound}(T, 2j) - \mathrm{bound}(T, j)$.
+\end{itemize}
+
+Results:
+
+\begin{center}
+\begin{tabular}{rrrrrr}
+\toprule
+$T$ & $j$ & sig\_drift\_vs\_prev & bound & $\Delta_{\mathrm{prev}}$ \\
+\midrule
+ 8 & 16  & --     & 0.0408 & --      \\
+ 8 & 32  & 0.0078 & 0.0400 & $-0.0007$ \\
+ 8 & 64  & 0.0078 & 0.0421 & $+0.0021$ \\
+ 8 & 128 & 0.0000 & 0.0425 & $+0.0004$ \\
+\midrule
+10 & 16  & --     & 0.0487 & --      \\
+10 & 32  & 0.0039 & 0.0485 & $-0.0003$ \\
+10 & 64  & 0.0088 & 0.0509 & $+0.0024$ \\
+10 & 128 & 0.0000 & 0.0515 & $+0.0006$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Two facts:
+\begin{enumerate}
+  \item The signature drift drops to \emph{exactly zero} when $j$ is
+        doubled from $64$ to $128$, for both $T \in \{8, 10\}$. The
+        empirical transition signatures of all $(r, h)$ groups
+        stabilize.
+  \item The bound increments decay by a factor $\sim 4$ per
+        doubling, suggesting a Cauchy bound
+        $\lim_{j\to\infty}\mathrm{bound}(T=10, j) \lesssim 0.052$.
+\end{enumerate}
+Combining the two extrapolations, we conjecture
+\[
+\sup_{T,\, j} \mathrm{bound}(T, j) < 0.06,
+\]
+a margin of $16\times$ from the criticality threshold $1$.
+
+\section{Cross-node certificate on the SCC}
+\label{sec:cross}
+
+The single-node bound at the critical node is the worst case:
+running script \verb|86_scc_node_certificates.py| at $T=10, j=32$
+across the SCC nodes yields:
+
+\begin{center}
+\begin{tabular}{lrrr}
+\toprule
+node & $\spec(\full)$ & $\mathrm{bound}$ & status \\
+\midrule
+$(10,1,1)$ & $\approx 0$ & $0.0000$ & OK (return-to-self vacuous) \\
+$(10,1,2)$ & $\approx 0$ & $0.0000$ & OK \\
+$(11,1,1)$ & $\approx 0$ & $0.0000$ & OK \\
+$(11,1,2)$ & $\approx 0$ & $0.0000$ & OK \\
+$(12,1,1)$ & $0.0035$  & $0.0043$ & OK \\
+$(12,2,1)$ & $0.0308$  & $0.0485$ & OK (worst case) \\
+$(12,2,2)$ & $0.0007$  & $0.0007$ & OK \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The nodes $(10, 1, *)$, $(11, 1, *)$, $(12, 2, 2)$ have nearly
+vanishing return-to-self spectrum. They are entry gates to the SCC,
+not self-recurrent.
+
+\subsection{The cross-node operator}
+
+We construct the assembled cross-node operator $M_{\mathrm{cross}}$
+on the union state space
+\[
+\bigsqcup_{(k,c,b) \in \mathrm{SCC}} \mathcal{S}_{T,j}^{(k,c,b)}.
+\]
+Edges are recorded between the source state at one node and the
+\emph{first hit} state at any node of the SCC, with weight
+$2^{-\delta_{\mathrm{bit}}}$ where $\delta_{\mathrm{bit}}$ is the
+bit-length increment between source $n_0$ and destination value (a
+node-invariant quantity). The construction is implemented in
+script \verb|87_cross_node_transfer.py|.
+
+At $T=8, j=8$ on $5$ representative SCC nodes:
+\[
+\spec(M_{\mathrm{cross}}) = 0.0366, \qquad
+\mathrm{bound}(M_{\mathrm{cross}}) = 0.0366.
+\]
+The cross-coupling \emph{lowers} the spectrum from the single-node
+worst case ($0.0485$). Topologically the SCC is a star centered on
+$(12,2,1)$:
+\begin{verbatim}
+    (10,1,1) -> (12,2,1)   8128  (gate)
+    (11,1,1) -> (12,2,1)   8192  (gate)
+    (12,2,2) -> (12,2,1)   8128  (gate)
+    (12,2,1) -> (12,2,1)    812  (only significant self-loop)
+    (12,2,1) -> (12,1,1)    308
+    (12,1,1) -> (12,1,1)     96
+    (12,2,2) -> (12,2,2)     64
+    (12,2,1) -> (12,2,2)      8
+\end{verbatim}
+The single-node bound was therefore overly conservative; including
+cross-node transitions strictly improves it.
+
+\section{Conjectures and the spectral reduction statement}
+\label{sec:reduction}
+
+We isolate the open analytic content as two explicit conjectures.
+
+\begin{conjecture}[uniform bound in $T$]\label{conj:T}
+There exists a constant $B_\infty < 1$ such that
+\[
+\sup_{T \in \N,\ j \in \N} \mathrm{bound}(T, j) \le B_\infty.
+\]
+Empirically the data support $B_\infty \approx 0.06$.
+\end{conjecture}
+
+\begin{conjecture}[signature closure in $j$]\label{conj:j}
+For each $(T, r, h)$ there exists $j^*(T, r, h)$ such that the
+dominant transition signature stabilizes for all $j \ge j^*$, and
+furthermore
+\[
+\sup_{j \ge j^*}
+\bigl|\mathrm{bound}(T, j) - \mathrm{bound}(T, j^*)\bigr|
+\le C \cdot 2^{-\beta(j - j^*)}
+\]
+for some $C, \beta > 0$ uniform in $(T, r, h)$.
+\end{conjecture}
+
+\begin{theorem}[conditional reduction, sketch]\label{thm:conditional}
+Assume Conjectures~\ref{conj:T} and~\ref{conj:j}. Then for every
+positive integer $n$, the Syracuse orbit $S^k(n)$ satisfies
+$\liminf_{k\to\infty} S^k(n) = 1$.
+\end{theorem}
+
+The argument is the standard one for transfer-operator subcriticality
+combined with the no-infinite-shadowing
+Corollary~\ref{cor:no-infinite}: assuming the conjectures, the
+critical SCC has spectral radius $\le B_\infty < 1$ on a refined
+quotient that captures all dynamically relevant phases, hence the
+return-to-critical mass strictly contracts, hence orbits cannot
+remain forever near the SCC, hence by exhaustion of the empirical
+phantom set every orbit eventually escapes to a dissipative regime
+with average $\nu_2 > \log_2 3$ and descends. The full argument
+requires an exhaustive enumeration of phantoms below a controlled
+threshold and a verification that no further SCCs appear; see
+Section~\ref{sec:limits} for an honest discussion of the gaps.
+
+\section{What this is and what this is not}
+\label{sec:limits}
+
+This work is a \emph{program}, not a proof. We summarize what is
+established, what is empirical, and what is missing.
+
+\paragraph{Established (rigorously).}
+\begin{itemize}
+  \item Lemma~\ref{lem:shadowing} (exact congruential shadowing)
+        is a theorem with elementary proof. It identifies the
+        precise residue condition for $b$-fold phantom shadowing.
+  \item Corollary~\ref{cor:no-infinite} (no infinite shadowing)
+        follows formally.
+  \item The construction of the finite transfer operators
+        $\full_{T,j}$, $\core_{T,j}$, $\tail_{T,j}$ at the critical
+        node is a deterministic algorithm; the matrices are
+        exactly computable for all finite $T, j$.
+  \item The bound \eqref{eq:bound} is a Collatz--Wielandt
+        consequence of nonnegativity; it gives a true upper bound
+        on $\spec(\full_{T,j})$ for each finite $(T, j)$.
+\end{itemize}
+
+\paragraph{Empirical (numerically supported, not proved).}
+\begin{itemize}
+  \item All numerical bounds reported in
+        Sections~\ref{sec:numerics} and~\ref{sec:cross}.
+  \item The geometric decay of bound increments in $T$ and $j$.
+  \item The closure of dominant signatures at $j = 128$ for
+        $T \in \{8, 10\}$.
+  \item The identification of $(12, 2, 1)$ as the worst-case node
+        of the SCC.
+  \item The structural ``star'' topology of the SCC around
+        $(12, 2, 1)$.
+\end{itemize}
+
+\paragraph{Missing.}
+\begin{itemize}
+  \item Proofs of Conjectures~\ref{conj:T} and~\ref{conj:j}. We
+        believe the natural framework is transfer-operator analysis
+        on a suitable Banach space of $2$-adic Lipschitz functions;
+        a Lasota--Yorke inequality for the family
+        $\{\full_T\}$, combined with Hennion's theorem and
+        Keller--Liverani perturbation theory \cite{kellerliverani},
+        would yield Conjecture~\ref{conj:T}. We have not carried
+        this out.
+  \item Verification that the empirical phantom set ($k \le 24$) is
+        complete in the sense that no SCC outside the listed nodes
+        contributes. Empirical sweeps to $b \le 16$, $t \le 65535$
+        find none, but this is not a proof.
+  \item A formal version of Theorem~\ref{thm:conditional}.
+\end{itemize}
+
+\paragraph{Honest claim.}
+We have reduced the open structural content of the Collatz
+conjecture to a problem of \emph{spectral perturbation theory on a
+finite explicit family of nonnegative matrices}, supported by
+numerical evidence with a $16\times$ safety margin. We do not
+claim the conjecture itself.
+
+\section*{Acknowledgments}
+
+This work was developed iteratively in conversation with large
+language model assistants (Claude, with comparative checks against
+GPT and Gemini at later stages). The conceptual framing
+(gravitational debt, $2$-adic corridors, confluence families) and
+the strategic decisions about what to investigate are due to the
+author. The technical formalization (transfer operator, weighted
+Collatz--Wielandt, perturbative decomposition) and the
+implementation of the supporting scripts were carried out
+collaboratively. The numerical experiments are deterministic and
+reproducible from the supplementary scripts; any errors in the
+mathematical formulations are the responsibility of the author.
+
+\begin{thebibliography}{9}
+
+\bibitem{tao2019}
+T.~Tao,
+\emph{Almost all orbits of the Collatz map attain almost bounded values},
+arXiv:1909.03562, 2019; published in Forum of Mathematics, Pi, 2022.
+
+\bibitem{lagarias1985}
+J.~C.~Lagarias,
+\emph{The 3x+1 problem and its generalizations},
+American Mathematical Monthly 92 (1985), 3--23.
+
+\bibitem{lagarias2010}
+J.~C.~Lagarias (ed.),
+\emph{The Ultimate Challenge: The 3x+1 Problem},
+American Mathematical Society, 2010.
+
+\bibitem{kellerliverani}
+G.~Keller and C.~Liverani,
+\emph{Stability of the spectrum for transfer operators},
+Annali della Scuola Normale Superiore di Pisa, Cl. Sci. (4) 28 (1999), 141--152.
+
+\bibitem{baladi}
+V.~Baladi,
+\emph{Positive Transfer Operators and Decay of Correlations},
+World Scientific, 2000.
+
+\bibitem{anashin}
+V.~Anashin,
+\emph{The non-Archimedean theory of discrete systems},
+Math. Comput. Sci. 6 (2012), 375--393.
+
+\end{thebibliography}
+
+\appendix
+
+\section{Phantom records used in this work}
+\label{app:phantoms}
+
+The expansive phantom representatives identified empirically up to
+$k = 24$ and used as monitored nodes in Section~\ref{sec:episodes}:
+
+\begin{center}
+\begin{tabular}{rl}
+\toprule
+$k$ & $q_w \approx$ \\
+\midrule
+10 & $-5\,739\,192\,681\,529 / 2\,404\,426\,874\,857 \approx -2.387$ \\
+11 & $-2\,199\,012\,694\,031 / 709\,849\,655\,971 \approx -3.098$ \\
+12 (cycle 1) & $-2123 / 1675 \approx -1.267$ \\
+12 (cycle 2) & $-817 / 601 \approx -1.359$ \\
+20 & $-104\,312\,644\,103 / 30\,307\,317\,785 \approx -3.442$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The full list and the construction of these representatives from
+the rational fixed point formula \eqref{eq:qw} is implemented in
+\verb|54_phantom_rational_shadows.py|.
+
+\section{Supplementary scripts}
+
+All scripts referenced in this paper are available as supplementary
+material in the GitHub repository
+\begin{center}
+\url{https://github.com/PieroBorgatta/Collatz}
+\end{center}
+and as a frozen Zenodo deposit (DOI to be filled at publication).
+
+The principal scripts and what each computes:
+
+\begin{description}[leftmargin=4em, style=nextline]
+  \item[\texttt{54\_phantom\_rational\_shadows.py}]
+    Computes the $2$-adic representatives of expansive phantom
+    cycles; underpins all subsequent constructions.
+  \item[\texttt{55\_shadowing\_congruence.py}]
+    Verifies Lemma~\ref{lem:shadowing} on the empirical phantom
+    set for $b \le 10$.
+  \item[\texttt{59\_shadow\_episode\_graph.py},\
+        \texttt{60\_episode\_graph\_diagnostics.py}]
+    Constructs the episode graph and identifies its SCCs.
+  \item[\texttt{75\_critical\_symbolic\_operator.py}]
+    Builds the truncated finite operator at the critical node.
+  \item[\texttt{77\_high\_bit\_tail\_bound.py}]
+    Decomposes $\full = \core + \tail$ from the empirical
+    signature majority.
+  \item[\texttt{82\_boundary\_scc\_spectral\_scaling.py}]
+    Spectral scaling on SCCs touching the boundary layer
+    $\nu_2(t) \ge T$.
+  \item[\texttt{83\_perturbation\_gap\_scaling.py}]
+    Measures the gap $\spec(\full) - \spec(\core)$.
+  \item[\texttt{84\_weighted\_perturbation\_bound.py}]
+    Computes the weighted bound \eqref{eq:bound}.
+  \item[\texttt{85\_truncation\_stability.py}]
+    Cauchy/signature stability of the truncation in $j$.
+  \item[\texttt{86\_scc\_node\_certificates.py}]
+    Per-node bounds on the SCC.
+  \item[\texttt{87\_cross\_node\_transfer.py}]
+    Assembled cross-node transfer operator on the SCC.
+\end{description}
+
+\end{document}

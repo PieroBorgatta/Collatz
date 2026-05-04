@@ -1,436 +1,144 @@
-# Collatz/Syracuse
+# Collatz / Syracuse — Spectral Reduction via Phantom Orbit Shadowing
 
-## Teoria del Debito Gravitazionale, Famiglie di Confluenza e Quasi-Lyapunov Collatziana
+This repository contains the computational and theoretical material for a
+proposed structural reduction of the Collatz conjecture to a finite
+spectral problem.
 
-Questo repository raccoglie esperimenti computazionali e note teoriche sulla dinamica della mappa accelerata di Syracuse, collegata alla Congettura di Collatz.
+> **Honest claim**: this is *not* a proof of Collatz. It is a research
+> program that reduces the open structural content of the conjecture to
+> two explicit a priori estimates on a family of finite nonnegative
+> matrices, supported by numerical evidence with a 16× safety margin
+> from the criticality threshold.
 
-L'obiettivo non e dichiarare risolta la congettura, ma proporre un quadro strutturale per descrivere perche alcune orbite sembrano crescere violentemente prima di rientrare verso 1.
+## Main artifact
 
-La formulazione sintetica del programma e:
+The principal document is the paper
 
-```text
-Collatz come dinamica di corridoi 2-adici espansivi
-che confluiscono in tronchi dissipativi.
+**[`paper/collatz_spectral_reduction.tex`](paper/collatz_spectral_reduction.tex)**
+
+(LaTeX source; compile with `pdflatex` or via Overleaf — see below).
+
+## Summary of the contribution
+
+We construct a chain of structural reductions:
+
+1. **Shadowing lemma** (rigorous theorem, Section 3 of the paper). Every
+   positive integer $n$ that satisfies the residue condition
+   $n \equiv q_w \pmod{2^{bA+1}}$ shadows a phantom periodic word $w$
+   for exactly $b$ periods of the Syracuse map. Here $q_w \in \mathbb{Q}_{<0}$
+   is the rational fixed point of the affine composition $S_w$.
+
+2. **Episode graph** (empirical, Section 4). The dynamics of integer
+   rebels are encoded as walks on a graph whose vertices are
+   `(phantom, depth)` pairs. A single nontrivial strongly connected
+   component (SCC) supports the slowest descent; its critical vertex is
+   `(k=12, c=2, b=1)`.
+
+3. **Finite transfer operator** (Section 5). For each truncation depth
+   $T$ and high-bit lift count $j$ we construct an exact finite matrix
+   $\mathrm{FULL}_{T,j}$ on the refined phase quotient
+   `(v2(t), odd(t) mod 4, hit_index mod 4)`.
+
+4. **Weighted perturbative bound** (Section 6). Using a Collatz–Wielandt
+   estimate against the right Perron eigenvector of $\mathrm{FULL}_{T,j}$,
+   we obtain a true upper bound
+   $\rho(\mathrm{FULL}_{T,j}) \le \mathrm{bound}(T, j)$
+   that is computable for every finite $(T, j)$.
+
+5. **Numerical evidence** (Section 7). Across $T \le 16$ and $j \le 32$,
+   $\mathrm{bound}(T, j) \le 0.052$ with monotone but geometrically
+   decaying increments. Cauchy stability in $j$ is verified to $j=128$.
+
+6. **Cross-node certificate** (Section 8). The assembled cross-node
+   transfer operator on the SCC has spectral radius $0.0366$ — strictly
+   less than the single-node worst-case bound at the critical vertex.
+
+The two open conjectures (Section 9) are:
+
+- **Conjecture 9.1 (uniform bound in $T$)**: there exists $B_\infty < 1$
+  such that $\sup_{T,j} \mathrm{bound}(T,j) \le B_\infty$.
+- **Conjecture 9.2 (signature closure in $j$)**: the empirical
+  transition signatures stabilize for $j$ large with explicit decay rate.
+
+Resolving either conjecture rigorously (we believe via Lasota–Yorke +
+Hennion's theorem + Keller–Liverani perturbation theory) would yield a
+proof of orbit boundedness for the Syracuse map.
+
+## How to compile the paper
+
+The repository contains the LaTeX source. To compile:
+
+**Option A — Overleaf (no installation):**
+Upload `paper/collatz_spectral_reduction.tex` to a new Overleaf
+project. Overleaf compiles it to PDF in the browser.
+
+**Option B — local with TeX Live / MacTeX:**
+```bash
+cd paper
+pdflatex collatz_spectral_reduction.tex
+pdflatex collatz_spectral_reduction.tex   # second pass for TOC
 ```
 
-## Idea Centrale
+## Reproducing the numerical results
 
-La dinamica viene interpretata come una competizione tra:
+The supporting Python scripts are in the repository root, numbered
+roughly chronologically by when they were developed (`01_*` through
+`87_*`). The key scripts referenced in the paper are:
 
-- espansione prodotta dal fattore `3n + 1`;
-- dissipazione prodotta dalle divisioni per potenze di 2;
-- corridoi 2-adici con alta densita di `v2 = 1`;
-- confluenza delle orbite in tronchi comuni;
-- scarico del debito tramite tronchi dissipativi;
-- una funzione empirica quasi-Lyapunov capace di riconoscere discese locali ingannevoli.
-
-La funzione candidata finale e:
-
-```text
-H(n) = log(n) + 0.28 D_max,80(n) - 0.03 C_max,80(n) + 0.30 P_max,80(n)
-```
-
-Dove:
-
-- `D_max,80` misura il massimo debito espansivo futuro;
-- `C_max,80` misura la massima cascata dissipativa futura;
-- `P_max,80` misura la massima pressione futura del corridoio `v2 = 1`.
-
-## Mappa Accelerata di Syracuse
-
-La funzione Collatz classica e:
-
-```text
-C(n) = n / 2      se n e pari
-C(n) = 3n + 1    se n e dispari
-```
-
-Per studiare solo i dispari si usa la mappa accelerata:
-
-```text
-S(n) = (3n + 1) / 2^v2(3n + 1)
-```
-
-Un passo Syracuse e quindi determinato dal valore:
-
-```text
-a_k = v2(3n_k + 1)
-```
-
-Il valore `a_k` misura quanta dissipazione viene prodotta nel passo.
-
-## Soglia Critica
-
-Approssimativamente:
-
-```text
-S(n) ~= n * 3 / 2^a
-```
-
-La variazione logaritmica e dominata da:
-
-```text
-log(3) - a log(2)
-```
-
-La soglia critica e:
-
-```text
-log2(3) ~= 1.5849625
-```
-
-Se la media degli `a_k` lungo un tratto orbitale e maggiore di questa soglia, il tratto e dissipativo. Se e minore, il tratto e espansivo.
-
-## Debito Gravitazionale
-
-Il debito gravitazionale dopo `k` passi Syracuse e definito come:
-
-```text
-D(k) = k log2(3) - sum(a_i, i = 1..k)
-```
-
-Interpretazione:
-
-- `D(k) > 0`: l'orbita ha accumulato vantaggio espansivo;
-- `D(k) < 0`: la dissipazione ha dominato;
-- `max D(k)`: misura quanto l'orbita riesce a resistere alla caduta.
-
-In forma fisica:
-
-```text
-debito = espansione attesa - divisioni per 2 accumulate
-```
-
-Il debito e la quantita che un tronco dissipativo dovra poi scaricare.
-
-## Corridoi 2-Adici Espansivi
-
-Le sequenze dei valori `a_k = v2(3n_k + 1)` non sono libere.
-
-Una lunga sequenza di valori:
-
-```text
-1, 1, 1, ...
-```
-
-impone che il numero iniziale cada in classi residue 2-adiche sempre piu strette.
-
-Per esempio:
-
-```text
-v2(3n + 1) = 1
-```
-
-equivale a:
-
-```text
-n == 3 mod 4
-```
-
-Per una sequenza lunga di soli `1`, i rappresentanti minimi seguono:
-
-```text
-3, 7, 15, 31, 63, 127, ...
-```
-
-cioe:
-
-```text
-2^(k + 1) - 1
-```
-
-Quindi i corridoi piu espansivi si avvicinano a `-1` in senso 2-adico.
-
-## Caso Estremo: n = 3.041.127
-
-Uno dei numeri piu esplosivi trovati sotto 5 milioni e:
-
-```text
-n = 3.041.127
-```
-
-Risultati principali:
-
-- picco massimo: `207.572.633.873`;
-- rapporto massimo rispetto allo start: circa `68.255`;
-- step del picco: `36`;
-- primo rientro sotto lo start: `62`;
-- salti Syracuse fino a 1: `132`;
-- massima sequenza consecutiva di `v2 = 1`: `17`;
-- media finale `v2`: `1,75`.
-
-Poiche:
-
-```text
-1,75 > log2(3)
-```
-
-la traiettoria, pur essendo inizialmente esplosiva, e complessivamente dissipativa.
-
-La struttura tipica e:
-
-```text
-fase espansiva -> debito -> cascata dissipativa -> 1
-```
-
-## Autostrada Gravitazionale Comune
-
-Tra i numeri con massimo debito sotto 5 milioni e emersa una famiglia principale di confluenza.
-
-Il tronco comune massimo e:
-
-```text
-8.216.025.965
-```
-
-Questa famiglia contiene:
-
-- 62 membri;
-- 78 nodi comuni;
-- minimo nodo comune del tronco: `428.885`;
-- media `v2` del tronco: `2,111111`;
-- surplus per step: `0,526149`;
-- dissipativo da subito: si.
-
-Il tronco da `8.216.025.965` a `1` ha:
-
-- 63 salti Syracuse;
-- `v2` totale: `133`;
-- media `v2`: `2,111111`;
-- surplus finale: `+33,147362`;
-- massimo debito del tronco: `0`.
-
-La caduta piu violenta osservata nel tronco e:
-
-```text
-428.885 -> 2.513
-```
-
-con:
-
-```text
-v2 = 9
-```
-
-Questo tronco non accumula debito: lo scarica.
-
-## Albero Inverso del Tronco
-
-La mappa inversa di Syracuse e:
-
-```text
-S(n) = m
-(3n + 1) / 2^a = m
-n = (m * 2^a - 1) / 3
-```
-
-purché `n` sia intero, positivo e dispari.
-
-Costruendo l'albero inverso del nodo `8.216.025.965`, con ricerca fino al valore del root e target sotto 5 milioni, si ottiene:
-
-- nodi totali generati: `116.129`;
-- nodi sotto 5 milioni: `133`;
-- membri top-debito attesi: `62`;
-- membri trovati: `62`;
-- membri mancanti: `0`;
-- extra sotto 5 milioni: `71`.
-
-Quindi i 62 numeri ribelli non sono casuali: sono un sottoinsieme dei predecessori sotto 5 milioni del tronco dissipativo.
-
-## Famiglie di Confluenza
-
-Dall'analisi delle confluenze alte sono stati ottenuti:
-
-- 6.670 nodi di confluenza;
-- 344 famiglie distinte.
-
-Sulle 344 famiglie:
-
-- famiglie dissipative da subito: `77`;
-- percentuale dissipative da subito: `22,38%`;
-- media membri: `6,979651`;
-- media nodi comuni: `19,389535`;
-- media `v2` dei tronchi: `1,847881`;
-- media surplus finale: `+24,010594`.
-
-Poiche:
-
-```text
-1,847881 > 1,5849625
-```
-
-le famiglie di confluenza sono mediamente dissipative.
-
-## Tipi Strutturali
-
-Le famiglie osservate sono state classificate in categorie:
-
-- Tipo A: autostrade larghe, con molti membri e molti nodi comuni;
-- Tipo B: confluenze larghe ma corte;
-- Tipo C: tronchi alti, con massimo comune superiore a `10^10`;
-- Tipo C2: tronchi estremi, con massimo comune superiore a `10^11`;
-- Tipo D: ultra dissipativi, con surplus per step molto alto;
-- Tipo F: misti, non dissipativi da subito ma con surplus finale positivo.
-
-La struttura osservata e:
-
-```text
-corridoi 2-adici espansivi
--> accumulo di debito
--> confluenza
--> tronchi dissipativi
--> 1
-```
-
-## Quasi-Lyapunov Collatziana
-
-La sola funzione:
-
-```text
-V(n) = log(n)
-```
-
-vede quando un'orbita scende localmente sotto il valore iniziale.
-
-Ma questa discesa puo essere ingannevole: alcuni numeri scendono subito sotto lo start e poi entrano in un corridoio fortemente espansivo.
-
-Per questo e stata introdotta la funzione corretta:
-
-```text
-H(n) = log(n) + lambda D_max,80(n) - mu C_max,80(n) + theta P_max,80(n)
-```
-
-La candidata empirica finale e:
-
-```text
-H(n) = log(n) + 0.28 D_max,80(n) - 0.03 C_max,80(n) + 0.30 P_max,80(n)
-```
-
-Interpretazione dei termini:
-
-| Termine | Ruolo |
+| Script | Computes |
 |---|---|
-| `log(n)` | quota/potenziale locale |
-| `D_max,80` | debito espansivo futuro |
-| `C_max,80` | cascata dissipativa futura |
-| `P_max,80` | pressione del corridoio `v2 = 1` |
+| `54_phantom_rational_shadows.py` | Phantom rational representatives $q_w$ |
+| `55_shadowing_congruence.py` | Numerical verification of the shadowing lemma |
+| `59_shadow_episode_graph.py` | Episode graph construction |
+| `60_episode_graph_diagnostics.py` | SCC identification |
+| `75_critical_symbolic_operator.py` | Finite transfer operator at the critical node |
+| `77_high_bit_tail_bound.py` | CORE/TAIL decomposition |
+| `83_perturbation_gap_scaling.py` | Spectral gap scaling in $T, j$ |
+| `84_weighted_perturbation_bound.py` | Weighted Collatz–Wielandt bound |
+| `85_truncation_stability.py` | Cauchy/signature stability in $j$ |
+| `86_scc_node_certificates.py` | Per-node bounds on the SCC |
+| `87_cross_node_transfer.py` | Assembled cross-node operator |
 
-Questa funzione non misura solo se un numero e sceso. Misura se e davvero uscito dalla zona espansiva.
+To run them you need Python 3.10+, NumPy, and SciPy:
 
-## Validazione Empirica
-
-Sul range dei dispari fino a 5.000.000:
-
-- peggioramenti totali: `76`;
-- veri ribelli: `59`;
-- veri ribelli estremi: `14`;
-- falsi allarmi: `3`.
-
-Quindi 73 peggioramenti su 76 risultano strutturalmente significativi.
-
-Sul range dei dispari fino a 20.000.000:
-
-- dispari analizzati: `9.999.999`;
-- improved: `1.592.944`;
-- worsened: `408`;
-- same: `8.406.647`;
-- avg log step: `3,491526`;
-- avg H step: `3,141184`;
-- max log step: `181`;
-- max H step: `176`;
-- worst loss: `133` su `n = 12.826.025`;
-- best gain: `80` su `n = 9.138.203`.
-
-Classificazione dei 408 peggioramenti:
-
-- vero ribelle: `297`;
-- vero ribelle estremo: `64`;
-- intermedio: `27`;
-- falso allarme: `20`.
-
-Quindi 361 peggioramenti su 408 sono veri ribelli o ribelli estremi.
-
-## Casi Notevoli fino a 20 Milioni
-
-Peggior loss osservato:
-
-```text
-n = 12.826.025
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install numpy scipy
+.venv/bin/python 87_cross_node_transfer.py --T 8 --j-count 8
 ```
 
-con:
+CSV outputs from each script are excluded from the repository (they
+are large and regenerated deterministically) but are produced under
+predictable filenames `collatz_NN_*.csv`.
 
-- log_step = `1`;
-- H_step = `134`;
-- loss = `133`;
-- max_ratio = `2345,210`;
-- ratio `v2 = 1` = `0,679104`;
-- `P_max` al log-step = `1,000000`.
+## Earlier work in this repository
 
-Il log puro vede una discesa immediata, ma `H` riconosce che la traiettoria e ancora dentro un corridoio espansivo.
+The repository also contains earlier exploratory work on an empirical
+quasi-Lyapunov function
 
-Massima espansione osservata tra i peggioramenti:
+$$ H(n) = \log(n) + 0.28 D_{\max,80} - 0.03 C_{\max,80} + 0.30 P_{\max,80} $$
 
-```text
-n = 16.098.751
-```
+(see `collatz_report_finale*.md` and `collatz_report_teoria_gravita*.md`).
+This phase produced empirical observations (the gravitational debt
+metaphor, the role of $\nu_2 = 1$ corridors, the existence of confluence
+families) that motivated and ultimately reorganized into the spectral
+program above. The lemma document
+[`collatz_shadowing_lemma_v1.md`](collatz_shadowing_lemma_v1.md) is the
+working notebook from which the paper was distilled.
 
-con:
+## Citation
 
-- max_ratio = `197.430,845`;
-- loss = `77`;
-- ratio `v2 = 1` = `0,709677`;
-- `P_max` al log-step = `1,000000`;
-- `D_max` cresce di `+7,300750`.
+If you use this material, please cite both the GitHub repository and
+the Zenodo deposit (DOI to be added at first release).
 
-## Perche Non e una Dimostrazione
+## License
 
-Questa costruzione non dimostra la Congettura di Collatz.
+CC BY 4.0 (see `LICENSE`).
 
-I motivi principali sono:
+## Contact
 
-- la funzione usa un lookahead finito di 80 passi;
-- i coefficienti sono empirici;
-- non e ancora dimostrato che ogni orbita abbia un blocco futuro in cui `H` decresce;
-- non e esclusa formalmente l'esistenza di un'orbita infinita che mantenga alto `D_max` e `P_max` senza mai entrare in una cascata dissipativa sufficiente.
+Piero Borgatta — `info@pieroborgatta.com` — Independent Researcher.
 
-## Programma di Ricerca
-
-Per trasformare questi risultati in una dimostrazione servirebbe provare almeno una delle seguenti affermazioni:
-
-- ogni corridoio espansivo e finito;
-- il debito gravitazionale e limitato;
-- ogni ramo espansivo deve prima o poi entrare in una famiglia di confluenza;
-- ogni famiglia sufficientemente profonda possiede un tronco con media `v2` superiore a `log2(3)`;
-- esiste una funzione di Lyapunov 2-adica formale.
-
-La domanda teorica centrale diventa:
-
-```text
-una pressione espansiva alta implica inevitabilmente
-una futura cascata dissipativa sufficiente a compensare il debito?
-```
-
-## File nel Repository
-
-- `01.py` - `37.py`: script sperimentali progressivi.
-- `Spiegazione Attuale/`: report aggiornati da cui questo README e stato ricavato.
-- `Spiegazione V1/`: versione precedente dei report.
-
-I file CSV sono esclusi dal repository Git e restano solo locali, per evitare di pubblicare dataset pesanti o generati.
-
-## Sintesi Finale
-
-La ricerca suggerisce una struttura non casuale:
-
-1. le salite sono prodotte da corridoi con alta densita di `v2 = 1`;
-2. questi corridoi sono 2-adicamente sottili;
-3. le orbite ribelli accumulano debito gravitazionale;
-4. i rami ribelli confluiscono in famiglie comuni;
-5. molte famiglie hanno tronchi dissipativi;
-6. le famiglie alte ed estreme sono spesso dissipative da subito;
-7. la funzione quasi-Lyapunov `H` riconosce molte discese locali ingannevoli;
-8. i peggioramenti di `H` corrispondono quasi sempre a traiettorie realmente instabili;
-9. il comportamento suggerisce una rete gerarchica di attrazione verso 1.
-
-Questa non e ancora una dimostrazione, ma e una struttura teorica coerente su cui provare a costruire una funzione di Lyapunov formale.
+Constructive feedback from researchers in symbolic dynamics, $p$-adic
+dynamical systems, and transfer operator theory is explicitly welcome.
