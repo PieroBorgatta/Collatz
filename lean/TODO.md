@@ -76,7 +76,7 @@ When you complete or partially advance a task:
 
 ## Current status (most recent first)
 
-> *Last updated: 2026-05-04 — Phase 2 complete (Lemma 3.1 stated with `sorry`).*
+> *Last updated: 2026-05-04 — Phase 3 partial: 3.1, 3.1.5, 3.4 proved.*
 
 - **Phase 0 complete.** Lake project initialized with `math` template,
   pinned to **Lean 4 v4.29.1** and **Mathlib v4.29.1**. Mathlib
@@ -110,9 +110,29 @@ When you complete or partially advance a task:
   `exact_shadowing_periods` (Lemma 3.1 and its periodic specialisation),
   both with `:= sorry`. `lake build` succeeds with exactly two
   expected `sorry` warnings.
-- **Phase 2 is now complete.** Next concrete action is **Phase 3,
-  Task 3.1**: prove `ν₂(3·n) = ν₂(n)` for `n ∈ ℤ_[2]` (the first
-  auxiliary lemma needed by the inductive proof of Lemma 3.1).
+- **Phase 2 is now complete.**
+- **Phase 3 partially advanced (3.1, 3.1.5, 3.4 proved).** New file
+  `CollatzShadowing/Auxiliary.lean` contains:
+  * `valuation_three_z2` — `(3 : ℤ_[2]).valuation = 0` (helper for 3.1).
+  * `nu2Z2_three_mul` — Task 3.1, `ν₂(3·n) = ν₂(n)` for `n ∈ ℤ_[2]`.
+  * `length_le_A`, `one_le_Aw` — structural facts on `PhantomWord`.
+  * `qwIntDen`, `qwIntDen_odd`, `qwRat_eq_divInt` — bridge to integer
+    arithmetic.
+  * `qwOddDen` — Task 3.1.5, every phantom has odd `qwRat.den`. The
+    `QwOddDen` hypothesis carried in the Lemma 3.1 statement is now
+    discharged unconditionally for any `PhantomWord`.
+  * `B_succ`, `B_bound_iff` — Task 3.4, the periodic-recursion identity
+    and the `B_m + 1 − B_j ≥ a_j + 1 ↔ B_m ≥ B_{j+1}` equivalence.
+  * Tasks **3.2, 3.3 remain pending** — both require extending the
+    Syracuse map `S` to `ℤ_[2]`, which is non-trivial infrastructure
+    work.
+- Phase-2 cleanup made during Phase 3: `PhantomWord.B` was refactored
+  from the closed form `(m/L)·A + sum (take (m%L) vals)` to the
+  literal sum form `((List.range m).map aAt).sum`. This makes `B_succ`
+  one rewrite, at the cost of moving `B_closed_form` (the closed-form
+  identity) to a future TODO.
+- Next concrete action is to extend `S` to `ℤ_[2]`, then attack 3.2 and
+  3.3.
 
 ---
 
@@ -207,10 +227,11 @@ Lemma 3.1 is stated and proved.
 
 | ID | Status | Task | Acceptance criterion |
 |----|--------|------|----------------------|
-| 3.1 | [ ] | `ν₂(3·n) = ν₂(n)` for `n ∈ ℤ_2`. | Proved, no `sorry`. |
-| 3.2 | [ ] | After matching the prefix `(a_0, ..., a_{j-1})`, the difference `S^j(n) - S^j(q_w)` is `(3^j / 2^{B_j}) · (n - q_w)` in `ℤ_2`. | Proved. |
-| 3.3 | [ ] | If `ν₂(x - y) ≥ a_j + 1`, then `ν₂(3·x + 1) = ν₂(3·y + 1)` and equals `a_j` for both. | Proved. |
-| 3.4 | [ ] | The condition `B_m + 1 - B_j ≥ a_j + 1` is equivalent to `B_m ≥ B_{j+1}`. | Trivial (definitional). |
+| 3.1 | [x] | `ν₂(3·n) = ν₂(n)` for `n ∈ ℤ_2`. | `Auxiliary.lean:nu2Z2_three_mul` — proved, no `sorry`. Routed via `valuation_three_z2` (computed by going through `Padic.valuation_natCast` and `padicValNat.eq_zero_of_not_dvd`) and `PadicInt.valuation_mul`. |
+| 3.1.5 | [x] | Prove `QwOddDen w` for every phantom word (no expansive hypothesis needed: 2^A_w − 3^L is non-zero and odd whenever L ≥ 1, A_w ≥ 1). | `Auxiliary.lean:qwOddDen` — proved, no `sorry`. Strategy: `qwIntDen w := 2^A_w − 3^L`, parity via `Even.sub_odd`, then bridge to `(qwRat w).den` through `Rat.divInt_eq_div`, `Rat.den_dvd`, `Int.natCast_dvd`, `Odd.of_dvd_nat`. The `QwOddDen` hypothesis in `exact_shadowing` is now dischargeable for any `PhantomWord`. |
+| 3.2 | [ ] | After matching the prefix `(a_0, ..., a_{j-1})`, the difference `S^j(n) - S^j(q_w)` is `(3^j / 2^{B_j}) · (n - q_w)` in `ℤ_2`. | Pending: requires extending `S` to `ℤ_[2]` (currently only `S : ℕ → ℕ`). |
+| 3.3 | [ ] | If `ν₂(x - y) ≥ a_j + 1`, then `ν₂(3·x + 1) = ν₂(3·y + 1)` and equals `a_j` for both. | Pending: depends on the `ℤ_[2]`-side `S` extension from 3.2. |
+| 3.4 | [x] | The condition `B_m + 1 - B_j ≥ a_j + 1` is equivalent to `B_m ≥ B_{j+1}`. | `Auxiliary.lean:B_bound_iff` — proved, `omega` once `B_succ` (the recursion identity for the sum-form `B`) is in place. `Phantom.lean` was refactored: `B m := ((List.range m).map aAt).sum` makes `B_succ` a one-rewrite. |
 
 ---
 
@@ -268,6 +289,43 @@ incorporates the Lean formalization.
 > - Notes: any blockers, open questions, things the next session should know
 > - Next recommended task: X.Y
 > ```
+
+### 2026-05-04 (Phase 3 partial) — Claude (Claude Code) + Piero Borgatta
+
+- Tasks advanced: **3.1, 3.1.5, 3.4 proved.** Tasks 3.2 and 3.3
+  pending — both require extending `S` to `ℤ_[2]`, which is a
+  separate infrastructure step.
+- Artifacts:
+  - `lean/CollatzShadowing/Auxiliary.lean` (new file).
+  - `lean/CollatzShadowing/Phantom.lean` (refactored `B` to sum form).
+  - `lean/CollatzShadowing.lean` (re-exports `Auxiliary`).
+- Notes on Mathlib v4.29.1 API audit (collected during this round):
+  - There is no `PadicInt.valuation_natCast`; route through `ℚ_[2]`
+    via `Padic.valuation_natCast` then `PadicInt.valuation_coe`.
+  - `padicValNat 2 3 = 0` is **not** `decide`-reducible (the def uses
+    well-founded recursion). Use the lemma
+    `padicValNat.eq_zero_of_not_dvd`.
+  - `decide` does not work for `(3 : ℤ_[2]) ≠ 0` (no decidable
+    equality on `ℤ_[2]`). Cast through `ℕ` with `exact_mod_cast`.
+  - `Even.sub_odd : Even a → Odd b → Odd (a − b)` is in
+    `Mathlib.Algebra.Ring.Parity`, not in the integer-specific file.
+    The right "two-divides" bridge is `even_iff_two_dvd` (no
+    `Int.` prefix).
+  - `Int.natCast_dvd : (m : ℤ) ∣ n ↔ m ∣ n.natAbs` is the right
+    bridge for `Rat.den_dvd`.
+  - `Odd.of_dvd_nat` lives in `Mathlib.Algebra.Order.Ring.Abs`.
+  - `List.length_le_sum_of_one_le` is in
+    `Mathlib.Algebra.BigOperators.Group.List.Basic`.
+- Refactor of `B`: switched from the closed form to
+  `((List.range m).map aAt).sum`. This makes `B_succ` a one-line
+  rewrite using `List.range_succ`. The old closed form remains
+  recoverable as a separate theorem when needed (e.g. for the
+  `B(b·L) = b·A` periodic specialisation).
+- Final `lake build` is clean apart from the two intentional
+  `sorry`s on `exact_shadowing` and `exact_shadowing_periods` (the
+  Lemma 3.1 proofs are still Phase 4 work).
+- Next recommended task: extend `S` to `ℤ_[2]` (or `ℚ_[2]` and
+  restrict), then close 3.2 and 3.3.
 
 ### 2026-05-04 (Phase 2 close) — Claude (Claude Code) + Piero Borgatta
 

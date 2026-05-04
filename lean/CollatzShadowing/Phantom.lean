@@ -152,11 +152,13 @@ def aAt (w : PhantomWord) (j : ℕ) : ℕ :=
   w.vals.getD (j % w.length) 0
 
 /-- Periodic partial sum `B_m := Σ_{i=0}^{m-1} a_{i mod L}` (paper
-Section 3). Computed in the closed form
-`(m / L) · A + sum (take (m mod L) w.vals)` to avoid building the
-intermediate cycle list. -/
+Section 3), expressed literally as the sum of the first `m` entries of
+the periodic word. The closed form
+`(m / L) · A + sum (take (m mod L) w.vals)` is recoverable as a separate
+theorem when needed; the sum form makes the induction lemma `B_succ`
+(used by Lemma 3.1) trivial. -/
 def B (w : PhantomWord) (m : ℕ) : ℕ :=
-  (m / w.length) * w.A + (w.vals.take (m % w.length)).sum
+  ((List.range m).map w.aAt).sum
 
 @[simp] theorem B_zero (w : PhantomWord) : w.B 0 = 0 := by
   simp [B]
@@ -265,9 +267,17 @@ example (x : ℤ_[2]) :
 
 -- B and aAt sanity checks for the constant-1 phantom word.
 example (m : ℕ) : phantomOne.B m = m := by
-  change m / 1 * 1 + (List.take (m % 1) [1]).sum = m
-  rw [Nat.mod_one, Nat.div_one]
-  simp
+  induction m with
+  | zero => simp [PhantomWord.B]
+  | succ n ih =>
+    change ((List.range (n + 1)).map phantomOne.aAt).sum = n + 1
+    rw [List.range_succ, List.map_append, List.sum_append, List.map_singleton,
+        List.sum_singleton]
+    have hi : ((List.range n).map phantomOne.aAt).sum = n := ih
+    have ha : phantomOne.aAt n = 1 := by
+      change ([1] : List ℕ).getD (n % 1) 0 = 1
+      rw [Nat.mod_one]; rfl
+    rw [hi, ha]
 example (j : ℕ) : phantomOne.aAt j = 1 := by
   change ([1] : List ℕ).getD (j % 1) 0 = 1
   rw [Nat.mod_one]
