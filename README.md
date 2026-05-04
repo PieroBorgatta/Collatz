@@ -1,5 +1,9 @@
 # Collatz / Syracuse — Spectral Reduction via Phantom Orbit Shadowing
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20021538.svg)](https://doi.org/10.5281/zenodo.20021538)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![ORCID](https://img.shields.io/badge/ORCID-0009--0001--8025--2405-A6CE39?logo=orcid)](https://orcid.org/0009-0001-8025-2405)
+
 This repository contains the computational and theoretical material for a
 proposed structural reduction of the Collatz conjecture to a finite
 spectral problem.
@@ -129,8 +133,26 @@ working notebook from which the paper was distilled.
 
 ## Citation
 
-If you use this material, please cite both the GitHub repository and
-the Zenodo deposit (DOI to be added at first release).
+If you use this material, please cite the Zenodo deposit:
+
+> Borgatta, P. (2026). *A Spectral Reduction of the Collatz Conjecture
+> via Phantom Orbit Shadowing* (Version 1) [Preprint]. Zenodo.
+> [https://doi.org/10.5281/zenodo.20021538](https://doi.org/10.5281/zenodo.20021538)
+
+BibTeX:
+
+```bibtex
+@misc{borgatta2026collatz,
+  author       = {Borgatta, Piero},
+  title        = {A Spectral Reduction of the Collatz Conjecture
+                  via Phantom Orbit Shadowing},
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.20021538},
+  url          = {https://doi.org/10.5281/zenodo.20021538},
+  note         = {Source code: \url{https://github.com/PieroBorgatta/Collatz}}
+}
+```
 
 ## License
 
@@ -138,7 +160,10 @@ CC BY 4.0 (see `LICENSE`).
 
 ## Contact
 
-Piero Borgatta — `info@pieroborgatta.com` — Independent Researcher.
+Piero Borgatta — Independent Researcher
+
+- Email: `info@pieroborgatta.com`
+- ORCID: [0009-0001-8025-2405](https://orcid.org/0009-0001-8025-2405)
 
 Constructive feedback from researchers in symbolic dynamics, $p$-adic
 dynamical systems, and transfer operator theory is explicitly welcome.

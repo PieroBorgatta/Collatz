@@ -1,11 +1,31 @@
+# OS
 .DS_Store
-*.csv
-*.txt
+Thumbs.db
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.bak
+*~
+
+# AI assistant session data
+.claude/
+
+# Python
 __pycache__/
 *.pyc
-.claude/
+*.pyo
 .venv/
 venv/
+.pytest_cache/
+
+# Generated outputs (regenerable from scripts)
+*.csv
+*.txt
+
+# LaTeX build artifacts
 *.aux
 *.log
 *.out
@@ -13,3 +33,8 @@ venv/
 *.synctex.gz
 *.fls
 *.fdb_latexmk
+*.bbl
+*.blg
+*.nav
+*.snm
+*.vrb
