@@ -38,3 +38,6 @@ venv/
 *.nav
 *.snm
 *.vrb
+
+# Zenodo supplementary archives (generated from source)
+collatz_supplementary_*.zip
