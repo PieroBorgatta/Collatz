@@ -13,6 +13,14 @@ the criticality threshold.
 > reduction that isolates two explicit a priori estimates whose
 > resolution would imply boundedness of all Syracuse orbits.
 
+> **About this project.** This is the first artifact of a personal
+> research program by an independent researcher exploring whether
+> iterative collaboration with large language model assistants can
+> support non-standard attempts at open mathematical problems. See
+> [`METHODOLOGY.md`](METHODOLOGY.md) for the methodology, the
+> contribution split between human and AI, and the planned formal
+> verification phase (Lean 4 / Mathlib).
+
 ## Paper
 
 | Format | Link |
@@ -104,28 +112,36 @@ its supplementary appendix.
 
 ## Methodology and AI disclosure
 
-The conceptual framing of this work — the gravitational debt formalism,
-the role of $\nu_2 = 1$ corridors, the shadowing intuition, the
-strategic direction of the research — is due to the author, who has no
-formal mathematical training. The Python scripts, the mathematical
-formalization, and the LaTeX paper itself were developed with
-substantial assistance from large language models:
+The author led the research direction throughout: the conceptual
+framing (gravitational debt, $\nu_2 = 1$ corridors, the shadowing
+intuition), the strategic choices, the decision to publish at this
+stage. The technical work — Python implementation, mathematical
+formalization of the shadowing lemma and the weighted bound, and the
+LaTeX manuscript — was developed in iterative collaboration with
+large language model assistants:
 
 - **OpenAI Codex** and **Google Gemini** for the early empirical
   scripts (`scripts/early_empirical/`).
 - **Anthropic's Claude** (via the Claude Code interface) for the
-  spectral program (`scripts/spectral_program/`), the formalization of
-  the shadowing lemma and the weighted Collatz–Wielandt bound, and the
-  drafting of the paper.
+  spectral program (`scripts/spectral_program/`), the formalization
+  of the shadowing lemma and the weighted Collatz–Wielandt bound, and
+  the drafting of the paper.
 
-As of the current version, **no human mathematical expert has reviewed
-the proofs or the formal constructions**. Numerical results are
-deterministic and reproducible. Mathematical claims have not been
-externally validated. See the *Methodology and AI disclosure* section
-of the paper, and [`METHODOLOGY.md`](METHODOLOGY.md) in this
-repository, for full details.
+As of this version, the work has not been reviewed by a human
+mathematical expert. Numerical results are deterministic and
+reproducible from the supplementary scripts. Mathematical claims rest
+on AI-assisted formalization and have not been externally validated;
+the work is submitted explicitly to invite expert scrutiny.
 
-Constructive feedback from researchers is explicitly invited.
+A planned next phase is to mechanically verify the shadowing lemma in
+**Lean 4 with Mathlib**. A revised version of this preprint will
+incorporate the formal verification when complete.
+
+See [`METHODOLOGY.md`](METHODOLOGY.md) for the full methodology
+description and the contribution split.
+
+Constructive feedback from researchers in symbolic dynamics, $p$-adic
+dynamical systems, and transfer operator theory is explicitly invited.
 
 ## Citation
 

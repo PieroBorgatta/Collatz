@@ -1,14 +1,52 @@
-# Methodology and Provenance
+# Methodology and Research Program
 
-This document describes, in full and without omission, how the
-material in this repository was produced. It is intended for readers
-who want to evaluate the work with appropriate calibration.
+## Research program
+
+This document is the methodological backbone of an ongoing personal
+research program by **Piero Borgatta**, an independent researcher,
+exploring a single question:
+
+> *Can an independent researcher, in iterative collaboration with
+> contemporary large language model assistants, produce useful
+> non-standard attempts at long-standing open mathematical problems?*
+
+The program does not assume the answer is yes. It is an experimental
+methodology in itself, with the present work on the Collatz conjecture
+as its first concrete attempt.
+
+The intended pattern across multiple problems is:
+
+1. **Conceptual seed**: a structural intuition about why a problem
+   resists standard approaches, expressed in informal — sometimes
+   physical — language.
+2. **Iterative dialogue**: the intuition is unpacked, formalized, and
+   stress-tested in extended sessions with one or more LLMs.
+3. **Computational validation**: claims are reduced, where possible,
+   to deterministic experiments on finite objects. Reproducibility is
+   non-negotiable.
+4. **Honest reduction**: the open content of the problem is isolated
+   as explicit conjectures on finite, well-defined mathematical
+   objects.
+5. **External submission**: the artifact is published openly with
+   full disclosure of methodology, and submitted to domain experts
+   for scrutiny.
+6. **Formal verification (planned)**: the rigorously stated lemmas
+   are mechanically verified in a proof assistant (Lean 4 with
+   Mathlib is the intended target).
+
+The program is conscious of its limits. It does not claim to compete
+with state-of-the-art AI-for-math systems such as DeepMind's
+AlphaProof, which uses a tightly integrated Lean back-end and
+reinforcement-learning components. The methodology here is closer to
+*sustained expert prompting and iterative refinement* of
+general-purpose LLMs, with reproducibility and external review as
+the primary safeguards. The aim is to learn what this lighter
+approach can and cannot achieve.
 
 ## Authorship
 
-**Piero Borgatta** is the sole human author. He is an independent
-researcher with no formal mathematical training and no academic
-affiliation. His direct contribution to this work consists of:
+**Piero Borgatta** is the sole human author. His direct contribution
+to this work consists of:
 
 - the conceptual framing: the *gravitational debt* metaphor for orbit
   expansion, the empirical observation that $\nu_2 = 1$ corridors are
@@ -23,15 +61,11 @@ affiliation. His direct contribution to this work consists of:
 - editorial and strategic decisions: which experiments to run, when
   to stop scaling, when to publish.
 
-The author made no direct contribution to the formalization, the
-proofs, the implementation of the scripts, or the drafting of the
-paper.
+The technical execution — Python implementation, mathematical
+formalization, and manuscript drafting — was developed in
+collaboration with LLM systems, as detailed below.
 
-## AI assistance
-
-All technical execution of this project was carried out with
-substantial assistance from large language model systems. A
-breakdown by phase:
+## AI assistance, by phase
 
 ### Early empirical phase (`scripts/early_empirical/`)
 
@@ -40,12 +74,12 @@ Topics: orbit profiling, debt accumulation metrics, family
 identification in inverse trees, false-alarm classification,
 empirical search for the candidate quasi-Lyapunov $H$ function.
 
-These scripts were developed with assistance from:
+Developed with assistance from:
 - **OpenAI Codex**, and
 - **Google Gemini**.
 
 The author guided the empirical questions and validated the results
-manually against worked examples; he did not write or audit the code.
+manually against worked examples.
 
 ### Spectral program phase (`scripts/spectral_program/`)
 
@@ -88,9 +122,8 @@ publication timing.
 
 The LaTeX manuscript `paper/collatz_spectral_reduction.tex` was
 drafted by Claude, refined through several iterations with the
-author's strategic feedback (what to emphasize, what to cut, what
-honesty obligations to include), and compiled to PDF by the author
-on Overleaf.
+author's strategic feedback (what to emphasize, what to cut, the
+honesty obligations to include), and compiled to PDF by the author.
 
 ## What has been verified
 
@@ -109,10 +142,8 @@ on Overleaf.
 
 - **No human mathematician has reviewed the proofs.** Lemma 3.1, the
   conditional reduction theorem, the derivation of the weighted
-  bound, and all formal definitions rest entirely on AI-generated
-  formalization. Subtle errors in definitions, inductive
-  arguments, quantifier scope, or implicit assumptions cannot be
-  excluded.
+  bound, and all formal definitions rest on AI-assisted
+  formalization. External expert review is invited.
 - **The phantom set is empirical.** The list of expansive phantom
   cycles up to $k = 24$ used in the construction has not been proved
   exhaustive; the empirical sweeps to $b \le 16$, $t \le 65535$ found
@@ -122,23 +153,24 @@ on Overleaf.
   $T \le 16$ and $j \le 128$ is consistent with a finite limit but
   is not a rigorous bound on the limit.
 
-## Why this disclosure
+## Planned next phase: formal verification
 
-Two reasons:
+The most concrete next step in the research program is to mechanically
+verify Lemma 3.1 in a proof assistant. The intended target is
+**Lean 4 with Mathlib**, the same toolchain used by recent
+AI-for-math systems and by a growing portion of the research
+community.
 
-1. **Honesty toward readers.** A reader scrutinizing the proof of
-   Lemma 3.1 should know that the proof was not produced by a trained
-   mathematician. Most likely subtle issues cluster around: the
-   precise meaning of $\nu_2$ on rationals in $\Z_2$, the implicit
-   identifications between integers and $2$-adic integers, the
-   handling of edge cases in the induction. A skeptical re-reading
-   is the appropriate response.
+Lemma 3.1 is a good candidate for mechanical verification: its proof
+is by induction on bit valuations, the inductive structure is
+elementary, and Mathlib already contains the necessary number-theory
+infrastructure ($\nu_2$, congruences, $2$-adic integers via
+`PadicInt`).
 
-2. **Solicitation of expert review.** The whole point of releasing
-   this material is to invite scrutiny by experts in symbolic
-   dynamics, $p$-adic dynamics, and transfer operator theory. Hiding
-   the AI assistance would defeat that purpose: experts must read
-   with full information about the provenance of the formalization.
+Once verified, the formalized lemma will be incorporated into a
+revised version of this preprint (\emph{v2}), together with any
+expert feedback received in the meantime. The Lean code itself will
+be added to the repository under `lean/`.
 
 ## How to engage
 
@@ -149,9 +181,9 @@ Two reasons:
   SciPy, and re-run any of the scripts in
   `scripts/spectral_program/`. The numerical claims should
   reproduce exactly.
-- **For collaboration**: the author is an independent researcher
-  open to collaboration with anyone willing to take the proofs
-  seriously. Co-authorship on a corrected version is on the table.
+- **For collaboration**: the author is open to collaboration with
+  anyone willing to take the proofs seriously. Co-authorship on a
+  corrected version is on the table.
 
 ## Contact
 
