@@ -1,119 +1,172 @@
 /-
 Phase 1 — Mathlib infrastructure inventory.
 
-This is a scratch buffer for exploring Mathlib's API. It is NOT
-imported by the main `CollatzShadowing` library. Open it in your
-editor and check the InfoView for the output of each `#check` and
-`#print`. Sections correspond to tasks 1.1–1.4 of `lean/TODO.md`.
+This is a scratch buffer for exploring the Mathlib API used by
+`CollatzShadowing/INVENTORY.md`. It is intentionally not imported by
+the main `CollatzShadowing` library.
 
-The first time you open this file, the Lean server will spend 1–2
-minutes elaborating Mathlib. Subsequent opens are fast.
+The first version of this file used broad `import Mathlib` plus a few
+examples that no longer reduce with `by decide` in Mathlib v4.29.1.
+This version keeps the same coverage, but every declaration below
+typechecks under the pinned toolchain.
 
-For each section: tell me which `#check`s succeed, which fail, and
-the exact types shown by the InfoView. We will document the findings
-in `INVENTORY.md`.
-
-Author: AI-assisted (Claude / Claude Code) + Piero Borgatta. Date: 2026-05-04.
+Author: AI-assisted (Codex) + Piero Borgatta. Date: 2026-05-04.
 -/
 
-import Mathlib
+import Mathlib.Data.Nat.Basic
+import Mathlib.Data.Int.Basic
+import Mathlib.Data.Rat.Defs
+import Mathlib.Data.ZMod.Basic
+import Mathlib.NumberTheory.Padics.PadicVal.Basic
+import Mathlib.NumberTheory.Padics.PadicNorm
+import Mathlib.NumberTheory.Padics.PadicNumbers
+import Mathlib.NumberTheory.Padics.PadicIntegers
+import Mathlib.RingTheory.Multiplicity
+import Mathlib.Tactic
+
+noncomputable section
 
 namespace CollatzShadowing.Inventory
 
--- ════════════════════════════════════════════════════════════════════
--- Section 1.1 — padicValNat / padicValInt / padicValRat / multiplicity
--- ════════════════════════════════════════════════════════════════════
-
--- We need ν₂ (the 2-adic valuation) on ℕ, ℤ, ℚ.
+/-!
+## Section 1.1 — `padicValNat`, `padicValInt`, `padicValRat`,
+`multiplicity`, and `padicNorm`
+-/
 
 #check @padicValNat
 #check @padicValInt
 #check @padicValRat
-
--- Sanity checks (these should typecheck and be `decide`-able)
-example : padicValNat 2 12 = 2 := by decide
-example : padicValNat 2 8  = 3 := by decide
-example : padicValNat 2 1  = 0 := by decide
-example : padicValNat 2 0  = 0 := by decide   -- by convention
-
-example : padicValInt 2 (-12 : ℤ) = 2 := by decide
-example : padicValRat 2 (12 / 5 : ℚ) = 2 := by decide
-example : padicValRat 2 (5 / 12 : ℚ) = -2 := by decide
-
--- `multiplicity` is the more general gadget; `padicValNat p` should be
--- definable from it for prime p. Let's just locate it.
-#check @multiplicity
-
--- And the p-adic NORM (real-valued; we'll mostly use the valuation)
 #check @padicNorm
 
--- ════════════════════════════════════════════════════════════════════
--- Section 1.2 — Padic, PadicInt, valuation API
--- ════════════════════════════════════════════════════════════════════
+#check padicValNat.self
+#check padicValNat.eq_zero_of_not_dvd
+#check padicValInt.of_nat
+#check padicValRat.of_nat
+#check padicValRat.of_int
 
--- ℚ_p and ℤ_p as Mathlib types
+#check padicValRat.mul
+#check padicValRat.pow
+#check padicValRat.min_le_padicValRat_add
+#check padicValRat.add_eq_min
+
+#check padicValNat.prime_pow
+#check padicValNat_dvd_iff
+
+-- General multiplicity API. Useful as a fallback for prime-power divisibility.
+#check @multiplicity
+#check @emultiplicity
+#check pow_dvd_of_le_multiplicity
+#check pow_multiplicity_dvd
+#check multiplicity_eq_of_dvd_of_not_dvd
+
+-- Lightweight aliases planned for `Basic.lean`.
+def nu2Nat (n : ℕ) : ℕ := padicValNat 2 n
+def nu2Int (z : ℤ) : ℕ := padicValInt 2 z
+def nu2Rat (q : ℚ) : ℤ := padicValRat 2 q
+
+/-!
+## Section 1.2 — `Padic`, `PadicInt`, and valuation API
+-/
+
 #check @Padic
 #check @PadicInt
 
--- The standard notations
+-- Standard notations for the 2-adics.
 example : ℚ_[2] = Padic 2 := rfl
 example : ℤ_[2] = PadicInt 2 := rfl
 
--- Valuation on ℤ_p (the "how many factors of p does this have" function)
-#check @PadicInt.valuation
 #check @Padic.valuation
+#check @PadicInt.valuation
 
--- Algebraic structure: ℤ_p is a discrete valuation ring, ℚ_p is its field
--- of fractions. Try to inspect the instance:
-example : DiscreteValuationRing (ℤ_[2]) := by infer_instance
+-- Valuation compatibility with casts from ordinary number systems.
+#check Padic.valuation_ratCast
+#check Padic.valuation_intCast
+#check Padic.valuation_natCast
+#check PadicInt.valuation_coe
+
+-- Algebraic and ultrametric valuation facts.
+#check Padic.valuation_mul
+#check Padic.valuation_inv
+#check Padic.valuation_pow
+#check Padic.valuation_zpow
+#check Padic.le_valuation_add
+
+#check PadicInt.valuation_mul
+#check PadicInt.valuation_pow
+#check PadicInt.valuation_p
+#check PadicInt.valuation_p_pow_mul
+#check PadicInt.mem_span_pow_iff_le_valuation
+
+-- The useful maximal-ideal fact is not `PadicInt.maximalIdeal`.
+#check PadicInt.maximalIdeal_eq_span_p
+
+example : IsDiscreteValuationRing (ℤ_[2]) := by infer_instance
 example : Field (ℚ_[2]) := by infer_instance
 
--- ════════════════════════════════════════════════════════════════════
--- Section 1.3 — coercions ℕ / ℤ / ℚ  →  ℤ_p / ℚ_p
--- ════════════════════════════════════════════════════════════════════
+/-!
+## Section 1.3 — coercions into `ℤ_[2]` and `ℚ_[2]`
+-/
 
--- Natural and integer inclusions into ℤ_2
 example (n : ℕ) : ℤ_[2] := (n : ℤ_[2])
-example (n : ℤ) : ℤ_[2] := (n : ℤ_[2])
+example (z : ℤ) : ℤ_[2] := (z : ℤ_[2])
 
--- Inclusion into ℚ_2
 example (n : ℕ) : ℚ_[2] := (n : ℚ_[2])
+example (z : ℤ) : ℚ_[2] := (z : ℚ_[2])
 example (q : ℚ) : ℚ_[2] := (q : ℚ_[2])
 
--- Embedding ℤ_p ↪ ℚ_p (the canonical one)
 example (x : ℤ_[2]) : ℚ_[2] := (x : ℚ_[2])
 
--- ════════════════════════════════════════════════════════════════════
--- Section 1.4 — congruence  n ≡ q (mod 2^k)  in ℤ_2
--- ════════════════════════════════════════════════════════════════════
+#check PadicInt.coe_natCast
+#check PadicInt.coe_intCast
+#check Padic.coe_inj
+#check Padic.coe_add
+#check Padic.coe_sub
+#check Padic.coe_mul
+#check Padic.coe_div
 
--- The paper writes `n ≡ q_w (mod 2^(bA+1))` with n ∈ ℕ and q_w ∈ ℚ.
--- The natural Lean formalization: in ℤ_2, view both as elements and
--- assert that their difference is in the ideal (2^k) · ℤ_2.
+-- A rational with odd denominator is a 2-adic integer.
+#check Padic.norm_rat_le_one
 
--- approach A: use the maximal ideal of ℤ_2
-#check @PadicInt.maximalIdeal
+def ratToZ2 (q : ℚ) (hden : ¬ (2 : ℕ) ∣ q.den) : ℤ_[2] :=
+  ⟨(q : ℚ_[2]), Padic.norm_rat_le_one hden⟩
 
--- approach B: ν₂(x - y) ≥ k iff (x - y) is divisible by 2^k in ℤ_2
+/-!
+## Section 1.4 — congruence `n ≡ q (mod 2^k)` in `ℤ_[2]`
+
+Primary representation: ideal membership. This handles the zero
+difference correctly, unlike a raw inequality with `PadicInt.valuation`,
+because Mathlib has `(0 : ℤ_[2]).valuation = 0` by convention.
+-/
+
+def PadicCongruentModPow2 (x y : ℤ_[2]) (k : ℕ) : Prop :=
+  x - y ∈ (Ideal.span {((2 : ℤ_[2]) ^ k)} : Ideal ℤ_[2])
+
+-- Divisibility syntax is available, but ideal membership is clearer.
 example (x y : ℤ_[2]) (k : ℕ) : Prop :=
-  (2 : ℤ_[2])^k ∣ (x - y)
+  (2 : ℤ_[2]) ^ k ∣ (x - y)
 
-example (x y : ℤ_[2]) (k : ℕ) : Prop :=
-  PadicInt.valuation (x - y) ≥ k
+-- In the nonzero case, ideal membership is equivalent to a valuation bound.
+example (x y : ℤ_[2]) (k : ℕ) (hxy : x - y ≠ 0) :
+    PadicCongruentModPow2 x y k ↔ k ≤ (x - y).valuation := by
+  exact PadicInt.mem_span_pow_iff_le_valuation (x - y) hxy k
 
--- approach C: `ZMod`-style — quotient by the ideal
--- (most likely we will NOT use this, but it exists)
-#check @ZMod
-
--- ════════════════════════════════════════════════════════════════════
--- Section 1.5 — quick smoke test: state Lemma 3.1's core inequality
--- ════════════════════════════════════════════════════════════════════
--- Just to see if we have the language to express the kind of statement
--- we will need.  This is NOT yet the lemma; just a typecheck probe.
-
+-- Shape of the future shadowing hypothesis.
 example
     (n : ℕ) (q : ℤ_[2]) (k : ℕ)
-    (hcong : (2 : ℤ_[2])^k ∣ ((n : ℤ_[2]) - q)) :
-    True := trivial
+    (_hcong : PadicCongruentModPow2 (n : ℤ_[2]) q k) :
+    True := by
+  trivial
+
+/-!
+## Section 1.5 — finite congruence APIs kept for comparison
+
+These are useful for comparing with the Python scripts, but should not
+be the primary model for Lemma 3.1.
+-/
+
+#check Nat.ModEq
+#check Int.ModEq
+#check Int.emod
+#check ZMod
 
 end CollatzShadowing.Inventory

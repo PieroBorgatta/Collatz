@@ -76,14 +76,19 @@ When you complete or partially advance a task:
 
 ## Current status (most recent first)
 
-> *Last updated: 2026-05-04 — Phase 0 complete.*
+> *Last updated: 2026-05-04 — Phase 1 complete.*
 
 - **Phase 0 complete.** Lake project initialized with `math` template,
   pinned to **Lean 4 v4.29.1** and **Mathlib v4.29.1**. Mathlib
   precompiled cache downloaded (~7 GB in `lean/.lake/`). `lake build`
   succeeds on the placeholder file `CollatzShadowing/Basic.lean`.
-- The next concrete action is **Phase 1, Task 1.1**: locate Mathlib's
-  API for `padicValNat`, `multiplicity`, `padicNorm`.
+- **Phase 1 complete.** `CollatzShadowing/INVENTORY.md`
+  documents the relevant Mathlib API for `padicValNat`, `multiplicity`,
+  `padicNorm`, `Padic`, `PadicInt`, coercions, and the chosen
+  congruence model in `ℤ_[2]`. `CollatzShadowing/Inventory.lean` is the
+  corresponding typechecked Lean scratch buffer.
+- The next concrete action is **Phase 2, Task 2.1**: define the
+  accelerated Syracuse map and the basic `ν₂` aliases in `Basic.lean`.
 
 ---
 
@@ -138,11 +143,11 @@ coding.
 
 | ID | Status | Task | Acceptance criterion |
 |----|--------|------|----------------------|
-| 1.1 | [ ] | Locate Mathlib's API for `padicValNat`, `multiplicity`, and `padicNorm`. | A list of relevant lemma names with imports. |
-| 1.2 | [ ] | Locate Mathlib's `Padic`, `PadicInt`, `Padic.valuation`. | Same. |
-| 1.3 | [ ] | Find how to coerce `ℚ → ℚ_2` and `ℤ → ℤ_2` in Mathlib. | Working snippet. |
-| 1.4 | [ ] | Identify how to express congruence `n ≡ q (mod 2^k)` when `q ∈ ℚ` (or, equivalently, in `ℤ_2`). | A type-checked statement template. |
-| 1.5 | [ ] | Document gaps and approaches in `lean/CollatzShadowing/INVENTORY.md`. | File committed. |
+| 1.1 | [x] | Locate Mathlib's API for `padicValNat`, `multiplicity`, and `padicNorm`. | `CollatzShadowing/INVENTORY.md` lists relevant imports and lemma names. |
+| 1.2 | [x] | Locate Mathlib's `Padic`, `PadicInt`, `Padic.valuation`. | `Padic`, `PadicInt`, `Padic.valuation`, `PadicInt.valuation`, and valuation lemmas documented. |
+| 1.3 | [x] | Find how to coerce `ℚ → ℚ_2` and `ℤ → ℤ_2` in Mathlib. | Working snippets documented, including rational-to-`ℤ_[2]` when the denominator is odd. |
+| 1.4 | [x] | Identify how to express congruence `n ≡ q (mod 2^k)` when `q ∈ ℚ` (or, equivalently, in `ℤ_2`). | Use ideal membership `x - y ∈ Ideal.span {((2 : ℤ_[2]) ^ k)}`; type-checked equivalence with valuation in the nonzero case documented. |
+| 1.5 | [x] | Document gaps and approaches in `lean/CollatzShadowing/INVENTORY.md`. | `INVENTORY.md` written; `Inventory.lean` rebuilt as the typechecked scratch buffer. |
 
 Note on 1.4: this is the single most subtle modeling question. The paper
 states `n ≡ q_w (mod 2^(bA+1))` where `n ∈ ℕ` and `q_w ∈ ℚ`. The most
@@ -239,6 +244,35 @@ incorporates the Lean formalization.
 > - Notes: any blockers, open questions, things the next session should know
 > - Next recommended task: X.Y
 > ```
+
+### 2026-05-04 — Codex + Piero Borgatta
+
+- Tasks advanced: **1.1, 1.2, 1.3, 1.4, 1.5 — all of Phase 1.**
+- Artifacts produced:
+  - `lean/CollatzShadowing/Inventory.lean` (rebuilt as a complete,
+    typechecked Phase 1 scratch buffer)
+  - `lean/CollatzShadowing/INVENTORY.md`
+- Cleanup:
+  - Removed temporary smoke-test files
+    `lean/CollatzShadowing/Smoke.lean` and
+    `lean/CollatzShadowing/SmokePure.lean`.
+- Notes:
+  - `lake build` succeeds when invoked through
+    `/Volumes/AFUOCO/MAC/Applicazioni/elan/bin/lake`; plain `lake` is
+    not currently on Codex's shell `PATH`.
+  - The preferred Lean model for `n ≡ q_w (mod 2^k)` is ideal
+    membership in `ℤ_[2]`:
+    `(n : ℤ_[2]) - q_w ∈ Ideal.span {((2 : ℤ_[2]) ^ k)}`.
+  - Do not use `k ≤ (x - y).valuation` as the primary definition,
+    because Mathlib has `(0 : ℤ_[2]).valuation = 0`; use it only after
+    splitting off the zero case.
+  - A rational `q : ℚ` can be represented as an element of `ℤ_[2]` when
+    `¬ 2 ∣ q.den`, via `⟨(q : ℚ_[2]), Padic.norm_rat_le_one hden⟩`.
+  - The original broad `Inventory.lean` failed under Mathlib v4.29.1
+    because some `by decide` valuation examples do not reduce and the
+    maximal-ideal API name is `PadicInt.maximalIdeal_eq_span_p`, not
+    `PadicInt.maximalIdeal`.
+- Next recommended task: start **2.1/2.2** in `Basic.lean`.
 
 ### 2026-05-04 (later) — Claude (Claude Code) + Piero Borgatta
 
