@@ -747,19 +747,48 @@ finite explicit family of nonnegative matrices}, supported by
 numerical evidence with a $16\times$ safety margin. We do not
 claim the conjecture itself.
 
-\section*{Acknowledgments}
+\section*{Methodology and AI disclosure}
 
-This work was developed iteratively in conversation with large
-language model assistants (Claude, with comparative checks against
-GPT and Gemini at later stages). The conceptual framing
-(gravitational debt, $2$-adic corridors, confluence families) and
-the strategic decisions about what to investigate are due to the
-author. The technical formalization (transfer operator, weighted
-Collatz--Wielandt, perturbative decomposition) and the
-implementation of the supporting scripts were carried out
-collaboratively. The numerical experiments are deterministic and
-reproducible from the supplementary scripts; any errors in the
-mathematical formulations are the responsibility of the author.
+This work was carried out by the author in iterative collaboration with
+multiple large language model assistants. A clear separation between
+contributions is essential for the reader's correct evaluation of the
+material.
+
+\paragraph{Author's contribution.}
+The conceptual framing is due to the author: the gravitational debt
+metaphor, the empirical identification of $\nu_2 = 1$ corridors as the
+locus of expansive behavior, the structural intuition that integer
+rebels shadow negative rational fixed points of $S$, the strategic
+pivot from the empirical Lyapunov candidates of the earlier phase to
+the present spectral program, and the decision to publish at this
+stage. The author has no formal mathematical training and made no
+direct technical contribution to the formalization, the implementation,
+or the proofs.
+
+\paragraph{AI assistance.}
+The Python scripts in \texttt{scripts/early\_empirical/} (the
+quasi-Lyapunov phase) were developed with assistance from OpenAI Codex
+and Google Gemini. The Python scripts in
+\texttt{scripts/spectral\_program/} (the present spectral reduction),
+the mathematical formalization of Lemma~\ref{lem:shadowing} and the
+weighted Collatz--Wielandt bound of Section~\ref{sec:bound}, and the
+LaTeX drafting of this paper were carried out with substantial
+assistance from Anthropic's Claude (via the Claude Code interface).
+
+\paragraph{Critical limitation.}
+As of the present version, no human mathematical expert has reviewed
+the proofs, the formal definitions, or the construction of the
+transfer operator. The numerical results are deterministic and
+reproducible from the supplementary scripts and may be checked
+independently. The mathematical claims, however, rest on AI-generated
+formalization that has not been externally validated. Subtle errors in
+definitions, inductive arguments, or quantifier manipulations cannot
+be excluded. Readers are invited, and indeed urged, to scrutinize
+Sections~\ref{sec:shadowing}, \ref{sec:operator}, and
+\ref{sec:bound} with particular care, and the author explicitly
+welcomes correspondence from researchers in symbolic dynamics,
+$p$-adic dynamical systems, and transfer operator theory before any
+portion of this material is treated as established.
 
 \begin{thebibliography}{9}
 

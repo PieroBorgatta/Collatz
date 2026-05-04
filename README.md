@@ -93,6 +93,7 @@ this out.
 │   └── archive/                          Earlier reports (Italian)
 │
 ├── README.md
+├── METHODOLOGY.md                   AI assistance and provenance disclosure
 ├── LICENSE                          CC BY 4.0
 └── .gitignore
 ```
@@ -100,6 +101,31 @@ this out.
 The scripts are numbered roughly chronologically by the order in which
 they were developed. The ones referenced in the paper are listed in
 its supplementary appendix.
+
+## Methodology and AI disclosure
+
+The conceptual framing of this work — the gravitational debt formalism,
+the role of $\nu_2 = 1$ corridors, the shadowing intuition, the
+strategic direction of the research — is due to the author, who has no
+formal mathematical training. The Python scripts, the mathematical
+formalization, and the LaTeX paper itself were developed with
+substantial assistance from large language models:
+
+- **OpenAI Codex** and **Google Gemini** for the early empirical
+  scripts (`scripts/early_empirical/`).
+- **Anthropic's Claude** (via the Claude Code interface) for the
+  spectral program (`scripts/spectral_program/`), the formalization of
+  the shadowing lemma and the weighted Collatz–Wielandt bound, and the
+  drafting of the paper.
+
+As of the current version, **no human mathematical expert has reviewed
+the proofs or the formal constructions**. Numerical results are
+deterministic and reproducible. Mathematical claims have not been
+externally validated. See the *Methodology and AI disclosure* section
+of the paper, and [`METHODOLOGY.md`](METHODOLOGY.md) in this
+repository, for full details.
+
+Constructive feedback from researchers is explicitly invited.
 
 ## Citation
 
