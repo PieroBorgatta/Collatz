@@ -76,7 +76,7 @@ When you complete or partially advance a task:
 
 ## Current status (most recent first)
 
-> *Last updated: 2026-05-04 — Phase 1 complete.*
+> *Last updated: 2026-05-04 — Phase 2 complete (Lemma 3.1 stated with `sorry`).*
 
 - **Phase 0 complete.** Lake project initialized with `math` template,
   pinned to **Lean 4 v4.29.1** and **Mathlib v4.29.1**. Mathlib
@@ -87,8 +87,32 @@ When you complete or partially advance a task:
   `padicNorm`, `Padic`, `PadicInt`, coercions, and the chosen
   congruence model in `ℤ_[2]`. `CollatzShadowing/Inventory.lean` is the
   corresponding typechecked Lean scratch buffer.
-- The next concrete action is **Phase 2, Task 2.1**: define the
-  accelerated Syracuse map and the basic `ν₂` aliases in `Basic.lean`.
+- **Phase 2 Basic definitions complete.** `CollatzShadowing/Basic.lean`
+  now defines the accelerated Syracuse map `S`, aliases for `ν₂` on
+  `ℕ`, `ℤ`, `ℚ`, and the Mathlib valuation on `ℤ_[2]`.
+- **Task 2.4 complete.** `CollatzShadowing/Phantom.lean` defines
+  `structure PhantomWord` (nonempty list of positive naturals), with
+  projections `length` and `A` (per-period exponent sum).
+- **Tasks 2.5 + 2.6 complete.** Same file now defines
+  `affineFoldStep`, the `(C_j, A_j)` fold from eq. (3.1), the named
+  coefficients `Cw`, `Aw`, the equality `Aw_eq_A`, and the affine
+  Syracuse map `S_w : ℤ_[2] → ℚ_[2]` (the codomain is `ℚ_[2]`, not
+  `ℤ_[2]`, since `2` is not a unit in `ℤ_[2]`; this matches the
+  recommendation in `INVENTORY.md` Open Gaps).
+- **Tasks 2.7 + 2.8 complete.** `Phantom.lean` adds `aAt` (periodic
+  extension), `B` (periodic partial sum, closed-form
+  `(m/L)·A + sum (take (m%L) vals)`), `qwRat` (rational fixed point),
+  the `QwOddDen` hypothesis, and `qwZ2` (the `ℤ_[2]` representative
+  parameterised by that hypothesis).
+- **Task 2.9 complete.** New file `CollatzShadowing/Shadowing.lean`
+  contains `PadicCongruentModPow2` (ideal-membership formulation per
+  INVENTORY §1.4) and the statements `exact_shadowing` and
+  `exact_shadowing_periods` (Lemma 3.1 and its periodic specialisation),
+  both with `:= sorry`. `lake build` succeeds with exactly two
+  expected `sorry` warnings.
+- **Phase 2 is now complete.** Next concrete action is **Phase 3,
+  Task 3.1**: prove `ν₂(3·n) = ν₂(n)` for `n ∈ ℤ_[2]` (the first
+  auxiliary lemma needed by the inductive proof of Lemma 3.1).
 
 ---
 
@@ -164,15 +188,15 @@ codebase, and the lemma statement compiles with `sorry` as proof.
 
 | ID | Status | Task | File | Acceptance criterion |
 |----|--------|------|------|----------------------|
-| 2.1 | [ ] | Define accelerated Syracuse map `S : ℕ → ℕ` for odd inputs. | `Basic.lean` | `#check S` works. |
-| 2.2 | [ ] | Define `ν₂` (alias for `padicValNat 2`). | `Basic.lean` | Same. |
-| 2.3 | [ ] | Extend `ν₂` to `ℤ_2 \ {0}` (Mathlib should already cover this). | `Basic.lean` | Same. |
-| 2.4 | [ ] | Define `PhantomWord := List ℕ` with a positivity constraint on each entry. | `Phantom.lean` | Same. |
-| 2.5 | [ ] | Define affine map `S_w : ℤ_2 → ℤ_2` for a phantom word `w`. | `Phantom.lean` | `S_w` of length-1 word equals one Syracuse step on the natural inclusion. |
-| 2.6 | [ ] | Define `C_w` and `A_w` via the recursion of paper eq. (3.1). | `Phantom.lean` | Manual check against paper for `w = [1]`. |
-| 2.7 | [ ] | Define `q_w := C_w / (2^A_w - 3^L)` as an element of `ℤ_2` (when defined). | `Phantom.lean` | Same. |
-| 2.8 | [ ] | Define partial sum `B_m := List.take m (cycle w)).sum`. | `Phantom.lean` | Same. |
-| 2.9 | [ ] | State Lemma 3.1 with `:= sorry` proof. | `Shadowing.lean` | `lake build` succeeds, file is non-empty. |
+| 2.1 | [x] | Define accelerated Syracuse map `S : ℕ → ℕ` for odd inputs. | `Basic.lean` | `#check CollatzShadowing.S` works. |
+| 2.2 | [x] | Define `ν₂` (alias for `padicValNat 2`). | `Basic.lean` | `#check CollatzShadowing.ν₂` works. |
+| 2.3 | [x] | Extend `ν₂` to `ℤ_2 \ {0}` (Mathlib should already cover this). | `Basic.lean` | `nu2Z2` and `ν₂Z2` wrap `PadicInt.valuation`; `#check CollatzShadowing.nu2Z2` works. |
+| 2.4 | [x] | Define `PhantomWord := List ℕ` with a positivity constraint on each entry. | `Phantom.lean` | `structure PhantomWord` with `vals`, `nonempty`, `positive` fields plus `length`/`A` projections; `#check CollatzShadowing.PhantomWord` succeeds. |
+| 2.5 | [x] | Define affine map `S_w` for a phantom word `w`. | `Phantom.lean` | `S_w : PhantomWord → ℤ_[2] → ℚ_[2]`. Acceptance check: for `w = [1]`, `S_w x = (3·x + 1)/2` in `ℚ_[2]` (proved by `simp` from the unfolded fold). Note: codomain is `ℚ_[2]`, not `ℤ_[2]`, since `2` is not a unit in `ℤ_[2]`. |
+| 2.6 | [x] | Define `C_w` and `A_w` via the recursion of paper eq. (3.1). | `Phantom.lean` | `affineFoldStep`, `affineCoeffs`, `Cw`, `Aw` defined; `Aw_eq_A` proves `Aw w = w.A`. For `w = [1]`: `Cw = 1`, `Aw = 1` by `rfl` (matches paper). |
+| 2.7 | [x] | Define `q_w := C_w / (2^A_w - 3^L)` as an element of `ℤ_2` (when defined). | `Phantom.lean` | `qwRat : PhantomWord → ℚ` (smoke-checked: `qwRat phantomOne = -1`), `QwOddDen` hypothesis, `qwZ2 : (w : PhantomWord) → QwOddDen w → ℤ_[2]` via `Padic.norm_rat_le_one`. Proof of `QwOddDen` for expansive phantoms deferred to Phase 3. |
+| 2.8 | [x] | Define partial sum `B_m := List.take m (cycle w)).sum`. | `Phantom.lean` | `B w m := (m/L)·A + sum (take (m%L) vals)`; `aAt w j := vals.getD (j%L) 0` (the periodic extension `a_j`). Smoke-checked: `phantomOne.B m = m`, `phantomOne.aAt j = 1`. |
+| 2.9 | [x] | State Lemma 3.1 with `:= sorry` proof. | `Shadowing.lean` | New file with `PadicCongruentModPow2`, `exact_shadowing`, `exact_shadowing_periods`. `lake build` succeeds with only the two intentional `sorry`s. |
 
 ---
 
@@ -244,6 +268,133 @@ incorporates the Lean formalization.
 > - Notes: any blockers, open questions, things the next session should know
 > - Next recommended task: X.Y
 > ```
+
+### 2026-05-04 (Phase 2 close) — Claude (Claude Code) + Piero Borgatta
+
+- Tasks advanced: **2.7, 2.8, 2.9 — Phase 2 is now complete.**
+- Artifacts:
+  - `lean/CollatzShadowing/Phantom.lean` (added `aAt`, `B`, `qwRat`,
+    `QwOddDen`, `qwZ2`).
+  - `lean/CollatzShadowing/Shadowing.lean` (new file:
+    `PadicCongruentModPow2`, `exact_shadowing`,
+    `exact_shadowing_periods`).
+  - `lean/CollatzShadowing.lean` (re-exports `Shadowing`).
+- Notes:
+  - `aAt`/`B` use closed-form arithmetic (`Nat`-level division and
+    modulo) rather than building a flattened cycle list. Smoke-checked
+    against `phantomOne` by `change ... ; rw ; simp`.
+  - `qwZ2` is parameterised by `QwOddDen w := ¬ (2 : ℕ) ∣ (qwRat w).den`,
+    rather than hard-coding the proof inside the definition. This
+    keeps `Phantom.lean` `sorry`-free and pushes the
+    odd-denominator obligation to the caller (Phase 3 will discharge
+    it for expansive phantoms via the structural identity
+    `parity(2^A − 3^L) = odd`).
+  - `exact_shadowing` is stated using `syracuseExponent (S^[j] n) =
+    aAt w j` for `j < m`. This is the operational form of the paper's
+    "first `m` Syracuse steps have ν₂-word `(a_0, ..., a_{m-1})`".
+  - `exact_shadowing_periods` is the `m = b·L` specialisation; both
+    statements have `sorry` as proof per the Phase-2 acceptance
+    criterion.
+  - Encountered two API surprises during this round:
+    1. `List.get?` no longer exists in Mathlib v4.29.1 — switched to
+       `List.getD ... default` (still core).
+    2. `simp` does not auto-rewrite `m % 1 = 0`; explicit
+       `rw [Nat.mod_one, Nat.div_one]` was needed in the `B` smoke
+       check before the rest reduces.
+  - Final `lake build`: success, with exactly the two expected `sorry`
+    warnings on `exact_shadowing` and `exact_shadowing_periods`.
+- Next recommended task: **3.1** — prove `ν₂(3·n) = ν₂(n)` for
+  `n ∈ ℤ_[2]`.
+
+### 2026-05-04 (later still) — Claude (Claude Code) + Piero Borgatta
+
+- Tasks advanced: **2.5, 2.6.** Bundled because the `(C_j, A_j)`
+  recursion that defines `S_w` is exactly the content of 2.6.
+- Artifacts modified:
+  - `lean/CollatzShadowing/Phantom.lean` (additions; same file as 2.4).
+- New declarations:
+  - `affineFoldStep : ℕ × ℕ → ℕ → ℕ × ℕ` — one step of eq. (3.1).
+  - `PhantomWord.affineCoeffs : PhantomWord → ℕ × ℕ`,
+    `PhantomWord.Cw`, `PhantomWord.Aw` — the named coefficients.
+  - `PhantomWord.Aw_eq_A : ∀ w, w.Aw = w.A` — internal coherence
+    between the fold-defined exponent and the simple list sum.
+  - `S_w : PhantomWord → ℤ_[2] → ℚ_[2]` — the affine Syracuse map.
+- Notes:
+  - Followed `INVENTORY.md` Open Gaps: `S_w` lands in `ℚ_[2]`, not
+    `ℤ_[2]`, because `2 : ℤ_[2]` is not a unit. The acceptance
+    criterion in the original 2.5 row of TODO ("S_w of length-1 word
+    equals one Syracuse step on the natural inclusion") is realised in
+    its algebraic form (`= (3·x + 1)/2`); the integer-level identity
+    `(S_w phantomOne (n : ℤ_[2]) : ℚ_[2]) = (S n : ℚ_[2])` for odd `n`
+    with `ν₂(3n+1) = 1` is left to the proof phase, since it requires
+    a Padic cast lemma that has no place in a Phase-2 definition file.
+  - `Aw_eq_A` proven by an auxiliary `affineFold_snd_eq` showing the
+    fold's second component is additive in the starting state.
+  - Verified with `lake build` (success) and `#check`s on `S_w`, `Cw`,
+    `Aw`, `Aw_eq_A`, `affineFoldStep`.
+- Operational fix done in this session:
+  - Moved `export ELAN_HOME=...` and the `PATH` augmentation from
+    `~/.zshrc` to `~/.zshenv` so that non-interactive subshells (used
+    by Claude Code's Bash tool, build agents, etc.) inherit them.
+    Cleaned up three duplicate copies in `~/.zshrc`. Removed
+    `~/.elan/` (a 2.5 GB toolchain that elan had silently created in
+    `$HOME` because non-interactive subshells didn't see `ELAN_HOME`).
+    The toolchain on `/Volumes/AFUOCO/MAC/Applicazioni/elan/` is the
+    sole remaining copy and `lake build` succeeds against it.
+- Next recommended task: **2.7** — define `q_w : ℤ_[2]` via
+  `ratToZ2` (`Padic.norm_rat_le_one`), with a proof that the
+  denominator `2^A_w - 3^L` is odd.
+
+### 2026-05-04 (later) — Claude (Claude Code) + Piero Borgatta
+
+- Tasks advanced: **2.4.**
+- Artifacts produced:
+  - `lean/CollatzShadowing/Phantom.lean` (new file)
+  - `lean/CollatzShadowing.lean` (re-exports `CollatzShadowing.Phantom`)
+- Notes:
+  - Followed the design prescribed in `INVENTORY.md` §1.5: a `structure`
+    with fields `vals : List ℕ`, `nonempty : vals ≠ []`, and
+    `positive : ∀ a ∈ vals, 0 < a`. Chose `structure` over a bare
+    subtype so downstream files can pattern-match on the fields without
+    repeated unfolding.
+  - Added projections `PhantomWord.length` and `PhantomWord.A` (the
+    per-period exponent sum) since they are zero-risk and feed
+    immediately into 2.5–2.7.
+  - Smoke fixture `phantomOne : PhantomWord` (the word `[1]`) sanity
+    checks that the structure can be inhabited; `phantomOne.length = 1`
+    and `phantomOne.A = 1` hold by `rfl`.
+  - Deferred any Mathlib-API-heavy helpers (e.g. `length ≤ A`) to
+    Phase 3 to avoid speculating on lemma names before the proofs need
+    them.
+  - Toolchain: this Codex session triggered the first download of
+    `leanprover/lean4:v4.29.1` to `~/.elan/toolchains/`. After that,
+    `lake build` succeeded with `Build completed successfully (1795
+    jobs).` and explicit `#check`s on `PhantomWord`, `PhantomWord.length`,
+    `PhantomWord.A`, and `phantomOne` all type-check.
+- Next recommended task: **2.5** — define `S_w : ℤ_[2] → ℤ_[2]` and the
+  fold producing `(C_j, A_j)` from `eq. (3.1)`.
+
+### 2026-05-04 — Codex + Piero Borgatta
+
+- Tasks advanced: **2.1, 2.2, 2.3.**
+- Artifacts produced:
+  - `lean/CollatzShadowing/Basic.lean`
+- Notes:
+  - Replaced the Lake placeholder `def hello := "world"`.
+  - Added `nu2Nat`, Unicode alias `ν₂`, `nu2Int`, `nu2Rat`,
+    noncomputable `nu2Z2`/`ν₂Z2`, `syracuseNumerator`,
+    `syracuseExponent`, `S`, and `syracuseOddStep`.
+  - `S` is total on `ℕ`, with later theorem statements expected to
+    carry positivity/oddness hypotheses for the intended Syracuse use.
+  - `PadicInt.valuation` is noncomputable, so only the `ℤ_[2]`
+    valuation aliases are marked `noncomputable`.
+  - Verified:
+    `/Volumes/AFUOCO/MAC/Applicazioni/elan/bin/lake env lean CollatzShadowing/Basic.lean`,
+    `/Volumes/AFUOCO/MAC/Applicazioni/elan/bin/lake build`, and
+    explicit `#check`s for `CollatzShadowing.S`, `CollatzShadowing.ν₂`,
+    and `CollatzShadowing.nu2Z2`.
+- Next recommended task: **2.4** — create `Phantom.lean` and define
+  `PhantomWord`.
 
 ### 2026-05-04 — Codex + Piero Borgatta
 

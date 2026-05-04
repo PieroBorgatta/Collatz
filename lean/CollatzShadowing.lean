@@ -1,1 +1,3 @@
 import CollatzShadowing.Basic
+import CollatzShadowing.Phantom
+import CollatzShadowing.Shadowing
