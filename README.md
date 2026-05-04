@@ -1,8 +1,8 @@
 # A Spectral Reduction of the Collatz Conjecture via Phantom Orbit Shadowing
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20021538.svg)](https://doi.org/10.5281/zenodo.20021538)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20021537-1682d4?logo=doi&logoColor=white)](https://doi.org/10.5281/zenodo.20021537)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![ORCID](https://img.shields.io/badge/ORCID-0009--0001--8025--2405-A6CE39?logo=orcid)](https://orcid.org/0009-0001-8025-2405)
+[![ORCID](https://img.shields.io/badge/ORCID-0009--0001--8025--2405-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0009-0001-8025-2405)
 
 A research program reducing the open structural content of the Collatz
 conjecture to a finite spectral problem on a family of nonnegative
