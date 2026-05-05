@@ -321,6 +321,79 @@ theorem affine_difference
     ring
 
 /-!
+## Phase-4 helpers: monotonicity of `B` and ℤ_[2]-valued affine difference
+-/
+
+namespace PhantomWord
+
+/-- The periodic partial sum `B` is monotonically non-decreasing. -/
+theorem B_mono (w : PhantomWord) {j k : ℕ} (h : j ≤ k) : w.B j ≤ w.B k := by
+  induction k, h using Nat.le_induction with
+  | base => exact le_refl _
+  | succ k _ ih =>
+    rw [B_succ]
+    have := w.aAt_pos k
+    omega
+
+end PhantomWord
+
+/-- **`ℤ_[2]`-valued affine difference identity.** Multiplied form
+of `affine_difference`, valid in `ℤ_[2]` (no division).
+
+Proved by direct induction on `j`, mirroring `affine_difference` but
+staying in `ℤ_[2]` throughout (the `2^{B_j}` factor sits on the LHS,
+so no division is needed). -/
+theorem affine_difference_z2
+    (w : PhantomWord) (n : ℤ_[2]) (j : ℕ)
+    (h_n : MatchesPrefix w n j)
+    (h_qw : MatchesPrefix w (qwZ2 w (PhantomWord.qwOddDen w)) j) :
+    (Syracuse2adic^[j] n - Syracuse2adic^[j] (qwZ2 w (PhantomWord.qwOddDen w)))
+        * (2 : ℤ_[2]) ^ w.B j
+      = (3 : ℤ_[2]) ^ j * (n - qwZ2 w (PhantomWord.qwOddDen w)) := by
+  induction j with
+  | zero =>
+    simp [Function.iterate_zero, PhantomWord.B_zero]
+  | succ k ih =>
+    have h_n_k : MatchesPrefix w n k := fun i hi => h_n i (Nat.lt_succ_of_lt hi)
+    have h_qw_k : MatchesPrefix w (qwZ2 w (PhantomWord.qwOddDen w)) k :=
+      fun i hi => h_qw i (Nat.lt_succ_of_lt hi)
+    have ih' := ih h_n_k h_qw_k
+    set q : ℤ_[2] := qwZ2 w (PhantomWord.qwOddDen w) with hq
+    set xn : ℤ_[2] := Syracuse2adic^[k] n with hxn
+    set xq : ℤ_[2] := Syracuse2adic^[k] q with hxq
+    have h_match_n_ν : ν₂Z2 ((3 : ℤ_[2]) * xn + 1) = w.aAt k := h_n k (Nat.lt_succ_self k)
+    have h_match_q_ν : ν₂Z2 ((3 : ℤ_[2]) * xq + 1) = w.aAt k := h_qw k (Nat.lt_succ_self k)
+    have h_match_n : ((3 : ℤ_[2]) * xn + 1).valuation = w.aAt k := h_match_n_ν
+    have h_match_q : ((3 : ℤ_[2]) * xq + 1).valuation = w.aAt k := h_match_q_ν
+    have h_xn_ne : (3 : ℤ_[2]) * xn + 1 ≠ 0 := by
+      have := ne_zero_of_matches w n k h_match_n_ν
+      simpa [hxn] using this
+    have h_xq_ne : (3 : ℤ_[2]) * xq + 1 ≠ 0 := by
+      have := ne_zero_of_matches w q k h_match_q_ν
+      simpa [hxq] using this
+    have sx := Syracuse2adic_spec xn h_xn_ne
+    have sq := Syracuse2adic_spec xq h_xq_ne
+    rw [h_match_n] at sx
+    rw [h_match_q] at sq
+    -- One step difference identity in ℤ_[2].
+    have h_step_z2 : (3 : ℤ_[2]) * (xn - xq)
+                   = (Syracuse2adic xn - Syracuse2adic xq) * (2 : ℤ_[2]) ^ w.aAt k := by
+      linear_combination sx - sq
+    have h_iter : Syracuse2adic^[k+1] n = Syracuse2adic xn := by
+      rw [Function.iterate_succ', Function.comp_apply]
+    have h_iter_q : Syracuse2adic^[k+1] q = Syracuse2adic xq := by
+      rw [Function.iterate_succ', Function.comp_apply]
+    rw [h_iter, h_iter_q, w.B_succ k]
+    -- Goal now: (S2 xn - S2 xq) * 2^{B k + aAt k} = 3^{k+1} * (n - q)
+    calc (Syracuse2adic xn - Syracuse2adic xq) * (2 : ℤ_[2]) ^ (w.B k + w.aAt k)
+        = ((Syracuse2adic xn - Syracuse2adic xq) * (2 : ℤ_[2]) ^ w.aAt k)
+              * (2 : ℤ_[2]) ^ w.B k := by rw [pow_add]; ring
+      _ = ((3 : ℤ_[2]) * (xn - xq)) * (2 : ℤ_[2]) ^ w.B k := by rw [← h_step_z2]
+      _ = (3 : ℤ_[2]) * ((xn - xq) * (2 : ℤ_[2]) ^ w.B k) := by ring
+      _ = (3 : ℤ_[2]) * ((3 : ℤ_[2]) ^ k * (n - q)) := by rw [ih']
+      _ = (3 : ℤ_[2]) ^ (k + 1) * (n - q) := by ring
+
+/-!
 ## Task 3.3 — Stable `ν₂` under 2-adic proximity
 
 Under the prefix-matching hypothesis (and hence with the affine
