@@ -76,7 +76,7 @@ When you complete or partially advance a task:
 
 ## Current status (most recent first)
 
-> *Last updated: 2026-05-04 — Phase 3 partial: 3.1, 3.1.5, 3.4 proved.*
+> *Last updated: 2026-05-04 — Paper-faithful 2-adic infrastructure landed; 3.2, 3.3 stated, await proof.*
 
 - **Phase 0 complete.** Lake project initialized with `math` template,
   pinned to **Lean 4 v4.29.1** and **Mathlib v4.29.1**. Mathlib
@@ -131,8 +131,22 @@ When you complete or partially advance a task:
   literal sum form `((List.range m).map aAt).sum`. This makes `B_succ`
   one rewrite, at the cost of moving `B_closed_form` (the closed-form
   identity) to a future TODO.
-- Next concrete action is to extend `S` to `ℤ_[2]`, then attack 3.2 and
-  3.3.
+- **Paper-faithful 2-adic infrastructure landed.** New file
+  `CollatzShadowing/Syracuse2Adic.lean` defines
+  `Syracuse2adic : ℤ_[2] → ℤ_[2]`, the natural extension of the
+  accelerated Syracuse map to the 2-adic integers, and proves the
+  bridge `Syracuse2adic_natCast` connecting it to the integer-level
+  `S : ℕ → ℕ`. The construction uses `PadicInt.unitCoeff` and a
+  documented total extension at the degenerate point `x = -1/3`.
+- `Shadowing.lean` refactored: `exact_shadowing` and
+  `exact_shadowing_periods` now state Lemma 3.1 in the paper-faithful
+  form `ν₂Z2 (3 · Syracuse2adic^[j] x + 1) = aAt w j`, and the
+  `QwOddDen` hypothesis is now discharged automatically via
+  `PhantomWord.qwOddDen`.
+- Tasks 3.2 and 3.3 now have paper-faithful statements (with `sorry`)
+  in `Auxiliary.lean`, ready for proof.
+- Next concrete action: prove Tasks 3.2 (induction on `j` for the
+  affine difference identity in `ℚ_[2]`) and 3.3.
 
 ---
 
@@ -229,8 +243,8 @@ Lemma 3.1 is stated and proved.
 |----|--------|------|----------------------|
 | 3.1 | [x] | `ν₂(3·n) = ν₂(n)` for `n ∈ ℤ_2`. | `Auxiliary.lean:nu2Z2_three_mul` — proved, no `sorry`. Routed via `valuation_three_z2` (computed by going through `Padic.valuation_natCast` and `padicValNat.eq_zero_of_not_dvd`) and `PadicInt.valuation_mul`. |
 | 3.1.5 | [x] | Prove `QwOddDen w` for every phantom word (no expansive hypothesis needed: 2^A_w − 3^L is non-zero and odd whenever L ≥ 1, A_w ≥ 1). | `Auxiliary.lean:qwOddDen` — proved, no `sorry`. Strategy: `qwIntDen w := 2^A_w − 3^L`, parity via `Even.sub_odd`, then bridge to `(qwRat w).den` through `Rat.divInt_eq_div`, `Rat.den_dvd`, `Int.natCast_dvd`, `Odd.of_dvd_nat`. The `QwOddDen` hypothesis in `exact_shadowing` is now dischargeable for any `PhantomWord`. |
-| 3.2 | [ ] | After matching the prefix `(a_0, ..., a_{j-1})`, the difference `S^j(n) - S^j(q_w)` is `(3^j / 2^{B_j}) · (n - q_w)` in `ℤ_2`. | Pending: requires extending `S` to `ℤ_[2]` (currently only `S : ℕ → ℕ`). |
-| 3.3 | [ ] | If `ν₂(x - y) ≥ a_j + 1`, then `ν₂(3·x + 1) = ν₂(3·y + 1)` and equals `a_j` for both. | Pending: depends on the `ℤ_[2]`-side `S` extension from 3.2. |
+| 3.2 | [~] | After matching the prefix `(a_0, ..., a_{j-1})`, the difference `S^j(n) - S^j(q_w)` is `(3^j / 2^{B_j}) · (n - q_w)` in `ℚ_[2]`. | **Stated** in `Auxiliary.lean:affine_difference` using `Syracuse2adic^[j]` and `MatchesPrefix` hypothesis. Identity lives in `ℚ_[2]` (since `2^{B_j}` is not a unit in `ℤ_[2]`). Proof pending — induction on `j`. |
+| 3.3 | [~] | If `ν₂(x - y) ≥ a_j + 1`, then `ν₂(3·x + 1) = ν₂(3·y + 1)` and equals `a_j` for both. | **Stated** in `Auxiliary.lean:nu2_stable_under_proximity`. Proof pending — uses ultrametric inequality `ν₂(a + b) ≥ min(ν₂(a), ν₂(b))` with equality when valuations differ. |
 | 3.4 | [x] | The condition `B_m + 1 - B_j ≥ a_j + 1` is equivalent to `B_m ≥ B_{j+1}`. | `Auxiliary.lean:B_bound_iff` — proved, `omega` once `B_succ` (the recursion identity for the sum-form `B`) is in place. `Phantom.lean` was refactored: `B m := ((List.range m).map aAt).sum` makes `B_succ` a one-rewrite. |
 
 ---
@@ -289,6 +303,38 @@ incorporates the Lean formalization.
 > - Notes: any blockers, open questions, things the next session should know
 > - Next recommended task: X.Y
 > ```
+
+### 2026-05-04 (paper-faithful 2-adic) — Claude (Claude Code) + Piero Borgatta
+
+- Architectural decision: extend `S` totally to `ℤ_[2]` via
+  `PadicInt.unitCoeff`, with a single documented deviation from the
+  paper (`Syracuse2adic (-1/3) := 0`, never invoked in any
+  paper-relevant computation).
+- Artifacts:
+  - `lean/CollatzShadowing/Syracuse2Adic.lean` (new file).
+  - `lean/CollatzShadowing/Shadowing.lean` (statements rewritten to
+    use `Syracuse2adic^[j]` and `qwOddDen` auto-discharged).
+  - `lean/CollatzShadowing/Auxiliary.lean` (added 3.2 and 3.3
+    statements + `MatchesPrefix` predicate).
+  - `lean/CollatzShadowing.lean` (re-exports `Syracuse2Adic`).
+- New declarations in `Syracuse2Adic.lean`:
+  - `Syracuse2adic : ℤ_[2] → ℤ_[2]` — total def via `unitCoeff`.
+  - `Syracuse2adic_spec` — defining identity
+    `3·x + 1 = Syracuse2adic x · 2^valuation` for non-degenerate `x`.
+  - `Syracuse2adic_at_singular` — the degenerate-point convention.
+  - `valuation_natCast_z2` — `((n:ℕ):ℤ_[2]).valuation = padicValNat 2 n`.
+  - `Syracuse2adic_natCast` — the bridge:
+    `((S n : ℕ) : ℤ_[2]) = Syracuse2adic ((n : ℕ) : ℤ_[2])`
+    for positive odd `n`. **Proved** via `unitCoeff_spec` plus
+    `Nat.div_mul_cancel pow_padicValNat_dvd` and ℤ_[2]-cancellation.
+- Decidability fix: `if h : ... = 0 then ...` on `ℤ_[2]` requires
+  `Classical.dec` because `ℤ_[2]` lacks `DecidableEq`. Wrap with
+  `haveI := Classical.dec _` inside the `noncomputable def`.
+- Status: `lake build` clean apart from the four expected `sorry`s
+  on `exact_shadowing`, `exact_shadowing_periods`, `affine_difference`
+  (3.2), `nu2_stable_under_proximity` (3.3). All Phase-2/3.1/3.4
+  results remain proved.
+- Next recommended task: prove Task 3.2 (induction on `j`).
 
 ### 2026-05-04 (Phase 3 partial) — Claude (Claude Code) + Piero Borgatta
 

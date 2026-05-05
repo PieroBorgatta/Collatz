@@ -12,7 +12,9 @@ Author: AI-assisted (Claude) + Piero Borgatta. Date: 2026-05-04.
 import Mathlib.NumberTheory.Padics.PadicVal.Basic
 import Mathlib.NumberTheory.Padics.PadicIntegers
 import Mathlib.Algebra.BigOperators.Group.List.Basic
+import Mathlib.Logic.Function.Iterate
 import CollatzShadowing.Phantom
+import CollatzShadowing.Syracuse2Adic
 
 namespace CollatzShadowing
 
@@ -159,5 +161,66 @@ theorem qwOddDen (w : PhantomWord) : QwOddDen w := by
   omega
 
 end PhantomWord
+
+/-!
+## Task 3.2 — Affine difference identity (paper line 276)
+
+After the first `j` Syracuse steps of `n` and `q_w` follow the same
+prescribed word `(a_0, ..., a_{j-1})`, the difference of the iterates
+in `ℚ_[2]` is
+
+```text
+S^j(n) - S^j(q_w) = (3^j / 2^{B_j}) · (n - q_w).
+```
+
+The identity lives in `ℚ_[2]` because the `2^{B_j}` denominator is not
+invertible in `ℤ_[2]`. Proof deferred (induction on `j` using the
+unitCoeff representation of one `Syracuse2adic` step).
+-/
+
+/-- Hypothesis that the first `j` Syracuse steps of `x` follow the
+phantom word `w`. -/
+def MatchesPrefix (w : PhantomWord) (x : ℤ_[2]) (j : ℕ) : Prop :=
+  ∀ i, i < j → ν₂Z2 ((3 : ℤ_[2]) * Syracuse2adic^[i] x + 1) = w.aAt i
+
+/--
+**Task 3.2 (statement).** If `n` and `q_w` follow the same prescribed
+word for the first `j` Syracuse steps, then their `j`-th iterates
+differ by the affine factor `3^j / 2^{B_j}` times the original
+difference, in `ℚ_[2]`.
+
+Stated in `ℚ_[2]` because `2^{B_j}` is not a unit in `ℤ_[2]`.
+-/
+theorem affine_difference
+    (w : PhantomWord) (n : ℤ_[2]) (j : ℕ)
+    (_h_n : MatchesPrefix w n j)
+    (_h_qw : MatchesPrefix w (qwZ2 w (PhantomWord.qwOddDen w)) j) :
+    (Syracuse2adic^[j] n : ℚ_[2])
+        - (Syracuse2adic^[j] (qwZ2 w (PhantomWord.qwOddDen w)) : ℚ_[2])
+      = ((3 : ℚ_[2]) ^ j) / ((2 : ℚ_[2]) ^ w.B j)
+          * ((n : ℚ_[2]) - (qwZ2 w (PhantomWord.qwOddDen w) : ℚ_[2])) := by
+  sorry
+
+/-!
+## Task 3.3 — Stable `ν₂` under 2-adic proximity
+
+Under the prefix-matching hypothesis (and hence with the affine
+difference of Task 3.2 controlled), `ν₂(3·x + 1)` and `ν₂(3·y + 1)`
+agree and equal the prescribed `a_j` whenever the 2-adic distance
+between `x` and `y` is at least `a_j + 1`.
+-/
+
+/--
+**Task 3.3 (statement).** If the 2-adic difference between two
+`ℤ_[2]`-elements has valuation at least `a_j + 1`, then both produce
+the same `ν₂` of `3·· + 1`, equal to `a_j`. (Used to feed the
+inductive step of Lemma 3.1.)
+-/
+theorem nu2_stable_under_proximity
+    (w : PhantomWord) (x y : ℤ_[2]) (j : ℕ) (_h_match_y : ν₂Z2 ((3 : ℤ_[2]) * y + 1) = w.aAt j)
+    (_h_close : ((w.aAt j) + 1 : ℕ) ≤ ν₂Z2 (x - y)) :
+    ν₂Z2 ((3 : ℤ_[2]) * x + 1) = w.aAt j ∧
+      ν₂Z2 ((3 : ℤ_[2]) * y + 1) = w.aAt j := by
+  sorry
 
 end CollatzShadowing
