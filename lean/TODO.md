@@ -76,7 +76,7 @@ When you complete or partially advance a task:
 
 ## Current status (most recent first)
 
-> *Last updated: 2026-05-04 — Paper-faithful 2-adic infrastructure landed; 3.2, 3.3 stated, await proof.*
+> *Last updated: 2026-05-04 — Phase 3 complete (3.1, 3.1.5, 3.2, 3.3, 3.4 all proved).*
 
 - **Phase 0 complete.** Lake project initialized with `math` template,
   pinned to **Lean 4 v4.29.1** and **Mathlib v4.29.1**. Mathlib
@@ -145,8 +145,16 @@ When you complete or partially advance a task:
   `PhantomWord.qwOddDen`.
 - Tasks 3.2 and 3.3 now have paper-faithful statements (with `sorry`)
   in `Auxiliary.lean`, ready for proof.
-- Next concrete action: prove Tasks 3.2 (induction on `j` for the
-  affine difference identity in `ℚ_[2]`) and 3.3.
+- **Phase 3 complete.** Tasks 3.2 and 3.3 are proved:
+  * `affine_difference` (3.2): induction on `j` using
+    `syracuse_one_step_diff` (the per-step formula
+    `S₂(x) − S₂(y) = (3/2^a)(x − y)` derived from `Syracuse2adic_spec`
+    and `linear_combination` in `ℚ_[2]`) plus `B_succ` and `field_simp`.
+  * `nu2_stable_under_proximity` (3.3): strict-ultrametric
+    `valuation_add_eq_left_of_lt` (custom helper via `le_valuation_add`
+    and a contradiction using `valuation_z2_neg`).
+- Next concrete action: **Phase 4** — prove `exact_shadowing` (Lemma
+  3.1), the only remaining `sorry` in the project.
 
 ---
 
@@ -243,8 +251,8 @@ Lemma 3.1 is stated and proved.
 |----|--------|------|----------------------|
 | 3.1 | [x] | `ν₂(3·n) = ν₂(n)` for `n ∈ ℤ_2`. | `Auxiliary.lean:nu2Z2_three_mul` — proved, no `sorry`. Routed via `valuation_three_z2` (computed by going through `Padic.valuation_natCast` and `padicValNat.eq_zero_of_not_dvd`) and `PadicInt.valuation_mul`. |
 | 3.1.5 | [x] | Prove `QwOddDen w` for every phantom word (no expansive hypothesis needed: 2^A_w − 3^L is non-zero and odd whenever L ≥ 1, A_w ≥ 1). | `Auxiliary.lean:qwOddDen` — proved, no `sorry`. Strategy: `qwIntDen w := 2^A_w − 3^L`, parity via `Even.sub_odd`, then bridge to `(qwRat w).den` through `Rat.divInt_eq_div`, `Rat.den_dvd`, `Int.natCast_dvd`, `Odd.of_dvd_nat`. The `QwOddDen` hypothesis in `exact_shadowing` is now dischargeable for any `PhantomWord`. |
-| 3.2 | [~] | After matching the prefix `(a_0, ..., a_{j-1})`, the difference `S^j(n) - S^j(q_w)` is `(3^j / 2^{B_j}) · (n - q_w)` in `ℚ_[2]`. | **Stated** in `Auxiliary.lean:affine_difference` using `Syracuse2adic^[j]` and `MatchesPrefix` hypothesis. Identity lives in `ℚ_[2]` (since `2^{B_j}` is not a unit in `ℤ_[2]`). Proof pending — induction on `j`. |
-| 3.3 | [~] | If `ν₂(x - y) ≥ a_j + 1`, then `ν₂(3·x + 1) = ν₂(3·y + 1)` and equals `a_j` for both. | **Stated** in `Auxiliary.lean:nu2_stable_under_proximity`. Proof pending — uses ultrametric inequality `ν₂(a + b) ≥ min(ν₂(a), ν₂(b))` with equality when valuations differ. |
+| 3.2 | [x] | After matching the prefix `(a_0, ..., a_{j-1})`, the difference `S^j(n) - S^j(q_w)` is `(3^j / 2^{B_j}) · (n - q_w)` in `ℚ_[2]`. | `Auxiliary.lean:affine_difference` — proved by induction on `j`, using `syracuse_one_step_diff` (per-step formula via `Syracuse2adic_spec` + `linear_combination` in `ℚ_[2]`) and `B_succ`. |
+| 3.3 | [x] | If `ν₂(x - y) ≥ a_j + 1`, then `ν₂(3·x + 1) = ν₂(3·y + 1)` and equals `a_j` for both. | `Auxiliary.lean:nu2_stable_under_proximity` — proved via custom strict ultrametric `valuation_add_eq_left_of_lt` (built from `le_valuation_add` + contradiction with `valuation_z2_neg`). |
 | 3.4 | [x] | The condition `B_m + 1 - B_j ≥ a_j + 1` is equivalent to `B_m ≥ B_{j+1}`. | `Auxiliary.lean:B_bound_iff` — proved, `omega` once `B_succ` (the recursion identity for the sum-form `B`) is in place. `Phantom.lean` was refactored: `B m := ((List.range m).map aAt).sum` makes `B_succ` a one-rewrite. |
 
 ---
@@ -303,6 +311,45 @@ incorporates the Lean formalization.
 > - Notes: any blockers, open questions, things the next session should know
 > - Next recommended task: X.Y
 > ```
+
+### 2026-05-04 (Phase 3 complete) — Claude (Claude Code) + Piero Borgatta
+
+- Tasks advanced: **3.2 and 3.3 proved.** Phase 3 is now complete;
+  the only remaining `sorry`s in the project are on the Lemma 3.1
+  statements (`exact_shadowing` / `exact_shadowing_periods`), which
+  are Phase 4 work.
+- Artifacts: extensions to `lean/CollatzShadowing/Auxiliary.lean`.
+- New declarations:
+  - `PhantomWord.length_pos`, `PhantomWord.aAt_pos` — structural
+    positivity helpers.
+  - `nu2Z2_zero`, `ne_zero_of_matches` — bridge between `ν₂Z2` and
+    non-zeroness from a matching ν₂ value.
+  - `syracuse_one_step_diff` (private) — the per-step difference
+    formula `S₂(x) − S₂(y) = (3/2^a)·(x − y)` in `ℚ_[2]` when both
+    `3x+1` and `3y+1` have the same 2-adic valuation `a`.
+  - `affine_difference` (Task 3.2) — paper line 276, by induction
+    on `j`.
+  - `valuation_z2_neg` (private) — `(-x).valuation = x.valuation` in
+    `ℤ_[2]`, derived via `norm_neg` and `norm_eq_zpow_neg_valuation`.
+  - `valuation_add_eq_left_of_lt` (private) — strict ultrametric:
+    when `v(a) < v(b)`, the sum has valuation exactly `v(a)`. Built
+    from `le_valuation_add` + a `by_contra` argument that uses
+    `a = (a + b) + (-b)`.
+  - `nu2_stable_under_proximity` (Task 3.3).
+- Notes on Mathlib v4.29.1 API audit (this round):
+  - `PadicInt.norm_eq_zpow_neg_valuation` is the bridge between
+    `‖x‖` and `x.valuation` for `ℤ_[2]`.
+  - `zpow_right_injective₀` is the injectivity lemma for `(2 : ℝ)^_`.
+  - `Mathlib.Data.List.GetD` defines `List.getD_eq_getElem`.
+  - `linear_combination` (and `field_simp` followed by
+    `linear_combination`) is the right tactic for ℚ_[2]-side
+    polynomial identities; `ring` alone struggles with the casts.
+  - `push Not` replaces deprecated `push_neg` in v4.29.1.
+- Final `lake build`: clean apart from the two intentional `sorry`s
+  on `exact_shadowing` and `exact_shadowing_periods`.
+- Next recommended task: **Phase 4** — prove `exact_shadowing` itself,
+  using `affine_difference` (3.2) and `nu2_stable_under_proximity`
+  (3.3) as the inductive ingredients.
 
 ### 2026-05-04 (paper-faithful 2-adic) — Claude (Claude Code) + Piero Borgatta
 
