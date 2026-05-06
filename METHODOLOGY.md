@@ -153,24 +153,104 @@ honesty obligations to include), and compiled to PDF by the author.
   $T \le 16$ and $j \le 128$ is consistent with a finite limit but
   is not a rigorous bound on the limit.
 
-## Planned next phase: formal verification
+## Formal verification phase: COMPLETED
 
-The most concrete next step in the research program is to mechanically
-verify Lemma 3.1 in a proof assistant. The intended target is
-**Lean 4 with Mathlib**, the same toolchain used by recent
-AI-for-math systems and by a growing portion of the research
-community.
+The most concrete next step in the research program — formal
+mechanical verification of Lemma 3.1 — has been carried out in
+**Lean 4 with Mathlib** (Lean v4.29.1, Mathlib v4.29.1). The
+project is `sorry`-free.
 
-Lemma 3.1 is a good candidate for mechanical verification: its proof
-is by induction on bit valuations, the inductive structure is
-elementary, and Mathlib already contains the necessary number-theory
-infrastructure ($\nu_2$, congruences, $2$-adic integers via
-`PadicInt`).
+Verified in Lean:
 
-Once verified, the formalized lemma will be incorporated into a
-revised version of this preprint (\emph{v2}), together with any
-expert feedback received in the meantime. The Lean code itself will
-be added to the repository under `lean/`.
+- `CollatzShadowing.exact_shadowing` — Lemma 3.1, the exact
+  congruential shadowing lemma, paper-faithful in the 2-adic form.
+- `CollatzShadowing.exact_shadowing_periods` — the periodic
+  specialization with congruence bound `2^(b·A+1)`.
+- `CollatzShadowing.no_infinite_period_congruence_expansive` —
+  Corollary 3.4 (no infinite shadowing) for expansive phantoms.
+
+Supporting infrastructure (~2,300 lines total across
+`Basic.lean`, `Phantom.lean`, `Syracuse2Adic.lean`,
+`Auxiliary.lean`, `Shadowing.lean`, `NoInfinite.lean`,
+plus the `INVENTORY.md`/`Inventory.lean` Mathlib-API inventory):
+
+- the paper-faithful 2-adic extension
+  `Syracuse2adic : ℤ_2 → ℤ_2` of the accelerated Syracuse map;
+- the structural `PhantomWord` datatype with positivity constraints;
+- the discharge of the odd-denominator hypothesis on `q_w`
+  for every phantom (no auxiliary hypothesis needed);
+- the affine difference identity in `ℤ_2` and `ℚ_2`;
+- the strict-ultrametric `ν₂`-stability under proximity;
+- the matching property of `q_w`'s own `Syracuse2adic`-orbit;
+- the periodicity identity `B(b·L) = b·A` to recover the
+  paper's congruence bound.
+
+The verification was carried out across approximately three
+calendar days of focused sessions, alternating Anthropic Claude
+(via Claude Code) and OpenAI Codex as primary technical
+assistants. Cross-AI review caught several Mathlib v4.29.1 API
+mismatches that one assistant missed.
+
+The Lean formalization verifies the *shadowing core only*. It
+does **not** formalize the episode graph (paper §4), the
+transfer operator (paper §5), the weighted bound (paper §6), or
+the conditional reduction theorem (paper §9). Those rest on
+deterministic numerical computation and on the conjectures of
+paper §9.
+
+A revised version of the preprint (`v2`,
+`paper/collatz_spectral_reduction_v2.tex`) incorporates the
+formalization status, an updated literature comparison
+(notably with Chang 2026, arXiv:2603.11066), and an explicit
+methodology section.
+
+## Literature reconnaissance method
+
+Standard institutional signals (department seminars, ad-hoc
+discussions, workshop announcements) that ordinarily flag related
+work for institutionally embedded researchers are absent here, so
+literature surveillance has to be made explicit.
+
+The reconnaissance for this work was carried out as a separate
+AI-assisted pipeline (kept in a sibling directory, not committed
+to this public project repository because it consists largely of
+third-party PDFs and intermediate scratch documents). The pipeline:
+
+1. **Topic seeding.** A curated list of arXiv-relevant keywords
+   covering the five main angles of the work: Collatz/Syracuse
+   core, transfer-operator spectral theory, $p$-adic dynamics,
+   non-negative matrices and Perron–Frobenius, and shadowing in
+   non-Archimedean settings.
+2. **Bulk metadata fetch.** ArXiv API queries on each topic,
+   producing a few hundred candidate papers across the relevant
+   `math.*` categories.
+3. **Deduplication and ranking.** Papers ranked by a simple
+   keyword-hit score against the topic seeds, plus presence in
+   "core Collatz" listings; top 100 retained.
+4. **PDF fetch and review.** Top 100 PDFs fetched; an LLM-assisted
+   pass produced a paragraph-level review of each, flagging
+   conceptual overlap with the present framework.
+5. **Manual verification of the most consequential candidates.**
+   Direct inspection of relevant sections of the highest-overlap
+   papers (Chang 2026 §7 and §C; Siegel 2023 Part I.5; Rozier 2025
+   Lemma 1) by the author.
+6. **Synthesis.** A "related work" analysis written from the
+   reviewed corpus, then condensed into §1.2 of the v2 paper.
+
+Going forward, the reconnaissance will be repeated periodically
+(monthly arXiv listing scans, citation-graph monitoring of seed
+papers, MathSciNet/zbMATH searches under primary MSC 11B83 and
+37N99 with secondary 47A10 and 11S99). Any newly surfaced related
+work will trigger an addendum or revised version, posted in the
+public repository within a reasonable time-frame.
+
+The reconnaissance corpus, scripts, and intermediate scratch
+documents are deliberately **not** committed to the project
+repository: they would add tens of MB of third-party content
+without independent value beyond what is already condensed into
+the v2 paper. The reconnaissance method itself — what to do, which
+sources to consult, how to rank — is documented above and is the
+reusable artifact.
 
 ## How to engage
 

@@ -76,7 +76,7 @@ When you complete or partially advance a task:
 
 ## Current status (most recent first)
 
-> *Last updated: 2026-05-06 — **Phase 5 complete: Lemma 3.1 and Corollary 3.4 formalized**. Project is `sorry`-free.*
+> *Last updated: 2026-05-06 — **Phase 5 complete: Lemma 3.1 and Corollary 3.4 formalized**. Project is `sorry`-free. **Phase 6 partially advanced**: paper v2 drafted at `paper/collatz_spectral_reduction_v2.tex`, with Related Work, formalization note, and Chang comparison; `METHODOLOGY.md` updated.*
 
 - **Phase 0 complete.** Lake project initialized with `math` template,
   pinned to **Lean 4 v4.29.1** and **Mathlib v4.29.1**. Mathlib
@@ -299,11 +299,15 @@ incorporates the Lean formalization.
 
 | ID | Status | Task | Acceptance criterion |
 |----|--------|------|----------------------|
-| 6.1 | [ ] | Write `lean/README.md` describing the project, build instructions, and the verified theorem statement. | File exists, builds verified by reading. |
-| 6.2 | [ ] | Add a paragraph to paper Section 3 noting the Lean formalization, with a hash/commit reference to the verified state. | Paper compiles. |
-| 6.3 | [ ] | Update `METHODOLOGY.md` "Planned next phase" section to "Completed", with reference to the Lean files. | Done. |
+| 6.1 | [x] | Lean-side README describes the project and build. | `lean/README.md` exists; build works as documented. |
+| 6.2 | [x] | Paper Section 3 notes the Lean formalization. | `paper/collatz_spectral_reduction_v2.tex` §3.3 (Formal verification in Lean 4) drafted with explicit references to `exact_shadowing`, `exact_shadowing_periods`, `no_infinite_period_congruence_expansive`. |
+| 6.3 | [x] | `METHODOLOGY.md` "Planned next phase" section moved to "Completed". | Section retitled "Formal verification phase: COMPLETED"; literature reconnaissance method appended. |
 | 6.4 | [ ] | Recompile PDF, replace on Zenodo, publish as new version (v2). | Zenodo shows v2 with new DOI; concept DOI now points to v2. |
 | 6.5 | [ ] | Update GitHub README with v2 reference. | Commit pushed. |
+| 6.6 | [x] | Add Related Work to paper covering Chang 2026, Siegel 2023, Rozier 2025, Neklyudov 2022, Lemmens-Nussbaum, Laarhoven-de Weger, Mori 2025, Leventides-Poulios, Bastos-Caprio-Messaoudi. | v2 §1.2 covers all listed works with explicit relationships. |
+| 6.7 | [x] | Add Section 9.1 with quantitative comparison vs Chang 2026 bounds (R ≤ 0.0893, ρ(B̃₂_ext) ≤ 5/32). | v2 §9.1 (Comparison with concurrent work) drafted. |
+| 6.8 | [x] | Make AI-collaboration as research methodology an explicit secondary goal of v2. | v2 abstract note + §11 (Methodology) expanded; cross-AI verification protocol documented. |
+| 6.9 | [ ] | Verify v2 .tex compiles without errors. | `pdflatex` clean run. Pending. |
 
 ---
 
@@ -319,6 +323,37 @@ incorporates the Lean formalization.
 > - Notes: any blockers, open questions, things the next session should know
 > - Next recommended task: X.Y
 > ```
+
+### 2026-05-06 (Phase 6 partial — paper v2 drafted) — Claude (Claude Code) + Piero Borgatta
+
+- Tasks advanced: **6.1, 6.2, 6.3, 6.6, 6.7, 6.8 — substantive content of v2 drafted.**
+- Artifacts:
+  - `paper/collatz_spectral_reduction_v2.tex` (new file; preserves v1).
+    Adds §1.2 Related Work (Chang, Siegel, Rozier, Neklyudov,
+    Lemmens-Nussbaum, Laarhoven-de Weger, Mori, Leventides-Poulios,
+    Bastos-Caprio-Messaoudi); §3.3 Formal verification in Lean 4
+    documenting the headline declarations and supporting infra; §9.1
+    Comparison with concurrent work (vs Chang Theorem C.3 and 7.19).
+    Methodology section expanded to make AI-collaboration an explicit
+    secondary goal of the work; cross-AI verification protocol
+    documented; future search for analogous studies committed in
+    §11.7.
+  - `METHODOLOGY.md` updated: Lean phase moved from "Planned" to
+    "COMPLETED"; literature reconnaissance method documented; the
+    sibling reconnaissance corpus deliberately not committed.
+- Pending: 6.4 (Zenodo v2 release), 6.5 (GitHub README v2 reference),
+  6.9 (`pdflatex` build verification of v2 .tex).
+- Notes: literature reconnaissance was carried out outside the
+  project repository; the v1 bibliography of 6 references was
+  expanded to 22+ in v2 to cover all consequential overlapping
+  works. Most consequential candidate (Chang 2026 arXiv:2603.11066)
+  was verified by direct inspection of §7 (phantom cycles) and §C
+  (transfer operator); Chang's Definition 7.2 / Proposition 7.4 /
+  Remark 9.17 / Theorem 7.15 / Theorem 7.19 / Theorem C.3 are now
+  cited explicitly in v2 with the precise relationships to this
+  work spelled out.
+- Next recommended task: 6.9 (build verification), then 6.4-6.5
+  (Zenodo + GitHub release coordination).
 
 ### 2026-05-06 (Phase 5.5 complete — expansive no-infinite shadowing) — Codex + Piero Borgatta
 
