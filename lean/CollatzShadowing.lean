@@ -3,3 +3,4 @@ import CollatzShadowing.Phantom
 import CollatzShadowing.Syracuse2Adic
 import CollatzShadowing.Auxiliary
 import CollatzShadowing.Shadowing
+import CollatzShadowing.NoInfinite

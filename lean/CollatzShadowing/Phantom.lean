@@ -12,6 +12,7 @@ Author: AI-assisted (Claude) + Piero Borgatta. Date: 2026-05-04.
 -/
 
 import Mathlib.Data.List.Basic
+import Mathlib.Data.List.GetD
 import Mathlib.NumberTheory.Padics.PadicNumbers
 import Mathlib.NumberTheory.Padics.PadicIntegers
 import CollatzShadowing.Basic
@@ -162,6 +163,37 @@ def B (w : PhantomWord) (m : ℕ) : ℕ :=
 
 @[simp] theorem B_zero (w : PhantomWord) : w.B 0 = 0 := by
   simp [B]
+
+/-- Every phantom word has positive length. -/
+theorem length_pos (w : PhantomWord) : 0 < w.length := by
+  rcases hvals : w.vals with _ | ⟨a, t⟩
+  · exact absurd hvals w.nonempty
+  · simp [length, hvals]
+
+/-- Each entry of the periodic extension is positive. -/
+theorem aAt_pos (w : PhantomWord) (j : ℕ) : 0 < w.aAt j := by
+  unfold aAt
+  have hlt : j % w.length < w.vals.length := Nat.mod_lt j w.length_pos
+  rw [List.getD_eq_getElem _ _ hlt]
+  exact w.positive _ (List.getElem_mem _)
+
+/-- The cyclic shift of a phantom word by `r` positions, represented by
+one full block of the periodic extension starting at `r`. -/
+def cyclicShift (w : PhantomWord) (r : ℕ) : PhantomWord where
+  vals := (List.range w.length).map (fun i : ℕ => w.aAt (r + i))
+  nonempty := by
+    intro h
+    have hlen := congrArg List.length h
+    simp [w.length_pos.ne'] at hlen
+  positive := by
+    intro a ha
+    rw [List.mem_map] at ha
+    rcases ha with ⟨i, _hi, rfl⟩
+    exact w.aAt_pos (r + i)
+
+@[simp] theorem cyclicShift_length (w : PhantomWord) (r : ℕ) :
+    (w.cyclicShift r).length = w.length := by
+  simp [cyclicShift, length]
 
 end PhantomWord
 

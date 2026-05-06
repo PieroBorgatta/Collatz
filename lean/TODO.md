@@ -76,7 +76,7 @@ When you complete or partially advance a task:
 
 ## Current status (most recent first)
 
-> *Last updated: 2026-05-04 — **Phase 4 complete: Lemma 3.1 fully formalized**. Project is `sorry`-free.*
+> *Last updated: 2026-05-06 — **Phase 5 complete: Lemma 3.1 and Corollary 3.4 formalized**. Project is `sorry`-free.*
 
 - **Phase 0 complete.** Lake project initialized with `math` template,
   pinned to **Lean 4 v4.29.1** and **Mathlib v4.29.1**. Mathlib
@@ -150,13 +150,14 @@ When you complete or partially advance a task:
   in Lean 4 + Mathlib.** Both `exact_shadowing` (the main theorem) and
   `exact_shadowing_periods` (the periodic specialisation) are proved
   with zero `sorry`s. The project as a whole is `sorry`-free.
-- The matching property of `q_w`'s own orbit (`h_qw_matches`) is
-  carried as a hypothesis on `exact_shadowing`. It is an intrinsic
-  property of expansive phantoms that will be discharged in **Phase 5**
-  by a separate theorem `qw_orbit_matches`.
-- `exact_shadowing_periods` is currently stated using `B (b · L)`
-  rather than `b · A`. Replacing with `b · A` requires the periodicity
-  identity `B_mul_period : B (b · L) = b · A`, also a Phase-5 task.
+- The matching property of `q_w`'s own orbit is now proved as
+  `qw_orbit_matches`, and `exact_shadowing` no longer carries
+  `h_qw_matches` as a hypothesis.
+- **Phase 5 complete.** The periodicity identity
+  `B_mul_period : B (b · L) = b · A` is proved, and
+  `exact_shadowing_periods` now uses the paper's congruence bound
+  `b · A` rather than `B (b · L)`. `NoInfinite.lean` formalizes the
+  no-infinite-shadowing corollary for expansive phantoms.
 
 ---
 
@@ -267,22 +268,27 @@ zero `sorry`s in `Shadowing.lean`.
 | ID | Status | Task | Acceptance criterion |
 |----|--------|------|----------------------|
 | 4.1 | [x] | Write the induction skeleton on `j` from `0` to `m-1`. | `Shadowing.lean:exact_shadowing` uses strong induction on `j` (`Nat.strong_induction_on`). |
-| 4.2 | [x] | Prove the base case `j = 0`. | Subsumed by the case `((n : ℤ_[2]) = q_w)` (handled by `h_qw_matches`) and the generic case using `affine_difference_z2`. The induction works uniformly for all `j < m`. |
+| 4.2 | [x] | Prove the base case `j = 0`. | Subsumed by the case `((n : ℤ_[2]) = q_w)` (handled by `qw_orbit_matches`) and the generic case using `affine_difference_z2`. The induction works uniformly for all `j < m`. |
 | 4.3 | [x] | Prove the inductive step using lemmas 3.1–3.4. | The generic case applies `affine_difference_z2` (Phase-3 helper, derived from Task 3.2), `valuation_two_pow_z2`, `valuation_three_pow_z2`, `B_mono`, `B_succ`, and finally `nu2_stable_under_proximity` (Task 3.3). Closed by `omega`. |
 | 4.4 | [x] | Verify the special case `m = bA` (full periods). | `exact_shadowing_periods` is stated and proved as a literal specialisation of `exact_shadowing` to `m = b · L`. The bound is currently `B (b · L)`; replacing with `b · A` is a Phase-5 task. |
 | 4.5 | [x] | Final `lake build` clean run. | `Build completed successfully (1799 jobs)` — zero warnings, zero `sorry`s. |
 
 ---
 
-## Phase 5 — Corollary 3.4 (optional)
+## Phase 5 — Remove residual hypotheses and Corollary 3.4 (optional)
 
-Acceptance: Corollary 3.4 (no positive integer can shadow `w^∞` for
-all `m`) is formalized and proved.
+Acceptance: the remaining intrinsic phantom-orbit hypothesis is
+discharged, the paper's periodic congruence bound is used directly, and
+Corollary 3.4 (no positive integer can shadow `w^∞` for all `m`) is
+formalized and proved.
 
 | ID | Status | Task | Acceptance criterion |
 |----|--------|------|----------------------|
-| 5.1 | [ ] | State Corollary 3.4 in Lean. | Compiles with `sorry`. |
-| 5.2 | [ ] | Prove it (uses Lemma 3.1 plus the fact that `q_w` is not a positive integer for expansive phantoms). | No `sorry`. |
+| 5.1 | [x] | Prove `B_mul_period : B (b · L) = b · A`. | `Auxiliary.lean:PhantomWord.B_mul_period` — proved, no `sorry`; supporting lemmas `aAt_add_length`, `aAt_mul_length_add_of_lt`, and `block_sum_mul_length`. |
+| 5.2 | [x] | Restate the periodic specialisation with the paper bound `b · A`. | `Shadowing.lean:exact_shadowing_periods` now assumes congruence modulo `2^(b*A+1)` and converts via `B_mul_period`. |
+| 5.3 | [x] | Prove `qw_orbit_matches`, discharging `h_qw_matches`. | `Auxiliary.lean:qw_orbit_matches` proved. `Shadowing.lean:exact_shadowing` and `exact_shadowing_periods` no longer require `h_qw_matches`; they use `qw_orbit_matches` internally. |
+| 5.4 | [x] | State Corollary 3.4 in Lean. | New `NoInfinite.lean` states and proves the 2-adic congruential core: congruence modulo all powers forces equality, and period congruence for every `b` is impossible unless `(n : ℤ_[2]) = q_w`. No `sorry`. |
+| 5.5 | [x] | Prove the full paper Corollary 3.4 for expansive phantoms. | `NoInfinite.lean:PhantomWord.Expansive`, `qwRat_neg_of_expansive`, `qwZ2_ne_natCast_of_expansive`, and `no_infinite_period_congruence_expansive` proved, no `sorry`. |
 
 ---
 
@@ -313,6 +319,148 @@ incorporates the Lean formalization.
 > - Notes: any blockers, open questions, things the next session should know
 > - Next recommended task: X.Y
 > ```
+
+### 2026-05-06 (Phase 5.5 complete — expansive no-infinite shadowing) — Codex + Piero Borgatta
+
+- Tasks advanced: **5.5 complete.**
+- Artifacts:
+  - `lean/CollatzShadowing/NoInfinite.lean` — added
+    `PhantomWord.Expansive`, `qwRat_neg_of_expansive`,
+    `qwZ2_ne_natCast_of_expansive`, and
+    `no_infinite_period_congruence_expansive`.
+- Notes: Corollary 3.4 is now formalized in the period-congruence form:
+  for an expansive phantom and positive natural `n`, the congruence
+  `n ≡ q_w (mod 2^{b*A+1})` cannot hold for every `b`.
+- Verification: `lake build CollatzShadowing.NoInfinite` succeeds
+  with no `sorry`.
+- Next recommended task: Phase 6, update Lean/paper documentation and
+  prepare the v2 integration.
+
+### 2026-05-06 (Phase 5.4 complete — no-infinite congruence core) — Codex + Piero Borgatta
+
+- Tasks advanced: **5.4 complete, 5.5 partial.**
+- Artifacts:
+  - `lean/CollatzShadowing/NoInfinite.lean` — added
+    `eq_of_padic_congruent_all_pow2`, `no_infinite_congruence_to_qw`,
+    and `no_infinite_period_congruence_to_qw`.
+  - `lean/CollatzShadowing.lean` — re-exports `NoInfinite`.
+- Notes: the proved theorem covers the 2-adic core of Corollary 3.4:
+  arbitrary-precision congruence to `q_w` forces equality in `ℤ_[2]`.
+  The remaining paper-specific step is to formalize “expansive phantom”
+  and prove `q_w` is negative, hence not a positive natural.
+- Verification: `lake build CollatzShadowing.NoInfinite` succeeds
+  with no `sorry`.
+- Next recommended task: Phase 5.5, formalize expansiveness and
+  discharge the explicit hypothesis
+  `((n : ℕ) : ℤ_[2]) ≠ qwZ2 w (PhantomWord.qwOddDen w)`.
+
+### 2026-05-06 (Phase 5.3 complete — q_w orbit hypothesis removed) — Codex + Piero Borgatta
+
+- Tasks advanced: **5.3 complete.**
+- Artifacts:
+  - `lean/CollatzShadowing/Auxiliary.lean` — proved the one-step
+    coefficient identity `Cw_step_cyclicShift_one`, the rational and
+    2-adic step identities for `q_w`, `qwZ2_first_match`,
+    `Syracuse2adic_qwZ2_eq_cyclicShift_one`,
+    `Syracuse2adic_iterate_qwZ2_eq_cyclicShift`,
+    `qw_orbit_matches_one_period`, and finally `qw_orbit_matches`.
+  - `lean/CollatzShadowing/Shadowing.lean` — removed the
+    `h_qw_matches` hypothesis from `exact_shadowing` and
+    `exact_shadowing_periods`; both now call `qw_orbit_matches`
+    internally.
+- Verification: `lake build CollatzShadowing.Shadowing` succeeds.
+- Next recommended task: Phase 5.4, state Corollary 3.4 in Lean.
+
+### 2026-05-06 (Phase 5 partial — cyclic-shift normal forms) — Codex + Piero Borgatta
+
+- Tasks advanced: **5.3 partial.**
+- Artifacts:
+  - `lean/CollatzShadowing/Auxiliary.lean` — imported
+    `Mathlib.Data.List.Rotate` and proved
+    `cyclicShift_vals_eq_rotate`, so the list generated by
+    `cyclicShift` is exactly `vals.rotate r`.
+  - Proved `cyclicShift_A` and `cyclicShift_Aw`, giving invariant
+    period sum/exponent under cyclic shifts.
+  - Added public 2-adic power valuation helpers
+    `two_ne_zero_z2`, `valuation_two_z2`, `valuation_two_pow_z2`, and
+    the generic unit-times-power lemma
+    `nu2Z2_eq_of_eq_unit_mul_two_pow`.
+- Notes: the remaining one-period matching proof is now reduced to the
+  algebraic step identity
+  `3*q_(cyclicShift w r)+1 = q_(cyclicShift w (r+1))*2^(w.aAt r)`.
+- Next recommended task: prove that step identity using the
+  `qwRat` formula and cyclic-shift coefficient normal forms, then feed
+  it to `nu2Z2_eq_of_eq_unit_mul_two_pow`.
+
+### 2026-05-06 (Phase 5 partial — unit and cyclic-shift infrastructure) — Codex + Piero Borgatta
+
+- Tasks advanced: **5.3 partial.**
+- Artifacts:
+  - `lean/CollatzShadowing/Phantom.lean` — moved base positivity lemmas
+    `length_pos` and `aAt_pos` into the core phantom module; added
+    `cyclicShift` and `cyclicShift_length`.
+  - `lean/CollatzShadowing/Auxiliary.lean` — proved `B_pos_of_pos`,
+    `prefixC_odd_of_pos`, `Cw_odd`, `Cw_ne_zero`, `qwRat_ne_zero`,
+    `padicValRat_qwRat_zero`, and `valuation_qwZ2_zero`, so `q_w` is
+    known to be a 2-adic unit.
+  - Added `cyclicShift_aAt`, identifying the periodic word of a cyclic
+    shift with the shifted periodic word of the original phantom.
+- Verification: `lake build` succeeds; `rg` finds no `sorry`, `admit`,
+  or `axiom`.
+- Next recommended task: prove the algebraic bridge
+  `Syracuse2adic^[j] q_w = q_(cyclicShift w j)` for `j < w.length`;
+  then one-period matching follows from `valuation_qwZ2_zero` on the
+  shifted phantom.
+
+### 2026-05-06 (Phase 5 partial — finite `q_w` orbit reduction) — Codex + Piero Borgatta
+
+- Tasks advanced: **5.3 partial.**
+- Artifacts:
+  - `lean/CollatzShadowing/Auxiliary.lean` — added
+    `qwZ2_iterate_length_eq_self_of_matches`, proving that one-period
+    prefix matching makes the `length`-th Syracuse iterate of `q_w`
+    return to `q_w`.
+  - Added `qw_orbit_matches_of_period`, reducing the full infinite
+    `q_w` matching property to the finite hypothesis
+    `MatchesPrefix w q_w w.length`.
+- Notes: Phase 5.3 is now narrowed to the exact valuation proof for
+  the first full period of the `q_w` orbit.
+- Next recommended task: prove the one-period matching theorem, then
+  remove `h_qw_matches` from `exact_shadowing` and
+  `exact_shadowing_periods`.
+
+### 2026-05-05 (Phase 5 partial — periodic bound closed) — Codex + Piero Borgatta
+
+- Tasks advanced: **5.1, 5.2.**
+- Artifacts:
+  - `lean/CollatzShadowing/Auxiliary.lean` — added periodic-entry and
+    block-sum lemmas, culminating in
+    `PhantomWord.B_mul_period : w.B (b * w.length) = b * w.A`.
+  - `lean/CollatzShadowing/Shadowing.lean` —
+    `exact_shadowing_periods` now states the congruence bound as
+    `b * w.A + 1`, matching the paper's `2^{bA+1}` clause, and converts
+    internally via `B_mul_period`.
+- Verification: `lake build CollatzShadowing.Auxiliary` and
+  `lake build CollatzShadowing.Shadowing` both succeed.
+- Remaining Phase 5 work: prove `qw_orbit_matches`, then formalize the
+  no-infinite-shadowing corollary.
+
+### 2026-05-05 (Phase 5 partial — q_w orbit groundwork) — Codex + Piero Borgatta
+
+- Tasks advanced: **5.3 partial.**
+- Artifacts:
+  - `lean/CollatzShadowing/Auxiliary.lean` — added prefix affine
+    coefficient infrastructure for the periodic word:
+    `prefixCoeffs`, `prefixC`, `prefixCoeffs_snd_eq_B`,
+    `prefixCoeffs_length_eq_affineCoeffs`, and `prefixC_length_eq_Cw`.
+  - Proved `qwIntDen_ne_zero`, `qwRat_denominator_ne_zero`, and
+    `qwZ2_fixed_by_S_w`, showing that the 2-adic representative `q_w`
+    is fixed by the full-period affine map.
+  - Proved `affine_iterate_prefix`, the one-orbit prefix affine formula
+    under `MatchesPrefix`.
+- Remaining Phase 5 work: prove the exact valuation of the `q_w` prefix
+  orbit and then propagate it periodically to eliminate `h_qw_matches`
+  from `exact_shadowing`.
 
 ### 2026-05-04 (Phase 4 complete — Lemma 3.1 verified) — Claude (Claude Code) + Piero Borgatta
 
@@ -349,8 +497,9 @@ incorporates the Lean formalization.
   argument is `((p : ℕ) : ℤ_[p])`; the literal numeral `(2 : ℤ_[2])`
   needs `push_cast; rfl` to be normalised first. This was the source
   of an earlier failed `rw [PadicInt.valuation_p]`.
-- Next: **Phase 5 (optional)** — discharge `h_qw_matches` and prove
-  `B_mul_period`. Then **Phase 6** — paper integration and v2 release.
+- Next: **Phase 5 (optional)** — discharge `h_qw_matches`. Then prove
+  Corollary 3.4 and proceed to **Phase 6** — paper integration and v2
+  release.
 
 ### 2026-05-04 (Phase 3 complete) — Claude (Claude Code) + Piero Borgatta
 

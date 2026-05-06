@@ -48,16 +48,6 @@ private theorem three_pow_ne_zero_z2 (j : ℕ) : (3 : ℤ_[2]) ^ j ≠ 0 :=
 private theorem two_pow_ne_zero_z2 (k : ℕ) : (2 : ℤ_[2]) ^ k ≠ 0 :=
   pow_ne_zero _ (by exact_mod_cast (by decide : (2 : ℕ) ≠ 0))
 
-/-- `(2 : ℤ_[2]).valuation = 1`. -/
-private theorem valuation_two_z2 : (2 : ℤ_[2]).valuation = 1 := by
-  have h : (2 : ℤ_[2]) = ((2 : ℕ) : ℤ_[2]) := by push_cast; rfl
-  rw [h]
-  exact PadicInt.valuation_p
-
-/-- `((2 : ℤ_[2]) ^ k).valuation = k`. -/
-private theorem valuation_two_pow_z2 (k : ℕ) : ((2 : ℤ_[2]) ^ k).valuation = k := by
-  rw [PadicInt.valuation_pow, valuation_two_z2, mul_one]
-
 /-- `((3 : ℤ_[2]) ^ j).valuation = 0`. -/
 private theorem valuation_three_pow_z2 (j : ℕ) : ((3 : ℤ_[2]) ^ j).valuation = 0 := by
   rw [PadicInt.valuation_pow, valuation_three_z2, mul_zero]
@@ -72,18 +62,15 @@ Paper Section 3:
 > then the first `m` Syracuse steps of `n` produce exactly the word
 > `(a_0, a_1, ..., a_{m-1})`.
 
-The matching property of `q_w`'s own orbit is taken as a hypothesis
-(`h_qw_matches`). It is an intrinsic property of expansive phantoms —
-"the orbit of `q_w` under `S` is exactly periodic of length `L` with
-ν₂ word `w` repeated" — and will be discharged in **Phase 5** by a
-separate theorem `qw_orbit_matches`.
+The matching property of `q_w`'s own orbit is supplied by
+`qw_orbit_matches`, proved in `Auxiliary.lean`: the orbit of `q_w`
+under `Syracuse2adic` is periodic with `ν₂` word `w` repeated.
 -/
 
 /--
 **Paper Section 3, Lemma 3.1 (Exact congruential shadowing).**
 
-Given the matching property of `q_w` (intrinsic to the phantom) and
-the congruence `n ≡ q_w (mod 2^{B_m + 1})`, the first `m` Syracuse
+Given the congruence `n ≡ q_w (mod 2^{B_m + 1})`, the first `m` Syracuse
 iterates of `n` (computed inside `ℤ_[2]` via `Syracuse2adic`) produce
 exactly the periodic word `(a_0, a_1, ..., a_{m-1})` of `w`.
 
@@ -98,9 +85,6 @@ Proof: induction on `j`. At step `j < m`:
 -/
 theorem exact_shadowing
     (w : PhantomWord) (n : ℕ) (_h_pos : 0 < n) (_h_odd : Odd n) (m : ℕ)
-    (h_qw_matches : ∀ k,
-      ν₂Z2 ((3 : ℤ_[2]) * Syracuse2adic^[k]
-              (qwZ2 w (PhantomWord.qwOddDen w)) + 1) = w.aAt k)
     (h_cong :
       PadicCongruentModPow2 (n : ℤ_[2])
         (qwZ2 w (PhantomWord.qwOddDen w)) (w.B m + 1)) :
@@ -117,14 +101,14 @@ theorem exact_shadowing
       exact IH k hk (Nat.lt_trans hk hjm)
     have h_qw_match : MatchesPrefix w q j := by
       intro k _
-      exact h_qw_matches k
+      exact qw_orbit_matches w k
     -- Case split on whether (n : ℤ_[2]) = q.
     by_cases h_eq : ((n : ℕ) : ℤ_[2]) = q
-    · -- Equal case: iterates match, conclusion from `h_qw_matches`.
+    · -- Equal case: iterates match, conclusion from `qw_orbit_matches`.
       have heq_iter : Syracuse2adic^[j] ((n : ℕ) : ℤ_[2]) = Syracuse2adic^[j] q := by
         rw [h_eq]
       rw [heq_iter]
-      exact h_qw_matches j
+      exact qw_orbit_matches w j
     · -- Generic case: use `affine_difference_z2` + valuation arithmetic + Task 3.3.
       have h_diff_ne : ((n : ℕ) : ℤ_[2]) - q ≠ 0 := sub_ne_zero.mpr h_eq
       -- The affine identity in ℤ_[2].
@@ -167,7 +151,7 @@ theorem exact_shadowing
         h_close_val
       -- Apply Task 3.3.
       have h_match_q_at_j : ν₂Z2 ((3 : ℤ_[2]) * Syracuse2adic^[j] q + 1) = w.aAt j :=
-        h_qw_matches j
+        qw_orbit_matches w j
       have h_3_3 := nu2_stable_under_proximity w (Syracuse2adic^[j] ((n : ℕ) : ℤ_[2]))
                       (Syracuse2adic^[j] q) j h_match_q_at_j h_close
       exact h_3_3.1
@@ -178,31 +162,29 @@ theorem exact_shadowing
 Paper "in particular" clause of Lemma 3.1.
 
 `exact_shadowing_periods` is the specialisation to `m = b · L` (i.e.
-shadowing for `b` full periods). It follows from `exact_shadowing`
-once one knows `B (b · L) = b · A` (the periodicity identity for the
-partial sum). The latter is left as a TODO; for now we state the
-periodic form using `B (b · L)` directly, which is *literally* a
-special case.
+shadowing for `b` full periods). The congruence bound is expressed in
+the paper's form `b · A`, and converted to `B (b · L)` by
+`PhantomWord.B_mul_period`.
 -/
 
 /--
 **Lemma 3.1, period form (literal specialisation).**
 
-If `n ≡ q_w (mod 2^{B(b·L) + 1})`, then `n` shadows `w^∞` for the
-first `b · L` Syracuse steps. The bound `B(b·L)` will be replaced by
-`b · A` once the periodicity identity `B(b·L) = b·A` is proved
-(future work).
+If `n ≡ q_w (mod 2^{b·A + 1})`, then `n` shadows `w^∞` for the
+first `b · L` Syracuse steps. The bound is stated as `b · A`, matching
+the paper's "in particular" clause.
 -/
 theorem exact_shadowing_periods
     (w : PhantomWord) (n : ℕ) (h_pos : 0 < n) (h_odd : Odd n) (b : ℕ)
-    (h_qw_matches : ∀ k,
-      ν₂Z2 ((3 : ℤ_[2]) * Syracuse2adic^[k]
-              (qwZ2 w (PhantomWord.qwOddDen w)) + 1) = w.aAt k)
     (h_cong :
       PadicCongruentModPow2 (n : ℤ_[2])
-        (qwZ2 w (PhantomWord.qwOddDen w)) (w.B (b * w.length) + 1)) :
+        (qwZ2 w (PhantomWord.qwOddDen w)) (b * w.A + 1)) :
     ∀ j, j < b * w.length →
       ν₂Z2 ((3 : ℤ_[2]) * Syracuse2adic^[j] ((n : ℕ) : ℤ_[2]) + 1) = w.aAt j :=
-  exact_shadowing w n h_pos h_odd (b * w.length) h_qw_matches h_cong
+  have h_cong' :
+      PadicCongruentModPow2 (n : ℤ_[2])
+        (qwZ2 w (PhantomWord.qwOddDen w)) (w.B (b * w.length) + 1) := by
+    simpa [w.B_mul_period b] using h_cong
+  exact_shadowing w n h_pos h_odd (b * w.length) h_cong'
 
 end CollatzShadowing
