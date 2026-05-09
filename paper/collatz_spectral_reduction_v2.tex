@@ -982,6 +982,23 @@ requires an exhaustive enumeration of phantoms below a controlled
 threshold and a verification that no further SCCs appear; see
 Section~\ref{sec:limits} for an honest discussion of the gaps.
 
+\paragraph{What the conditional reduction would buy.}
+The conclusion of Theorem~\ref{thm:conditional},
+$\liminf_{k\to\infty} S^k(n) = 1$ for \emph{every} positive
+integer $n$, is the full Collatz convergence statement (one
+direction of the conjecture). This is qualitatively stronger than
+the unconditional ``almost-all'' result of Tao
+\cite{tao2019} --- which asserts only logarithmic-density
+convergence to almost bounded values. The price of the stronger
+conclusion is precisely the open spectral content of
+Conjectures~\ref{conj:T} and~\ref{conj:j}: a uniform finite-matrix
+bound and a Cauchy-type signature closure on the critical SCC.
+Closing the conjectures unconditionally would therefore push the
+problem from ``almost-all density'' to ``every $n$'', without
+addressing the trivial-cycle uniqueness question separately
+treated in the cycle-exclusion literature
+(e.g.\ \cite{chang2026}, sect.~v7 cycle filter).
+
 \subsection{Comparison with concurrent work}
 \label{sec:comparison}
 
@@ -1033,6 +1050,29 @@ section. The fact that two independently developed AI-assisted
 programs arrive, by very different routes, at quantitatively
 similar bounds is, in our view, evidence that the underlying
 phenomenology is robust.
+
+\paragraph{Scale of parameters explored.}
+The two analyses operate at very different parameter scales, and
+the comparison should be read with this in mind. Chang's exact
+finite computation of the per-orbit gain rate
+\cite[Theorem~7.19, Step 2]{chang2026} sums $R(K)$ for
+$K = 3, \ldots, 500$ via M\"obius inversion of the primitive
+cyclic-composition counts $M(K, \ell)$, with an analytic
+Chernoff--Cram\'er tail beyond $K_0 = 500$, aggregating over a
+phantom universe whose size grows like $1.87^K$. The numerical
+evidence developed here covers $T \le 16$ and $j \le 128$ at the
+single critical node $(12, 2, 1)$, with full phase-state resolution
+$(\nu_2(t), \mathrm{odd}(t) \bmod 4, h \bmod 4)$. The two regimes
+are complementary --- broad-shallow aggregation over an
+exponentially growing family count versus narrow-deep resolution
+at a single node --- and not directly substitutable. Extending
+the present sweep to higher $T$ is computationally feasible (the
+matrix sizes scale polynomially in $T$ and linearly in $j$) and
+is part of the planned program for a future revision; we note,
+however, that the geometric decay of bound increments observed
+through $T = 16$ already suggests a finite limit, so the principal
+analytic content lies in proving that limit, not in extending the
+sweep numerically.
 
 \paragraph{The same barrier in two formulations.}
 Conjectures~\ref{conj:T} and~\ref{conj:j} are a finite-matrix
@@ -1115,6 +1155,23 @@ established, what is empirical, and what is missing.
         for orbits below an explicit threshold is open.
         Empirical sweeps to $b \le 16$, $t \le 65535$ find none,
         but this is not a proof.
+  \item An explicit taxonomic mapping of the empirical phantom
+        set used here ($k = 10,\ 11,\ 12$ cycle 1, $12$ cycle 2,
+        $20$, see Appendix~\ref{app:phantoms}) onto the universe of
+        primitive cyclic compositions enumerated in
+        \cite[Theorem~7.15]{chang2026}. This is a finite
+        enumeration --- one would tabulate, for each depth $K$ up
+        to a chosen cutoff (say $K \le 12$ or $K \le 16$), all
+        primitive compositions $(k_1, \ldots, k_\ell)$ with
+        expansive drift $\Delta = \ell \log_2 3 - K > 0$, identify
+        the ones realised by our four monitored phantoms, and
+        verify whether any further primitive composition at the
+        same depths produces an SCC of the episode graph not
+        already covered. We have not carried out this enumeration
+        in the present revision and defer it to subsequent work;
+        until it is done, the empirical scope of the SCC analysis
+        in Section~\ref{sec:cross} is, strictly, a working
+        hypothesis.
   \item A formal version of Theorem~\ref{thm:conditional}.
         Lemma~\ref{lem:shadowing} and Corollary~\ref{cor:no-infinite}
         are formalized in Lean (Section~\ref{sec:formalization}); a
