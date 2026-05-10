@@ -76,7 +76,7 @@ When you complete or partially advance a task:
 
 ## Current status (most recent first)
 
-> *Last updated: 2026-05-06 — **Phase 5 complete: Lemma 3.1 and Corollary 3.4 formalized**. Project is `sorry`-free. **Phase 6 partially advanced**: paper v2 drafted at `paper/collatz_spectral_reduction_v2.tex`, with Related Work, formalization note, and Chang comparison; `METHODOLOGY.md` updated.*
+> *Last updated: 2026-05-09 — **Phase 5 complete: Lemma 3.1 and Corollary 3.4 formalized**. Project is `sorry`-free. **Phase 6 nearly complete**: paper v2 drafted, Lean note written, Related Work + Chang comparison done, GitHub README updated, METHODOLOGY.md updated; only 6.4 (Zenodo v2 publish) and 6.9 (`pdflatex` build) remain. **Phases 7-10 added** as a multi-step roadmap: Priority A (taxonomy enumeration, Python), Priority B (Lean formalization of episode graph and FULL operator), v3 redaction conditional on 7+8, then Priority C (spectral-gap analysis, collaboration target).*
 
 - **Phase 0 complete.** Lake project initialized with `math` template,
   pinned to **Lean 4 v4.29.1** and **Mathlib v4.29.1**. Mathlib
@@ -311,6 +311,103 @@ incorporates the Lean formalization.
 
 ---
 
+## Phase 7 — Priority A: phantom-set taxonomy vs Chang Theorem 7.15
+
+Acceptance: a finite, scriptable enumeration that either confirms
+the empirical phantom set ($k \le 24$, paper Appendix A) is closed
+under SCC inclusion at depth $K_0$, or produces explicit new SCCs
+to be added to the analysis. Sets the working phantom universe for
+Phase 8.
+
+Strictly outside Lean (Python/SciPy work). Listed here for
+roadmap continuity. Estimated effort: 1-2 weeks of focused
+scripting, with cross-AI checking between the necklace-enumeration
+code and an independent direct-search fallback to catch
+off-by-one errors.
+
+| ID | Status | Task | Acceptance criterion |
+|----|--------|------|----------------------|
+| 7.1 | [ ] | Implement primitive cyclic-composition enumerator via Möbius inversion of necklace counts $M(K, \ell)$. | Reproduces Chang Table 1 small-$K$ counts ($K \le 10$) exactly. |
+| 7.2 | [ ] | For each enumerated composition $(k_1, \ldots, k_\ell)$ with expansive drift $\Delta = \ell \log_2 3 - K > 0$, compute the rational fixed point $q_w$ and its $2$-adic representative. | Per-composition output: $(C_w, A, L, q_w)$, with sanity check $(2^A - 3^L) q_w = C_w$. |
+| 7.3 | [ ] | Build the orbit-simulation harness: for a given residue class of $q_w$ mod $2^{B_m+1}$, sample $N$ integer lifts and trace their first $b$ shadowing periods; record episode-graph transitions. | Output: edge list of the augmented episode graph at depth cutoff $K_0$. |
+| 7.4 | [ ] | Run the full enumeration at $K_0 = 16$. | Augmented episode graph; comparison report against the paper-§8 SCC. Two outcomes are acceptable: (a) no new SCC, (b) explicit list of new SCCs with $T = 10$, $j = 32$ spectral certificates per node. |
+| 7.5 | [ ] | If 7.4 outcome is (a): push $K_0$ to $20$ and re-run. | Same acceptance as 7.4 but at $K_0 = 20$. |
+| 7.6 | [ ] | If 7.4 or 7.5 outcome is (b): integrate the new SCCs into the cross-node operator and recompute $\spec(M_{\mathrm{cross}})$. | Updated bound table comparable to paper §8. |
+| 7.7 | [ ] | Document the enumeration result in a new `notes/phantom_taxonomy.md` and reference it from the v3 paper draft. | File exists; v3 draft cites it. |
+
+---
+
+## Phase 8 — Priority B: Lean formalization of episode graph and FULL_{T,j}
+
+Acceptance: a Lean 4 module `CollatzShadowing.EpisodeGraph` that
+defines the episode graph as a `SimpleDigraph`, formalizes the
+truncated transfer operator at the critical node, the
+$\full_{T,j} = \core_{T,j} + \tail_{T,j}$ decomposition, and proves
+that the weighted Collatz–Wielandt expression is a true upper
+bound on $\spec(\full_{T,j})$ for each finite $(T, j)$. No
+formalization of the open conjectures of paper §9 is in scope.
+
+Conditional on Phase 7 having fixed the working phantom set.
+Estimated effort: 2-4 weeks of LLM-assisted Lean sessions,
+comparable in scope to Phases 1-5 of this TODO.
+
+| ID | Status | Task | Acceptance criterion |
+|----|--------|------|----------------------|
+| 8.1 | [ ] | Mathlib API inventory for `SimpleDigraph`, strongly-connected-component constructions, non-negative matrices, Perron–Frobenius / Collatz–Wielandt characterizations. | `CollatzShadowing/EPISODE_INVENTORY.md` written; `EpisodeInventory.lean` typechecks against the inventory. |
+| 8.2 | [ ] | Define `EpisodeNode := (k : ℕ) × (c : ℕ) × (b : ℕ)` and the episode graph as a `SimpleDigraph EpisodeNode`. | `EpisodeGraph.lean`: `#check` succeeds on the digraph, edges list, and a finiteness instance. |
+| 8.3 | [ ] | Formalize SCC computation: either via Tarjan's algorithm or by adapting an existing Mathlib graph-theoretic construction. | `EpisodeGraph.lean:scc_critical` returns the critical SCC of paper §8 (with the Phase-7 augmentation, if any). |
+| 8.4 | [ ] | Define the refined phase state $\sigma(t, h) := (\nu_2(t) \wedge V, \mathrm{odd}(t) \bmod 4, h \bmod 4)$ as a finite type. | `Operator.lean`: `instance : Fintype PhaseState`. |
+| 8.5 | [ ] | Define $\full_{T,j}$, $\core_{T,j}$, $\tail_{T,j}$ as `Matrix PhaseState PhaseState ℝ≥0`, with the empirical-signature majority defining the partition. | Matrices typecheck; row sums $\le 1$ verified; $\full = \core + \tail$ proved by `decide` or direct case analysis. |
+| 8.6 | [ ] | Prove the weighted Collatz–Wielandt bound $\spec(\full) \le \max_i (\core v)_i / v_i + \max_i (\tail v)_i / v_i$ for any positive $v$ such that $\full v$ is well-defined. | `Bound.lean:weighted_collatz_wielandt`, `sorry`-free. |
+| 8.7 | [ ] | Tie the bound theorem to the explicit numerical computation of paper §7 via a `decide`-style certificate at $T = 10$, $j = 32$. | A Lean term whose type asserts $\spec(\full_{10, 32}) \le 0.0485$, closed without `sorry`. |
+| 8.8 | [ ] | `lean/CollatzShadowing/INVENTORY.md` updated to cover the Phase-8 additions; `lean/README.md` updated. | Files reflect new modules. |
+| 8.9 | [ ] | `lake build` clean across the full project. | Build success, zero `sorry`. |
+
+---
+
+## Phase 9 — v3 paper redaction
+
+Acceptance: a published `v3` of the preprint on Zenodo, after
+Phases 7 and 8 are complete (Phase 9 is therefore conditional on
+both). Phase 9 does **not** depend on Phase 10 (Priority C).
+
+| ID | Status | Task | Acceptance criterion |
+|----|--------|------|----------------------|
+| 9.1 | [ ] | Decide v3 framing. | Working title: paper v3 either (a) the same paper extended with a §11 "Phantom-set completeness at depth $K_0$" subsection plus an updated §3.3 that reflects the broader Lean coverage, or (b) a companion preprint focused on the taxonomy result, with v2 unchanged. Decision committed in `notes/v3_outline.md`. |
+| 9.2 | [ ] | Update §1.2 (Related Work) with any new arXiv work appearing between v2 and v3. | Reconnaissance pass run per `METHODOLOGY.md` "Literature reconnaissance method". |
+| 9.3 | [ ] | Update §8 (Cross-node certificate) with the augmented SCC of Phase 7, if any. | Tables refreshed; new bounds reported. |
+| 9.4 | [ ] | Update §3.3 (Formal verification) to cover the Phase-8 additions: `EpisodeGraph`, `Operator`, `Bound`. | Section enumerates the Phase-8 declarations with file references. |
+| 9.5 | [ ] | Update §10 "Planned next steps" to reflect Phases 7 and 8 as completed and to refocus on Priority C (Phase 10). | Subsection retitled or revised. |
+| 9.6 | [ ] | Update §11 (Methodology) with the v2→v3 Lean session log and any new methodological observations. | Cross-AI verification protocol stress-tested by the Phase-8 sessions; lessons documented. |
+| 9.7 | [ ] | Build the v3 supplementary archive (Zenodo zip) including the updated `lean/`, the Phase-7 enumeration code under `scripts/phantom_taxonomy/`, and the v3 PDF. | Zip exists, `pdflatex` clean run, archive < 50 MB. |
+| 9.8 | [ ] | Publish v3 on Zenodo as new version of the existing record; update GitHub README with the new version DOI. | Zenodo shows v3 with new version DOI under the same concept DOI; README badges updated. |
+
+---
+
+## Phase 10 — Priority C: spectral-gap analysis (collaboration target)
+
+Acceptance: a partial result on $\{\full_T\}_{T \ge T_0}$ via
+Lasota–Yorke + Hennion + Keller–Liverani that does not require
+closing Conjecture 6 of the paper outright. Open-ended;
+intentionally flagged as a **collaboration target** with researchers
+who work on transfer operators on $p$-adic or symbolic systems.
+Will not be initiated before Phases 7-9 are closed.
+
+| ID | Status | Task | Acceptance criterion |
+|----|--------|------|----------------------|
+| 10.1 | [ ] | Identify candidate Banach space of $2$-adic Lipschitz functions adapted to the refined phase quotient. | Working note documenting the choice and its justification. |
+| 10.2 | [ ] | Prove (or, in collaboration, formulate) a Lasota–Yorke inequality for $\full_T$ on the chosen space. | Lemma with explicit constants, even if depending on $T$. |
+| 10.3 | [ ] | Apply Hennion's theorem to extract quasi-compactness and a spectral gap. | Theorem with explicit gap estimate. |
+| 10.4 | [ ] | Apply Keller–Liverani perturbation theory to control the dependence on $T$. | Continuity statement on the dominant eigenvalue across $T$. |
+| 10.5 | [ ] | Decide whether the resulting partial bound is integrated into a v4 paper, into a companion paper, or into a co-authored work. | Decision committed; downstream tasks listed. |
+
+Note: tasks 10.1-10.4 require analytic expertise beyond what the
+author can provide in isolation. Concrete progress on Priority C
+presupposes either an external collaborator or a substantial
+self-study phase that is not on the current program.
+
+---
+
 ## Session log
 
 > Append-only. Newest entries on top.
@@ -323,6 +420,68 @@ incorporates the Lean formalization.
 > - Notes: any blockers, open questions, things the next session should know
 > - Next recommended task: X.Y
 > ```
+
+### 2026-05-09 (Roadmap extension — Phases 7-10 added) — Claude (Claude Code) + Piero Borgatta
+
+- Tasks advanced: **roadmap structure extended.**
+- Artifacts:
+  - `lean/TODO.md` — added four new phases:
+    - **Phase 7 (Priority A)**: phantom-set taxonomy vs Chang
+      Theorem 7.15. Tasks 7.1-7.7 covering the necklace-enumeration
+      script, the per-composition $q_w$ computation, the orbit
+      simulation harness, the $K_0 = 16$ run with $K_0 = 20$ as a
+      conditional follow-up, integration of any new SCCs into
+      $M_{\mathrm{cross}}$, and documentation in
+      `notes/phantom_taxonomy.md`.
+    - **Phase 8 (Priority B)**: Lean formalization of the episode
+      graph, the truncated transfer operator, the
+      $\full = \core + \tail$ decomposition, and the weighted
+      Collatz–Wielandt bound. Tasks 8.1-8.9. Conditional on
+      Phase 7. Conjectures 6 and 7 themselves are **not** in
+      scope.
+    - **Phase 9 (v3 paper)**: paper v3 redaction after both
+      Phases 7 and 8 are complete. Eight tasks covering framing
+      decision, related-work reconnaissance refresh, §8 update
+      with augmented SCC, §3.3 update with Phase-8 declarations,
+      §10 refocus, methodology update, archive build, Zenodo
+      publication.
+    - **Phase 10 (Priority C)**: spectral-gap analysis via
+      Lasota–Yorke + Hennion + Keller–Liverani. Five tasks,
+      explicitly flagged as a collaboration target; will not be
+      initiated before Phases 7-9 are closed.
+- Notes: the v3 release (Phase 9) is gated on Priorities A and B
+  only, not on Priority C. Priority C is open-ended and may
+  feed a future v4 or a companion paper. The order
+  A → B → v3 → C is intentional: A and B sharpen the targets that
+  C would attack, and they are bounded in scope.
+- Next recommended task: 6.4 (Zenodo v2 publication) followed by
+  Phase 7 kick-off (task 7.1, the necklace enumerator).
+
+### 2026-05-09 (Phase 6 closure — README + methodology updates) — Claude (Claude Code) + Piero Borgatta
+
+- Tasks advanced: **6.5 complete.**
+- Artifacts:
+  - `README.md` rewritten: dual DOI badges (concept
+    `10.5281/zenodo.20021537` + version v2
+    `10.5281/zenodo.20098868`), separate paper rows for v1/v2,
+    Lean section with theorem-to-file mapping, "Relation to
+    concurrent work" paragraph on Chang 2026, "Planned next
+    steps" section in compressed form (A/B/C), citation block
+    updated to v2 DOI.
+  - `METHODOLOGY.md` extended with `Planned next phases`
+    section covering Priorities A, B, C in detail with effort
+    estimates and the explicit ordering rationale.
+  - `paper/collatz_spectral_reduction_v2.tex` added §10
+    subsection "Planned next steps" after the Honest claim
+    paragraph.
+- Verification: paper .tex passes static balance check
+  (1750 lines, environments balanced, all `\cite` resolved, all
+  `\ref` resolved). `pdflatex` build still pending (no TeX on
+  current system).
+- Pending in Phase 6: 6.4 (Zenodo v2 publish, ready to click),
+  6.9 (`pdflatex` build verification).
+- Next recommended task: complete 6.4 and 6.9, then begin
+  Phase 7.
 
 ### 2026-05-06 (Phase 6 partial — paper v2 drafted) — Claude (Claude Code) + Piero Borgatta
 
