@@ -76,7 +76,7 @@ When you complete or partially advance a task:
 
 ## Current status (most recent first)
 
-> *Last updated: 2026-05-09 — **Phase 5 complete: Lemma 3.1 and Corollary 3.4 formalized**. Project is `sorry`-free. **Phase 6 nearly complete**: paper v2 drafted, Lean note written, Related Work + Chang comparison done, GitHub README updated, METHODOLOGY.md updated; only 6.4 (Zenodo v2 publish) and 6.9 (`pdflatex` build) remain. **Phases 7-10 added** as a multi-step roadmap: Priority A (taxonomy enumeration, Python), Priority B (Lean formalization of episode graph and FULL operator), v3 redaction conditional on 7+8, then Priority C (spectral-gap analysis, collaboration target).*
+> *Last updated: 2026-05-09 — **Phase 5 complete**: Lemma 3.1 and Corollary 3.4 formalized; project is `sorry`-free. **Phase 6 essentially complete**: paper v2 published on Zenodo (version DOI `10.5281/zenodo.20098868`, concept DOI `10.5281/zenodo.20021537`); only 6.9 (local `pdflatex` build verification on the author's machine) remains as a soft follow-up. **Phases 7-10 are the live roadmap**: Priority A (taxonomy enumeration, Python), Priority B (Lean formalization of episode graph and FULL operator), v3 redaction conditional on 7+8, then Priority C (spectral-gap analysis, collaboration target).*
 
 - **Phase 0 complete.** Lake project initialized with `math` template,
   pinned to **Lean 4 v4.29.1** and **Mathlib v4.29.1**. Mathlib
@@ -302,7 +302,7 @@ incorporates the Lean formalization.
 | 6.1 | [x] | Lean-side README describes the project and build. | `lean/README.md` exists; build works as documented. |
 | 6.2 | [x] | Paper Section 3 notes the Lean formalization. | `paper/collatz_spectral_reduction_v2.tex` §3.3 (Formal verification in Lean 4) drafted with explicit references to `exact_shadowing`, `exact_shadowing_periods`, `no_infinite_period_congruence_expansive`. |
 | 6.3 | [x] | `METHODOLOGY.md` "Planned next phase" section moved to "Completed". | Section retitled "Formal verification phase: COMPLETED"; literature reconnaissance method appended. |
-| 6.4 | [ ] | Recompile PDF, replace on Zenodo, publish as new version (v2). | Zenodo shows v2 with new DOI; concept DOI now points to v2. |
+| 6.4 | [x] | Recompile PDF, replace on Zenodo, publish as new version (v2). | Zenodo v2 published 2026-05-09; version DOI `10.5281/zenodo.20098868`; concept DOI `10.5281/zenodo.20021537` resolves to latest (v2). |
 | 6.5 | [x] | Update GitHub README with v2 reference. | Top-level `README.md` rewritten: dual DOI badges (concept + v2), separate paper rows for v1/v2, Lean section with theorem-to-file mapping, "Planned next steps" section A→B→C, updated citation block to v2 DOI. |
 | 6.6 | [x] | Add Related Work to paper covering Chang 2026, Siegel 2023, Rozier 2025, Neklyudov 2022, Lemmens-Nussbaum, Laarhoven-de Weger, Mori 2025, Leventides-Poulios, Bastos-Caprio-Messaoudi. | v2 §1.2 covers all listed works with explicit relationships. |
 | 6.7 | [x] | Add Section 9.1 with quantitative comparison vs Chang 2026 bounds (R ≤ 0.0893, ρ(B̃₂_ext) ≤ 5/32). | v2 §9.1 (Comparison with concurrent work) drafted. |
@@ -420,6 +420,36 @@ self-study phase that is not on the current program.
 > - Notes: any blockers, open questions, things the next session should know
 > - Next recommended task: X.Y
 > ```
+
+### 2026-05-09 (Phase 6 closed — v2 published on Zenodo) — Piero Borgatta + Claude (Claude Code)
+
+- Tasks advanced: **6.4 complete.**
+- Artifact: Zenodo deposit v2.
+  - Version DOI: `10.5281/zenodo.20098868`
+  - Concept DOI: `10.5281/zenodo.20021537` (now resolves to v2)
+  - Publication date: 2026-05-09
+  - Title: *A Spectral Reduction of the Collatz Conjecture via
+    Phantom Orbit Shadowing* (Version 2.0.0)
+  - License: CC BY 4.0
+  - Related identifiers: `Is new version of`
+    `10.5281/zenodo.20021538` (v1).
+  - Description includes the full Mathematical content + Honest
+    claim + Conditional content + Research program note +
+    Planned next steps (A, B, C in compressed form) + Resources
+    sections in HTML.
+  - Files: `collatz_supplementary_v2.zip` (paper PDF/.tex,
+    `lean/` formalization, `scripts/`, `METHODOLOGY.md`,
+    `README.md`, `LICENSE`) plus the standalone v2 PDF for
+    preview.
+- Pending in Phase 6: 6.9 (local `pdflatex` build verification on
+  the author's machine — soft follow-up; does not block any
+  downstream phase since the v2 PDF is already on Zenodo).
+- Notes: with v2 published, the project state is now publicly
+  citable in its formalization-included form. Any further work
+  (Phases 7-10) feeds into v3.
+- Next recommended task: kick off **Phase 7** (Priority A,
+  starting with task 7.1 — the necklace enumerator via M\"obius
+  inversion).
 
 ### 2026-05-09 (Roadmap extension — Phases 7-10 added) — Claude (Claude Code) + Piero Borgatta
 
