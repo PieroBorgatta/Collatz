@@ -252,6 +252,114 @@ the v2 paper. The reconnaissance method itself — what to do, which
 sources to consult, how to rank — is documented above and is the
 reusable artifact.
 
+## Planned next phases
+
+The Lean formalization of the shadowing core closes the most
+concrete deliverable that was on the program at the time of v1.
+Three further targets are on the program for v3 (or for a
+follow-up companion preprint), in the listed order of increasing
+analytic difficulty.
+
+### Priority A — Phantom-set taxonomy vs Chang Theorem 7.15
+
+The empirical phantom set used in the paper covers $k \le 24$
+(Appendix A of the paper). Chang's Phantom Universality theorem
+(arXiv:2603.11066, Theorem 7.15) shows that the universe of
+primitive cyclic compositions of valuations is in fact infinite
+and grows roughly like $1.87^K$ in the depth $K$. A bounded
+enumeration is therefore in scope:
+
+1. Pick a depth cutoff $K_0$ (initially $K_0 = 16$, possibly
+   pushed to $K_0 = 20$).
+2. Enumerate all primitive cyclic compositions
+   $(k_1, \ldots, k_\ell)$ with $\sum k_i \le K_0$ and expansive
+   drift $\Delta = \ell \log_2 3 - K > 0$ via Möbius inversion
+   on the necklace counts.
+3. For each composition, compute the 2-adic representative
+   $q_w$ and simulate sufficiently many integer orbits in its
+   residue class.
+4. Build the resulting episode graph and verify either that
+   every strongly connected component is already covered by the
+   SCC reported in §8 of the paper, or that one or more new SCCs
+   appear (which then need to be checked against the spectral
+   bound of §6).
+
+The exercise is bounded and scriptable, but the per-composition
+orbit simulation is non-trivial in cost and the necklace
+enumeration grows rapidly. A realistic estimate is one to two
+weeks of focused scripting effort, with cross-AI checking
+between the M\"obius enumeration code and an independent direct
+search to catch off-by-one errors. This is the first target we
+intend to address after the v2 release.
+
+### Priority B — Lean formalization of the episode graph and transfer operator
+
+Currently formalized in Lean 4 + Mathlib: the shadowing lemma
+(`exact_shadowing`), its periodic specialization, and the
+no-infinite-shadowing corollary. **Not** formalized: the
+episode graph, the truncated transfer operator FULL_{T,j}, the
+decomposition into CORE+TAIL, the weighted Collatz–Wielandt
+bound, and the conditional reduction theorem of paper §9.
+
+The natural next-step formalization, conditional on Priority A
+having fixed the working phantom set, would introduce in Lean:
+
+- a `SimpleDigraph` on nodes `(k, c, b)`;
+- a formal computation of strongly connected components (Tarjan
+  or an existing Mathlib graph-theoretic construction);
+- the truncated transfer operator `FULL_{T,j}` as a non-negative
+  matrix on the refined phase quotient;
+- the decomposition `FULL = CORE + TAIL`;
+- a proof that the weighted Collatz–Wielandt expression is a
+  true upper bound on the spectral radius of `FULL_{T,j}` for
+  each finite `(T, j)`.
+
+This is purely combinatorial and does not require new
+mathematics, but the Mathlib graph and matrix infrastructure
+needed is non-trivial. A realistic estimate is two to four
+weeks of LLM-assisted Lean sessions, comparable in scope to
+the current Lean phase. The conjectures in paper §9 themselves
+involve infinite suprema and asymptotic decay and are
+**not** in scope: they are not yet expressible in current
+Mathlib without first being mathematically resolved.
+
+### Priority C — Spectral-gap analysis toward Conjecture 6
+
+The strongest analytic target, and the most uncertain, is a
+**partial** bound on the operator family $\{$FULL$_T\}_{T \ge T_0}$
+that does not require closing Conjecture 6 of the paper outright.
+The natural framework is:
+
+- a Lasota–Yorke inequality on a Banach space of 2-adic
+  Lipschitz functions adapted to the refined phase quotient;
+- Hennion's theorem to extract quasi-compactness and a spectral
+  gap from the inequality;
+- Keller–Liverani perturbation theory to control the
+  dependence on the truncation parameter $T$.
+
+Recent literature on quasi-compactness of Frobenius–Perron
+operators with countable branches (arXiv:2406.19929) and on
+certified spectral approximation of transfer operators
+(arXiv:2602.19435) provides a starting point.
+
+We do not have the analytic expertise to carry out this
+program in isolation. This priority is therefore intentionally
+flagged as a **collaboration target**: the natural way to make
+progress here is to bring in a researcher who works in transfer
+operators on $p$-adic or symbolic systems, present the existing
+finite-matrix evidence as a starting point, and iterate from
+there. We would consider any concrete intermediate result —
+short of closing Conjecture 6 — substantive progress.
+
+### Order of execution
+
+A first, then B, then C. A and B are bounded and scriptable
+work that we can address with the current LLM-assisted
+methodology. C is open-ended and collaboration-dependent; it
+will not be attempted before A and B are closed, both because
+they sharpen the targets that C would attack and because they
+free up the necessary attention.
+
 ## How to engage
 
 - **For the math**: read Sections 3, 5, and 6 of the paper. If you

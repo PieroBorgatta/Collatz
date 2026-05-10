@@ -1191,6 +1191,79 @@ family of nonnegative matrices}, with the foundational shadowing
 lemma mechanically verified, supported by numerical evidence with
 a $16\times$ safety margin. We do not claim the conjecture itself.
 
+\subsection{Planned next steps}
+\label{sec:planned}
+
+The work above isolates several finite, well-defined targets
+whose resolution would either tighten the present reduction or
+formalize parts of it that currently rest on numerical evidence.
+We list them in increasing order of analytic difficulty.
+
+\paragraph{Priority A --- Phantom-set taxonomy with respect to
+\cite[Theorem~7.15]{chang2026}.}
+The present empirical phantom set ($k \le 24$,
+Appendix~\ref{app:phantoms}) is small relative to the universe of
+primitive cyclic compositions enumerated by Chang. A finite but
+non-trivial enumeration is in scope: for a chosen depth cutoff
+$K_0$ (say $K_0 = 16$ or $20$), enumerate all primitive cyclic
+compositions $(k_1, \ldots, k_\ell)$ with expansive drift
+$\Delta = \ell \log_2 3 - K > 0$, compute their $2$-adic
+representatives $q_w$, simulate sufficiently many integer orbits
+shadowing them, and verify either that every resulting
+strongly connected component is already covered by the SCC of
+Section~\ref{sec:cross}, or otherwise produce explicit new SCCs
+to be added. The exercise is bounded and scriptable, but the
+M\"obius enumeration of primitive necklaces grows rapidly with
+$K_0$ and the per-composition orbit simulation is non-trivial; we
+estimate one to two weeks of focused scripting effort before any
+honest claim of completeness can be made. This is the first
+target we intend to address.
+
+\paragraph{Priority B --- Lean formalization of the episode graph
+and the transfer operator.}
+The Lean~4 + Mathlib formalization of
+Section~\ref{sec:formalization} covers the shadowing core
+(Lemma~\ref{lem:shadowing} and Corollary~\ref{cor:no-infinite})
+only. A natural extension --- conditional on Priority~A having
+fixed the working phantom set --- is to formalize the
+episode graph itself: introduce a \texttt{SimpleDigraph} on the
+nodes $(k, c, b)$, formalize the SCC computation (e.g.\ via
+Tarjan's algorithm or an existing Mathlib graph-theoretic
+construction), define the truncated transfer operator
+$\full_{T,j}$ and the decomposition
+$\full_{T,j} = \core_{T,j} + \tail_{T,j}$, and prove that the
+weighted Collatz--Wielandt bound \eqref{eq:bound} is a true
+upper bound on $\spec(\full_{T,j})$ for each finite $(T, j)$.
+The work is purely combinatorial and does not require new
+mathematics, but the Mathlib graph and matrix
+infrastructure required is non-trivial; a realistic estimate is
+two to four weeks of LLM-assisted Lean sessions, comparable to
+the scope of the current Lean phase.
+
+\paragraph{Priority C --- Spectral-gap analysis toward
+Conjecture~\ref{conj:T}.}
+The strongest analytic target, and the most uncertain, is to
+prove a \emph{partial} bound on the family
+$\{\full_T\}_{T \ge T_0}$ that does not require full closure of
+Conjecture~\ref{conj:T}. The natural tools are a
+Lasota--Yorke inequality on a Banach space of $2$-adic
+Lipschitz functions, Hennion's theorem to extract a spectral
+gap, and Keller--Liverani perturbation
+theory~\cite{kellerliverani} to control the dependence on $T$.
+Recent infrastructure on quasi-compactness of transfer
+operators with countable branches \cite{quasicompact} and
+certified spectral approximation \cite{certifiedspectral}
+provides a starting point. We do not have the analytic
+expertise to carry out this program in isolation and consider it
+the most natural target for collaboration with a researcher
+working in the area; a single concrete intermediate result,
+short of closing Conjecture~\ref{conj:T}, would already be a
+meaningful step forward.
+
+We intend to address these in the listed order: A first
+(scriptable, contained), then B (Lean infrastructure extension,
+contained), then C (open-ended, collaboration-dependent).
+
 \section{Methodology and AI disclosure}
 \label{sec:methodology}
 
