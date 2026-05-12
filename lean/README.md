@@ -9,7 +9,8 @@ Machine-verified proofs of the mathematical content of
 > SCC certificate, Collatz-Wielandt certificate, and Mathlib
 > spectral-radius bound for the empirical `K,b` matrix, plus a generated
 > exact `T = 10` critical-symbolic transfer-matrix import and a generated
-> `T = 10, j = 32` majority core/tail import.
+> `T = 10, j = 32` majority core/tail import with a generator-verified
+> numerical spectral-radius bound `97/2000 = 0.0485`.
 
 ## Goal
 
@@ -48,6 +49,7 @@ lake build CollatzShadowing.Generated.K16S16KSCC
 lake build CollatzShadowing.Generated.K16S16KBridge
 lake build CollatzShadowing.Generated.T10CriticalSymbolic
 lake build CollatzShadowing.Generated.T10J32HighBitTail
+lake build CollatzShadowing.Generated.T10J32HighBitTailCW
 ```
 
 To check for proof placeholders:
@@ -95,6 +97,12 @@ placeholders.
   matrices, with `full` definitionally equal to `core + tail`, generated
   row-substochasticity certificates, and
   `t10j32HighBitTailDecomposition`.
+- `CollatzShadowing.Generated.T10J32HighBitTailCW`: paper-facing
+  numerical spectral-radius bound for the imported `T = 10, j = 32`
+  full matrix, stated as `t10j32HighBitTailSpectralRadiusBound_97_2000`.
+  The exact rational row checks are verified by
+  `../scripts/phantom_taxonomy/lean_t10j32_cw.py` and imported as a
+  trusted generated certificate boundary.
 
 ## Plan and progress
 
