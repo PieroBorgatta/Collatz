@@ -1,0 +1,2 @@
+T;j_count;odd_bits;hit_bits;state_count;total_groups;stable_groups;stable_fraction;total_observations;terminal_observations;terminal_fraction;tail_events;tail_event_fraction;full_weight;tail_weight;tail_weight_fraction;rho_full;rho_core;rho_tail;norm_inf_full;norm_inf_core;norm_inf_tail;rho_core_plus_tail_inf
+10;32;2;2;120;4096;2180;0.5322265625;131072;117484;0.896331787109375;8476;0.064666748046875;3966.7734375;2348.8984375;0.5921433312259846;0.030848698369595164;0.01180297605831475;0.018321816850660828;0.5625;0.126953125;0.5625;0.5743029760583147

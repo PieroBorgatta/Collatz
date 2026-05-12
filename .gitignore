@@ -48,3 +48,4 @@ lean/build/
 lean/lake-packages/
 lean/lakefile.olean
 **/*.olean
+.aider*

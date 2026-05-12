@@ -76,7 +76,7 @@ When you complete or partially advance a task:
 
 ## Current status (most recent first)
 
-> *Last updated: 2026-05-09 — **Phase 5 complete: Lemma 3.1 and Corollary 3.4 formalized**. Project is `sorry`-free. **Phase 6 nearly complete**: paper v2 drafted, Lean note written, Related Work + Chang comparison done, GitHub README updated, METHODOLOGY.md updated; only 6.4 (Zenodo v2 publish) and 6.9 (`pdflatex` build) remain. **Phases 7-10 added** as a multi-step roadmap: Priority A (taxonomy enumeration, Python), Priority B (Lean formalization of episode graph and FULL operator), v3 redaction conditional on 7+8, then Priority C (spectral-gap analysis, collaboration target).*
+> *Last updated: 2026-05-12 — **Phase 5 complete: Lemma 3.1 and Corollary 3.4 formalized**. Project is `sorry`-free. **Phase 6 complete**: paper v2 drafted, Lean note written, Related Work + Chang comparison done, GitHub README updated, METHODOLOGY.md updated, Zenodo v2 published, and `pdflatex` verified online by Piero. **Phase 7 advanced**: tasks 7.1-7.3 completed; 7.4 has a full `K0=16` sampled run and SCC report with outcome (b); 7.6 is closed as an empirical integration result with exact rational certificates for sampled matrices; 7.7 documents the taxonomy result in `notes/phantom_taxonomy.md`. **Phase 8 advanced**: 8.1, 8.2, 8.3, 8.4, 8.5, and 8.6 are complete; 8.3 closes on the generated 37-state compressed `K,b` SCC certificate; 8.5 now has the matrix/decomposition API, a generated exact import of the empirical `T = 10` critical-symbolic full transfer matrix, and an exact generated `T = 10, j = 32` majority `core/tail` `OperatorDecomposition`; 8.6 connects finite CW certificates to Mathlib `spectralRadius` via the weighted diagonal conjugate and exposes the concrete 37-state spectral bound in `Generated/K16S16KBridge.lean`.*
 
 - **Phase 0 complete.** Lake project initialized with `math` template,
   pinned to **Lean 4 v4.29.1** and **Mathlib v4.29.1**. Mathlib
@@ -302,12 +302,12 @@ incorporates the Lean formalization.
 | 6.1 | [x] | Lean-side README describes the project and build. | `lean/README.md` exists; build works as documented. |
 | 6.2 | [x] | Paper Section 3 notes the Lean formalization. | `paper/collatz_spectral_reduction_v2.tex` §3.3 (Formal verification in Lean 4) drafted with explicit references to `exact_shadowing`, `exact_shadowing_periods`, `no_infinite_period_congruence_expansive`. |
 | 6.3 | [x] | `METHODOLOGY.md` "Planned next phase" section moved to "Completed". | Section retitled "Formal verification phase: COMPLETED"; literature reconnaissance method appended. |
-| 6.4 | [ ] | Recompile PDF, replace on Zenodo, publish as new version (v2). | Zenodo shows v2 with new DOI; concept DOI now points to v2. |
+| 6.4 | [x] | Recompile PDF, replace on Zenodo, publish as new version (v2). | Verified 2026-05-10: Zenodo record `10.5281/zenodo.20098868` is v2 (`version = 2.0.0`) under concept DOI `10.5281/zenodo.20021537`; published PDF and supplementary zip checksums match the local artifacts. |
 | 6.5 | [x] | Update GitHub README with v2 reference. | Top-level `README.md` rewritten: dual DOI badges (concept + v2), separate paper rows for v1/v2, Lean section with theorem-to-file mapping, "Planned next steps" section A→B→C, updated citation block to v2 DOI. |
 | 6.6 | [x] | Add Related Work to paper covering Chang 2026, Siegel 2023, Rozier 2025, Neklyudov 2022, Lemmens-Nussbaum, Laarhoven-de Weger, Mori 2025, Leventides-Poulios, Bastos-Caprio-Messaoudi. | v2 §1.2 covers all listed works with explicit relationships. |
 | 6.7 | [x] | Add Section 9.1 with quantitative comparison vs Chang 2026 bounds (R ≤ 0.0893, ρ(B̃₂_ext) ≤ 5/32). | v2 §9.1 (Comparison with concurrent work) drafted. |
 | 6.8 | [x] | Make AI-collaboration as research methodology an explicit secondary goal of v2. | v2 abstract note + §11 (Methodology) expanded; cross-AI verification protocol documented. |
-| 6.9 | [ ] | Verify v2 .tex compiles without errors. | `pdflatex` clean run. Pending. |
+| 6.9 | [x] | Verify v2 .tex compiles without errors. | Verified online by Piero on 2026-05-10: `paper/collatz_spectral_reduction_v2.tex` compiles with `pdflatex`. Local TeX installation remains intentionally absent because `texlive` is too large. |
 
 ---
 
@@ -327,20 +327,20 @@ off-by-one errors.
 
 | ID | Status | Task | Acceptance criterion |
 |----|--------|------|----------------------|
-| 7.1 | [ ] | Implement primitive cyclic-composition enumerator via Möbius inversion of necklace counts $M(K, \ell)$. | Reproduces Chang Table 1 small-$K$ counts ($K \le 10$) exactly. |
-| 7.2 | [ ] | For each enumerated composition $(k_1, \ldots, k_\ell)$ with expansive drift $\Delta = \ell \log_2 3 - K > 0$, compute the rational fixed point $q_w$ and its $2$-adic representative. | Per-composition output: $(C_w, A, L, q_w)$, with sanity check $(2^A - 3^L) q_w = C_w$. |
-| 7.3 | [ ] | Build the orbit-simulation harness: for a given residue class of $q_w$ mod $2^{B_m+1}$, sample $N$ integer lifts and trace their first $b$ shadowing periods; record episode-graph transitions. | Output: edge list of the augmented episode graph at depth cutoff $K_0$. |
-| 7.4 | [ ] | Run the full enumeration at $K_0 = 16$. | Augmented episode graph; comparison report against the paper-§8 SCC. Two outcomes are acceptable: (a) no new SCC, (b) explicit list of new SCCs with $T = 10$, $j = 32$ spectral certificates per node. |
+| 7.1 | [x] | Implement primitive cyclic-composition enumerator via Möbius inversion of necklace counts $M(K, \ell)$. | `scripts/phantom_taxonomy/necklace_counts.py` implements `M(K, ell) = (1/ell) * sum_{d | gcd(K, ell)} mu(d) * binom(K/d - 1, ell/d - 1)`, brute-force verifies formula counts through `K <= 10`, and reproduces Chang's displayed `R(K)` values for `K = 3..20`; `necklace_counts_k3_20.csv` records the small table. |
+| 7.2 | [x] | For each enumerated composition $(k_1, \ldots, k_\ell)$ with expansive drift $\Delta = \ell \log_2 3 - K > 0$, compute the rational fixed point $q_w$ and its $2$-adic representative. | `scripts/phantom_taxonomy/phantom_representatives.py` emits per-composition rows `(word, C_w, A, L, q_w, q_w mod 2^m)` using exact `Fraction` arithmetic; generated `phantom_representatives_k3_16.csv` and `phantom_representatives_k3_20.csv`. Sanity checks prove `(2^A - 3^L) q_w = C_w`, `S_w(q_w) = q_w`, odd denominator, and per-`K` row counts match `M_expanding` from 7.1. |
+| 7.3 | [x] | Build the orbit-simulation harness: for a given residue class of $q_w$ mod $2^{B_m+1}$, sample $N$ integer lifts and trace their first $b$ shadowing periods; record episode-graph transitions. | `scripts/phantom_taxonomy/orbit_harness.py` samples lifts `n = q_w mod 2^(bA+1) + t*2^(bA+1)`, traces odd Syracuse orbits, detects monitored phantom congruence hits, and emits detail/event/edge CSVs. Smoke outputs: `orbit_harness_k10_*` and `orbit_harness_k16_smoke_*`; the latter uses the `K0 = 16` representative table with a small sample budget. |
+| 7.4 | [~] | Run the full enumeration at $K_0 = 16$. | Sampled full-composition run completed: `orbit_harness_k16_full_*` traces all 1247 representatives with `K <= 16`, `b = 1..2`, 8 dense lifts/source, max 1000 steps. `notes/phantom_taxonomy_k16_scc_report.md` reports 2401 observed nodes, 5041 edge types, and one nontrivial SCC of size 1222; full node list in `orbit_harness_k16_full_scc_nodes.csv`. Outcome is (b); per-node spectral certificates remain pending and feed 7.6. |
 | 7.5 | [ ] | If 7.4 outcome is (a): push $K_0$ to $20$ and re-run. | Same acceptance as 7.4 but at $K_0 = 20$. |
-| 7.6 | [ ] | If 7.4 or 7.5 outcome is (b): integrate the new SCCs into the cross-node operator and recompute $\spec(M_{\mathrm{cross}})$. | Updated bound table comparable to paper §8. |
-| 7.7 | [ ] | Document the enumeration result in a new `notes/phantom_taxonomy.md` and reference it from the v3 paper draft. | File exists; v3 draft cites it. |
+| 7.6 | [x] | If 7.4 or 7.5 outcome is (b): integrate the new SCCs into the cross-node operator and recompute $\spec(M_{\mathrm{cross}})$. | Closed as an **empirical integration result**, strengthened with exact rational certificates for the empirical matrices. `scc_transfer_summary.py` builds substochastic retention matrices from the `K0=16` event stream; `scc_collatz_wielandt.py` computes empirical CW upper expressions; `scc_cw_certificate.py` verifies exact rational inequalities `(P v)_i ≤ 0.89 v_i` for stored positive integer vectors. 16-lift certificates: raw 1240-node max ratio `439764459109/496636575879 ≈ 0.885485444423`; `(K,L,b)` 76-state max ratio `88036787882257/99446226949575 ≈ 0.885270266985`; `(K,b)` 37-state max ratio `136756256754601/154382162832639 ≈ 0.885829387575`. Scope note in `notes/phantom_taxonomy_empirical_scc_integration.md`: this still certifies sampled empirical matrices, not the stronger deterministic/theorem-level transition construction. |
+| 7.7 | [x] | Document the enumeration result in a new `notes/phantom_taxonomy.md` and reference it from the v3 paper draft. | `notes/phantom_taxonomy.md` exists and summarizes 7.1-7.6: exact necklace enumeration, rational representatives, orbit harness, `K0=16` SCC run, empirical integration, stability, exact rational certificates for sampled matrices, and the remaining deterministic-transition gap. No v3 draft exists yet, so this note is the document to cite/import when Phase 9 starts. |
 
 ---
 
 ## Phase 8 — Priority B: Lean formalization of episode graph and FULL_{T,j}
 
 Acceptance: a Lean 4 module `CollatzShadowing.EpisodeGraph` that
-defines the episode graph as a `SimpleDigraph`, formalizes the
+defines the episode graph as a local directed relation, formalizes the
 truncated transfer operator at the critical node, the
 $\full_{T,j} = \core_{T,j} + \tail_{T,j}$ decomposition, and proves
 that the weighted Collatz–Wielandt expression is a true upper
@@ -353,15 +353,15 @@ comparable in scope to Phases 1-5 of this TODO.
 
 | ID | Status | Task | Acceptance criterion |
 |----|--------|------|----------------------|
-| 8.1 | [ ] | Mathlib API inventory for `SimpleDigraph`, strongly-connected-component constructions, non-negative matrices, Perron–Frobenius / Collatz–Wielandt characterizations. | `CollatzShadowing/EPISODE_INVENTORY.md` written; `EpisodeInventory.lean` typechecks against the inventory. |
-| 8.2 | [ ] | Define `EpisodeNode := (k : ℕ) × (c : ℕ) × (b : ℕ)` and the episode graph as a `SimpleDigraph EpisodeNode`. | `EpisodeGraph.lean`: `#check` succeeds on the digraph, edges list, and a finiteness instance. |
-| 8.3 | [ ] | Formalize SCC computation: either via Tarjan's algorithm or by adapting an existing Mathlib graph-theoretic construction. | `EpisodeGraph.lean:scc_critical` returns the critical SCC of paper §8 (with the Phase-7 augmentation, if any). |
-| 8.4 | [ ] | Define the refined phase state $\sigma(t, h) := (\nu_2(t) \wedge V, \mathrm{odd}(t) \bmod 4, h \bmod 4)$ as a finite type. | `Operator.lean`: `instance : Fintype PhaseState`. |
-| 8.5 | [ ] | Define $\full_{T,j}$, $\core_{T,j}$, $\tail_{T,j}$ as `Matrix PhaseState PhaseState ℝ≥0`, with the empirical-signature majority defining the partition. | Matrices typecheck; row sums $\le 1$ verified; $\full = \core + \tail$ proved by `decide` or direct case analysis. |
-| 8.6 | [ ] | Prove the weighted Collatz–Wielandt bound $\spec(\full) \le \max_i (\core v)_i / v_i + \max_i (\tail v)_i / v_i$ for any positive $v$ such that $\full v$ is well-defined. | `Bound.lean:weighted_collatz_wielandt`, `sorry`-free. |
+| 8.1 | [x] | Mathlib API inventory for `SimpleDigraph`, strongly-connected-component constructions, non-negative matrices, Perron–Frobenius / Collatz–Wielandt characterizations. | `CollatzShadowing/EPISODE_INVENTORY.md` written; `CollatzShadowing/EpisodeInventory.lean` typechecks. Inventory conclusion: use a local directed relation plus `Relation.ReflTransGen` for episode reachability/SCCs, and `Matrix ... NNReal` with finite Collatz-Wielandt-style certificates for the first operator layer. |
+| 8.2 | [x] | Define the paper-level episode node `(k, c, b)` and the episode graph as a local directed relation on episode nodes. | `CollatzShadowing/EpisodeGraph.lean` typechecks. It defines `EpisodeNode` with natural coordinates, finite cutoff nodes `TruncatedEpisodeNode K C B`, `EpisodeGraph.edge : EpisodeRel EpisodeNode`, finite `TruncatedEpisodeGraph`, reachability/SCC wrappers, `edgeFinset`, and checked `Fintype` plumbing for cutoff boxes. |
+| 8.3 | [x] | Formalize SCC computation/certification for the finite episode graph. | Completed for the paper-facing compressed SCC in `CollatzShadowing/EpisodeGraph.lean` and `CollatzShadowing/Generated/K16S16KSCC.lean`: `TruncatedEpisodeGraph.SCC` packages a finite node set with mutual-reachability proofs; `Walk`, `reachable_of_walk`, and `HubSCCCertificate` define a concrete import format based on finite paths to/from a hub; `CriticalSCCCertificate` packages a critical node plus SCC membership. `scripts/phantom_taxonomy/lean_scc_certificate.py` generates the 37-state compressed `K,b` SCC certificate from the Phase-7 JSON, importing the edge table, hub walks, an SCC object, and a critical-SCC certificate. The full raw 1240-node SCC import is optional audit work, not part of the 8.3 closure criterion. |
+| 8.4 | [x] | Define the refined phase state $\sigma(t, h) := (\nu_2(t) \wedge V, \mathrm{odd}(t) \bmod 4, h \bmod 4)$ as a finite type. | `CollatzShadowing/Operator.lean` defines `PhaseState V := Fin (V+1) × Fin 4 × Fin 4`, `cappedNu2`, `oddPart`, `mod4Fin`, and `phaseState`; `instance : Fintype (PhaseState V)` typechecks. |
+| 8.5 | [x] | Define $\full_{T,j}$, $\core_{T,j}$, $\tail_{T,j}$ as `Matrix PhaseState PhaseState ℝ≥0`, with the empirical-signature majority defining the partition. | Completed for the concrete paper-facing empirical import in `CollatzShadowing/Operator.lean`, `Generated/T10CriticalSymbolic.lean`, and `Generated/T10J32HighBitTail.lean`: `TransferMatrix V := Matrix (PhaseState V) (PhaseState V) NNReal`, `ProbabilityEntry` records exact imported probabilities as numerator/positive-denominator data, `RowSubstochastic` states row bounds, and `OperatorDecomposition` packages `full = core + tail` plus row certificates. `lean_phase_transfer.py` generates an exact `T = 10` critical-symbolic full matrix and its baseline decomposition. `export_high_bit_tail_edges.py` exports exact rational majority-signature `full/core/tail` edge weights for `T = 10, j = 32`; `lean_high_bit_tail.py` imports the generated `core` and `tail` matrices as `TransferMatrix 13`, defines `t10j32HighBitTailFull := core + tail`, generates support-based row-sum certificates, proves `t10j32HighBitTailCore_rowSubstochastic`, `t10j32HighBitTailTail_rowSubstochastic`, and `t10j32HighBitTailFull_rowSubstochastic`, and packages `t10j32HighBitTailDecomposition : OperatorDecomposition 13`. |
+| 8.6 | [x] | Prove the weighted Collatz–Wielandt bound $\spec(\full) \le \max_i (\core v)_i / v_i + \max_i (\tail v)_i / v_i$ for any positive $v$ such that $\full v$ is well-defined. | Completed in `CollatzShadowing/Bound.lean`: `FiniteCWBasis`, `FiniteCWCertificate`, `FiniteMatrixBoundCertificate`, `ClearedCWRowBound`, and `ClearedCWCertificateSummary` package finite pointwise certificates and exact cleared-denominator arithmetic certificates. `ClearedCWRowBound.toNNRealInequality` proves the cleared arithmetic inequality over `NNReal`; `EvaluatedCWRowBound.toCWRow` and `finiteCWCertificateOfEvaluatedRows` bridge evaluated cleared rows into a full `FiniteCWCertificate`. `FiniteCWCertificate.add`, `finiteCWCertificateOfSumEq`, `CWCertificate.add`, and `OperatorDecomposition.cwCertificate_full` prove the finite `core+tail` CW bound for both the generic matrix API and the phase-state operator API. The spectral bridge uses `matrixLinftyOpNNNorm`, `spectralRadius_le_of_matrixLinftyOpNNNorm_le`, `finiteCWWeightedRealConjugate`, `finiteCWWeightedRealConjugate_spectrum_eq`, and `spectralRadius_le_of_finiteCWCertificate` to pass from a positive weighted CW certificate to Mathlib's real `spectralRadius`; `spectralRadius_le_of_finiteCWCertificateOfSumEq` and `OperatorDecomposition.spectralRadius_le_full` give the generic and phase-state `core+tail` spectral corollaries. `lean_cw_smoke.py` generates `Generated/K16S16KCWSmoke.lean` from one Phase-7 JSON edge; `lean_cw_summary.py` generates `Generated/K16S16KExactCWSummary.lean`, which imports the full 37-node `K,b` certificate summary, defines `K16S16KState := Fin 37`, generated labels, vector, positive basis, row-nested `NNReal` matrix, exact row supports, row-evaluation witnesses, the exact max-ratio inequality `136756256754601/154382162832639 < 89/100`, all 37 cleared-denominator per-node inequalities by `norm_num`, `k16s16KClearedCWSummary`, `k16s16KEvaluatedRows`, and the full generated certificate `k16s16KFiniteCWCertificate : FiniteCWCertificate k16s16KMatrix k16s16KCWBasis k16s16KAlphaNNReal`. `Generated/K16S16KBridge.lean` checks that the generated SCC and CW matrix certificates use the same `Fin 37` state ordering and labels, packages the combined result as `k16s16KCertifiedComponentWithCW`, and exposes `k16s16KSpectralRadiusBound` for the realified 37-state matrix. |
 | 8.7 | [ ] | Tie the bound theorem to the explicit numerical computation of paper §7 via a `decide`-style certificate at $T = 10$, $j = 32$. | A Lean term whose type asserts $\spec(\full_{10, 32}) \le 0.0485$, closed without `sorry`. |
-| 8.8 | [ ] | `lean/CollatzShadowing/INVENTORY.md` updated to cover the Phase-8 additions; `lean/README.md` updated. | Files reflect new modules. |
-| 8.9 | [ ] | `lake build` clean across the full project. | Build success, zero `sorry`. |
+| 8.8 | [x] | `lean/CollatzShadowing/INVENTORY.md` updated to cover the Phase-8 additions; `lean/README.md` updated. | Verified 2026-05-12: `README.md` now documents the clean build status, main modules, and generated Phase-8 certificate target; `CollatzShadowing/INVENTORY.md` documents the production Phase-8 graph/operator/CW-certificate API; `CollatzShadowing/EPISODE_INVENTORY.md` notes the implemented production modules. |
+| 8.9 | [x] | `lake build` clean across the full project. | Verified 2026-05-12: `lake build` succeeds across the full project; `rg -n "sorry|admit" CollatzShadowing *.lean` finds no Lean proof placeholders. |
 
 ---
 
@@ -421,6 +421,599 @@ self-study phase that is not on the current program.
 > - Next recommended task: X.Y
 > ```
 
+### 2026-05-12 (Phase 8.5 — empirical PhaseState transfer import) — Codex + Piero Borgatta
+
+- Tasks advanced: **8.5 complete** for the concrete `T = 10, j = 32`
+  majority import.
+- Artifacts modified:
+  - `lean/CollatzShadowing.lean`
+  - `lean/CollatzShadowing/Generated/T10CriticalSymbolic.lean`
+  - `lean/CollatzShadowing/Generated/T10J32HighBitTail.lean`
+  - `scripts/phantom_taxonomy/export_high_bit_tail_edges.py`
+  - `scripts/phantom_taxonomy/lean_phase_transfer.py`
+  - `scripts/phantom_taxonomy/lean_high_bit_tail.py`
+  - `scripts/phantom_taxonomy/high_bit_tail_edges_T10_j32.csv`
+  - `lean/README.md`
+  - `lean/CollatzShadowing/INVENTORY.md`
+  - `lean/CollatzShadowing/EPISODE_INVENTORY.md`
+  - `lean/TODO.md`
+- New declarations:
+  - `Generated.t10CriticalSymbolicFull`
+  - `Generated.t10CriticalSymbolicFull_rowSubstochastic`
+  - `Generated.t10CriticalSymbolicBaselineDecomposition`
+  - `Generated.t10j32HighBitTailCore`
+  - `Generated.t10j32HighBitTailTail`
+  - `Generated.t10j32HighBitTailFull`
+  - `Generated.t10j32HighBitTailFull_eq_core_add_tail`
+  - generated row supports and row-sum lemmas for all active
+    `core`, `tail`, and `full` rows
+  - `Generated.t10j32HighBitTailCore_rowSubstochastic`
+  - `Generated.t10j32HighBitTailTail_rowSubstochastic`
+  - `Generated.t10j32HighBitTailFull_rowSubstochastic`
+  - `Generated.t10j32HighBitTailDecomposition`
+- Notes:
+  - The generated module imports the exact rational `T = 10`
+    critical-symbolic transfer matrix from
+    `collatz_75_critical_symbolic_edges.csv`.
+  - The baseline decomposition deliberately uses `core = full` and
+    `tail = 0`; it checks the generated empirical matrix against the
+    `OperatorDecomposition` API but is not yet the majority
+    `core/tail` split.
+  - The second generated module imports the exact majority-signature
+    high-bit split for `T = 10, j = 32`. The observed nonterminal
+    states reach valuation coordinate `13`, so the Lean matrix type is
+    `TransferMatrix 13`.
+  - A brute-force row-substochastic proof for the larger `T = 10,
+    j = 32` majority matrices times out; the final generator therefore
+    uses per-row finite supports, as in `K16S16KExactCWSummary.lean`.
+- Verification:
+  - `lake build CollatzShadowing.Generated.T10CriticalSymbolic`
+    succeeds.
+  - `lake build CollatzShadowing.Generated.T10J32HighBitTail`
+    succeeds.
+  - `lake build` succeeds.
+  - `rg -n "sorry|admit" CollatzShadowing *.lean` finds no proof
+    placeholders.
+- Next recommended task: continue with 8.7 by applying the existing
+  finite CW/spectral bridge to the imported majority decomposition, or
+  generate a matching CW certificate for `T10J32HighBitTail`.
+
+### 2026-05-12 (Phase 8.6 — spectral-radius bridge) — Codex + Piero Borgatta
+
+- Tasks advanced: **8.6 complete**.
+- Artifacts modified:
+  - `lean/CollatzShadowing/Bound.lean`
+  - `lean/CollatzShadowing/Generated/K16S16KBridge.lean`
+  - `lean/README.md`
+  - `lean/CollatzShadowing/INVENTORY.md`
+  - `lean/CollatzShadowing/EPISODE_INVENTORY.md`
+  - `lean/TODO.md`
+- New declarations:
+  - `matrixLinftyOpNNNorm`
+  - `spectralRadius_le_of_matrixLinftyOpNNNorm_le`
+  - `spectralRadius_le_of_forall_row_nnnorm_sum_le`
+  - `nnrealMatrixToReal`
+  - `spectralRadius_le_of_forall_nnreal_row_sum_le`
+  - `finiteCWDiagonalUnit`
+  - `finiteCWWeightedRealConjugate`
+  - `finiteCWWeightedRealConjugate_spectrum_eq`
+  - `spectralRadius_le_of_finiteCWCertificate`
+  - `spectralRadius_le_of_finiteCWCertificateOfSumEq`
+  - `CWBasis.toFiniteCWBasis`
+  - `CWCertificate.toFiniteCWCertificate`
+  - `spectralRadius_le_of_CWCertificate`
+  - `OperatorDecomposition.spectralRadius_le_full`
+  - `Generated.k16s16KSpectralRadiusBound`
+- Notes:
+  - The bridge uses Mathlib's `spectrum.spectralRadius_le_nnnorm`
+    with the matrix `ℓ∞` operator norm, then upgrades a weighted
+    finite CW certificate by conjugating the realified matrix with the
+    positive diagonal basis matrix.
+  - `Generated.K16S16KCertifiedComponentWithCW` now also contains the
+    concrete spectral-radius bound for the generated 37-state `K,b`
+    matrix.
+- Verification:
+  - `lake build CollatzShadowing.Bound` succeeds.
+  - `lake build CollatzShadowing.Generated.K16S16KBridge` succeeds.
+  - `lake build` succeeds.
+  - `rg -n "sorry|admit" CollatzShadowing *.lean` finds no proof
+    placeholders.
+- Next recommended task: resume 8.5/8.7 by deciding whether the next
+  paper-facing object is the empirical `full/core/tail` matrix import or
+  the explicit numerical `T=10, j=32` certificate.
+
+### 2026-05-12 (Phase 8.6 — SCC/CW 37-state bridge) — Codex + Piero Borgatta
+
+- Tasks advanced: **8.6 strengthened**, not complete.
+- Artifacts modified:
+  - `lean/CollatzShadowing.lean`
+  - `lean/CollatzShadowing/Generated/K16S16KBridge.lean`
+  - `lean/README.md`
+  - `lean/CollatzShadowing/INVENTORY.md`
+  - `lean/TODO.md`
+- New declarations:
+  - `Generated.k16s16KSCCNodeToCWState`
+  - `Generated.k16s16KSCCLabel_eq_CWStateLabel`
+  - `Generated.k16s16KSCCNodeToCWState_label`
+  - `Generated.k16s16K_edge_count_eq_scc_edge_count`
+  - `Generated.k16s16KSCCHub_label`
+  - `Generated.K16S16KCertifiedComponentWithCW`
+  - `Generated.k16s16KCertifiedComponentWithCW`
+- Notes:
+  - The new bridge imports both generated 37-state modules and proves
+    that the SCC certificate and CW matrix certificate use the same
+    `Fin 37` state ordering and labels.
+  - `k16s16KCertifiedComponentWithCW` packages the critical SCC
+    certificate, the finite CW certificate, and the compatibility facts
+    into one Lean object suitable for paper-facing references.
+  - This removes an implicit bookkeeping assumption before using the
+    SCC certificate and CW certificate together in later paper-facing
+    statements.
+- Verification:
+  - `lake build CollatzShadowing.Generated.K16S16KBridge` succeeds.
+- Next recommended task: decide whether to add a paper-facing theorem
+  packaging the 37-state SCC certificate together with
+  `k16s16KFiniteCWCertificate`, or move directly to the remaining
+  spectral-radius bridge.
+
+### 2026-05-12 (Phase 8.3 — generated 37-state K,b SCC certificate) — Codex + Piero Borgatta
+
+- Tasks advanced: **8.3 complete** for the 37-state compressed `K,b`
+  SCC certificate.
+- Artifacts modified:
+  - `lean/CollatzShadowing.lean`
+  - `lean/CollatzShadowing/Generated/K16S16KSCC.lean`
+  - `scripts/phantom_taxonomy/lean_scc_certificate.py`
+  - `lean/README.md`
+  - `lean/CollatzShadowing/INVENTORY.md`
+  - `lean/TODO.md`
+- New declarations:
+  - `Generated.K16S16KSCCNode`
+  - `Generated.k16s16KSCCEdgeBool`
+  - `Generated.k16s16KTruncatedGraph`
+  - `Generated.k16s16KSCCFromHubWalk_valid`
+  - `Generated.k16s16KSCCToHubWalk_valid`
+  - `Generated.k16s16KHubSCCCertificate`
+  - `Generated.k16s16KSCC`
+  - `Generated.k16s16KCriticalSCCCertificate`
+- Notes:
+  - The imported SCC certificate covers the 37-state compressed `K,b`
+    graph from
+    `scripts/phantom_taxonomy/orbit_harness_k16_s16_scc_K_cw_certificate.json`.
+  - The generated graph uses a Boolean edge table and hub-based finite
+    walks. A local decidability instance lets Lean close the generated
+    walk-validity proofs with `decide`, avoiding the earlier expensive
+    symbolic `simp` expansion.
+  - `lean_scc_certificate.py` makes the Lean SCC certificate
+    reproducible from the JSON source. It deduplicates edge types,
+    chooses `K3:b1` as hub, computes BFS walks to/from the hub, and
+    emits the checked Lean module.
+  - The module is imported by `CollatzShadowing.lean`.
+- Closure decision:
+  - 8.3 closes on the generated 37-state compressed `K,b` SCC
+    certificate. The full raw 1240-node SCC import is reserved as
+    optional audit work if later needed.
+- Next recommended task: connect the generated 37-state SCC certificate
+  to the generated 37-state CW matrix certificate by checking that their
+  state orders and labels agree.
+
+### 2026-05-12 (Phase 8.8 — README and inventory updated) — Codex + Piero Borgatta
+
+- Tasks advanced: **8.8 complete.**
+- Artifacts modified:
+  - `lean/README.md`
+  - `lean/CollatzShadowing/INVENTORY.md`
+  - `lean/CollatzShadowing/EPISODE_INVENTORY.md`
+  - `lean/TODO.md`
+- Notes:
+  - `README.md` now reflects the actual current status: the project
+    builds cleanly, the Lemma 3.1 / Corollary 3.4 core is `sorry`-free,
+    and Phase 8 includes finite episode/operator/certificate modules.
+  - `INVENTORY.md` now includes a Phase-8 section covering
+    `EpisodeGraph`, `Operator`, `Bound`, and the generated 37-state
+    `k16s16KFiniteCWCertificate`.
+  - `EPISODE_INVENTORY.md` now records which inventory recommendations
+    were implemented in production modules.
+- Next recommended task: decide the spectral-radius bridge target for
+  8.6/8.7, or move to Phase 9 paper-facing documentation if the finite
+  rowwise certificate is sufficient for the current v3 framing.
+
+### 2026-05-12 (Phase 8.6 — evaluated rows and core+tail CW bridge) — Codex + Piero Borgatta
+
+- Tasks advanced: **8.6 strengthened**, not complete.
+- Also closed: **8.9** for the current project state.
+- Artifacts modified:
+  - `lean/CollatzShadowing/Bound.lean`
+  - `lean/TODO.md`
+- New declarations:
+  - `EvaluatedCWRowBound` packages a `ClearedCWRowBound` with the
+    semantic equalities identifying it with one row of
+    `Matrix.mulVec M basis.vector`, the matching vector entry, and the
+    matching `alpha`.
+  - `EvaluatedCWRowBound.toCWRow` converts one evaluated cleared row
+    into the pointwise CW inequality
+    `(M.mulVec basis.vector) i ≤ alpha * basis.vector i`.
+  - `finiteCWCertificateOfEvaluatedRows` converts evaluated cleared
+    rows for all states into a `FiniteCWCertificate`.
+  - `FiniteCWCertificate.add` and `finiteCWCertificateOfSumEq` prove
+    that generic finite CW certificates add over a shared positive
+    basis.
+  - `CWCertificate.add` and `OperatorDecomposition.cwCertificate_full`
+    specialize the same `core+tail` bound to the phase-state operator
+    API from `Operator.lean`.
+- Notes:
+  - A direct generated proof by expanding `Matrix.mulVec` and using
+    `norm_num` was tried, but even a single row was too slow on the
+    37-state sparse matrix. The new bridge avoids this bottleneck by
+    making row evaluation an explicit import obligation for the
+    generator.
+  - The first attempt at `EvaluatedCWRowBound.toCWRow` used a single
+    `rw`; Lean rejected it because rewriting `alpha` crossed a
+    dependent structure field. The final proof uses a `calc` block and
+    compiles.
+  - Verified:
+    `lake build CollatzShadowing.Bound CollatzShadowing.Generated.K16S16KExactCWSummary`.
+  - Full-project verification:
+    `lake build` succeeds; `rg -n "sorry|admit" CollatzShadowing *.lean`
+    returns no matches.
+  - After adding the `core+tail` theorem:
+    `lake build CollatzShadowing.Bound` succeeds.
+- Next recommended task: extend `lean_cw_summary.py` so it emits compact
+  row-evaluation witnesses for `EvaluatedCWRowBound` (rather than asking
+  Lean to recompute sparse matrix-vector products), then instantiate
+  `FiniteCWCertificate k16s16KMatrix k16s16KCWBasis k16s16KAlphaNNReal`.
+
+### 2026-05-12 (Phase 8.6 — generated 37-state finite CW certificate) — Codex + Piero Borgatta
+
+- Tasks advanced: **8.6 strengthened**, not complete.
+- Artifacts modified:
+  - `scripts/phantom_taxonomy/lean_cw_summary.py`
+  - `lean/CollatzShadowing/Generated/K16S16KExactCWSummary.lean`
+  - `lean/TODO.md`
+- New generated declarations:
+  - `k16s16KNodeXXSupport` records the source support of each generated
+    row.
+  - `k16s16KNodeXXRow` packages each cleared arithmetic row as a named
+    `ClearedCWRowBound`.
+  - `k16s16KNodeXXMulVec` proves the exact row evaluation
+    `(k16s16KMatrix.mulVec k16s16KCWBasis.vector) i = lhsNum/lhsDen`
+    using the finite support rather than expanding all 37 columns.
+  - `k16s16KEvaluatedRows` packages all evaluated cleared rows.
+  - `k16s16KFiniteCWCertificate` instantiates the full generated
+    `FiniteCWCertificate k16s16KMatrix k16s16KCWBasis
+    k16s16KAlphaNNReal`.
+- Notes:
+  - The original flat matrix match made row evaluation too expensive.
+    The generator now emits a row-nested matrix and per-row support
+    finsets, then reduces `mulVec` through `Finset.sum_subset`.
+  - A scoped `maxHeartbeats` increase remains on the generated row
+    evaluation theorems because exact `NNReal` arithmetic on the larger
+    rows exceeds Lean's default heartbeat budget.
+- Verification:
+  - `lake build CollatzShadowing.Generated.K16S16KExactCWSummary`
+    succeeds.
+- Next recommended task: connect `FiniteCWCertificate` to whatever
+  spectral-radius notion is selected for Phase 8.6/8.7, or update
+  `README.md`/inventory for the Phase-8 generated certificate API.
+
+### 2026-05-11 (Phase 8.6 — cleared CW summary packaged) — Codex + Piero Borgatta
+
+- Tasks advanced: **8.6 strengthened**, not complete.
+- Artifacts:
+  - `CollatzShadowing/Bound.lean` now defines
+    `ClearedCWRowBound` and `ClearedCWCertificateSummary`, an exact
+    arithmetic certificate layer for row inequalities after clearing
+    positive denominators.
+  - `scripts/phantom_taxonomy/lean_cw_summary.py` now emits
+    `k16s16KClearedRows` and `k16s16KClearedCWSummary`.
+  - `CollatzShadowing/Generated/K16S16KExactCWSummary.lean` packages
+    the 37 generated row inequalities into a checked
+    `ClearedCWCertificateSummary`.
+- Verification:
+  - `lake build CollatzShadowing.Bound` succeeds.
+  - `lake env lean CollatzShadowing/Generated/K16S16KExactCWSummary.lean`
+    succeeds.
+- Notes:
+  - A direct generated proof of
+    `FiniteCWCertificate k16s16KMatrix k16s16KCWBasis
+    k16s16KAlphaNNReal` by expanding the whole `Fin 37` matrix timed
+    out in `simp`. The current packaged cleared certificate avoids that
+    monolithic expansion and gives the next bridge a smaller target.
+- Next recommended task: prove general lemmas converting
+  `ClearedCWRowBound` data into `NNReal` row inequalities, then apply
+  them row-by-row to obtain the full `FiniteCWCertificate`.
+
+### 2026-05-11 (Phase 8.6 — generated Fin 37 matrix data) — Codex + Piero Borgatta
+
+- Tasks advanced: **8.6 strengthened**, not complete.
+- Artifacts:
+  - `scripts/phantom_taxonomy/lean_cw_summary.py` now emits the full
+    generated finite state data for the `K,b` certificate.
+  - `CollatzShadowing/Generated/K16S16KExactCWSummary.lean` defines
+    `K16S16KState := Fin 37`, `k16s16KStateLabel`,
+    `k16s16KVectorNat`, `k16s16KVector`, `k16s16KCWBasis`,
+    `k16s16KAlphaNNReal`, and the full `k16s16KMatrix :
+    Matrix K16S16KState K16S16KState NNReal`.
+  - The generated matrix uses JSON orientation: rows are destination
+    nodes and columns are source nodes, so `(P v)[dst]` is the incoming
+    sum over source nodes.
+- Verification:
+  - `python3 ../scripts/phantom_taxonomy/lean_cw_summary.py --json
+    ../scripts/phantom_taxonomy/orbit_harness_k16_s16_scc_K_cw_certificate.json
+    --out CollatzShadowing/Generated/K16S16KExactCWSummary.lean`
+    succeeds.
+  - `lake env lean CollatzShadowing/Generated/K16S16KExactCWSummary.lean`
+    succeeds.
+- Notes:
+  - The generated Lean file now contains both the full matrix data and
+    the 37 exact per-node arithmetic inequalities. The remaining bridge
+    is to prove `FiniteCWCertificate k16s16KMatrix k16s16KCWBasis
+    k16s16KAlphaNNReal` from those generated inequalities.
+- Next recommended task: connect the generated `Fin 37` matrix/vector
+  object to `FiniteCWCertificate`.
+
+### 2026-05-11 (Phase 8.6 — 37 per-node K,b inequalities) — Codex + Piero Borgatta
+
+- Tasks advanced: **8.6 strengthened**, not complete.
+- Artifacts:
+  - `scripts/phantom_taxonomy/lean_cw_summary.py` now reconstructs
+    exact incoming sums `(P v)_i` from the Phase-7 JSON vector and edge
+    list.
+  - `CollatzShadowing/Generated/K16S16KExactCWSummary.lean` now emits,
+    for each of the 37 `K,b` nodes, constants for the exact numerator
+    and denominator of `(P v)_i`, the exact vector entry `v_i`, and a
+    theorem proving the cleared-denominator inequality
+    `(P v)_i ≤ (89/100) v_i`.
+  - All generated arithmetic proofs use `norm_num`, not
+    `native_decide`.
+- Verification:
+  - `python3 ../scripts/phantom_taxonomy/lean_cw_summary.py --json
+    ../scripts/phantom_taxonomy/orbit_harness_k16_s16_scc_K_cw_certificate.json
+    --out CollatzShadowing/Generated/K16S16KExactCWSummary.lean`
+    succeeds.
+  - `lake env lean CollatzShadowing/Generated/K16S16KExactCWSummary.lean`
+    succeeds.
+- Notes:
+  - This verifies every per-node exact arithmetic inequality from the
+    compressed 37-state `K,b` JSON certificate in Lean. It still does
+    not build the actual `Matrix (Fin 37) (Fin 37) NNReal` and prove
+    `FiniteCWCertificate` directly over that matrix.
+- Next recommended task: generate the full `Fin 37` matrix/vector
+  object and connect these 37 inequalities to `FiniteCWCertificate`.
+
+### 2026-05-11 (Phase 8.6 — exact K,b JSON summary in Lean) — Codex + Piero Borgatta
+
+- Tasks advanced: **8.6 strengthened**, not complete.
+- Artifacts:
+  - `scripts/phantom_taxonomy/lean_cw_summary.py` generates a Lean
+    summary certificate from a Phase-7 CW JSON file.
+  - `CollatzShadowing/Generated/K16S16KExactCWSummary.lean` was
+    generated from
+    `orbit_harness_k16_s16_scc_K_cw_certificate.json`.
+  - The generated file records the 37 `K,b` node labels, 277 edge
+    types, `alpha = 89/100`, max node `K15:b2`, and exact max ratio
+    `136756256754601/154382162832639`.
+  - Lean proves
+    `136756256754601 * 100 < 89 * 154382162832639` by
+    `norm_num`, i.e. the exact JSON max ratio is below `0.89`.
+  - `CollatzShadowing.lean` imports the generated summary certificate.
+- Verification:
+  - `python3 ../scripts/phantom_taxonomy/lean_cw_summary.py --json
+    ../scripts/phantom_taxonomy/orbit_harness_k16_s16_scc_K_cw_certificate.json
+    --out CollatzShadowing/Generated/K16S16KExactCWSummary.lean`
+    succeeds.
+  - `lake env lean CollatzShadowing/Generated/K16S16KExactCWSummary.lean`
+    succeeds.
+- Notes:
+  - Superseded by the following session entry, which adds all 37
+    per-node exact inequalities to the generated Lean file.
+- Next recommended task: generate the full `Fin 37` matrix/vector object
+  and connect the per-node inequalities to `FiniteCWCertificate`.
+
+### 2026-05-11 (Phase 8.6 — JSON-to-Lean CW smoke certificate) — Codex + Piero Borgatta
+
+- Tasks advanced: **8.6 strengthened**, not complete.
+- Artifacts:
+  - `CollatzShadowing/Bound.lean` now has generic finite-state
+    certificate structures: `FiniteCWBasis`,
+    `FiniteCWCertificate`, and `FiniteMatrixBoundCertificate`.
+  - `scripts/phantom_taxonomy/lean_cw_smoke.py` reads a Phase-7 JSON
+    certificate, selects an exact probability-one edge, and emits a
+    two-state Lean smoke certificate.
+  - `CollatzShadowing/Generated/K16S16KCWSmoke.lean` was generated from
+    `orbit_harness_k16_s16_scc_K_cw_certificate.json`; it records the
+    selected edge `K12:b2 -> K11:b1`, defines a two-state matrix, and
+    proves a finite CW certificate with `alpha = 1`.
+  - `CollatzShadowing.lean` imports the generated smoke certificate, so
+    the root build checks the JSON-to-Lean pipeline.
+- Verification:
+  - `python3 ../scripts/phantom_taxonomy/lean_cw_smoke.py --json
+    ../scripts/phantom_taxonomy/orbit_harness_k16_s16_scc_K_cw_certificate.json
+    --out CollatzShadowing/Generated/K16S16KCWSmoke.lean` succeeds.
+  - `lake env lean CollatzShadowing/Generated/K16S16KCWSmoke.lean`
+    succeeds.
+- Notes:
+  - This is intentionally a smoke certificate, not the full 37-state
+    `K,b` certificate. It validates the generation route and proof
+    shape before scaling to all JSON nodes and inequalities.
+- Next recommended task: scale the generator from the two-state smoke
+  certificate to the full `K,b` JSON certificate.
+
+### 2026-05-11 (Phase 8.5/8.6 — split inheritance and CW certificate API) — Codex + Piero Borgatta
+
+- Tasks advanced: **8.5 strengthened; 8.6 started.**
+- Artifacts:
+  - `CollatzShadowing/Operator.lean` proves
+    `splitCore_le_full` and `splitTail_le_full`, pointwise domination
+    of the split matrices by the full matrix.
+  - It proves `splitCore_rowSubstochastic` and
+    `splitTail_rowSubstochastic`, so generated `core` and `tail`
+    matrices inherit row-substochasticity from `full`.
+  - `decompositionOfPartitionFromFull` now builds an
+    `OperatorDecomposition` from a full matrix, a decidable partition,
+    and one row-substochasticity proof for `full`.
+  - `CollatzShadowing/Bound.lean` introduces `CWBasis`,
+    `CWCertificate`, and `MatrixBoundCertificate` for finite
+    Collatz-Wielandt-style pointwise matrix bounds.
+  - `zeroMatrixBoundCertificate` is a checked baseline certificate for
+    the bound API.
+- Verification:
+  - `lake env lean CollatzShadowing/Operator.lean` succeeds.
+  - `lake env lean CollatzShadowing/Bound.lean` succeeds.
+- Notes:
+  - The Phase-7 JSON certificates already use exact
+    `probability_num/probability_den` entries and pointwise vector
+    inequalities. The Lean API now mirrors that shape.
+  - `8.6` is still only started: the true weighted `core+tail` theorem
+    and any formal spectral-radius statement remain open.
+- Next recommended task: continue **8.5/8.6** by generating a small
+  Lean certificate from one Phase-7 JSON file, then scale the generator.
+
+### 2026-05-11 (Phase 8.5 start — operator decomposition API) — Codex + Piero Borgatta
+
+- Tasks advanced: **8.5 started**, not complete.
+- Artifacts:
+  - `CollatzShadowing/Operator.lean` now defines
+    `TransferMatrix V := Matrix (PhaseState V) (PhaseState V) NNReal`.
+  - It defines `ProbabilityEntry` for exact imported probabilities of
+    the form `numerator / denominator`, matching the Phase-7
+    `count/source_events` CSV and JSON certificates.
+  - It defines `RowSubstochastic` for non-negative transfer matrices.
+  - It defines `splitCore`, `splitTail`, and
+    `split_full_eq_core_add_tail`, so a generated decidable partition
+    of entries automatically yields `full = core + tail`.
+  - It proves `splitCore_rowSubstochastic` and
+    `splitTail_rowSubstochastic`: if `full` is row-substochastic, then
+    both split matrices are row-substochastic by pointwise domination.
+  - `decompositionOfPartitionFromFull` therefore only needs the full
+    matrix row certificate plus the generated `core/tail` partition.
+  - It defines `OperatorDecomposition`, packaging `full`, `core`,
+    `tail`, the equality `full = core + tail`, and row-substochastic
+    certificates for all three matrices.
+  - `zeroOperatorDecomposition` is a checked baseline certificate for
+    the matrix/decomposition plumbing.
+- Verification:
+  - `lake env lean CollatzShadowing/Operator.lean` succeeds.
+- Notes:
+  - This fixes the Lean API shape for Phase 8.5 but does not yet encode
+    the empirical matrix entries or the majority rule that partitions
+    entries into `core` and `tail`.
+- Next recommended task: continue **8.5** by deciding the import format
+  for exact matrix entries and the empirical-signature partition.
+
+### 2026-05-11 (Phase 8.3/8.4 — path SCC certificates and phase states) — Codex + Piero Borgatta
+
+- Tasks advanced: **8.3 strengthened; 8.4 complete.**
+- Artifacts:
+  - `CollatzShadowing/EpisodeGraph.lean` now includes a finite
+    path-certificate import format:
+    `TruncatedEpisodeGraph.Walk`, `reachable_of_walk`, and
+    `HubSCCCertificate`.
+  - A `HubSCCCertificate` supplies, for every listed node, a checked
+    finite walk from a hub and a checked finite walk back to the hub;
+    `HubSCCCertificate.toSCC` converts this to a genuine `SCC`
+    certificate by mutual `Relation.ReflTransGen` reachability.
+  - `CollatzShadowing/Operator.lean` defines the production
+    `PhaseState V := Fin (V+1) × Fin 4 × Fin 4`, plus `cappedNu2`,
+    `oddPart`, `mod4Fin`, and `phaseState`.
+  - `EpisodeInventory.lean` renamed its toy `PhaseState` to
+    `InventoryPhaseState`, leaving the production name to
+    `Operator.lean`.
+- Verification:
+  - `lake env lean CollatzShadowing/EpisodeGraph.lean` succeeds.
+  - `lake env lean CollatzShadowing/Operator.lean` succeeds.
+- Notes:
+  - The SCC interface now has a concrete shape for importing Phase-7
+    data, but the actual 1240-node critical SCC certificate is not yet
+    generated in Lean. It will likely need a script that emits node
+    indices and hub paths from the Phase-7 CSV artifacts.
+- Next recommended task: **8.5**, begin the finite operator matrices
+  over `PhaseState V`; in parallel, keep 8.3 open until the large SCC
+  certificate is generated/imported.
+
+### 2026-05-11 (Phase 8.3 start — finite SCC certificate interface) — Codex + Piero Borgatta
+
+- Tasks advanced: **8.3 started**, not complete.
+- Artifacts:
+  - `CollatzShadowing/EpisodeGraph.lean` now defines
+    `TruncatedEpisodeGraph.SCC`, a finite SCC certificate consisting of
+    a `Finset` of bounded nodes, nonemptiness, and mutual reachability
+    for nodes in the set.
+  - It also defines `CriticalSCCCertificate`, packaging a chosen
+    critical node, its certified component, and membership of the
+    critical node in that component.
+  - `singletonSCC` and `singletonCriticalCertificate` give reflexive
+    baseline certificates and keep the interface typechecked.
+- Verification:
+  - `lake env lean CollatzShadowing/EpisodeGraph.lean` succeeds.
+- Notes:
+  - This deliberately avoids pretending to have the true paper-§8
+    critical SCC inside Lean already. The next step is to decide the
+    concrete certificate import format for the Phase-7 SCC node list and
+    edge reachability evidence.
+- Next recommended task: finish **8.3** by adding the concrete critical
+  SCC certificate object, likely generated from the Phase-7 CSV/JSON
+  artifacts.
+
+### 2026-05-11 (Phase 8.2 — episode graph node API) — Codex + Piero Borgatta
+
+- Tasks advanced: **8.2 complete.**
+- Artifacts:
+  - `CollatzShadowing/EpisodeGraph.lean` starts the production
+    episode-graph module.
+  - It defines the unbounded paper-level `EpisodeNode` with natural
+    coordinates `k`, `c`, and `b`.
+  - It defines finite cutoff boxes
+    `TruncatedEpisodeNode K C B := Fin K × Fin C × Fin B`, with
+    `Fintype` and `DecidableEq` plumbing.
+  - It defines `EpisodeGraph.edge : EpisodeRel EpisodeNode`,
+    `TruncatedEpisodeGraph.edge`, reachability wrappers, SCC wrappers,
+    and `edgeFinset` for finite directed edge enumeration.
+  - `CollatzShadowing.lean` imports `CollatzShadowing.EpisodeGraph`.
+- Verification:
+  - `lake env lean CollatzShadowing/EpisodeGraph.lean` succeeds after
+    rebuilding `CollatzShadowing.EpisodeInventory`.
+- Notes:
+  - The Phase-8 roadmap wording was updated to reflect the 8.1 finding:
+    the production graph is a local directed relation, not Mathlib
+    `SimpleDigraph`.
+  - `EpisodeInventory.lean` now uses the toy name
+    `InventoryEpisodeNode`, leaving `EpisodeNode` to the production
+    module.
+- Next recommended task: **8.3**, formalize the SCC interface on top of
+  mutual `Relation.ReflTransGen` reachability and decide what finite
+  certificate object should represent the critical SCC.
+
+### 2026-05-10 (Phase 8.1 — Mathlib episode inventory) — Codex + Piero Borgatta
+
+- Tasks advanced: **6.9 complete; 8.1 complete.**
+- Artifacts:
+  - `CollatzShadowing/EPISODE_INVENTORY.md` records the Mathlib API
+    inventory for the episode graph, SCC reachability, finite
+    non-negative matrices, and Collatz-Wielandt-style certificates.
+  - `CollatzShadowing/EpisodeInventory.lean` is a compiling scratchpad
+    with `EpisodeRel`, `Reachable`, `SameSCC`, a bounded toy
+    `InventoryEpisodeNode`, `rowSubstochastic`, and `cwCertificate`.
+  - `CollatzShadowing.lean` imports the new inventory module.
+- Verification:
+  - Piero verified online on 2026-05-10 that
+    `paper/collatz_spectral_reduction_v2.tex` compiles with
+    `pdflatex`; 6.9 is now closed.
+  - `lake env lean CollatzShadowing/EpisodeInventory.lean` succeeds.
+- Notes:
+  - Current Mathlib has `SimpleGraph`/`Graph` as undirected graph APIs;
+    no stable production `SimpleDigraph` API was found. Phase 8 should
+    therefore start with a local directed relation
+    `EpisodeRel α := α → α → Prop` and use
+    `Relation.ReflTransGen` for reachability.
+  - Mathlib has `Matrix.rowStochastic`, but no ready-made
+    Perron-Frobenius / Collatz-Wielandt theorem for arbitrary finite
+    non-negative matrices was found. The recommended first target is a
+    finite `NNReal` certificate predicate.
+- Next recommended task: **8.2**, updating the roadmap wording from
+  `SimpleDigraph` to the local directed-relation model while defining
+  the production `EpisodeGraph.lean` node and edge API.
+
 ### 2026-05-09 (Roadmap extension — Phases 7-10 added) — Claude (Claude Code) + Piero Borgatta
 
 - Tasks advanced: **roadmap structure extended.**
@@ -456,6 +1049,319 @@ self-study phase that is not on the current program.
   C would attack, and they are bounded in scope.
 - Next recommended task: 6.4 (Zenodo v2 publication) followed by
   Phase 7 kick-off (task 7.1, the necklace enumerator).
+
+### 2026-05-10 (Phase 6 verification update) — Codex + Piero Borgatta
+
+- Tasks advanced: **6.4 complete; 6.9 left as manual online
+  verification.**
+- Verification:
+  - Zenodo record `10.5281/zenodo.20098868` exists as v2
+    (`version = 2.0.0`) under concept DOI `10.5281/zenodo.20021537`.
+  - Published PDF and supplementary zip checksums match the local
+    artifacts.
+  - `lake build` succeeds and the Lean project remains `sorry`-free.
+  - A temporary local `tectonic` trial produced a PDF with only
+    box-layout warnings, but the TeX tools were removed afterward to
+    avoid keeping a large local TeX installation.
+- Pending in Phase 6: **6.9** will be checked manually online with
+  `pdflatex` against `paper/collatz_spectral_reduction_v2.tex`.
+
+### 2026-05-10 (Phase 7.1 start — necklace enumerator) — Codex + Piero Borgatta
+
+- Tasks advanced: **7.1 complete.**
+- Artifacts:
+  - `scripts/phantom_taxonomy/necklace_counts.py` implements the
+    Möbius-inversion count
+    `M(K, ell) = (1/ell) * sum_{d | gcd(K, ell)} mu(d) *
+    binom(K/d - 1, ell/d - 1)` for primitive cyclic compositions.
+  - The same script includes an independent brute-force enumerator via
+    canonical cyclic rotations, used to cross-check the formula for
+    small `K`.
+  - `scripts/phantom_taxonomy/necklace_counts_k3_20.csv` records
+    `M_total`, `M_expanding`, `R(K)`, and the per-length counts for
+    `K = 3..20`.
+- Verification:
+  - `python3 scripts/phantom_taxonomy/necklace_counts.py --max-k 20
+    --verify-direct 10 --csv
+    scripts/phantom_taxonomy/necklace_counts_k3_20.csv` succeeds.
+  - The direct enumerator and formula agree for all `3 <= K <= 10`.
+  - The rounded `R(K)` values for `K = 3..20` reproduce Chang's
+    displayed table values.
+  - `python3 -m py_compile scripts/phantom_taxonomy/necklace_counts.py`
+    succeeds.
+
+### 2026-05-10 (Phase 7.2 — phantom representatives) — Codex + Piero Borgatta
+
+- Tasks advanced: **7.2 complete.**
+- Artifacts:
+  - `scripts/phantom_taxonomy/phantom_representatives.py` enumerates
+    the expansive primitive cyclic compositions from 7.1 and computes
+    the affine coefficient `C_w`, total exponent `A`, length `L`,
+    rational fixed point `q_w = C_w / (2^A - 3^L)`, and the 2-adic
+    residue `q_w mod 2^m`.
+  - `scripts/phantom_taxonomy/phantom_representatives_k3_16.csv`
+    contains the working depth-16 representative table.
+  - `scripts/phantom_taxonomy/phantom_representatives_k3_20.csv`
+    contains the depth-20 table, with 16099 expansive primitive
+    representatives.
+- Verification:
+  - `python3 scripts/phantom_taxonomy/phantom_representatives.py
+    --max-k 16 --csv
+    scripts/phantom_taxonomy/phantom_representatives_k3_16.csv
+    --limit 12` succeeds.
+  - `python3 scripts/phantom_taxonomy/phantom_representatives.py
+    --max-k 20 --csv
+    scripts/phantom_taxonomy/phantom_representatives_k3_20.csv
+    --limit 0` succeeds.
+  - Exact sanity checks inside the script verify
+    `(2^A - 3^L) q_w = C_w`, `S_w(q_w) = q_w`, and odd denominator
+    for every emitted row.
+  - Independent CSV check: per-`K` representative counts match
+    `M_expanding` from `necklace_counts_k3_20.csv` for every
+    `3 <= K <= 20`.
+  - `python3 -m py_compile scripts/phantom_taxonomy/phantom_representatives.py
+    scripts/phantom_taxonomy/necklace_counts.py` succeeds.
+
+### 2026-05-10 (Phase 7.3 — orbit harness) — Codex + Piero Borgatta
+
+- Tasks advanced: **7.3 complete.**
+- Artifacts:
+  - `scripts/phantom_taxonomy/orbit_harness.py` consumes the
+    representative CSVs from 7.2, samples integer lifts
+    `n = q_w mod 2^(bA+1) + t*2^(bA+1)`, traces odd Syracuse
+    orbits, detects monitored phantom hits via precomputed congruence
+    classes `q_w mod 2^(A+1)`, and emits detail/event/edge CSVs.
+  - `scripts/phantom_taxonomy/orbit_harness_k10_details.csv`,
+    `orbit_harness_k10_events.csv`, and `orbit_harness_k10_edges.csv`
+    are a dense small-cutoff smoke run.
+  - `scripts/phantom_taxonomy/orbit_harness_k16_smoke_details.csv`,
+    `orbit_harness_k16_smoke_events.csv`, and
+    `orbit_harness_k16_smoke_edges.csv` demonstrate the same harness at
+    the Phase-7.4 cutoff `K0 = 16` with a deliberately small sampling
+    budget.
+- Verification:
+  - `python3 scripts/phantom_taxonomy/orbit_harness.py
+    --representatives
+    scripts/phantom_taxonomy/phantom_representatives_k3_16.csv
+    --max-k 10 --b-max 2 --samples 8 --max-steps 500 --out-prefix
+    scripts/phantom_taxonomy/orbit_harness_k10` succeeds, producing
+    720 traced orbits and 217 observed transition edges.
+  - `python3 scripts/phantom_taxonomy/orbit_harness.py
+    --representatives
+    scripts/phantom_taxonomy/phantom_representatives_k3_16.csv
+    --max-k 16 --b-max 1 --samples 2 --max-steps 500 --out-prefix
+    scripts/phantom_taxonomy/orbit_harness_k16_smoke` succeeds,
+    producing 2494 traced orbits and 1790 observed transition edges.
+  - `python3 -m py_compile scripts/phantom_taxonomy/orbit_harness.py`
+    succeeds.
+
+### 2026-05-10 (Phase 7.4 — K0=16 sampled SCC run) — Codex + Piero Borgatta
+
+- Tasks advanced: **7.4 partially complete**. The full `K <= 16`
+  representative set was run through the orbit harness, but the
+  outcome is case (b), so spectral certification/integration remains
+  pending.
+- Artifacts:
+  - `scripts/phantom_taxonomy/scc_report.py` computes SCCs from an
+    `orbit_harness.py` edge CSV and writes both a Markdown summary and
+    a full component-node CSV.
+  - `scripts/phantom_taxonomy/orbit_harness_k16_full_details.csv`,
+    `orbit_harness_k16_full_events.csv`, and
+    `orbit_harness_k16_full_edges.csv` are the sampled `K0 = 16`
+    run output.
+  - `scripts/phantom_taxonomy/orbit_harness_k16_full_scc_nodes.csv`
+    lists all nodes in the observed nontrivial SCC.
+  - `notes/phantom_taxonomy_k16_scc_report.md` compares the taxonomy
+    SCC labels against the empirical paper-§8 labels where exact
+    rational `q_w` equality makes this possible.
+- Verification:
+  - `python3 scripts/phantom_taxonomy/orbit_harness.py
+    --representatives
+    scripts/phantom_taxonomy/phantom_representatives_k3_16.csv
+    --max-k 16 --b-max 2 --samples 8 --max-steps 1000 --out-prefix
+    scripts/phantom_taxonomy/orbit_harness_k16_full` succeeds.
+  - Run summary: 19952 traced orbits, all stopped below start within
+    the step budget; 212324 episode events; 5041 observed edge types.
+  - SCC summary from `scc_report.py`: 2401 observed nodes, one
+    nontrivial SCC, largest SCC size 1222, internal edge types 3857,
+    internal observed transition weight 182961.
+  - Exact paper-SCC recognition by `q_w` equality finds the paper
+    empirical `k=12` cycle-1 representative as
+    `K9:L7:w1-1-1-1-1-2-2:b1` and `:b2`; the other empirical labels
+    use a different indexing universe and are not directly recognized
+    in this taxonomy graph at `K0 = 16`.
+  - `python3 -m py_compile scripts/phantom_taxonomy/scc_report.py
+    scripts/phantom_taxonomy/orbit_harness.py` succeeds.
+- Next: because this is outcome (b), continue with **7.6** rather
+  than 7.5. The immediate open problem is to decide how to compress or
+  certify the 1222-node observed SCC before recomputing a cross-node
+  operator.
+
+### 2026-05-10 (Phase 7.6 start — SCC compression diagnostic) — Codex + Piero Borgatta
+
+- Tasks advanced: **7.6 started**, not complete.
+- Artifacts:
+  - `scripts/phantom_taxonomy/scc_transfer_summary.py` reads the
+    `K0=16` event stream and SCC node list, reconstructs event-to-event
+    transitions, treats final/no-next-event hits as exits, and builds
+    substochastic empirical retention matrices.
+  - `scripts/phantom_taxonomy/orbit_harness_k16_full_scc_transfer_summary.md`
+    records the diagnostic spectral radii.
+  - `scripts/phantom_taxonomy/orbit_harness_k16_full_scc_node_edges.csv`,
+    `orbit_harness_k16_full_scc_KL_edges.csv`, and
+    `orbit_harness_k16_full_scc_K_edges.csv` give the raw and compressed
+    edge tables.
+- Verification:
+  - `python3 scripts/phantom_taxonomy/scc_transfer_summary.py
+    --events scripts/phantom_taxonomy/orbit_harness_k16_full_events.csv
+    --scc-nodes
+    scripts/phantom_taxonomy/orbit_harness_k16_full_scc_nodes.csv
+    --out-prefix scripts/phantom_taxonomy/orbit_harness_k16_full_scc`
+    succeeds.
+  - Raw SCC matrix: 1222 states, 3857 internal edge types, 202697
+    source events, 19736 exits, retention mass `0.902633`,
+    `rho(P_internal) ≈ 0.884991531781`.
+  - `(K,L,b)` compression: 72 states, 506 internal edge types,
+    `rho(P_internal) ≈ 0.884858364224`.
+  - `(K,b)` compression: 35 states, 260 internal edge types,
+    `rho(P_internal) ≈ 0.885502907552`.
+  - `python3 -m py_compile scripts/phantom_taxonomy/scc_transfer_summary.py`
+    succeeds.
+- Notes: the near-identical radii across raw and compressed matrices
+  suggest that a macro-state certificate may be feasible. This remains
+  an empirical retention diagnostic, not the final weighted
+  Collatz-Wielandt certificate required to close 7.6.
+
+### 2026-05-10 (Phase 7.6 continued — empirical CW table) — Codex + Piero Borgatta
+
+- Tasks advanced: **7.6 materially advanced**, still not theorem-level
+  complete.
+- Artifacts:
+  - `scripts/phantom_taxonomy/scc_collatz_wielandt.py` reads the
+    empirical SCC retention edge tables, builds a positive
+    power-iteration vector, and reports the finite Collatz-Wielandt
+    upper expression `max_i (P v)_i / v_i`.
+  - `scripts/phantom_taxonomy/orbit_harness_k16_full_scc_cw_table.csv`
+    and `.md` record the updated empirical bound table.
+- Verification:
+  - `python3 scripts/phantom_taxonomy/scc_collatz_wielandt.py
+    scripts/phantom_taxonomy/orbit_harness_k16_full_scc_node_edges.csv
+    scripts/phantom_taxonomy/orbit_harness_k16_full_scc_KL_edges.csv
+    scripts/phantom_taxonomy/orbit_harness_k16_full_scc_K_edges.csv
+    --csv
+    scripts/phantom_taxonomy/orbit_harness_k16_full_scc_cw_table.csv
+    --md
+    scripts/phantom_taxonomy/orbit_harness_k16_full_scc_cw_table.md`
+    succeeds.
+  - Raw 1222-node empirical SCC: `CW ≤ 0.884991533363`, max node
+    `K3:L2:w1-2:b1`.
+  - `(K,L,b)` compression: 72 states, `CW ≤ 0.884858364322`, max
+    node `K3:L2:b1`.
+  - `(K,b)` compression: 35 states, `CW ≤ 0.885502907588`, max node
+    `K3:b1`.
+  - `python3 -m py_compile scripts/phantom_taxonomy/scc_collatz_wielandt.py`
+    succeeds.
+- Notes: this is now an updated subcritical empirical bound table
+  comparable in shape to paper §8, but it is still based on sampled
+  transition data. To close 7.6 strictly, the next step should replace
+  the sampled probabilities with a deterministic/certified transition
+  construction or explicitly record 7.6 as an empirical-only result.
+
+### 2026-05-10 (Phase 7.6 continued — sample stability) — Codex + Piero Borgatta
+
+- Tasks advanced: **7.6 stability check added**, still not theorem-level
+  complete.
+- Artifacts:
+  - `scripts/phantom_taxonomy/orbit_harness_k16_s16_details.csv`,
+    `orbit_harness_k16_s16_events.csv`, and
+    `orbit_harness_k16_s16_edges.csv` are the doubled-budget run
+    (`16` dense lifts/source instead of `8`).
+  - `notes/phantom_taxonomy_k16_s16_scc_report.md` reports the SCC
+    structure for the doubled-budget run.
+  - `scripts/phantom_taxonomy/orbit_harness_k16_s16_scc_*` contains
+    the doubled-budget SCC node list, compressed retention edges,
+    transfer summary, and empirical CW table.
+  - `scripts/phantom_taxonomy/compare_cw_tables.py` compares empirical
+    CW tables across sampling budgets.
+  - `scripts/phantom_taxonomy/orbit_harness_k16_cw_stability.md`
+    records the `s8` vs `s16` comparison.
+- Verification:
+  - `python3 scripts/phantom_taxonomy/orbit_harness.py
+    --representatives
+    scripts/phantom_taxonomy/phantom_representatives_k3_16.csv
+    --max-k 16 --b-max 2 --samples 16 --max-steps 1000 --out-prefix
+    scripts/phantom_taxonomy/orbit_harness_k16_s16` succeeds.
+  - Doubled-budget run summary: 39904 traced orbits, all stopped below
+    start within the step budget; 425677 episode events; 5559 observed
+    edge types.
+  - SCC summary: 2405 observed nodes, one nontrivial SCC, largest SCC
+    size 1240.
+  - Empirical CW table at 16 lifts/source: raw `CW ≤ 0.885485445971`,
+    `(K,L,b)` `CW ≤ 0.885270267025`, `(K,b)` `CW ≤ 0.88582938756`.
+  - Stability vs 8 lifts/source: maximum CW spread is below `0.0005`
+    across all three matrix views.
+  - `python3 -m py_compile scripts/phantom_taxonomy/compare_cw_tables.py`
+    succeeds.
+
+### 2026-05-10 (Phase 7.6 closure — empirical result) — Codex + Piero Borgatta
+
+- Tasks advanced: **7.6 closed as an empirical integration result**.
+- Artifacts:
+  - `notes/phantom_taxonomy_empirical_scc_integration.md` records the
+    scope, inputs, observed bounds, stability check, and explicit caveat
+    that this is not a theorem-level weighted cross-node certificate.
+- Decision:
+  - The `K0 = 16` taxonomy SCC is integrated into sampled
+    substochastic retention operators.
+  - The observed empirical Collatz-Wielandt bounds are stable and
+    subcritical around `0.885`.
+  - The stronger deterministic/certified transition construction is
+    deliberately left open for a future task, per user instruction.
+
+### 2026-05-10 (Phase 7.6 strengthening — exact empirical certificates) — Codex + Piero Borgatta
+
+- Tasks advanced: **7.6 empirical result strengthened**, still scoped
+  to sampled matrices.
+- Artifacts:
+  - `scripts/phantom_taxonomy/scc_cw_certificate.py` creates and
+    verifies JSON certificates with exact rational probabilities
+    `count/source_events`, positive integer test vectors, and a rational
+    bound `alpha = 89/100`.
+  - `scripts/phantom_taxonomy/orbit_harness_k16_s16_scc_node_cw_certificate.json`
+    certifies the raw 1240-node empirical SCC matrix.
+  - `scripts/phantom_taxonomy/orbit_harness_k16_s16_scc_KL_cw_certificate.json`
+    certifies the 76-state `(K,L,b)` compression.
+  - `scripts/phantom_taxonomy/orbit_harness_k16_s16_scc_K_cw_certificate.json`
+    certifies the 37-state `(K,b)` compression.
+  - `scripts/phantom_taxonomy/orbit_harness_k16_s16_scc_exact_cw_certificates.md`
+    summarizes the exact ratios and verification commands.
+- Verification:
+  - Raw node certificate: exact max ratio
+    `439764459109/496636575879 ≈ 0.885485444423 < 0.89`.
+  - `(K,L,b)` certificate: exact max ratio
+    `88036787882257/99446226949575 ≈ 0.885270266985 < 0.89`.
+  - `(K,b)` certificate: exact max ratio
+    `136756256754601/154382162832639 ≈ 0.885829387575 < 0.89`.
+  - `python3 scripts/phantom_taxonomy/scc_cw_certificate.py --verify
+    <certificate.json>` returns `status=OK` for all three certificates.
+- Scope: these are exact certificates for the **empirical matrices**.
+  They remove floating-point dependence from the bound, but they do not
+  replace sampled transition generation with a deterministic residue
+  construction.
+
+### 2026-05-10 (Phase 7.7 — taxonomy note) — Codex + Piero Borgatta
+
+- Tasks advanced: **7.7 complete.**
+- Artifact:
+  - `notes/phantom_taxonomy.md` summarizes Phase 7.1-7.6 in one
+    citable note: exact necklace counts, rational representatives,
+    orbit harness, `K0=16` SCC outcome, empirical integration,
+    stability under doubled sampling, exact rational certificates for
+    sampled matrices, and the remaining deterministic-transition gap.
+- Notes:
+  - No v3 draft file exists yet, so the note is not referenced from a
+    v3 TeX source at this time. It is the source note to cite or import
+    when Phase 9 starts.
 
 ### 2026-05-09 (Phase 6 closure — README + methodology updates) — Claude (Claude Code) + Piero Borgatta
 

@@ -1,0 +1,1752 @@
+{
+  "alpha_den": 100,
+  "alpha_num": 89,
+  "edge_csv": "scripts/phantom_taxonomy/orbit_harness_k16_s16_scc_K_edges.csv",
+  "edges": [
+    {
+      "dst": "K9:b1",
+      "probability_den": 3938,
+      "probability_num": 3099,
+      "src": "K10:b1"
+    },
+    {
+      "dst": "K3:b3",
+      "probability_den": 7876,
+      "probability_num": 897,
+      "src": "K10:b1"
+    },
+    {
+      "dst": "K4:b1",
+      "probability_den": 7876,
+      "probability_num": 695,
+      "src": "K10:b1"
+    },
+    {
+      "dst": "K16:b1",
+      "probability_den": 7876,
+      "probability_num": 83,
+      "src": "K10:b1"
+    },
+    {
+      "dst": "K9:b2",
+      "probability_den": 7876,
+      "probability_num": 3,
+      "src": "K10:b1"
+    },
+    {
+      "dst": "K9:b1",
+      "probability_den": 196,
+      "probability_num": 139,
+      "src": "K10:b2"
+    },
+    {
+      "dst": "K3:b1",
+      "probability_den": 28,
+      "probability_num": 3,
+      "src": "K10:b2"
+    },
+    {
+      "dst": "K4:b1",
+      "probability_den": 196,
+      "probability_num": 19,
+      "src": "K10:b2"
+    },
+    {
+      "dst": "K3:b3",
+      "probability_den": 196,
+      "probability_num": 17,
+      "src": "K10:b2"
+    },
+    {
+      "dst": "K3:b1",
+      "probability_den": 7756,
+      "probability_num": 2131,
+      "src": "K11:b1"
+    },
+    {
+      "dst": "K6:b1",
+      "probability_den": 7756,
+      "probability_num": 1217,
+      "src": "K11:b1"
+    },
+    {
+      "dst": "K10:b1",
+      "probability_den": 1108,
+      "probability_num": 145,
+      "src": "K11:b1"
+    },
+    {
+      "dst": "K3:b2",
+      "probability_den": 7756,
+      "probability_num": 863,
+      "src": "K11:b1"
+    },
+    {
+      "dst": "K4:b1",
+      "probability_den": 7756,
+      "probability_num": 851,
+      "src": "K11:b1"
+    },
+    {
+      "dst": "K7:b1",
+      "probability_den": 7756,
+      "probability_num": 597,
+      "src": "K11:b1"
+    },
+    {
+      "dst": "K5:b1",
+      "probability_den": 5817,
+      "probability_num": 290,
+      "src": "K11:b1"
+    },
+    {
+      "dst": "K16:b1",
+      "probability_den": 3878,
+      "probability_num": 53,
+      "src": "K11:b1"
+    },
+    {
+      "dst": "K4:b2",
+      "probability_den": 5817,
+      "probability_num": 71,
+      "src": "K11:b1"
+    },
+    {
+      "dst": "K5:b2",
+      "probability_den": 7756,
+      "probability_num": 53,
+      "src": "K11:b1"
+    },
+    {
+      "dst": "K15:b1",
+      "probability_den": 11634,
+      "probability_num": 73,
+      "src": "K11:b1"
+    },
+    {
+      "dst": "K14:b1",
+      "probability_den": 554,
+      "probability_num": 3,
+      "src": "K11:b1"
+    },
+    {
+      "dst": "K9:b1",
+      "probability_den": 11634,
+      "probability_num": 29,
+      "src": "K11:b1"
+    },
+    {
+      "dst": "K12:b1",
+      "probability_den": 11634,
+      "probability_num": 23,
+      "src": "K11:b1"
+    },
+    {
+      "dst": "K11:b1",
+      "probability_den": 23268,
+      "probability_num": 43,
+      "src": "K11:b1"
+    },
+    {
+      "dst": "K13:b1",
+      "probability_den": 23268,
+      "probability_num": 37,
+      "src": "K11:b1"
+    },
+    {
+      "dst": "K8:b1",
+      "probability_den": 5817,
+      "probability_num": 2,
+      "src": "K11:b1"
+    },
+    {
+      "dst": "K10:b2",
+      "probability_den": 3324,
+      "probability_num": 1,
+      "src": "K11:b1"
+    },
+    {
+      "dst": "K6:b2",
+      "probability_den": 11634,
+      "probability_num": 1,
+      "src": "K11:b1"
+    },
+    {
+      "dst": "K3:b3",
+      "probability_den": 11634,
+      "probability_num": 1,
+      "src": "K11:b1"
+    },
+    {
+      "dst": "K3:b1",
+      "probability_den": 7,
+      "probability_num": 3,
+      "src": "K11:b2"
+    },
+    {
+      "dst": "K4:b1",
+      "probability_den": 7,
+      "probability_num": 2,
+      "src": "K11:b2"
+    },
+    {
+      "dst": "K7:b1",
+      "probability_den": 7,
+      "probability_num": 1,
+      "src": "K11:b2"
+    },
+    {
+      "dst": "K5:b2",
+      "probability_den": 7,
+      "probability_num": 1,
+      "src": "K11:b2"
+    },
+    {
+      "dst": "K11:b1",
+      "probability_den": 13483,
+      "probability_num": 9540,
+      "src": "K12:b1"
+    },
+    {
+      "dst": "K3:b1",
+      "probability_den": 13483,
+      "probability_num": 684,
+      "src": "K12:b1"
+    },
+    {
+      "dst": "K3:b2",
+      "probability_den": 13483,
+      "probability_num": 672,
+      "src": "K12:b1"
+    },
+    {
+      "dst": "K4:b1",
+      "probability_den": 13483,
+      "probability_num": 652,
+      "src": "K12:b1"
+    },
+    {
+      "dst": "K16:b1",
+      "probability_den": 13483,
+      "probability_num": 504,
+      "src": "K12:b1"
+    },
+    {
+      "dst": "K6:b1",
+      "probability_den": 13483,
+      "probability_num": 452,
+      "src": "K12:b1"
+    },
+    {
+      "dst": "K4:b2",
+      "probability_den": 13483,
+      "probability_num": 425,
+      "src": "K12:b1"
+    },
+    {
+      "dst": "K3:b3",
+      "probability_den": 13483,
+      "probability_num": 351,
+      "src": "K12:b1"
+    },
+    {
+      "dst": "K7:b1",
+      "probability_den": 13483,
+      "probability_num": 171,
+      "src": "K12:b1"
+    },
+    {
+      "dst": "K9:b1",
+      "probability_den": 13483,
+      "probability_num": 11,
+      "src": "K12:b1"
+    },
+    {
+      "dst": "K14:b1",
+      "probability_den": 13483,
+      "probability_num": 6,
+      "src": "K12:b1"
+    },
+    {
+      "dst": "K11:b2",
+      "probability_den": 13483,
+      "probability_num": 4,
+      "src": "K12:b1"
+    },
+    {
+      "dst": "K12:b1",
+      "probability_den": 13483,
+      "probability_num": 1,
+      "src": "K12:b1"
+    },
+    {
+      "dst": "K11:b1",
+      "probability_den": 1,
+      "probability_num": 1,
+      "src": "K12:b2"
+    },
+    {
+      "dst": "K12:b1",
+      "probability_den": 13484,
+      "probability_num": 9265,
+      "src": "K13:b1"
+    },
+    {
+      "dst": "K16:b1",
+      "probability_den": 13484,
+      "probability_num": 1053,
+      "src": "K13:b1"
+    },
+    {
+      "dst": "K6:b2",
+      "probability_den": 13484,
+      "probability_num": 491,
+      "src": "K13:b1"
+    },
+    {
+      "dst": "K4:b1",
+      "probability_den": 6742,
+      "probability_num": 191,
+      "src": "K13:b1"
+    },
+    {
+      "dst": "K4:b2",
+      "probability_den": 13484,
+      "probability_num": 381,
+      "src": "K13:b1"
+    },
+    {
+      "dst": "K6:b1",
+      "probability_den": 13484,
+      "probability_num": 355,
+      "src": "K13:b1"
+    },
+    {
+      "dst": "K7:b1",
+      "probability_den": 6742,
+      "probability_num": 153,
+      "src": "K13:b1"
+    },
+    {
+      "dst": "K5:b1",
+      "probability_den": 6742,
+      "probability_num": 119,
+      "src": "K13:b1"
+    },
+    {
+      "dst": "K3:b2",
+      "probability_den": 13484,
+      "probability_num": 221,
+      "src": "K13:b1"
+    },
+    {
+      "dst": "K3:b4",
+      "probability_den": 13484,
+      "probability_num": 205,
+      "src": "K13:b1"
+    },
+    {
+      "dst": "K3:b1",
+      "probability_den": 3371,
+      "probability_num": 48,
+      "src": "K13:b1"
+    },
+    {
+      "dst": "K5:b2",
+      "probability_den": 13484,
+      "probability_num": 163,
+      "src": "K13:b1"
+    },
+    {
+      "dst": "K4:b3",
+      "probability_den": 13484,
+      "probability_num": 133,
+      "src": "K13:b1"
+    },
+    {
+      "dst": "K11:b1",
+      "probability_den": 13484,
+      "probability_num": 25,
+      "src": "K13:b1"
+    },
+    {
+      "dst": "K9:b1",
+      "probability_den": 6742,
+      "probability_num": 7,
+      "src": "K13:b1"
+    },
+    {
+      "dst": "K6:b3",
+      "probability_den": 6742,
+      "probability_num": 7,
+      "src": "K13:b1"
+    },
+    {
+      "dst": "K4:b4",
+      "probability_den": 13484,
+      "probability_num": 11,
+      "src": "K13:b1"
+    },
+    {
+      "dst": "K14:b1",
+      "probability_den": 13484,
+      "probability_num": 9,
+      "src": "K13:b1"
+    },
+    {
+      "dst": "K15:b1",
+      "probability_den": 13484,
+      "probability_num": 9,
+      "src": "K13:b1"
+    },
+    {
+      "dst": "K12:b2",
+      "probability_den": 3371,
+      "probability_num": 1,
+      "src": "K13:b1"
+    },
+    {
+      "dst": "K13:b1",
+      "probability_den": 6742,
+      "probability_num": 1,
+      "src": "K13:b1"
+    },
+    {
+      "dst": "K10:b1",
+      "probability_den": 13484,
+      "probability_num": 1,
+      "src": "K13:b1"
+    },
+    {
+      "dst": "K4:b2",
+      "probability_den": 35,
+      "probability_num": 18,
+      "src": "K13:b2"
+    },
+    {
+      "dst": "K4:b1",
+      "probability_den": 35,
+      "probability_num": 17,
+      "src": "K13:b2"
+    },
+    {
+      "dst": "K13:b1",
+      "probability_den": 38147,
+      "probability_num": 9221,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K11:b1",
+      "probability_den": 38147,
+      "probability_num": 5859,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K6:b1",
+      "probability_den": 38147,
+      "probability_num": 3234,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K3:b1",
+      "probability_den": 38147,
+      "probability_num": 2969,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K9:b1",
+      "probability_den": 38147,
+      "probability_num": 2699,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K4:b1",
+      "probability_den": 38147,
+      "probability_num": 2425,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K10:b1",
+      "probability_den": 38147,
+      "probability_num": 2008,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K16:b1",
+      "probability_den": 38147,
+      "probability_num": 1963,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K3:b2",
+      "probability_den": 38147,
+      "probability_num": 1612,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K7:b1",
+      "probability_den": 38147,
+      "probability_num": 1599,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K4:b2",
+      "probability_den": 38147,
+      "probability_num": 1168,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K5:b1",
+      "probability_den": 38147,
+      "probability_num": 1126,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K8:b1",
+      "probability_den": 38147,
+      "probability_num": 738,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K3:b3",
+      "probability_den": 38147,
+      "probability_num": 597,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K5:b2",
+      "probability_den": 38147,
+      "probability_num": 299,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K15:b1",
+      "probability_den": 38147,
+      "probability_num": 43,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K14:b1",
+      "probability_den": 38147,
+      "probability_num": 42,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K3:b4",
+      "probability_den": 38147,
+      "probability_num": 26,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K8:b2",
+      "probability_den": 38147,
+      "probability_num": 20,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K12:b1",
+      "probability_den": 38147,
+      "probability_num": 17,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K4:b3",
+      "probability_den": 38147,
+      "probability_num": 12,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K9:b2",
+      "probability_den": 38147,
+      "probability_num": 11,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K6:b2",
+      "probability_den": 38147,
+      "probability_num": 6,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K3:b5",
+      "probability_den": 38147,
+      "probability_num": 3,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K13:b2",
+      "probability_den": 38147,
+      "probability_num": 3,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K7:b2",
+      "probability_den": 38147,
+      "probability_num": 1,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K11:b2",
+      "probability_den": 38147,
+      "probability_num": 1,
+      "src": "K14:b1"
+    },
+    {
+      "dst": "K14:b1",
+      "probability_den": 7079,
+      "probability_num": 4801,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K16:b1",
+      "probability_den": 35395,
+      "probability_num": 2429,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K6:b1",
+      "probability_den": 35395,
+      "probability_num": 1584,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K4:b2",
+      "probability_den": 35395,
+      "probability_num": 1117,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K4:b1",
+      "probability_den": 35395,
+      "probability_num": 1076,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K3:b1",
+      "probability_den": 7079,
+      "probability_num": 144,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K3:b2",
+      "probability_den": 35395,
+      "probability_num": 651,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K9:b1",
+      "probability_den": 35395,
+      "probability_num": 596,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K7:b1",
+      "probability_den": 35395,
+      "probability_num": 543,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K5:b2",
+      "probability_den": 35395,
+      "probability_num": 443,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K7:b2",
+      "probability_den": 35395,
+      "probability_num": 442,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K6:b2",
+      "probability_den": 7079,
+      "probability_num": 76,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K5:b1",
+      "probability_den": 35395,
+      "probability_num": 336,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K3:b3",
+      "probability_den": 35395,
+      "probability_num": 253,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K3:b4",
+      "probability_den": 35395,
+      "probability_num": 142,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K4:b3",
+      "probability_den": 35395,
+      "probability_num": 128,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K10:b1",
+      "probability_den": 7079,
+      "probability_num": 22,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K11:b1",
+      "probability_den": 35395,
+      "probability_num": 99,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K8:b1",
+      "probability_den": 35395,
+      "probability_num": 86,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K12:b1",
+      "probability_den": 7079,
+      "probability_num": 9,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K15:b1",
+      "probability_den": 35395,
+      "probability_num": 32,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K8:b2",
+      "probability_den": 35395,
+      "probability_num": 18,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K13:b1",
+      "probability_den": 35395,
+      "probability_num": 14,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K9:b2",
+      "probability_den": 35395,
+      "probability_num": 14,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K10:b2",
+      "probability_den": 35395,
+      "probability_num": 6,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K7:b3",
+      "probability_den": 35395,
+      "probability_num": 4,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K4:b4",
+      "probability_den": 35395,
+      "probability_num": 1,
+      "src": "K15:b1"
+    },
+    {
+      "dst": "K14:b1",
+      "probability_den": 1,
+      "probability_num": 1,
+      "src": "K15:b2"
+    },
+    {
+      "dst": "K15:b1",
+      "probability_den": 21887,
+      "probability_num": 17039,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K4:b2",
+      "probability_den": 21887,
+      "probability_num": 767,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K6:b1",
+      "probability_den": 21887,
+      "probability_num": 659,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K11:b1",
+      "probability_den": 21887,
+      "probability_num": 423,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K7:b1",
+      "probability_den": 21887,
+      "probability_num": 391,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K4:b1",
+      "probability_den": 21887,
+      "probability_num": 374,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K5:b1",
+      "probability_den": 21887,
+      "probability_num": 370,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K5:b2",
+      "probability_den": 21887,
+      "probability_num": 342,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K9:b1",
+      "probability_den": 21887,
+      "probability_num": 341,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K10:b1",
+      "probability_den": 21887,
+      "probability_num": 231,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K6:b2",
+      "probability_den": 21887,
+      "probability_num": 231,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K4:b3",
+      "probability_den": 21887,
+      "probability_num": 126,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K3:b1",
+      "probability_den": 21887,
+      "probability_num": 122,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K8:b1",
+      "probability_den": 21887,
+      "probability_num": 87,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K3:b2",
+      "probability_den": 21887,
+      "probability_num": 82,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K3:b3",
+      "probability_den": 21887,
+      "probability_num": 58,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K3:b5",
+      "probability_den": 21887,
+      "probability_num": 51,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K5:b3",
+      "probability_den": 21887,
+      "probability_num": 45,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K9:b2",
+      "probability_den": 21887,
+      "probability_num": 20,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K14:b1",
+      "probability_den": 21887,
+      "probability_num": 14,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K12:b1",
+      "probability_den": 21887,
+      "probability_num": 13,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K13:b1",
+      "probability_den": 21887,
+      "probability_num": 11,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K3:b6",
+      "probability_den": 21887,
+      "probability_num": 8,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K16:b1",
+      "probability_den": 21887,
+      "probability_num": 4,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K10:b2",
+      "probability_den": 21887,
+      "probability_num": 4,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K11:b2",
+      "probability_den": 21887,
+      "probability_num": 2,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K15:b2",
+      "probability_den": 21887,
+      "probability_num": 1,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K7:b2",
+      "probability_den": 21887,
+      "probability_num": 1,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K6:b3",
+      "probability_den": 21887,
+      "probability_num": 1,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K5:b4",
+      "probability_den": 21887,
+      "probability_num": 1,
+      "src": "K16:b1"
+    },
+    {
+      "dst": "K4:b1",
+      "probability_den": 100901,
+      "probability_num": 10689,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K6:b1",
+      "probability_den": 100901,
+      "probability_num": 9146,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K16:b1",
+      "probability_den": 100901,
+      "probability_num": 7184,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K15:b1",
+      "probability_den": 100901,
+      "probability_num": 6500,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K14:b1",
+      "probability_den": 100901,
+      "probability_num": 5692,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K11:b1",
+      "probability_den": 100901,
+      "probability_num": 4844,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K9:b1",
+      "probability_den": 100901,
+      "probability_num": 3785,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K7:b1",
+      "probability_den": 100901,
+      "probability_num": 3651,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K5:b1",
+      "probability_den": 100901,
+      "probability_num": 3354,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K3:b2",
+      "probability_den": 100901,
+      "probability_num": 2417,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K12:b1",
+      "probability_den": 100901,
+      "probability_num": 2280,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K4:b2",
+      "probability_den": 100901,
+      "probability_num": 1984,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K13:b1",
+      "probability_den": 100901,
+      "probability_num": 1815,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K10:b1",
+      "probability_den": 100901,
+      "probability_num": 1623,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K8:b1",
+      "probability_den": 100901,
+      "probability_num": 965,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K5:b2",
+      "probability_den": 100901,
+      "probability_num": 601,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K6:b2",
+      "probability_den": 100901,
+      "probability_num": 407,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K3:b3",
+      "probability_den": 100901,
+      "probability_num": 336,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K4:b3",
+      "probability_den": 100901,
+      "probability_num": 136,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K7:b2",
+      "probability_den": 100901,
+      "probability_num": 129,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K3:b4",
+      "probability_den": 100901,
+      "probability_num": 50,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K9:b2",
+      "probability_den": 100901,
+      "probability_num": 16,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K8:b2",
+      "probability_den": 100901,
+      "probability_num": 14,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K6:b3",
+      "probability_den": 100901,
+      "probability_num": 4,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K3:b5",
+      "probability_den": 100901,
+      "probability_num": 3,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K10:b2",
+      "probability_den": 100901,
+      "probability_num": 3,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K5:b3",
+      "probability_den": 100901,
+      "probability_num": 2,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K6:b4",
+      "probability_den": 100901,
+      "probability_num": 1,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K4:b4",
+      "probability_den": 100901,
+      "probability_num": 1,
+      "src": "K3:b1"
+    },
+    {
+      "dst": "K3:b1",
+      "probability_den": 1,
+      "probability_num": 1,
+      "src": "K3:b2"
+    },
+    {
+      "dst": "K3:b2",
+      "probability_den": 1,
+      "probability_num": 1,
+      "src": "K3:b3"
+    },
+    {
+      "dst": "K3:b3",
+      "probability_den": 1,
+      "probability_num": 1,
+      "src": "K3:b4"
+    },
+    {
+      "dst": "K3:b4",
+      "probability_den": 1,
+      "probability_num": 1,
+      "src": "K3:b5"
+    },
+    {
+      "dst": "K3:b5",
+      "probability_den": 1,
+      "probability_num": 1,
+      "src": "K3:b6"
+    },
+    {
+      "dst": "K3:b1",
+      "probability_den": 1,
+      "probability_num": 1,
+      "src": "K4:b1"
+    },
+    {
+      "dst": "K3:b1",
+      "probability_den": 1,
+      "probability_num": 1,
+      "src": "K4:b2"
+    },
+    {
+      "dst": "K3:b1",
+      "probability_den": 1,
+      "probability_num": 1,
+      "src": "K4:b3"
+    },
+    {
+      "dst": "K3:b1",
+      "probability_den": 1,
+      "probability_num": 1,
+      "src": "K4:b4"
+    },
+    {
+      "dst": "K4:b1",
+      "probability_den": 1,
+      "probability_num": 1,
+      "src": "K5:b1"
+    },
+    {
+      "dst": "K4:b1",
+      "probability_den": 1,
+      "probability_num": 1,
+      "src": "K5:b2"
+    },
+    {
+      "dst": "K4:b1",
+      "probability_den": 1,
+      "probability_num": 1,
+      "src": "K5:b3"
+    },
+    {
+      "dst": "K4:b1",
+      "probability_den": 1,
+      "probability_num": 1,
+      "src": "K5:b4"
+    },
+    {
+      "dst": "K3:b1",
+      "probability_den": 31890,
+      "probability_num": 18059,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K5:b1",
+      "probability_den": 2126,
+      "probability_num": 253,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K16:b1",
+      "probability_den": 31890,
+      "probability_num": 1003,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K15:b1",
+      "probability_den": 15945,
+      "probability_num": 487,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K14:b1",
+      "probability_den": 10630,
+      "probability_num": 231,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K11:b1",
+      "probability_den": 31890,
+      "probability_num": 461,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K7:b1",
+      "probability_den": 31890,
+      "probability_num": 391,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K9:b1",
+      "probability_den": 2126,
+      "probability_num": 25,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K4:b1",
+      "probability_den": 31890,
+      "probability_num": 343,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K6:b1",
+      "probability_den": 10630,
+      "probability_num": 91,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K13:b1",
+      "probability_den": 31890,
+      "probability_num": 259,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K12:b1",
+      "probability_den": 5315,
+      "probability_num": 42,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K10:b1",
+      "probability_den": 10630,
+      "probability_num": 59,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K8:b1",
+      "probability_den": 10630,
+      "probability_num": 57,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K3:b2",
+      "probability_den": 2126,
+      "probability_num": 11,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K5:b2",
+      "probability_den": 3189,
+      "probability_num": 5,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K4:b2",
+      "probability_den": 31890,
+      "probability_num": 31,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K3:b3",
+      "probability_den": 31890,
+      "probability_num": 29,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K6:b2",
+      "probability_den": 15945,
+      "probability_num": 13,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K7:b2",
+      "probability_den": 3189,
+      "probability_num": 2,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K8:b2",
+      "probability_den": 2126,
+      "probability_num": 1,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K3:b4",
+      "probability_den": 6378,
+      "probability_num": 1,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K9:b2",
+      "probability_den": 15945,
+      "probability_num": 1,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K4:b3",
+      "probability_den": 31890,
+      "probability_num": 1,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K3:b6",
+      "probability_den": 31890,
+      "probability_num": 1,
+      "src": "K6:b1"
+    },
+    {
+      "dst": "K5:b1",
+      "probability_den": 973,
+      "probability_num": 355,
+      "src": "K6:b2"
+    },
+    {
+      "dst": "K3:b1",
+      "probability_den": 973,
+      "probability_num": 342,
+      "src": "K6:b2"
+    },
+    {
+      "dst": "K6:b1",
+      "probability_den": 1946,
+      "probability_num": 335,
+      "src": "K6:b2"
+    },
+    {
+      "dst": "K9:b1",
+      "probability_den": 973,
+      "probability_num": 33,
+      "src": "K6:b2"
+    },
+    {
+      "dst": "K11:b1",
+      "probability_den": 973,
+      "probability_num": 26,
+      "src": "K6:b2"
+    },
+    {
+      "dst": "K14:b1",
+      "probability_den": 1946,
+      "probability_num": 31,
+      "src": "K6:b2"
+    },
+    {
+      "dst": "K12:b1",
+      "probability_den": 973,
+      "probability_num": 9,
+      "src": "K6:b2"
+    },
+    {
+      "dst": "K10:b1",
+      "probability_den": 973,
+      "probability_num": 9,
+      "src": "K6:b2"
+    },
+    {
+      "dst": "K13:b1",
+      "probability_den": 1946,
+      "probability_num": 17,
+      "src": "K6:b2"
+    },
+    {
+      "dst": "K15:b1",
+      "probability_den": 973,
+      "probability_num": 5,
+      "src": "K6:b2"
+    },
+    {
+      "dst": "K16:b1",
+      "probability_den": 973,
+      "probability_num": 2,
+      "src": "K6:b2"
+    },
+    {
+      "dst": "K9:b2",
+      "probability_den": 1946,
+      "probability_num": 1,
+      "src": "K6:b2"
+    },
+    {
+      "dst": "K3:b1",
+      "probability_den": 19,
+      "probability_num": 10,
+      "src": "K6:b3"
+    },
+    {
+      "dst": "K5:b1",
+      "probability_den": 19,
+      "probability_num": 6,
+      "src": "K6:b3"
+    },
+    {
+      "dst": "K6:b2",
+      "probability_den": 19,
+      "probability_num": 3,
+      "src": "K6:b3"
+    },
+    {
+      "dst": "K3:b1",
+      "probability_den": 1,
+      "probability_num": 1,
+      "src": "K6:b4"
+    },
+    {
+      "dst": "K6:b1",
+      "probability_den": 173,
+      "probability_num": 103,
+      "src": "K7:b1"
+    },
+    {
+      "dst": "K3:b2",
+      "probability_den": 173,
+      "probability_num": 70,
+      "src": "K7:b1"
+    },
+    {
+      "dst": "K6:b1",
+      "probability_den": 785,
+      "probability_num": 571,
+      "src": "K7:b2"
+    },
+    {
+      "dst": "K3:b2",
+      "probability_den": 785,
+      "probability_num": 214,
+      "src": "K7:b2"
+    },
+    {
+      "dst": "K6:b1",
+      "probability_den": 1,
+      "probability_num": 1,
+      "src": "K7:b3"
+    },
+    {
+      "dst": "K7:b1",
+      "probability_den": 1010,
+      "probability_num": 1009,
+      "src": "K8:b1"
+    },
+    {
+      "dst": "K16:b1",
+      "probability_den": 1010,
+      "probability_num": 1,
+      "src": "K8:b1"
+    },
+    {
+      "dst": "K7:b1",
+      "probability_den": 1,
+      "probability_num": 1,
+      "src": "K8:b2"
+    },
+    {
+      "dst": "K3:b1",
+      "probability_den": 5003,
+      "probability_num": 1671,
+      "src": "K9:b1"
+    },
+    {
+      "dst": "K6:b1",
+      "probability_den": 15009,
+      "probability_num": 2593,
+      "src": "K9:b1"
+    },
+    {
+      "dst": "K3:b2",
+      "probability_den": 15009,
+      "probability_num": 1894,
+      "src": "K9:b1"
+    },
+    {
+      "dst": "K8:b1",
+      "probability_den": 15009,
+      "probability_num": 1765,
+      "src": "K9:b1"
+    },
+    {
+      "dst": "K4:b1",
+      "probability_den": 15009,
+      "probability_num": 1216,
+      "src": "K9:b1"
+    },
+    {
+      "dst": "K5:b1",
+      "probability_den": 5003,
+      "probability_num": 336,
+      "src": "K9:b1"
+    },
+    {
+      "dst": "K4:b2",
+      "probability_den": 5003,
+      "probability_num": 260,
+      "src": "K9:b1"
+    },
+    {
+      "dst": "K16:b1",
+      "probability_den": 5003,
+      "probability_num": 41,
+      "src": "K9:b1"
+    },
+    {
+      "dst": "K14:b1",
+      "probability_den": 15009,
+      "probability_num": 74,
+      "src": "K9:b1"
+    },
+    {
+      "dst": "K15:b1",
+      "probability_den": 5003,
+      "probability_num": 23,
+      "src": "K9:b1"
+    },
+    {
+      "dst": "K12:b1",
+      "probability_den": 5003,
+      "probability_num": 7,
+      "src": "K9:b1"
+    },
+    {
+      "dst": "K11:b1",
+      "probability_den": 5003,
+      "probability_num": 6,
+      "src": "K9:b1"
+    },
+    {
+      "dst": "K13:b1",
+      "probability_den": 15009,
+      "probability_num": 17,
+      "src": "K9:b1"
+    },
+    {
+      "dst": "K7:b1",
+      "probability_den": 15009,
+      "probability_num": 14,
+      "src": "K9:b1"
+    },
+    {
+      "dst": "K10:b1",
+      "probability_den": 5003,
+      "probability_num": 4,
+      "src": "K9:b1"
+    },
+    {
+      "dst": "K8:b2",
+      "probability_den": 5003,
+      "probability_num": 3,
+      "src": "K9:b1"
+    },
+    {
+      "dst": "K9:b1",
+      "probability_den": 5003,
+      "probability_num": 1,
+      "src": "K9:b1"
+    },
+    {
+      "dst": "K8:b1",
+      "probability_den": 289,
+      "probability_num": 75,
+      "src": "K9:b2"
+    },
+    {
+      "dst": "K3:b1",
+      "probability_den": 289,
+      "probability_num": 69,
+      "src": "K9:b2"
+    },
+    {
+      "dst": "K6:b1",
+      "probability_den": 289,
+      "probability_num": 39,
+      "src": "K9:b2"
+    },
+    {
+      "dst": "K4:b1",
+      "probability_den": 289,
+      "probability_num": 23,
+      "src": "K9:b2"
+    },
+    {
+      "dst": "K3:b2",
+      "probability_den": 289,
+      "probability_num": 23,
+      "src": "K9:b2"
+    },
+    {
+      "dst": "K4:b2",
+      "probability_den": 289,
+      "probability_num": 22,
+      "src": "K9:b2"
+    },
+    {
+      "dst": "K5:b1",
+      "probability_den": 289,
+      "probability_num": 21,
+      "src": "K9:b2"
+    },
+    {
+      "dst": "K9:b1",
+      "probability_den": 289,
+      "probability_num": 7,
+      "src": "K9:b2"
+    },
+    {
+      "dst": "K11:b1",
+      "probability_den": 289,
+      "probability_num": 4,
+      "src": "K9:b2"
+    },
+    {
+      "dst": "K15:b1",
+      "probability_den": 289,
+      "probability_num": 3,
+      "src": "K9:b2"
+    },
+    {
+      "dst": "K14:b1",
+      "probability_den": 289,
+      "probability_num": 1,
+      "src": "K9:b2"
+    },
+    {
+      "dst": "K12:b1",
+      "probability_den": 289,
+      "probability_num": 1,
+      "src": "K9:b2"
+    },
+    {
+      "dst": "K16:b1",
+      "probability_den": 289,
+      "probability_num": 1,
+      "src": "K9:b2"
+    }
+  ],
+  "max_node": "K15:b2",
+  "max_ratio_decimal": 0.8858293875753916,
+  "max_ratio_den": 154382162832639,
+  "max_ratio_num": 136756256754601,
+  "nodes": [
+    "K10:b1",
+    "K10:b2",
+    "K11:b1",
+    "K11:b2",
+    "K12:b1",
+    "K12:b2",
+    "K13:b1",
+    "K13:b2",
+    "K14:b1",
+    "K15:b1",
+    "K15:b2",
+    "K16:b1",
+    "K3:b1",
+    "K3:b2",
+    "K3:b3",
+    "K3:b4",
+    "K3:b5",
+    "K3:b6",
+    "K4:b1",
+    "K4:b2",
+    "K4:b3",
+    "K4:b4",
+    "K5:b1",
+    "K5:b2",
+    "K5:b3",
+    "K5:b4",
+    "K6:b1",
+    "K6:b2",
+    "K6:b3",
+    "K6:b4",
+    "K7:b1",
+    "K7:b2",
+    "K7:b3",
+    "K8:b1",
+    "K8:b2",
+    "K9:b1",
+    "K9:b2"
+  ],
+  "orientation": "incoming form: (P v)[dst] = sum_src probability(src,dst) * v[src]",
+  "vector": {
+    "K10:b1": 63087779306414,
+    "K10:b2": 162640653895,
+    "K11:b1": 181100345776913,
+    "K11:b2": 53338462917,
+    "K12:b1": 96735240195444,
+    "K12:b2": 29075230971,
+    "K13:b1": 86822444620128,
+    "K13:b2": 20502046801,
+    "K14:b1": 230933234902560,
+    "K15:b1": 205668276201328,
+    "K15:b2": 7053600897,
+    "K16:b1": 136756256754601,
+    "K3:b1": 1000000000000000,
+    "K3:b2": 179123976111739,
+    "K3:b3": 25445996601890,
+    "K3:b4": 3763156290354,
+    "K3:b5": 489279127852,
+    "K3:b6": 66861765834,
+    "K4:b1": 349455720433883,
+    "K4:b2": 59539346026041,
+    "K4:b3": 4309146090600,
+    "K4:b4": 97704505422,
+    "K5:b1": 116574863872117,
+    "K5:b2": 17197710418540,
+    "K5:b3": 339788142806,
+    "K5:b4": 7053600897,
+    "K6:b1": 294721683639167,
+    "K6:b2": 12601746212500,
+    "K6:b3": 153569114142,
+    "K6:b4": 11188051211,
+    "K7:b1": 123091970124522,
+    "K7:b2": 4565134911608,
+    "K7:b3": 26238276161,
+    "K8:b1": 36079258515477,
+    "K8:b2": 654811345734,
+    "K9:b1": 128421422410546,
+    "K9:b2": 542392794917
+  }
+}

@@ -1,0 +1,4 @@
+name,path,states,edge_types,epsilon,rho_power_perturbed,cw_upper,cw_max_node,pv_at_max_node,v_at_max_node,row_sum_min,row_sum_max,row_sum_max_node,status
+orbit_harness_k16_s16_scc_node_edges,scripts/phantom_taxonomy/orbit_harness_k16_s16_scc_node_edges.csv,1240,4387,1e-12,0.8854854459738895,0.8854854459705753,K3:L2:w1-2:b1,0.8854854459705753,1.0,0.36,1.0,K9:L8:w1-1-1-1-1-1-1-2:b2,OK
+orbit_harness_k16_s16_scc_KL_edges,scripts/phantom_taxonomy/orbit_harness_k16_s16_scc_KL_edges.csv,76,556,1e-12,0.8852702670286595,0.885270267025325,K3:L2:b1,0.885270267025325,1.0,0.6702807702599578,1.0,K9:L8:b2,OK
+orbit_harness_k16_s16_scc_K_edges,scripts/phantom_taxonomy/orbit_harness_k16_s16_scc_K_edges.csv,37,277,1e-12,0.8858293875637223,0.8858293875603435,K3:b1,0.8858293875603435,1.0,0.6702807702599578,1.0,K9:b2,OK
