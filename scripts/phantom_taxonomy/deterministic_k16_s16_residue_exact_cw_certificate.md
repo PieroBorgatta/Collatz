@@ -50,6 +50,12 @@ Certificate file:
 
 - `scripts/phantom_taxonomy/deterministic_k16_s16_residue_K_cw_certificate.json`
 
+Lean certificate:
+
+- `lean/CollatzShadowing/Generated/K16S16KDeterministicCW.lean`
+- `k16s16KDeterministicFiniteCWCertificate`
+- `k16s16KDeterministicGeneratedSpectralRadiusBound`
+
 Exact verification result:
 
 ```text
@@ -68,3 +74,17 @@ python3 scripts/phantom_taxonomy/scc_cw_certificate.py \
 
 The generated `node` and `(K,L,b)` deterministic edge CSVs are retained
 as diagnostics, but the certified closure uses the `(K,b)` matrix.
+
+## Sensitivity Check
+
+The `lift_bits = 4` certificate is stable under two larger finite
+residue refinements:
+
+| lift bits | source cells | canonical cells | exits below start | `(K,b)` edge types | exact max ratio | status |
+|---:|---:|---:|---:|---:|---:|---|
+| 4 | 19840 | 17671 | 495 | 182 | `90833233962213/129559208330288 ≈ 0.701094388680` | `< 3/4` |
+| 5 | 39680 | 35331 | 990 | 190 | `7332495524923/10616480126384 ≈ 0.690671054590` | `< 3/4` |
+| 6 | 79360 | 70667 | 1975 | 209 | `64869145309473/97226913303232 ≈ 0.667193301788` | `< 3/4` |
+
+The sensitivity outputs were generated in `/tmp`; the committed
+certificate remains the `lift_bits = 4` production artifact.

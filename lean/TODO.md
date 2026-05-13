@@ -76,7 +76,7 @@ When you complete or partially advance a task:
 
 ## Current status (most recent first)
 
-> *Last updated: 2026-05-13 — **Phase 5 complete: Lemma 3.1 and Corollary 3.4 formalized**. Project is `sorry`-free. **Phase 6 complete**: paper v2 drafted, Lean note written, Related Work + Chang comparison done, GitHub README updated, METHODOLOGY.md updated, Zenodo v2 published, and `pdflatex` verified online by Piero. **Phase 7 complete for the current branch**: tasks 7.1-7.4, 7.6, and 7.7 are complete; 7.4 closes with the full `K0=16` sampled run and SCC report, outcome (b), so 7.5 is not applicable. **F.1 is closed for the declared finite residue-cell scope**: `deterministic_residue_transfer.py` enumerates all `2^4` finite residue subclasses for each of the 1240 raw SCC source states, writes exact deterministic transition matrices, and the `(K,b)` matrix has an exact CW certificate with max ratio `90833233962213/129559208330288 < 3/4`. **Phase 8 complete for the current branch**: 8.1-8.9 are complete; 8.3 closes on the generated 37-state compressed `K,b` SCC certificate; 8.5 has the matrix/decomposition API, a generated exact import of the empirical `T = 10` critical-symbolic full transfer matrix, and an exact generated `T = 10, j = 32` majority `core/tail` `OperatorDecomposition`; 8.6 connects finite CW certificates to Mathlib `spectralRadius`; 8.7 exposes the `T = 10, j = 32` numerical spectral-radius bound `97/2000 = 0.0485` through a fully expanded Lean-checked 224-row CW certificate generated from the exact CSV.*
+> *Last updated: 2026-05-13 — **Phase 5 complete: Lemma 3.1 and Corollary 3.4 formalized**. Project is `sorry`-free. **Phase 6 complete**: paper v2 drafted, Lean note written, Related Work + Chang comparison done, GitHub README updated, METHODOLOGY.md updated, Zenodo v2 published, and `pdflatex` verified online by Piero. **Phase 7 complete for the current branch**: tasks 7.1-7.4, 7.6, and 7.7 are complete; 7.4 closes with the full `K0=16` sampled run and SCC report, outcome (b), so 7.5 is not applicable. **F.1 is closed for the declared finite residue-cell scope and imported in Lean**: `deterministic_residue_transfer.py` enumerates all `2^4` finite residue subclasses for each of the 1240 raw SCC source states, writes exact deterministic transition matrices, and the `(K,b)` matrix has a generated Lean/Python exact CW certificate with max ratio `90833233962213/129559208330288 < 3/4`; sensitivity checks at `lift_bits = 5, 6` also stay below `3/4`. **Phase 8 complete for the current branch**: 8.1-8.9 are complete; 8.3 closes on the generated 37-state compressed `K,b` SCC certificate; 8.5 has the matrix/decomposition API, a generated exact import of the empirical `T = 10` critical-symbolic full transfer matrix, and an exact generated `T = 10, j = 32` majority `core/tail` `OperatorDecomposition`; 8.6 connects finite CW certificates to Mathlib `spectralRadius`; 8.7 exposes the `T = 10, j = 32` numerical spectral-radius bound `97/2000 = 0.0485` through a fully expanded Lean-checked 224-row CW certificate generated from the exact CSV.*
 
 - **Phase 0 complete.** Lake project initialized with `math` template,
   pinned to **Lean 4 v4.29.1** and **Mathlib v4.29.1**. Mathlib
@@ -372,7 +372,7 @@ beyond the original empirical Phase-7 / generated-Lean Phase-8 branch.
 
 | ID | Status | Task | Acceptance criterion |
 |----|--------|------|----------------------|
-| F.1 | [x] | Close the deterministic-transition gap in `notes/phantom_taxonomy.md` / Phase 7.6. | Completed for the declared finite residue-cell scope on macro-state space `(K,b)`. `deterministic_residue_transfer.py` enumerates all `2^4` residue subclasses for each of the 1240 raw SCC source states, classifies 19840 cells with zero budget exits, writes exact rational deterministic matrices plus coverage manifest, and reruns the exact CW pipeline on the 37-state `(K,b)` matrix. Certificate: `deterministic_k16_s16_residue_K_cw_certificate.json`, max ratio `90833233962213/129559208330288 < 3/4`. |
+| F.1 | [x] | Close the deterministic-transition gap in `notes/phantom_taxonomy.md` / Phase 7.6. | Completed for the declared finite residue-cell scope on macro-state space `(K,b)`. `deterministic_residue_transfer.py` enumerates all `2^4` residue subclasses for each of the 1240 raw SCC source states, classifies 19840 cells with zero budget exits, writes exact rational deterministic matrices plus coverage manifest, and reruns the exact CW pipeline on the 37-state `(K,b)` matrix. Certificates: `deterministic_k16_s16_residue_K_cw_certificate.json` and `Generated/K16S16KDeterministicCW.lean`; max ratio `90833233962213/129559208330288 < 3/4`. Sensitivity checks at `lift_bits = 5, 6` also verify `< 3/4`, with max ratios about `0.69067` and `0.66719`. |
 
 ---
 
@@ -446,10 +446,13 @@ self-study phase that is not on the current program.
   - `scripts/phantom_taxonomy/deterministic_k16_s16_residue_transfer_summary.md`
   - `scripts/phantom_taxonomy/deterministic_k16_s16_residue_K_cw_certificate.json`
   - `scripts/phantom_taxonomy/deterministic_k16_s16_residue_exact_cw_certificate.md`
+  - `lean/CollatzShadowing/Generated/K16S16KDeterministicCW.lean`
 - Artifacts modified:
+  - `lean/CollatzShadowing.lean`
   - `notes/phantom_taxonomy.md`
   - `notes/phantom_taxonomy_empirical_scc_integration.md`
   - `lean/TODO.md`
+  - `scripts/phantom_taxonomy/lean_cw_summary.py`
 - Notes:
   - The deterministic generator enumerates all `2^4` finite residue
     subclasses for each of the 1240 raw SCC source states: 19840 cells
@@ -461,6 +464,13 @@ self-study phase that is not on the current program.
   - The exact CW certificate verifies
     `max_ratio = 90833233962213/129559208330288 < 3/4`, with max node
     `K11:b2`.
+  - `lean_cw_summary.py` now accepts declaration-prefix and state-type
+    arguments, so the deterministic certificate can be imported next to
+    the empirical 37-state certificate without namespace collisions.
+  - Sensitivity runs at `lift_bits = 5` and `lift_bits = 6` also pass
+    with `alpha = 3/4`; their exact max ratios are
+    `7332495524923/10616480126384 ≈ 0.690671054590` and
+    `64869145309473/97226913303232 ≈ 0.667193301788`.
   - The raw-node and `(K,L,b)` deterministic edge CSVs are retained as
     diagnostics; the exact CW closure uses `(K,b)`.
 - Verification:
@@ -475,6 +485,8 @@ self-study phase that is not on the current program.
   - `python3 scripts/phantom_taxonomy/scc_cw_certificate.py --verify
     scripts/phantom_taxonomy/deterministic_k16_s16_residue_K_cw_certificate.json`
     returns `status=OK`.
+  - `lake build CollatzShadowing.Generated.K16S16KDeterministicCW`
+    succeeds.
   - `lake build` succeeds.
 - Next recommended task: Phase 9 v3 redaction can now cite the
   deterministic finite residue-cell `(K,b)` certificate rather than the

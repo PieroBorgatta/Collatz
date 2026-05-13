@@ -20,7 +20,10 @@ rational Collatz-Wielandt inequalities.
 Follow-up `F.1` replaces that sampled transition step, for the declared
 finite residue-cell scope, with deterministic enumeration of every
 residue cell attached to the observed `K0 = 16` SCC source states.  The
-certified macro-state space is `(K,b)`.
+certified macro-state space is `(K,b)`.  The main paper-facing result
+of this note is now the deterministic `(K,b)` certificate with exact
+bound `< 3/4`; the sampled `≈ 0.8858` matrices below are retained as
+historical diagnostics and context.
 
 ## 7.1 Necklace Counts
 
@@ -240,25 +243,49 @@ Artifacts:
 - `scripts/phantom_taxonomy/deterministic_k16_s16_residue_transfer_summary.md`
 - `scripts/phantom_taxonomy/deterministic_k16_s16_residue_K_cw_certificate.json`
 - `scripts/phantom_taxonomy/deterministic_k16_s16_residue_exact_cw_certificate.md`
+- `lean/CollatzShadowing/Generated/K16S16KDeterministicCW.lean`
+
+Lean import:
+
+- `CollatzShadowing.Generated.K16S16KDeterministicCW` defines
+  `k16s16KDeterministicFiniteCWCertificate` and the induced
+  `k16s16KDeterministicGeneratedSpectralRadiusBound`.
+
+Sensitivity check:
+
+| lift bits | source cells | canonical cells | exits below start | `(K,b)` edge types | exact max ratio | status |
+|---:|---:|---:|---:|---:|---:|---|
+| 4 | 19840 | 17671 | 495 | 182 | `90833233962213/129559208330288 ≈ 0.701094388680` | `< 3/4` |
+| 5 | 39680 | 35331 | 990 | 190 | `7332495524923/10616480126384 ≈ 0.690671054590` | `< 3/4` |
+| 6 | 79360 | 70667 | 1975 | 209 | `64869145309473/97226913303232 ≈ 0.667193301788` | `< 3/4` |
+
+The bound is stable under the two larger residue refinements tested
+here and improves on the retained `(K,b)` certificate.
 
 ## Interpretation
 
-The `K0 = 16` taxonomy extension does not preserve the original small
-paper-SCC topology.  It produces one large observed nontrivial SCC.
-The original sampled substochastic retention operator for this SCC is
-strongly subcritical in all tested views, with empirical
-Collatz-Wielandt bounds around `0.885`, stable under doubling the
-sampling budget.  The deterministic finite residue-cell follow-up gives
-a stronger `(K,b)` certified bound below `3/4` in the declared finite
-scope.
+The main current conclusion is the deterministic finite residue-cell
+`(K,b)` certificate: in the declared `K0 = 16`, `lift_bits = 4` finite
+scope, the exact generated Lean/Python certificate gives
+`spectralRadius ≤ 3/4`, with exact max-ratio witness
+`90833233962213/129559208330288`.
 
-The most useful compression appears to be `(K,L,b)`: it reduces the
-16-lift SCC from 1240 observed node states to 76 macro-states while
-preserving the observed spectral bound to within `0.001`.
+The `K0 = 16` taxonomy extension does not preserve the original small
+paper-SCC topology.  It produces one large observed nontrivial SCC.  The
+older sampled substochastic retention operator for this SCC remains
+useful historical context: it was strongly subcritical in all tested
+views, with empirical Collatz-Wielandt bounds around `0.885`, stable
+under doubling the sampling budget.
+
+Within the older sampled diagnostics, `(K,L,b)` was the most useful
+compression: it reduced the 16-lift SCC from 1240 observed node states
+to 76 macro-states while preserving the observed spectral bound to
+within `0.001`.
 
 For the deterministic finite residue-cell certificate, the retained
 certified compression is `(K,b)`, because the exact CW pipeline closes
-there cleanly with the bound `3/4`.
+there cleanly with the bound `3/4` and the same bound survives
+`lift_bits = 5` and `lift_bits = 6` sensitivity checks.
 
 ## Residual Scope Note
 

@@ -70,6 +70,8 @@ The retained certified macro-state space is `(K,b)`:
 - 17176 internal transitions and 495 exits below start;
 - exact CW certificate
   `scripts/phantom_taxonomy/deterministic_k16_s16_residue_K_cw_certificate.json`;
+- Lean certificate
+  `lean/CollatzShadowing/Generated/K16S16KDeterministicCW.lean`;
 - exact maximum ratio
   `90833233962213/129559208330288 < 3/4`.
 

@@ -147,6 +147,12 @@ The inventory recommendations above have now been realized as follows:
 - `Generated/K16S16KExactCWSummary.lean` imports the exact empirical
   `K,b` JSON certificate as a 37-state `NNReal` matrix and proves
   `k16s16KFiniteCWCertificate`.
+- `Generated/K16S16KDeterministicCW.lean` imports the deterministic
+  finite residue-cell `K,b` JSON certificate as a separate 37-state
+  `NNReal` matrix and proves
+  `k16s16KDeterministicFiniteCWCertificate` plus the induced
+  `k16s16KDeterministicGeneratedSpectralRadiusBound` with alpha
+  `3/4`.
 
 `Generated/K16S16KBridge.lean` applies the spectral bridge to the
 37-state generated certificate as `k16s16KSpectralRadiusBound`.

@@ -13,5 +13,6 @@ import CollatzShadowing.Generated.T10CriticalSymbolic
 import CollatzShadowing.Generated.T10J32HighBitTail
 import CollatzShadowing.Generated.T10J32HighBitTailCW
 import CollatzShadowing.Generated.K16S16KExactCWSummary
+import CollatzShadowing.Generated.K16S16KDeterministicCW
 import CollatzShadowing.Generated.K16S16KSCC
 import CollatzShadowing.Generated.K16S16KBridge
