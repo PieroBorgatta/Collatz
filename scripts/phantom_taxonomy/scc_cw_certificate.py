@@ -1,10 +1,11 @@
 """
-Exact rational certificate for empirical SCC Collatz-Wielandt bounds.
+Exact rational certificate for SCC Collatz-Wielandt bounds.
 
-The transition matrix is still empirical because it is built from the
-sampled orbit harness.  This script strengthens only the *matrix bound*:
-it converts edge probabilities to exact fractions count/source_events,
-constructs a positive integer test vector, and verifies exactly that
+The input transition matrix may be empirical, as in the original
+sampled orbit-harness runs, or deterministic, as in the residue-cell
+transfer closure.  This script certifies the *matrix bound*: it converts
+edge probabilities to exact fractions count/source_events, constructs a
+positive integer test vector, and verifies exactly that
 
     (P v)_i <= alpha * v_i
 

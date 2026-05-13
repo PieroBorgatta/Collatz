@@ -1,22 +1,26 @@
 # Phantom Taxonomy at K0 = 16
 
 Date: 2026-05-10
+Updated: 2026-05-13
 
 This note summarizes Phase 7 of the Lean/Python roadmap: taxonomy of
 primitive cyclic-composition phantoms, rational representatives,
 sampled episode graph construction, and empirical integration of the
-new observed SCC.
+new observed SCC.  The 2026-05-13 follow-up closes the deterministic
+finite residue-cell transition gap for the declared `K0 = 16` scope.
 
 ## Scope
 
-The result is empirical but reproducible.  The enumeration and rational
-representative computations are exact.  The episode graph and retention
-operator are sampled from integer lifts, then the resulting empirical
-matrices are certified exactly by rational Collatz-Wielandt
-inequalities.
+The original Phase-7 result was empirical but reproducible.  The
+enumeration and rational representative computations are exact.  The
+first episode graph and retention operator were sampled from integer
+lifts, then the resulting empirical matrices were certified exactly by
+rational Collatz-Wielandt inequalities.
 
-This is not yet a deterministic theorem-level transition certificate
-for all residue classes.
+Follow-up `F.1` replaces that sampled transition step, for the declared
+finite residue-cell scope, with deterministic enumeration of every
+residue cell attached to the observed `K0 = 16` SCC source states.  The
+certified macro-state space is `(K,b)`.
 
 ## 7.1 Necklace Counts
 
@@ -172,27 +176,97 @@ Certificate files:
 - `scripts/phantom_taxonomy/orbit_harness_k16_s16_scc_KL_cw_certificate.json`
 - `scripts/phantom_taxonomy/orbit_harness_k16_s16_scc_K_cw_certificate.json`
 
+## F.1 Deterministic Residue-Cell Closure
+
+Script:
+
+- `scripts/phantom_taxonomy/deterministic_residue_transfer.py`
+
+The deterministic follow-up enumerates every finite residue subclass in
+the declared scope:
+
+```text
+0 <= t < 2^4,
+n0 = q_w mod 2^(b A_w + 1) + t * 2^(b A_w + 1).
+```
+
+For each raw SCC source state `(w,b)`, the script first verifies that
+the canonical monitored hit at `n0` is the requested source.  Cells
+owned by a stronger overlapping monitored class are counted as
+shadowed.  The remaining canonical source cells are traced
+deterministically until the next distinct monitored hit or until the
+odd Syracuse orbit drops below its start.
+
+Coverage:
+
+| item | count |
+|---|---:|
+| raw SCC source nodes | 1240 |
+| finite residue cells/source | 16 |
+| total finite residue cells checked | 19840 |
+| canonical source cells | 17671 |
+| shadowed initial cells | 2169 |
+| no-initial cells | 0 |
+| budget exits | 0 |
+| internal SCC transitions | 17176 |
+| exits below start | 495 |
+
+Deterministic transfer diagnostics:
+
+| view | states | nonzero edge types | source events | retention mass | rho diagnostic |
+|---|---:|---:|---:|---:|---:|
+| raw node | 1240 | 1631 | 17671 | 0.971988 | 0.614114751961 |
+| `(K,L,b)` | 76 | 300 | 17671 | 0.971988 | 0.682396808590 |
+| `(K,b)` | 37 | 182 | 17671 | 0.971988 | 0.701094388677 |
+
+The certified matrix is the `(K,b)` compression.  Its exact
+Collatz-Wielandt certificate verifies
+
+```text
+(P v)_i <= (3/4) * v_i
+```
+
+with exact maximum ratio
+
+```text
+90833233962213/129559208330288 ≈ 0.701094388680.
+```
+
+Artifacts:
+
+- `scripts/phantom_taxonomy/deterministic_k16_s16_residue_K_edges.csv`
+- `scripts/phantom_taxonomy/deterministic_k16_s16_residue_source_coverage.csv`
+- `scripts/phantom_taxonomy/deterministic_k16_s16_residue_manifest.json`
+- `scripts/phantom_taxonomy/deterministic_k16_s16_residue_transfer_summary.md`
+- `scripts/phantom_taxonomy/deterministic_k16_s16_residue_K_cw_certificate.json`
+- `scripts/phantom_taxonomy/deterministic_k16_s16_residue_exact_cw_certificate.md`
+
 ## Interpretation
 
 The `K0 = 16` taxonomy extension does not preserve the original small
 paper-SCC topology.  It produces one large observed nontrivial SCC.
-However, the sampled substochastic retention operator for this SCC is
+The original sampled substochastic retention operator for this SCC is
 strongly subcritical in all tested views, with empirical
 Collatz-Wielandt bounds around `0.885`, stable under doubling the
-sampling budget.
+sampling budget.  The deterministic finite residue-cell follow-up gives
+a stronger `(K,b)` certified bound below `3/4` in the declared finite
+scope.
 
 The most useful compression appears to be `(K,L,b)`: it reduces the
 16-lift SCC from 1240 observed node states to 76 macro-states while
 preserving the observed spectral bound to within `0.001`.
 
-## Remaining Gap
+For the deterministic finite residue-cell certificate, the retained
+certified compression is `(K,b)`, because the exact CW pipeline closes
+there cleanly with the bound `3/4`.
 
-The transition probabilities are still sampled.  To turn this into a
-theorem-level certificate, one must replace sampled transitions with a
-deterministic residue-class construction on a chosen macro-state space,
-most likely `(K,L,b)` or `(K,b)`.
+## Residual Scope Note
 
-Until then, this phase should be cited as:
+The previous sampled-transition gap is closed for the declared finite
+residue-cell scope.  This should still not be overstated as a symbolic
+infinite residue-class theorem beyond that declared finite quotient.
 
-> empirical taxonomy integration at `K0 = 16`, with exact rational
-> certificates for the sampled retention matrices.
+This phase should now be cited as:
+
+> deterministic finite residue-cell taxonomy integration at `K0 = 16`,
+> with an exact rational `(K,b)` Collatz-Wielandt certificate.

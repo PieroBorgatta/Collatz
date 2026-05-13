@@ -535,6 +535,26 @@ private theorem sum_getD_range (l : List ℕ) :
     ((List.range l.length).map fun i : ℕ => l.getD i 0).sum = l.sum :=
   congrArg List.sum (map_getD_range l)
 
+/-- Summing `getD` over the first `r` valid indices recovers the sum of
+the first `r` entries. -/
+private theorem sum_getD_range_take (l : List ℕ) {r : ℕ} (hr : r ≤ l.length) :
+    ((List.range r).map fun i : ℕ => l.getD i 0).sum = (l.take r).sum := by
+  have hlen : (l.take r).length = r := by
+    simp [List.length_take, min_eq_left hr]
+  have hmap :
+      (List.range r).map (fun i : ℕ => l.getD i 0) =
+        (List.range (l.take r).length).map (fun i : ℕ => (l.take r).getD i 0) := by
+    rw [hlen]
+    apply List.map_congr_left
+    intro i hi
+    have hi_lt_r : i < r := List.mem_range.mp hi
+    have hi_lt_l : i < l.length := lt_of_lt_of_le hi_lt_r hr
+    rw [List.getD_eq_getElem _ _ hi_lt_l]
+    rw [List.getD_eq_getElem _ _ (by simpa [hlen] using hi_lt_r)]
+    simp [List.getElem_take]
+  rw [hmap]
+  exact sum_getD_range (l.take r)
+
 /-- A complete block of `length` many periodic entries sums to `A`. -/
 theorem block_sum_mul_length (w : PhantomWord) (b : ℕ) :
     ((List.range w.length).map fun i : ℕ => w.aAt (b * w.length + i)).sum
@@ -570,6 +590,51 @@ theorem B_mul_period (w : PhantomWord) (b : ℕ) :
         _ = w.B (b * w.length) + w.A := hblock
         _ = b * w.A + w.A := by rw [ih]
         _ = (b + 1) * w.A := by rw [Nat.succ_mul]
+
+/-- Closed form of the periodic partial sum:
+`B_m = (m / L) * A + sum (take (m % L) vals)`. -/
+theorem B_closed_form (w : PhantomWord) (m : ℕ) :
+    w.B m = (m / w.length) * w.A + (w.vals.take (m % w.length)).sum := by
+  let q := m / w.length
+  let r := m % w.length
+  have hr_lt : r < w.length := Nat.mod_lt m w.length_pos
+  have hr_le_vals : r ≤ w.vals.length := by
+    simpa [length] using le_of_lt hr_lt
+  have hm : m = q * w.length + r := by
+    dsimp [q, r]
+    exact (Nat.div_add_mod' m w.length).symm
+  have hdiv : (q * w.length + r) / w.length = q := by
+    calc
+      (q * w.length + r) / w.length = (r + w.length * q) / w.length := by
+        rw [Nat.add_comm, Nat.mul_comm q w.length]
+      _ = r / w.length + q := Nat.add_mul_div_left r q w.length_pos
+      _ = q := by rw [Nat.div_eq_of_lt hr_lt, zero_add]
+  have hmod : (q * w.length + r) % w.length = r := by
+    calc
+      (q * w.length + r) % w.length = (r + w.length * q) % w.length := by
+        rw [Nat.add_comm, Nat.mul_comm q w.length]
+      _ = r % w.length := Nat.add_mul_mod_self_left r w.length q
+      _ = r := Nat.mod_eq_of_lt hr_lt
+  rw [hm]
+  unfold B
+  rw [List.range_add, List.map_append, List.sum_append]
+  simp only [List.map_map, Function.comp_def]
+  have hprefix :
+      ((List.range (q * w.length)).map w.aAt).sum = q * w.A := by
+    simpa [B] using w.B_mul_period q
+  have htail :
+      ((List.range r).map fun i : ℕ => w.aAt (q * w.length + i)).sum =
+        (w.vals.take r).sum := by
+    have hmap :
+        (List.range r).map (fun i : ℕ => w.aAt (q * w.length + i)) =
+          (List.range r).map (fun i : ℕ => w.vals.getD i 0) := by
+      apply List.map_congr_left
+      intro i hi
+      exact aAt_mul_length_add_of_lt w q i
+        (lt_of_lt_of_le (List.mem_range.mp hi) (by simpa [length] using hr_le_vals))
+    rw [hmap]
+    exact sum_getD_range_take w.vals hr_le_vals
+  rw [hprefix, htail, hdiv, hmod]
 
 /-!
 ## Phase-5 helpers: affine coefficients for prefixes of the periodic word

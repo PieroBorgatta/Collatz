@@ -1,0 +1,55 @@
+{
+  "coverage": {
+    "below_start_classes": 495,
+    "budget_classes": 0,
+    "canonical_source_classes": 17671,
+    "external_hit_classes": 0,
+    "internal_hit_classes": 17176,
+    "lift_classes_per_source": 16,
+    "no_initial_classes": 0,
+    "shadowed_initial_classes": 2169,
+    "source_nodes": 1240,
+    "total_lift_classes": 19840
+  },
+  "coverage_csv": "scripts/phantom_taxonomy/deterministic_k16_s16_residue_source_coverage.csv",
+  "lift_bits": 4,
+  "manifest_json": "scripts/phantom_taxonomy/deterministic_k16_s16_residue_manifest.json",
+  "max_k": 16,
+  "max_steps": 1000,
+  "modes": {
+    "K": {
+      "edge_csv": "scripts/phantom_taxonomy/deterministic_k16_s16_residue_K_edges.csv",
+      "edge_types": 182,
+      "exits": 495,
+      "internal": 17176,
+      "retention": 0.9719880029426744,
+      "rho": 0.7010943886766887,
+      "source_events": 17671,
+      "states": 37
+    },
+    "KL": {
+      "edge_csv": "scripts/phantom_taxonomy/deterministic_k16_s16_residue_KL_edges.csv",
+      "edge_types": 300,
+      "exits": 495,
+      "internal": 17176,
+      "retention": 0.9719880029426744,
+      "rho": 0.6823968085901745,
+      "source_events": 17671,
+      "states": 76
+    },
+    "node": {
+      "edge_csv": "scripts/phantom_taxonomy/deterministic_k16_s16_residue_node_edges.csv",
+      "edge_types": 1631,
+      "exits": 495,
+      "internal": 17176,
+      "retention": 0.9719880029426744,
+      "rho": 0.6141147519605755,
+      "source_events": 17671,
+      "states": 1240
+    }
+  },
+  "representatives": "scripts/phantom_taxonomy/phantom_representatives_k3_16.csv",
+  "scc_nodes": "scripts/phantom_taxonomy/orbit_harness_k16_s16_scc_nodes.csv",
+  "scc_rank": 1,
+  "transfer_summary_md": "scripts/phantom_taxonomy/deterministic_k16_s16_residue_transfer_summary.md"
+}

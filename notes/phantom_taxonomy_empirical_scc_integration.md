@@ -1,6 +1,7 @@
 # Phantom Taxonomy Empirical SCC Integration
 
 Date: 2026-05-10
+Updated: 2026-05-13
 
 This note closes Phase 7.6 in the empirical sense only.  It integrates
 the new `K0 = 16` taxonomy SCC found by the Phase 7.4 run into a
@@ -51,3 +52,28 @@ certificate.  The result should therefore be cited as:
 The next stronger task, if desired, is to replace sampled transition
 probabilities by a deterministic/certified transition construction on a
 chosen macro-state space, most plausibly `(K,L,b)` or `(K,b)`.
+
+## 2026-05-13 Deterministic Follow-Up
+
+Follow-up `F.1` now closes that gap for the declared finite
+residue-cell scope.  The script
+`scripts/phantom_taxonomy/deterministic_residue_transfer.py` enumerates
+all `2^4` finite residue subclasses for each of the 1240 raw SCC source
+states, classifies every one of the 19840 cells, and records zero
+budget exits.
+
+The retained certified macro-state space is `(K,b)`:
+
+- 37 states;
+- 182 nonzero deterministic internal edge types;
+- 17671 canonical source cells;
+- 17176 internal transitions and 495 exits below start;
+- exact CW certificate
+  `scripts/phantom_taxonomy/deterministic_k16_s16_residue_K_cw_certificate.json`;
+- exact maximum ratio
+  `90833233962213/129559208330288 < 3/4`.
+
+The older empirical matrices remain useful diagnostics, but the
+paper-facing citation should now use the deterministic finite
+residue-cell `(K,b)` certificate rather than sampled transition
+probabilities.

@@ -76,7 +76,7 @@ When you complete or partially advance a task:
 
 ## Current status (most recent first)
 
-> *Last updated: 2026-05-13 — **Phase 5 complete: Lemma 3.1 and Corollary 3.4 formalized**. Project is `sorry`-free. **Phase 6 complete**: paper v2 drafted, Lean note written, Related Work + Chang comparison done, GitHub README updated, METHODOLOGY.md updated, Zenodo v2 published, and `pdflatex` verified online by Piero. **Phase 7 complete for the current branch**: tasks 7.1-7.4, 7.6, and 7.7 are complete; 7.4 closes with the full `K0=16` sampled run and SCC report, outcome (b), so 7.5 is not applicable. **Phase 8 complete for the current branch**: 8.1-8.9 are complete; 8.3 closes on the generated 37-state compressed `K,b` SCC certificate; 8.5 has the matrix/decomposition API, a generated exact import of the empirical `T = 10` critical-symbolic full transfer matrix, and an exact generated `T = 10, j = 32` majority `core/tail` `OperatorDecomposition`; 8.6 connects finite CW certificates to Mathlib `spectralRadius`; 8.7 exposes the `T = 10, j = 32` numerical spectral-radius bound `97/2000 = 0.0485` through a fully expanded Lean-checked 224-row CW certificate generated from the exact CSV.*
+> *Last updated: 2026-05-13 — **Phase 5 complete: Lemma 3.1 and Corollary 3.4 formalized**. Project is `sorry`-free. **Phase 6 complete**: paper v2 drafted, Lean note written, Related Work + Chang comparison done, GitHub README updated, METHODOLOGY.md updated, Zenodo v2 published, and `pdflatex` verified online by Piero. **Phase 7 complete for the current branch**: tasks 7.1-7.4, 7.6, and 7.7 are complete; 7.4 closes with the full `K0=16` sampled run and SCC report, outcome (b), so 7.5 is not applicable. **F.1 is closed for the declared finite residue-cell scope**: `deterministic_residue_transfer.py` enumerates all `2^4` finite residue subclasses for each of the 1240 raw SCC source states, writes exact deterministic transition matrices, and the `(K,b)` matrix has an exact CW certificate with max ratio `90833233962213/129559208330288 < 3/4`. **Phase 8 complete for the current branch**: 8.1-8.9 are complete; 8.3 closes on the generated 37-state compressed `K,b` SCC certificate; 8.5 has the matrix/decomposition API, a generated exact import of the empirical `T = 10` critical-symbolic full transfer matrix, and an exact generated `T = 10, j = 32` majority `core/tail` `OperatorDecomposition`; 8.6 connects finite CW certificates to Mathlib `spectralRadius`; 8.7 exposes the `T = 10, j = 32` numerical spectral-radius bound `97/2000 = 0.0485` through a fully expanded Lean-checked 224-row CW certificate generated from the exact CSV.*
 
 - **Phase 0 complete.** Lake project initialized with `math` template,
   pinned to **Lean 4 v4.29.1** and **Mathlib v4.29.1**. Mathlib
@@ -129,8 +129,8 @@ When you complete or partially advance a task:
 - Phase-2 cleanup made during Phase 3: `PhantomWord.B` was refactored
   from the closed form `(m/L)·A + sum (take (m%L) vals)` to the
   literal sum form `((List.range m).map aAt).sum`. This makes `B_succ`
-  one rewrite, at the cost of moving `B_closed_form` (the closed-form
-  identity) to a future TODO.
+  one rewrite. The closed form has since been restored as the proved
+  theorem `PhantomWord.B_closed_form` in `Auxiliary.lean`.
 - **Paper-faithful 2-adic infrastructure landed.** New file
   `CollatzShadowing/Syracuse2Adic.lean` defines
   `Syracuse2adic : ℤ_[2] → ℤ_[2]`, the natural extension of the
@@ -365,6 +365,17 @@ comparable in scope to Phases 1-5 of this TODO.
 
 ---
 
+## Open theorem-level follow-ups
+
+These follow-ups track theorem-level or certificate-level hardening
+beyond the original empirical Phase-7 / generated-Lean Phase-8 branch.
+
+| ID | Status | Task | Acceptance criterion |
+|----|--------|------|----------------------|
+| F.1 | [x] | Close the deterministic-transition gap in `notes/phantom_taxonomy.md` / Phase 7.6. | Completed for the declared finite residue-cell scope on macro-state space `(K,b)`. `deterministic_residue_transfer.py` enumerates all `2^4` residue subclasses for each of the 1240 raw SCC source states, classifies 19840 cells with zero budget exits, writes exact rational deterministic matrices plus coverage manifest, and reruns the exact CW pipeline on the 37-state `(K,b)` matrix. Certificate: `deterministic_k16_s16_residue_K_cw_certificate.json`, max ratio `90833233962213/129559208330288 < 3/4`. |
+
+---
+
 ## Phase 9 — v3 paper redaction
 
 Acceptance: a published `v3` of the preprint on Zenodo, after
@@ -420,6 +431,78 @@ self-study phase that is not on the current program.
 > - Notes: any blockers, open questions, things the next session should know
 > - Next recommended task: X.Y
 > ```
+
+### 2026-05-13 (F.1 deterministic residue-cell closure) — Codex + Piero Borgatta
+
+- Tasks advanced: closed follow-up `F.1` for the declared finite
+  residue-cell scope on the `K0 = 16` SCC.
+- Artifacts added:
+  - `scripts/phantom_taxonomy/deterministic_residue_transfer.py`
+  - `scripts/phantom_taxonomy/deterministic_k16_s16_residue_K_edges.csv`
+  - `scripts/phantom_taxonomy/deterministic_k16_s16_residue_KL_edges.csv`
+  - `scripts/phantom_taxonomy/deterministic_k16_s16_residue_node_edges.csv`
+  - `scripts/phantom_taxonomy/deterministic_k16_s16_residue_source_coverage.csv`
+  - `scripts/phantom_taxonomy/deterministic_k16_s16_residue_manifest.json`
+  - `scripts/phantom_taxonomy/deterministic_k16_s16_residue_transfer_summary.md`
+  - `scripts/phantom_taxonomy/deterministic_k16_s16_residue_K_cw_certificate.json`
+  - `scripts/phantom_taxonomy/deterministic_k16_s16_residue_exact_cw_certificate.md`
+- Artifacts modified:
+  - `notes/phantom_taxonomy.md`
+  - `notes/phantom_taxonomy_empirical_scc_integration.md`
+  - `lean/TODO.md`
+- Notes:
+  - The deterministic generator enumerates all `2^4` finite residue
+    subclasses for each of the 1240 raw SCC source states: 19840 cells
+    total, 17671 canonical source cells, 2169 shadowed initial cells,
+    no no-initial classes, and zero budget exits.
+  - The retained certified macro-state space is `(K,b)`: 37 states,
+    182 nonzero internal edge types, 17671 source events, 17176
+    internal transitions, and 495 exits below start.
+  - The exact CW certificate verifies
+    `max_ratio = 90833233962213/129559208330288 < 3/4`, with max node
+    `K11:b2`.
+  - The raw-node and `(K,L,b)` deterministic edge CSVs are retained as
+    diagnostics; the exact CW closure uses `(K,b)`.
+- Verification:
+  - `python3 -m py_compile scripts/phantom_taxonomy/deterministic_residue_transfer.py`
+    succeeds.
+  - `python3 scripts/phantom_taxonomy/deterministic_residue_transfer.py
+    --representatives scripts/phantom_taxonomy/phantom_representatives_k3_16.csv
+    --scc-nodes scripts/phantom_taxonomy/orbit_harness_k16_s16_scc_nodes.csv
+    --scc-rank 1 --max-k 16 --lift-bits 4 --max-steps 1000
+    --out-prefix scripts/phantom_taxonomy/deterministic_k16_s16_residue`
+    succeeds with zero budget exits.
+  - `python3 scripts/phantom_taxonomy/scc_cw_certificate.py --verify
+    scripts/phantom_taxonomy/deterministic_k16_s16_residue_K_cw_certificate.json`
+    returns `status=OK`.
+  - `lake build` succeeds.
+- Next recommended task: Phase 9 v3 redaction can now cite the
+  deterministic finite residue-cell `(K,b)` certificate rather than the
+  sampled transition probabilities.
+
+### 2026-05-13 (B closed form and deterministic gap triage) — Codex + Piero Borgatta
+
+- Tasks advanced: restored the deferred formal closed form for
+  `PhantomWord.B`; triaged the remaining deterministic-transition gap
+  as a theorem-level follow-up outside the completed sampled Phase-7
+  branch.
+- Artifacts modified:
+  - `lean/CollatzShadowing/Auxiliary.lean`
+  - `lean/TODO.md`
+- New declarations:
+  - `PhantomWord.B_closed_form`
+- Notes:
+  - `B_closed_form` now proves
+    `w.B m = (m / w.length) * w.A + (w.vals.take (m % w.length)).sum`.
+  - The deterministic-transition gap cannot be closed by the existing
+    sampled matrices alone. It requires replacing orbit-harness samples
+    with a residue-class transition construction, then rerunning the
+    exact CW pipeline on the deterministic matrix.
+- Verification:
+  - `lake build CollatzShadowing.Auxiliary` succeeds.
+- Next recommended task: decide whether to tackle follow-up `F.1`
+  before Phase 9, or keep Phase 9 framed honestly as empirical
+  taxonomy integration plus Lean-checked generated certificates.
 
 ### 2026-05-13 (Phase 8.7 axiom removal) — Codex + Piero Borgatta
 
