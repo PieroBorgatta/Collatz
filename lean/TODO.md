@@ -76,7 +76,7 @@ When you complete or partially advance a task:
 
 ## Current status (most recent first)
 
-> *Last updated: 2026-05-12 — **Phase 5 complete: Lemma 3.1 and Corollary 3.4 formalized**. Project is `sorry`-free. **Phase 6 complete**: paper v2 drafted, Lean note written, Related Work + Chang comparison done, GitHub README updated, METHODOLOGY.md updated, Zenodo v2 published, and `pdflatex` verified online by Piero. **Phase 7 complete for the current branch**: tasks 7.1-7.4, 7.6, and 7.7 are complete; 7.4 closes with the full `K0=16` sampled run and SCC report, outcome (b), so 7.5 is not applicable. **Phase 8 complete for the current branch**: 8.1-8.9 are complete; 8.3 closes on the generated 37-state compressed `K,b` SCC certificate; 8.5 has the matrix/decomposition API, a generated exact import of the empirical `T = 10` critical-symbolic full transfer matrix, and an exact generated `T = 10, j = 32` majority `core/tail` `OperatorDecomposition`; 8.6 connects finite CW certificates to Mathlib `spectralRadius`; 8.7 exposes the `T = 10, j = 32` numerical spectral-radius bound `97/2000 = 0.0485` through `Generated/T10J32HighBitTailCW.lean`, with exact rational row checks verified by the generator and imported as a trusted generated boundary.*
+> *Last updated: 2026-05-13 — **Phase 5 complete: Lemma 3.1 and Corollary 3.4 formalized**. Project is `sorry`-free. **Phase 6 complete**: paper v2 drafted, Lean note written, Related Work + Chang comparison done, GitHub README updated, METHODOLOGY.md updated, Zenodo v2 published, and `pdflatex` verified online by Piero. **Phase 7 complete for the current branch**: tasks 7.1-7.4, 7.6, and 7.7 are complete; 7.4 closes with the full `K0=16` sampled run and SCC report, outcome (b), so 7.5 is not applicable. **Phase 8 complete for the current branch**: 8.1-8.9 are complete; 8.3 closes on the generated 37-state compressed `K,b` SCC certificate; 8.5 has the matrix/decomposition API, a generated exact import of the empirical `T = 10` critical-symbolic full transfer matrix, and an exact generated `T = 10, j = 32` majority `core/tail` `OperatorDecomposition`; 8.6 connects finite CW certificates to Mathlib `spectralRadius`; 8.7 exposes the `T = 10, j = 32` numerical spectral-radius bound `97/2000 = 0.0485` through a fully expanded Lean-checked 224-row CW certificate generated from the exact CSV.*
 
 - **Phase 0 complete.** Lake project initialized with `math` template,
   pinned to **Lean 4 v4.29.1** and **Mathlib v4.29.1**. Mathlib
@@ -359,9 +359,9 @@ comparable in scope to Phases 1-5 of this TODO.
 | 8.4 | [x] | Define the refined phase state $\sigma(t, h) := (\nu_2(t) \wedge V, \mathrm{odd}(t) \bmod 4, h \bmod 4)$ as a finite type. | `CollatzShadowing/Operator.lean` defines `PhaseState V := Fin (V+1) × Fin 4 × Fin 4`, `cappedNu2`, `oddPart`, `mod4Fin`, and `phaseState`; `instance : Fintype (PhaseState V)` typechecks. |
 | 8.5 | [x] | Define $\full_{T,j}$, $\core_{T,j}$, $\tail_{T,j}$ as `Matrix PhaseState PhaseState ℝ≥0`, with the empirical-signature majority defining the partition. | Completed for the concrete paper-facing empirical import in `CollatzShadowing/Operator.lean`, `Generated/T10CriticalSymbolic.lean`, and `Generated/T10J32HighBitTail.lean`: `TransferMatrix V := Matrix (PhaseState V) (PhaseState V) NNReal`, `ProbabilityEntry` records exact imported probabilities as numerator/positive-denominator data, `RowSubstochastic` states row bounds, and `OperatorDecomposition` packages `full = core + tail` plus row certificates. `lean_phase_transfer.py` generates an exact `T = 10` critical-symbolic full matrix and its baseline decomposition. `export_high_bit_tail_edges.py` exports exact rational majority-signature `full/core/tail` edge weights for `T = 10, j = 32`; `lean_high_bit_tail.py` imports the generated `core` and `tail` matrices as `TransferMatrix 13`, defines `t10j32HighBitTailFull := core + tail`, generates support-based row-sum certificates, proves `t10j32HighBitTailCore_rowSubstochastic`, `t10j32HighBitTailTail_rowSubstochastic`, and `t10j32HighBitTailFull_rowSubstochastic`, and packages `t10j32HighBitTailDecomposition : OperatorDecomposition 13`. |
 | 8.6 | [x] | Prove the weighted Collatz–Wielandt bound $\spec(\full) \le \max_i (\core v)_i / v_i + \max_i (\tail v)_i / v_i$ for any positive $v$ such that $\full v$ is well-defined. | Completed in `CollatzShadowing/Bound.lean`: `FiniteCWBasis`, `FiniteCWCertificate`, `FiniteMatrixBoundCertificate`, `ClearedCWRowBound`, and `ClearedCWCertificateSummary` package finite pointwise certificates and exact cleared-denominator arithmetic certificates. `ClearedCWRowBound.toNNRealInequality` proves the cleared arithmetic inequality over `NNReal`; `EvaluatedCWRowBound.toCWRow` and `finiteCWCertificateOfEvaluatedRows` bridge evaluated cleared rows into a full `FiniteCWCertificate`. `FiniteCWCertificate.add`, `finiteCWCertificateOfSumEq`, `CWCertificate.add`, and `OperatorDecomposition.cwCertificate_full` prove the finite `core+tail` CW bound for both the generic matrix API and the phase-state operator API. The spectral bridge uses `matrixLinftyOpNNNorm`, `spectralRadius_le_of_matrixLinftyOpNNNorm_le`, `finiteCWWeightedRealConjugate`, `finiteCWWeightedRealConjugate_spectrum_eq`, and `spectralRadius_le_of_finiteCWCertificate` to pass from a positive weighted CW certificate to Mathlib's real `spectralRadius`; `spectralRadius_le_of_finiteCWCertificateOfSumEq` and `OperatorDecomposition.spectralRadius_le_full` give the generic and phase-state `core+tail` spectral corollaries. `lean_cw_smoke.py` generates `Generated/K16S16KCWSmoke.lean` from one Phase-7 JSON edge; `lean_cw_summary.py` generates `Generated/K16S16KExactCWSummary.lean`, which imports the full 37-node `K,b` certificate summary, defines `K16S16KState := Fin 37`, generated labels, vector, positive basis, row-nested `NNReal` matrix, exact row supports, row-evaluation witnesses, the exact max-ratio inequality `136756256754601/154382162832639 < 89/100`, all 37 cleared-denominator per-node inequalities by `norm_num`, `k16s16KClearedCWSummary`, `k16s16KEvaluatedRows`, and the full generated certificate `k16s16KFiniteCWCertificate : FiniteCWCertificate k16s16KMatrix k16s16KCWBasis k16s16KAlphaNNReal`. `Generated/K16S16KBridge.lean` checks that the generated SCC and CW matrix certificates use the same `Fin 37` state ordering and labels, packages the combined result as `k16s16KCertifiedComponentWithCW`, and exposes `k16s16KSpectralRadiusBound` for the realified 37-state matrix. |
-| 8.7 | [x] | Tie the bound theorem to the explicit numerical computation of paper §7 via a `decide`-style certificate at $T = 10$, $j = 32$. | `Generated/T10J32HighBitTailCW.lean` exposes `t10j32HighBitTailSpectralRadiusBound_97_2000 : spectralRadius ℝ (nnrealMatrixToReal t10j32HighBitTailFull) ≤ (((97 : NNReal) / (2000 : NNReal)) : ℝ≥0∞)`. The generator `scripts/phantom_taxonomy/lean_t10j32_cw.py` verifies the positive integer CW vector and exact cleared rational row inequalities over the CSV, then imports that checked external certificate as a trusted generated Lean boundary; `lake build CollatzShadowing.Generated.T10J32HighBitTailCW` succeeds without `sorry`. |
+| 8.7 | [x] | Tie the bound theorem to the explicit numerical computation of paper §7 via a `decide`-style certificate at $T = 10$, $j = 32$. | `Generated/T10J32HighBitTailCW.lean` exposes `t10j32HighBitTailSpectralRadiusBound_97_2000 : spectralRadius ℝ (nnrealMatrixToReal t10j32HighBitTailMatrix) ≤ (((97 : NNReal) / (2000 : NNReal)) : ℝ≥0∞)`. The generator `scripts/phantom_taxonomy/lean_t10j32_cw.py` builds a positive integer CW vector from `high_bit_tail_edges_T10_j32.csv`, verifies the exact rational inequalities in Python before emission, and now emits `Data` plus 14 row modules whose 224 evaluated row witnesses are checked by Lean directly. `lake build CollatzShadowing.Generated.T10J32HighBitTailCW` succeeds with no `axiom`, `sorry`, or `admit` in the generated CW certificate. |
 | 8.8 | [x] | `lean/CollatzShadowing/INVENTORY.md` updated to cover the Phase-8 additions; `lean/README.md` updated. | Verified 2026-05-12: `README.md` now documents the clean build status, main modules, and generated Phase-8 certificate target; `CollatzShadowing/INVENTORY.md` documents the production Phase-8 graph/operator/CW-certificate API; `CollatzShadowing/EPISODE_INVENTORY.md` notes the implemented production modules. |
-| 8.9 | [x] | `lake build` clean across the full project. | Verified 2026-05-12: `lake build` succeeds across the full project; `rg -n "sorry|admit" CollatzShadowing *.lean` finds no Lean proof placeholders. |
+| 8.9 | [x] | `lake build` clean across the full project. | Verified 2026-05-13: `lake build` succeeds across the full project; `rg -n "sorry|admit" CollatzShadowing *.lean` finds no Lean proof placeholders. |
 
 ---
 
@@ -420,6 +420,44 @@ self-study phase that is not on the current program.
 > - Notes: any blockers, open questions, things the next session should know
 > - Next recommended task: X.Y
 > ```
+
+### 2026-05-13 (Phase 8.7 axiom removal) — Codex + Piero Borgatta
+
+- Tasks advanced: **8.7 hardened to a fully Lean-checked generated
+  certificate**. The previous trusted generated boundary/`axiom` has
+  been removed.
+- Artifacts modified:
+  - `lean/CollatzShadowing/Generated/T10J32HighBitTailCW.lean`
+  - `lean/CollatzShadowing/Generated/T10J32HighBitTailCWData.lean`
+  - `lean/CollatzShadowing/Generated/T10J32HighBitTailCWRows00.lean`
+    through `lean/CollatzShadowing/Generated/T10J32HighBitTailCWRows13.lean`
+  - `scripts/phantom_taxonomy/lean_t10j32_cw.py`
+  - `lean/README.md`
+  - `lean/TODO.md`
+- New/updated declarations:
+  - `Generated.T10J32HighBitTailState`
+  - `Generated.t10j32HighBitTailMatrix`
+  - `Generated.t10j32HighBitTailCWBasis`
+  - `Generated.t10j32HighBitTailEvaluatedRows`
+  - `Generated.t10j32HighBitTailFiniteCWCertificate`
+  - `Generated.t10j32HighBitTailSpectralRadiusBound_97_2000`
+- Notes:
+  - The generator still computes and checks the positive integer CW
+    vector and exact cleared rational row inequalities before writing
+    Lean, but it now emits explicit per-row `EvaluatedCWRowBound`
+    witnesses. Lean checks each row evaluation over the generated
+    `Fin 224` matrix from the exact CSV.
+  - The generated row modules avoid recursive `simp` unfolding by using
+    explicit summand terms and concrete `change` proofs for nonzero row
+    entries.
+- Verification:
+  - `lake build CollatzShadowing.Generated.T10J32HighBitTailCW`
+    succeeds.
+  - `lake build` succeeds.
+  - `rg -n "\\b(axiom|sorry|admit)\\b" CollatzShadowing/Generated/T10J32HighBitTailCW*.lean ../scripts/phantom_taxonomy/lean_t10j32_cw.py`
+    returns no matches.
+- Next recommended task: Phase 9 paper redaction by Piero; no remaining
+  Phase-7/8 technical task is open on this branch.
 
 ### 2026-05-12 (Phase 8.7 and 7.4 closure) — Codex + Piero Borgatta
 

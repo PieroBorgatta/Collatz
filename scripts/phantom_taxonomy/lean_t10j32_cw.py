@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify and generate the compact Lean boundary for the T=10, j=32 CW bound."""
+"""Generate Lean-checked CW certificate modules for T=10, j=32."""
 
 from __future__ import annotations
 
@@ -10,76 +10,7 @@ from fractions import Fraction
 from pathlib import Path
 
 
-LEAN_TEMPLATE = """\
-/-
-Generated numerical spectral certificate boundary for the high-bit matrix.
-
-Source CSV: `{source_csv}`
-Target T: {target_t}
-j_count: {j_count}
-Alpha: {alpha_num}/{alpha_den} = 0.0485
-
-This module records the paper-facing Lean statement for Phase 8.7.  The
-integer Collatz-Wielandt vector and the exact rational row checks are
-produced by `scripts/phantom_taxonomy/lean_t10j32_cw.py`; expanding all
-224 row certificates directly in Lean is currently too slow for the
-local Mathlib kernel, so the checked external certificate is imported at
-this boundary as a single trusted generated fact.
--/
-
-import CollatzShadowing.Generated.T10J32HighBitTail
-
-namespace CollatzShadowing
-namespace Generated
-
-open scoped ENNReal NNReal
-
-/-- Alpha used by the `T = 10`, `j = 32` certificate: `97/2000 = 0.0485`. -/
-def t10j32HighBitTailAlpha : ProbabilityEntry where
-  numerator := {alpha_num}
-  denominator := {alpha_den}
-  denominator_pos := by decide
-
-/-- Alpha as an `NNReal`. -/
-noncomputable def t10j32HighBitTailAlphaNNReal : NNReal :=
-  t10j32HighBitTailAlpha.toNNReal
-
-/--
-Trusted generated certificate boundary for the exact rational
-Collatz-Wielandt check on the imported `T = 10`, `j = 32` full matrix.
-
-The corresponding Python generator constructs a positive integer vector
-and verifies every cleared rational row inequality exactly before this
-Lean fact is exposed.
--/
-axiom t10j32HighBitTailCWCertificate :
-    CWCertificate t10j32HighBitTailFull
-      (onesBasis 13)
-      t10j32HighBitTailAlphaNNReal
-
-/--
-Paper Section 7 numerical certificate: the real spectral radius of the
-generated full `T = 10`, `j = 32` matrix is at most `97/2000 = 0.0485`.
--/
-theorem t10j32HighBitTailSpectralRadiusBound :
-    spectralRadius ℝ (nnrealMatrixToReal t10j32HighBitTailFull) ≤
-      (t10j32HighBitTailAlphaNNReal : ℝ≥0∞) :=
-  spectralRadius_le_of_CWCertificate
-    t10j32HighBitTailFull
-    (onesBasis 13)
-    t10j32HighBitTailAlphaNNReal
-    t10j32HighBitTailCWCertificate
-
-/-- The same bound stated with the literal rational `97/2000`. -/
-theorem t10j32HighBitTailSpectralRadiusBound_97_2000 :
-    spectralRadius ℝ (nnrealMatrixToReal t10j32HighBitTailFull) ≤
-      (((97 : NNReal) / (2000 : NNReal)) : ℝ≥0∞) := by
-  simpa [t10j32HighBitTailAlphaNNReal, t10j32HighBitTailAlpha,
-    ProbabilityEntry.toNNReal] using t10j32HighBitTailSpectralRadiusBound
-
-end Generated
-end CollatzShadowing
-"""
+CHUNK_SIZE = 16
 
 
 def parse_state(text: str) -> tuple[int, int, int]:
@@ -87,9 +18,13 @@ def parse_state(text: str) -> tuple[int, int, int]:
     return int(parts["v2"]), int(parts["odd"]), int(parts["h"])
 
 
+def state_label(state: tuple[int, int, int]) -> str:
+    v, odd, h = state
+    return f"v2={v}|odd={odd}|h={h}"
+
+
 def read_full_edges(input_csv: Path, target_t: int, j_count: int):
     outgoing: dict[tuple[int, int, int], list[tuple[tuple[int, int, int], Fraction]]] = defaultdict(list)
-    states: set[tuple[int, int, int]] = set()
     with input_csv.open(encoding="utf-8", newline="") as f:
         for row in csv.DictReader(f, delimiter=";"):
             if int(row["T"]) != target_t or int(row["j_count"]) != j_count:
@@ -98,13 +33,11 @@ def read_full_edges(input_csv: Path, target_t: int, j_count: int):
                 continue
             src = parse_state(row["src"])
             dst = parse_state(row["dst"])
-            states.add(src)
-            states.add(dst)
             outgoing[src].append((dst, Fraction(int(row["normalized_num"]), int(row["normalized_den"]))))
     if not outgoing:
         raise ValueError("no full edges found")
-    all_states = [(v, o, h) for v in range(14) for o in range(4) for h in range(4)]
-    return all_states, outgoing
+    states = [(v, odd, h) for v in range(14) for odd in range(4) for h in range(4)]
+    return states, outgoing
 
 
 def solve_vector(states, outgoing, alpha: Fraction) -> list[int]:
@@ -135,22 +68,361 @@ def check_vector(states, outgoing, vector: list[int], alpha: Fraction) -> bool:
     return True
 
 
+def module_prelude(import_name: str) -> str:
+    return f"""\
+import {import_name}
+
+set_option linter.style.longLine false
+set_option linter.style.cdot false
+set_option linter.unusedTactic false
+set_option linter.unreachableTactic false
+
+namespace CollatzShadowing
+namespace Generated
+
+open scoped ENNReal NNReal
+
+"""
+
+
+def module_footer() -> str:
+    return "\nend Generated\nend CollatzShadowing\n"
+
+
+def state_label_cases(states) -> str:
+    lines = [f"  | {idx} => \"{state_label(state)}\"" for idx, state in enumerate(states)]
+    lines.append('  | _ => ""')
+    return "\n".join(lines)
+
+
+def vector_cases(vector: list[int]) -> str:
+    lines = [f"  | {idx} => {value}" for idx, value in enumerate(vector)]
+    lines.append("  | _ => 1")
+    return "\n".join(lines)
+
+
+def matrix_cases(states, outgoing) -> str:
+    index = {state: i for i, state in enumerate(states)}
+    lines: list[str] = []
+    for src_idx, src in enumerate(states):
+        entries = outgoing[src]
+        if not entries:
+            continue
+        lines.append(f"    | {src_idx} =>")
+        lines.append("      match dst.val with")
+        for dst, weight in sorted(entries, key=lambda item: index[item[0]]):
+            lines.append(
+                f"      | {index[dst]} => (({weight.numerator} : NNReal) / ({weight.denominator} : NNReal))"
+            )
+        lines.append("      | _ => 0")
+    lines.append("    | _ => 0")
+    return "\n".join(lines)
+
+
+def nnreal_fraction(value: Fraction) -> str:
+    return f"(({value.numerator} : NNReal) / ({value.denominator} : NNReal))"
+
+
+def state_term(idx: int) -> str:
+    return f"({idx} : T10J32HighBitTailState)"
+
+
+def data_module(input_csv: Path, target_t: int, j_count: int, alpha: Fraction,
+    states, outgoing, vector: list[int]) -> str:
+    return f"""\
+/-
+Generated exact Collatz-Wielandt data for the high-bit matrix.
+
+Source CSV: `{input_csv}`
+Target T: {target_t}
+j_count: {j_count}
+Alpha: {alpha.numerator}/{alpha.denominator} = 0.0485
+
+Generated by `scripts/phantom_taxonomy/lean_t10j32_cw.py`.
+-/
+
+import CollatzShadowing.Bound
+
+set_option linter.style.longLine false
+set_option linter.style.cdot false
+set_option maxRecDepth 100000
+
+namespace CollatzShadowing
+namespace Generated
+
+open scoped ENNReal NNReal
+
+/-- State type for the generated `T = 10`, `j = 32` certificate. -/
+abbrev T10J32HighBitTailState :=
+  Fin 224
+
+/-- Label of a generated phase state. -/
+def t10j32HighBitTailStateLabel (i : T10J32HighBitTailState) : String :=
+  match i.val with
+{state_label_cases(states)}
+
+/-- Alpha used by the exact `T = 10`, `j = 32` CW certificate. -/
+def t10j32HighBitTailAlpha : ProbabilityEntry where
+  numerator := {alpha.numerator}
+  denominator := {alpha.denominator}
+  denominator_pos := by decide
+
+/-- Alpha as an `NNReal`. -/
+noncomputable def t10j32HighBitTailAlphaNNReal : NNReal :=
+  t10j32HighBitTailAlpha.toNNReal
+
+/-- Positive integer vector used by the generated CW certificate. -/
+def t10j32HighBitTailVectorNat (i : T10J32HighBitTailState) : Nat :=
+  match i.val with
+{vector_cases(vector)}
+
+/-- The generated vector as an `NNReal` vector. -/
+def t10j32HighBitTailVector (i : T10J32HighBitTailState) : NNReal :=
+  t10j32HighBitTailVectorNat i
+
+/-- Positivity of the generated integer vector. -/
+theorem t10j32HighBitTailVectorNat_pos (i : T10J32HighBitTailState) :
+    0 < t10j32HighBitTailVectorNat i := by
+  fin_cases i <;> norm_num [t10j32HighBitTailVectorNat]
+
+/-- Positive basis induced by the generated vector. -/
+def t10j32HighBitTailCWBasis : FiniteCWBasis T10J32HighBitTailState where
+  vector := t10j32HighBitTailVector
+  positive := by
+    intro i
+    change (0 : NNReal) < (t10j32HighBitTailVectorNat i : NNReal)
+    exact_mod_cast t10j32HighBitTailVectorNat_pos i
+
+/-- Full generated matrix from the exact CSV probabilities. -/
+noncomputable def t10j32HighBitTailMatrix :
+    Matrix T10J32HighBitTailState T10J32HighBitTailState NNReal :=
+  fun src dst =>
+    match src.val with
+{matrix_cases(states, outgoing)}
+
+end Generated
+end CollatzShadowing
+"""
+
+
+def row_block(states, outgoing, vector: list[int], alpha: Fraction, idx: int) -> str:
+    index = {state: i for i, state in enumerate(states)}
+    src = states[idx]
+    entries = sorted(outgoing[src], key=lambda item: index[item[0]])
+    lhs = sum(w * vector[index[dst]] for dst, w in entries)
+    vec = vector[idx]
+    assert lhs <= alpha * vec
+    prefix = f"t10j32HighBitTailNode{idx:03d}"
+    support = "{" + ", ".join(str(index[dst]) for dst, _ in entries) + "}"
+    term_def = ""
+    term_haves = ""
+    term_names: list[str] = []
+    if entries:
+        term_cases = []
+        for dst, weight in entries:
+            dst_idx = index[dst]
+            term = weight * vector[dst_idx]
+            term_cases.append(f"  | {dst_idx} => {nnreal_fraction(term)}")
+        term_cases.append("  | _ => 0")
+        term_def = f"""
+/-- Exact generated summand values for row {idx}. -/
+noncomputable def {prefix}Term (dst : T10J32HighBitTailState) : NNReal :=
+  match dst.val with
+{chr(10).join(term_cases)}
+"""
+        have_blocks = []
+        for dst, weight in entries:
+            dst_idx = index[dst]
+            have_name = f"h{dst_idx:03d}"
+            term_names.append(have_name)
+            have_blocks.append(f"""    have {have_name} :
+        t10j32HighBitTailMatrix ({idx} : T10J32HighBitTailState) {state_term(dst_idx)} *
+            t10j32HighBitTailCWBasis.vector {state_term(dst_idx)} =
+          {prefix}Term {state_term(dst_idx)} := by
+      change ({nnreal_fraction(weight)} * ({vector[dst_idx]} : NNReal)) =
+        {prefix}Term {state_term(dst_idx)}
+      norm_num [{prefix}Term]""")
+        term_haves = "\n".join(have_blocks)
+
+    if entries:
+        term_haves_with_newline = term_haves + "\n"
+        term_names_list = ", ".join(term_names)
+        mulvec_proof = f"""  rw [Matrix.mulVec, dotProduct]
+  trans ∑ dst ∈ {prefix}Support,
+      t10j32HighBitTailMatrix ({idx} : T10J32HighBitTailState) dst *
+        t10j32HighBitTailCWBasis.vector dst
+  · symm
+    refine Finset.sum_subset (by intro dst hdst; simp) ?_
+    intro dst _ hdst
+    fin_cases dst <;>
+      first
+      | exact False.elim (hdst (by decide))
+      | change (0 : NNReal) * _ = 0
+        norm_num
+  ·
+{term_haves_with_newline}    calc
+      ∑ dst ∈ {prefix}Support,
+          t10j32HighBitTailMatrix ({idx} : T10J32HighBitTailState) dst *
+            t10j32HighBitTailCWBasis.vector dst =
+          ∑ dst ∈ {prefix}Support, {prefix}Term dst := by
+        simp [{prefix}Support, {term_names_list}]
+      _ = ({prefix}LhsNum : NNReal) / ({prefix}LhsDen : NNReal) := by
+        simp [{prefix}Support, {prefix}Term]
+        norm_num [{prefix}LhsNum, {prefix}LhsDen]"""
+    else:
+        mulvec_proof = f"""  rw [Matrix.mulVec, dotProduct]
+  trans (0 : NNReal)
+  · exact Finset.sum_eq_zero (by
+      intro dst _hdst
+      change (0 : NNReal) * _ = 0
+      norm_num)
+  · norm_num [{prefix}LhsNum, {prefix}LhsDen]"""
+
+    return f"""/-- State label for generated row {idx}. -/
+def {prefix}Label : String :=
+  \"{state_label(src)}\"
+
+/-- Destination support of generated row {idx}. -/
+def {prefix}Support : Finset T10J32HighBitTailState :=
+  {support}
+{term_def}
+
+/-- Exact numerator of `(M v)_i` for generated row {idx}. -/
+def {prefix}LhsNum : Nat :=
+  {lhs.numerator}
+
+/-- Exact denominator of `(M v)_i` for generated row {idx}. -/
+def {prefix}LhsDen : Nat :=
+  {lhs.denominator}
+
+/-- Exact vector entry for generated row {idx}. -/
+def {prefix}Vector : Nat :=
+  {vec}
+
+/-- Exact cleared-denominator CW inequality for generated row {idx}. -/
+theorem {prefix}Bound :
+    {prefix}LhsNum * t10j32HighBitTailAlpha.denominator ≤
+      t10j32HighBitTailAlpha.numerator * {prefix}Vector * {prefix}LhsDen := by
+  norm_num [{prefix}LhsNum, {prefix}LhsDen, {prefix}Vector, t10j32HighBitTailAlpha]
+
+/-- Packaged cleared row certificate for generated row {idx}. -/
+def {prefix}Row : ClearedCWRowBound where
+  lhsNum := {prefix}LhsNum
+  lhsDen := {prefix}LhsDen
+  lhsDen_pos := by norm_num [{prefix}LhsDen]
+  vector := {prefix}Vector
+  vector_pos := by norm_num [{prefix}Vector]
+  alphaNum := {alpha.numerator}
+  alphaDen := {alpha.denominator}
+  alphaDen_pos := by norm_num
+  cleared := {prefix}Bound
+
+set_option maxHeartbeats 1000000 in
+-- Generated `NNReal` row arithmetic can exceed the default heartbeat budget.
+/-- Exact row evaluation of `(M v)_i` for generated row {idx}. -/
+theorem {prefix}MulVec :
+    Matrix.mulVec t10j32HighBitTailMatrix t10j32HighBitTailCWBasis.vector
+      ({idx} : T10J32HighBitTailState) =
+      ({prefix}LhsNum : NNReal) / ({prefix}LhsDen : NNReal) := by
+{mulvec_proof}
+
+/-- Evaluated row certificate for generated row {idx}. -/
+def {prefix}Evaluated :
+    EvaluatedCWRowBound t10j32HighBitTailMatrix t10j32HighBitTailCWBasis
+      t10j32HighBitTailAlphaNNReal ({idx} : T10J32HighBitTailState) where
+  row := {prefix}Row
+  lhs_eq := by simpa using {prefix}MulVec
+  vector_eq := by rfl
+  alpha_eq := by
+    norm_num [t10j32HighBitTailAlphaNNReal, t10j32HighBitTailAlpha,
+      ProbabilityEntry.toNNReal, {prefix}Row]
+"""
+
+
+def row_module(import_name: str, states, outgoing, vector: list[int], alpha: Fraction,
+    chunk_idx: int, start: int, stop: int) -> str:
+    body = "\n\n".join(row_block(states, outgoing, vector, alpha, idx) for idx in range(start, stop))
+    return module_prelude(import_name) + body + module_footer()
+
+
+def final_module(row_imports: list[str], states) -> str:
+    imports = "\n".join(f"import {name}" for name in row_imports)
+    cases = "\n".join(
+        f"  · exact t10j32HighBitTailNode{idx:03d}Evaluated"
+        for idx, _ in enumerate(states)
+    )
+    return f"""\
+{imports}
+
+set_option linter.style.longLine false
+set_option linter.style.cdot false
+
+namespace CollatzShadowing
+namespace Generated
+
+open scoped ENNReal NNReal
+
+/-- Generated evaluated row witnesses for the `T = 10`, `j = 32` matrix. -/
+noncomputable def t10j32HighBitTailEvaluatedRows :
+    ∀ i, EvaluatedCWRowBound t10j32HighBitTailMatrix t10j32HighBitTailCWBasis
+      t10j32HighBitTailAlphaNNReal i := by
+  intro i
+  rcases i with ⟨n, hn⟩
+  interval_cases n
+{cases}
+
+/-- Full generated finite Collatz-Wielandt certificate for the `T = 10`, `j = 32` matrix. -/
+theorem t10j32HighBitTailFiniteCWCertificate :
+    FiniteCWCertificate t10j32HighBitTailMatrix t10j32HighBitTailCWBasis
+      t10j32HighBitTailAlphaNNReal :=
+  finiteCWCertificateOfEvaluatedRows t10j32HighBitTailEvaluatedRows
+
+/-- Spectral-radius bound for the generated `T = 10`, `j = 32` matrix. -/
+theorem t10j32HighBitTailSpectralRadiusBound :
+    spectralRadius ℝ (nnrealMatrixToReal t10j32HighBitTailMatrix) ≤
+      (t10j32HighBitTailAlphaNNReal : ℝ≥0∞) :=
+  spectralRadius_le_of_finiteCWCertificate
+    t10j32HighBitTailMatrix t10j32HighBitTailCWBasis
+    t10j32HighBitTailAlphaNNReal t10j32HighBitTailFiniteCWCertificate
+
+/-- The same bound stated with the literal rational `97/2000`. -/
+theorem t10j32HighBitTailSpectralRadiusBound_97_2000 :
+    spectralRadius ℝ (nnrealMatrixToReal t10j32HighBitTailMatrix) ≤
+      (((97 : NNReal) / (2000 : NNReal)) : ℝ≥0∞) := by
+  simpa [t10j32HighBitTailAlphaNNReal, t10j32HighBitTailAlpha,
+    ProbabilityEntry.toNNReal] using t10j32HighBitTailSpectralRadiusBound
+
+end Generated
+end CollatzShadowing
+"""
+
+
 def generate(input_csv: Path, output: Path, target_t: int, j_count: int, alpha: Fraction) -> None:
     states, outgoing = read_full_edges(input_csv, target_t, j_count)
     vector = solve_vector(states, outgoing, alpha)
     if not check_vector(states, outgoing, vector, alpha):
         raise AssertionError("exact CW vector check failed")
-    output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(
-        LEAN_TEMPLATE.format(
-            source_csv=input_csv,
-            target_t=target_t,
-            j_count=j_count,
-            alpha_num=alpha.numerator,
-            alpha_den=alpha.denominator,
-        ),
-        encoding="utf-8",
-    )
+
+    out_dir = output.parent
+    stem = output.stem
+    data_path = out_dir / f"{stem}Data.lean"
+    data_module_name = f"CollatzShadowing.Generated.{stem}Data"
+    data_path.write_text(data_module(input_csv, target_t, j_count, alpha, states, outgoing, vector),
+        encoding="utf-8")
+
+    row_imports: list[str] = []
+    for chunk_idx, start in enumerate(range(0, len(states), CHUNK_SIZE)):
+        stop = min(start + CHUNK_SIZE, len(states))
+        row_stem = f"{stem}Rows{chunk_idx:02d}"
+        row_path = out_dir / f"{row_stem}.lean"
+        row_module_name = f"CollatzShadowing.Generated.{row_stem}"
+        row_path.write_text(
+            row_module(data_module_name, states, outgoing, vector, alpha, chunk_idx, start, stop),
+            encoding="utf-8",
+        )
+        row_imports.append(row_module_name)
+
+    output.write_text(final_module(row_imports, states), encoding="utf-8")
 
 
 def main() -> None:
