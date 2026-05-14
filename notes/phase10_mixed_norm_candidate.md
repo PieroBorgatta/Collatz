@@ -1,0 +1,1474 @@
+# Phase 10 Mixed-Norm Candidate
+
+Date: 2026-05-13
+
+Status: conditional Banach-pair target.  This note is not a proof that
+the finite matrices approximate an infinite operator.  It states the
+first mixed-norm approximation statement that would have to be proved
+before Keller-Liverani can be invoked.
+
+## 1. Choice of Candidate
+
+The strongest finite-projection interpretation is not supported by the
+diagnostics.  The next reasonable analytic target is therefore:
+
+```text
+martingale/cylinder Banach space on Z_2 x H
++ killed first-return map
++ labelled delta tail
++ Cesaro/high-lift kernel approximation.
+```
+
+After the operator-orientation cleanup in
+`notes/phase10_operator_choice.md`, the current convention is more
+specific:
+
+```text
+kernel first:       K(src,dst)
+primary operator:   U_s on functions
+dual mass operator: P_s^*
+secondary only:     L_s/Ruelle
+```
+
+This note deliberately does not choose a full Sarig/countable Markov
+shift model yet.  The CMS model may become necessary, but it requires a
+branch coding, BIP/irreducibility checks, summable variation, and
+recurrence hypotheses that are currently unavailable.
+
+The Ruelle/preimage operator `L_s` is therefore not the primary object
+for this mixed-norm target.  It remains secondary until inverse
+branches, summability, and a projection relation to the generated finite
+matrices are established.
+
+## 2. Phase Space and Filtration
+
+Let:
+
+```text
+H = Z / 2^m_hit Z.
+```
+
+The source phase space is:
+
+```text
+X = Z_2 x H.
+```
+
+Let `m` be Haar measure on `Z_2` times counting probability on `H`.
+
+For each depth `n >= 0`, let `P_n` be the finite clopen partition:
+
+```text
+P_n = { C(r,h,n) : r in Z / 2^n Z, h in H },
+```
+
+where:
+
+```text
+C(r,h,n) = { (x,h) : x == r mod 2^n }.
+```
+
+The diagnostics with
+
+```text
+t = r + j * 2^T,
+j mod 2^a = q,
+```
+
+are naturally interpreted as sampling the deeper cylinder:
+
+```text
+C(r + q 2^T, h, T+a).
+```
+
+This interpretation remains conditional until a limiting kernel is
+constructed.
+
+## 3. Infinite Killed Return Map
+
+The candidate infinite map is a partial first-return map:
+
+```text
+tau : D -> X,
+D subset X.
+```
+
+The killed set is:
+
+```text
+X \ D.
+```
+
+For `x in D`, the return has an exponent:
+
+```text
+delta(x) in Z.
+```
+
+The weighted Koopman-side operator is:
+
+```text
+(U_s f)(x) = 1_D(x) 2^{-s delta(x)} f(tau x).
+```
+
+The push-forward/Markov-side operator on measures is:
+
+```text
+P_s^* mu(B)
+  = integral_{D cap tau^{-1}(B)} 2^{-s delta(x)} dmu(x).
+```
+
+The finite row-source `FULL` matrices should now be interpreted, if
+Gate 10.B succeeds, as approximants to the finite action of `U_s` on
+cell-constant observables.  The dual `P_s^*` remains the correct mass
+language for killing/tails.  Every comparison with `FULL_{T,j}` must
+still pass through explicit projection maps.
+
+## 4. Strong and Weak Norms
+
+### Weak norm
+
+Use:
+
+```text
+||f||_w = ||f||_{L^1(m)}.
+```
+
+This is the current Banach-space default for the `U_s` program.
+The intended finite bridge is:
+
+```text
+B_s controls ||f||_infty,
+B_w measures source-cell averaged output error.
+```
+
+Thus row-TV can control a finite `B_s -> B_w` error through the
+`||f||_infty` part of the strong norm.
+
+However, the script-`99` TV quantities are finite row-distribution
+proxies.  They become `L^1(m)` proxies only if the averaging over
+source cells matches the finite projection of `m`, or if a discrete
+source weight `omega` is declared explicitly.  For equal-depth 2-adic
+cylinders this is plausible, but boundary/incomplete cells and hit
+coordinates must be accounted for.
+
+For signed measures, the dual weak norm is total variation tested
+against bounded functions, or weighted total variation if a drift
+weight is later introduced.
+
+### Finite row-TV bridge target
+
+Let `K` and `K'` be two finite row-source kernels on the same finite
+state set `S`.  For each source row `i`, let:
+
+```text
+TV_i(K,K') =
+  (1/2) sum_j |K(i,j) - K'(i,j)|.
+```
+
+Then for every bounded observable `v : S -> R`,
+
+```text
+|(K v)(i) - (K' v)(i)|
+  <= 2 TV_i(K,K') ||v||_infty.
+```
+
+Consequently:
+
+```text
+||K - K'||_{ell_infty -> ell_infty}
+  <= 2 sup_i TV_i(K,K').
+```
+
+If the weak norm averages over source cells with weights `omega_i`, then:
+
+```text
+|| (K-K')v ||_{L1(omega)}
+  <= 2 (sum_i omega_i TV_i(K,K')) ||v||_infty.
+```
+
+This is the precise finite reason why row-TV diagnostics are relevant to
+the `U_s` program.  If `omega_i` is uniform over the complete source
+cells, the right-hand side is exactly the `weak L1 proxy` now reported
+by script `99`:
+
+```text
+weak L1 proxy = 2 * mean_i TV_i.
+```
+
+However, current diagnostics usually report mean, p95, p99, and max
+over finite source cells.  A p95 value alone is not an operator norm.
+To use p95 analytically, one needs an exceptional-mass statement such as:
+
+```text
+omega({i : TV_i > eta}) <= rho,
+```
+
+which gives the schematic bound:
+
+```text
+sum_i omega_i TV_i
+  <= eta + rho
+```
+
+because `TV_i <= 1`.
+
+Therefore script-`99` row-TV outputs can feed a weak/distributional
+norm, but they do not yet feed a sup operator norm unless the max TV is
+controlled.
+
+For the labelled prefix branch the same bridge should be written
+without the factor `2 TV_i`.  If `K` and `K'` are substochastic rows on
+the retained labelled destination set `Y`, define:
+
+```text
+D_i(K,K') = sum_{y in Y} |K(i,y) - K'(i,y)|.
+```
+
+Then:
+
+```text
+|(K-K')v(i)| <= D_i(K,K') ||v||_infty,
+```
+
+and hence:
+
+```text
+|| (K-K')v ||_{L1(omega)}
+  <= (sum_i omega_i D_i(K,K')) ||v||_infty.
+```
+
+This is the exact finite bridge used by scripts `105`, `106`, and
+`107`.  For the `T = 15`, `64 -> 128`, `delta <= 5` report:
+
+```text
+component D mean = 0.0027621063,
+phase D mean     = 0.0045024297,
+label D mean     = 0.005743653,
+component-phase excess = 0.0017403234,
+phase-label excess     = 0.0012412233,
+label excess     = 0.0029815467.
+```
+
+Across the available prefix sequence, the phase-only mean drift is:
+
+```text
+16->32:  0.0066310638,
+32->64:  0.0055465954,
+64->128: 0.0045024297.
+```
+
+Without the `delta <= 5` cutoff:
+
+```text
+16->32:  0.0066438334,
+32->64:  0.0055544859,
+64->128: 0.0045072525.
+```
+
+The full-delta and cutoff trends are nearly identical on these windows.
+This makes H5 a genuine phase-prefix question rather than merely a tail
+truncation artifact.
+
+This is the first diagnostic aligned with the current Lean
+`TransferMatrix V` state space.  It supports continuing the phase-only
+bridge investigation, but by itself it is still only finite evidence.
+
+However, there is a separate source-quotient cost.  Script `107`
+measures the weak `L1` error from replacing retained source-cell rows by
+the average row indexed by source `PhaseState`.  For `T=15`, `delta<=5`:
+
+```text
+j=16:  0.055610515,
+j=32:  0.054357070,
+j=64:  0.052910359,
+j=128: 0.051512269.
+```
+
+This term is currently much larger than the prefix drift.  Therefore
+the finite-to-Banach bridge cannot simply identify the source-cell
+kernel with a `TransferMatrix V`; it needs a source-refinement argument
+or an explicit averaged-quotient interpretation.
+
+The first source-refinement scan supports adding low residue bits of
+`r` to the source alphabet.  For `T=15`, `j=128`, `delta<=5`:
+
+```text
+PhaseState               0.051512269,
+PhaseState + r mod 2^10 0.020415877,
+PhaseState + r mod 2^11 0.018202554,
+PhaseState + r mod 2^12 0.015742233.
+```
+
+This improves the mean collapse error but does not remove large
+exceptional rows.  It should be treated as a candidate finite source
+alphabet, not as a Banach-space theorem.
+
+The refined-prefix Cauchy scan shows the balancing cost.  On `T=15`,
+`64->128`, `delta<=5`, source-cell-weighted prefix drift is:
+
+```text
+PhaseState                 0.000200738344,
+PhaseState + r mod 2^10    0.00158494699,
+PhaseState + r mod 2^11    0.00210468651,
+PhaseState + r mod 2^12    0.00260800395,
+source_cell baseline       0.00450242969.
+```
+
+Thus the Banach bridge cannot optimize only one constant.  Bare
+`PhaseState` gives the best finite prefix stability but requires a
+separate source-collapse term around `0.05` at current scales; finer low
+residue alphabets reduce collapse error but increase prefix drift.  A
+usable mixed norm must declare how these two errors are combined.
+
+The active finite weak norm must therefore be branch-indexed.  For a
+source quotient `rho_b:S_N -> A_b`, define:
+
+```text
+|g|_{w,N,b}
+  = sum_{a in A_b} m_N^b(a) |g(a)|,
+
+m_N^b(a)
+  = omega_N({i in S_N : rho_b(i)=a}).
+```
+
+For `A0`, `A_b = PhaseState` and `rho_b` is the source-phase map.  This
+is compatible with the existing square `TransferMatrix V`, but the
+finite-to-Banach estimate must include the collapse term
+
+```text
+C_N^0 = sum_i omega_N(i)
+          ||k_N^{cell}(i,.) - K_N^0(rho_0(i),.)||_1.
+```
+
+For `A1`, `A_b = PhaseState x Fin 2^10` and
+`rho_b(i) = (source_phase(i), r(i) mod 2^10)`.  The corresponding
+`C_N^10` is smaller, but the present diagnostics only produce
+
+```text
+K_N^10 : A_10 -> PhaseState.
+```
+
+This is a rectangular finite-rank approximation, not yet a square
+transfer matrix.  To use `A1` for spectral analysis, one needs either a
+destination-refined alphabet and generated square matrices, or a theorem
+that the rectangular `B_s -> B_w` approximation is the only object
+needed before applying Hennion/Keller-Liverani to a separately defined
+infinite operator.
+
+The first square `A1` smoke diagnostic has been run with destination
+low-residue keys.  For `T=12`, `j=16,32,64,128`, the weighted prefix drift
+for `(PhaseState,t mod 2^10)` is
+
+```text
+0.0152083349 -> 0.0135561906 -> 0.0129098735.
+```
+
+The corresponding phase-only square drift is
+
+```text
+0.00138619007 -> 0.00109704799 -> 0.000647069352.
+```
+
+Thus any `A1` Banach norm must absorb a much larger weak drift constant
+than `A0` on the smoke scale.  The decrease with prefix size keeps `A1`
+open, but the burden of proof is higher.
+
+The analytic bridge still needs projection/inclusion constants.  A
+clean sufficient condition is:
+
+```text
+||E_N f||_infty <= C_E ||f||_s,
+||I_N g||_w <= C_I ||g||_{L1(omega_N)}.
+```
+
+Then:
+
+```text
+||I_N (K-K') E_N||_{B_s -> B_w}
+  <= C_I C_E sum_i omega_N(i) D_i(K,K').
+```
+
+For the simplest candidate `B_s` containing the sup norm and
+`B_w = L1(omega_N)` on cell-constant observables, one hopes for
+`C_E = C_I = 1`.  This hope must be proved for the chosen Banach pair;
+it is not supplied by the finite diagnostics.
+
+There is a label-space warning.  The formal weighted first-return
+operator
+
+```text
+(U_s f)(x) = 1_D(x) 2^{-s delta(x)} f(tau x)
+```
+
+acts on observables of the destination phase.  The full diagnostic
+kernel, however, has destination labels `(phase, delta)`.  Therefore
+there are two distinct bridges:
+
+```text
+phase-only bridge:
+  test functions depend only on destination phase;
+  labelled convergence is sufficient but stronger than necessary.
+
+labelled-symbolic bridge:
+  the phase space is enlarged so that `(phase, delta)` or an equivalent
+  return-signature label is part of the state/edge alphabet.
+```
+
+The current finite `label_excess` diagnostics show that the labelled
+bridge cannot be ignored.  Gate 10.B must choose one of these two
+interpretations explicitly:
+
+- use labels only as a proof device to control the weighted phase
+  kernel;
+- or build the infinite object as a genuinely labelled symbolic
+  operator.
+
+Silently switching between these interpretations would invalidate the
+finite-to-infinite comparison.
+
+For the generated Lean `FULL` matrices, the active choice is the first
+one.  `TransferMatrix V` is a matrix on `PhaseState V`, so a Gate 10.B
+closure for the current certificates must first prove a phase-only
+weighted finite-to-Banach bridge.  The labelled-symbolic bridge is still
+mathematically available, but it would be a new/enlarged operator rather
+than a direct interpretation of the present `FULL` matrices.
+
+For the active `T15_B32_j64` report:
+
+```text
+A_phase_block weak L1 proxy        = 0.0461707,
+full label-TV weak L1 proxy        = 0.0620098,
+full A_label_bounded weak L1 proxy = 0.0158391.
+```
+
+The corresponding sup proxies are large, so the current evidence points
+toward an averaged weak norm rather than a uniform perturbation norm.
+
+Source-weight caveat for the active run:
+
+```text
+complete source cells = 131068,
+all possible (r,h) cells at T=15 = 131072,
+skipped fraction = 0.0000305176.
+```
+
+Thus the uniform complete-cell average is a reasonable finite proxy for
+the product of Haar measure on `r mod 2^15` and counting measure on `h`,
+up to the recorded boundary correction.  This is still a finite
+statement; a limiting source-measure theorem remains open.
+
+Additional source-partition caveat, checked on 2026-05-14:
+
+Script `88` groups samples by low-bit cells `(r,h)` with
+`t = r + j 2^T`.  These cells are not always identical to cells of the
+finite `source_phase = (v2(t), odd(t) mod 4, h mod 4)`.  For the tested
+parameters `T = 15`, `j = 16,32,64`, `odd_bits = 2`, `hit_bits = 2`,
+`v2_cap = 13`, exactly `8` out of `131072` `(r,h)` groups have two
+source states: the four `r = 0` groups and the four `r = 2^14` groups.
+The finite mass is only `0.0000610352`, but it means the present
+average is literally an average over low-bit cells, not exactly over
+source-state cells.  A proof would need either to split these cells or
+add a named source-partition correction.
+
+The corresponding finite averaging correction is elementary.  If `S`
+is the complete source-cell set, `A` is the retained set, `|S| = n`,
+and `|S \ A| = e`, then for any bounded finite diagnostic `F`:
+
+```text
+|mean_S(F) - mean_A(F)| <= 2 (e/n) ||F||_infty.
+```
+
+For the `T = 15`, `64 -> 128` prefix run:
+
+```text
+n = 131072,
+e = 8,
+2e/n = 0.0001220703125.
+```
+
+This removes a finite bookkeeping ambiguity in the report means.  It
+does not prove that `mean_S` converges to the intended Haar/counting
+source measure as `T` or the refinement depth changes.
+
+There is a second, more conceptual caveat.  The current adjacent-block
+tests use contiguous integer high-bit windows in `j`, such as
+`0..31` versus `32..63`.  Prefix windows `0 <= j < 2^m` are compatible
+with Haar measure on the finite quotient `Z/2^m Z`, but adjacent
+ordinary intervals are not themselves the canonical 2-adic cylinder
+comparison used by a martingale-variation norm.  A true `Z_2` weak-norm
+program should add a residue-class/high-bit-cylinder diagnostic.
+
+### Strong norm
+
+For `0 < theta < 1`, define the cylinder oscillation:
+
+```text
+osc_n(f)
+  = sup_{C in P_n} sup_{x,y in C} |f(x) - f(y)|.
+```
+
+Define:
+
+```text
+|f|_theta = sup_{n >= 0} theta^{-n} osc_n(f).
+```
+
+The first strong norm candidate is:
+
+```text
+||f||_s = ||f||_infty + |f|_theta.
+```
+
+This is a 2-adic Holder/Lipschitz-style norm written in cylinder
+language.  It is probably too optimistic if `delta` or the killed domain
+has uncontrolled boundary depth.  If it fails, replace `|f|_theta` by a
+summable martingale variation:
+
+```text
+|f|_beta = sum_{n >= 0} beta_n osc_n(f),
+```
+
+with a chosen summable weight sequence `beta_n`.
+
+## 5. Finite Projections
+
+Let:
+
+```text
+F_n = real-valued functions on the finite partition P_n.
+```
+
+For `f` on `X`, define the averaging projection:
+
+```text
+(E_n f)(C)
+  = m(C)^(-1) integral_C f dm,
+  C in P_n.
+```
+
+Thus:
+
+```text
+E_n : B_s -> F_n.
+```
+
+Let:
+
+```text
+(I_n v)(x) = v(C_n(x)),
+```
+
+where `C_n(x)` is the partition cell containing `x`.  Thus:
+
+```text
+I_n : F_n -> B_s
+```
+
+is the inclusion of `P_n`-constant observables.
+
+The clean finite approximant of `U_s` would be:
+
+```text
+K_n = E_n U_s I_n : F_n -> F_n.
+```
+
+Equivalently, for `v in F_n`,
+
+```text
+(K_n v)(C)
+  = m(C)^(-1) integral_{C cap D}
+      2^{-s delta(x)} v(C_n(tau x)) dm(x).
+```
+
+The lifted finite-rank operator on `B_s` is:
+
+```text
+U_n^lift = I_n K_n E_n.
+```
+
+The clean finite approximant of `P_s` is the dual:
+
+```text
+P_n^* = I_n^* P_s^* E_n^*.
+```
+
+The generated `FULL_{T,j}` matrices are not yet known to equal these
+objects.  At best, they are empirical/high-lift approximants to a
+labelled compression of them.
+
+This is now the concrete Gate-10.B question:
+
+```text
+Is FULL_{T,j} close to K_n = E_n U_s I_n,
+or is it only a finite artifact?
+```
+
+## 6. Labelled Delta Truncation
+
+For a delta cutoff `L`, split:
+
+```text
+U_s = U_s^{<=L} + U_s^{>L}.
+```
+
+where:
+
+```text
+U_s^{<=L} f(x)
+  = 1_D(x) 1_{delta(x) <= L} 2^{-s delta(x)} f(tau x).
+```
+
+The diagnostics estimate finite analogues of:
+
+```text
+||U_s^{>L}||_{s -> w}
+```
+
+or at least a weak weighted-mass part of it.
+
+The observed global tail is small, but this is not enough.  A
+mixed-norm statement needs either:
+
+```text
+||U_s^{>L}||_{s -> w} <= epsilon_L,
+epsilon_L -> 0,
+```
+
+or a precise exceptional/tightness substitute.
+
+## 7. Empirical High-Lift Approximation
+
+For fixed base depth `T`, extra depth `a`, and prefix length `N`, define
+the empirical kernel:
+
+```text
+K_{T,a,N}.
+```
+
+It samples:
+
+```text
+t = r + (q + 2^a k) 2^T,
+0 <= k < N.
+```
+
+The diagnostic labelled kernel records:
+
+```text
+terminal
+```
+
+or:
+
+```text
+(destination phase, delta).
+```
+
+Let:
+
+```text
+Pi_{T,a,L}
+```
+
+be the finite observation map that sends a true return point to:
+
+```text
+terminal
+```
+
+or:
+
+```text
+(phase_{T,a}(tau x), delta(x))
+```
+
+for `delta <= L`, with all `delta > L` placed in a tail bin.
+
+The finite diagnostic matrix should be compared to the row-source
+operator:
+
+```text
+K_{T,a,L} = E_{T,a,L} U_s I_{T,a,L}.
+```
+
+This is only a target identity.  It has not been proved.
+
+## 8. Required Mixed-Norm Statement
+
+The first serious Keller-Liverani-compatible target is:
+
+```text
+|| U_s - I_{T,a,L,N} FULL_{T,a,L,N} E_{T+a} ||_{B_s -> B_w}
+  <= epsilon(T,a,L,N),
+```
+
+where `FULL_{T,a,L,N}` is the generated/empirical row-source finite
+kernel after the chosen phase refinement and label truncation.  If a
+clean projected kernel `K_{T,a,L}` exists, the safer two-step target is:
+
+```text
+|| U_s - I K_{T,a,L} E ||_{B_s -> B_w}
+  + || I (K_{T,a,L} - FULL_{T,a,L,N}) E ||_{B_s -> B_w}
+  <= epsilon(T,a,L,N).
+```
+
+with:
+
+```text
+epsilon(T,a,L,N)
+  <= A_depth(a)
+   + A_delta(L)
+   + A_block(N)
+   + A_boundary(T,a,L)
+   + A_orientation.
+```
+
+After the operator-choice note, `A_orientation` should be zero by
+definition for the row-source high-bit layer, provided future generated
+objects are explicitly interpreted as approximants of `U_s`.
+
+The required limiting statement is:
+
+```text
+lim_{a -> infinity}
+lim_{L -> infinity}
+lim_{N -> infinity}
+limsup_{T -> infinity}
+epsilon(T,a,L,N)
+  = 0,
+```
+
+or another explicitly chosen order of limits.  The order of limits must
+be declared.  The current diagnostics do not justify exchanging these
+limits.
+
+## 9. Mapping Diagnostics to Error Terms
+
+Current finite diagnostics map as follows:
+
+| Error term | Diagnostic proxy | Current status |
+|---|---|---|
+| `A_depth(a)` | phase exact/phase-low fractions after `j mod 2^a` refinement | improved by five bits, not zero |
+| `A_delta(L)` | `DeltaTail_global(L)`, `DeltaTail_local(L)` | globally encouraging, locally not uniform |
+| `A_block(N)` | adjacent-block TV from script `94` | mixed; p95 not negligible |
+| `A_boundary(T,a,L)` | killed/terminal status drift | not formulated analytically |
+| source drift | script `96` finite `R_W` | naive weight weak/negative |
+| `A_orientation` | row-source vs incoming convention | set to zero for the `U_s` row-source convention, but still a risk if switching to `P_s^*` or `L_s` |
+
+The important negative lesson:
+
+```text
+dominant-signature stability is not A_block(N).
+```
+
+The mixed norm must see distributional TV or an analytically justified
+weaker metric.
+
+## 10. Conditional Proposition Skeleton
+
+### 10.1 Finite row-TV bridge proposition
+
+Finite proposition skeleton:
+
+Assume two row-source finite kernels `K_N` and `FULL_N` on the same
+finite cell set `S_N`.  Let `omega_N` be a probability weight on source
+cells.  Define:
+
+```text
+bar_TV_N = sum_i omega_N(i) TV_i(K_N,FULL_N).
+```
+
+Then for every bounded cell observable `v`,
+
+```text
+|| (K_N - FULL_N) v ||_{L1(omega_N)}
+  <= 2 bar_TV_N ||v||_infty.
+```
+
+If `v = E_N f` and `||E_N f||_infty <= ||f||_infty <= ||f||_s`, then:
+
+```text
+|| I_N (K_N - FULL_N) E_N f ||_{B_w}
+  <= 2 bar_TV_N ||f||_s
+```
+
+provided `B_w` is the source-cell `L1(omega_N)` norm after lifting.
+
+This is the precise finite proposition that script `99` is beginning to
+measure.  It still does not identify `K_N` with `E_N U_s I_N`.
+
+### 10.2 Infinite/mixed-norm proposition
+
+Proposition skeleton:
+
+Assume:
+
+1. `D` is measurable and `tau : D -> X` is measurable;
+2. `U_s` is bounded on `B_s` and `B_w`;
+3. `B_s` embeds compactly into `B_w`;
+4. the ideal projected kernels
+
+   ```text
+   K_{T,a,L} = E_{T,a,L} U_s I_{T,a,L}
+   ```
+
+   are well-defined on finite cell observables;
+5. the generated row-source matrices `FULL_{T,a,L,N}` satisfy the
+   mixed-norm approximation statement in Section 8;
+6. row-TV/error-budget diagnostics are upgraded to genuine
+   `B_s -> B_w` estimates, or replaced by such estimates;
+7. a Lasota-Yorke inequality holds uniformly for the finite and
+   limiting operators;
+8. the orientation of generated matrices is the row-source `U_s`
+   convention.
+
+Then the finite labelled row-source kernels may be treated as legitimate
+approximants to `U_s` for Keller-Liverani-style stability.  Statements
+about `P_s^*` require an explicit duality step; statements about `L_s`
+require a separate preimage-branch construction.
+
+This proposition is conditional.  None of its hypotheses has been
+proved.
+
+## 11. Failure Modes
+
+The candidate fails if:
+
+- `tau` or `delta` is not controlled on cylinder partitions;
+- `A_block(N)` does not tend to zero in a useful metric;
+- the local delta tail cannot be controlled outside a tight exceptional
+  set;
+- the killed boundary has large unresolved variation;
+- `FULL_{T,j}` depends on arbitrary prefix choices rather than a
+  limiting kernel;
+- compactness `B_s -> B_w` fails for the required weighted version;
+- the only possible source-stratum weight is a finite lookup table.
+
+## 12. First Block-Doubling Test
+
+The first block-doubling test for the fragile term `A_block(N)` was run
+at fixed depth `T = 15`.
+
+Commands:
+
+```text
+uv run --with numpy --with scipy python \
+  scripts/spectral_program/88_cylinder_signature_stability.py \
+  --T 15 --j-counts 8,16 --block-size 8 ...
+
+python3 scripts/spectral_program/94_block_cauchy_summary.py \
+  --T 15 --j-count 16 --output-tag T15_B8_j16
+```
+
+The previously saved `T15_j32` report gives block size `16`, and a new
+run gives block size `32`:
+
+```text
+uv run --with numpy --with scipy python \
+  scripts/spectral_program/88_cylinder_signature_stability.py \
+  --T 15 --j-counts 32,64 --block-size 32 ...
+
+python3 scripts/spectral_program/94_block_cauchy_summary.py \
+  --T 15 --j-count 64 --output-tag T15_B32_j64
+```
+
+Full-signature adjacent-block TV:
+
+| block size | prefix compared | mean TV | p95 TV | p99 TV | max TV | dominant flip fraction |
+|---:|---|---:|---:|---:|---:|---:|
+| 8 | `0..7` vs `8..15` | `0.0462265` | `0.25` | `0.375` | `0.75` | `0.0177002` |
+| 16 | `0..15` vs `16..31` | `0.0381069` | `0.1875` | `0.25` | `0.5` | `0.0124817` |
+| 32 | `0..31` vs `32..63` | `0.0310087` | `0.15625` | `0.21875` | `0.375` | `0.011322` |
+
+Status-exact full-signature TV:
+
+| block size | mean TV | p95 TV | max TV |
+|---:|---:|---:|---:|
+| 8 | `0.0114108` | `0.125` | `0.75` |
+| 16 | `0.00846609` | `0.0625` | `0.5` |
+| 32 | `0.00544248` | `0.03125` | `0.3125` |
+
+Interpretation:
+
+- `A_block(N)` is not falsified by this test; the full-signature TV
+  decreases with block size on this fixed `T = 15` window;
+- the decrease is not yet a convergence theorem and is not fast enough
+  to ignore bad cells;
+- status-exact cells are much better behaved than the global set;
+- phase-low/full-low cells remain the main obstruction.
+
+Provisional conclusion:
+
+```text
+The mixed-norm branch remains alive, with A_block(N) as a measurable
+but still open error term.
+```
+
+The next action is not a spectral-radius computation.  It is to decide
+whether the observed block-TV decrease can be encoded in a weak norm
+that is stable under the operator and compatible with the labelled
+delta tail.
+
+## 13. Truncated-Label Weak TV Test
+
+To test whether the block-TV obstruction is mainly caused by large
+`delta` labels, script `97_truncated_label_block_tv.py` was run on the
+current `T = 15`, block-size `32` output.
+
+Command:
+
+```text
+python3 scripts/spectral_program/97_truncated_label_block_tv.py \
+  --T 15 \
+  --block-size 32 \
+  --cutoffs 2,3,4,5,8 \
+  --worst-cutoff 5 \
+  --output-tag T15_B32_j64
+```
+
+Count-TV results:
+
+| transform | mean TV | p95 TV | p99 TV | max TV |
+|---|---:|---:|---:|---:|
+| status | `0.0128616` | `0.0625` | `0.125` | `0.25` |
+| phase | `0.0230853` | `0.125` | `0.15625` | `0.28125` |
+| clip `delta > 2` | `0.0289039` | `0.125` | `0.1875` | `0.375` |
+| clip `delta > 3` | `0.0299863` | `0.125` | `0.1875` | `0.375` |
+| clip `delta > 4` | `0.0305662` | `0.15625` | `0.1875` | `0.375` |
+| clip `delta > 5` | `0.0308437` | `0.15625` | `0.21875` | `0.375` |
+| full | `0.0310049` | `0.15625` | `0.21875` | `0.375` |
+
+Interpretation:
+
+- clipping large `delta` barely reduces count-TV once `L >= 4`;
+- therefore the block-Cauchy obstruction is not mainly the large
+  `delta` tail;
+- the gap between `phase` TV and `full` TV is caused by bounded
+  return-label variation as well;
+- the weak norm cannot rely only on `DeltaTail_global(L)`.
+
+Weighted return-TV has p95 `1` for every transform in this diagnostic.
+That is not a complete weak norm because terminal rows have zero return
+weight, but it warns that return-only support can shift sharply even
+when count-TV looks moderate.
+
+## 14. Bounded-Label Excess Over Phase TV
+
+Script `98_bounded_label_excess.py` measures:
+
+```text
+excess = max(0, TV_label - TV_phase).
+```
+
+Command:
+
+```text
+python3 scripts/spectral_program/98_bounded_label_excess.py \
+  --T 15 \
+  --block-size 32 \
+  --cutoffs 2,3,4,5,8 \
+  --output-tag T15_B32_j64
+```
+
+Selected output:
+
+| transform | phase mean TV | label mean TV | excess mean | excess p95 | excess p99 | excess max | positive fraction |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| clip `delta > 2` | `0.0230853` | `0.0289039` | `0.00581854` | `0.03125` | `0.09375` | `0.25` | `0.127384` |
+| clip `delta > 5` | `0.0230853` | `0.0308437` | `0.00775838` | `0.0625` | `0.09375` | `0.25` | `0.162603` |
+| full | `0.0230853` | `0.0310049` | `0.00791955` | `0.0625` | `0.09375` | `0.25` | `0.163945` |
+
+Interpretation:
+
+- bounded return-label variation is visible but smaller than the phase
+  component on this window;
+- it should be represented as a separate error term
+  `A_label_bounded(B,L)`;
+- it cannot be replaced by `DeltaTail_global(L)`, because clipping large
+  `delta` labels barely changes the excess for `L >= 4`.
+
+## 15. Error-Budget Aggregator
+
+Script `99_error_budget_summary.py` is the current preferred diagnostic
+wrapper after this norm has been named.  It reads the script-`88`
+distribution CSV and reports only named finite proxies:
+
+```text
+DeltaTail_global,
+DeltaTail_local,
+A_phase_block,
+A_label_bounded,
+BoundaryError.
+```
+
+On the active `T15_B32_j64` dataset:
+
+| proxy | value |
+|---|---:|
+| `DeltaTail_global(5)` | `0.000830424` |
+| `DeltaTail_local_p95(5)` | `0.027027` |
+| `DeltaTail_local_max(5)` | `1` |
+| `A_phase_block` p95 | `0.125` |
+| full `A_label_bounded` p95 | `0.0625` |
+
+Interpretation: the global tail remains small, but no uniform local
+tail bound follows.  This remains a finite diagnostic for the candidate
+mixed norm, not a mixed-norm convergence theorem.
+
+The same script-`99` row-TV bridge was also run for the fixed-`T = 15`
+block-size chain `B = 8,16,32`:
+
+| block size | prefix j | phase weak `L1` | full-label weak `L1` | bounded-label weak `L1` | full-label sup proxy |
+|---:|---:|---:|---:|---:|---:|
+| 8 | 16 | `0.0731834` | `0.0924482` | `0.0192648` | `1.5` |
+| 16 | 32 | `0.0589389` | `0.0762047` | `0.0172658` | `1.0` |
+| 32 | 64 | `0.0461707` | `0.0620098` | `0.0158391` | `0.75` |
+
+This is the strongest finite evidence so far for keeping the weak
+averaged row-source norm on the table.  It still does not prove
+`||U_s - I_N FULL_N E_N||_{B_s -> B_w} -> 0`: the numbers are fixed-`T`
+finite diagnostics, the boundary/source weighting is not yet identified
+with a limiting measure, and the uniform row-TV proxy remains large.
+
+## 16. First 2-adic Child-Cylinder Test
+
+To test the actual `Z_2` martingale interpretation, script
+`100_z2_cylinder_oscillation.py` compares the two children of each
+parent class `j mod 2^d`, rather than adjacent ordinary intervals in
+`j`.
+
+Command:
+
+```text
+uv run --with numpy --with scipy python \
+  scripts/spectral_program/100_z2_cylinder_oscillation.py \
+  --T 15 \
+  --max-depth 3 \
+  --tail-bits 2 \
+  --odd-bits 2 \
+  --hit-bits 2 \
+  --v2-cap 13 \
+  --max-steps 1000 \
+  --output-tag T15_d3_tail2
+```
+
+Full-label TV:
+
+| depth | mean TV | p95 TV | p99 TV | max TV | dominant flip |
+|---:|---:|---:|---:|---:|---:|
+| 0 | `0.0526182` | `0.1875` | `0.96875` | `1` | `0.0273743` |
+| 1 | `0.0544645` | `0.25` | `0.9375` | `1` | `0.02948` |
+| 2 | `0.0575895` | `0.25` | `0.875` | `1` | `0.0242691` |
+| 3 | `0.0606241` | `0.5` | `0.75` | `1` | `0.0293694` |
+
+Phase TV is flatter, with means around `0.041`, but it also does not
+show a decreasing trend across `d = 0,1,2,3`.
+
+Interpretation:
+
+- the ordinary block-size trend and the 2-adic child-cylinder trend are
+  measuring different things;
+- the first 2-adic test is negative pressure on the naive martingale
+  continuity story;
+- it is not decisive, because the deepest child cylinders have only
+  `3/4` minimum samples in this finite run;
+- before using a `Z_2` Holder/BV space as the main Banach candidate,
+  repeat this diagnostic with more tail bits or change the phase space.
+
+A second run with more tail samples and less depth was then run:
+
+```text
+uv run --with numpy --with scipy python \
+  scripts/spectral_program/100_z2_cylinder_oscillation.py \
+  --T 15 \
+  --max-depth 2 \
+  --tail-bits 4 \
+  --odd-bits 2 \
+  --hit-bits 2 \
+  --v2-cap 13 \
+  --max-steps 1000 \
+  --output-tag T15_d2_tail4
+```
+
+Full-label TV:
+
+| depth | mean TV | p95 TV | p99 TV | max TV | dominant flip |
+|---:|---:|---:|---:|---:|---:|
+| 0 | `0.0486132` | `0.171875` | `0.953125` | `1` | `0.0126343` |
+| 1 | `0.0487704` | `0.1875` | `0.9375` | `1` | `0.026535` |
+| 2 | `0.0509391` | `0.25` | `0.9375` | `1` | `0.0287399` |
+
+This strengthens the negative pressure: the added tail samples reduce
+the absolute mean TV slightly, but they do not produce a decreasing
+2-adic full-label oscillation trend.
+
+## 17. Stratification of the 2-adic Obstruction
+
+Script `101_z2_oscillation_strata.py` was added to ask whether the
+2-adic full-label obstruction is diffuse or concentrated in structural
+source strata.
+
+Command:
+
+```text
+uv run --with numpy --with scipy python \
+  scripts/spectral_program/101_z2_oscillation_strata.py \
+  --T 15 \
+  --max-depth 2 \
+  --tail-bits 3 \
+  --odd-bits 2 \
+  --hit-bits 2 \
+  --v2-cap 13 \
+  --max-steps 1000 \
+  --min-samples 1024 \
+  --output-tag T15_d2_tail3
+```
+
+At depth `2`, the global full-over-phase excess is:
+
+```text
+mean = 0.0165176,
+p95  = 0.125,
+max  = 0.5.
+```
+
+Top structural contributions:
+
+| stratum | mass | mean excess | p95 | contribution |
+|---|---:|---:|---:|---:|
+| `source_odd = 3` | `0.499969` | `0.0261895` | `0.25` | `0.792725` |
+| `source_v2 = 2` | `0.125` | `0.0623322` | `0.25` | `0.471709` |
+| `source_v2_odd = 2|3` | `0.0625` | `0.120621` | `0.375` | `0.456409` |
+
+This is a mixed signal:
+
+- full-TV itself is broad and still pressures the naive `Z_2` branch;
+- the part of full-TV not already explained by phase movement is
+  strongly structured by source odd residue and `v2`;
+- this supports testing an enlarged labelled/drift state before
+  abandoning Branch A.
+
+A lighter cross-`T` run was performed:
+
+```text
+uv run --with numpy --with scipy python \
+  scripts/spectral_program/101_z2_oscillation_strata.py \
+  --T 16 \
+  --max-depth 1 \
+  --tail-bits 2 \
+  --odd-bits 2 \
+  --hit-bits 2 \
+  --v2-cap 13 \
+  --max-steps 1000 \
+  --min-samples 1024 \
+  --output-tag T16_d1_tail2
+```
+
+At depth `1`, the same structural excess appears:
+
+| stratum | mass | mean excess | p95 | contribution |
+|---|---:|---:|---:|---:|
+| `source_odd = 3` | `0.499985` | `0.0315485` | `0.25` | `0.816548` |
+| `source_v2 = 2` | `0.125` | `0.0780182` | `0.5` | `0.504838` |
+| `source_v2_odd = 2|3` | `0.0625` | `0.152130` | `0.5` | `0.492200` |
+
+This strengthens the case that the label-excess obstruction is
+structural across `T`, even though the naive interaction drift weight
+does not give a safe uniform bound.
+
+## 18. Enriched-State Split Test
+
+Script `102_enriched_state_test.py` asks whether isolating a structural
+source component leaves a cleaner complement.  This is the first
+diagnostic directly aligned with an enlarged symbolic state.
+
+Commands:
+
+```text
+uv run --with numpy --with scipy python \
+  scripts/spectral_program/102_enriched_state_test.py \
+  --T 15 \
+  --max-depth 2 \
+  --tail-bits 3 \
+  --odd-bits 2 \
+  --hit-bits 2 \
+  --v2-cap 13 \
+  --max-steps 1000 \
+  --output-tag T15_d2_tail3
+
+uv run --with numpy --with scipy python \
+  scripts/spectral_program/102_enriched_state_test.py \
+  --T 16 \
+  --max-depth 1 \
+  --tail-bits 2 \
+  --odd-bits 2 \
+  --hit-bits 2 \
+  --v2-cap 13 \
+  --max-steps 1000 \
+  --output-tag T16_d1_tail2
+```
+
+For the candidate bad component
+
+```text
+odd = 3 and v2 in {0,2},
+```
+
+the full-over-phase excess satisfies:
+
+| run | selected mass | selected contribution | complement mean | complement p95 |
+|---|---:|---:|---:|---:|
+| `T15`, depth `2` | `0.3125` | `0.742956` | `0.00617565` | `0` |
+| `T16`, depth `1` | `0.3125` | `0.767081` | `0.00654463` | `0` |
+
+For the broader component
+
+```text
+odd = 3 or v2 = 2,
+```
+
+the selected contribution rises to `0.808025` at `T15` depth `2` and
+`0.829186` at `T16` depth `1`, but the selected mass is about `0.5625`.
+
+Interpretation:
+
+- isolating a structural bad component leaves a much cleaner
+  complement;
+- this supports an enlarged symbolic/two-component kernel;
+- the bad component itself still needs labelled internal analysis;
+- this does not validate a scalar drift weight or an infinite operator.
+
+## 19. Two-Component Transition Budget
+
+Script `103_component_transition_budget.py` tests whether the proposed
+split actually behaves like a small exceptional perturbation.  It uses
+the provisional convention:
+
+```text
+bad(src) := src_odd = 3 and src_v2 in {0,2}.
+```
+
+Command:
+
+```text
+uv run --with numpy --with scipy python \
+  scripts/spectral_program/103_component_transition_budget.py \
+  --T 15 \
+  --j-count 64 \
+  --odd-bits 2 \
+  --hit-bits 2 \
+  --v2-cap 13 \
+  --max-steps 1000 \
+  --output-tag T15_j64
+```
+
+This enumerates the prefix window `0 < t < 2^21`.  Terminal/killed
+events carry zero transfer weight.  The component-aggregated weighted
+matrix is stable from the `0 < t < 2^20` check to the doubled window:
+
+| run | source | destination good | destination bad | row sum |
+|---|---|---:|---:|---:|
+| `0<t<2^20` | `good` | `0.012278567` | `0.0054906632` | `0.017769231` |
+| `0<t<2^20` | `bad` | `0.040819731` | `0.018073894` | `0.058893625` |
+| `0<t<2^21` | `good` | `0.012281296` | `0.0054655765` | `0.017746872` |
+| `0<t<2^21` | `bad` | `0.040839452` | `0.018100693` | `0.058940144` |
+
+Additional finite diagnostics:
+
+```text
+bad source mass                 = 0.31250015,
+good returned fraction          = 0.057945292,
+bad returned fraction           = 0.20822754,
+finite 2x2 spectral radius      = 0.03041195.
+```
+
+The flow is strongly coupled: about `30.8%` of the good weighted return
+mass goes to bad, and about `69.3%` of the bad weighted return mass goes
+back to good.
+
+Consequences:
+
+- the split is useful for organizing the obstruction;
+- `K_bad` is not a negligible isolated tail;
+- a block-kernel formulation is now more honest than
+  `K_good + small error`;
+- the finite `2 x 2` radius is only a diagnostic and must not be cited
+  as an operator spectral-radius bound.
+
+```text
+K = [[K_GG, K_GB],
+     [K_BG, K_BB]]
+```
+
+Guardrail: `T15_j16` and `T16_j8` give the same component budget because
+both enumerate the same lifted source window `0 < t < 2^19`.  This
+script is a prefix-budget diagnostic, not by itself a `T`-stability
+test.
+
+Alternative bad rules on the common `T15_j32` window:
+
+| bad rule | bad mass | good row sum | bad row sum | G->B weighted frac | B->B weighted frac |
+|---|---:|---:|---:|---:|---:|
+| `v2=2 and odd=3` | `0.0625001` | `0.018664724` | `0.20995882` | `0.0631777` | `0.0626915` |
+| `odd=3 and v2 in {0,2}` | `0.3125003` | `0.017769231` | `0.058893625` | `0.308998` | `0.306891` |
+| `odd=3 or v2=2` | `0.5624996` | `0.020555724` | `0.038448879` | `0.559896` | `0.558768` |
+
+This supports keeping `odd=3 and v2 in {0,2}` as the provisional
+two-component split.  The narrow rule is a hot core, not a complete
+obstruction model.  The broad rule is too large to be a clean
+exceptional subsystem.
+
+## 20. Component Block-Cauchy Test
+
+Script `104_component_block_cauchy.py` reads the script-`88`
+distribution CSVs and compares adjacent high-bit blocks after
+collapsing return destinations to `good/bad`.  It estimates a finite
+weak row-drift term for the block kernel:
+
+```text
+sum_{dst in {G,B}} |K_a(src,dst) - K_b(src,dst)|.
+```
+
+Commands:
+
+```text
+python3 scripts/spectral_program/104_component_block_cauchy.py \
+  --T 15 \
+  --groups scripts/spectral_program/collatz_88_T15_B8_j16_cylinder_group_summary.csv \
+  --distributions scripts/spectral_program/collatz_88_T15_B8_j16_signature_distribution.csv \
+  --output-tag T15_B8_j16
+
+python3 scripts/spectral_program/104_component_block_cauchy.py \
+  --T 15 \
+  --groups scripts/spectral_program/collatz_88_T15_B16_j32_cylinder_group_summary.csv \
+  --distributions scripts/spectral_program/collatz_88_T15_B16_j32_signature_distribution.csv \
+  --output-tag T15_B16_j32
+
+python3 scripts/spectral_program/104_component_block_cauchy.py \
+  --T 15 \
+  --groups scripts/spectral_program/collatz_88_T15_B32_j64_cylinder_group_summary.csv \
+  --distributions scripts/spectral_program/collatz_88_T15_B32_j64_signature_distribution.csv \
+  --output-tag T15_B32_j64
+
+python3 scripts/spectral_program/104_component_block_cauchy.py \
+  --T 15 \
+  --groups scripts/spectral_program/collatz_88_T15_B64_j128_prefix_cylinder_group_summary.csv \
+  --distributions scripts/spectral_program/collatz_88_T15_B64_j128_prefix_signature_distribution.csv \
+  --output-tag T15_B64_j128_prefix
+```
+
+Weighted row `L1` drift:
+
+| block size | all mean | all p95 | all max | good mean | bad mean |
+|---:|---:|---:|---:|---:|---:|
+| `8` | `0.012046521` | `0.0625` | `0.40625` | `0.0093235814` | `0.018036723` |
+| `16` | `0.0095367816` | `0.056640625` | `0.25` | `0.0071800626` | `0.014721333` |
+| `32` | `0.0074155295` | `0.0390625` | `0.140625` | `0.0055656365` | `0.011485113` |
+| `64` | `0.0055249292` | `0.026367188` | `0.091308594` | `0.0041154957` | `0.0086254075` |
+
+Block-entry mean absolute drifts:
+
+| block size | K_GG | K_GB | K_BG | K_BB |
+|---:|---:|---:|---:|---:|
+| `8` | `0.0060317688` | `0.0032918126` | `0.011941701` | `0.006095022` |
+| `16` | `0.0044481311` | `0.0027319315` | `0.0096972845` | `0.0050240487` |
+| `32` | `0.0034798091` | `0.0020858274` | `0.0073552837` | `0.0041298296` |
+| `64` | `0.0024876592` | `0.0016278365` | `0.0053706095` | `0.003254798` |
+
+This is the first direct finite evidence that the block-kernel drift
+decreases under block doubling.  It supports only a weak averaged
+mixed-norm branch.  It does not support a uniform operator-norm
+perturbation theorem because p95 and max drifts remain nonzero.
+
+The multipair run `T15_B16_j64_multipair` gives an important warning.
+For block size `16`, adjacent-pair drift is not stationary:
+
+| pair | all mean | all p95 | good mean | bad mean | bad p95 |
+|---|---:|---:|---:|---:|---:|
+| `0->16` | `0.009535642` | `0.056640625` | `0.0071783004` | `0.014721333` | `0.0625` |
+| `16->32` | `0.013903232` | `0.09375` | `0.0084089414` | `0.025989598` | `0.109375` |
+| `32->48` | `0.018206286` | `0.1015625` | `0.00940828` | `0.037560182` | `0.203125` |
+
+Thus `BlockCouplingDrift_B` must be defined with a clear averaging or
+limiting scheme.  A single adjacent pair is not enough evidence for
+Cauchy convergence in ordinary high-bit blocks.
+
+## 21. Component Prefix/Cesaro Test
+
+Script `105_component_prefix_cauchy.py` compares nested prefix averages
+on the same `T15_B16_j64_multipair` dataset and on the later
+`T15_B64_j128_prefix` dataset:
+
+```text
+python3 scripts/spectral_program/105_component_prefix_cauchy.py \
+  --T 15 \
+  --groups scripts/spectral_program/collatz_88_T15_B16_j64_multipair_cylinder_group_summary.csv \
+  --distributions scripts/spectral_program/collatz_88_T15_B16_j64_multipair_signature_distribution.csv \
+  --output-tag T15_j16_32_64_multipair
+
+python3 scripts/spectral_program/105_component_prefix_cauchy.py \
+  --T 15 \
+  --groups scripts/spectral_program/collatz_88_T15_B64_j128_prefix_cylinder_group_summary.csv \
+  --distributions scripts/spectral_program/collatz_88_T15_B64_j128_prefix_signature_distribution.csv \
+  --output-tag T15_j64_128_prefix
+```
+
+Weighted row `L1` prefix drift:
+
+| prefix pair | all mean | all p95 | all max | good mean | bad mean |
+|---|---:|---:|---:|---:|---:|
+| `16->32` | `0.004767821` | `0.0283203125` | `0.125` | `0.0035891502` | `0.0073606666` |
+| `32->64` | `0.0037076395` | `0.01953125` | `0.0703125` | `0.002782595` | `0.0057425566` |
+| `64->128` | `0.0027624646` | `0.013183594` | `0.045654297` | `0.0020577478` | `0.0043127038` |
+
+Block-entry mean absolute prefix drifts:
+
+```text
+K_GG: 0.0019816395
+K_GB: 0.0012042331
+K_BG: 0.0042631421
+K_BB: 0.0022884696
+```
+
+This is the cleanest current finite evidence for the Cesaro/prefix
+branch.  The mixed-norm target should now prioritize prefix-average
+convergence over ordinary adjacent-block convergence.
+
+## 22. Prefix Label-Lift Test
+
+Script `106_prefix_label_lift.py` measures the cost of lifting the
+component-collapsed prefix kernel back to retained full return labels:
+
+```text
+label_excess = label_l1 - component_l1.
+```
+
+Commands:
+
+```text
+python3 scripts/spectral_program/106_prefix_label_lift.py \
+  --T 15 \
+  --groups scripts/spectral_program/collatz_88_T15_B16_j64_multipair_cylinder_group_summary.csv \
+  --distributions scripts/spectral_program/collatz_88_T15_B16_j64_multipair_signature_distribution.csv \
+  --output-tag T15_j16_32_64_multipair_full
+
+python3 scripts/spectral_program/106_prefix_label_lift.py \
+  --T 15 \
+  --groups scripts/spectral_program/collatz_88_T15_B64_j128_prefix_cylinder_group_summary.csv \
+  --distributions scripts/spectral_program/collatz_88_T15_B64_j128_prefix_signature_distribution.csv \
+  --output-tag T15_j64_128_prefix_full
+```
+
+Main results:
+
+| prefix pair | component mean | label mean | label-excess mean | label-excess p95 | label-excess p99 |
+|---|---:|---:|---:|---:|---:|
+| `16->32,32->64` pooled | `0.0042377302` | `0.0075584849` | `0.0033207547` | `0.017578125` | `0.046875` |
+| `64->128` | `0.0027624646` | `0.0057602607` | `0.0029977961` | `0.015625` | `0.03125` |
+
+The `delta <= 5` repeat is essentially unchanged, so this is not mainly
+a large-`delta` tail.  The retained-label lift is a real weak error
+term.  The positive point is that it decreases in the larger prefix
+run; the negative point is that it remains comparable to the component
+drift and has visible p99/max rows.

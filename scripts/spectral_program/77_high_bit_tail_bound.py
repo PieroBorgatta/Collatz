@@ -131,6 +131,7 @@ def trace_row(
             "src": src,
             "dst": None,
             "delta": None,
+            "next_t": None,
             "weight": 0.0,
             "signature": ("terminal",),
         }
@@ -143,6 +144,7 @@ def trace_row(
         "src": src,
         "dst": dst,
         "delta": delta,
+        "next_t": next_t,
         "weight": weight,
         "signature": ("return", dst[0], dst[1], dst[2], delta),
     }

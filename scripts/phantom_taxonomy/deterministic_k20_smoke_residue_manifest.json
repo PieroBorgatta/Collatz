@@ -1,0 +1,35 @@
+{
+  "coverage": {
+    "below_start_classes": 3184,
+    "budget_classes": 0,
+    "canonical_source_classes": 76038,
+    "external_hit_classes": 1623,
+    "internal_hit_classes": 71231,
+    "lift_classes_per_source": 16,
+    "no_initial_classes": 0,
+    "shadowed_initial_classes": 16794,
+    "source_nodes": 5802,
+    "total_lift_classes": 92832
+  },
+  "coverage_csv": "/Volumes/AFUOCO/SVILUPPO/TEORIE/Collatz/scripts/phantom_taxonomy/deterministic_k20_smoke_residue_source_coverage.csv",
+  "lift_bits": 4,
+  "manifest_json": "/Volumes/AFUOCO/SVILUPPO/TEORIE/Collatz/scripts/phantom_taxonomy/deterministic_k20_smoke_residue_manifest.json",
+  "max_k": 20,
+  "max_steps": 1000,
+  "modes": {
+    "K": {
+      "edge_csv": "/Volumes/AFUOCO/SVILUPPO/TEORIE/Collatz/scripts/phantom_taxonomy/deterministic_k20_smoke_residue_K_edges.csv",
+      "edge_types": 254,
+      "exits": 4807,
+      "internal": 71231,
+      "retention": 0.9367816091954023,
+      "rho": 0.6667306474910347,
+      "source_events": 76038,
+      "states": 38
+    }
+  },
+  "representatives": "/Volumes/AFUOCO/SVILUPPO/TEORIE/Collatz/scripts/phantom_taxonomy/phantom_representatives_k3_20.csv",
+  "scc_nodes": "/Volumes/AFUOCO/SVILUPPO/TEORIE/Collatz/scripts/phantom_taxonomy/orbit_harness_k20_smoke_scc_nodes.csv",
+  "scc_rank": 1,
+  "transfer_summary_md": "/Volumes/AFUOCO/SVILUPPO/TEORIE/Collatz/scripts/phantom_taxonomy/deterministic_k20_smoke_residue_transfer_summary.md"
+}

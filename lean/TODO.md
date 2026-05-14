@@ -76,7 +76,7 @@ When you complete or partially advance a task:
 
 ## Current status (most recent first)
 
-> *Last updated: 2026-05-13 — **Phase 5 complete: Lemma 3.1 and Corollary 3.4 formalized**. Project is `sorry`-free. **Phase 6 complete**: paper v2 drafted, Lean note written, Related Work + Chang comparison done, GitHub README updated, METHODOLOGY.md updated, Zenodo v2 published, and `pdflatex` verified online by Piero. **Phase 7 complete for the current branch**: tasks 7.1-7.4, 7.6, and 7.7 are complete; 7.4 closes with the full `K0=16` sampled run and SCC report, outcome (b), so 7.5 is not applicable. **F.1 is closed for the declared finite residue-cell scope and imported in Lean**: `deterministic_residue_transfer.py` enumerates all `2^4` finite residue subclasses for each of the 1240 raw SCC source states, writes exact deterministic transition matrices, and the `(K,b)` matrix has a generated Lean/Python exact CW certificate with max ratio `90833233962213/129559208330288 < 3/4`; sensitivity checks at `lift_bits = 5, 6` also stay below `3/4`. **Phase 8 complete for the current branch**: 8.1-8.9 are complete; 8.3 closes on the generated 37-state compressed `K,b` SCC certificate; 8.5 has the matrix/decomposition API, a generated exact import of the empirical `T = 10` critical-symbolic full transfer matrix, and an exact generated `T = 10, j = 32` majority `core/tail` `OperatorDecomposition`; 8.6 connects finite CW certificates to Mathlib `spectralRadius`; 8.7 exposes the `T = 10, j = 32` numerical spectral-radius bound `97/2000 = 0.0485` through a fully expanded Lean-checked 224-row CW certificate generated from the exact CSV.*
+> *Last updated: 2026-05-13 — **Phase 5 complete: Lemma 3.1 and Corollary 3.4 formalized**. Project is `sorry`-free. **Phase 6 complete**: paper v2 drafted, Lean note written, Related Work + Chang comparison done, GitHub README updated, METHODOLOGY.md updated, Zenodo v2 published, and `pdflatex` verified online by Piero. **Phase 7 complete for the current branch**: tasks 7.1-7.4, 7.6, and 7.7 are complete; 7.4 closes with the full `K0=16` sampled run and SCC report, outcome (b), so 7.5 is not applicable. **F.1 is closed for the declared finite residue-cell scope and imported in Lean**: `deterministic_residue_transfer.py` enumerates all `2^4` finite residue subclasses for each of the 1240 raw SCC source states, writes exact deterministic transition matrices, and the `(K,b)` matrix has a generated Lean/Python exact CW certificate with max ratio `90833233962213/129559208330288 < 3/4`; sensitivity checks at `lift_bits = 5, 6` also stay below `3/4`. **Phase 8 complete for the current branch**: 8.1-8.9 are complete; 8.3 closes on the generated 37-state compressed `K,b` SCC certificate; 8.5 has the matrix/decomposition API, a generated exact import of the empirical `T = 10` critical-symbolic full transfer matrix, and an exact generated `T = 10, j = 32` majority `core/tail` `OperatorDecomposition`; 8.6 connects finite CW certificates to Mathlib `spectralRadius`; 8.7 exposes the `T = 10, j = 32` numerical spectral-radius bound `97/2000 = 0.0485` through a fully expanded Lean-checked 224-row CW certificate generated from the exact CSV. **Phase 9 complete**: paper v3 redaction and publication were completed externally by Piero; v3 DOI/record `10.5281/zenodo.20160154` / `https://zenodo.org/records/20160154`.*
 
 - **Phase 0 complete.** Lake project initialized with `math` template,
   pinned to **Lean 4 v4.29.1** and **Mathlib v4.29.1**. Mathlib
@@ -384,38 +384,68 @@ both). Phase 9 does **not** depend on Phase 10 (Priority C).
 
 | ID | Status | Task | Acceptance criterion |
 |----|--------|------|----------------------|
-| 9.1 | [ ] | Decide v3 framing. | Working title: paper v3 either (a) the same paper extended with a §11 "Phantom-set completeness at depth $K_0$" subsection plus an updated §3.3 that reflects the broader Lean coverage, or (b) a companion preprint focused on the taxonomy result, with v2 unchanged. Decision committed in `notes/v3_outline.md`. |
-| 9.2 | [ ] | Update §1.2 (Related Work) with any new arXiv work appearing between v2 and v3. | Reconnaissance pass run per `METHODOLOGY.md` "Literature reconnaissance method". |
-| 9.3 | [ ] | Update §8 (Cross-node certificate) with the augmented SCC of Phase 7, if any. | Tables refreshed; new bounds reported. |
-| 9.4 | [ ] | Update §3.3 (Formal verification) to cover the Phase-8 additions: `EpisodeGraph`, `Operator`, `Bound`. | Section enumerates the Phase-8 declarations with file references. |
-| 9.5 | [ ] | Update §10 "Planned next steps" to reflect Phases 7 and 8 as completed and to refocus on Priority C (Phase 10). | Subsection retitled or revised. |
-| 9.6 | [ ] | Update §11 (Methodology) with the v2→v3 Lean session log and any new methodological observations. | Cross-AI verification protocol stress-tested by the Phase-8 sessions; lessons documented. |
-| 9.7 | [ ] | Build the v3 supplementary archive (Zenodo zip) including the updated `lean/`, the Phase-7 enumeration code under `scripts/phantom_taxonomy/`, and the v3 PDF. | Zip exists, `pdflatex` clean run, archive < 50 MB. |
-| 9.8 | [ ] | Publish v3 on Zenodo as new version of the existing record; update GitHub README with the new version DOI. | Zenodo shows v3 with new version DOI under the same concept DOI; README badges updated. |
+| 9.1 | [x] | Decide v3 framing. | Completed in the published v3. Piero confirmed the v3 framing was chosen and executed; this TODO entry was synced after publication. |
+| 9.2 | [x] | Update §1.2 (Related Work) with any new arXiv work appearing between v2 and v3. | Completed in the published v3. Literature/reconnaissance details can be mirrored here later if desired. |
+| 9.3 | [x] | Update §8 (Cross-node certificate) with the augmented SCC of Phase 7, if any. | Completed in the published v3, including the Phase-7/F.1 taxonomy and deterministic finite residue-cell certificate story. |
+| 9.4 | [x] | Update §3.3 (Formal verification) to cover the Phase-8 additions: `EpisodeGraph`, `Operator`, `Bound`. | Completed in the published v3, covering the broader Lean graph/operator/bound/certificate layer. |
+| 9.5 | [x] | Update §10 "Planned next steps" to reflect Phases 7 and 8 as completed and to refocus on Priority C (Phase 10). | Completed in the published v3; Phase 10 remains a future analytic/collaboration program, not a proved result. |
+| 9.6 | [x] | Update §11 (Methodology) with the v2→v3 Lean session log and any new methodological observations. | Completed in the published v3. |
+| 9.7 | [x] | Build the v3 supplementary archive (Zenodo zip) including the updated `lean/`, the Phase-7 enumeration code under `scripts/phantom_taxonomy/`, and the v3 PDF. | Completed externally for the v3 release. Exact local archive path/size not recorded in this TODO sync. |
+| 9.8 | [x] | Publish v3 on Zenodo as new version of the existing record; update GitHub README with the new version DOI. | Completed externally by Piero before this TODO sync. v3 Zenodo record: `https://zenodo.org/records/20160154`; DOI: `10.5281/zenodo.20160154`. |
 
 ---
 
-## Phase 10 — Priority C: spectral-gap analysis (collaboration target)
+## Phase 10 — Priority C: transfer-operator roadmap (v4 / companion / collaboration)
 
-Acceptance: a partial result on $\{\full_T\}_{T \ge T_0}$ via
-Lasota–Yorke + Hennion + Keller–Liverani that does not require
-closing Conjecture 6 of the paper outright. Open-ended;
-intentionally flagged as a **collaboration target** with researchers
-who work on transfer operators on $p$-adic or symbolic systems.
-Will not be initiated before Phases 7-9 are closed.
+Acceptance for `v3`: **planning only**. Phase 10 must not claim a
+spectral gap, must not close Conjecture 6, and must not turn speculative
+analytic hypotheses into theorems. Its purpose is to make the future
+analytic project attackable: identify the candidate infinite operator,
+candidate Banach spaces, target inequalities, fallback finite-rank path,
+and collaboration package.
+
+The key fork is Task 10.B. If 10.B identifies a natural infinite kernel
+whose finite projections recover the paper-facing matrices, continue to
+the analytic branch 10.C-10.F. If 10.B does not identify such a kernel,
+switch to the finite-rank fallback branch 10.G and treat that branch as
+the main Phase-10 output rather than a side result.
+
+Recommended sequencing:
+
+```text
+10.A -> 10.B -> 10.C -> 10.D -> {10.E, 10.F} -> 10.H -> 10.I -> 10.J
+             \-> 10.G fallback, if 10.B is negative
+```
 
 | ID | Status | Task | Acceptance criterion |
 |----|--------|------|----------------------|
-| 10.1 | [ ] | Identify candidate Banach space of $2$-adic Lipschitz functions adapted to the refined phase quotient. | Working note documenting the choice and its justification. |
-| 10.2 | [ ] | Prove (or, in collaboration, formulate) a Lasota–Yorke inequality for $\full_T$ on the chosen space. | Lemma with explicit constants, even if depending on $T$. |
-| 10.3 | [ ] | Apply Hennion's theorem to extract quasi-compactness and a spectral gap. | Theorem with explicit gap estimate. |
-| 10.4 | [ ] | Apply Keller–Liverani perturbation theory to control the dependence on $T$. | Continuity statement on the dominant eigenvalue across $T$. |
-| 10.5 | [ ] | Decide whether the resulting partial bound is integrated into a v4 paper, into a companion paper, or into a co-authored work. | Decision committed; downstream tasks listed. |
+| 10.A | [ ] | Build a literature/hypothesis matrix for Lasota-Yorke, Hennion, Keller-Liverani, Baladi, Sarig/BIP, Bowen, GDMS/countable shifts, and relevant $p$-adic/non-archimedean dynamics. Include a Chang 2026 compatibility column. | `notes/phase10_literature_matrix.md` lists theorem hypotheses, local sources, match/gap/unknown for this project, and a preliminary branch/kill-switch criterion. It explicitly notes that a non-standard symbolic or $p$-adic thermodynamic framework may be needed if the classical frameworks do not fit. |
+| 10.B | [ ] | Identify the correct infinite phase space / quotient behind `FULL_{T,j}` and `full_T`. | A preferred infinite phase model is written down; the projection to finite `PhaseState V` / generated matrices is specified; at least two alternatives are rejected with reasons. If no natural kernel/projection is found, the roadmap branches to 10.G. |
+| 10.C | [ ] | Compare candidate Banach spaces. Candidates include $2$-adic Lipschitz/Hölder spaces on a refined quotient, weighted symbolic spaces, and variation-type spaces on residue trees. | For each candidate: strong norm, weak norm, compactness/tightness mechanism, boundedness of the operator, and proof obligations are listed. No computational constant search starts before this task and 10.D are closed. |
+| 10.D | [ ] | Formulate the transfer operator explicitly. | Orientation, weight `2^{-delta}`, terminal killing, normalization, first-return convention, relation to `FULL_{T,j}`, and relation to the Lean `TransferMatrix`/`OperatorDecomposition` API are written precisely. Any empirical/non-canonical choice is labelled as such. |
+| 10.E | [ ] | State a target Lasota-Yorke-type inequality. | A lemma statement is produced in the form `||L^n f||_strong <= A theta^n ||f||_strong + B ||f||_weak`, with explicit parameters or placeholders and a checklist of branch, distortion, tail, and compactness estimates needed to make it true. |
+| 10.F | [ ] | Write conditional skeletons for Hennion and Keller-Liverani. | Two conditional propositions are written: (1) if the 10.E inequality and compactness/tightness hypotheses hold, Hennion gives an essential spectral-radius bound / quasi-compactness; (2) if the required mixed-norm perturbation estimates hold, Keller-Liverani controls the relevant isolated spectral data across truncations. Missing hypotheses are isolated, not hidden. |
+| 10.G | [~] | Finite-rank / truncated-operator fallback branch. | Baseline already exists: `CollatzShadowing/Generated/K16S16KDeterministicCW.lean` imports the deterministic finite residue-cell `(K,b)` certificate with max ratio `90833233962213/129559208330288 < 3/4`, stable in sensitivity checks at `lift_bits = 5, 6`. Remaining work: formulate the general fallback theorem/claim for finite residue-cell or finite-rank scopes. If 10.B is negative, this becomes the main Phase-10 output. |
+| 10.H | [ ] | Run computational experiments supporting analytic constants, only after 10.C and 10.D are closed. | Reproducible diagnostics are specified or produced for tail mass, branch regularity, mixed-norm drift, CW-vector regularity, and truncation error. Each number is tied to a norm or hypothesis from 10.C/10.D; no free-floating numerics. |
+| 10.I | [ ] | Prepare a collaboration package. | A concise 10-15 page dossier collects definitions, finite certificates, open lemmas, exact scripts/files, literature matrix, and precise questions for a transfer-operator / symbolic / $p$-adic dynamics collaborator. |
+| 10.J | [ ] | Decide v4 vs companion vs coauthored paper, with branch criteria. | Decision committed in `notes/phase10_decision.md`. If 10.B is positive and 10.E/10.F produce plausible hypotheses, choose v4/companion/collaboration route. If 10.B is negative, declare 10.G as the Phase-10 output and do not pursue Lasota-Yorke/Hennion/Keller-Liverani claims for the non-existent infinite operator. |
 
-Note: tasks 10.1-10.4 require analytic expertise beyond what the
-author can provide in isolation. Concrete progress on Priority C
-presupposes either an external collaborator or a substantial
-self-study phase that is not on the current program.
+Ambition levels:
+
+- **Minimum:** roadmap, candidate definitions, literature/hypothesis
+  matrix, and obstacles clarified. This is enough for `v3`.
+- **Intermediate:** a Lasota-Yorke-type inequality is formulated with
+  explicit hypotheses and partial finite/computational checks.
+- **Strong:** quasi-compactness or a spectral-gap statement is proved for
+  a well-defined family of operators, or a certified finite-rank/truncated
+  theorem is established with explicit scope.
+
+Editor note for `v3`: the planned-next-steps section should say that the
+next analytic task is to identify the correct infinite transfer operator,
+the corresponding candidate Banach space, and the target
+Lasota-Yorke-type inequalities. The finite Lean-certified matrices provide
+evidence for a reproducible finite certificate layer; they are not, by
+themselves, evidence of an infinite-dimensional spectral gap.
 
 ---
 
@@ -431,6 +461,52 @@ self-study phase that is not on the current program.
 > - Notes: any blockers, open questions, things the next session should know
 > - Next recommended task: X.Y
 > ```
+
+### 2026-05-13 (Phase 9 v3 publication synced) — Codex + Piero Borgatta
+
+- Tasks advanced: closed Phase 9 (`9.1`-`9.8`) in this TODO after
+  Piero confirmed that paper `v3` had already been completed and
+  published.
+- Artifacts modified:
+  - `lean/TODO.md`
+- Notes:
+  - This was a TODO synchronization, not a new paper-editing session.
+  - The v3 Zenodo record is `https://zenodo.org/records/20160154`, with
+    DOI `10.5281/zenodo.20160154`.
+  - The local workspace still primarily contains v2-named paper files;
+    if desired, a later housekeeping pass can mirror the exact v3 PDF,
+    supplementary archive name, README DOI update, and checksums into the
+    local tree.
+- Next recommended task: with Phase 9 closed and Phase 10 now clarified
+  as a planning/collaboration roadmap, the next concrete task is 10.A
+  if the research program continues immediately; otherwise do local
+  housekeeping to mirror the v3 artifacts.
+
+### 2026-05-13 (Phase 10 roadmap refinement for v3 planning) — Codex + Piero Borgatta
+
+- Tasks advanced: refactored Phase 10 from outcome-oriented analytic
+  tasks into a planning roadmap for `v4` / companion paper /
+  collaboration.
+- Artifacts modified:
+  - `lean/TODO.md`
+- Notes:
+  - Phase 10 is now explicitly `v3` planning only: it must not claim a
+    spectral gap, close Conjecture 6, or promote speculative hypotheses
+    into theorems.
+  - The key fork is now Task 10.B: if a natural infinite transfer kernel
+    and projection to the finite matrices are identified, continue to the
+    analytic branch; otherwise switch to the finite-rank fallback branch.
+  - Task 10.G is marked `[~]` because the deterministic finite
+    residue-cell `(K,b)` certificate already exists in
+    `CollatzShadowing/Generated/K16S16KDeterministicCW.lean`, while the
+    general fallback theorem/claim remains to be formulated.
+  - Chang 2026 compatibility is included as a column in the literature
+    matrix rather than as a separate task.
+  - Computational constant hunting is explicitly blocked until the
+    candidate Banach space and operator formulation are fixed.
+- Next recommended task: continue Phase 9 v3 redaction, especially 9.1
+  and 9.5, using the revised Phase-10 wording for the paper's planned
+  next steps.
 
 ### 2026-05-13 (F.1 deterministic residue-cell closure) — Codex + Piero Borgatta
 
