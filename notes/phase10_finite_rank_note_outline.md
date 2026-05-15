@@ -161,6 +161,26 @@ rho diagnostic               = 0.701094388677
 The decimal `rho diagnostic` is not the certificate.  The certificate is
 the exact Collatz-Wielandt inequality.
 
+### 3.3.1 Reader-facing `(K,b)` compression
+
+The raw deterministic model has one row for each canonical residue
+source cell.  The certified theorem compresses those rows to the
+macro-state
+
+```text
+(K,b),
+```
+
+where `K` records the representative class/complexity level used by the
+phantom-taxonomy pipeline and `b` records the monitored 2-adic depth.
+The compression forgets the representative key `w` but retains the two
+coordinates used in the K16 production certificate.  Thus the certified
+matrix is not the full raw source-cell transition matrix; it is the
+declared 37-state finite quotient used by the theorem.
+
+No claim is made here that `(K,b)` is an asymptotically complete state
+coordinate.  It is only the finite state space of the certified model.
+
 ### 3.4 Orientation
 
 The Lean matrix is incoming:
@@ -209,6 +229,19 @@ Equivalent cleared-denominator inequality:
 4 * 90833233962213 < 3 * 129559208330288.
 ```
 
+Finite Collatz-Wielandt proof paragraph:
+
+```text
+Let M be the declared finite nonnegative substochastic matrix, with the
+incoming convention fixed above.  Suppose v has strictly positive
+coordinates and M v <= alpha v coordinatewise.  For the weighted sup
+norm ||x||_v = max_i |x_i| / v_i, positivity gives
+||M x||_v <= alpha ||x||_v for all x.  Hence the operator norm of M in
+this finite-dimensional norm is at most alpha, and therefore
+rho(M) <= alpha.  In the K16 certificate alpha = 3/4, and the generated
+Lean module checks the coordinatewise rational inequalities exactly.
+```
+
 ## 5. Lean Boundary
 
 Lean file:
@@ -236,6 +269,15 @@ Current verification:
 
 ```text
 Build completed successfully (3302 jobs).
+```
+
+Stable artifact convention:
+
+```text
+The theorem statement cites the generated Lean module and the exact CW
+JSON certificate as fixed finite artifacts.  The generator is part of
+the reproducibility record, but the finite theorem does not depend on
+claiming a canonical infinite generation process.
 ```
 
 ## 6. Suggested Paper Structure
@@ -328,14 +370,80 @@ That outcome is mathematically respectable.  It is smaller than the
 analytic ambition, but it does not rely on unproved projection,
 compactness, or perturbation hypotheses.
 
-## 11. Missing Text Before Drafting
+Comparison paragraph for the draft:
 
-The note still needs:
+```text
+The finite-rank certificate and the Phase-10 A0-averaged program answer
+different questions.  The certificate is an exact statement about one
+declared finite substochastic matrix and a Lean-checked
+Collatz-Wielandt vector.  The A0-averaged program asks whether a family
+of phase quotients can approximate a natural infinite killed operator
+in a weak operator norm.  The former is already rigorous at K16; the
+latter remains conditional and is not used to justify the finite
+spectral-radius bound.
+```
 
-- a stable-artifact paragraph: the generated Lean file and exact JSON
-  certificate are the cited artifacts; the generation command can be
-  included later in the reproducibility manifest, but is not needed for
-  the theorem statement;
-- a manifest/hash table for external reproducibility;
-- a clean comparison paragraph distinguishing this finite certificate
-  from the Phase-10 `A0-averaged` analytic operator program.
+## 11. Reproducibility Manifest
+
+Repository root:
+
+```text
+/Volumes/AFUOCO/SVILUPPO/TEORIE/Collatz
+```
+
+Primary fixed artifacts:
+
+| artifact | lines | sha256 |
+|---|---:|---|
+| `lean/CollatzShadowing/Generated/K16S16KDeterministicCW.lean` | 2981 | `e5c64ba7c7cf83bae481055cb475384fff9cdeaec17a3d428d2d3b8ea64d1abb` |
+| `scripts/phantom_taxonomy/deterministic_k16_s16_residue_manifest.json` | 54 | `57cc39b14b483caa31c720bf0a0adda51937b5301e27dc740c749c07aef66210` |
+| `scripts/phantom_taxonomy/deterministic_k16_s16_residue_K_cw_certificate.json` | 1181 | `bad2d1536ce3d3df2c841e98b39b3dbfc7c8374ff5aeeecded28c331dc1546ee` |
+| `scripts/phantom_taxonomy/deterministic_k16_s16_residue_K_edges.csv` | 183 | `b2e6980ebaee7fe7e07bb9e4ea9944b51245fd5586b3aa45cf08c75fbc5d7954` |
+
+Generator and verifier:
+
+| artifact | sha256 |
+|---|---|
+| `scripts/phantom_taxonomy/deterministic_residue_transfer.py` | `b4079f8e8909e5f38f7072ea27527f61893d66a80b38e0023b23d80840018aad` |
+| `scripts/phantom_taxonomy/scc_cw_certificate.py` | `41d5e89e36d660a0ca3d611c8dd1fef5fa2500129fc2192c2238b2da5fa4a231` |
+
+Inputs:
+
+| artifact | lines | sha256 |
+|---|---:|---|
+| `scripts/phantom_taxonomy/phantom_representatives_k3_16.csv` | 1248 | `5098987c65393ab8aab26b85b50f84408a6e230f11886c0f9add0fd37cbdf0ea` |
+| `scripts/phantom_taxonomy/orbit_harness_k16_s16_scc_nodes.csv` | 1241 | `31a1136da9802f1e17d94095c9c0b5746756c265a9a832ba74a8c91bb99f5b5c` |
+
+Verification commands:
+
+```text
+cd /Volumes/AFUOCO/SVILUPPO/TEORIE/Collatz
+python3 scripts/phantom_taxonomy/scc_cw_certificate.py \
+  --verify scripts/phantom_taxonomy/deterministic_k16_s16_residue_K_cw_certificate.json
+cd lean
+lake build CollatzShadowing.Generated.K16S16KDeterministicCW
+```
+
+## 12. Remaining Text Before Drafting
+
+Final limitations paragraph for the draft:
+
+```text
+This theorem is finite-rank only.  It does not assert that the K16
+matrix is a projection, truncation, Galerkin approximation, or Ulam
+discretization of a natural infinite transfer operator.  It does not
+assert convergence in K, in lift_bits, or in any 2-adic/cylinder limit.
+It does not imply a spectral gap for Collatz dynamics and does not prove
+Conjecture 6 or the Collatz conjecture.  Its value is that, within the
+declared deterministic residue-cell shadowing model, the spectral-radius
+bound is an exact finite statement with a Lean-checked
+Collatz-Wielandt certificate.
+```
+
+The note is ready to be converted into a short draft once a target
+venue/form is chosen.  Remaining editorial choices:
+
+- whether to write it as a v4 section, a standalone note, or a
+  supplementary computational note;
+- how much of the K20 smoke material to include in an appendix;
+- whether to include full hash tables in the main text or appendix.
