@@ -438,7 +438,7 @@ Recommended sequencing:
 | 10.G | [x] | Finite-rank / truncated-operator fallback branch. | Active no-collaborator deliverable. `notes/phase10_finite_rank_note_outline.md` now states the finite K16 theorem scope, exact CW proof paragraph, stable artifacts, manifest/hash table, verification commands, sensitivity checks, limitations, and relation to `A0-averaged`. |
 | 10.H | [~] | Run computational experiments supporting analytic constants, only after 10.C and 10.D are closed. | Experiment plans exist, but free-floating numerics are stopped. Further experiments must support either the finite-rank note reproducibility or a later internally justified operator/norm framework. |
 | 10.I | [!] | Prepare a collaboration package. | `notes/phase10_collaborator_brief.md` exists but is archived optional. No collaborator route is active. |
-| 10.J | [x] | Decide v4 vs companion vs coauthored paper, with branch criteria. | `notes/phase10_decision_tree.md` now routes the no-collaborator Phase 10 to the finite-rank computational note and pauses A0 as conditional appendix/program material. |
+| 10.J | [x] | Decide v4 vs companion vs coauthored paper, with branch criteria. | `notes/phase10_decision_tree.md` keeps the finite-rank computational note as the active rigorous deliverable, while reopening A0 only as the conditional Haar/conditional-expectation bridge in `notes/phase10_gate10B_conditional_closure.md`. |
 
 Ambition levels:
 
@@ -509,9 +509,14 @@ themselves, evidence of an infinite-dimensional spectral gap.
     `O(2^{-T})`, prove the cylinder/Haar martingale convergence
     statement, and add provenance checks for any additional generated
     `FULL` matrix.
-- Next recommended task: write `A0_HaarConditionalClosure` in
-  paper-ready proposition form, with proof obligations H0-H5 and a
-  separate finite provenance lemma for generated matrices. Do not infer
+  - P3/P4 now have local proof details: prefix windows are Haar
+    cylinder averages, and the capped-valuation/odd-part boundary has
+    mass bounded by `2^{-(T-1)}`, matching the observed `T=15` excluded
+    mass `8/131072`.
+- Next recommended task: discharge or falsify P1/P2/P5/P6 in
+  `notes/phase10_gate10B_conditional_closure.md`, starting with P5
+  provenance certificates for generated matrices and P6 martingale
+  convergence in the declared weak norm. Do not infer
   Hennion/Keller-Liverani or spectral gaps from this.
 
 ### 2026-05-15 (Phase 10 no-collaborator route) — Codex + Piero Borgatta
