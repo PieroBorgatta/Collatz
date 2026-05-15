@@ -368,11 +368,20 @@ T15, depths 0..3:
   phase mean increments = 0.0425999, 0.0418446, 0.0410719, 0.0408087
   full  mean increments = 0.0526182, 0.0544645, 0.0575895, 0.0606241
   delta mean increments = 0.0413820, 0.0452396, 0.0502739, 0.0549879
+
+T15, depths 0..4, same 64 lift budget:
+  phase mean increments = 0.0425999, 0.0418446, 0.0410719,
+                           0.0408087, 0.0389357
+  full  mean increments = 0.0526182, 0.0544645, 0.0575895,
+                           0.0606241, 0.0648212
+  delta mean increments = 0.0413820, 0.0452396, 0.0502739,
+                           0.0549879, 0.0600595
 ```
 
 Interpretation:
 
-- the phase-only increments are nearly flat, with only mild decrease;
+- the phase-only increments are nearly flat, with only mild decrease
+  even after extending to depth `4`;
 - the full and delta increments increase on the tested depths;
 - exponential weights `a_n = theta^{-n}` therefore look too aggressive
   for the currently observed full/labelled kernel;

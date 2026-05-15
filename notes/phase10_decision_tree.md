@@ -241,6 +241,20 @@ delta increments, depths 0..3:
 0.0413820 -> 0.0452396 -> 0.0502739 -> 0.0549879
 ```
 
+The follow-up `T15_d4_tail1` run keeps the same `64` high-bit lift
+budget and adds one 2-adic depth:
+
+```text
+phase increments, depths 0..4:
+0.0425999 -> 0.0418446 -> 0.0410719 -> 0.0408087 -> 0.0389357
+
+full increments, depths 0..4:
+0.0526182 -> 0.0544645 -> 0.0575895 -> 0.0606241 -> 0.0648212
+
+delta increments, depths 0..4:
+0.0413820 -> 0.0452396 -> 0.0502739 -> 0.0549879 -> 0.0600595
+```
+
 This blocks any near-term claim that an exponential martingale
 variation norm is naturally contracting.  Continue the Banach-pair
 branch only as a decomposed norm program, not as a full-label BV claim.

@@ -512,6 +512,11 @@ themselves, evidence of an infinite-dimensional spectral gap.
     The reduced analytic target is now phase martingale LY plus
     structured label-excess correction plus weak substochastic loss
     control.
+  - Follow-up script-`100` run `T15_d4_tail1` adds one 2-adic depth at
+    the same `64` lift budget.  Phase improves only mildly
+    `0.0425999 -> ... -> 0.0389357`, while full and delta increments
+    increase to `0.0648212` and `0.0600595`.  This reinforces the
+    no-Hennion/no-KL status for the current operator.
 - Next recommended task: attack `BoundaryVariation` and
   `DepthDistortion` for the retained-return kernel.  If either fails for
   all usable weight sequences, stop the analytic branch and keep the
