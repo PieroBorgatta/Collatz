@@ -355,6 +355,20 @@ Before K20 can be stated as a theorem candidate:
 9. state explicitly that K20 is not a monotone strengthening of K16
    unless a comparison theorem is proved.
 
+Current blocker, checked on 2026-05-15:
+
+```text
+Only K20 smoke artifacts are present locally:
+orbit_harness_k20_smoke_*,
+deterministic_k20_smoke_*,
+notes/phantom_taxonomy_k20_smoke_scc_report.md.
+```
+
+There is no declared production K20 SCC input in the current workspace.
+Therefore the next K20 step is not "generate a K20 theorem"; it is to
+declare and run a production SCC input.  Rerunning the existing K20
+pipeline would reproduce the smoke branch, not promote it.
+
 ## 10. Relationship to Phase 10
 
 If Gate 10.B later succeeds, this finite-rank certificate can be a

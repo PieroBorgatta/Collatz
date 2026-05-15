@@ -554,6 +554,10 @@ themselves, evidence of an infinite-dimensional spectral gap.
     verifier (`status=OK`, max ratio
     `42001755821431/62996587868160`), but remains explicitly not
     production because its SCC input is only a smoke sample.
+  - Local K20 promotion was checked and deliberately not run: only
+    `orbit_harness_k20_smoke_*`, `deterministic_k20_smoke_*`, and
+    `notes/phantom_taxonomy_k20_smoke_scc_report.md` are present.  There
+    is no declared production K20 SCC input in the workspace.
 - Next recommended task: do not merely increase the residue refinement
   parameter.  Either identify a new quotient/Galerkin interpretation
   that makes the pair-dependent lift canonical, or pause the analytic LY
