@@ -478,6 +478,8 @@ themselves, evidence of an infinite-dimensional spectral gap.
 - Artifacts modified:
   - `notes/phase10_mixed_norm_candidate.md`
   - `lean/TODO.md`
+  - `scripts/spectral_program/112_martingale_variation_proxy.py`
+  - `scripts/spectral_program/collatz_112_martingale_variation_proxy_report.md`
 - Notes:
   - The active no-collaborator analytic candidate is now a concrete
     Banach pair, not a generic Hölder analogy: `B_s` is
@@ -493,6 +495,11 @@ themselves, evidence of an infinite-dimensional spectral gap.
     `DepthDistortion`, `BoundaryVariation`, `LossSeparation`, and
     `FiniteApproxMixed` are proved or replaced by precise computable
     hypotheses.
+  - Script `112` translates existing child-cylinder TV outputs into
+    finite proxies for martingale increments `||d_n K||_1`.  The first
+    output is cautionary: on the available `T=15` windows, phase
+    increments are nearly flat/slightly decreasing, while full and
+    delta increments increase over the tested depths.
 - Next recommended task: attack `BoundaryVariation` and
   `DepthDistortion` for the retained-return kernel.  If either fails for
   all usable weight sequences, stop the analytic branch and keep the

@@ -332,6 +332,60 @@ fallback, if any of the following is established:
 - the generated `FULL` matrices approximate only a finite sampling
   artifact and not `E_N U_ret,s I_N` in mixed norm.
 
+## 4.2 First Martingale-Increment Proxy
+
+Script `112_martingale_variation_proxy.py` converts existing
+child-cylinder diagnostics from script `100` into a direct finite proxy
+for the martingale increments in `Var_a`.
+
+For a binary parent cylinder with child distributions `p0` and `p1`,
+the parent distribution is `(p0+p1)/2`, and the average child deviation
+from the parent is:
+
+```text
+(1/2) ||p0 - (p0+p1)/2||_1
++ (1/2) ||p1 - (p0+p1)/2||_1
+  = TV(p0,p1).
+```
+
+Thus the `mean_tv` column from script `100` is the correct finite proxy
+for `||d_n K||_1` at depth `n`, for the observed finite kernel.
+
+The first report is:
+
+```text
+scripts/spectral_program/collatz_112_martingale_variation_proxy_report.md
+```
+
+On the available `T=15` child-cylinder windows:
+
+```text
+T15, depths 0..2:
+  phase mean increments = 0.0399633, 0.0388441, 0.0382137
+  full  mean increments = 0.0486132, 0.0487704, 0.0509391
+
+T15, depths 0..3:
+  phase mean increments = 0.0425999, 0.0418446, 0.0410719, 0.0408087
+  full  mean increments = 0.0526182, 0.0544645, 0.0575895, 0.0606241
+  delta mean increments = 0.0413820, 0.0452396, 0.0502739, 0.0549879
+```
+
+Interpretation:
+
+- the phase-only increments are nearly flat, with only mild decrease;
+- the full and delta increments increase on the tested depths;
+- exponential weights `a_n = theta^{-n}` therefore look too aggressive
+  for the currently observed full/labelled kernel;
+- a successful LY proof would need a genuine retained-kernel
+  simplification, a better state space, or a structural decomposition
+  that removes the nondecaying part from the strong variation term.
+
+This does not disprove the martingale pair.  The depths are shallow, the
+operator is still finite/diagnostic, and the generated `FULL` matrices
+are not yet proved to equal `E_N U_ret,s I_N`.  But it is a serious
+warning: the next analytic work must reduce or explain these increments,
+not just choose smoother notation.
+
 ### Weak norm
 
 Use:
