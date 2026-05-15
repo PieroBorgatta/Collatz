@@ -88,7 +88,9 @@ P_64^0  ~= 0.004502430.
 ```
 
 Verdict: `A0` is the main branch, but only as an averaged-quotient
-program.  It is not an exact projection unless `C_N^0 -> 0` is proved.
+program.  The active interpretation is `A0-averaged`: `K_N^0` is an
+averaged finite-rank quotient, not an exact projection, unless a future
+lemma proves `C_N^0 -> 0`.
 
 ### A1: Refined Low-Residue Branch
 
@@ -207,8 +209,8 @@ finite-rank theorem/certificate branch.
 1. Do not add new diagnostics unless they feed `C_N`, `P_N`, or `T_N`.
 2. Use `phase10_A0_theorem_skeleton.md` as the formal `A0`
    proposition skeleton.
-3. Decide whether `C_N^0 -> 0` is plausible or whether `A0` must be
-   explicitly presented as an averaged finite-rank approximation.
+3. Use `phase10_A0_averaged_interpretation.md` as the active
+   interpretation of existing `FULL` matrices.
 4. Move `A1` to appendix/secondary status until a refined square norm is
    justified.
 5. Prepare a collaborator brief around exactly one question:

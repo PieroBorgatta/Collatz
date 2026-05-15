@@ -163,15 +163,17 @@ finite averages of
 over the cells in `S_N`, up to an explicitly bounded finite sampling or
 enumeration residual.
 
-H4. Averaged quotient convention.  Either:
+H4. Averaged quotient convention.  The active branch is `A0-averaged`
+as described in `phase10_A0_averaged_interpretation.md`.  Thus the
+averaged quotient `K_N^0` is treated as the intended finite-rank
+approximation scheme rather than as an exact projection.  The stronger
+alternative would be to prove
 
 ```text
 C_N^0 -> 0
 ```
 
-in the declared weak source norm, or the averaged quotient `K_N^0` is
-proved to be the intended finite-rank approximation scheme rather than
-an exact projection.
+in the declared weak source norm, but this is not assumed.
 
 H5. Prefix convergence.  The averaged phase kernels satisfy
 
@@ -259,11 +261,11 @@ C_128^0 ~= 0.051512269,
 p95      ~= 0.27979821.
 ```
 
-Therefore the next proof decision is:
+Therefore the active proof decision is:
 
 ```text
-Either prove/argue C_N^0 -> 0,
-or explicitly formulate A0 as an averaged finite-rank approximation.
+Use A0-averaged as the main interpretation.
+Treat C_N^0 -> 0 as a stronger optional route, not as the baseline.
 ```
 
 The second option may be the more honest one unless new structure is
