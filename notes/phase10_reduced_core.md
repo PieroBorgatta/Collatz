@@ -205,7 +205,8 @@ finite-rank theorem/certificate branch.
 ## 7. Immediate Next Actions
 
 1. Do not add new diagnostics unless they feed `C_N`, `P_N`, or `T_N`.
-2. Write the `A0` theorem skeleton as a formal proposition.
+2. Use `phase10_A0_theorem_skeleton.md` as the formal `A0`
+   proposition skeleton.
 3. Decide whether `C_N^0 -> 0` is plausible or whether `A0` must be
    explicitly presented as an averaged finite-rank approximation.
 4. Move `A1` to appendix/secondary status until a refined square norm is

@@ -46,6 +46,7 @@ No spectral gap for an infinite operator has been proved.
 | File | Purpose |
 |---|---|
 | `notes/phase10_reduced_core.md` | Short reduced core: A0/A1, errors `C_N/P_N/T_N`, minimal theorem skeleton, kill criteria |
+| `notes/phase10_A0_theorem_skeleton.md` | Formal A0 conditional proposition and missing lemmas |
 | `notes/phase10_operator_gate.md` | Main Phase 10 dossier and decision framework |
 | `notes/phase10_master_report.md` | Consolidated Phase 10 entry point |
 | `notes/phase10_gate10B_provisional_decision.md` | Gate 10.B provisional decision after diagnostics `88`-`98` |
