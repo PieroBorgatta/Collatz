@@ -57,8 +57,21 @@ scripts/phantom_taxonomy/phantom_representatives_k3_16.csv
 scripts/phantom_taxonomy/orbit_harness_k16_s16_scc_nodes.csv
 ```
 
-Open point for the note: define `S16` in prose precisely enough that a
-reader can reproduce which SCC source nodes are admitted.
+Prose definition for the note:
+
+```text
+S16 is the finite list of raw phantom-taxonomy source nodes whose
+sampled orbit-harness graph belongs to SCC rank 1 after restricting to
+representatives with K <= 16 and the declared S16 sampling rule.  Each
+raw source node has the form w:b, where w is a phantom representative
+key from phantom_representatives_k3_16.csv and b is the monitored
+2-adic depth parameter recorded in orbit_harness_k16_s16_scc_nodes.csv.
+Only rows with scc_rank = 1 are admitted as production source nodes.
+```
+
+This definition is intentionally finite.  It does not assert that `S16`
+is canonical in an infinite limit; it only declares the source set of
+the certified finite model.
 
 ### 3.2 Deterministic residue-cell enumeration
 
@@ -92,6 +105,34 @@ exits below start          = 495
 ```
 
 Every source row in the coverage CSV should sum to `2^lift_bits`.
+
+For each raw source node `w:b`, the deterministic enumeration subdivides
+the monitored congruence class into
+
+```text
+0 <= t < 2^lift_bits.
+```
+
+Writing `A_w` for the total parity length of representative `w`, the
+corresponding starting integer is
+
+```text
+n0 = q_w mod 2^(b A_w + 1) + t * 2^(b A_w + 1).
+```
+
+The generator first asks whether the best monitored phantom hit at
+`n0` is exactly the declared source node `w:b`.  If a finer or stronger
+monitored phantom owns `n0`, the class is counted as
+`shadowed_initial` and is not a source event.  Otherwise the class is
+canonical and is traced deterministically until:
+
+- the orbit hits a distinct monitored node inside the declared SCC;
+- the orbit hits a monitored node outside the declared SCC;
+- the odd Syracuse orbit drops below `n0`;
+- or the step budget is reached.
+
+For production K16 there are no budget classes.  Classes that drop below
+start are substochastic exits, not internal transitions.
 
 ### 3.3 Certified finite matrix
 
@@ -285,10 +326,6 @@ compactness, or perturbation hypotheses.
 
 The note still needs:
 
-- a precise prose definition of the deterministic residue-cell model;
-- a concise explanation of how shadowed initial cells are excluded from
-  source events;
-- a paragraph explaining substochastic exits below start;
 - the exact Lean-generation command or a decision to treat the generated
   Lean file as the stable artifact;
 - a manifest/hash table for external reproducibility;
