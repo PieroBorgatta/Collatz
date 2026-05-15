@@ -335,6 +335,8 @@ max_node=K4:b4
 status=OK
 ```
 
+Reverified locally on 2026-05-15 with the Python certificate verifier.
+
 This is useful only as a feasibility signal.  It is not a K20 theorem
 because the SCC input is a small sampled smoke graph.
 

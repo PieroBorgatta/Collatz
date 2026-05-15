@@ -550,6 +550,10 @@ themselves, evidence of an infinite-dimensional spectral gap.
     returns `status=OK`, and
     `lake build CollatzShadowing.Generated.K16S16KDeterministicCW`
     succeeds with `3302 jobs`.
+  - The existing K20 smoke CW JSON was also reverified with the Python
+    verifier (`status=OK`, max ratio
+    `42001755821431/62996587868160`), but remains explicitly not
+    production because its SCC input is only a smoke sample.
 - Next recommended task: do not merely increase the residue refinement
   parameter.  Either identify a new quotient/Galerkin interpretation
   that makes the pair-dependent lift canonical, or pause the analytic LY
