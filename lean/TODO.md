@@ -431,9 +431,9 @@ Recommended sequencing:
 |----|--------|------|----------------------|
 | 10.A | [x] | Build a literature/hypothesis matrix for Lasota-Yorke, Hennion, Keller-Liverani, Baladi, Sarig/BIP, Bowen, GDMS/countable shifts, and relevant $p$-adic/non-archimedean dynamics. Include a Chang 2026 compatibility column. | `notes/phase10_literature_matrix.md` records theorem hypotheses and match/gap/unknown status. The matrix remains background for the paused analytic branch. |
 | 10.B | [~] | Identify the correct infinite phase space / quotient behind `FULL_{T,j}` and `full_T`. | Conditional closure attempt in `notes/phase10_gate10B_conditional_closure.md`: define `X = Z_2 x H`, Haar/counting source measure, killed forward kernel `U_s`, and interpret `A0-averaged` as conditional expectation onto `sigma(PhaseState)`. This is not an exact projection and does not imply spectral claims. Remaining work: provenance checks for generated `FULL` matrices and proof-quality boundary/martingale statements. |
-| 10.C | [~] | Compare candidate Banach spaces. Candidates include $2$-adic Lipschitz/Hölder spaces on a refined quotient, weighted symbolic spaces, and variation-type spaces on residue trees. | Candidate-space notes exist, but no Banach pair is accepted as a spectral proof framework. Under the conditional 10.B closure, the only active weak space is source-measure `L1`/bounded-observable control for conditional expectations. |
+| 10.C | [~] | Compare candidate Banach spaces. Candidates include $2$-adic Lipschitz/Hölder spaces on a refined quotient, weighted symbolic spaces, and variation-type spaces on residue trees. | `notes/phase10_mixed_norm_candidate.md` now names the serious default pair: strong space `L_infty +` weighted martingale variation over Haar cylinders, weak space `L1(mu)`. Compactness `B_s -> B_w` follows by martingale tail truncation. This is a Banach-pair target, not a spectral proof. |
 | 10.D | [~] | Formulate the transfer operator explicitly. | Candidate `U_K`/push-forward/Ruelle orientations were separated. The compatible branch is now the killed forward kernel on `Z_2 x H` used in `A0_HaarConditionalClosure`; Ruelle/preimage language remains inactive. |
-| 10.E | [~] | State a target Lasota-Yorke-type inequality. | Conditional targets exist only as program skeletons. No Lasota-Yorke inequality is claimed. |
+| 10.E | [~] | State a target Lasota-Yorke-type inequality. | The active target is now `Var_a(U_ret,s f) <= alpha Var_a(f) + C ||f||_1`, with `alpha < 1`, for the retained-return kernel only. Missing lemmas are boundary variation, depth distortion, loss separation, and finite mixed-norm approximation. No Lasota-Yorke inequality is claimed. |
 | 10.F | [~] | Write conditional skeletons for Hennion and Keller-Liverani. | Conditional skeletons exist only as non-claims. Hennion/Keller-Liverani are not active without a proof-quality operator/norm bridge. |
 | 10.G | [x] | Finite-rank / truncated-operator fallback branch. | Active no-collaborator deliverable. `notes/phase10_finite_rank_note_outline.md` now states the finite K16 theorem scope, exact CW proof paragraph, stable artifacts, manifest/hash table, verification commands, sensitivity checks, limitations, and relation to `A0-averaged`. |
 | 10.H | [~] | Run computational experiments supporting analytic constants, only after 10.C and 10.D are closed. | Experiment plans exist, but free-floating numerics are stopped. Further experiments must support either the finite-rank note reproducibility or a later internally justified operator/norm framework. |
@@ -471,6 +471,32 @@ themselves, evidence of an infinite-dimensional spectral gap.
 > - Notes: any blockers, open questions, things the next session should know
 > - Next recommended task: X.Y
 > ```
+
+### 2026-05-15 (Phase 10.C serious Banach pair) — Codex + Piero Borgatta
+
+- Tasks advanced: 10.C, 10.E.
+- Artifacts modified:
+  - `notes/phase10_mixed_norm_candidate.md`
+  - `lean/TODO.md`
+- Notes:
+  - The active no-collaborator analytic candidate is now a concrete
+    Banach pair, not a generic Hölder analogy: `B_s` is
+    `L_infty +` weighted martingale variation over the Haar/cylinder
+    filtration on `Z_2 x H`, and `B_w = L1(mu)`.
+  - Compactness `B_s -> B_w` is supplied by the finite martingale
+    truncations `E_N`:
+    `||f - E_N f||_1 <= a_{N+1}^{-1} Var_a(f)`.
+  - The retained-return Lasota-Yorke target is
+    `Var_a(U_ret,s f) <= alpha Var_a(f) + C ||f||_1`, with
+    `alpha < 1`.  This is only a target.
+  - Hennion/Keller-Liverani remain inactive until `L1Bound`,
+    `DepthDistortion`, `BoundaryVariation`, `LossSeparation`, and
+    `FiniteApproxMixed` are proved or replaced by precise computable
+    hypotheses.
+- Next recommended task: attack `BoundaryVariation` and
+  `DepthDistortion` for the retained-return kernel.  If either fails for
+  all usable weight sequences, stop the analytic branch and keep the
+  finite-rank note as the main theorem-producing output.
 
 ### 2026-05-15 (Phase 10.B conditional closure attempt) — Codex + Piero Borgatta
 
