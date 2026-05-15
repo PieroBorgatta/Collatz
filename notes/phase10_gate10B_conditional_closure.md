@@ -320,11 +320,96 @@ Lasota-Yorke inequality, Hennion, Keller-Liverani, or a spectral gap.
 The closure applies directly to prefix/Haar cylinder kernels whose
 provenance is the script-88/script-107 row-source construction.
 
-For already generated Lean matrices:
+Initial provenance audit:
+
+### T10CriticalSymbolic
+
+Lean file:
 
 ```text
-T10CriticalSymbolic,
-T10J32HighBitTail,
+lean/CollatzShadowing/Generated/T10CriticalSymbolic.lean
+```
+
+Generated from:
+
+```text
+../collatz_75_critical_symbolic_edges.csv
+scripts/phantom_taxonomy/lean_phase_transfer.py
+scripts/spectral_program/75_critical_symbolic_operator.py
+```
+
+The builder loops over:
+
+```text
+0 <= t < 2^T,
+h in Fin 4,
+src = state_of(t,h,...),
+dst = state_of(next_t,h+1,...),
+weight = 2^{-s delta}.
+```
+
+and normalizes by `source_counts[src]`.  Therefore the generated matrix
+is a finite Haar/counting conditional expectation over the quotient
+`Z/2^T Z x H`, grouped by source `PhaseState`.  It is compatible with
+the A0 conditional-expectation interpretation as a finite-resolution
+global cylinder approximant.
+
+It is not a high-bit prefix stability object: it corresponds to one
+finite quotient depth `T`, not to the script-88/script-107 prefix family
+`t = r + j 2^T`.
+
+### T10J32HighBitTail
+
+Lean file:
+
+```text
+lean/CollatzShadowing/Generated/T10J32HighBitTail.lean
+```
+
+Generated from:
+
+```text
+scripts/phantom_taxonomy/high_bit_tail_edges_T10_j32.csv
+scripts/phantom_taxonomy/export_high_bit_tail_edges.py
+scripts/phantom_taxonomy/lean_high_bit_tail.py
+scripts/spectral_program/77_high_bit_tail_bound.py
+```
+
+The exporter loops over:
+
+```text
+0 <= r < 2^T,
+h in Fin 4,
+0 <= j < j_count,
+t = r + j 2^T.
+```
+
+For the generated artifact:
+
+```text
+T = 10,
+j_count = 32 = 2^5,
+odd_bits = 2,
+hit_bits = 2,
+v2_cap = 13.
+```
+
+Thus the `full` matrix is a finite Haar/counting conditional
+expectation over the quotient `Z/2^{T+5} Z x H`, grouped by source
+`PhaseState`.  This is directly compatible with the conditional 10.B
+interpretation.
+
+The `core` and `tail` matrices are extra majority-signature
+decompositions of this same finite quotient.  They are finite
+bookkeeping objects; the conditional-expectation interpretation applies
+first to `full = core + tail`, not automatically to the majority split
+as an infinite operator decomposition.
+
+### Remaining generated matrices
+
+For other generated Lean matrices:
+
+```text
 other historical FULL matrices,
 ```
 

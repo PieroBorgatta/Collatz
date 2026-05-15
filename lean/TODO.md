@@ -499,14 +499,20 @@ themselves, evidence of an infinite-dimensional spectral gap.
     prefix data: row-source residuals are zero and the mixed-cell
     correction at `T=15` is `8/131072`, giving error coefficient
     `0.0001220703125 * ||F||_infty`.
+  - Initial provenance audit:
+    `T10CriticalSymbolic` is compatible as a finite Haar/counting
+    quotient at depth `T=10`; `T10J32HighBitTail.full` is compatible as
+    a high-bit prefix quotient with `j_count = 32 = 2^5`.  The
+    `core/tail` split remains finite majority bookkeeping, not an
+    infinite operator split.
   - Remaining gates: prove/mechanize the boundary residual
     `O(2^{-T})`, prove the cylinder/Haar martingale convergence
-    statement, and add provenance checks for each generated Lean
+    statement, and add provenance checks for any additional generated
     `FULL` matrix.
-- Next recommended task: write a provenance checker for
-  `T10CriticalSymbolic` and `T10J32HighBitTail`, or write the
-  `A0_HaarConditionalClosure` proposition in paper-ready form. Do not
-  infer Hennion/Keller-Liverani or spectral gaps from this.
+- Next recommended task: write `A0_HaarConditionalClosure` in
+  paper-ready proposition form, with proof obligations H0-H5 and a
+  separate finite provenance lemma for generated matrices. Do not infer
+  Hennion/Keller-Liverani or spectral gaps from this.
 
 ### 2026-05-15 (Phase 10 no-collaborator route) — Codex + Piero Borgatta
 
