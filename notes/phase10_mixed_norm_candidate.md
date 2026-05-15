@@ -559,6 +559,80 @@ It does not disprove the existence of a usable Banach pair, but it
 rules out the easy story: "isolate the bad labels and run LY on the
 rest."
 
+## 4.6 Low-Mode Phase Projection Repair
+
+Script `115_phase_low_mode_projection.py` tests the more precise repair:
+
+```text
+phase variation = low-mode destination variation + residual variation.
+```
+
+The reports are:
+
+```text
+scripts/spectral_program/collatz_115_T15_d2_tail3_phase_low_mode_projection_report.md
+scripts/spectral_program/collatz_115_T15_d4_tail1_phase_low_mode_projection_report.md
+```
+
+The important result is that the broad phase obstruction is mostly
+carried by the destination capped valuation coordinate `dst_v2`.
+On `T15_d4_tail1`:
+
+```text
+depth 0: dst_v2 capture = 0.882872, residual mean = 0.00498962
+depth 1: dst_v2 capture = 0.892471, residual mean = 0.00449950
+depth 2: dst_v2 capture = 0.907563, residual mean = 0.00379658
+depth 3: dst_v2 capture = 0.925382, residual mean = 0.00304508
+depth 4: dst_v2 capture = 0.934651, residual mean = 0.00254440
+```
+
+The `dst_v2_odd` marginal coincides with full phase variation on the
+tested windows, so the hit coordinate `h` is not contributing to the
+observed phase martingale obstruction at these scales.  The genuinely
+useful reduction is therefore `dst_v2`, not the full `(dst_v2,odd)`
+phase label.
+
+This gives the first plausible LY repair:
+
+```text
+Pi_v2  = finite projection to destination status/capped-v2 modes,
+Q_v2   = I - Pi_v2,
+U      = Pi_v2 U + Q_v2 U.
+```
+
+Then one should not try to prove LY for the whole phase variation.
+The conditional target becomes:
+
+```text
+Pi_v2 U      is treated as finite-rank / low-mode data;
+Q_v2 U       satisfies a martingale Lasota-Yorke inequality;
+loss/status is controlled in the weak norm.
+```
+
+Schematic target:
+
+```text
+Var_a(Q_v2 U_ret,s f)
+  <= alpha Var_a(f) + C ||f||_1,
+alpha < 1.
+```
+
+This remains only a repair candidate.  The finite diagnostic measures
+`phase_tv - dst_v2_tv`; it is not yet a proof that a canonical
+projection/lift has small `B_s -> B_w` operator norm.  A proof still
+needs:
+
+- a canonical definition of `Pi_v2` on the infinite/finite projected
+  kernel;
+- a signed-kernel estimate for `Q_v2 U`;
+- compatibility with the generated `TransferMatrix V` objects;
+- a check that the residual continues to decay for larger genuine
+  2-adic depths and not only on the `64`-lift budget.
+
+Still, this is the first nontrivial positive route for fixing LY: remove
+the broad `dst_v2` low mode before asking for strong martingale
+contraction.
+
 ### Weak norm
 
 Use:

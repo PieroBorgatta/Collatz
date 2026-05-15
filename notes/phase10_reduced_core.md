@@ -214,6 +214,22 @@ about `0.67--0.69`, and leave complement means around `0.026--0.028`.
 Thus a small finite-rank bad-component correction may help label-excess,
 but it does not solve the phase martingale obstruction.
 
+The current possible repair is different: split off a finite low
+destination mode.  The `dst_v2` projection captures about `0.88--0.93`
+of the phase child-TV on the tested `T15` windows, and the residual mean
+drops from about `0.00499` to `0.00254` over depths `0..4`.  The reduced
+candidate is therefore:
+
+```text
+U = Pi_v2 U + Q_v2 U,
+Pi_v2 U = finite/low-mode part,
+Q_v2 U  = residual to test with martingale LY.
+```
+
+This is only a diagnostic repair route.  It is not a theorem until
+`Pi_v2` is defined canonically for the operator and the residual is
+bounded in the chosen mixed norm.
+
 ## 5. Minimal Conditional Theorem
 
 A mathematically honest positive `A0` statement would have the form:

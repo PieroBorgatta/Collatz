@@ -304,6 +304,31 @@ not enough.  Continue Branch A only if the phase term receives a
 structural theorem, a new quotient/operator, or a proof that it is weak
 variation rather than strong variation.
 
+Script `115` gives the first plausible repair of that negative
+diagnosis.  The phase obstruction is not a small bad set, but it is
+largely a low destination mode.  On `T15_d4_tail1`, projection to
+destination capped valuation `dst_v2` captures an increasing fraction of
+phase-TV:
+
+```text
+depth 0: capture = 0.882872, residual mean = 0.00498962
+depth 1: capture = 0.892471, residual mean = 0.00449950
+depth 2: capture = 0.907563, residual mean = 0.00379658
+depth 3: capture = 0.925382, residual mean = 0.00304508
+depth 4: capture = 0.934651, residual mean = 0.00254440
+```
+
+This reopens a narrow Banach route:
+
+```text
+U = Pi_v2 U + Q_v2 U,
+Pi_v2 U finite-rank/low-mode,
+Q_v2 U subject to LY.
+```
+
+Continue toward LY only for this projected residual branch.  Do not
+claim that the original unprojected phase variation contracts.
+
 Current `A0/A1` decision rule:
 
 ```text
@@ -395,7 +420,10 @@ Stop analytic Phase 10 and write the finite-rank note if:
    norm;
 7. the phase martingale increment remains flat at larger genuine
    2-adic depths and no reduced/enriched operator removes it from the
-   LY strong norm.
+   LY strong norm;
+8. the `Q_v2` residual from the low-mode projection stops decaying or
+   cannot be represented by a canonical projection/lift in the operator
+   framework.
 
 This would not be a failure of the project.  It would mean the honest
 deliverable is finite-rank rather than analytic.
@@ -451,7 +479,8 @@ Make Branch B the active no-collaborator Phase-10 deliverable.
 Keep A1 as an archived secondary diagnostic, not a claim.
 Do not commit to the naive Z_2 martingale space without a new mechanism;
 the only live Banach route is the decomposed martingale pair:
-phase variation plus structured label-excess plus weak loss control.
+finite `dst_v2` low mode plus residual phase variation plus structured
+label-excess plus weak loss control.
 ```
 
 The relevant A0 bridge is now

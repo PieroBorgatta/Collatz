@@ -522,10 +522,17 @@ themselves, evidence of an infinite-dimensional spectral gap.
     broad half-space classes such as `source_v2=0` with mass `0.5` and
     contribution about `0.687`, leaving complement mean around
     `0.026--0.028`.
-- Next recommended task: attack `BoundaryVariation` and
-  `DepthDistortion` for the retained-return kernel.  If either fails for
-  all usable weight sequences, stop the analytic branch and keep the
-  finite-rank note as the main theorem-producing output.
+  - Script `115` finds a narrower positive route: the broad phase
+    obstruction is mostly a low destination mode.  Projection to
+    `dst_v2` captures `0.882872 -> 0.934651` of phase-TV over
+    `T15_d4_tail1` depths `0..4`, with residual mean
+    `0.00498962 -> 0.00254440`.  The only live LY repair is now
+    `U = Pi_v2 U + Q_v2 U`, with LY attempted on `Q_v2 U`.
+- Next recommended task: define the candidate projection `Pi_v2` and
+  residual `Q_v2` at the finite-kernel level, then test whether the
+  `Q_v2` residual satisfies a genuine mixed-norm/martingale decay
+  pattern.  Only after this should `BoundaryVariation` and
+  `DepthDistortion` be revisited for the residual operator.
 
 ### 2026-05-15 (Phase 10.B conditional closure attempt) — Codex + Piero Borgatta
 
