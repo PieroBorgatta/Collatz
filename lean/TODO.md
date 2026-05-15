@@ -529,11 +529,18 @@ themselves, evidence of an infinite-dimensional spectral gap.
     `0.00498962 -> 0.00254440`.  On the observable/Koopman side, the
     only live LY repair is now `U = U Pi_v2 + U Q_v2`, with LY attempted
     on `U Q_v2`.
+  - Script `116` tests whether this repair survives an explicit lift
+    inside each destination `v2` fiber.  The optimistic pair-dependent
+    residual is small (`0.00730881 -> 0.00440467` on depths `0..2`),
+    but global/uniform lifts are essentially as bad as phase TV, and a
+    finite `source PhaseState`-conditioned lift remains too large
+    (`0.0163037 -> 0.0197842`).  Thus `Pi_v2` is not yet a valid LY
+    repair without a richer canonical lift or new quotient.
 - Next recommended task: define the candidate projection `Pi_v2` and
-  residual `Q_v2` at the finite-kernel level, then test whether the
-  `Q_v2` residual satisfies a genuine mixed-norm/martingale decay
-  pattern.  Only after this should `BoundaryVariation` and
-  `DepthDistortion` be revisited for the residual operator.
+  residual `Q_v2` with a source-refined lift beyond bare
+  `source PhaseState`, or pause the analytic LY route and return to the
+  finite-rank deliverable.  Do not use the pair-dependent residual as a
+  theorem-level projection.
 
 ### 2026-05-15 (Phase 10.B conditional closure attempt) — Codex + Piero Borgatta
 

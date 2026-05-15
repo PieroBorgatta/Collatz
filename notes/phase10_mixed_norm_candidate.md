@@ -719,6 +719,75 @@ New proof obligations:
 
 This is now the cleanest way to state what "fixing LY" would mean.
 
+## 4.8 Explicit Lift Test for `Pi_v2`
+
+Script `116_projected_residual_lift.py` tests whether the low-mode
+repair survives after choosing an actual lift inside each destination
+`v2` fiber:
+
+```text
+scripts/spectral_program/collatz_116_T15_d2_tail3_global_projected_residual_lift_report.md
+scripts/spectral_program/collatz_116_T15_d2_tail3_source_projected_residual_lift_report.md
+```
+
+This is stricter than script `115`.  Script `115` measured the proxy
+
+```text
+TV_phase - TV_dst_v2.
+```
+
+Script `116` measures signed residuals after subtracting a lifted
+`dst_v2` low mode.
+
+Results on `T15_d2_tail3`:
+
+```text
+depth 0:
+  proxy_residual        = 0.00498962
+  pair_pooled_residual  = 0.00730881
+  global_pooled_residual = 0.0424848
+  source_pooled_residual = 0.0163037
+  uniform_residual      = 0.0424853
+
+depth 1:
+  proxy_residual        = 0.00449950
+  pair_pooled_residual  = 0.00581871
+  global_pooled_residual = 0.0423773
+  source_pooled_residual = 0.0182418
+  uniform_residual      = 0.0423781
+
+depth 2:
+  proxy_residual        = 0.00379658
+  pair_pooled_residual  = 0.00440467
+  global_pooled_residual = 0.0416961
+  source_pooled_residual = 0.0197842
+  uniform_residual      = 0.0416970
+```
+
+Interpretation:
+
+- the optimistic pair-dependent lift is small and decreasing;
+- a single global lift is essentially as bad as the original phase TV;
+- the uniform lift is also essentially as bad as the original phase TV;
+- even a finite `source PhaseState`-conditioned lift is not small enough
+  and increases over the tested depths;
+- therefore the simple canonical projection `Pi_v2` is not yet a valid
+  LY repair.
+
+The data say something precise: the phase obstruction is marginally
+low-mode in `dst_v2`, but the conditional distribution inside each
+`dst_v2` fiber varies with finer source/child information.  To turn this
+into a theorem, one would need either:
+
+1. a source-refined lift depending on a larger but still controlled
+   finite alphabet, with a proof that it is finite-rank/compact; or
+2. a different operator/quotient where the `dst_v2` fibers have a
+   canonical conditional law; or
+3. a proof that the pair-dependent residual estimate can be represented
+   by a legitimate Galerkin/projection scheme.
+
+Without one of these, the projected LY route remains blocked.
+
 ### Weak norm
 
 Use:

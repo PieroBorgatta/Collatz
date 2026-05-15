@@ -230,6 +230,14 @@ This is only a diagnostic repair route.  It is not a theorem until
 `Pi_v2` is defined canonically for the operator and the residual is
 bounded in the chosen mixed norm.
 
+The first explicit-lift test is negative for the simplest canonical
+versions.  The pair-dependent pooled lift gives a small residual, but a
+single global lift is essentially as large as the original phase
+variation, and a finite `source PhaseState`-conditioned lift remains
+around `0.016--0.020` on `T15_d2_tail3`.  Thus the low-mode repair is
+not yet a valid LY framework; it needs a richer source-refined lift or a
+new quotient.
+
 ## 5. Minimal Conditional Theorem
 
 A mathematically honest positive `A0` statement would have the form:

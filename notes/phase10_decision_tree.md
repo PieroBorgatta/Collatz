@@ -329,6 +329,26 @@ U Q_v2 subject to LY.
 Continue toward LY only for this projected residual branch.  Do not
 claim that the original unprojected phase variation contracts.
 
+Script `116` then tests whether this low-mode repair survives an actual
+lift inside the destination `v2` fibers.  Current answer: not with the
+obvious canonical lifts.  On `T15_d2_tail3`:
+
+```text
+depth 2:
+proxy_residual        = 0.00379658,
+pair_pooled_residual  = 0.00440467,
+global_pooled_residual = 0.0416961,
+source_pooled_residual = 0.0197842,
+uniform_residual      = 0.0416970.
+```
+
+The pair-dependent lift is encouraging but not canonical.  A global
+lift fails, and even a finite `source PhaseState`-conditioned lift is
+too large and increasing on depths `0..2`.  Therefore Branch A can
+continue only if a richer source-refined but still compact/finite-rank
+lift is defined, or if a new quotient makes the `dst_v2` fiber law
+canonical.
+
 Current `A0/A1` decision rule:
 
 ```text
@@ -423,7 +443,10 @@ Stop analytic Phase 10 and write the finite-rank note if:
    LY strong norm;
 8. the `Q_v2` residual from the low-mode projection stops decaying or
    cannot be represented by a canonical projection/lift in the operator
-   framework.
+   framework;
+9. the only small `Q_v2` residual remains pair-dependent, with global
+   and finite-source-conditioned lifts staying comparable to the
+   original phase obstruction.
 
 This would not be a failure of the project.  It would mean the honest
 deliverable is finite-rank rather than analytic.
