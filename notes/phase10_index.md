@@ -53,7 +53,7 @@ No spectral gap for an infinite operator has been proved.
 | `notes/phase10_gate10B_provisional_decision.md` | Gate 10.B provisional decision after diagnostics `88`-`98` |
 | `notes/phase10_mixed_norm_candidate.md` | Candidate Banach pair and exact mixed-norm target |
 | `notes/phase10_error_decomposition.md` | Named approximation-error budget for future diagnostics |
-| `notes/phase10_collaborator_brief.md` | External-facing questions for a functional analyst/dynamicist |
+| `notes/phase10_collaborator_brief.md` | Concise external A0-averaged go/no-go question for a functional analyst/dynamicist |
 | `notes/phase10_proof_obligations.md` | Missing hypotheses before LY/Hennion/Keller-Liverani |
 | `notes/phase10_decision_tree.md` | Operational go/no-go and publication routing criteria |
 | `notes/phase10_orientation.md` | Matrix orientation: row-source vs incoming/Ruelle |

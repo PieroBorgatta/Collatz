@@ -213,7 +213,8 @@ finite-rank theorem/certificate branch.
    interpretation of existing `FULL` matrices.
 4. Move `A1` to appendix/secondary status until a refined square norm is
    justified.
-5. Prepare a collaborator brief around exactly one question:
+5. Use `phase10_collaborator_brief.md` for collaborator review around
+   exactly one question:
 
 ```text
 Can the A0 averaged quotient be realized as a weak finite-rank

@@ -26,9 +26,12 @@ A1: refined low-residue branch on (PhaseState, t mod 2^10).
 ```
 
 `A0` is the only branch currently aligned with the existing Lean
-`TransferMatrix V` objects.  `A1` is a research branch motivated by
-source-collapse diagnostics; it requires destination-refined data before
-it can become a square spectral operator.
+`TransferMatrix V` objects.  The active interpretation is now
+`A0-averaged`: the phase matrix is an averaged finite-rank quotient, not
+an exact projection of the source-cell kernel.  `A1` is a research
+branch motivated by source-collapse diagnostics; it requires
+destination-refined data before it can become a square spectral
+operator.
 
 Continue Branch A only if the next work produces all of:
 
@@ -223,10 +226,10 @@ Continue Branch A only if this retained-label term is included in the
 mixed norm or controlled by a genuine labelled-kernel regularity
 argument.
 
-New `A0/A1` decision rule:
+Current `A0/A1` decision rule:
 
 ```text
-Keep A0 as the main branch for existing FULL/Lean objects.
+Keep A0-averaged as the main branch for existing FULL/Lean objects.
 Keep A1 as secondary unless refined-square drift becomes competitive
 with A0 or a Banach norm explains the larger drift constant.
 ```
@@ -242,7 +245,9 @@ A1 rlo10 square drift at T12:
 ```
 
 Thus `A1` is not killed, because it decreases, but it is not currently
-the lead analytic branch.
+the lead analytic branch.  The next go/no-go judgment is not another
+diagnostic; it is whether a collaborator accepts `A0-averaged` as a
+legitimate weak finite-rank approximation scheme.
 
 ## 5. Branch B: Finite-Rank Fallback
 
@@ -278,7 +283,7 @@ Do not promote Branch B beyond its finite scope if:
 
 Ask for specialist collaboration if:
 
-- Branch A has a plausible `K` but no obvious Banach space;
+- `A0-averaged` is plausible but its approximation status is unclear;
 - local tails require a nonstandard drift/tightness argument;
 - countable Markov shift/Sarig hypotheses look possible but unverified;
 - Hennion compactness is unclear;
@@ -299,9 +304,10 @@ Stop analytic Phase 10 and write the finite-rank note if:
 2. the only available spaces make `K` unbounded;
 3. local tails cannot be controlled uniformly or by exceptional mass;
 4. finite kernels have no stable high-bit limit;
-5. the projection relation remains purely verbal.
-6. `A0` source-collapse error does not decay and `A1` refined-square
-   drift stays too large for any plausible weak norm.
+5. the `A0-averaged` finite-rank interpretation is rejected as
+   non-canonical or normless;
+6. `A1` refined-square drift stays too large for any plausible weak
+   norm.
 
 This would not be a failure of the project.  It would mean the honest
 deliverable is finite-rank rather than analytic.
@@ -348,7 +354,7 @@ Current best decision:
 
 ```text
 Continue A0 only as a conditional kernel/Banach-space program for the
-existing FULL matrices.
+existing FULL matrices, explicitly under the A0-averaged interpretation.
 Keep A1 as a secondary refined-square research branch, not a claim.
 Develop Branch B in parallel as the reliable finite theorem.
 Seek collaborator review before invoking Hennion or Keller-Liverani.

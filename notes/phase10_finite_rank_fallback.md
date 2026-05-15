@@ -448,12 +448,14 @@ Additional K20 promotion criteria:
 Use this branch as:
 
 - a baseline section inside v4 if the analytic branch remains coherent;
-- a standalone finite-rank computational note if Gate 10.B fails;
+- a standalone finite-rank computational note if the `A0-averaged`
+  interpretation is rejected or Gate 10.B otherwise fails;
 - an appendix/certificate archive if a stronger analytic paper is later
   written.
 
 Do not use this branch as evidence for an infinite spectral gap unless
-Gate 10.B and the projection/convergence hypotheses are solved.
+Gate 10.B and the averaged finite-rank convergence hypotheses are
+solved.
 
 The standalone-note outline is now separated in:
 

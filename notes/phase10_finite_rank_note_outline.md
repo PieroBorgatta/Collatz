@@ -261,8 +261,17 @@ Before K20 can be stated as a theorem candidate:
 If Gate 10.B succeeds, this finite-rank certificate can be a baseline or
 appendix.
 
-If Gate 10.B fails, this finite-rank certificate becomes the cleanest
-Phase-10 output:
+Under the current reduction, Gate 10.B for the existing `FULL` matrices
+means validating the `A0-averaged` interpretation:
+
+```text
+K_N^0 is an averaged PhaseState finite-rank quotient,
+not an exact projection of the source-cell kernel.
+```
+
+If a collaborator rejects that interpretation, or if no Banach weak norm
+can make it meaningful, Gate 10.B fails for the analytic branch.  In that
+case this finite-rank certificate becomes the cleanest Phase-10 output:
 
 ```text
 an honest finite theorem with exact arithmetic and Lean verification.
@@ -284,4 +293,4 @@ The note still needs:
   Lean file as the stable artifact;
 - a manifest/hash table for external reproducibility;
 - a clean comparison paragraph distinguishing this finite certificate
-  from the Phase-10 analytic operator program.
+  from the Phase-10 `A0-averaged` analytic operator program.
