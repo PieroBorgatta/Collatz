@@ -361,11 +361,16 @@ Use if:
 Current best decision:
 
 ```text
-Pause A0 as a conditional appendix/program note for the existing FULL
-matrices, explicitly under the A0-averaged interpretation.
+Reopen A0 only in the narrow Haar-conditional-expectation sense:
+X = Z_2 x H, killed forward kernel U_s, and conditional expectation
+onto sigma(PhaseState).
 Do not invoke Hennion or Keller-Liverani without a new proof-quality
 operator/norm bridge.
 Make Branch B the active no-collaborator Phase-10 deliverable.
 Keep A1 as an archived secondary diagnostic, not a claim.
 Do not commit to the naive Z_2 martingale space without a new mechanism.
 ```
+
+The relevant A0 bridge is now
+`notes/phase10_gate10B_conditional_closure.md`.  It is a conditional
+Gate-10.B closure attempt, not a spectral theorem.

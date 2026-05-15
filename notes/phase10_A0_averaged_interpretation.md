@@ -6,6 +6,10 @@ Status: active interpretation note for the `A0` branch.  This note does
 not prove Gate 10.B.  It records the conservative choice that the
 existing `PhaseState`/`FULL` branch should be treated as an averaged
 finite-rank approximation program, not as an exact projection program.
+The narrow conditional closure attempt is now recorded in
+`phase10_gate10B_conditional_closure.md`: `A0-averaged` may be a
+Haar/cylinder conditional expectation of a killed forward kernel on
+`Z_2 x H`, subject to provenance and boundary hypotheses.
 
 ## 1. Decision
 

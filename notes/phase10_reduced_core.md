@@ -214,9 +214,10 @@ finite-rank theorem/certificate branch.
    interpretation of existing `FULL` matrices.
 4. Move `A1` to appendix/secondary status until a refined square norm is
    justified.
-5. Under the no-collaborator route, pause `A0` as a conditional
-   appendix/program note and make `phase10_finite_rank_note_outline.md`
-   the active main deliverable.
+5. Under the no-collaborator route, keep the finite-rank note as the
+   active rigorous deliverable, but test the narrow
+   `A0_HaarConditionalClosure` bridge in
+   `phase10_gate10B_conditional_closure.md`.
 
 The archived collaborator question remains:
 

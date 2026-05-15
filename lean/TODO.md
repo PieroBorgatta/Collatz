@@ -411,10 +411,14 @@ switch to the finite-rank fallback branch 10.G and treat that branch as
 the main Phase-10 output rather than a side result.
 
 Current 2026-05-15 route: no collaborator is being pursued.  Therefore
-`A0-averaged` is paused as a conditional appendix/program note, Hennion
-and Keller-Liverani are not invoked as active claims, and the active
-Phase-10 deliverable is the finite-rank computational note around the
-K16 deterministic `(K,b)` Collatz-Wielandt certificate.
+Hennion and Keller-Liverani are not invoked as active claims, and the
+active rigorous deliverable remains the finite-rank computational note
+around the K16 deterministic `(K,b)` Collatz-Wielandt certificate.
+However, 10.B has a narrower conditional closure attempt:
+`A0-averaged` may be interpreted as a Haar/cylinder conditional
+expectation of a killed weighted forward kernel on `Z_2 x H`, provided
+the provenance and boundary hypotheses in
+`notes/phase10_gate10B_conditional_closure.md` are checked.
 
 Recommended sequencing:
 
@@ -426,9 +430,9 @@ Recommended sequencing:
 | ID | Status | Task | Acceptance criterion |
 |----|--------|------|----------------------|
 | 10.A | [x] | Build a literature/hypothesis matrix for Lasota-Yorke, Hennion, Keller-Liverani, Baladi, Sarig/BIP, Bowen, GDMS/countable shifts, and relevant $p$-adic/non-archimedean dynamics. Include a Chang 2026 compatibility column. | `notes/phase10_literature_matrix.md` records theorem hypotheses and match/gap/unknown status. The matrix remains background for the paused analytic branch. |
-| 10.B | [!] | Identify the correct infinite phase space / quotient behind `FULL_{T,j}` and `full_T`. | Gate 10.B is not closed positively. The best current interpretation is `A0-averaged`: an averaged PhaseState finite-rank quotient, not an exact projection. Without collaborator review or an internal proof-quality weak approximation theorem, this routes Phase 10 to 10.G. |
-| 10.C | [~] | Compare candidate Banach spaces. Candidates include $2$-adic Lipschitz/Hölder spaces on a refined quotient, weighted symbolic spaces, and variation-type spaces on residue trees. | Candidate-space notes exist, but no Banach pair is accepted as an active proof framework. This is paused under the no-collaborator route. |
-| 10.D | [~] | Formulate the transfer operator explicitly. | Candidate `U_K`/push-forward/Ruelle orientations were separated. The compatible branch is `A0-averaged`/forward-kernel style, but it is conditional and not used for the finite-rank theorem. |
+| 10.B | [~] | Identify the correct infinite phase space / quotient behind `FULL_{T,j}` and `full_T`. | Conditional closure attempt in `notes/phase10_gate10B_conditional_closure.md`: define `X = Z_2 x H`, Haar/counting source measure, killed forward kernel `U_s`, and interpret `A0-averaged` as conditional expectation onto `sigma(PhaseState)`. This is not an exact projection and does not imply spectral claims. Remaining work: provenance checks for generated `FULL` matrices and proof-quality boundary/martingale statements. |
+| 10.C | [~] | Compare candidate Banach spaces. Candidates include $2$-adic Lipschitz/Hölder spaces on a refined quotient, weighted symbolic spaces, and variation-type spaces on residue trees. | Candidate-space notes exist, but no Banach pair is accepted as a spectral proof framework. Under the conditional 10.B closure, the only active weak space is source-measure `L1`/bounded-observable control for conditional expectations. |
+| 10.D | [~] | Formulate the transfer operator explicitly. | Candidate `U_K`/push-forward/Ruelle orientations were separated. The compatible branch is now the killed forward kernel on `Z_2 x H` used in `A0_HaarConditionalClosure`; Ruelle/preimage language remains inactive. |
 | 10.E | [~] | State a target Lasota-Yorke-type inequality. | Conditional targets exist only as program skeletons. No Lasota-Yorke inequality is claimed. |
 | 10.F | [~] | Write conditional skeletons for Hennion and Keller-Liverani. | Conditional skeletons exist only as non-claims. Hennion/Keller-Liverani are not active without a proof-quality operator/norm bridge. |
 | 10.G | [x] | Finite-rank / truncated-operator fallback branch. | Active no-collaborator deliverable. `notes/phase10_finite_rank_note_outline.md` now states the finite K16 theorem scope, exact CW proof paragraph, stable artifacts, manifest/hash table, verification commands, sensitivity checks, limitations, and relation to `A0-averaged`. |
@@ -467,6 +471,42 @@ themselves, evidence of an infinite-dimensional spectral gap.
 > - Notes: any blockers, open questions, things the next session should know
 > - Next recommended task: X.Y
 > ```
+
+### 2026-05-15 (Phase 10.B conditional closure attempt) — Codex + Piero Borgatta
+
+- Tasks advanced: 10.B, 10.C, 10.D.
+- Artifacts added/modified:
+  - `notes/phase10_gate10B_conditional_closure.md`
+  - `notes/phase10_A0_averaged_interpretation.md`
+  - `notes/phase10_decision_tree.md`
+  - `notes/phase10_reduced_core.md`
+  - `lean/TODO.md`
+- Notes:
+  - A possible no-collaborator solution to 10.B was identified, but only
+    in a weak conditional-expectation sense.
+  - The proposed infinite source model is `X = Z_2 x H` with
+    Haar/counting measure, killed return domain `D`, return map `tau`,
+    return exponent `delta`, and source observation
+    `pi_V : X -> PhaseState V`.
+  - The active candidate operator is the killed weighted forward kernel
+    `(U_s f)(x,h) = 1_D(x,h) 2^{-s delta(x,h)}
+    f(pi_V(tau(x,h)))`.
+  - The A0 quotient is interpreted as
+    `E_mu[U_s 1_q | sigma(pi_V)]`, i.e. a conditional expectation, not
+    an exact projection and not a claim that source-cell rows are
+    constant on PhaseState fibers.
+  - Script 107 already verifies finite bookkeeping for the current
+    prefix data: row-source residuals are zero and the mixed-cell
+    correction at `T=15` is `8/131072`, giving error coefficient
+    `0.0001220703125 * ||F||_infty`.
+  - Remaining gates: prove/mechanize the boundary residual
+    `O(2^{-T})`, prove the cylinder/Haar martingale convergence
+    statement, and add provenance checks for each generated Lean
+    `FULL` matrix.
+- Next recommended task: write a provenance checker for
+  `T10CriticalSymbolic` and `T10J32HighBitTail`, or write the
+  `A0_HaarConditionalClosure` proposition in paper-ready form. Do not
+  infer Hennion/Keller-Liverani or spectral gaps from this.
 
 ### 2026-05-15 (Phase 10 no-collaborator route) — Codex + Piero Borgatta
 
