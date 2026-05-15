@@ -271,6 +271,16 @@ Current verification:
 Build completed successfully (3302 jobs).
 ```
 
+Reverified locally on 2026-05-15 after the projected-LY lift tests:
+
+```text
+python verifier: status=OK,
+max_ratio=90833233962213/129559208330288,
+max_node=K11:b2.
+
+Lean build: Build completed successfully (3302 jobs).
+```
+
 Stable artifact convention:
 
 ```text

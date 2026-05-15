@@ -482,6 +482,7 @@ themselves, evidence of an infinite-dimensional spectral gap.
   - `scripts/spectral_program/collatz_112_martingale_variation_proxy_report.md`
   - `scripts/spectral_program/116_projected_residual_lift.py`
   - `scripts/spectral_program/collatz_116_T15_d2_tail3_refined_projected_residual_lift_report.md`
+  - `notes/phase10_finite_rank_note_outline.md`
 - Notes:
   - The active no-collaborator analytic candidate is now a concrete
     Banach pair, not a generic Hölder analogy: `B_s` is
@@ -543,6 +544,12 @@ themselves, evidence of an infinite-dimensional spectral gap.
     refinement does not close the lift problem: at depth `2`,
     `source_refined_b8_residual = 0.0196251`, still far above the
     pair-dependent residual `0.00440467`.
+  - After this negative result, the finite-rank K16 fallback was
+    reverified as the active rigorous deliverable:
+    `python3 scripts/phantom_taxonomy/scc_cw_certificate.py --verify ...`
+    returns `status=OK`, and
+    `lake build CollatzShadowing.Generated.K16S16KDeterministicCW`
+    succeeds with `3302 jobs`.
 - Next recommended task: do not merely increase the residue refinement
   parameter.  Either identify a new quotient/Galerkin interpretation
   that makes the pair-dependent lift canonical, or pause the analytic LY
