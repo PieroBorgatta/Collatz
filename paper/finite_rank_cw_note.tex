@@ -1,0 +1,308 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{seqsplit}
+
+\geometry{margin=2.8cm}
+\setlength{\emergencystretch}{3em}
+\sloppy
+
+\newcommand{\ttbr}[1]{\ifmmode\text{\texttt{\seqsplit{#1}}}\else\texttt{\seqsplit{#1}}\fi}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\rhoM}{\rho}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{A Lean-Checked Finite-Rank Collatz--Wielandt Certificate}
+\author{Piero Borgatta}
+\date{Draft, May 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We isolate a finite theorem from the Collatz phantom-shadowing
+pipeline.  For the declared \(K_0=16\), \(S16\), SCC-rank-1
+deterministic residue-cell shadowing model, compressed to the
+37-state macro-state space \((K,b)\), an exact generated
+Collatz--Wielandt certificate proves
+\[
+  Mv \leq \frac34 v
+\]
+coordinatewise for a strictly positive rational vector \(v\).  Hence
+the spectral radius of this declared finite matrix satisfies
+\(\rho(M)\leq 3/4\).  The coordinatewise rational inequalities are
+checked in Lean.  No infinite transfer operator, spectral gap,
+asymptotic limit, or Collatz theorem is claimed.
+\end{abstract}
+
+\section{Finite scope}
+
+This note proves a finite statement only.  It concerns one declared
+finite substochastic matrix \(M\), built from a deterministic
+residue-cell shadowing model at \(K_0=16\), and one generated exact
+Collatz--Wielandt vector.  It does not prove any statement for all
+Collatz trajectories, convergence as \(K_0\to\infty\), convergence as
+the residue lift parameter increases, an infinite-dimensional spectral
+gap, Conjecture 6 of the companion program, or the Collatz conjecture.
+
+The point of the note is therefore modest but rigorous: within the
+declared finite model, the spectral-radius bound is an exact arithmetic
+certificate imported into Lean.
+
+\section{The declared finite model}
+
+The production input is the \(K_0=16\), \(S16\), SCC-rank-1 source set
+from the phantom-taxonomy pipeline.  It is read from
+\[
+\ttbr{scripts/phantom_taxonomy/phantom_representatives_k3_16.csv}
+\]
+and
+\[
+\ttbr{scripts/phantom_taxonomy/orbit_harness_k16_s16_scc_nodes.csv}.
+\]
+Each raw source node has the form \(w:b\), where \(w\) is a phantom
+representative key and \(b\) is the monitored 2-adic depth parameter.
+Only rows with \(\ttbr{scc\_rank}=1\) are admitted as production source
+nodes.
+
+For each raw source node \(w:b\), the deterministic enumeration splits
+the monitored congruence class into
+\[
+  0 \leq t < 2^{\ttbr{lift\_bits}},
+  \qquad \ttbr{lift\_bits}=4.
+\]
+Writing \(A_w\) for the total parity length of \(w\), the corresponding
+starting integer has the form
+\[
+  n_0 = q_w \bmod 2^{bA_w+1} + t\,2^{bA_w+1}.
+\]
+The generator first checks whether the best monitored phantom hit at
+\(n_0\) is exactly the declared source node \(w:b\).  If a finer or
+stronger monitored phantom owns \(n_0\), the class is counted as
+\(\ttbr{shadowed\_initial}\) and is not a source event.  Otherwise the
+class is canonical and is traced deterministically until it hits a
+different monitored node in the declared SCC, exits the SCC, drops below
+the starting value, or reaches the step budget.
+
+For the production K16 run there are no budget exits.  The coverage
+summary is:
+\[
+\begin{array}{lr}
+\text{raw SCC source nodes} & 1240\\
+\text{finite residue cells} & 19840\\
+\text{canonical source cells} & 17671\\
+\text{shadowed initial cells} & 2169\\
+\text{budget exits} & 0\\
+\text{internal SCC transitions} & 17176\\
+\text{exits below start} & 495.
+\end{array}
+\]
+
+\section{The \((K,b)\) compression}
+
+The raw deterministic model has one row for each canonical residue
+source cell.  The certified theorem compresses those rows to the
+macro-state
+\[
+  (K,b),
+\]
+where \(K\) records the representative class or complexity level used
+by the phantom-taxonomy pipeline and \(b\) records the monitored 2-adic
+depth.  The compression forgets the representative key \(w\), but keeps
+the two coordinates used in the production certificate.
+
+Thus the certified matrix is not the full raw source-cell transition
+matrix.  It is the declared 37-state finite quotient used by the
+theorem.  No claim is made that \((K,b)\) is an asymptotically complete
+state coordinate.
+
+The certified matrix file is
+\[
+\ttbr{scripts/phantom_taxonomy/deterministic_k16_s16_residue_K_edges.csv}.
+\]
+It has 37 states, 182 nonzero internal edge types, 17671 source events,
+17176 internal hits, and 495 substochastic exits.  The decimal
+diagnostic \(\rho\approx0.701094388677\) is not the certificate.  The
+certificate is the exact Collatz--Wielandt inequality below.
+
+\section{Finite Collatz--Wielandt certificate}
+
+The Lean matrix uses the incoming convention
+\[
+  M(\mathrm{dst},\mathrm{src})
+  =
+  \Pr(\mathrm{src}\to\mathrm{dst}).
+\]
+The finite theorem is stated for this exact orientation.
+
+\begin{lemma}[Finite Collatz--Wielandt bound]
+Let \(M\) be a finite nonnegative matrix.  If \(v_i>0\) for every
+coordinate and
+\[
+  Mv \leq \alpha v
+\]
+coordinatewise, then \(\rhoM(M)\leq \alpha\).
+\end{lemma}
+
+\begin{proof}
+Use the weighted sup norm
+\[
+  \|x\|_v=\max_i \frac{|x_i|}{v_i}.
+\]
+If \(\|x\|_v\leq c\), then \(|x_j|\leq c v_j\) for every \(j\).
+Since \(M\) is nonnegative,
+\[
+  |(Mx)_i|
+  \leq \sum_j M_{ij}|x_j|
+  \leq c\sum_j M_{ij}v_j
+  = c(Mv)_i
+  \leq c\alpha v_i.
+\]
+Hence \(\|Mx\|_v\leq \alpha\|x\|_v\), so the operator norm of \(M\) in
+this finite-dimensional norm is at most \(\alpha\).  The spectral radius
+is bounded by every operator norm, and therefore \(\rhoM(M)\leq\alpha\).
+\end{proof}
+
+For the K16 certificate,
+\[
+  \alpha=\frac34,
+  \qquad
+  \max_i\frac{(Mv)_i}{v_i}
+  =
+  \frac{90833233962213}{129559208330288}
+  < \frac34.
+\]
+Equivalently,
+\[
+  4\cdot 90833233962213
+  <
+  3\cdot 129559208330288.
+\]
+
+\begin{theorem}[Certified K16 finite-rank bound]
+For the declared K16 deterministic residue-cell \((K,b)\) matrix,
+the generated positive rational vector \(v\) satisfies
+\[
+  Mv \leq \frac34 v.
+\]
+Consequently the finite real matrix has spectral radius at most
+\[
+  \rhoM(M)\leq\frac34.
+\]
+\end{theorem}
+
+\begin{proof}
+The coordinatewise rational inequalities and positivity of \(v\) are
+checked by the generated Lean module
+\[
+\ttbr{lean/CollatzShadowing/Generated/K16S16KDeterministicCW.lean}.
+\]
+The preceding finite Collatz--Wielandt lemma then gives the spectral
+radius bound.
+\end{proof}
+
+\section{Lean boundary}
+
+The relevant Lean declarations are:
+\[
+\begin{array}{l}
+\ttbr{k16s16KDeterministicMaxRatio\_lt\_alpha},\\
+\ttbr{k16s16KDeterministicVectorNat\_pos},\\
+\ttbr{k16s16KDeterministicFiniteCWCertificate},\\
+\ttbr{k16s16KDeterministicGeneratedSpectralRadiusBound}.
+\end{array}
+\]
+The module builds with:
+\[
+\ttbr{cd lean}
+\qquad
+\ttbr{lake build CollatzShadowing.Generated.K16S16KDeterministicCW}.
+\]
+
+The Python verifier for the JSON certificate reports:
+\[
+\begin{array}{ll}
+\ttbr{alpha} & 3/4,\\
+\ttbr{max\_ratio} & 90833233962213/129559208330288,\\
+\ttbr{max\_node} & \ttbr{K11:b2},\\
+\ttbr{status} & \ttbr{OK}.
+\end{array}
+\]
+
+\section{Sensitivity checks}
+
+The Lean certificate uses \(\ttbr{lift\_bits}=4\).  Non-Lean sensitivity
+checks at nearby lift depths also remain below \(3/4\):
+\begin{center}
+\begin{tabular}{rrrrp{0.34\textwidth}}
+\toprule
+\ttbr{lift\_bits} & source cells & canonical cells
+& edge types & exact max ratio\\
+\midrule
+4 & 19840 & 17671 & 182
+& 90833233962213/129559208330288\\
+5 & 39680 & 35331 & 190
+& 7332495524923/10616480126384\\
+6 & 79360 & 70667 & 209
+& 64869145309473/97226913303232\\
+\bottomrule
+\end{tabular}
+\end{center}
+These checks support robustness inside nearby finite refinements.  They
+do not prove a limit in \(\ttbr{lift\_bits}\).
+
+\section{Reproducibility}
+
+\begin{center}
+\small
+\begin{tabular}{p{0.42\textwidth}rp{0.38\textwidth}}
+\toprule
+Artifact & Lines & SHA-256\\
+\midrule
+\ttbr{lean/CollatzShadowing/Generated/K16S16KDeterministicCW.lean}
+& 2981 & \ttbr{e5c64ba7c7cf83bae481055cb475384fff9cdeaec17a3d428d2d3b8ea64d1abb}\\
+\ttbr{scripts/phantom_taxonomy/deterministic_k16_s16_residue_manifest.json}
+& 54 & \ttbr{57cc39b14b483caa31c720bf0a0adda51937b5301e27dc740c749c07aef66210}\\
+\ttbr{scripts/phantom_taxonomy/deterministic_k16_s16_residue_K_cw_certificate.json}
+& 1181 & \ttbr{bad2d1536ce3d3df2c841e98b39b3dbfc7c8374ff5aeeecded28c331dc1546ee}\\
+\ttbr{scripts/phantom_taxonomy/deterministic_k16_s16_residue_K_edges.csv}
+& 183 & \ttbr{b2e6980ebaee7fe7e07bb9e4ea9944b51245fd5586b3aa45cf08c75fbc5d7954}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Relation to the Phase-10 analytic program}
+
+This finite-rank certificate and the Phase-10 \(A0\)-averaged operator
+program answer different questions.  The certificate is an exact
+statement about one declared finite substochastic matrix and a
+Lean-checked Collatz--Wielandt vector.  The \(A0\)-averaged program asks
+whether a family of phase quotients can approximate a natural infinite
+killed operator in a weak operator norm.
+
+The former is rigorous at K16.  The latter remains conditional.  The
+finite spectral-radius bound above does not use, imply, or require an
+infinite transfer operator.
+
+\section{Limitations}
+
+This theorem is finite-rank only.  It does not assert that the K16 matrix
+is a projection, truncation, Galerkin approximation, or Ulam
+discretization of a natural infinite transfer operator.  It does not
+assert convergence in \(K\), in \(\ttbr{lift\_bits}\), or in any
+2-adic/cylinder limit.  It does not imply a spectral gap for Collatz
+dynamics and does not prove Conjecture 6 or the Collatz conjecture.
+
+\end{document}

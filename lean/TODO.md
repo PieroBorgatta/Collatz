@@ -477,6 +477,7 @@ themselves, evidence of an infinite-dimensional spectral gap.
   - `notes/phase10_decision_tree.md`
   - `notes/phase10_finite_rank_note_outline.md`
   - `notes/phase10_collaborator_brief.md`
+  - `paper/finite_rank_cw_note.tex`
 - Notes:
   - Piero requested explicitly to proceed without a collaborator.
   - Gate 10.B remains open: no exact infinite projection, spectral gap,
@@ -492,10 +493,14 @@ themselves, evidence of an infinite-dimensional spectral gap.
     from the repository root, and
     `lake build CollatzShadowing.Generated.K16S16KDeterministicCW`
     from `lean/`.
-- Next recommended task: convert
-  `notes/phase10_finite_rank_note_outline.md` into the selected output
-  form: v4 section, standalone note, or supplementary computational
-  note. Do not resume analytic Phase 10 unless an internal proof-quality
+  - A first standalone TeX draft now exists as
+    `paper/finite_rank_cw_note.tex`; local LaTeX rendering was not
+    available in the Codex shell (`pdflatex`, `xelatex`, `lualatex`, and
+    `tectonic` were not found).
+- Next recommended task: render and polish
+  `paper/finite_rank_cw_note.tex` in an environment with LaTeX, or
+  decide whether to merge it into v4 as a section/supplement. Do not
+  resume analytic Phase 10 unless an internal proof-quality
   operator/norm bridge is found.
 
 ### 2026-05-13 (Phase 9 v3 publication synced) — Codex + Piero Borgatta
