@@ -167,6 +167,46 @@ T_{N,L}^b
 Gate 10.B is not a spectral question until these errors are placed in a
 declared weak operator norm.
 
+## 4.1 Banach-Pair Reduction After Martingale Diagnostics
+
+The serious candidate pair is now:
+
+```text
+B_w = L1(mu),
+B_s = L_infty + weighted martingale variation on Haar cylinders.
+```
+
+Compactness `B_s -> B_w` follows formally from martingale truncation:
+
+```text
+||f - E_N f||_1 <= a_{N+1}^{-1} Var_a(f).
+```
+
+The issue is not compactness.  The issue is whether the retained
+operator satisfies a Lasota-Yorke inequality:
+
+```text
+Var_a(U_ret,s f) <= alpha Var_a(f) + C ||f||_1,
+alpha < 1.
+```
+
+The first child-cylinder martingale proxy is cautionary.  The observed
+phase increments are large and nearly flat, while full/delta increments
+increase on the available depths.  Therefore the only reduced analytic
+target worth keeping is:
+
+```text
+phase martingale variation
++ structured label-excess correction
++ weak substochastic loss/status control.
+```
+
+This is stricter than the earlier `C_N/P_N/T_N` bookkeeping.  It says
+that `P_N` must be decomposed by mechanism, not just made numerically
+small in aggregate.  If the phase martingale increment does not decay at
+larger genuine 2-adic depths, the Banach-pair route should remain
+paused even though the finite-rank branch remains valid.
+
 ## 5. Minimal Conditional Theorem
 
 A mathematically honest positive `A0` statement would have the form:

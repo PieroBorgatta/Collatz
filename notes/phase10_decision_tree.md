@@ -226,6 +226,53 @@ Continue Branch A only if this retained-label term is included in the
 mixed norm or controlled by a genuine labelled-kernel regularity
 argument.
 
+The martingale Banach-pair attempt now has a sharper diagnostic.  Script
+`112` reads script-`100` child-cylinder TV as a finite proxy for
+martingale increments `||d_n K||_1`.  On the current `T=15` windows:
+
+```text
+phase increments, depths 0..3:
+0.0425999 -> 0.0418446 -> 0.0410719 -> 0.0408087
+
+full increments, depths 0..3:
+0.0526182 -> 0.0544645 -> 0.0575895 -> 0.0606241
+
+delta increments, depths 0..3:
+0.0413820 -> 0.0452396 -> 0.0502739 -> 0.0549879
+```
+
+This blocks any near-term claim that an exponential martingale
+variation norm is naturally contracting.  Continue the Banach-pair
+branch only as a decomposed norm program, not as a full-label BV claim.
+
+Script `113` gives the current decomposed target:
+
+```text
+phase martingale variation
++ structured label-excess correction
++ weak substochastic loss/status control.
+```
+
+Current split-budget warning:
+
+```text
+T15 depth 2: phase = 0.0410719, label-excess = 0.0165176,
+             status/loss = 0.0292443.
+T16 depth 1: phase = 0.0443541, label-excess = 0.0193176,
+             status/loss = 0.0337435.
+```
+
+The phase term is the main obstruction because it is large and nearly
+flat.  The label-excess term is more promising because
+`source_odd_3_or_v2_2` captures about `0.808025` of the `T15` depth-2
+full-over-phase excess and about `0.829186` of the `T16` depth-1 excess,
+with complement p95 `0` in both cases.
+
+New Branch-A criterion: do not proceed toward Hennion/Keller-Liverani
+until either the phase martingale increment decays at larger genuine
+2-adic depths, or a structural theorem explains why this flat phase
+component is not part of the strong variation that enters LY.
+
 Current `A0/A1` decision rule:
 
 ```text
@@ -314,7 +361,10 @@ Stop analytic Phase 10 and write the finite-rank note if:
 5. the `A0-averaged` finite-rank interpretation remains unvalidated,
    non-canonical, or normless;
 6. `A1` refined-square drift stays too large for any plausible weak
-   norm.
+   norm;
+7. the phase martingale increment remains flat at larger genuine
+   2-adic depths and no reduced/enriched operator removes it from the
+   LY strong norm.
 
 This would not be a failure of the project.  It would mean the honest
 deliverable is finite-rank rather than analytic.
@@ -368,7 +418,9 @@ Do not invoke Hennion or Keller-Liverani without a new proof-quality
 operator/norm bridge.
 Make Branch B the active no-collaborator Phase-10 deliverable.
 Keep A1 as an archived secondary diagnostic, not a claim.
-Do not commit to the naive Z_2 martingale space without a new mechanism.
+Do not commit to the naive Z_2 martingale space without a new mechanism;
+the only live Banach route is the decomposed martingale pair:
+phase variation plus structured label-excess plus weak loss control.
 ```
 
 The relevant A0 bridge is now
