@@ -500,6 +500,12 @@ themselves, evidence of an infinite-dimensional spectral gap.
     output is cautionary: on the available `T=15` windows, phase
     increments are nearly flat/slightly decreasing, while full and
     delta increments increase over the tested depths.
+  - Existing script-`102` enriched-state diagnostics suggest the
+    label-excess obstruction is structurally concentrated: at `T=15`,
+    depth `2`, `source_odd_3_or_v2_2` carries about `0.808025` of
+    full-over-phase excess on mass `0.562469`, with complement p95 `0`.
+    This supports splitting phase variation from structured label
+    excess rather than forcing one full-label martingale norm.
 - Next recommended task: attack `BoundaryVariation` and
   `DepthDistortion` for the retained-return kernel.  If either fails for
   all usable weight sequences, stop the analytic branch and keep the

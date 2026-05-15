@@ -386,6 +386,59 @@ are not yet proved to equal `E_N U_ret,s I_N`.  But it is a serious
 warning: the next analytic work must reduce or explain these increments,
 not just choose smoother notation.
 
+## 4.3 State-Enrichment Implication
+
+The existing enriched-state diagnostic
+
+```text
+scripts/spectral_program/collatz_102_T15_d2_tail3_enriched_state_test_report.md
+```
+
+shows that part of the non-phase labelled variation is structurally
+concentrated.  At `T=15`, depth `2`, for the candidate stratum
+
+```text
+source_odd_3_or_v2_2,
+```
+
+the full-over-phase excess has:
+
+```text
+selected mass          = 0.562469,
+selected contribution  = 0.808025,
+complement mean        = 0.00724742,
+global mean            = 0.0165176,
+complement p95         = 0.
+```
+
+This is not enough to control full TV itself, but it changes the
+Banach-pair strategy.  The current martingale variation should not be
+asked to control all labelled oscillation uniformly.  A more plausible
+decomposition is:
+
+```text
+phase martingale variation
++ explicit finite/structured label-excess term
++ weighted tail/loss term.
+```
+
+Equivalently, an enriched symbolic state may be needed only for the
+label-excess obstruction, while the present `PhaseState` kernel remains
+the phase-only object aligned with generated `FULL`.
+
+The next finite diagnostic should therefore separate:
+
+```text
+Var_phase,n,
+Var_label_excess,n,
+Var_loss,n,
+```
+
+rather than reporting only `Var_full,n`.  If the label-excess increment
+is summable after extracting a small number of structural strata, the
+martingale pair remains alive.  If the complement full TV stays
+nondecaying, the analytic branch should be downgraded again.
+
 ### Weak norm
 
 Use:
