@@ -199,7 +199,8 @@ becomes structural:
 - `P_N^0` stops decreasing in the declared weak norm;
 - tail/killing error cannot be controlled except by ad hoc exclusions;
 - `A1` remains too noisy and no norm explains the larger drift;
-- no collaborator can identify a credible Banach-space bridge.
+- no collaborator validation is being pursued and no internal proof
+  supplies a credible Banach-space bridge.
 
 This is not project failure.  It means the rigorous deliverable is the
 finite-rank theorem/certificate branch.
@@ -213,8 +214,11 @@ finite-rank theorem/certificate branch.
    interpretation of existing `FULL` matrices.
 4. Move `A1` to appendix/secondary status until a refined square norm is
    justified.
-5. Use `phase10_collaborator_brief.md` for collaborator review around
-   exactly one question:
+5. Under the no-collaborator route, pause `A0` as a conditional
+   appendix/program note and make `phase10_finite_rank_note_outline.md`
+   the active main deliverable.
+
+The archived collaborator question remains:
 
 ```text
 Can the A0 averaged quotient be realized as a weak finite-rank

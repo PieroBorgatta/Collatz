@@ -2,8 +2,10 @@
 
 Date: 2026-05-15
 
-Status: concise external-facing brief after the Phase-10 reduction.  This
-is intended for a functional analyst or dynamicist.  It asks one narrow
+Status: archived optional external-facing brief after the Phase-10
+reduction.  Under the current no-collaborator route this is not an
+active dependency.  It is retained only in case later review by a
+functional analyst or dynamicist becomes useful.  It asks one narrow
 question about the current `A0` branch.  It does not ask for a Collatz
 proof.
 

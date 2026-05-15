@@ -229,7 +229,8 @@ argument.
 Current `A0/A1` decision rule:
 
 ```text
-Keep A0-averaged as the main branch for existing FULL/Lean objects.
+Keep A0-averaged as the only conditional analytic branch still aligned
+with existing FULL/Lean objects, but not as the no-collaborator lead.
 Keep A1 as secondary unless refined-square drift becomes competitive
 with A0 or a Banach norm explains the larger drift constant.
 ```
@@ -245,9 +246,10 @@ A1 rlo10 square drift at T12:
 ```
 
 Thus `A1` is not killed, because it decreases, but it is not currently
-the lead analytic branch.  The next go/no-go judgment is not another
-diagnostic; it is whether a collaborator accepts `A0-averaged` as a
-legitimate weak finite-rank approximation scheme.
+the lead analytic branch.  Under the no-collaborator route, the next
+go/no-go judgment is internal and conservative: unless `A0-averaged`
+receives a proof-quality weak approximation framework, Branch A is
+paused as conditional background.
 
 ## 5. Branch B: Finite-Rank Fallback
 
@@ -263,7 +265,8 @@ with exact Lean verification.
 Continue Branch B if:
 
 - Gate 10.B remains unresolved;
-- the analytic branch needs collaborator validation;
+- the analytic branch would need collaborator validation but none is
+  being pursued;
 - a finite-rank computational note is desired regardless of Branch A;
 - K20 production extension becomes feasible with a declared production
   SCC.
@@ -280,6 +283,9 @@ Do not promote Branch B beyond its finite scope if:
   spectral gap without Gate 10.B.
 
 ## 7. Collaboration Criteria
+
+Current route: no collaborator.  This section is retained only as an
+archived escalation path, not as an active dependency.
 
 Ask for specialist collaboration if:
 
@@ -300,12 +306,13 @@ with Hennion/Keller-Liverani and symbolic Banach-space experience.
 
 Stop analytic Phase 10 and write the finite-rank note if:
 
-1. no infinite operator is accepted after the collaborator review;
+1. no collaborator review is being pursued and no internal proof
+   validates `A0-averaged`;
 2. the only available spaces make `K` unbounded;
 3. local tails cannot be controlled uniformly or by exceptional mass;
 4. finite kernels have no stable high-bit limit;
-5. the `A0-averaged` finite-rank interpretation is rejected as
-   non-canonical or normless;
+5. the `A0-averaged` finite-rank interpretation remains unvalidated,
+   non-canonical, or normless;
 6. `A1` refined-square drift stays too large for any plausible weak
    norm.
 
@@ -318,10 +325,11 @@ deliverable is finite-rank rather than analytic.
 
 Use if:
 
-- Gate 10.B is coherent;
-- candidate Banach pair and projection scheme are stated;
-- diagnostics estimate named constants;
-- no spectral claims are made beyond proved hypotheses.
+- the finite-rank certificate is presented as the main rigorous
+  addition; or
+- Gate 10.B is later made coherent by an internal proof-quality
+  framework;
+- no spectral claims are made beyond proved hypotheses in either case.
 
 ### Companion analytic note
 
@@ -353,10 +361,11 @@ Use if:
 Current best decision:
 
 ```text
-Continue A0 only as a conditional kernel/Banach-space program for the
-existing FULL matrices, explicitly under the A0-averaged interpretation.
-Keep A1 as a secondary refined-square research branch, not a claim.
-Develop Branch B in parallel as the reliable finite theorem.
-Seek collaborator review before invoking Hennion or Keller-Liverani.
+Pause A0 as a conditional appendix/program note for the existing FULL
+matrices, explicitly under the A0-averaged interpretation.
+Do not invoke Hennion or Keller-Liverani without a new proof-quality
+operator/norm bridge.
+Make Branch B the active no-collaborator Phase-10 deliverable.
+Keep A1 as an archived secondary diagnostic, not a claim.
 Do not commit to the naive Z_2 martingale space without a new mechanism.
 ```

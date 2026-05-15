@@ -7,6 +7,10 @@ is not an analytic Phase-10 theorem and does not claim an infinite
 transfer operator, a spectral gap, Conjecture 6, or the Collatz
 conjecture.
 
+Current route: no-collaborator Phase 10.  This outline is now the active
+main deliverable; `A0-averaged` remains background or appendix material
+unless a proof-quality operator/norm bridge is supplied internally.
+
 ## 1. Proposed Title
 
 ```text
@@ -299,8 +303,8 @@ Before K20 can be stated as a theorem candidate:
 
 ## 10. Relationship to Phase 10
 
-If Gate 10.B succeeds, this finite-rank certificate can be a baseline or
-appendix.
+If Gate 10.B later succeeds, this finite-rank certificate can be a
+baseline or appendix.
 
 Under the current reduction, Gate 10.B for the existing `FULL` matrices
 means validating the `A0-averaged` interpretation:
@@ -310,9 +314,11 @@ K_N^0 is an averaged PhaseState finite-rank quotient,
 not an exact projection of the source-cell kernel.
 ```
 
-If a collaborator rejects that interpretation, or if no Banach weak norm
-can make it meaningful, Gate 10.B fails for the analytic branch.  In that
-case this finite-rank certificate becomes the cleanest Phase-10 output:
+Under the no-collaborator route, Gate 10.B is not being pursued to
+analytic closure unless an internal proof-quality operator/norm bridge
+is found.  If no Banach weak norm can make the interpretation meaningful,
+Gate 10.B fails for the analytic branch.  In that case this finite-rank
+certificate is the cleanest Phase-10 output:
 
 ```text
 an honest finite theorem with exact arithmetic and Lean verification.
@@ -326,8 +332,10 @@ compactness, or perturbation hypotheses.
 
 The note still needs:
 
-- the exact Lean-generation command or a decision to treat the generated
-  Lean file as the stable artifact;
+- a stable-artifact paragraph: the generated Lean file and exact JSON
+  certificate are the cited artifacts; the generation command can be
+  included later in the reproducibility manifest, but is not needed for
+  the theorem statement;
 - a manifest/hash table for external reproducibility;
 - a clean comparison paragraph distinguishing this finite certificate
   from the Phase-10 `A0-averaged` analytic operator program.
