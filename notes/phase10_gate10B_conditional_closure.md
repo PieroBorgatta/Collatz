@@ -618,6 +618,161 @@ the project-specific identification of the weak norm.  To make it
 paper-ready, cite a standard martingale convergence theorem or include a
 short proof for bounded functions on the compact profinite space `Z_2`.
 
+## 8.4 P1/P2 Intrinsic Dynamics Obstruction
+
+The remaining hard point is not the phase averaging.  It is the
+definition of the killed return map itself.
+
+The scripts define return/terminal behavior for natural representatives
+`n0` by iterating the odd Syracuse map until one of the following
+events occurs:
+
+```text
+1. the orbit returns to the monitored target phantom state;
+2. the orbit hits a different monitored phantom state;
+3. the odd Syracuse value drops below n0;
+4. the step budget is reached.
+```
+
+Events 1 and 2 are essentially 2-adic/cylindrical: they can be described
+using congruence tubes around phantom representatives and finite
+phantom records.
+
+Event 3 is not 2-adic.  The comparison
+
+```text
+S^k(n0) < n0
+```
+
+uses the ordinary order on positive integers.  There is no continuous or
+canonical analogue of this inequality on `Z_2`.  Therefore a killed
+operator on `Z_2 x H` cannot literally reproduce the script's terminal
+rule unless we add extra structure.
+
+There are three possible resolutions.
+
+### P1-A: return-only 2-adic kernel
+
+Define `D` as the set of points whose first hit among the monitored
+2-adic phantom tubes is the target return tube, before any other
+monitored tube.  Define `tau` by that first return and define `delta`
+from the returned local coordinate.
+
+This is the cleanest `Z_2` operator.  But it no longer includes the
+archimedean "drop below start" killing rule.  The difference between the
+script kernel and this 2-adic kernel must be carried as a terminal/error
+term.
+
+Verdict: mathematically clean, but it changes the finite model unless
+the drop-below mass is separately controlled.
+
+### P1-B: arithmetic lift space
+
+Enlarge the source space to remember the natural representative scale:
+
+```text
+X_lift = { (r, h, b_or_scale, n0 representative data) }.
+```
+
+or use an inverse-limit/profinite coordinate together with a height
+coordinate sufficient to interpret the inequality `S^k(n0) < n0`.
+
+This can reproduce the script's terminal rule more faithfully, but it is
+no longer a pure `Z_2 x H` transfer operator.  The measure is also less
+canonical unless the height/scale distribution is declared.
+
+Verdict: faithful to computation, but analytically less elegant and
+more likely to be finite-rank rather than a natural infinite operator.
+
+### P1-C: killed term as external substochastic loss
+
+Keep `X = Z_2 x H` and define the return part 2-adically.  Treat
+drop-below and budget events as substochastic loss measured at the
+finite-cylinder level:
+
+```text
+K_finite = K_return + K_loss,
+```
+
+where `K_loss` is not represented by a destination phase.  Then Gate
+10.B closes for the retained return kernel, while terminal mass is a
+separate tail/killing residual.
+
+Verdict: best current compromise.  It matches the existing
+substochastic matrix interpretation and avoids pretending that ordinary
+integer order is 2-adic.
+
+## 8.5 Updated P1/P2 Status
+
+The conditional A0 closure should therefore be narrowed:
+
+```text
+Gate 10.B closes conditionally for the retained return kernel as a
+Haar/cylinder conditional expectation.  Terminal/drop-below killing is
+not intrinsically 2-adic and must be handled as substochastic loss or
+by an enlarged arithmetic lift space.
+```
+
+Updated proof obligations:
+
+| ID | obligation | updated status |
+|---|---|---|
+| P1a | define monitored phantom tubes in `Z_2` | plausible from existing shadowing formalization |
+| P1b | define first return among monitored tubes | plausible as a hitting-time map, measurable under cylinder hypotheses |
+| P1c | define drop-below killing on `Z_2` | not canonical; must be external loss or enlarged state |
+| P2a | measurability of tube-hitting return map | plausible but not written |
+| P2b | boundedness of `g_q` for `s >= 0` | immediate once `delta:N` and `D` are defined, since `0 <= 2^{-s delta} <= 1` |
+
+This is the sharpest current answer to 10.B:
+
+```text
+positive for retained 2-adic return kernels;
+open/structurally non-2-adic for drop-below killing;
+safe only if terminal mass is a declared substochastic loss.
+```
+
+## 8.6 Final 10.B Verdict for Paper Use
+
+Recommended wording:
+
+```text
+Gate 10.B is conditionally positive for the retained return part of the
+phase operator.  The natural infinite object is a killed weighted
+forward kernel on X = Z_2 x H, observed through PhaseState and averaged
+by conditional expectation with respect to Haar x counting measure.
+Prefix high-bit matrices with j_count = 2^m are finite Haar-cylinder
+conditional expectations of this kernel, up to an explicit
+high-valuation boundary residual.
+
+The gate is not positive for the stronger claim that the finite FULL
+matrices are exact projections, nor for the claim that PhaseState is a
+sourcewise sufficient statistic.  Moreover, the script-level
+drop-below-start killing rule is archimedean and is not intrinsic to
+Z_2.  It must be treated as external substochastic loss, or else the
+state space must be enlarged with arithmetic lift data.
+```
+
+Operational decision:
+
+```text
+Use P1-C.
+
+Retained returns:
+  model by the A0 Haar conditional-expectation kernel.
+
+Terminal/drop-below/budget events:
+  model as substochastic loss measured at the finite-cylinder level.
+```
+
+Consequences:
+
+- Gate 10.B can be reported as conditionally resolved for the retained
+  return kernel.
+- The finite-rank K16 note remains the only theorem-producing output.
+- 10.C-10.F may only resume as conditional analysis of the retained
+  kernel plus substochastic loss.
+- No spectral gap or asymptotic Collatz claim follows.
+
 ## 9. Compatibility with Existing FULL Matrices
 
 The closure applies directly to prefix/Haar cylinder kernels whose

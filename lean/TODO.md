@@ -509,20 +509,22 @@ themselves, evidence of an infinite-dimensional spectral gap.
     `scripts/spectral_program/111_gate10b_provenance_check.py`; current
     report `scripts/spectral_program/collatz_111_gate10b_provenance_report.md`
     returns `critical_compatible=True` and `high_bit_compatible=True`.
-  - Remaining gates: define `D`, `tau`, and `delta` intrinsically on
-    `Z_2 x H`; prove measurability/boundedness of the induced
-    observables; add provenance checks for any additional generated
-    `FULL` matrix.
+  - P1/P2 analysis found the key obstruction: first return to monitored
+    phantom tubes is 2-adic/cylindrical, but the script's `drop below
+    start` terminal rule is archimedean and has no canonical `Z_2`
+    analogue.  The current best route is to close 10.B for the retained
+    2-adic return kernel and treat drop-below/budget events as external
+    substochastic loss, or else enlarge the state space with arithmetic
+    lift data.
   - P3/P4 now have local proof details: prefix windows are Haar
     cylinder averages, and the capped-valuation/odd-part boundary has
     mass bounded by `2^{-(T-1)}`, matching the observed `T=15` excluded
     mass `8/131072`.
-- Next recommended task: discharge or falsify P1/P2 in
-  `notes/phase10_gate10B_conditional_closure.md`: give a clean
-  intrinsic definition of `D`, `tau`, and `delta` independent of finite
-  scripts, then prove or explicitly assume measurability/boundedness of
-  `g_q`.  Do not infer Hennion/Keller-Liverani or spectral gaps from
-  this.
+- Next recommended task: if continuing the analytic branch, formulate
+  the retained-return operator plus substochastic-loss decomposition as
+  the only admissible 10.C/10.D object.  Otherwise keep the finite-rank
+  note as the theorem-producing deliverable.  Do not infer
+  Hennion/Keller-Liverani or spectral gaps from this.
 
 ### 2026-05-15 (Phase 10 no-collaborator route) — Codex + Piero Borgatta
 
