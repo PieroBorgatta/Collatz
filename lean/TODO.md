@@ -395,7 +395,7 @@ both). Phase 9 does **not** depend on Phase 10 (Priority C).
 
 ---
 
-## Phase 10 — Priority C: transfer-operator roadmap (v4 / companion / collaboration)
+## Phase 10 — Priority C: transfer-operator roadmap / finite-rank fallback
 
 Acceptance for `v3`: **planning only**. Phase 10 must not claim a
 spectral gap, must not close Conjecture 6, and must not turn speculative
@@ -410,6 +410,12 @@ the analytic branch 10.C-10.F. If 10.B does not identify such a kernel,
 switch to the finite-rank fallback branch 10.G and treat that branch as
 the main Phase-10 output rather than a side result.
 
+Current 2026-05-15 route: no collaborator is being pursued.  Therefore
+`A0-averaged` is paused as a conditional appendix/program note, Hennion
+and Keller-Liverani are not invoked as active claims, and the active
+Phase-10 deliverable is the finite-rank computational note around the
+K16 deterministic `(K,b)` Collatz-Wielandt certificate.
+
 Recommended sequencing:
 
 ```text
@@ -419,16 +425,16 @@ Recommended sequencing:
 
 | ID | Status | Task | Acceptance criterion |
 |----|--------|------|----------------------|
-| 10.A | [ ] | Build a literature/hypothesis matrix for Lasota-Yorke, Hennion, Keller-Liverani, Baladi, Sarig/BIP, Bowen, GDMS/countable shifts, and relevant $p$-adic/non-archimedean dynamics. Include a Chang 2026 compatibility column. | `notes/phase10_literature_matrix.md` lists theorem hypotheses, local sources, match/gap/unknown for this project, and a preliminary branch/kill-switch criterion. It explicitly notes that a non-standard symbolic or $p$-adic thermodynamic framework may be needed if the classical frameworks do not fit. |
-| 10.B | [ ] | Identify the correct infinite phase space / quotient behind `FULL_{T,j}` and `full_T`. | A preferred infinite phase model is written down; the projection to finite `PhaseState V` / generated matrices is specified; at least two alternatives are rejected with reasons. If no natural kernel/projection is found, the roadmap branches to 10.G. |
-| 10.C | [ ] | Compare candidate Banach spaces. Candidates include $2$-adic Lipschitz/Hölder spaces on a refined quotient, weighted symbolic spaces, and variation-type spaces on residue trees. | For each candidate: strong norm, weak norm, compactness/tightness mechanism, boundedness of the operator, and proof obligations are listed. No computational constant search starts before this task and 10.D are closed. |
-| 10.D | [ ] | Formulate the transfer operator explicitly. | Orientation, weight `2^{-delta}`, terminal killing, normalization, first-return convention, relation to `FULL_{T,j}`, and relation to the Lean `TransferMatrix`/`OperatorDecomposition` API are written precisely. Any empirical/non-canonical choice is labelled as such. |
-| 10.E | [ ] | State a target Lasota-Yorke-type inequality. | A lemma statement is produced in the form `||L^n f||_strong <= A theta^n ||f||_strong + B ||f||_weak`, with explicit parameters or placeholders and a checklist of branch, distortion, tail, and compactness estimates needed to make it true. |
-| 10.F | [ ] | Write conditional skeletons for Hennion and Keller-Liverani. | Two conditional propositions are written: (1) if the 10.E inequality and compactness/tightness hypotheses hold, Hennion gives an essential spectral-radius bound / quasi-compactness; (2) if the required mixed-norm perturbation estimates hold, Keller-Liverani controls the relevant isolated spectral data across truncations. Missing hypotheses are isolated, not hidden. |
-| 10.G | [~] | Finite-rank / truncated-operator fallback branch. | Baseline already exists: `CollatzShadowing/Generated/K16S16KDeterministicCW.lean` imports the deterministic finite residue-cell `(K,b)` certificate with max ratio `90833233962213/129559208330288 < 3/4`, stable in sensitivity checks at `lift_bits = 5, 6`. Remaining work: formulate the general fallback theorem/claim for finite residue-cell or finite-rank scopes. If 10.B is negative, this becomes the main Phase-10 output. |
-| 10.H | [ ] | Run computational experiments supporting analytic constants, only after 10.C and 10.D are closed. | Reproducible diagnostics are specified or produced for tail mass, branch regularity, mixed-norm drift, CW-vector regularity, and truncation error. Each number is tied to a norm or hypothesis from 10.C/10.D; no free-floating numerics. |
-| 10.I | [ ] | Prepare a collaboration package. | A concise 10-15 page dossier collects definitions, finite certificates, open lemmas, exact scripts/files, literature matrix, and precise questions for a transfer-operator / symbolic / $p$-adic dynamics collaborator. |
-| 10.J | [ ] | Decide v4 vs companion vs coauthored paper, with branch criteria. | Decision committed in `notes/phase10_decision.md`. If 10.B is positive and 10.E/10.F produce plausible hypotheses, choose v4/companion/collaboration route. If 10.B is negative, declare 10.G as the Phase-10 output and do not pursue Lasota-Yorke/Hennion/Keller-Liverani claims for the non-existent infinite operator. |
+| 10.A | [x] | Build a literature/hypothesis matrix for Lasota-Yorke, Hennion, Keller-Liverani, Baladi, Sarig/BIP, Bowen, GDMS/countable shifts, and relevant $p$-adic/non-archimedean dynamics. Include a Chang 2026 compatibility column. | `notes/phase10_literature_matrix.md` records theorem hypotheses and match/gap/unknown status. The matrix remains background for the paused analytic branch. |
+| 10.B | [!] | Identify the correct infinite phase space / quotient behind `FULL_{T,j}` and `full_T`. | Gate 10.B is not closed positively. The best current interpretation is `A0-averaged`: an averaged PhaseState finite-rank quotient, not an exact projection. Without collaborator review or an internal proof-quality weak approximation theorem, this routes Phase 10 to 10.G. |
+| 10.C | [~] | Compare candidate Banach spaces. Candidates include $2$-adic Lipschitz/Hölder spaces on a refined quotient, weighted symbolic spaces, and variation-type spaces on residue trees. | Candidate-space notes exist, but no Banach pair is accepted as an active proof framework. This is paused under the no-collaborator route. |
+| 10.D | [~] | Formulate the transfer operator explicitly. | Candidate `U_K`/push-forward/Ruelle orientations were separated. The compatible branch is `A0-averaged`/forward-kernel style, but it is conditional and not used for the finite-rank theorem. |
+| 10.E | [~] | State a target Lasota-Yorke-type inequality. | Conditional targets exist only as program skeletons. No Lasota-Yorke inequality is claimed. |
+| 10.F | [~] | Write conditional skeletons for Hennion and Keller-Liverani. | Conditional skeletons exist only as non-claims. Hennion/Keller-Liverani are not active without a proof-quality operator/norm bridge. |
+| 10.G | [x] | Finite-rank / truncated-operator fallback branch. | Active no-collaborator deliverable. `notes/phase10_finite_rank_note_outline.md` now states the finite K16 theorem scope, exact CW proof paragraph, stable artifacts, manifest/hash table, verification commands, sensitivity checks, limitations, and relation to `A0-averaged`. |
+| 10.H | [~] | Run computational experiments supporting analytic constants, only after 10.C and 10.D are closed. | Experiment plans exist, but free-floating numerics are stopped. Further experiments must support either the finite-rank note reproducibility or a later internally justified operator/norm framework. |
+| 10.I | [!] | Prepare a collaboration package. | `notes/phase10_collaborator_brief.md` exists but is archived optional. No collaborator route is active. |
+| 10.J | [x] | Decide v4 vs companion vs coauthored paper, with branch criteria. | `notes/phase10_decision_tree.md` now routes the no-collaborator Phase 10 to the finite-rank computational note and pauses A0 as conditional appendix/program material. |
 
 Ambition levels:
 
@@ -461,6 +467,36 @@ themselves, evidence of an infinite-dimensional spectral gap.
 > - Notes: any blockers, open questions, things the next session should know
 > - Next recommended task: X.Y
 > ```
+
+### 2026-05-15 (Phase 10 no-collaborator route) — Codex + Piero Borgatta
+
+- Tasks advanced: 10.B, 10.G, 10.I, 10.J.
+- Artifacts modified:
+  - `lean/TODO.md`
+  - `notes/phase10_reduced_core.md`
+  - `notes/phase10_decision_tree.md`
+  - `notes/phase10_finite_rank_note_outline.md`
+  - `notes/phase10_collaborator_brief.md`
+- Notes:
+  - Piero requested explicitly to proceed without a collaborator.
+  - Gate 10.B remains open: no exact infinite projection, spectral gap,
+    Lasota-Yorke inequality, or Keller-Liverani/Hennion theorem is
+    claimed.
+  - The active no-collaborator deliverable is now the finite-rank
+    computational note based on the K16 deterministic `(K,b)` certificate.
+  - `A0-averaged` is retained only as conditional appendix/program
+    material; `A1` is archived as a secondary diagnostic.
+  - Verified:
+    `python3 scripts/phantom_taxonomy/scc_cw_certificate.py --verify
+    scripts/phantom_taxonomy/deterministic_k16_s16_residue_K_cw_certificate.json`
+    from the repository root, and
+    `lake build CollatzShadowing.Generated.K16S16KDeterministicCW`
+    from `lean/`.
+- Next recommended task: convert
+  `notes/phase10_finite_rank_note_outline.md` into the selected output
+  form: v4 section, standalone note, or supplementary computational
+  note. Do not resume analytic Phase 10 unless an internal proof-quality
+  operator/norm bridge is found.
 
 ### 2026-05-13 (Phase 9 v3 publication synced) — Codex + Piero Borgatta
 
