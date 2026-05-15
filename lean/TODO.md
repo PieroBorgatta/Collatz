@@ -517,6 +517,11 @@ themselves, evidence of an infinite-dimensional spectral gap.
     `0.0425999 -> ... -> 0.0389357`, while full and delta increments
     increase to `0.0648212` and `0.0600595`.  This reinforces the
     no-Hennion/no-KL status for the current operator.
+  - Script `114` checks whether the phase obstruction is localized like
+    label-excess.  Current answer: no.  The strongest contributors are
+    broad half-space classes such as `source_v2=0` with mass `0.5` and
+    contribution about `0.687`, leaving complement mean around
+    `0.026--0.028`.
 - Next recommended task: attack `BoundaryVariation` and
   `DepthDistortion` for the retained-return kernel.  If either fails for
   all usable weight sequences, stop the analytic branch and keep the

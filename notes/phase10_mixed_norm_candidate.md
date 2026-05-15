@@ -513,6 +513,52 @@ If the phase increment remains flat at larger genuine 2-adic depths,
 the martingale-variation Banach pair is probably not strong enough to
 support Hennion/Keller-Liverani for the present operator.
 
+## 4.5 Phase Obstruction Budget
+
+Script `114_phase_obstruction_budget.py` asks whether the phase
+martingale obstruction is localized in a small structural component:
+
+```text
+scripts/spectral_program/collatz_114_phase_obstruction_budget_report.md
+```
+
+The answer is currently negative.  The strongest single structural
+phase-TV contributors are broad half-space classes, not small
+exceptional sets:
+
+```text
+T15 depth 2, source_v2 = 0:
+  selected mass         = 0.5
+  selected mean         = 0.0564098
+  selected contribution = 0.686721
+  complement mean       = 0.0257339
+  global mean           = 0.0410719
+
+T16 depth 1, source_v2 = 0:
+  selected mass         = 0.5
+  selected mean         = 0.0610466
+  selected contribution = 0.688173
+  complement mean       = 0.0276616
+  global mean           = 0.0443541
+```
+
+Interpretation:
+
+- unlike label-excess, the phase obstruction is not currently reduced
+  to a small exceptional subsystem;
+- removing the top half-space contributor still leaves a complement
+  phase mean around `0.026--0.028`;
+- a finite-rank correction for a small bad set is therefore not a
+  convincing solution to the phase part;
+- the Banach-pair route now needs a structural phase theorem, a better
+  quotient/operator, or a proof that the phase term belongs only in the
+  weak norm.
+
+This is the strongest negative pressure so far on the Hennion/KL branch.
+It does not disprove the existence of a usable Banach pair, but it
+rules out the easy story: "isolate the bad labels and run LY on the
+rest."
+
 ### Weak norm
 
 Use:

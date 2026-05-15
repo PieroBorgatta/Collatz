@@ -287,6 +287,23 @@ until either the phase martingale increment decays at larger genuine
 2-adic depths, or a structural theorem explains why this flat phase
 component is not part of the strong variation that enters LY.
 
+Script `114` checks whether the phase obstruction can be isolated like
+the label-excess obstruction.  Current answer: no.  At the best tested
+structural split, the dominant phase contributor is a broad half-space:
+
+```text
+T15 depth 2, source_v2 = 0:
+mass = 0.5, contribution = 0.686721, complement mean = 0.0257339.
+
+T16 depth 1, source_v2 = 0:
+mass = 0.5, contribution = 0.688173, complement mean = 0.0276616.
+```
+
+This means "finite-rank bad-label correction + LY on the complement" is
+not enough.  Continue Branch A only if the phase term receives a
+structural theorem, a new quotient/operator, or a proof that it is weak
+variation rather than strong variation.
+
 Current `A0/A1` decision rule:
 
 ```text

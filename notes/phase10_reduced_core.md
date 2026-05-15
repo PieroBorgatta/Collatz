@@ -207,6 +207,13 @@ small in aggregate.  If the phase martingale increment does not decay at
 larger genuine 2-adic depths, the Banach-pair route should remain
 paused even though the finite-rank branch remains valid.
 
+The latest phase-obstruction check strengthens this warning.  The phase
+term is not currently concentrated in a small exceptional set: the best
+single structural contributors have mass about `1/2`, contribution
+about `0.67--0.69`, and leave complement means around `0.026--0.028`.
+Thus a small finite-rank bad-component correction may help label-excess,
+but it does not solve the phase martingale obstruction.
+
 ## 5. Minimal Conditional Theorem
 
 A mathematically honest positive `A0` statement would have the form:
