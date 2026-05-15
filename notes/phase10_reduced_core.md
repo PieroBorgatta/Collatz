@@ -221,9 +221,9 @@ drops from about `0.00499` to `0.00254` over depths `0..4`.  The reduced
 candidate is therefore:
 
 ```text
-U = Pi_v2 U + Q_v2 U,
-Pi_v2 U = finite/low-mode part,
-Q_v2 U  = residual to test with martingale LY.
+U = U Pi_v2 + U Q_v2              (observable/Koopman side),
+U Pi_v2 = finite/low-mode part,
+U Q_v2  = residual to test with martingale LY.
 ```
 
 This is only a diagnostic repair route.  It is not a theorem until

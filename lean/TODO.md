@@ -526,8 +526,9 @@ themselves, evidence of an infinite-dimensional spectral gap.
     obstruction is mostly a low destination mode.  Projection to
     `dst_v2` captures `0.882872 -> 0.934651` of phase-TV over
     `T15_d4_tail1` depths `0..4`, with residual mean
-    `0.00498962 -> 0.00254440`.  The only live LY repair is now
-    `U = Pi_v2 U + Q_v2 U`, with LY attempted on `Q_v2 U`.
+    `0.00498962 -> 0.00254440`.  On the observable/Koopman side, the
+    only live LY repair is now `U = U Pi_v2 + U Q_v2`, with LY attempted
+    on `U Q_v2`.
 - Next recommended task: define the candidate projection `Pi_v2` and
   residual `Q_v2` at the finite-kernel level, then test whether the
   `Q_v2` residual satisfies a genuine mixed-norm/martingale decay

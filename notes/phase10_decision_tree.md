@@ -321,9 +321,9 @@ depth 4: capture = 0.934651, residual mean = 0.00254440
 This reopens a narrow Banach route:
 
 ```text
-U = Pi_v2 U + Q_v2 U,
-Pi_v2 U finite-rank/low-mode,
-Q_v2 U subject to LY.
+U = U Pi_v2 + U Q_v2              (observable/Koopman side),
+U Pi_v2 finite-rank/low-mode,
+U Q_v2 subject to LY.
 ```
 
 Continue toward LY only for this projected residual branch.  Do not

@@ -597,22 +597,22 @@ This gives the first plausible LY repair:
 ```text
 Pi_v2  = finite projection to destination status/capped-v2 modes,
 Q_v2   = I - Pi_v2,
-U      = Pi_v2 U + Q_v2 U.
+U      = U Pi_v2 + U Q_v2                 (observable/Koopman side).
 ```
 
 Then one should not try to prove LY for the whole phase variation.
 The conditional target becomes:
 
 ```text
-Pi_v2 U      is treated as finite-rank / low-mode data;
-Q_v2 U       satisfies a martingale Lasota-Yorke inequality;
+U Pi_v2      is treated as finite-rank / low-mode data;
+U Q_v2       satisfies a martingale Lasota-Yorke inequality;
 loss/status is controlled in the weak norm.
 ```
 
 Schematic target:
 
 ```text
-Var_a(Q_v2 U_ret,s f)
+Var_a(U_ret,s Q_v2 f)
   <= alpha Var_a(f) + C ||f||_1,
 alpha < 1.
 ```
@@ -632,6 +632,92 @@ needs:
 Still, this is the first nontrivial positive route for fixing LY: remove
 the broad `dst_v2` low mode before asking for strong martingale
 contraction.
+
+## 4.7 Projected Lasota-Yorke Skeleton
+
+Let:
+
+```text
+Y = PhaseState V with terminal adjoined if needed,
+Z = {terminal} union {return, capped_v2 = 0,...,V},
+phi_v2 : Y -> Z.
+```
+
+Choose reference conditional probabilities
+
+```text
+eta_z on phi_v2^{-1}(z).
+```
+
+This choice is a real mathematical datum.  The script-`115` excess
+`phase_tv - dst_v2_tv` does not by itself define `eta_z`.
+
+Define the low-mode projection on destination observables by:
+
+```text
+(Pi_v2 f)(y)
+  = sum_{y' in phi_v2^{-1}(phi_v2(y))}
+      eta_{phi_v2(y)}(y') f(y'),
+
+Q_v2 f = f - Pi_v2 f.
+```
+
+For the Koopman/forward operator:
+
+```text
+(U_s f)(x,h)
+  = 1_D(x,h) 2^{-s delta(x,h)} f(pi_V(tau(x,h))),
+```
+
+decompose:
+
+```text
+U_s = U_s Pi_v2 + U_s Q_v2.
+```
+
+The low-mode part `U_s Pi_v2` has finite-dimensional input dependence.
+It can be treated as harmless for essential spectral radius only if its
+images of the finitely many `v2` basis observables belong to `B_s` with
+finite, controlled norm.  This is not automatic: the preimages of
+`dst_v2` events may still have complicated cylinder boundaries.
+
+The residual LY target is:
+
+```text
+||U_s Q_v2 f||_infty <= C_inf ||f||_infty,
+Var_a(U_s Q_v2 f)
+  <= alpha Var_a(f) + C_0 ||f||_1,
+alpha < 1.
+```
+
+For a finite projected kernel `K_N`, the corresponding row-distribution
+test is:
+
+```text
+TV_phase(child0, child1)
+  = TV_v2(child0, child1) + residual_v2(child0, child1),
+```
+
+where script `115` currently uses
+
+```text
+residual_v2 = TV_phase - TV_v2
+```
+
+as a finite proxy.  A proof-grade version must replace this proxy by an
+operator norm for `U_s Q_v2`, using the chosen lift `eta_z`.
+
+New proof obligations:
+
+| Obligation | Meaning | Status |
+|---|---|---|
+| `ChooseEtaV2` | choose canonical conditionals inside each `dst_v2` fiber | open |
+| `LowModeBounded` | prove `U_s Pi_v2` has finite strong norm/rank contribution | open |
+| `ResidualTVBridge` | relate script-`115` residuals to `B_s -> B_w` bounds for `U_s Q_v2` | open |
+| `ResidualLY` | prove `Var_a(U_s Q_v2 f) <= alpha Var_a(f)+C||f||_1` | open |
+| `LossWeakControl` | keep status/killing outside the strong residual term | open |
+
+This is now the cleanest way to state what "fixing LY" would mean.
 
 ### Weak norm
 
