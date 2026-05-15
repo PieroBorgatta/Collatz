@@ -506,6 +506,12 @@ themselves, evidence of an infinite-dimensional spectral gap.
     full-over-phase excess on mass `0.562469`, with complement p95 `0`.
     This supports splitting phase variation from structured label
     excess rather than forcing one full-label martingale norm.
+  - Script `113` now makes that split explicit.  Current finite proxies
+    show phase increments large and nearly flat (`~0.041--0.045`),
+    label-excess structurally concentrated, and loss/status nontrivial.
+    The reduced analytic target is now phase martingale LY plus
+    structured label-excess correction plus weak substochastic loss
+    control.
 - Next recommended task: attack `BoundaryVariation` and
   `DepthDistortion` for the retained-return kernel.  If either fails for
   all usable weight sequences, stop the analytic branch and keep the

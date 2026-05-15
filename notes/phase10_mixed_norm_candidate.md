@@ -439,6 +439,71 @@ is summable after extracting a small number of structural strata, the
 martingale pair remains alive.  If the complement full TV stays
 nondecaying, the analytic branch should be downgraded again.
 
+## 4.4 Split-Budget Diagnostic
+
+Script `113_martingale_split_budget.py` performs the first explicit
+split:
+
+```text
+scripts/spectral_program/collatz_113_martingale_split_budget_report.md
+```
+
+It reads script-`101` global child-cylinder metrics and script-`102`
+enriched-state metrics, using the structural candidate
+`source_odd_3_or_v2_2`.
+
+The global split is:
+
+```text
+T15 depth 0: phase 0.0425999, label-excess 0.0100183, loss/status 0.0285980
+T15 depth 1: phase 0.0418446, label-excess 0.0126200, loss/status 0.0285217
+T15 depth 2: phase 0.0410719, label-excess 0.0165176, loss/status 0.0292443
+
+T16 depth 0: phase 0.0449772, label-excess 0.0161743, loss/status 0.0320451
+T16 depth 1: phase 0.0443541, label-excess 0.0193176, loss/status 0.0337435
+```
+
+The structural label-excess isolation is:
+
+```text
+T15 depth 2:
+  selected mass          = 0.562469
+  selected contribution  = 0.808025
+  complement mean        = 0.00724742
+  complement p95         = 0
+
+T16 depth 1:
+  selected mass          = 0.562485
+  selected contribution  = 0.829186
+  complement mean        = 0.00754194
+  complement p95         = 0
+```
+
+Interpretation:
+
+- the `phase` increment is large and nearly flat; this is the main
+  obstruction to exponential martingale weights;
+- the `label-excess` increment is structurally concentrated and may be
+  removable by an enriched symbolic component or a separate finite-rank
+  correction;
+- the `loss/status` increment is not negligible and must be treated as
+  a real substochastic/killing term, not as harmless bookkeeping;
+- the conservative sum `phase + label-excess + loss/status` is larger
+  than `full` because these are overlapping diagnostics, not an
+  orthogonal decomposition.
+
+This pushes the Banach-pair program toward a reduced target:
+
+```text
+prove LY for phase martingale variation
++ prove/treat structured label-excess as finite/enriched correction
++ control loss/status in weak norm.
+```
+
+If the phase increment remains flat at larger genuine 2-adic depths,
+the martingale-variation Banach pair is probably not strong enough to
+support Hennion/Keller-Liverani for the present operator.
+
 ### Weak norm
 
 Use:
