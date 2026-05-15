@@ -411,7 +411,7 @@ Proof obligations not yet discharged:
 | P2 | prove measurability and boundedness of `g_q` | open |
 | P3 | prove the Haar/cylinder identity for prefix windows `2^m` | proof sketch written in Section 8.2 |
 | P4 | prove the exceptional mass bound for capped valuation/odd-part boundary cells | proof sketch written in Section 8.2; exact normalization fixed |
-| P5 | prove generated rows equal finite cylinder averages for each Lean artifact | partially audited for `T10CriticalSymbolic` and `T10J32HighBitTail.full` |
+| P5 | prove generated rows equal finite cylinder averages for each Lean artifact | checker added for `T10CriticalSymbolic` and `T10J32HighBitTail.full`; both pass |
 | P6 | prove martingale convergence in the exact weak norm chosen for the paper | standard, not yet written locally |
 
 This proposition is enough to say that Gate 10.B has a credible
@@ -536,6 +536,25 @@ The closure applies directly to prefix/Haar cylinder kernels whose
 provenance is the script-88/script-107 row-source construction.
 
 Initial provenance audit:
+
+Reproducible checker:
+
+```text
+scripts/spectral_program/111_gate10b_provenance_check.py
+```
+
+Current report:
+
+```text
+scripts/spectral_program/collatz_111_gate10b_provenance_report.md
+```
+
+Result:
+
+```text
+T10CriticalSymbolic compatible = True,
+T10J32HighBitTail.full compatible = True.
+```
 
 ### T10CriticalSymbolic
 

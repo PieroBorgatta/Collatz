@@ -505,6 +505,10 @@ themselves, evidence of an infinite-dimensional spectral gap.
     a high-bit prefix quotient with `j_count = 32 = 2^5`.  The
     `core/tail` split remains finite majority bookkeeping, not an
     infinite operator split.
+  - Added reproducible checker
+    `scripts/spectral_program/111_gate10b_provenance_check.py`; current
+    report `scripts/spectral_program/collatz_111_gate10b_provenance_report.md`
+    returns `critical_compatible=True` and `high_bit_compatible=True`.
   - Remaining gates: prove/mechanize the boundary residual
     `O(2^{-T})`, prove the cylinder/Haar martingale convergence
     statement, and add provenance checks for any additional generated
@@ -513,11 +517,11 @@ themselves, evidence of an infinite-dimensional spectral gap.
     cylinder averages, and the capped-valuation/odd-part boundary has
     mass bounded by `2^{-(T-1)}`, matching the observed `T=15` excluded
     mass `8/131072`.
-- Next recommended task: discharge or falsify P1/P2/P5/P6 in
-  `notes/phase10_gate10B_conditional_closure.md`, starting with P5
-  provenance certificates for generated matrices and P6 martingale
-  convergence in the declared weak norm. Do not infer
-  Hennion/Keller-Liverani or spectral gaps from this.
+- Next recommended task: discharge or falsify P1/P2/P6 in
+  `notes/phase10_gate10B_conditional_closure.md`, starting with P6
+  martingale convergence in the declared weak norm and a clean
+  definition of `D`, `tau`, and `delta` independent of finite scripts.
+  Do not infer Hennion/Keller-Liverani or spectral gaps from this.
 
 ### 2026-05-15 (Phase 10 no-collaborator route) — Codex + Piero Borgatta
 
