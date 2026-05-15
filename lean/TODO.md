@@ -480,6 +480,8 @@ themselves, evidence of an infinite-dimensional spectral gap.
   - `lean/TODO.md`
   - `scripts/spectral_program/112_martingale_variation_proxy.py`
   - `scripts/spectral_program/collatz_112_martingale_variation_proxy_report.md`
+  - `scripts/spectral_program/116_projected_residual_lift.py`
+  - `scripts/spectral_program/collatz_116_T15_d2_tail3_refined_projected_residual_lift_report.md`
 - Notes:
   - The active no-collaborator analytic candidate is now a concrete
     Banach pair, not a generic Hölder analogy: `B_s` is
@@ -536,11 +538,16 @@ themselves, evidence of an infinite-dimensional spectral gap.
     finite `source PhaseState`-conditioned lift remains too large
     (`0.0163037 -> 0.0197842`).  Thus `Pi_v2` is not yet a valid LY
     repair without a richer canonical lift or new quotient.
-- Next recommended task: define the candidate projection `Pi_v2` and
-  residual `Q_v2` with a source-refined lift beyond bare
-  `source PhaseState`, or pause the analytic LY route and return to the
-  finite-rank deliverable.  Do not use the pair-dependent residual as a
-  theorem-level projection.
+  - Follow-up script `116` source-refined run tested
+    `(source PhaseState, r mod 2^k)` for `k = 0,2,4,6,8`.  This simple
+    refinement does not close the lift problem: at depth `2`,
+    `source_refined_b8_residual = 0.0196251`, still far above the
+    pair-dependent residual `0.00440467`.
+- Next recommended task: do not merely increase the residue refinement
+  parameter.  Either identify a new quotient/Galerkin interpretation
+  that makes the pair-dependent lift canonical, or pause the analytic LY
+  route and return to the finite-rank deliverable.  Do not use the
+  pair-dependent residual as a theorem-level projection.
 
 ### 2026-05-15 (Phase 10.B conditional closure attempt) — Codex + Piero Borgatta
 

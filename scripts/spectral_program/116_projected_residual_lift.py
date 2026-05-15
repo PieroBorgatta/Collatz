@@ -20,7 +20,10 @@ Lift choices:
 - global_pooled: optional two-pass lift, eta_z is pooled over all pairs
   at the same depth;
 - source_pooled: optional two-pass lift, eta_{source,z} is pooled over
-  all pairs at the same depth and finite source PhaseState.
+  all pairs at the same depth and finite source PhaseState;
+- source_refined_b{k}: optional two-pass lift, eta_{source,r mod 2^k,z}
+  is pooled over all pairs at the same depth and a finite source
+  refinement.
 
 This is finite diagnostic output only.  It does not prove an infinite
 operator, Lasota-Yorke, Hennion, Keller-Liverani, a spectral gap, or
@@ -70,6 +73,15 @@ def write_csv(rows: list[dict[str, Any]], path: Path) -> None:
 
 def parse_csv_ints(text: str) -> list[int]:
     return [int(item.strip()) for item in text.split(",") if item.strip()]
+
+
+def parse_refine_bits(text: str) -> list[int]:
+    if not text.strip():
+        return []
+    bits = [int(item.strip()) for item in text.split(",") if item.strip()]
+    if any(bit < 0 for bit in bits):
+        raise ValueError("source refine bits must be nonnegative")
+    return sorted(set(bits))
 
 
 def output_paths(tag: str | None) -> tuple[Path, Path]:
@@ -191,6 +203,12 @@ def source_key(rows: list[dict[str, Any]]) -> tuple[Any, ...]:
     return counts.most_common(1)[0][0]
 
 
+def refined_source_key(src: tuple[Any, ...], r: int, bits: int) -> tuple[Any, ...]:
+    if bits == 0:
+        return (*src, 0)
+    return (*src, r & ((1 << bits) - 1))
+
+
 def iter_pairs(z2, tail_mod, ctx, args: argparse.Namespace, T: int):
     h_mod = 1 << args.hit_bits
     max_j = 1 << (args.max_depth + 1 + args.tail_bits)
@@ -215,7 +233,7 @@ def iter_pairs(z2, tail_mod, ctx, args: argparse.Namespace, T: int):
                     rows1 = z2.child_rows(rows, depth, q, 1)
                     if not rows0 or not rows1:
                         continue
-                    yield depth, src, distribution(rows0), distribution(rows1)
+                    yield depth, src, r, distribution(rows0), distribution(rows1)
             seen += 1
             if args.progress and seen % progress_step == 0:
                 print(f"    T={T}: processed {seen}/{total_groups} source groups")
@@ -225,7 +243,7 @@ def build_global_eta(z2, tail_mod, ctx, args: argparse.Namespace, T: int):
     totals: dict[int, dict[tuple[Any, ...], dict[tuple[Any, ...], float]]] = defaultdict(
         lambda: defaultdict(lambda: defaultdict(float))
     )
-    for depth, _src, p0, p1 in iter_pairs(z2, tail_mod, ctx, args, T):
+    for depth, _src, _r, p0, p1 in iter_pairs(z2, tail_mod, ctx, args, T):
         for dist in (p0, p1):
             for y, value in dist.items():
                 totals[depth][v2_key_from_phase(y)][y] += value
@@ -243,7 +261,7 @@ def build_source_eta(z2, tail_mod, ctx, args: argparse.Namespace, T: int):
     totals: dict[int, dict[tuple[Any, ...], dict[tuple[Any, ...], dict[tuple[Any, ...], float]]]] = defaultdict(
         lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(float)))
     )
-    for depth, src, p0, p1 in iter_pairs(z2, tail_mod, ctx, args, T):
+    for depth, src, _r, p0, p1 in iter_pairs(z2, tail_mod, ctx, args, T):
         for dist in (p0, p1):
             for y, value in dist.items():
                 totals[depth][src][v2_key_from_phase(y)][y] += value
@@ -259,14 +277,55 @@ def build_source_eta(z2, tail_mod, ctx, args: argparse.Namespace, T: int):
     return out
 
 
+def build_refined_eta(
+    z2,
+    tail_mod,
+    ctx,
+    args: argparse.Namespace,
+    T: int,
+    refine_bits: list[int],
+):
+    totals: dict[int, dict[int, dict[tuple[Any, ...], dict[tuple[Any, ...], dict[tuple[Any, ...], float]]]]] = defaultdict(
+        lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(float))))
+    )
+    for depth, src, r, p0, p1 in iter_pairs(z2, tail_mod, ctx, args, T):
+        keys = {bits: refined_source_key(src, r, bits) for bits in refine_bits}
+        for dist in (p0, p1):
+            for y, value in dist.items():
+                z = v2_key_from_phase(y)
+                for bits, key in keys.items():
+                    totals[depth][bits][key][z][y] += value
+
+    out: dict[int, dict[int, dict[tuple[Any, ...], dict[tuple[Any, ...], dict[tuple[Any, ...], float]]]]] = {}
+    for depth, bits_map in totals.items():
+        out[depth] = {}
+        for bits, key_map in bits_map.items():
+            out[depth][bits] = {}
+            for key, z_map in key_map.items():
+                out[depth][bits][key] = {}
+                for z, fiber in z_map.items():
+                    total = sum(fiber.values())
+                    if total:
+                        out[depth][bits][key][z] = {
+                            y: value / total for y, value in fiber.items()
+                        }
+    return out
+
+
 def analyze_T(z2, tail_mod, ctx, args: argparse.Namespace, T: int):
+    refine_bits = parse_refine_bits(args.source_refine_bits)
     eta_uniform = uniform_eta(args.v2_cap, args.hit_bits)
     eta_global = build_global_eta(z2, tail_mod, ctx, args, T) if args.global_lift else {}
     eta_source = build_source_eta(z2, tail_mod, ctx, args, T) if args.source_lift else {}
+    eta_refined = (
+        build_refined_eta(z2, tail_mod, ctx, args, T, refine_bits)
+        if refine_bits
+        else {}
+    )
     metrics: dict[tuple[int, str], list[float]] = defaultdict(list)
     samples: Counter[int] = Counter()
 
-    for depth, src, p0, p1 in iter_pairs(z2, tail_mod, ctx, args, T):
+    for depth, src, r, p0, p1 in iter_pairs(z2, tail_mod, ctx, args, T):
         phase_tv = l1_tv(p0, p1)
         v2_tv = l1_tv(push_v2(p0), push_v2(p1))
         eta_pair = pooled_eta(p0, p1)
@@ -284,6 +343,13 @@ def analyze_T(z2, tail_mod, ctx, args: argparse.Namespace, T: int):
                 p0,
                 p1,
                 eta_source.get(depth, {}).get(src, {}),
+            )
+        for bits in refine_bits:
+            key = refined_source_key(src, r, bits)
+            values[f"source_refined_b{bits}_residual"] = residual_tv(
+                p0,
+                p1,
+                eta_refined.get(depth, {}).get(bits, {}).get(key, {}),
             )
         for name, value in values.items():
             metrics[(depth, name)].append(value)
@@ -313,6 +379,7 @@ def analyze_T(z2, tail_mod, ctx, args: argparse.Namespace, T: int):
         "samples": sum(samples.values()),
         "global_lift": args.global_lift,
         "source_lift": args.source_lift,
+        "source_refine_bits": ",".join(str(bit) for bit in refine_bits) or "none",
     }
     return rows_out, meta
 
@@ -333,16 +400,18 @@ def build_report(args: argparse.Namespace, meta_rows: list[dict[str, Any]], rows
         f"- tail bits: `{args.tail_bits}`",
         f"- global lift: `{args.global_lift}`",
         f"- source lift: `{args.source_lift}`",
+        f"- source refine bits: `{args.source_refine_bits or 'none'}`",
         "",
         "## Trace Meta",
         "",
-        "| T | max j | source groups | child-pair samples | global lift | source lift |",
-        "|---:|---:|---:|---:|---|---|",
+        "| T | max j | source groups | child-pair samples | global lift | source lift | source refine bits |",
+        "|---:|---:|---:|---:|---|---|---|",
     ]
     for meta in meta_rows:
         lines.append(
             f"| {meta['T']} | {meta['max_j']} | {meta['source_groups']} | "
-            f"{meta['samples']} | `{meta['global_lift']}` | `{meta['source_lift']}` |"
+            f"{meta['samples']} | `{meta['global_lift']}` | `{meta['source_lift']}` | "
+            f"`{meta['source_refine_bits']}` |"
         )
 
     metric_order = {
@@ -380,7 +449,9 @@ def build_report(args: argparse.Namespace, meta_rows: list[dict[str, Any]], rows
         "uniform lift and is a pessimistic sanity check.  If only the",
         "pair-pooled residual is small, the repair is not yet canonical.",
         "If the source-pooled residual is small, a finite source-conditioned",
-        "low-mode operator becomes a plausible next target.",
+        "low-mode operator becomes a plausible next target.  The",
+        "`source_refined_b{k}` rows test the same idea after adding",
+        "`r mod 2^k` to the finite source key.",
         "",
     ])
     return "\n".join(lines) + "\n"
@@ -399,6 +470,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--progress", action="store_true")
     parser.add_argument("--global-lift", action="store_true")
     parser.add_argument("--source-lift", action="store_true")
+    parser.add_argument("--source-refine-bits", default="")
     parser.add_argument("--output-tag", default=None)
     return parser.parse_args()
 
@@ -416,7 +488,8 @@ def main() -> None:
     print("=" * 118)
     print(
         f"  T={args.T}, max_depth={args.max_depth}, tail_bits={args.tail_bits}, "
-        f"global_lift={args.global_lift}, source_lift={args.source_lift}"
+        f"global_lift={args.global_lift}, source_lift={args.source_lift}, "
+        f"source_refine_bits={args.source_refine_bits or 'none'}"
     )
 
     for T in parse_csv_ints(args.T):

@@ -349,6 +349,26 @@ continue only if a richer source-refined but still compact/finite-rank
 lift is defined, or if a new quotient makes the `dst_v2` fiber law
 canonical.
 
+The first richer source-refined attempt has now been tested and is
+negative for the simple family
+
+```text
+(source PhaseState, r mod 2^k),  k = 0,2,4,6,8.
+```
+
+On `T15_d2_tail3`, depth `2`, the best tested source-refined residual is
+
+```text
+source_refined_b8_residual = 0.0196251,
+pair_pooled_residual       = 0.00440467.
+```
+
+Thus low residue bits do not close the projected LY branch.  Continue
+analytic work only if the next step is a genuinely new quotient,
+signed-kernel/Galerkin interpretation, or proof that the pair-dependent
+lift is legitimate.  Do not spend more effort merely increasing `k` in
+this same source-refinement family.
+
 Current `A0/A1` decision rule:
 
 ```text
@@ -444,9 +464,9 @@ Stop analytic Phase 10 and write the finite-rank note if:
 8. the `Q_v2` residual from the low-mode projection stops decaying or
    cannot be represented by a canonical projection/lift in the operator
    framework;
-9. the only small `Q_v2` residual remains pair-dependent, with global
-   and finite-source-conditioned lifts staying comparable to the
-   original phase obstruction.
+9. the only small `Q_v2` residual remains pair-dependent, with global,
+   finite-source-conditioned, and low-residue source-refined lifts
+   staying comparable to the original phase obstruction.
 
 This would not be a failure of the project.  It would mean the honest
 deliverable is finite-rank rather than analytic.
@@ -504,6 +524,9 @@ Do not commit to the naive Z_2 martingale space without a new mechanism;
 the only live Banach route is the decomposed martingale pair:
 finite `dst_v2` low mode plus residual phase variation plus structured
 label-excess plus weak loss control.
+The tested `dst_v2` low-mode route is currently blocked at the lift
+stage, so the next analytic move must reduce the operator/quotient
+itself rather than add another local metric.
 ```
 
 The relevant A0 bridge is now

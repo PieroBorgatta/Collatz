@@ -235,8 +235,20 @@ versions.  The pair-dependent pooled lift gives a small residual, but a
 single global lift is essentially as large as the original phase
 variation, and a finite `source PhaseState`-conditioned lift remains
 around `0.016--0.020` on `T15_d2_tail3`.  Thus the low-mode repair is
-not yet a valid LY framework; it needs a richer source-refined lift or a
-new quotient.
+not yet a valid LY framework.
+
+The follow-up source-refined test is also negative for the simple
+refinement
+
+```text
+(source PhaseState, r mod 2^k),   k <= 8.
+```
+
+At depth `2`, `source_refined_b8_residual = 0.0196251`, still far above
+the pair-dependent residual `0.00440467`.  Thus low residue bits do not
+make the `dst_v2` lift canonical.  The projected LY route now requires a
+new quotient/Galerkin explanation, not just a slightly larger finite
+source alphabet.
 
 ## 5. Minimal Conditional Theorem
 
@@ -272,6 +284,8 @@ becomes structural:
 - `A1` remains too noisy and no norm explains the larger drift;
 - no collaborator validation is being pursued and no internal proof
   supplies a credible Banach-space bridge.
+- the only small `dst_v2` residual remains pair-dependent after natural
+  finite source refinements.
 
 This is not project failure.  It means the rigorous deliverable is the
 finite-rank theorem/certificate branch.

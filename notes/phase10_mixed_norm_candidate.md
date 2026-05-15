@@ -728,6 +728,7 @@ repair survives after choosing an actual lift inside each destination
 ```text
 scripts/spectral_program/collatz_116_T15_d2_tail3_global_projected_residual_lift_report.md
 scripts/spectral_program/collatz_116_T15_d2_tail3_source_projected_residual_lift_report.md
+scripts/spectral_program/collatz_116_T15_d2_tail3_refined_projected_residual_lift_report.md
 ```
 
 This is stricter than script `115`.  Script `115` measured the proxy
@@ -779,14 +780,70 @@ low-mode in `dst_v2`, but the conditional distribution inside each
 `dst_v2` fiber varies with finer source/child information.  To turn this
 into a theorem, one would need either:
 
-1. a source-refined lift depending on a larger but still controlled
-   finite alphabet, with a proof that it is finite-rank/compact; or
+1. a source-refined lift substantially richer than bare
+   `(source PhaseState, r mod 2^k)`, with a proof that it is
+   finite-rank/compact; or
 2. a different operator/quotient where the `dst_v2` fibers have a
    canonical conditional law; or
 3. a proof that the pair-dependent residual estimate can be represented
    by a legitimate Galerkin/projection scheme.
 
 Without one of these, the projected LY route remains blocked.
+
+## 4.9 Source-Refined Lift Test
+
+The first proposed repair after script `116` was to allow the lift
+inside each `dst_v2` fiber to depend on a refined but still finite source
+key:
+
+```text
+(source PhaseState, r mod 2^k),   k = 0,2,4,6,8.
+```
+
+The refined run is:
+
+```text
+scripts/spectral_program/collatz_116_T15_d2_tail3_refined_projected_residual_lift_report.md
+```
+
+It is negative for this simple repair.  At depth `2`:
+
+```text
+proxy_residual             = 0.00379658
+pair_pooled_residual       = 0.00440467
+source_refined_b0_residual = 0.0197842
+source_refined_b2_residual = 0.0197842
+source_refined_b4_residual = 0.0197924
+source_refined_b6_residual = 0.0197697
+source_refined_b8_residual = 0.0196251
+uniform_residual           = 0.0416970
+```
+
+Thus adding low residue bits to the source key does not move the
+canonical lift toward the optimistic pair-dependent residual.  The
+residual remains roughly `0.48` of the original phase-TV mean at depth
+`2`, while the pair-dependent residual is roughly `0.11`.
+
+Operational consequence:
+
+```text
+The `dst_v2` repair cannot currently close LY.
+```
+
+The only positive information left in this direction is narrower: the
+low-mode obstruction is real as a marginal phenomenon, but its fiber law
+depends on pair-level information not captured by the tested finite
+source refinements.  Therefore any proof-quality projected LY route now
+requires one of:
+
+- a new quotient that makes the pair-level lift canonical;
+- a signed-kernel/Galerkin formulation explaining why pair-dependent
+  lifts are legitimate finite approximants;
+- a different Banach norm in which the source-refined residual is weak
+  rather than strong.
+
+Absent one of these, Hennion/Keller-Liverani should stay paused and the
+finite-rank branch should be treated as the active rigorous deliverable.
 
 ### Weak norm
 
