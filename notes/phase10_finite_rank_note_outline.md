@@ -469,7 +469,9 @@ lift_bits = 6:
 ```
 
 These checks support robustness for nearby finite refinements.  They do
-not prove convergence in `lift_bits`.
+not prove convergence in `lift_bits`.  They are reported in
+`deterministic_k16_s16_residue_exact_cw_certificate.md`; their generated
+outputs were temporary `/tmp` artifacts, not committed Lean imports.
 
 ### Limitation
 
@@ -496,7 +498,9 @@ Additional non-Lean sensitivity checks:
 | 6 | 79360 | 70667 | 1975 | 209 | `64869145309473/97226913303232` | `< 3/4` |
 
 These checks support robustness within nearby finite refinements.  They
-do not prove a limit in `lift_bits`.
+do not prove a limit in `lift_bits`.  The `lift_bits = 5,6` outputs were
+generated in `/tmp`; the committed production certificate remains the
+`lift_bits = 4` artifact.
 
 ## 8. K20 Smoke, Clearly Marked
 
