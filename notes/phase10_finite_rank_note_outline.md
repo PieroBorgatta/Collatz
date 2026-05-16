@@ -24,6 +24,23 @@ Alternative shorter title:
 A Lean-Checked Finite-Rank Collatz-Wielandt Certificate
 ```
 
+## 1.1 Abstract Draft
+
+We present a finite, Lean-checked Collatz-Wielandt certificate for a
+deterministic residue-cell shadowing model associated with the K16
+phantom-taxonomy computation.  The construction fixes a finite rank-1
+SCC source list, subdivides each source state into `2^4` residue cells,
+traces each canonical cell deterministically, and compresses the
+resulting killed transition data to a 37-state `(K,b)` substochastic
+matrix.  The generated certificate supplies a strictly positive vector
+`v` satisfying `M v <= (3/4) v`; the largest checked row ratio is
+`90833233962213/129559208330288 < 3/4`.  A generic finite
+Collatz-Wielandt bridge in Lean then gives the spectral-radius bound for
+the realified finite matrix.  The result is deliberately finite-rank:
+it does not assert convergence of the finite models, an infinite
+transfer-operator spectral gap, Conjecture 6, or the Collatz
+conjecture.
+
 ## 2. Scope Statement
 
 The note proves a finite statement only:
