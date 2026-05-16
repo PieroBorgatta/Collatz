@@ -644,4 +644,6 @@ editorial choices:
 - whether to write it as a v4 section, a standalone note, or a
   supplementary computational note;
 - how much of the K20 smoke material to include in an appendix;
+- whether to regenerate the `lift_bits = 5,6` sensitivity checks as
+  permanent artifacts, or keep them as reported secondary evidence;
 - whether to include full hash tables in the main text or appendix.
