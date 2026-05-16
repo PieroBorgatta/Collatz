@@ -86,11 +86,16 @@ residue refinements:
 | 5 | 39680 | 35331 | 990 | 190 | `7332495524923/10616480126384 ≈ 0.690671054590` | `< 3/4` |
 | 6 | 79360 | 70667 | 1975 | 209 | `64869145309473/97226913303232 ≈ 0.667193301788` | `< 3/4` |
 
-The sensitivity outputs were later regenerated as permanent non-Lean
-artifacts with prefixes:
+The sensitivity outputs were later regenerated as permanent artifacts
+with prefixes:
 
 - `scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb5`
 - `scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb6`
 
-The committed Lean certificate remains the `lift_bits = 4` production
-artifact.
+They also have generated Lean imports:
+
+- `lean/CollatzShadowing/Generated/K16S16KLB5DeterministicCW.lean`
+- `lean/CollatzShadowing/Generated/K16S16KLB6DeterministicCW.lean`
+
+The `lift_bits = 4` Lean certificate remains the production theorem;
+the `lift_bits = 5,6` Lean modules are sensitivity certificates.

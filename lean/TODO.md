@@ -489,11 +489,19 @@ themselves, evidence of an infinite-dimensional spectral gap.
     spectral gap, convergence in `K` or `lift_bits`, Conjecture 6, or
     Collatz.
   - The `lift_bits = 5,6` sensitivity checks were regenerated as
-    permanent non-Lean artifacts with prefixes
+    permanent artifacts with prefixes
     `scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb5` and
     `scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb6`.
     Their exact Python certificates verify with the previously reported
-    max ratios.  They are still not Lean imports.
+    max ratios.
+  - Piero then requested Lean imports for those sensitivity checks.
+    Generated modules
+    `CollatzShadowing/Generated/K16S16KLB5DeterministicCW.lean` and
+    `CollatzShadowing/Generated/K16S16KLB6DeterministicCW.lean` now
+    expose `k16s16KLB5DeterministicGeneratedSpectralRadiusBound` and
+    `k16s16KLB6DeterministicGeneratedSpectralRadiusBound`.  `lake build
+    CollatzShadowing.Generated.K16S16KLB5DeterministicCW
+    CollatzShadowing.Generated.K16S16KLB6DeterministicCW` succeeds.
   - The older duplicated limitations paragraph was removed from the
     remaining-editorial section to keep the file compact.
 - Next recommended task: choose the publication form for the finite-rank
