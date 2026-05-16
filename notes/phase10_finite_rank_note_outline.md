@@ -301,6 +301,188 @@ claiming a canonical infinite generation process.
 7. Limitations and relation to Phase 10.
 8. Reproducibility manifest.
 
+## 6.1 Paper-Facing Draft Text
+
+This draft block is intentionally finite in scope.  It can be used as a
+standalone computational note, a v4 section, or a supplementary note.
+
+### Finite Model
+
+We fix the finite data used by the production K16 deterministic
+residue-cell run:
+
+```text
+max_k       = 16,
+scc_rank    = 1,
+lift_bits   = 4,
+max_steps   = 1000,
+compression = (K,b).
+```
+
+The source list is the rank-1 SCC node set in
+`orbit_harness_k16_s16_scc_nodes.csv`, with representatives read from
+`phantom_representatives_k3_16.csv`.  A raw source state is a pair
+`w:b`, where `w` is a phantom representative and `b` is the monitored
+2-adic depth.  For each such source state the deterministic residue-cell
+enumeration subdivides the declared congruence class into
+`2^lift_bits` finite residue subclasses.  Each subclass is then
+classified as one of:
+
+- canonical source class;
+- shadowed initial class;
+- no-initial class;
+- internal transition inside the declared SCC;
+- external transition;
+- drop below the starting integer;
+- step-budget exit.
+
+For the production K16 run the manifest records:
+
+```text
+raw SCC source nodes       = 1240
+finite residue cells       = 19840
+canonical source cells     = 17671
+shadowed initial cells     = 2169
+no-initial cells           = 0
+budget exits               = 0
+internal SCC transitions   = 17176
+exits below start          = 495
+```
+
+Only canonical source classes contribute source mass to the finite
+transition matrix.  Drop-below-start classes are treated as
+substochastic loss.  The production theorem is therefore a theorem about
+this declared finite killed model, not about all Collatz orbits.
+
+### Matrix Construction
+
+The production certificate compresses the raw deterministic source-cell
+data to the 37-state macro-space `(K,b)`.  The certified matrix is the
+rational substochastic matrix
+
+```text
+M(dst,src) = count(src -> dst) / source_events(src),
+```
+
+with incoming orientation: destination index first, source index second.
+For K16 the matrix has:
+
+```text
+states                       = 37
+nonzero internal edge types  = 182
+source events                = 17671
+internal hits                = 17176
+exits                        = 495
+retention mass               = 0.971988...
+```
+
+The decimal spectral-radius diagnostic produced by the scripts is not
+the certificate.  The certificate is the exact Collatz-Wielandt
+inequality described below.
+
+### Theorem
+
+Finite K16 deterministic residue-cell certificate.
+
+Let `M` be the 37-state rational substochastic matrix produced by the
+K16 deterministic residue-cell construction above, compressed to
+`(K,b)` and interpreted with incoming orientation.  Then there exists a
+strictly positive vector `v in R_{>0}^{37}` such that
+
+```text
+M v <= (3/4) v
+```
+
+coordinatewise.  Consequently the realified finite matrix satisfies
+
+```text
+spectralRadius(M) <= 3/4.
+```
+
+In the generated certificate, the largest row ratio is attained at
+`K11:b2` and is exactly
+
+```text
+90833233962213 / 129559208330288 < 3/4.
+```
+
+Equivalently:
+
+```text
+4 * 90833233962213 < 3 * 129559208330288.
+```
+
+### Proof
+
+The proof is finite.  The generator writes the rational matrix and a
+positive integer Collatz-Wielandt vector.  The generated Lean module
+checks positivity of every coordinate of the vector and checks all
+coordinate inequalities exactly after clearing denominators.
+
+The abstract step is the standard finite Collatz-Wielandt argument.  If
+`v_i > 0` and `M v <= alpha v`, define the weighted sup norm
+
+```text
+||x||_v = max_i |x_i| / v_i.
+```
+
+For a nonnegative matrix `M`, the coordinatewise inequality implies
+
+```text
+||M x||_v <= alpha ||x||_v.
+```
+
+Thus the operator norm of `M` in this finite-dimensional norm is at most
+`alpha`, and the spectral radius is at most `alpha`.  In the K16
+certificate `alpha = 3/4`.
+
+The Lean boundary is:
+
+```text
+CollatzShadowing/Generated/K16S16KDeterministicCW.lean
+```
+
+with the paper-facing declarations:
+
+```text
+k16s16KDeterministicMaxRatio_lt_alpha
+k16s16KDeterministicVectorNat_pos
+k16s16KDeterministicFiniteCWCertificate
+k16s16KDeterministicGeneratedSpectralRadiusBound
+```
+
+The generic spectral-radius bridge is in
+`CollatzShadowing/Bound.lean`.
+
+### Sensitivity
+
+The production Lean theorem uses `lift_bits = 4`.  Additional Python
+checks at `lift_bits = 5` and `lift_bits = 6` also admit exact
+Collatz-Wielandt certificates below `3/4`:
+
+```text
+lift_bits = 5:
+7332495524923 / 10616480126384 < 3/4.
+
+lift_bits = 6:
+64869145309473 / 97226913303232 < 3/4.
+```
+
+These checks support robustness for nearby finite refinements.  They do
+not prove convergence in `lift_bits`.
+
+### Limitation
+
+This theorem is finite-rank only.  It does not assert that the K16
+matrix is a projection, truncation, Galerkin approximation, or Ulam
+discretization of a natural infinite transfer operator.  It does not
+assert convergence in `K`, in `lift_bits`, or in any 2-adic/cylinder
+limit.  It does not imply a spectral gap for Collatz dynamics and does
+not prove Conjecture 6 or the Collatz conjecture.  Its value is that,
+within the declared deterministic residue-cell shadowing model, the
+spectral-radius bound is an exact finite statement with a Lean-checked
+Collatz-Wielandt certificate.
+
 ## 7. Sensitivity Checks
 
 The production Lean certificate uses `lift_bits = 4`.
@@ -450,24 +632,10 @@ cd lean
 lake build CollatzShadowing.Generated.K16S16KDeterministicCW
 ```
 
-## 12. Remaining Text Before Drafting
+## 12. Remaining Editorial Choices
 
-Final limitations paragraph for the draft:
-
-```text
-This theorem is finite-rank only.  It does not assert that the K16
-matrix is a projection, truncation, Galerkin approximation, or Ulam
-discretization of a natural infinite transfer operator.  It does not
-assert convergence in K, in lift_bits, or in any 2-adic/cylinder limit.
-It does not imply a spectral gap for Collatz dynamics and does not prove
-Conjecture 6 or the Collatz conjecture.  Its value is that, within the
-declared deterministic residue-cell shadowing model, the spectral-radius
-bound is an exact finite statement with a Lean-checked
-Collatz-Wielandt certificate.
-```
-
-The note is ready to be converted into a short draft once a target
-venue/form is chosen.  Remaining editorial choices:
+Section 6.1 now contains a first paper-facing draft block.  Remaining
+editorial choices:
 
 - whether to write it as a v4 section, a standalone note, or a
   supplementary computational note;

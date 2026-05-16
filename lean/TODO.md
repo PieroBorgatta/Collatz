@@ -435,7 +435,7 @@ Recommended sequencing:
 | 10.D | [~] | Formulate the transfer operator explicitly. | Candidate `U_K`/push-forward/Ruelle orientations were separated. The compatible branch is now the killed forward kernel on `Z_2 x H` used in `A0_HaarConditionalClosure`; Ruelle/preimage language remains inactive. |
 | 10.E | [~] | State a target Lasota-Yorke-type inequality. | The active target is now `Var_a(U_ret,s f) <= alpha Var_a(f) + C ||f||_1`, with `alpha < 1`, for the retained-return kernel only. Missing lemmas are boundary variation, depth distortion, loss separation, and finite mixed-norm approximation. No Lasota-Yorke inequality is claimed. |
 | 10.F | [~] | Write conditional skeletons for Hennion and Keller-Liverani. | Conditional skeletons exist only as non-claims. Hennion/Keller-Liverani are not active without a proof-quality operator/norm bridge. |
-| 10.G | [x] | Finite-rank / truncated-operator fallback branch. | Active no-collaborator deliverable. `notes/phase10_finite_rank_note_outline.md` now states the finite K16 theorem scope, exact CW proof paragraph, stable artifacts, manifest/hash table, verification commands, sensitivity checks, limitations, and relation to `A0-averaged`. |
+| 10.G | [x] | Finite-rank / truncated-operator fallback branch. | Active no-collaborator deliverable. `notes/phase10_finite_rank_note_outline.md` now states the finite K16 theorem scope, exact CW proof paragraph, stable artifacts, manifest/hash table, verification commands, sensitivity checks, limitations, relation to `A0-averaged`, and a first paper-facing draft block. |
 | 10.H | [~] | Run computational experiments supporting analytic constants, only after 10.C and 10.D are closed. | Experiment plans exist, but free-floating numerics are stopped. Further experiments must support either the finite-rank note reproducibility or a later internally justified operator/norm framework. |
 | 10.I | [!] | Prepare a collaboration package. | `notes/phase10_collaborator_brief.md` exists but is archived optional. No collaborator route is active. |
 | 10.J | [x] | Decide v4 vs companion vs coauthored paper, with branch criteria. | `notes/phase10_decision_tree.md` keeps the finite-rank computational note as the active rigorous deliverable, while reopening A0 only as the conditional Haar/conditional-expectation bridge in `notes/phase10_gate10B_conditional_closure.md`. |
@@ -471,6 +471,29 @@ themselves, evidence of an infinite-dimensional spectral gap.
 > - Notes: any blockers, open questions, things the next session should know
 > - Next recommended task: X.Y
 > ```
+
+### 2026-05-16 (Phase 10.G paper-facing finite-rank draft) — Codex + Piero Borgatta
+
+- Tasks advanced: 10.G, 10.J.
+- Artifacts modified:
+  - `notes/phase10_finite_rank_note_outline.md`
+  - `lean/TODO.md`
+- Notes:
+  - No new analytic metric or Banach-space claim was added.
+  - The finite-rank fallback outline now includes a paper-facing draft
+    block with finite model declaration, matrix construction, theorem
+    statement, finite Collatz-Wielandt proof sketch, Lean boundary,
+    sensitivity checks, and limitations.
+  - The draft states only the K16 deterministic finite residue-cell
+    theorem.  It does not claim an infinite transfer operator, a
+    spectral gap, convergence in `K` or `lift_bits`, Conjecture 6, or
+    Collatz.
+  - The older duplicated limitations paragraph was removed from the
+    remaining-editorial section to keep the file compact.
+- Next recommended task: choose the publication form for the finite-rank
+  deliverable: v4 section, standalone note, or supplementary
+  computational note.  Do not promote K20 until a production SCC input
+  is declared.
 
 ### 2026-05-15 (Phase 10.C serious Banach pair) — Codex + Piero Borgatta
 
