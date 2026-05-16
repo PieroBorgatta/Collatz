@@ -637,3 +637,24 @@ Generated.k16s16KDeterministicGeneratedSpectralRadiusBound :
 
 Here `k16s16KDeterministicAlpha = 3/4`, matching the exact deterministic
 finite residue-cell Collatz-Wielandt certificate.
+
+The `lift_bits = 5` and `lift_bits = 6` deterministic sensitivity
+checks are also imported as Lean-generated certificates:
+
+- `CollatzShadowing/Generated/K16S16KLB5DeterministicCW.lean`
+- `CollatzShadowing/Generated/K16S16KLB6DeterministicCW.lean`
+
+They expose:
+
+```lean
+Generated.k16s16KLB5DeterministicGeneratedSpectralRadiusBound :
+  spectralRadius ℝ (nnrealMatrixToReal k16s16KLB5DeterministicMatrix) ≤
+    (k16s16KLB5DeterministicAlphaNNReal : ℝ≥0∞)
+
+Generated.k16s16KLB6DeterministicGeneratedSpectralRadiusBound :
+  spectralRadius ℝ (nnrealMatrixToReal k16s16KLB6DeterministicMatrix) ≤
+    (k16s16KLB6DeterministicAlphaNNReal : ℝ≥0∞)
+```
+
+These are sensitivity certificates, not replacements for the
+`lift_bits = 4` production theorem and not a convergence claim.

@@ -153,6 +153,12 @@ The inventory recommendations above have now been realized as follows:
   `k16s16KDeterministicFiniteCWCertificate` plus the induced
   `k16s16KDeterministicGeneratedSpectralRadiusBound` with alpha
   `3/4`.
+- `Generated/K16S16KLB5DeterministicCW.lean` and
+  `Generated/K16S16KLB6DeterministicCW.lean` import the deterministic
+  `lift_bits = 5` and `lift_bits = 6` sensitivity certificates.  They
+  prove `k16s16KLB5DeterministicGeneratedSpectralRadiusBound` and
+  `k16s16KLB6DeterministicGeneratedSpectralRadiusBound`, respectively.
+  These are Lean-checked sensitivity bounds, not convergence statements.
 
 `Generated/K16S16KBridge.lean` applies the spectral bridge to the
 37-state generated certificate as `k16s16KSpectralRadiusBound`.
