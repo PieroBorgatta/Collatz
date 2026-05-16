@@ -86,5 +86,11 @@ residue refinements:
 | 5 | 39680 | 35331 | 990 | 190 | `7332495524923/10616480126384 ≈ 0.690671054590` | `< 3/4` |
 | 6 | 79360 | 70667 | 1975 | 209 | `64869145309473/97226913303232 ≈ 0.667193301788` | `< 3/4` |
 
-The sensitivity outputs were generated in `/tmp`; the committed
-certificate remains the `lift_bits = 4` production artifact.
+The sensitivity outputs were later regenerated as permanent non-Lean
+artifacts with prefixes:
+
+- `scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb5`
+- `scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb6`
+
+The committed Lean certificate remains the `lift_bits = 4` production
+artifact.

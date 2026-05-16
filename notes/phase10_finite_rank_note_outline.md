@@ -486,9 +486,10 @@ lift_bits = 6:
 ```
 
 These checks support robustness for nearby finite refinements.  They do
-not prove convergence in `lift_bits`.  They are reported in
-`deterministic_k16_s16_residue_exact_cw_certificate.md`; their generated
-outputs were temporary `/tmp` artifacts, not committed Lean imports.
+not prove convergence in `lift_bits`.  They are now backed by permanent
+non-Lean artifacts with prefixes
+`deterministic_k16_s16_residue_lb5` and
+`deterministic_k16_s16_residue_lb6`.  They are not Lean imports.
 
 ### Limitation
 
@@ -515,9 +516,25 @@ Additional non-Lean sensitivity checks:
 | 6 | 79360 | 70667 | 1975 | 209 | `64869145309473/97226913303232` | `< 3/4` |
 
 These checks support robustness within nearby finite refinements.  They
-do not prove a limit in `lift_bits`.  The `lift_bits = 5,6` outputs were
-generated in `/tmp`; the committed production certificate remains the
-`lift_bits = 4` artifact.
+do not prove a limit in `lift_bits`.  The committed production Lean
+certificate remains the `lift_bits = 4` artifact; `lift_bits = 5,6`
+are permanent non-Lean sensitivity artifacts.
+
+Permanent sensitivity artifacts:
+
+```text
+scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb5_manifest.json
+scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb5_transfer_summary.md
+scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb5_source_coverage.csv
+scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb5_K_edges.csv
+scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb5_K_cw_certificate.json
+
+scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb6_manifest.json
+scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb6_transfer_summary.md
+scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb6_source_coverage.csv
+scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb6_K_edges.csv
+scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb6_K_cw_certificate.json
+```
 
 ## 8. K20 Smoke, Clearly Marked
 
@@ -643,12 +660,31 @@ Inputs:
 | `scripts/phantom_taxonomy/phantom_representatives_k3_16.csv` | 1248 | `5098987c65393ab8aab26b85b50f84408a6e230f11886c0f9add0fd37cbdf0ea` |
 | `scripts/phantom_taxonomy/orbit_harness_k16_s16_scc_nodes.csv` | 1241 | `31a1136da9802f1e17d94095c9c0b5746756c265a9a832ba74a8c91bb99f5b5c` |
 
+Permanent non-Lean sensitivity artifacts:
+
+| artifact | lines | sha256 |
+|---|---:|---|
+| `scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb5_manifest.json` | 34 | `8f519391f1080f61200e4a1ae37411d2dbd59deabcdcda6dabe982295dc7ce40` |
+| `scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb5_transfer_summary.md` | 30 | `18291f5198d9f37a87976cb29049b60353bcc0942e2905e4f435190719d9a88a` |
+| `scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb5_source_coverage.csv` | 1241 | `527b3f99ad733bb886021784331a24f56dd75cc3945bb32d95b8557944787193` |
+| `scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb5_K_edges.csv` | 191 | `1a7d9b832babd1705c2eddaf36fa82ae14934c8768182ee6d6ddf8cce2af809f` |
+| `scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb5_K_cw_certificate.json` | 1229 | `77a06f0c44d6f0b84b036e74f142f9e93ffe65941fe43c1d99267d825a916f0e` |
+| `scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb6_manifest.json` | 34 | `de2709f4b4c3dfb0576523cc27ecfa3de073cade2ddb78b927e246cdc3d9bce7` |
+| `scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb6_transfer_summary.md` | 30 | `fae9b8ae03014d482742e6fe89bdc94a875bd07579f6a77d2e79a1a4ec3a1ba3` |
+| `scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb6_source_coverage.csv` | 1241 | `9e028dc1498ede15340d319d8a295e1c821c7735d17f3c69a4882c6538da4e24` |
+| `scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb6_K_edges.csv` | 210 | `98135f4e5449ffead5dca917b237af38052ceea5f92fc58b7e7b42da3bb9129f` |
+| `scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb6_K_cw_certificate.json` | 1343 | `a67a3ceb7717b9098d9e1d8b31d2f5dcd5436297ed54843914aca37885846624` |
+
 Verification commands:
 
 ```text
 cd /Volumes/AFUOCO/SVILUPPO/TEORIE/Collatz
 python3 scripts/phantom_taxonomy/scc_cw_certificate.py \
   --verify scripts/phantom_taxonomy/deterministic_k16_s16_residue_K_cw_certificate.json
+python3 scripts/phantom_taxonomy/scc_cw_certificate.py \
+  --verify scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb5_K_cw_certificate.json
+python3 scripts/phantom_taxonomy/scc_cw_certificate.py \
+  --verify scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb6_K_cw_certificate.json
 cd lean
 lake build CollatzShadowing.Generated.K16S16KDeterministicCW
 ```
@@ -661,6 +697,7 @@ editorial choices:
 - whether to write it as a v4 section, a standalone note, or a
   supplementary computational note;
 - how much of the K20 smoke material to include in an appendix;
-- whether to regenerate the `lift_bits = 5,6` sensitivity checks as
-  permanent artifacts, or keep them as reported secondary evidence;
+- whether to generate Lean imports for the `lift_bits = 5,6`
+  sensitivity certificates, or leave them as permanent non-Lean
+  artifacts;
 - whether to include full hash tables in the main text or appendix.

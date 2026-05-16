@@ -488,10 +488,12 @@ themselves, evidence of an infinite-dimensional spectral gap.
     theorem.  It does not claim an infinite transfer operator, a
     spectral gap, convergence in `K` or `lift_bits`, Conjecture 6, or
     Collatz.
-  - The `lift_bits = 5,6` sensitivity checks were tightened in wording:
-    they remain reported exact Python checks, but their generated
-    outputs were temporary `/tmp` artifacts and are not committed Lean
-    imports.
+  - The `lift_bits = 5,6` sensitivity checks were regenerated as
+    permanent non-Lean artifacts with prefixes
+    `scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb5` and
+    `scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb6`.
+    Their exact Python certificates verify with the previously reported
+    max ratios.  They are still not Lean imports.
   - The older duplicated limitations paragraph was removed from the
     remaining-editorial section to keep the file compact.
 - Next recommended task: choose the publication form for the finite-rank

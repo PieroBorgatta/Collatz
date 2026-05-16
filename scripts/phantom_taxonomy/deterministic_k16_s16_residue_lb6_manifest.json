@@ -1,0 +1,35 @@
+{
+  "coverage": {
+    "below_start_classes": 1969,
+    "budget_classes": 0,
+    "canonical_source_classes": 70667,
+    "external_hit_classes": 6,
+    "internal_hit_classes": 68692,
+    "lift_classes_per_source": 64,
+    "no_initial_classes": 0,
+    "shadowed_initial_classes": 8693,
+    "source_nodes": 1240,
+    "total_lift_classes": 79360
+  },
+  "coverage_csv": "scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb6_source_coverage.csv",
+  "lift_bits": 6,
+  "manifest_json": "scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb6_manifest.json",
+  "max_k": 16,
+  "max_steps": 1000,
+  "modes": {
+    "K": {
+      "edge_csv": "scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb6_K_edges.csv",
+      "edge_types": 209,
+      "exits": 1975,
+      "internal": 68692,
+      "retention": 0.9720520186225536,
+      "rho": 0.6671933017673738,
+      "source_events": 70667,
+      "states": 37
+    }
+  },
+  "representatives": "scripts/phantom_taxonomy/phantom_representatives_k3_16.csv",
+  "scc_nodes": "scripts/phantom_taxonomy/orbit_harness_k16_s16_scc_nodes.csv",
+  "scc_rank": 1,
+  "transfer_summary_md": "scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb6_transfer_summary.md"
+}
