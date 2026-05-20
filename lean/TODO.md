@@ -175,7 +175,8 @@ lean/
     ├── Basic.lean            ν₂, accelerated Syracuse map S
     ├── Phantom.lean          phantom words, q_w, S_w
     ├── Shadowing.lean        Lemma 3.1 and proof
-    └── NoInfinite.lean       Corollary 3.4
+    ├── NoInfinite.lean       Corollary 3.4
+    └── CollatzBridge.lean    conditional descent-to-Collatz bridge
 ```
 
 Files under `CollatzShadowing/` may be split further as proofs grow.
@@ -459,6 +460,42 @@ themselves, evidence of an infinite-dimensional spectral gap.
 
 ---
 
+## Phase 11 — Conditional proof bridge toward Collatz
+
+Acceptance: isolate, in Lean, the exact global theorem that would turn
+the finite/descent program into a Collatz-type termination statement.
+This phase must not claim that the missing global hypothesis is proved.
+
+Current route: reduce the remaining Collatz proof problem to a
+well-typed global descent statement for the accelerated Syracuse map.
+The first Lean bridge is now formalized in
+`CollatzShadowing/CollatzBridge.lean`.
+
+| ID | Status | Task | Acceptance criterion |
+|----|--------|------|----------------------|
+| 11.A | [x] | Define the accelerated and classical termination targets. | `CollatzBridge.lean` defines `collatzStep`, `ClassicalCollatzConjecture`, `acceleratedOrbitHitsOne`, and `AcceleratedCollatzConjecture`. |
+| 11.B | [x] | Formalize the strict-descent bridge. | `UniformStrictDescentHypothesis` states that every positive odd `n ≠ 1` has a finite accelerated iterate that is positive odd and strictly smaller than `n`; `acceleratedCollatz_of_uniformStrictDescent` proves this hypothesis implies accelerated termination by strong induction. |
+| 11.C | [~] | Separate classical-vs-accelerated bookkeeping from the finite phantom-shadowing gap. | `AcceleratedToClassicalBridge` and `classicalCollatz_of_uniformStrictDescent` state the remaining classical bridge condition separately. The elementary proof from full Collatz to accelerated odd termination is not yet formalized. |
+| 11.D | [ ] | Connect the finite phantom-shadowing layer to `UniformStrictDescentHypothesis`. | This is the substantive open problem. It requires a proof that every positive odd orbit either drops below start or is captured by certified finite shadowing transitions with no uncontrolled outside/budget class. The K16 finite CW certificate alone does not prove this. |
+| 11.E | [ ] | Classify all finite-model losses for the global proof. | Needed split: `drop below start` is a good descent event; internal certified transitions are reusable; outside-SCC and budget exits must be proved impossible, redirected to descent, or controlled by a new certificate. |
+
+Minimal theorem chain now visible:
+
+```text
+UniformStrictDescentHypothesis
+  -> AcceleratedCollatzConjecture
+  -> ClassicalCollatzConjecture   (after AcceleratedToClassicalBridge)
+```
+
+The hard missing arrow is:
+
+```text
+finite phantom-shadowing/CW layer
+  -> UniformStrictDescentHypothesis
+```
+
+---
+
 ## Session log
 
 > Append-only. Newest entries on top.
@@ -471,6 +508,37 @@ themselves, evidence of an infinite-dimensional spectral gap.
 > - Notes: any blockers, open questions, things the next session should know
 > - Next recommended task: X.Y
 > ```
+
+### 2026-05-20 (conditional Collatz proof bridge) — Codex + Piero Borgatta
+
+- Tasks advanced: 11.A, 11.B, 11.C.
+- Artifacts modified:
+  - `CollatzShadowing/CollatzBridge.lean`
+  - `CollatzShadowing.lean`
+  - `CollatzShadowing/INVENTORY.md`
+  - `lean/TODO.md`
+- Notes:
+  - Added a new Lean module for the proof bridge from global accelerated
+    strict descent to Collatz-type termination statements.
+  - `UniformStrictDescentHypothesis` is now the explicit missing global
+    hypothesis: for every positive odd `n ≠ 1`, some finite accelerated
+    Syracuse iterate must be positive odd and strictly smaller than `n`.
+  - `acceleratedCollatz_of_uniformStrictDescent` is fully formalized and
+    proves, by strong induction, that this descent hypothesis implies
+    accelerated termination at `1`.
+  - `ClassicalCollatzConjecture`, `AcceleratedToClassicalBridge`, and
+    `classicalCollatz_of_uniformStrictDescent` separate the standard
+    full-Collatz-to-accelerated bookkeeping from the genuinely hard
+    finite-shadowing coverage problem.
+  - This is not a proof of Collatz: the hard missing step is still to
+    prove that the finite phantom-shadowing/CW layer implies
+    `UniformStrictDescentHypothesis`.
+  - Verification: `lake build CollatzShadowing.CollatzBridge` succeeded
+    (`1793` jobs), and `lake build CollatzShadowing` succeeded (`3348`
+    jobs).
+- Next recommended task: formalize the elementary
+  `AcceleratedToClassicalBridge`, then define a precise finite-shadowing
+  coverage hypothesis whose conclusion is `UniformStrictDescentHypothesis`.
 
 ### 2026-05-20 (finite-rank note synchronized with Lean sensitivity imports) — Codex + Piero Borgatta
 

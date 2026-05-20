@@ -414,6 +414,53 @@ example (x y : ℤ_[2]) (k : Nat) (hxy : x - y ≠ 0) :
   exact PadicInt.mem_span_pow_iff_le_valuation (x - y) hxy k
 ```
 
+## Phase 11 Addition: Conditional Collatz Bridge
+
+`CollatzShadowing/CollatzBridge.lean` records the current proof-theoretic
+reduction toward Collatz.  It is intentionally conditional and does not
+claim that the finite K16 certificates imply Collatz.
+
+Core declarations:
+
+```lean
+def collatzStep (n : ℕ) : ℕ
+def ClassicalCollatzConjecture : Prop
+def acceleratedOrbitHitsOne (n : ℕ) : Prop
+def AcceleratedCollatzConjecture : Prop
+def UniformStrictDescentHypothesis : Prop
+def AcceleratedToClassicalBridge : Prop
+```
+
+The fully formalized theorem
+
+```lean
+theorem acceleratedCollatz_of_uniformStrictDescent :
+  UniformStrictDescentHypothesis → AcceleratedCollatzConjecture
+```
+
+proves by strong induction that a strict-descent theorem for all
+positive odd accelerated Syracuse orbits would imply accelerated
+termination at `1`.
+
+The theorem
+
+```lean
+theorem classicalCollatz_of_uniformStrictDescent :
+  AcceleratedToClassicalBridge →
+  UniformStrictDescentHypothesis →
+  ClassicalCollatzConjecture
+```
+
+separates the elementary classical/accelerated bookkeeping from the hard
+phantom-shadowing coverage problem.  The missing mathematical target is:
+
+```text
+finite phantom-shadowing/CW layer -> UniformStrictDescentHypothesis
+```
+
+The finite CW spectral-radius certificates do not by themselves provide
+this implication.
+
 ## Phase 8 Additions: Episode Graphs and Finite Certificates
 
 Phase 8 extends the formalization beyond the Section-3 2-adic

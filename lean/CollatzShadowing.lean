@@ -4,6 +4,7 @@ import CollatzShadowing.Syracuse2Adic
 import CollatzShadowing.Auxiliary
 import CollatzShadowing.Shadowing
 import CollatzShadowing.NoInfinite
+import CollatzShadowing.CollatzBridge
 import CollatzShadowing.EpisodeInventory
 import CollatzShadowing.EpisodeGraph
 import CollatzShadowing.Operator
