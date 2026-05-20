@@ -497,6 +497,13 @@ themselves, evidence of an infinite-dimensional spectral gap.
     installed.  The last Lean verification remains the successful
     `lake build CollatzShadowing` run after importing the sensitivity
     modules.
+  - After an external compile problem was reported, the TeX note was
+    made more portable: nonessential package dependencies
+    (`lmodern`, `booktabs`, `microtype`, `seqsplit`) were removed, the
+    code macro was changed to use `\detokenize` so underscores in file
+    names and Lean declarations do not break compilation, and the
+    reproducibility table was converted to a `description` list to
+    avoid wide-table failures.
 - Next recommended task: render `paper/finite_rank_cw_note.tex` on a
   machine with a TeX installation and perform an editorial pass for
   table width/page breaks before treating it as a shareable PDF.

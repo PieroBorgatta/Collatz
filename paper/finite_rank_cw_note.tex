@@ -2,19 +2,15 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{lmodern}
 \usepackage{amsmath,amssymb,amsthm}
-\usepackage{booktabs}
 \usepackage{geometry}
 \usepackage{hyperref}
-\usepackage{microtype}
-\usepackage{seqsplit}
 
 \geometry{margin=2.8cm}
 \setlength{\emergencystretch}{3em}
 \sloppy
 
-\newcommand{\ttbr}[1]{\ifmmode\text{\texttt{\seqsplit{#1}}}\else\texttt{\seqsplit{#1}}\fi}
+\newcommand{\ttbr}[1]{\ifmmode\text{\texttt{\detokenize{#1}}}\else\texttt{\detokenize{#1}}\fi}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\rhoM}{\rho}
@@ -74,14 +70,14 @@ and
 \]
 Each raw source node has the form \(w:b\), where \(w\) is a phantom
 representative key and \(b\) is the monitored 2-adic depth parameter.
-Only rows with \(\ttbr{scc\_rank}=1\) are admitted as production source
+Only rows with \(\ttbr{scc_rank}=1\) are admitted as production source
 nodes.
 
 For each raw source node \(w:b\), the deterministic enumeration splits
 the monitored congruence class into
 \[
-  0 \leq t < 2^{\ttbr{lift\_bits}},
-  \qquad \ttbr{lift\_bits}=4.
+  0 \leq t < 2^{\ttbr{lift_bits}},
+  \qquad \ttbr{lift_bits}=4.
 \]
 Writing \(A_w\) for the total parity length of \(w\), the corresponding
 starting integer has the form
@@ -91,7 +87,7 @@ starting integer has the form
 The generator first checks whether the best monitored phantom hit at
 \(n_0\) is exactly the declared source node \(w:b\).  If a finer or
 stronger monitored phantom owns \(n_0\), the class is counted as
-\(\ttbr{shadowed\_initial}\) and is not a source event.  Otherwise the
+\(\ttbr{shadowed_initial}\) and is not a source event.  Otherwise the
 class is canonical and is traced deterministically until it hits a
 different monitored node in the declared SCC, exits the SCC, drops below
 the starting value, or reaches the step budget.
@@ -218,8 +214,8 @@ radius bound.
 The relevant Lean declarations are:
 \[
 \begin{array}{l}
-\ttbr{k16s16KDeterministicMaxRatio\_lt\_alpha},\\
-\ttbr{k16s16KDeterministicVectorNat\_pos},\\
+\ttbr{k16s16KDeterministicMaxRatio_lt_alpha},\\
+\ttbr{k16s16KDeterministicVectorNat_pos},\\
 \ttbr{k16s16KDeterministicFiniteCWCertificate},\\
 \ttbr{k16s16KDeterministicGeneratedSpectralRadiusBound}.
 \end{array}
@@ -243,33 +239,33 @@ The Python verifier for the JSON certificate reports:
 \[
 \begin{array}{ll}
 \ttbr{alpha} & 3/4,\\
-\ttbr{max\_ratio} & 90833233962213/129559208330288,\\
-\ttbr{max\_node} & \ttbr{K11:b2},\\
+\ttbr{max_ratio} & 90833233962213/129559208330288,\\
+\ttbr{max_node} & \ttbr{K11:b2},\\
 \ttbr{status} & \ttbr{OK}.
 \end{array}
 \]
 
 \section{Sensitivity certificates}
 
-The production theorem uses \(\ttbr{lift\_bits}=4\).  Additional
+The production theorem uses \(\ttbr{lift_bits}=4\).  Additional
 Lean-checked sensitivity certificates at nearby lift depths also remain
 below \(3/4\):
 \begin{center}
 \begin{tabular}{rrrrp{0.34\textwidth}}
-\toprule
-\ttbr{lift\_bits} & source cells & canonical cells
+\hline
+\ttbr{lift_bits} & source cells & canonical cells
 & edge types & exact max ratio\\
-\midrule
+\hline
 4 & 19840 & 17671 & 182
 & 90833233962213/129559208330288\\
 5 & 39680 & 35331 & 190
 & 7332495524923/10616480126384\\
 6 & 79360 & 70667 & 209
 & 64869145309473/97226913303232\\
-\bottomrule
+\hline
 \end{tabular}
 \end{center}
-For \(\ttbr{lift\_bits}=5,6\), the generated Lean declarations are
+For \(\ttbr{lift_bits}=5,6\), the generated Lean declarations are
 \[
 \begin{array}{l}
 \ttbr{k16s16KLB5DeterministicGeneratedSpectralRadiusBound},\\
@@ -277,35 +273,43 @@ For \(\ttbr{lift\_bits}=5,6\), the generated Lean declarations are
 \end{array}
 \]
 These certificates support robustness inside nearby finite refinements.
-They do not prove a limit in \(\ttbr{lift\_bits}\).
+They do not prove a limit in \(\ttbr{lift_bits}\).
 
 \section{Reproducibility}
 
-\begin{center}
-\small
-\begin{tabular}{p{0.42\textwidth}rp{0.38\textwidth}}
-\toprule
-Artifact & Lines & SHA-256\\
-\midrule
-\ttbr{lean/CollatzShadowing/Generated/K16S16KDeterministicCW.lean}
-& 2981 & \ttbr{e5c64ba7c7cf83bae481055cb475384fff9cdeaec17a3d428d2d3b8ea64d1abb}\\
-\ttbr{scripts/phantom_taxonomy/deterministic_k16_s16_residue_manifest.json}
-& 54 & \ttbr{57cc39b14b483caa31c720bf0a0adda51937b5301e27dc740c749c07aef66210}\\
-\ttbr{scripts/phantom_taxonomy/deterministic_k16_s16_residue_K_cw_certificate.json}
-& 1181 & \ttbr{bad2d1536ce3d3df2c841e98b39b3dbfc7c8374ff5aeeecded28c331dc1546ee}\\
-\ttbr{scripts/phantom_taxonomy/deterministic_k16_s16_residue_K_edges.csv}
-& 183 & \ttbr{b2e6980ebaee7fe7e07bb9e4ea9944b51245fd5586b3aa45cf08c75fbc5d7954}\\
-\ttbr{lean/CollatzShadowing/Generated/K16S16KLB5DeterministicCW.lean}
-& 2997 & \ttbr{5d807820a1b77105f8851d714438359369914b8d2d46c647735dfc71b3cad334}\\
-\ttbr{lean/CollatzShadowing/Generated/K16S16KLB6DeterministicCW.lean}
-& 3016 & \ttbr{8b0c5dc181acc14446223b3116b53758e6a137348d38ee671449e8b120f265f3}\\
-\ttbr{scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb5_K_cw_certificate.json}
-& 1229 & \ttbr{77a06f0c44d6f0b84b036e74f142f9e93ffe65941fe43c1d99267d825a916f0e}\\
-\ttbr{scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb6_K_cw_certificate.json}
-& 1343 & \ttbr{a67a3ceb7717b9098d9e1d8b31d2f5dcd5436297ed54843914aca37885846624}\\
-\bottomrule
-\end{tabular}
-\end{center}
+\begin{description}
+\item[\ttbr{K16S16KDeterministicCW.lean}]
+2981 lines; SHA-256
+\(\ttbr{e5c64ba7c7cf83bae481055cb475384fff9cdeaec17a3d428d2d3b8ea64d1abb}\).
+
+\item[\ttbr{deterministic_k16_s16_residue_manifest.json}]
+54 lines; SHA-256
+\(\ttbr{57cc39b14b483caa31c720bf0a0adda51937b5301e27dc740c749c07aef66210}\).
+
+\item[\ttbr{deterministic_k16_s16_residue_K_cw_certificate.json}]
+1181 lines; SHA-256
+\(\ttbr{bad2d1536ce3d3df2c841e98b39b3dbfc7c8374ff5aeeecded28c331dc1546ee}\).
+
+\item[\ttbr{deterministic_k16_s16_residue_K_edges.csv}]
+183 lines; SHA-256
+\(\ttbr{b2e6980ebaee7fe7e07bb9e4ea9944b51245fd5586b3aa45cf08c75fbc5d7954}\).
+
+\item[\ttbr{K16S16KLB5DeterministicCW.lean}]
+2997 lines; SHA-256
+\(\ttbr{5d807820a1b77105f8851d714438359369914b8d2d46c647735dfc71b3cad334}\).
+
+\item[\ttbr{K16S16KLB6DeterministicCW.lean}]
+3016 lines; SHA-256
+\(\ttbr{8b0c5dc181acc14446223b3116b53758e6a137348d38ee671449e8b120f265f3}\).
+
+\item[\ttbr{deterministic_k16_s16_residue_lb5_K_cw_certificate.json}]
+1229 lines; SHA-256
+\(\ttbr{77a06f0c44d6f0b84b036e74f142f9e93ffe65941fe43c1d99267d825a916f0e}\).
+
+\item[\ttbr{deterministic_k16_s16_residue_lb6_K_cw_certificate.json}]
+1343 lines; SHA-256
+\(\ttbr{a67a3ceb7717b9098d9e1d8b31d2f5dcd5436297ed54843914aca37885846624}\).
+\end{description}
 
 \section{Relation to the Phase-10 analytic program}
 
@@ -325,7 +329,7 @@ infinite transfer operator.
 This theorem is finite-rank only.  It does not assert that the K16 matrix
 is a projection, truncation, Galerkin approximation, or Ulam
 discretization of a natural infinite transfer operator.  It does not
-assert convergence in \(K\), in \(\ttbr{lift\_bits}\), or in any
+assert convergence in \(K\), in \(\ttbr{lift_bits}\), or in any
 2-adic/cylinder limit.  It does not imply a spectral gap for Collatz
 dynamics and does not prove Conjecture 6 or the Collatz conjecture.
 
