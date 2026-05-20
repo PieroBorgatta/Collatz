@@ -472,6 +472,35 @@ themselves, evidence of an infinite-dimensional spectral gap.
 > - Next recommended task: X.Y
 > ```
 
+### 2026-05-20 (finite-rank note synchronized with Lean sensitivity imports) — Codex + Piero Borgatta
+
+- Tasks advanced: 10.G.
+- Artifacts modified:
+  - `paper/finite_rank_cw_note.tex`
+  - `lean/TODO.md`
+- Notes:
+  - The finite-rank note was updated after the Lean integration of the
+    `lift_bits = 5,6` deterministic sensitivity certificates.
+  - The sensitivity section now calls these Lean-checked sensitivity
+    certificates, cites
+    `k16s16KLB5DeterministicGeneratedSpectralRadiusBound` and
+    `k16s16KLB6DeterministicGeneratedSpectralRadiusBound`, and records
+    the corresponding generated Lean modules in the reproducibility
+    table.
+  - The production theorem remains the `lift_bits = 4` K16
+    deterministic certificate; the `lift_bits = 5,6` certificates are
+    robustness checks and still do not imply convergence in
+    `lift_bits`, an infinite transfer operator, a spectral gap,
+    Conjecture 6, or Collatz.
+  - Local TeX rendering could not be run in this environment: `latexmk`,
+    `pdflatex`, `latex`, `xelatex`, `lualatex`, and `tectonic` are not
+    installed.  The last Lean verification remains the successful
+    `lake build CollatzShadowing` run after importing the sensitivity
+    modules.
+- Next recommended task: render `paper/finite_rank_cw_note.tex` on a
+  machine with a TeX installation and perform an editorial pass for
+  table width/page breaks before treating it as a shareable PDF.
+
 ### 2026-05-16 (Phase 10.G paper-facing finite-rank draft) — Codex + Piero Borgatta
 
 - Tasks advanced: 10.G, 10.J.

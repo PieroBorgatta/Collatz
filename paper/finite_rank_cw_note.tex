@@ -230,6 +230,14 @@ The module builds with:
 \qquad
 \ttbr{lake build CollatzShadowing.Generated.K16S16KDeterministicCW}.
 \]
+The sensitivity modules also build and are imported by the top-level
+\(\ttbr{CollatzShadowing}\) target:
+\[
+\begin{array}{l}
+\ttbr{CollatzShadowing.Generated.K16S16KLB5DeterministicCW},\\
+\ttbr{CollatzShadowing.Generated.K16S16KLB6DeterministicCW}.
+\end{array}
+\]
 
 The Python verifier for the JSON certificate reports:
 \[
@@ -241,10 +249,11 @@ The Python verifier for the JSON certificate reports:
 \end{array}
 \]
 
-\section{Sensitivity checks}
+\section{Sensitivity certificates}
 
-The Lean certificate uses \(\ttbr{lift\_bits}=4\).  Non-Lean sensitivity
-checks at nearby lift depths also remain below \(3/4\):
+The production theorem uses \(\ttbr{lift\_bits}=4\).  Additional
+Lean-checked sensitivity certificates at nearby lift depths also remain
+below \(3/4\):
 \begin{center}
 \begin{tabular}{rrrrp{0.34\textwidth}}
 \toprule
@@ -260,8 +269,15 @@ checks at nearby lift depths also remain below \(3/4\):
 \bottomrule
 \end{tabular}
 \end{center}
-These checks support robustness inside nearby finite refinements.  They
-do not prove a limit in \(\ttbr{lift\_bits}\).
+For \(\ttbr{lift\_bits}=5,6\), the generated Lean declarations are
+\[
+\begin{array}{l}
+\ttbr{k16s16KLB5DeterministicGeneratedSpectralRadiusBound},\\
+\ttbr{k16s16KLB6DeterministicGeneratedSpectralRadiusBound}.
+\end{array}
+\]
+These certificates support robustness inside nearby finite refinements.
+They do not prove a limit in \(\ttbr{lift\_bits}\).
 
 \section{Reproducibility}
 
@@ -279,6 +295,14 @@ Artifact & Lines & SHA-256\\
 & 1181 & \ttbr{bad2d1536ce3d3df2c841e98b39b3dbfc7c8374ff5aeeecded28c331dc1546ee}\\
 \ttbr{scripts/phantom_taxonomy/deterministic_k16_s16_residue_K_edges.csv}
 & 183 & \ttbr{b2e6980ebaee7fe7e07bb9e4ea9944b51245fd5586b3aa45cf08c75fbc5d7954}\\
+\ttbr{lean/CollatzShadowing/Generated/K16S16KLB5DeterministicCW.lean}
+& 2997 & \ttbr{5d807820a1b77105f8851d714438359369914b8d2d46c647735dfc71b3cad334}\\
+\ttbr{lean/CollatzShadowing/Generated/K16S16KLB6DeterministicCW.lean}
+& 3016 & \ttbr{8b0c5dc181acc14446223b3116b53758e6a137348d38ee671449e8b120f265f3}\\
+\ttbr{scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb5_K_cw_certificate.json}
+& 1229 & \ttbr{77a06f0c44d6f0b84b036e74f142f9e93ffe65941fe43c1d99267d825a916f0e}\\
+\ttbr{scripts/phantom_taxonomy/deterministic_k16_s16_residue_lb6_K_cw_certificate.json}
+& 1343 & \ttbr{a67a3ceb7717b9098d9e1d8b31d2f5dcd5436297ed54843914aca37885846624}\\
 \bottomrule
 \end{tabular}
 \end{center}
