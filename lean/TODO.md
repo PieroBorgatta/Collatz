@@ -504,6 +504,11 @@ themselves, evidence of an infinite-dimensional spectral gap.
     names and Lean declarations do not break compilation, and the
     reproducibility table was converted to a `description` list to
     avoid wide-table failures.
+  - After a PDF screenshot showed right-edge clipping in the
+    reproducibility section, that section was rewritten as a
+    fixed-width minipage with SHA-256 hashes grouped in eight-character
+    chunks.  This preserves the data while avoiding overfull monospaced
+    lines.
 - Next recommended task: render `paper/finite_rank_cw_note.tex` on a
   machine with a TeX installation and perform an editorial pass for
   table width/page breaks before treating it as a shareable PDF.
