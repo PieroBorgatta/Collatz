@@ -8,6 +8,7 @@ import CollatzShadowing.CollatzBridge
 import CollatzShadowing.EpisodeInventory
 import CollatzShadowing.EpisodeGraph
 import CollatzShadowing.Operator
+import CollatzShadowing.WeakBridge
 import CollatzShadowing.Bound
 import CollatzShadowing.Generated.K16S16KCWSmoke
 import CollatzShadowing.Generated.T10CriticalSymbolic
@@ -19,3 +20,4 @@ import CollatzShadowing.Generated.K16S16KLB5DeterministicCW
 import CollatzShadowing.Generated.K16S16KLB6DeterministicCW
 import CollatzShadowing.Generated.K16S16KSCC
 import CollatzShadowing.Generated.K16S16KBridge
+import CollatzShadowing.Generated.A0ReturnBranches

@@ -429,6 +429,20 @@ def acceleratedOrbitHitsOne (n : ℕ) : Prop
 def AcceleratedCollatzConjecture : Prop
 def UniformStrictDescentHypothesis : Prop
 def AcceleratedToClassicalBridge : Prop
+structure BranchDescentModel (σ β : Type*) [Fintype β]
+structure GlobalDescentCover (σ β loss : Type*) [Fintype β] [Fintype loss]
+inductive FiniteModelLossKind
+inductive FiniteModelCoverClass
+inductive CoverClassStatus
+abbrev ProofToken (P : Prop) : Type
+structure FiniteModelCoverSpec (σ β : Type*) [Fintype β]
+def HasStrictDescent (n : ℕ) : Prop
+def DirectDropAt (k n : ℕ) : Prop
+def DirectDropSound
+def directDropWitnessOfSound
+def strictDescentWitnessOfHasStrictDescent
+def strictDescentWitnessOfIterate
+def strictDescentWitnessOfOneStep
 ```
 
 The fully formalized theorem
@@ -442,7 +456,19 @@ proves by strong induction that a strict-descent theorem for all
 positive odd accelerated Syracuse orbits would imply accelerated
 termination at `1`.
 
+The elementary classical/accelerated bookkeeping is now proved in Lean.
 The theorem
+
+```lean
+theorem acceleratedToClassicalBridge :
+  AcceleratedToClassicalBridge
+```
+
+expands the initial even tail into repeated halvings, then expands each
+accelerated Syracuse step into one odd `3n+1` step followed by the exact
+number of halving steps.
+
+The older conditional theorem
 
 ```lean
 theorem classicalCollatz_of_uniformStrictDescent :
@@ -451,11 +477,67 @@ theorem classicalCollatz_of_uniformStrictDescent :
   ClassicalCollatzConjecture
 ```
 
-separates the elementary classical/accelerated bookkeeping from the hard
-phantom-shadowing coverage problem.  The missing mathematical target is:
+is still available, but the proved bridge gives the stronger packaged
+theorems
+
+```lean
+theorem classicalCollatz_of_uniformStrictDescent_provedBridge :
+  UniformStrictDescentHypothesis →
+  ClassicalCollatzConjecture
+
+theorem classicalCollatz_of_branchDescentModel :
+  (M : BranchDescentModel σ β) →
+  WeakBridge.LabelSplit.coverResolved M.cover M.counters →
+  ClassicalCollatzConjecture
+
+theorem classicalCollatz_of_globalDescentCover :
+  (C : GlobalDescentCover σ β loss) →
+  C.branchesResolved →
+  ClassicalCollatzConjecture
+
+theorem classicalCollatz_of_finiteModelGlobalCover :
+  (C : FiniteModelGlobalCover σ β) →
+  C.branchesResolved →
+  ClassicalCollatzConjecture
+
+theorem classicalCollatz_of_finiteModelCoverSpec :
+  (S : FiniteModelCoverSpec σ β) →
+  S.toGlobalDescentCover.branchesResolved →
+  ClassicalCollatzConjecture
+
+theorem hasStrictDescent_iff_nonempty_witness :
+  HasStrictDescent n ↔ Nonempty (StrictDescentWitness n)
+
+theorem hasStrictDescent_of_directDropAt :
+  DirectDropAt k n → HasStrictDescent n
+```
+
+`GlobalDescentCover` is the audit version of the target: every positive
+odd `n ≠ 1` must be covered by a direct strict-descent witness, a resolved
+branch witness, or a declared loss label with its own strict-descent
+witness.  A tail/outside/budget class that has no witness cannot be hidden
+inside this structure.
+
+The concrete current loss taxonomy is `FiniteModelLossKind`, with four
+open classes: `outsideSCC`, `budgetExit`, `valuationTail`, and `stepTail`.
+`finiteModelCoverClass_currentStatus` records that `directDrop` is already
+a witness class, `resolvedBranch` is acceptable only through branch
+semantics and resolved counters, and all four loss classes remain
+`openLoss` until proved absent or converted into strict-descent witnesses.
+`FiniteModelCoverSpec` is the recommended working interface: it separates
+the direct-drop predicate from the theorem that turns direct drops into
+`StrictDescentWitness` values, and then converts to `FiniteModelGlobalCover`.
+`DirectDropSound` is the corresponding propositional obligation for direct
+drops; `directDropWitnessOfSound` packages it for the cover specification.
+`DirectDropAt` is the step-indexed form expected from concrete direct-drop
+certificates.
+
+The missing mathematical target is now:
 
 ```text
-finite phantom-shadowing/CW layer -> UniformStrictDescentHypothesis
+finite phantom-shadowing/CW layer
+  -> GlobalDescentCover / BranchDescentModel + resolved global branch cover
+  -> ClassicalCollatzConjecture
 ```
 
 The finite CW spectral-radius certificates do not by themselves provide

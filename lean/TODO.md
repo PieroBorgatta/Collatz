@@ -76,7 +76,57 @@ When you complete or partially advance a task:
 
 ## Current status (most recent first)
 
-> *Last updated: 2026-05-13 — **Phase 5 complete: Lemma 3.1 and Corollary 3.4 formalized**. Project is `sorry`-free. **Phase 6 complete**: paper v2 drafted, Lean note written, Related Work + Chang comparison done, GitHub README updated, METHODOLOGY.md updated, Zenodo v2 published, and `pdflatex` verified online by Piero. **Phase 7 complete for the current branch**: tasks 7.1-7.4, 7.6, and 7.7 are complete; 7.4 closes with the full `K0=16` sampled run and SCC report, outcome (b), so 7.5 is not applicable. **F.1 is closed for the declared finite residue-cell scope and imported in Lean**: `deterministic_residue_transfer.py` enumerates all `2^4` finite residue subclasses for each of the 1240 raw SCC source states, writes exact deterministic transition matrices, and the `(K,b)` matrix has a generated Lean/Python exact CW certificate with max ratio `90833233962213/129559208330288 < 3/4`; sensitivity checks at `lift_bits = 5, 6` also stay below `3/4`. **Phase 8 complete for the current branch**: 8.1-8.9 are complete; 8.3 closes on the generated 37-state compressed `K,b` SCC certificate; 8.5 has the matrix/decomposition API, a generated exact import of the empirical `T = 10` critical-symbolic full transfer matrix, and an exact generated `T = 10, j = 32` majority `core/tail` `OperatorDecomposition`; 8.6 connects finite CW certificates to Mathlib `spectralRadius`; 8.7 exposes the `T = 10, j = 32` numerical spectral-radius bound `97/2000 = 0.0485` through a fully expanded Lean-checked 224-row CW certificate generated from the exact CSV. **Phase 9 complete**: paper v3 redaction and publication were completed externally by Piero; v3 DOI/record `10.5281/zenodo.20160154` / `https://zenodo.org/records/20160154`.*
+> *Last updated: 2026-05-27 — **Phase 5 complete: Lemma 3.1 and Corollary 3.4 formalized**. Project is `sorry`-free. **Phase 6 complete**: paper v2 drafted, Lean note written, Related Work + Chang comparison done, GitHub README updated, METHODOLOGY.md updated, Zenodo v2 published, and `pdflatex` verified online by Piero. **Phase 7 complete for the current branch**: tasks 7.1-7.4, 7.6, and 7.7 are complete; 7.4 closes with the full `K0=16` sampled run and SCC report, outcome (b), so 7.5 is not applicable. **F.1 is closed for the declared finite residue-cell scope and imported in Lean**: `deterministic_residue_transfer.py` enumerates all `2^4` finite residue subclasses for each of the 1240 raw SCC source states, writes exact deterministic transition matrices, and the `(K,b)` matrix has a generated Lean/Python exact CW certificate with max ratio `90833233962213/129559208330288 < 3/4`; sensitivity checks at `lift_bits = 5, 6` also stay below `3/4`. **Phase 8 complete for the current branch**: 8.1-8.9 are complete; 8.3 closes on the generated 37-state compressed `K,b` SCC certificate; 8.5 has the matrix/decomposition API, a generated exact import of the empirical `T = 10` critical-symbolic full transfer matrix, and an exact generated `T = 10, j = 32` majority `core/tail` `OperatorDecomposition`; 8.6 connects finite CW certificates to Mathlib `spectralRadius`; 8.7 exposes the `T = 10, j = 32` numerical spectral-radius bound `97/2000 = 0.0485` through a fully expanded Lean-checked 224-row CW certificate generated from the exact CSV. **Phase 9 complete**: paper v3 redaction and publication were completed externally by Piero; v3 DOI/record `10.5281/zenodo.20160154` / `https://zenodo.org/records/20160154`. **Phase 10 A0 weak branch reopened**: the finite row-L1 bridge is formalized in `CollatzShadowing/WeakBridge.lean`; the high-`v2` source-tail mass is now both an exact count and a real mass estimate with Lean theorems `WeakBridge.TailCount.dyadic_tail_count_mul_le` and `WeakBridge.TailCount.dyadic_tail_mass_le`; the general finite low/tail split is formalized as `WeakBridge.FiniteSplit.weighted_sum_le_low_plus_tail`; the `delta_only` reduction is formalized as `WeakBridge.FiniteSplit.weighted_dyadic_delta_boundary_le`; first bit-length infrastructure is formalized as `WeakBridge.BitLength.bitLength_two_mul`, same-window add/sub lemmas, dyadic-boundary crossing lemmas, endpoint-union bounds, affine endpoint-union bounds, `WeakBridge.BitLength.affineDelta_period_eq_of_not_mem_badSet`, `WeakBridge.BitLength.biAffineDelta_period_eq_of_not_mem_badSet`, `WeakBridge.BitLength.biAffineDelta_dyadicWeight_period_boundary_le`, and `WeakBridge.BitLength.biAffineDelta_refine`; script `126` now records exact valuation-word cylinder arithmetic, an affine no-drop prefix certificate, destination-refined bi-affine return branches, and an exact congruence diagnostic for the `best_shadow` label gate. Through complete prefixes `T12/T13/T14`, formula/delta/word/no-drop/refined failures remain zero, no final competitor phantom is detected, and the target high-lift boundary is converted into an exact continuation branch: all rows have high-lift continuation support, step delta exactly `+6`, and zero integrality/no-drop failures. Lean still imports the open label-gate count `6628`, now attributable to possible intermediate phantom-label congruences plus the high-lift boundary bookkeeping. Script `125` complete-prefix period-shift runs through `T14` remain entirely `delta_only`, with no destination/drop/tail boundary. The next open proof target is splitting/controlling the intermediate visible-label congruence families in an automaton-aware way.*
+
+Latest Phase-10 reduction: the intermediate label obstruction is now split
+in Lean.  Across `T12/T13/T14`, target visibility contributes `92`,
+competitor visibility contributes `1244`, and the per-record totals are
+`k10c1=8`, `k11c1=896`, `k12c1=340`, `k12c2=92`, `k20c1=0`.  Multi-probe
+diagnostics test `10688` shifted representatives with zero early target
+returns; the target-intermediate subprobe is `736/736` same-step.  The eight
+`T14` competitor no-return-by-final multiprobe cases are all `(12,1)` and
+all return to target later with step delta `+6`; they are a continuation
+boundary, not an early-return obstruction.  The naive unrefined affine
+continuation over the eight-shift class fails integrality in all eight
+cases; tracing the actual late-return word gives prefix/suffix agreement,
+and a further finite four-bit refinement supports all eight continuations
+with zero refined failures.  This is imported in Lean as
+`a0CompletePrefixSummariesV2Lt8_intermediate_multiprobe_no_return_actual_refined`;
+the target-intermediate structure is also imported as
+`a0CompletePrefixSummariesV2Lt8_intermediate_target_visibility_structure`
+with persistent target visibility `0`, missing-prior target visibility
+`92`, no-prior-competitor intersections `92`, and prior-competitor
+intersections `0`; all `92` target-intermediate classes are covered by
+target high-lift visibility (`b >= 2`) and zero are low-only target
+`b = 1` classes.  These are still finite diagnostics, not an infinite
+first-return theorem.  Combining the current exact split criteria gives a
+finite imported split-resolution certificate for all `5292` branch rows
+across the three complete-prefix summaries, theorem
+`a0CompletePrefixSummariesV2Lt8_label_split_resolution_certificate`.
+This finite certificate is now factored through the abstract Lean schema
+`WeakBridge.LabelSplit.BranchCounters` / `SummaryCounters`; the generated
+A0 summary proves
+`a0CompletePrefixSummariesV2Lt8_label_split_summary_resolved`.  The
+conditional cover bridge is also formalized abstractly:
+`WeakBridge.LabelSplit.BranchCover`, `BranchPartition`,
+`sourceResolved_of_all_branches_resolved`, and
+`partition_sourceResolved_of_all_branches_resolved` state that once a
+source space is covered by resolved branch labels, every covered source is
+resolved in the finite label-split sense.  This still does not construct
+the Collatz/A0 infinite cover.  For the complete finite prefixes, Lean now
+also imports a return-sample partition summary:
+`a0CompletePrefixSummariesV2Lt8_return_partition_summary_resolved` proves
+that the branch-row sample counts cover all `11752` finite return samples
+with zero coverage failures.  The same finite accounting is now lifted to
+the complete prefix outcome decomposition.  `WeakBridge.LabelSplit.OutcomeSummary`
+records total samples, covered return samples, drop samples,
+valuation-tail samples, and step-tail samples; the generated theorem
+`a0CompletePrefixSummariesV2Lt8_outcome_decomposition_resolved` proves
+for the imported `T12/T13/T14` summaries that
+`11752 + 101628 + 844 + 16 = 114240`, with covered return samples equal
+to all finite return samples and zero return-coverage failures.  This is
+only a finite prefix balance sheet; the nonzero tails are not eliminated
+by this theorem.
 
 - **Phase 0 complete.** Lake project initialized with `math` template,
   pinned to **Lean 4 v4.29.1** and **Mathlib v4.29.1**. Mathlib
@@ -440,6 +490,86 @@ Recommended sequencing:
 | 10.H | [~] | Run computational experiments supporting analytic constants, only after 10.C and 10.D are closed. | Experiment plans exist, but free-floating numerics are stopped. Further experiments must support either the finite-rank note reproducibility or a later internally justified operator/norm framework. |
 | 10.I | [!] | Prepare a collaboration package. | `notes/phase10_collaborator_brief.md` exists but is archived optional. No collaborator route is active. |
 | 10.J | [x] | Decide v4 vs companion vs coauthored paper, with branch criteria. | `notes/phase10_decision_tree.md` keeps the finite-rank computational note as the active rigorous deliverable, while reopening A0 only as the conditional Haar/conditional-expectation bridge in `notes/phase10_gate10B_conditional_closure.md`. |
+| 10.K | [x] | Formalize the finite A0 weak row-L1 bridge. | `CollatzShadowing/WeakBridge.lean` proves `weighted_action_diff_le`: finite weighted row-L1 drift controls the finite `ell_infty -> L1(mu_N)` action error. `lake build CollatzShadowing.WeakBridge` and `lake build CollatzShadowing` pass. |
+| 10.L | [x] | Prove the high-`v2` source-tail mass bound for the current A0 source model. | `scripts/spectral_program/117_A0_v2_tail_formula.py` verifies the exact formula against all current A0 phase-strata CSVs with max observed-formula error `0`. `WeakBridge.TailCount.dyadic_tail_count_mul_le` formalizes the integer core `tail_count * 2^R <= total_count`; `WeakBridge.TailCount.dyadic_tail_mass_le` gives the real mass form `tail_count / total_count <= 1 / 2^R` when the total count is positive. |
+| 10.M | [~] | Prove or falsify fixed-threshold low-`v2` decay `D_N(v2 < R) -> 0`. | Current evidence from scripts `115`, `118`, and `122` is positive: threshold low-`v2` / top-Haar exponents are near `0.6`, and the median per-phase alpha for `v2 < 8` is `0.6112066004`. Script `119` shows representative drift is dyadic half-block discrepancy (`prefix_l1/half_l1 = 0.5`) dominated by medium-depth returns (`step 11-25`, `delta 0` or `1-3`), not long-return tails. Script `120` weakens the naive finite-period route: dependency-depth majority error falls mainly as cells become sparse. Script `121` shows large fine-scale Haar energy but tiny root coefficients; script `122` recasts the exact target as top dyadic block-discrepancy decay, with `v2 < 8` latest root component `0.0005326722352` (about `93.2%` of total root drift). Script `123` confirms pure bounded valuation words become exactly periodic at large enough `m` (zero mismatches at `m>=192` in the sample for `S=25,A=8`). Script `124` with distributed block sampling shows killed-kernel unresolved tail can vanish at `S=75,A=10`, while symbolic tails remain pessimistic. Script `125` shows the residual killed-kernel pointwise L1 is entirely `delta_only`: no destination changes, no drop/return flips, no tail/return boundaries; the complete-prefix `v2<8`, `(S,A)=(75,10)` runs through `T14` keep the mismatch entirely `delta_only`, with weighted aggregate point-L1 around `0.012`, but these prefixes are tiny compared with the fixed period `2^743`. Lean now has the generic reduction `WeakBridge.FiniteSplit.weighted_dyadic_delta_boundary_le`: if deltas agree off a boundary, average `|2^-delta_1 - 2^-delta_2|` is bounded by boundary mass. Lean also has `WeakBridge.BitLength.bitLength_two_mul`, same-window add/sub lemmas, crossing lemmas showing that bit-length changes imply a dyadic endpoint is crossed, identity/affine endpoint-union bounds, `affineDeltaBadSet_card_le`, `affineDelta_period_eq_of_not_mem_badSet`, `biAffineDeltaBadSet_card_le`, `biAffineDelta_period_eq_of_not_mem_badSet`, and `biAffineDelta_dyadicWeight_period_boundary_le`: the finite weighted discrepancy of one bi-affine branch's `2^-delta` weights is controlled by the weighted mass of the explicitly counted source/target crossing set. Script `126` now extracts branch data in the reparameterized form `source_t=q*u+r`, `target_t=a*u+b`, records the exact valuation-word cylinder `n == word_residue mod 2^(sum(word)+1)`, checks that the branch source progression implies the induced `t`-congruence, and checks an exact affine no-drop prefix certificate: for every prefix of the fixed word, `n_i(u)-n_0(u)` has nonnegative affine numerator on `u >= 0`. It also computes destination-refined coefficients `refined_q/refined_r/refined_a/refined_b` and runs an exact congruence diagnostic for `best_shadow`: visibility of a phantom record is reduced to solvability of a linear congruence modulo `2^(sum_a+1)`. Complete finite-prefix runs `T12/T13/T14` produce `860/1564/2868` return branch rows, all with zero formula/delta/word/no-drop/refined failures, `no_drop_certificate_rows = branchRows`, and `arithmetic_certificate_rows = branchRows`. The label gate is now sharply localized: `labelFinalTargetLowFailures = 0`, `labelFinalCompetingFailures = 0`, and `labelPrefixIntegralityFailures = 0`. Every row has a target high-lift boundary (`860/1564/2868`), but script `126` now converts that boundary into an exact continuation branch by appending one target period: all rows have high-lift continuation support, step delta exactly `+6`, and zero continuation integrality/no-drop failures. Some rows still have possible intermediate phantom-label congruences (`216/376/744`, affecting `204/352/692` branch rows). Lean imports `a0CompletePrefixSummariesV2Lt8LabelOpenTotal = 6628` and `a0CompletePrefixSummariesV2Lt8HighLiftContinuationFailureTotal = 0`. This is a genuine arithmetic reduction of the observed branch rows, but it is still not a global first-return certificate: the remaining unproved part is to split or bound the intermediate visible-label congruence families in an automaton-aware way. Revised acceptance criterion: prove or certify fixed returning labels as positive bi-affine branches after intermediate-boundary splitting, then use the crossing bounds to prove the dyadic block discrepancy of the `2^-delta` weights, or find a counterexample family. |
+| 10.N | [~] | Convert A0 low-`v2` decay plus the exact dyadic tail into a theorem-level double-limit statement. | Generic finite decomposition formalized as `WeakBridge.FiniteSplit.weighted_sum_le_low_plus_tail`: a weighted average is bounded by its exact low contribution plus a uniform tail bound times tail mass. Target remains `lim_{R -> infinity} limsup_N [D_N(v2 < R) + 2 mu_N(v2 >= R)] = 0`, with the `mu_N` term discharged by 10.L and the Collatz-specific low-`v2` term still requiring 10.M. |
+
+Current 10.M refinement (2026-05-27): script `126` now splits the
+intermediate visible-label congruences into target and competing/non-target
+families.  In the complete-prefix `T12/T13/T14` runs the split is target
+`12/16/64` and competing `204/360/680`, with Lean theorem
+`a0CompletePrefixSummariesV2Lt8_intermediate_visible_split` certifying
+totals target `92`, competing `1244`, and split failures `0`.  Thus the
+active unresolved family is dominated by intermediate competitor visibility,
+not by target high-lift and not mainly by target early-return visibility.
+The next split by phantom record gives Lean-certified totals
+`k10c1=8`, `k11c1=896`, `k12c1=340`, `k12c2=92`, `k20c1=0`, with
+`a0CompletePrefixSummariesV2Lt8_intermediate_visible_by_record`.  A
+representative automaton probe of all `1336` intermediate visible classes
+selects the visible candidate and still returns to the target at the same
+final step, with zero early target returns, zero no-return-by-final, and
+zero terminal-by-final representatives; this is imported as
+`a0CompletePrefixSummariesV2Lt8_intermediate_probe_same_step`.  This is
+diagnostic finite evidence, not a uniform congruence-class proof.  The
+stronger exact congruence split now also proves, on the imported finite
+prefix summaries, that the `1244` intermediate competitor classes have no
+intersection with any later intermediate target-visible class before the
+final step:
+`a0CompletePrefixSummariesV2Lt8_intermediate_competing_no_later_target`.
+This removes the competitor classes as a plausible early-target mechanism
+inside the current finite summaries; it is still not an infinite theorem.
+For target-intermediate classes, Lean now imports the finite structure
+theorem `a0CompletePrefixSummariesV2Lt8_intermediate_target_visibility_structure`:
+across the `92` target-visible classes there are zero persistent-target
+classes, all `92` are missing some prior target visibility, all `92` have
+no prior competing intersection, and zero have prior competing
+intersection.  The same theorem now records that all `92` are covered by
+target high-lift visibility and zero are low-only target `b=1` classes,
+so target-intermediate visibility is not the observed early-return
+mechanism in the imported summaries.  Combining this with zero final
+competitor labels, zero competitor-later-target intersections, and the
+exact high-lift continuation gives a finite split-resolution certificate
+for all `5292` imported branch rows:
+`a0CompletePrefixSummariesV2Lt8_label_split_resolution_certificate`.
+This is still a finite complete-prefix branch-split certificate, not an
+asymptotic theorem.  The row-level predicate is isolated as
+`WeakBridge.LabelSplit.branchResolved`, and the imported complete-prefix
+summary satisfies `WeakBridge.LabelSplit.summaryResolved` via
+`a0CompletePrefixSummariesV2Lt8_label_split_summary_resolved`.  The
+cover-to-source bridge is now isolated as
+`WeakBridge.LabelSplit.BranchCover` / `BranchPartition`; the missing
+mathematical step is a genuine Collatz/A0 cover or partition by such
+resolved branch labels, not another finite aggregate counter.  The finite
+prefix return samples themselves are accounted for by
+`WeakBridge.LabelSplit.ReturnPartitionSummary`, instantiated as
+`a0CompletePrefixSummariesV2Lt8_return_partition_summary_resolved`.
+The finite prefix outcome decomposition is also recorded as
+`WeakBridge.LabelSplit.OutcomeSummary`; the generated theorem
+`a0CompletePrefixSummariesV2Lt8_outcome_decomposition_resolved` checks
+the exact balance `11752` covered return samples plus `101628` drop
+samples plus `844` valuation-tail samples plus `16` step-tail samples =
+`114240` total source samples, with zero return-coverage failures.  This
+is a finite accounting certificate only; it does not prove that the tail
+terms vanish in a limit.
+The added eight-shift multi-probe tests `10688` shifted representatives:
+there are zero early target returns, `10680` same-step returns, and `8`
+no-return-by-final cases, all in `T14` competitor rows.  The target-only
+multi-probe has `736/736` same-step and zero failures, imported as
+`a0CompletePrefixSummariesV2Lt8_intermediate_target_multiprobe_same_step`.
+The eight no-return-by-final shifted representatives are all `(12,1)`;
+extended tracing to the step cap shows all eight return to target later
+with step delta exactly `+6`, with zero terminal/unresolved outcomes,
+imported as
+`a0CompletePrefixSummariesV2Lt8_intermediate_multiprobe_no_return_extended`.
+The unrefined affine continuation over the eight-shift class fails
+integrality in all eight cases.  The traced actual late-return word has
+the original word as prefix and the target word as suffix in all eight
+cases; after an additional four-bit split, all eight actual continuations
+are arithmetically supported with zero refined failures, imported as
+`a0CompletePrefixSummariesV2Lt8_intermediate_multiprobe_no_return_actual_refined`.
+Thus the honest remaining finite boundary is a finite refinement/label
+certificate problem, not target-intermediate early return.
 
 Ambition levels:
 
@@ -475,23 +605,25 @@ The first Lean bridge is now formalized in
 |----|--------|------|----------------------|
 | 11.A | [x] | Define the accelerated and classical termination targets. | `CollatzBridge.lean` defines `collatzStep`, `ClassicalCollatzConjecture`, `acceleratedOrbitHitsOne`, and `AcceleratedCollatzConjecture`. |
 | 11.B | [x] | Formalize the strict-descent bridge. | `UniformStrictDescentHypothesis` states that every positive odd `n ≠ 1` has a finite accelerated iterate that is positive odd and strictly smaller than `n`; `acceleratedCollatz_of_uniformStrictDescent` proves this hypothesis implies accelerated termination by strong induction. |
-| 11.C | [~] | Separate classical-vs-accelerated bookkeeping from the finite phantom-shadowing gap. | `AcceleratedToClassicalBridge` and `classicalCollatz_of_uniformStrictDescent` state the remaining classical bridge condition separately. The elementary proof from full Collatz to accelerated odd termination is not yet formalized. |
-| 11.D | [ ] | Connect the finite phantom-shadowing layer to `UniformStrictDescentHypothesis`. | This is the substantive open problem. It requires a proof that every positive odd orbit either drops below start or is captured by certified finite shadowing transitions with no uncontrolled outside/budget class. The K16 finite CW certificate alone does not prove this. |
-| 11.E | [ ] | Classify all finite-model losses for the global proof. | Needed split: `drop below start` is a good descent event; internal certified transitions are reusable; outside-SCC and budget exits must be proved impossible, redirected to descent, or controlled by a new certificate. |
+| 11.C | [x] | Separate classical-vs-accelerated bookkeeping from the finite phantom-shadowing gap. | `CollatzBridge.lean` now proves the elementary bridge `acceleratedToClassicalBridge`: accelerated termination on positive odd inputs implies classical Collatz termination on all positive naturals. The proof formalizes the initial even-tail halving, expands each accelerated Syracuse step into one odd `3n+1` step plus the exact number of halvings, and removes `AcceleratedToClassicalBridge` as an external hypothesis. |
+| 11.D | [~] | Connect the finite phantom-shadowing layer to `UniformStrictDescentHypothesis`. | `CollatzBridge.lean` now defines `StrictDescentWitness`, `BranchDescentModel`, and proves `uniformStrictDescent_of_branchDescentModel`: a resolved finite branch-cover model would imply `UniformStrictDescentHypothesis`. With 11.C closed, it also proves `classicalCollatz_of_branchDescentModel`: such a resolved global branch-descent model would imply `ClassicalCollatzConjecture`. This is only a conditional bridge. The substantive open problem is still to construct such a global branch-cover model from the phantom-shadowing certificates, with no uncontrolled outside/budget/tail class. The K16 finite CW certificate alone does not prove this. |
+| 11.E | [~] | Classify all finite-model losses for the global proof. | `CollatzBridge.lean` now defines `GlobalDescentCover`, whose cover cases are exactly: direct strict-descent witness, resolved branch witness, or declared loss label with its own strict-descent witness. It also defines the concrete audit types `FiniteModelLossKind` (`outsideSCC`, `budgetExit`, `valuationTail`, `stepTail`), `FiniteModelCoverClass`, `CoverClassStatus`, and theorem `finiteModelCoverClass_currentStatus`: `directDrop` is already `witness`, `resolvedBranch` is `branch`, and all four loss classes are `openLoss`. The theorem `classicalCollatz_of_finiteModelGlobalCover` proves that a resolved cover with exactly these declared loss labels implies `ClassicalCollatzConjecture`. The new `FiniteModelCoverSpec` separates the direct-drop predicate from the direct-drop witness and proves `classicalCollatz_of_finiteModelCoverSpec` via `toGlobalDescentCover`. This does not classify the actual A0/K16 losses yet; it makes their required status explicit. Needed next split: `drop below start` is a direct witness; internal certified transitions are branch witnesses; outside-SCC, budget exits, valuation tails, and step tails must be proved impossible, redirected to descent, or assigned a real loss witness. |
 
 Minimal theorem chain now visible:
 
 ```text
 UniformStrictDescentHypothesis
   -> AcceleratedCollatzConjecture
-  -> ClassicalCollatzConjecture   (after AcceleratedToClassicalBridge)
+  -> ClassicalCollatzConjecture   (proved by acceleratedToClassicalBridge)
 ```
 
 The hard missing arrow is:
 
 ```text
 finite phantom-shadowing/CW layer
+  -> GlobalDescentCover / BranchDescentModel + resolved global branch cover
   -> UniformStrictDescentHypothesis
+  -> ClassicalCollatzConjecture
 ```
 
 ---
@@ -508,6 +640,755 @@ finite phantom-shadowing/CW layer
 > - Notes: any blockers, open questions, things the next session should know
 > - Next recommended task: X.Y
 > ```
+
+### 2026-05-27 (A0 weak branch: finite outcome accounting) — Codex + Piero Borgatta
+
+- Tasks advanced: 10.M, 11.C, 11.D.
+- Artifacts modified:
+  - `CollatzShadowing/INVENTORY.md`
+  - `CollatzShadowing/CollatzBridge.lean`
+  - `CollatzShadowing/WeakBridge.lean`
+  - `CollatzShadowing/Generated/A0ReturnBranches.lean`
+  - `notes/phase10_repro_manifest.md`
+  - `lean/TODO.md`
+- Notes:
+  - Added the abstract finite accounting schema
+    `WeakBridge.LabelSplit.OutcomeSummary`, with
+    `tailSamples`, `outcomeAccountedSamples`,
+    `outcomeDecompositionResolved`, and the corresponding zero-failure
+    checker.  The schema is deliberately finite: it records unresolved
+    valuation/step tails instead of erasing them.
+  - Instantiated the schema for the complete-prefix `T12/T13/T14` A0
+    summaries.  The generated theorem
+    `a0CompletePrefixSummariesV2Lt8_outcome_decomposition_resolved`
+    verifies by Lean reduction that the imported prefix universe has
+    `114240` total source samples, decomposed as `11752` covered return
+    samples, `101628` drop samples, `844` valuation-tail samples, and
+    `16` step-tail samples, with zero return-coverage failures.
+  - Added the conditional Collatz bridge
+    `CollatzShadowing.BranchDescentModel` and theorem
+    `uniformStrictDescent_of_branchDescentModel`.  It proves that a
+    resolved finite branch-cover model, whose resolved branches produce
+    genuine accelerated Syracuse strict-descent witnesses for every
+    positive odd `n ≠ 1`, implies `UniformStrictDescentHypothesis`.  This
+    isolates the missing global-cover theorem; it does not construct it.
+  - Closed the elementary accelerated/classical bookkeeping gap.  New
+    lemmas in `CollatzBridge.lean` prove that repeated classical Collatz
+    steps simulate both the initial even-tail division by powers of two
+    and each accelerated Syracuse step.  The theorem
+    `acceleratedToClassicalBridge` proves
+    `AcceleratedCollatzConjecture -> ClassicalCollatzConjecture`, and
+    `classicalCollatz_of_branchDescentModel` now packages the full
+    conditional chain from a resolved global branch-descent model to the
+    classical Collatz statement.  The global model itself remains open.
+  - Added `GlobalDescentCover`, an audit-friendly global target with
+    explicit loss labels.  For every positive odd `n ≠ 1`, such a cover
+    must provide either a direct strict-descent witness, a resolved branch
+    label with branch semantics producing a witness, or a declared loss
+    label with its own witness.  The theorem
+    `classicalCollatz_of_globalDescentCover` proves that a resolved
+    `GlobalDescentCover` implies `ClassicalCollatzConjecture`.  This is
+    only a target theorem; it does not classify the actual A0/K16 losses.
+  - Added the concrete finite-model audit taxonomy
+    `FiniteModelLossKind = outsideSCC | budgetExit | valuationTail |
+    stepTail`, `FiniteModelCoverClass`, `CoverClassStatus`, and theorem
+    `finiteModelCoverClass_currentStatus`.  The Lean status table marks
+    `directDrop` as a strict-descent witness, `resolvedBranch` as requiring
+    branch semantics plus resolved counters, and the four declared loss
+    classes as `openLoss`.  The alias `FiniteModelGlobalCover` fixes the
+    loss-label type to this declared taxonomy, and
+    `classicalCollatz_of_finiteModelGlobalCover` packages the corresponding
+    implication to classical Collatz.
+  - Added witness constructors `strictDescentWitnessOfIterate` and
+    `strictDescentWitnessOfOneStep`, so future drop/tail/branch lemmas can
+    package an explicitly found accelerated descent into the exact witness
+    type used by the global cover.
+  - Added the propositional strict-descent form `HasStrictDescent`, the
+    step-indexed direct-drop predicate `DirectDropAt`,
+    `hasStrictDescent_of_directDropAt`, `directDropAt_of_witness`, the
+    theorem `hasStrictDescent_of_witness`, the classical-choice packaging
+    `strictDescentWitnessOfHasStrictDescent`, and
+    `hasStrictDescent_iff_nonempty_witness`.  This lets future direct-drop
+    predicates be stated propositionally while still feeding the
+    `StrictDescentWitness`-based global cover.
+  - Added `ProofToken` and `FiniteModelCoverSpec`.  This is the next
+    working interface for the global proof: it separates
+    `DirectDropCovers` as a predicate from the `directDropWitness` theorem
+    that must turn that predicate into a `StrictDescentWitness`, while
+    keeping branch covers and the four declared loss kinds explicit.  The
+    conversion `FiniteModelCoverSpec.toGlobalDescentCover` and theorem
+    `classicalCollatz_of_finiteModelCoverSpec` prove that a resolved spec
+    would imply classical Collatz.
+  - Added `DirectDropSound`, the propositional soundness condition for a
+    direct-drop predicate on a source space, and
+    `directDropWitnessOfSound`, which packages such a proof into the
+    concrete witness function required by `FiniteModelCoverSpec`.  This
+    is the first small bridge from a natural source predicate to the global
+    cover interface.
+  - Verification: `lake build CollatzShadowing.WeakBridge` succeeded
+    (`3285` jobs), `lake build CollatzShadowing.Generated.A0ReturnBranches`
+    succeeded (`3286` jobs; latest run `82s`),
+    `lake build CollatzShadowing.CollatzBridge` succeeded (`3291` jobs;
+    latest run `98s` after `DirectDropAt`), and `lake build
+    CollatzShadowing` succeeded (`3350` jobs; latest run `78s`).  No commit
+    or push was made.
+- Next recommended task: decide the next genuine proof obligation: either
+  prove a parametric branch-cover theorem for the fixed A0 family, or
+  explicitly state the remaining global-cover hypothesis that would
+  connect these finite prefix certificates to `UniformStrictDescentHypothesis`.
+
+### 2026-05-26 (A0 weak branch: bi-affine delta model) — Codex + Piero Borgatta
+
+- Tasks advanced: 10.M.
+- Artifacts modified:
+  - `CollatzShadowing/WeakBridge.lean`
+  - `scripts/spectral_program/126_A0_return_branch_affine_probe.py`
+  - `scripts/spectral_program/collatz_126_current_A0_A0_return_branch_affine_probe_branches.csv`
+  - `scripts/spectral_program/collatz_126_current_A0_A0_return_branch_affine_probe_branches.json`
+  - `scripts/spectral_program/collatz_126_current_A0_v2lt8_A0_return_branch_affine_probe_branches.csv`
+  - `scripts/spectral_program/collatz_126_current_A0_v2lt8_A0_return_branch_affine_probe_branches.json`
+  - `scripts/spectral_program/collatz_126_current_A0_v2lt8_prefix_A0_return_branch_affine_probe_branches.csv`
+  - `scripts/spectral_program/collatz_126_current_A0_v2lt8_prefix_A0_return_branch_affine_probe_branches.json`
+  - `scripts/spectral_program/collatz_126_current_A0_v2lt8_complete_T12_A0_return_branch_affine_probe_branches.csv`
+  - `scripts/spectral_program/collatz_126_current_A0_v2lt8_complete_T12_A0_return_branch_affine_probe_branches.json`
+  - `scripts/spectral_program/collatz_126_current_A0_v2lt8_complete_T13_A0_return_branch_affine_probe_branches.csv`
+  - `scripts/spectral_program/collatz_126_current_A0_v2lt8_complete_T13_A0_return_branch_affine_probe_branches.json`
+  - `scripts/spectral_program/collatz_126_current_A0_v2lt8_complete_T14_A0_return_branch_affine_probe_branches.csv`
+  - `scripts/spectral_program/collatz_126_current_A0_v2lt8_complete_T14_A0_return_branch_affine_probe_branches.json`
+  - `scripts/spectral_program/collatz_125_current_A0_v2lt8_complete_T12_A0_kernel_mismatch_decomposition_report.md`
+  - `scripts/spectral_program/collatz_125_current_A0_v2lt8_complete_T12_A0_kernel_mismatch_decomposition_rows.csv`
+  - `scripts/spectral_program/collatz_125_current_A0_v2lt8_complete_T13_A0_kernel_mismatch_decomposition_report.md`
+  - `scripts/spectral_program/collatz_125_current_A0_v2lt8_complete_T13_A0_kernel_mismatch_decomposition_rows.csv`
+  - `scripts/spectral_program/collatz_125_current_A0_v2lt8_complete_T14_A0_kernel_mismatch_decomposition_report.md`
+  - `scripts/spectral_program/collatz_125_current_A0_v2lt8_complete_T14_A0_kernel_mismatch_decomposition_rows.csv`
+  - `CollatzShadowing/Generated/A0ReturnBranches.lean`
+  - `CollatzShadowing.lean`
+  - `notes/phase10_repro_manifest.md`
+  - `lean/TODO.md`
+- Notes:
+  - Added `WeakBridge.BitLength.biAffineDelta a b q r u =
+    bitLength(a*u+b) - bitLength(q*u+r)`.
+  - Added `WeakBridge.BitLength.biAffineDeltaBadSet`, the union of the
+    target affine endpoint crossings for `a*u+b -> a*u+b+a*p` and the
+    source affine endpoint crossings for `q*u+r -> q*u+r+q*p`.
+  - Proved `WeakBridge.BitLength.biAffineDeltaBadSet_card_le`, reducing
+    the bad-set size to the two already formalized affine endpoint-union
+    bounds.
+  - Proved `WeakBridge.BitLength.biAffineDelta_period_eq_of_no_crosses`
+    and `WeakBridge.BitLength.biAffineDelta_period_eq_of_not_mem_badSet`:
+    outside the explicitly counted source/target crossing union, the
+    bi-affine bit-length delta is invariant under `u -> u+p`.
+  - Proved
+    `WeakBridge.BitLength.biAffineDelta_dyadicWeight_period_boundary_le`:
+    for one finite weighted bi-affine branch, the period-shift average of
+    `|2^-delta(u+p)-2^-delta(u)|` is bounded by the weighted mass of the
+    same explicit bad set.
+  - Proved `WeakBridge.BitLength.biAffineDelta_refine`: substituting
+    `u = M*v+s` in a branch
+    `source_t=q*u+r`, `target_t=a*u+b` gives the refined branch
+    `source_t=(q*M)*v+(q*s+r)`,
+    `target_t=(a*M)*v+(a*s+b)` without changing the represented
+    `biAffineDelta`.
+  - This corrects the abstract model suggested by the script-125 trace
+    diagnostic: fixed returning labels appear as exact dyadic/rational
+    affine branches in the original local coordinate, so the clean
+    theorem should reparameterize a residue class as
+    `source_t = q*u+r`, `target_t = a*u+b`.
+  - Added script `126_A0_return_branch_affine_probe.py` to extract these
+    sampled branch forms using exact rational arithmetic and write both
+    CSV rows and a JSON certificate-style payload.  Current runs:
+    `current_A0` with sample limit `256` finds two exact branch rows and
+    `current_A0_v2lt8` with all `v2<8`, odd residues `{1,3}`, and
+    `h<4` finds sixteen exact branch rows.  Both runs have
+    `formula_failures = 0`, `delta_failures = 0`,
+    `exact_failures = 0`, and `noninteger_branches = 0`.
+    The script now also computes destination-refined branch coefficients
+    `refined_q/refined_r/refined_a/refined_b`, so that the finite
+    destination state is fixed on the sampled refined source progression.
+    It also records the exact valuation-word cylinder
+    `n == word_residue mod 2^(sum(word)+1)` and the induced A0-coordinate
+    congruence for `t`, and checks whether each branch progression
+    `t=q*u+r` implies that congruence.  It now also checks a sufficient
+    exact no-drop certificate: for every prefix of the fixed valuation
+    word, `n_i(u)-n_0(u)` has nonnegative affine numerator on `u >= 0`.
+    The regenerated spread `v2<8` run has
+    `word_congruence_failures = 0`, `drop_affine_failures = 0`,
+    `no_drop_certificate_rows = 16`,
+    `branch_word_certificate_failures = 0`, and
+    `arithmetic_certificate_rows = 16`.  The new label-gate diagnostic
+    shows `label_intermediate_visible_failures = 0`,
+    `label_final_competing_failures = 0`, and
+	    `label_status_target_high_lift_boundary = 16`: the spread rows first
+	    hit only target high-lift residues.  Appending one target period now
+	    gives exact high-lift continuation support for all `16` rows, with
+	    step delta `+6` and zero continuation integrality/no-drop failures.
+    A separate `current_A0_v2lt8_prefix` run with prefix sampling finds
+    `380` exact branch rows and again has zero exact/noninteger/refined
+    failures.
+  - Added `dyadic-prefix` mode to script `126`, which enumerates all
+    selected phase points with `t < 2^T`.  Complete finite prefix runs
+    for all `v2<8`, odd residues `{1,3}`, and `h<4` give:
+    `T12`: `16320` source points, `1652` returns, `14548` drops,
+    `120` valuation tails, `0` step tails, `860` return branch rows;
+    `T13`: `32640` source points, `3352` returns, `29040` drops,
+    `240` valuation tails, `8` step tails, `1564` return branch rows;
+    `T14`: `65280` source points, `6748` returns, `58040` drops,
+    `484` valuation tails, `8` step tails, `2868` return branch rows.
+    Derived finite ratios: return rates are about `0.101225`,
+    `0.102696`, `0.103370`; branch-row densities are about
+    `0.052696`, `0.047917`, `0.043934`.
+    All three complete-prefix runs have
+    `exact_failures = noninteger_branches = word_congruence_failures =
+    drop_affine_failures = branch_word_certificate_failures =
+    refined_formula_failures = refined_state_failures = 0`, and have
+    `no_drop_certificate_rows = branchRows` and
+    `arithmetic_certificate_rows = branchRows`.  The label-gate diagnostic
+    reduces `best_shadow` to linear congruence solvability modulo powers
+    of two.  For `T12/T13/T14`, there are no final competing phantom
+    labels and no final target-low failures, but there are
+    `216/376/744` possible intermediate visible-label congruences and
+    every branch row has a target high-lift boundary.  Status counts are:
+	    `target_high_lift_boundary = 656/1212/2176` and
+	    `blocked_label_congruence = 204/352/692`.  The target high-lift
+	    boundary is now extendable in every branch row by appending one
+	    target period: high-lift continuation support is
+	    `860/1564/2868`, the continuation step delta is always `+6`, and
+	    continuation integrality/no-drop failures are zero.  A further split
+	    of intermediate visible labels gives target `12/16/64` versus
+	    competing/non-target `204/360/680`, so the active obstruction is
+	    predominantly intermediate competitor visibility.  These are exact
+	    finite-prefix enumerations and congruence diagnostics, not infinite
+	    residue-class certificates.
+  - Added the same `dyadic-prefix` mode to script `125` and ran the
+    period-shift mismatch decomposition on complete prefixes `T12`,
+    `T13`, and `T14` for `(S,A)=(75,10)`.  In all three runs the
+    weighted aggregate mismatch has zero destination changes, zero
+    drop/return flips, and zero tail/return boundary; it is entirely
+    `delta_only`.  Weighted aggregate point-L1 values are approximately
+    `0.012019378064`, `0.011900658701`, and `0.012011479396`.
+    This supports the reduction to bit-length weights but also warns
+    that these small prefixes are far below the fixed comparison period
+    `2^743`, so the values should not be read as asymptotic decay.
+    This shows the 16-row spread import is not a complete branch
+    enumeration; a real certificate must cover the whole finite
+    truncated branch partition, not just representative spread samples.
+  - Added `CollatzShadowing/Generated/A0ReturnBranches.lean`, importing
+    the sixteen `v2<8` sampled branch rows into Lean as finite data and
+    proving by kernel-checked reduction that the imported row count is
+    `16`, the total imported formula/delta failure counter is `0`, and
+    the internal scale checks hold: `word.length = step`, `a = 3^step`,
+    `q = 2^(sum word)`, and the destination-refined coefficients satisfy
+    the expected relations
+    `refined_q = q * 2^(dst_v2+2)`,
+    `refined_r = q*u_residue + r`,
+    `refined_a = a * 2^(dst_v2+2)`, and
+    `refined_b = a*u_residue + b` for the imported rows.  This is not a
+    proof that the branch persists for all `u`.
+  - The generated Lean file now also imports the four distinct sampled
+    word-cylinder/no-drop rows and proves by kernel-checked reduction that
+    their word-cylinder and affine no-drop checks are zero, that
+    `wordModBits = sum(word)+1`,
+    that `q = 2^(sum word)`, and that the branch source split implies
+    the induced `t`-congruence.  This certifies the valuation-word
+    arithmetic and no-drop prefix property for these imported branch
+    shapes; it still does not certify the global first-return label.
+  - The same generated Lean file now imports the complete-prefix
+    `T12/T13/T14` summary rows and proves that all formula/noninteger/
+    word/no-drop/refined failure totals are zero, that all finite-prefix
+    branch rows carry script-126 arithmetic and no-drop certificates, and
+    that the return/drop/tail counters cover all enumerated source points
+    in those finite prefixes.  It also imports the label-gate diagnostic:
+    `a0CompletePrefixSummariesV2Lt8LabelOpenTotal = 6628`, with exact
+    status coverage across the three prefix summaries.  It also proves
+	    that the target high-lift boundary has `u`-modulus bits exactly `7`
+	    in all three complete-prefix summaries, and that the imported
+	    high-lift continuation failure total is zero.  It also imports the
+	    intermediate visible-label split: target total `92`, competing total
+	    `1244`, split failures `0`; and the per-record split
+	    `k10c1=8`, `k11c1=896`, `k12c1=340`, `k12c2=92`, `k20c1=0`.
+	    It also imports a representative automaton probe: all `1336`
+	    intermediate visible representatives return at the same final step,
+	    with zero early target returns, zero no-return-by-final, and zero
+	    terminal-by-final outcomes.  Finally, it imports the exact
+	    congruence-intersection check that all `1244` intermediate
+	    competitor classes have no later target-visible intersection before
+	    the final step.
+	    The new eight-shift multi-probe imports `10688` shifted
+	    representatives with zero early target returns, `8` no-return-by-final
+	    cases in `T14` competitor rows, and target-intermediate subprobe
+	    `736/736` same-step.  The `8` no-return cases are all `(12,1)` and
+	    all return to target later with step delta `+6`, with zero terminal
+	    or unresolved extended outcomes.  The naive unrefined continuation
+	    fails integrality in all eight cases; the actual traced late-return
+	    word has prefix/suffix agreement and is supported after an extra
+	    four-bit split, with zero refined failures.
+	    It also imports the target-intermediate visibility structure:
+	    persistent `0`, missing-prior `92`, no-prior-competitor `92`, and
+	    prior-competitor `0`; high-lift-covered `92`, low-only `0`.
+	    The derived finite split-resolution certificate covers all `5292`
+	    imported complete-prefix branch rows.  The abstract Lean schema for
+	    this diagnostic is `WeakBridge.LabelSplit`; the generated A0 summary
+	    instantiates it with branch rows `5292` and certificate rows `5292`.
+	    The same namespace now contains the conditional cover/partition
+	    bridge: if all branch labels in a declared cover are resolved, then
+	    every covered source point is resolved in the same finite label-split
+	    sense.  The A0 infinite cover itself remains the open gate.
+	    The finite return-sample partition summary is imported as well:
+	    branch-row sample counts cover all `11752` finite return samples,
+	    with zero coverage failures.
+	    The nonzero open label total is now attributable mainly to
+	    intermediate `(11,1)` and `(12,1)` competitor congruence families
+	    plus conservative high-lift bookkeeping, not to a failed arithmetic
+	    branch formula.
+  - The project virtual environment already contains the transitive
+    scientific dependencies used by the spectral helper modules:
+    `numpy 2.4.4` and `scipy 1.17.1`.  The reproducibility manifest now
+    records that Phase-10 scripts importing
+    `75_critical_symbolic_operator.py` or `53_lift_phantom_cycles.py`
+    should be run with `.venv/bin/python` or with the documented
+    `uv run --with numpy --with scipy python ...` form, not system
+    `python3`.
+  - Verification: `lake build CollatzShadowing.WeakBridge` succeeded
+    (`3285` jobs; latest cached check after `OutcomeSummary` import was
+    about `7s`),
+	    `lake build CollatzShadowing.Generated.A0ReturnBranches`
+	    succeeded (`3286` jobs; latest run `82s`), and
+	    `lake build CollatzShadowing` succeeded (`3350` jobs after importing
+	    the generated file; latest run `79s`).
+- Next recommended task: close or falsify the remaining global-label
+  part of the branch certificate for fixed `(S,A,R)`.  The valuation-word
+  cylinder, source split `t=q*u+r`, target affine form `next_t=a*u+b`,
+  affine no-drop prefix property, and destination-state refinement are
+  now arithmetic certificate fields.  The `best_shadow` gate is reduced
+	  to explicit congruence-boundary families.  The target high-lift family
+	  is now extendable by one target period; the active hard family is the
+	  intermediate competing/non-target visible-label residues.  Next, split
+	  those competitor residue classes by record type and automaton outcome,
+	  and decide whether they form a controlled boundary mass or a genuine
+	  obstruction.  Then state the block-discrepancy target
+  as a finite sum of `2^-biAffineDelta` weights plus controlled exception
+  sets.
+
+### 2026-05-26 (A0 weak branch: affine-delta bad set) — Codex + Piero Borgatta
+
+- Tasks advanced: 10.M.
+- Artifacts modified:
+  - `CollatzShadowing/WeakBridge.lean`
+  - `lean/TODO.md`
+- Notes:
+  - Added `WeakBridge.BitLength.affineDelta a b t =
+    bitLength(a*t+b) - bitLength(t)`.
+  - Added `WeakBridge.BitLength.affineDeltaBadSet`, the union of the
+    source endpoint crossings for `t -> t+p` and target affine endpoint
+    crossings for `a*t+b -> a*t+b+a*p`.
+  - Proved `WeakBridge.BitLength.affineDeltaBadSet_card_le`: for
+    positive slope, the bad set is bounded by the sum of the source and
+    affine endpoint-union bounds.
+  - Proved `WeakBridge.BitLength.affineDelta_period_eq_of_no_crosses`
+    and `WeakBridge.BitLength.affineDelta_period_eq_of_not_mem_badSet`:
+    outside the explicitly counted bad set, the affine bit-length delta
+    is invariant under the fixed period shift `t -> t+p`.
+  - This is the precise abstract form needed for the `delta_only` route.
+    The remaining non-formalized step is to prove that fixed returning
+    labels in the Collatz trace model really supply positive affine
+    branches of the form `next_t = a*t+b` with fixed period `p`.
+  - Verification: `lake build CollatzShadowing.WeakBridge` succeeded
+    (`3285` jobs), and `lake build CollatzShadowing` succeeded (`3349`
+    jobs).
+- Next recommended task: inspect the script-125 / trace code path and
+  isolate where a fixed returning label determines `next_t` as an affine
+  function of `t`.  Then either formalize that as a Lean hypothesis or
+  generate/certify branch data for the current finite labels.
+
+### 2026-05-26 (A0 weak branch: affine endpoint crossing bound) — Codex + Piero Borgatta
+
+- Tasks advanced: 10.M.
+- Artifacts modified:
+  - `CollatzShadowing/WeakBridge.lean`
+  - `lean/TODO.md`
+- Notes:
+  - Added `WeakBridge.BitLength.affineCrossesDyadicEndpoint`,
+    `fixedAffineEndpointCrossingSet`, and `affineEndpointCrossingUnion`.
+  - Proved `WeakBridge.BitLength.fixed_affine_endpoint_crossing_count_le`:
+    for positive slope `a`, at most `2*c+1` source indices can cross one
+    fixed dyadic endpoint under `(a*t+b, a*t+b+c]`.  The bound is coarse
+    but independent of `N`.
+  - Proved `WeakBridge.BitLength.affine_endpoint_index_lt_of_crosses_in_prefix`
+    and `mem_affineEndpointCrossingUnion_of_crosses`.
+  - Proved `WeakBridge.BitLength.affineEndpointCrossingUnion_card_le`:
+    for `0 < a`, all affine endpoint crossings in `t < N` have cardinality
+    at most `(2*c+1) * (bitLength(a*N+b+c)+1)`.
+  - This is the first Lean-checked affine boundary estimate for the
+    Phase-10 `delta_only` route.  It still needs to be connected to the
+    actual returning-label affine branches extracted from the Collatz
+    trace model.
+  - Verification: `lake build CollatzShadowing.WeakBridge` succeeded
+    (`3285` jobs), and `lake build CollatzShadowing` succeeded (`3349`
+    jobs).
+- Next recommended task: define a small abstract "return branch" record
+  with `next_t = a*t+b` and prove that away from the affine endpoint
+  crossing union, the corresponding bit-length delta is constant under
+  bounded additive perturbation.  Then identify where the script-125
+  returning labels supply such branches.
+
+### 2026-05-26 (A0 weak branch: endpoint-union crossing bound) — Codex + Piero Borgatta
+
+- Tasks advanced: 10.M.
+- Artifacts modified:
+  - `CollatzShadowing/WeakBridge.lean`
+  - `lean/TODO.md`
+- Notes:
+  - Added `WeakBridge.BitLength.fixedEndpointCrossingSet` and
+    `WeakBridge.BitLength.endpointCrossingUnion`.
+  - Proved `WeakBridge.BitLength.endpoint_index_lt_of_crosses_in_prefix`:
+    any crossed endpoint for a source `t < N` has index below
+    `bitLength(N+c)+1`.
+  - Proved `WeakBridge.BitLength.mem_endpointCrossingUnion_of_crosses`:
+    every concrete crossing in the prefix belongs to the finite endpoint
+    union.
+  - Proved `WeakBridge.BitLength.endpointCrossingUnion_card_le`:
+    the finite endpoint union has cardinality at most
+    `c * (bitLength(N+c)+1)`.
+  - This gives the expected coarse `O(c log N)` boundary size for fixed
+    additive perturbation `c`.  It is not yet the affine return-branch
+    theorem, and it does not prove low-`v2` decay by itself.
+  - Verification: `lake build CollatzShadowing.WeakBridge` succeeded
+    (`3285` jobs), and `lake build CollatzShadowing` succeeded (`3349`
+    jobs).
+- Next recommended task: convert this identity-branch boundary count to
+  the monotone affine case.  The needed form is for
+  `F(t)=a*t+b`: compare `F(t)` and `F(t)+c`, count crossings of dyadic
+  endpoints in `F([0,N))`, and track the factor introduced by the slope
+  `a`.
+
+### 2026-05-26 (A0 weak branch: fixed endpoint crossing count) — Codex + Piero Borgatta
+
+- Tasks advanced: 10.M.
+- Artifacts modified:
+  - `CollatzShadowing/WeakBridge.lean`
+  - `lean/TODO.md`
+- Notes:
+  - Added `WeakBridge.BitLength.crossesDyadicEndpoint` and
+    `WeakBridge.BitLength.dyadicBackNeighborhood`.
+  - Proved `WeakBridge.BitLength.dyadic_boundary_mem_back_neighborhood`:
+    if `(t,t+c]` crosses `2^k`, then `t` lies in the backward window
+    `[2^k-c, 2^k)`.
+  - Proved `WeakBridge.BitLength.fixed_dyadic_endpoint_crossing_count_le`:
+    for fixed `N,c,k`, at most `c` values of `t < N` cross the fixed
+    endpoint `2^k` under the perturbation `(t,t+c]`.
+  - This is still local to one endpoint.  The next missing step is a
+    finite union/count over all endpoints relevant to a dyadic block, and
+    then the affine pullback version for `a*t+b`.
+  - Verification: `lake build CollatzShadowing.WeakBridge` succeeded
+    (`3285` jobs), and `lake build CollatzShadowing` succeeded (`3349`
+    jobs).
+- Next recommended task: prove a finite endpoint-union bound for
+  `t < N`, likely of size `O(c * bitLength(N+c))`, then specialize or
+  adapt it to monotone affine return branches.
+
+### 2026-05-26 (A0 weak branch: dyadic-boundary crossing lemmas) — Codex + Piero Borgatta
+
+- Tasks advanced: 10.M.
+- Artifacts modified:
+  - `CollatzShadowing/WeakBridge.lean`
+  - `lean/TODO.md`
+- Notes:
+  - Added `WeakBridge.BitLength.exists_dyadic_boundary_of_bitLength_add_ne`:
+    if `n != 0` and `bitLength(n+c) != bitLength n`, then some power
+    `2^k` lies in `(n, n+c]`.
+  - Added `WeakBridge.BitLength.exists_dyadic_boundary_of_bitLength_sub_ne`:
+    if `c <= n`, `n-c != 0`, and subtraction changes bit length, then
+    some power `2^k` lies in `(n-c, n]`.
+  - These are the exact formal boundary statements needed before any
+    finite/asymptotic count.  They do not yet count how often the event
+    occurs for affine forms.
+  - Verification: `lake build CollatzShadowing.WeakBridge` succeeded
+    (`3285` jobs), and `lake build CollatzShadowing` succeeded (`3349`
+    jobs).
+- Next recommended task: prove a counting bound for intervals crossing
+  dyadic endpoints, first for identity intervals `(t,t+c]`, then for
+  monotone affine intervals `(a*t+b, a*t+b+c]` or
+  `(a*t+b-c, a*t+b]`.
+
+### 2026-05-26 (A0 weak branch: bit-length same-window lemmas) — Codex + Piero Borgatta
+
+- Tasks advanced: 10.M.
+- Artifacts modified:
+  - `CollatzShadowing/WeakBridge.lean`
+  - `lean/TODO.md`
+- Notes:
+  - Added `WeakBridge.BitLength.bitLength_eq_succ_of_pow_le_lt`: if
+    `2^k <= n < 2^(k+1)`, then `bitLength n = k+1`.
+  - Added `WeakBridge.BitLength.bitLength_add_eq_of_same_window` and
+    `WeakBridge.BitLength.bitLength_sub_eq_of_same_window`: adding or
+    subtracting a perturbation preserves bit length when both endpoints
+    remain in the same dyadic window.
+  - These lemmas make the archimedean boundary explicit: the only places
+    where a bounded additive perturbation can change bit length are the
+    short neighborhoods of dyadic window endpoints.  The next step is to
+    count or average those neighborhoods for the affine return branches.
+  - Verification: `lake build CollatzShadowing.WeakBridge` succeeded
+    (`3285` jobs), and `lake build CollatzShadowing` succeeded (`3349`
+    jobs).
+- Next recommended task: prove a finite counting lemma for dyadic-window
+  endpoint neighborhoods, then apply it to affine forms `a*t+b` on fixed
+  source congruence classes.
+
+### 2026-05-26 (A0 weak branch: bit-length scale primitive) — Codex + Piero Borgatta
+
+- Tasks advanced: 10.M.
+- Artifacts modified:
+  - `CollatzShadowing/WeakBridge.lean`
+  - `lean/TODO.md`
+- Notes:
+  - Added `WeakBridge.BitLength.bitLength`, matching Python's
+    `int.bit_length` at zero and `Nat.log 2 n + 1` for positive `n`.
+  - Proved `WeakBridge.BitLength.bitLength_two_mul` and
+    `WeakBridge.BitLength.bitLength_mul_two`: for `n != 0`,
+    multiplying by `2` increases bit length by exactly one.
+  - This is only the first formal primitive for the revised 10.M route.
+    It does not yet prove affine bit-length average cancellation, but it
+    gives the exact homogeneous dyadic scaling identity needed by that
+    future lemma.
+  - Verification: `lake build CollatzShadowing.WeakBridge` succeeded
+    (`3285` jobs), and `lake build CollatzShadowing` succeeded (`3349`
+    jobs).
+- Next recommended task: formulate the affine perturbation step:
+  compare `bitLength (a * t + b)` with `bitLength (a * (2 * t) + b)`
+  outside explicitly counted threshold intervals, then lift that to
+  adjacent dyadic block averages for the `2^-delta` weights.
+
+### 2026-05-26 (A0 weak branch: delta boundary route corrected) — Codex + Piero Borgatta
+
+- Tasks advanced: 10.M.
+- Artifacts modified:
+  - `lean/TODO.md`
+- Notes:
+  - Ran a non-persistent diagnostic using the existing script-`125`
+    tracing code to compare actual adjacent dyadic block averages
+    `[0,N)` vs `[N,2N)` for selected phases and the killed/truncated
+    kernel with `S=75,A=10`.
+  - The period-pair diagnostic from script `125` can show positive
+    density of `delta_only` changes, so the naive route "delta changes
+    only on a small boundary" is too strong as a global proof strategy.
+  - The actual adjacent-block averages are much smaller and compatible
+    with script `122`; for example phase `0|3|0` drops from block L1
+    about `0.006874` at `N=2^12` to about `0.000156` at `N=2^24` in the
+    sampled check.
+  - Interpretation: the next theorem should not try only to prove small
+    pointwise boundary mass.  It should prove dyadic scale-invariance or
+    block-average cancellation for affine bit-length weights of the form
+    `2^{-(bit_length(next_t)-bit_length(t))}` on fixed returning labels.
+  - No new script or note file was created in this step.
+- Next recommended task: formulate the affine bit-length average lemma
+  precisely.  Candidate target: for fixed positive affine return branches
+  on a congruence class, prove that the adjacent dyadic block discrepancy
+  of `2^{-(bit_length(F(t))-bit_length(t))}` tends to zero, with separate
+  exceptional sets for drops, valuation tails, and non-return tails.
+
+### 2026-05-26 (A0 weak branch: delta-only boundary reduction) — Codex + Piero Borgatta
+
+- Tasks advanced: 10.M.
+- Artifacts modified:
+  - `CollatzShadowing/WeakBridge.lean`
+  - `lean/TODO.md`
+- Notes:
+  - Added `WeakBridge.FiniteSplit.dyadicWeight δ = 2^{-δ}` and basic
+    bounds `dyadicWeight_nonneg`, `dyadicWeight_le_one`, and
+    `abs_dyadicWeight_sub_le_one`.
+  - Added the Lean theorem
+    `WeakBridge.FiniteSplit.weighted_dyadic_delta_boundary_le`: if two
+    finite delta fields agree off a boundary predicate, then the weighted
+    average of `|2^{-delta_1}-2^{-delta_2}|` is bounded by the weighted
+    mass of that boundary.
+  - This matches the script-`125` reduction where the residual killed
+    kernel mismatch is `delta_only`.  It does not prove that the actual
+    Collatz bit-length boundary has small mass; that remains the open
+    10.M estimate.
+  - Verification: `lake build CollatzShadowing.WeakBridge` succeeded
+    (`3285` jobs), and `lake build CollatzShadowing` succeeded (`3349`
+    jobs).
+- Next recommended task: define the concrete boundary predicate for the
+  A0 returning phases, probably in terms of `bit_length(next_t)` changing
+  under `t -> t + 2^m`, then prove or falsify that its block-average mass
+  tends to zero for each fixed low-`v2` phase/truncation.
+
+### 2026-05-26 (A0 weak branch: finite low/tail split lemma) — Codex + Piero Borgatta
+
+- Tasks advanced: 10.N; 10.M remains the active missing mathematical
+  input.
+- Artifacts modified:
+  - `CollatzShadowing/WeakBridge.lean`
+  - `lean/TODO.md`
+- Notes:
+  - Added `WeakBridge.FiniteSplit.weightedSubsum` and
+    `WeakBridge.FiniteSplit.weightedSubmass` to name predicate-restricted
+    finite weighted sums.
+  - Added the Lean theorem
+    `WeakBridge.FiniteSplit.weighted_sum_le_low_plus_tail`: for a
+    nonnegative finite weight `mu`, if a discrepancy `d` is bounded by
+    `B` on a tail predicate `High`, then the full weighted sum is bounded
+    by the exact low contribution plus `B` times the high-tail mass.
+  - This is only the formal low/tail bookkeeping lemma.  It does not
+    identify the Collatz low set, does not prove the low-`v2` decay, and
+    does not close Gate 10.B.
+  - Verification: `lake build CollatzShadowing.WeakBridge` succeeded
+    (`3285` jobs), and `lake build CollatzShadowing` succeeded (`3349`
+    jobs).
+- Next recommended task: keep 10.M as the main target.  State a
+  Collatz-specific finite lemma for the returning-phase `delta_only`
+  obstruction, then try to reduce it to a bit-length/`delta` boundary
+  estimate on fixed bounded congruential return labels.
+
+### 2026-05-26 (A0 weak branch: real high-v2 tail mass lemma) — Codex + Piero Borgatta
+
+- Tasks advanced: 10.L.
+- Artifacts modified:
+  - `CollatzShadowing/WeakBridge.lean`
+  - `lean/TODO.md`
+- Notes:
+  - Added `WeakBridge.TailCount.tailCount` and
+    `WeakBridge.TailCount.totalCount` to name the two-prefix source-tail
+    numerator and denominator used by the A0 high-`v2` source model.
+  - Added the Lean theorem
+    `WeakBridge.TailCount.dyadic_tail_mass_le`, upgrading the existing
+    integer bound `tail_count * 2^q <= total_count` to the real mass
+    statement `tail_count / total_count <= 1 / 2^q` whenever the total
+    positive source count is nonzero.
+  - This closes only the high-`v2` tail half of the A0 weak double-limit
+    split.  It does not prove low-`v2` decay, Gate 10.B, spectral gap, or
+    Collatz.
+  - Verification: `lake build CollatzShadowing.WeakBridge` succeeded
+    (`3285` jobs), and `lake build CollatzShadowing` succeeded (`3349`
+    jobs).
+- Next recommended task: attack 10.M by formulating the returning-phase
+  bit-length/`delta` boundary lemma; the current evidence says the
+  residual killed-kernel mismatch is `delta_only`, so the next proof
+  target should bound block averages of
+  `|2^-delta(t+2^m)-2^-delta(t)|` on fixed bounded congruential return
+  labels.
+
+### 2026-05-25 (A0 weak branch: top-Haar formulation) — Codex + Piero Borgatta
+
+- Tasks advanced: 10.M.
+- Artifacts produced or updated:
+  - `scripts/spectral_program/122_A0_top_haar_decay_summary.py`
+  - `scripts/spectral_program/collatz_122_current_A0_A0_top_haar_decay_summary_report.md`
+  - `scripts/spectral_program/collatz_122_current_A0_A0_top_haar_decay_summary_phase_fits.csv`
+  - `scripts/spectral_program/collatz_122_current_A0_A0_top_haar_decay_summary_threshold_fits.csv`
+  - `scripts/spectral_program/collatz_122_current_A0_A0_top_haar_decay_summary_case_points.csv`
+  - `scripts/spectral_program/123_A0_bounded_periodicity_probe.py`
+  - `scripts/spectral_program/collatz_123_current_A0_A0_bounded_periodicity_probe_report.md`
+  - `scripts/spectral_program/collatz_123_current_A0_large_m_A0_bounded_periodicity_probe_report.md`
+  - `scripts/spectral_program/124_A0_tail_grid_probe.py`
+  - `scripts/spectral_program/collatz_124_current_A0_A0_tail_grid_probe_report.md`
+  - `scripts/spectral_program/collatz_124_current_A0_spread_A0_tail_grid_probe_report.md`
+  - `scripts/spectral_program/125_A0_kernel_mismatch_decomposition.py`
+  - `scripts/spectral_program/collatz_125_current_A0_spread_A0_kernel_mismatch_decomposition_report.md`
+  - `notes/phase10_A0_low_v2_mechanism_2026-05-25.md`
+  - `notes/phase10_A0_dyadic_discrepancy_lemma_2026-05-25.md`
+  - `notes/phase10_index.md`
+  - `notes/phase10_master_report.md`
+  - `notes/phase10_repro_manifest.md`
+  - `lean/TODO.md`
+- Notes:
+  - Script `122` rewrites script-`111` A0 phase-strata data in top
+    dyadic Haar form:
+    `root_haar_l1(N) = ||mean_[N,2N) - mean_[0,N)||_1 = 2 * row_l1(N)`.
+  - Threshold fits remain near alpha `0.6`; for `v2 < 8`, latest root
+    component is `0.0005326722352`, about `93.2%` of total root drift.
+  - This sharpens 10.M: prove top dyadic block-discrepancy decay for
+    each fixed low-`v2` phase.  The exact high-`v2` tail from 10.L then
+    supplies the outer `R -> infinity` step.
+  - The candidate proof route is now stated and corrected in
+    `notes/phase10_A0_dyadic_discrepancy_lemma_2026-05-25.md`: bounded
+    finite-depth congruential signatures should be exactly periodic modulo
+    a power of two, intermediate high-valuation tails should have dyadic
+    mass `<= S * 2^-A`, and the genuine bottlenecks are the archimedean
+    `delta/drop` boundary term and the return-depth tail.
+  - Script `123` confirms the split: for `S=25,A=8`, pure valuation-word
+    mismatches vanish at large `m` (`0/128` for all tested phases at
+    `m=192,193,200`), while the actual kernel keeps small residual
+    mismatches (`0/128` to `9/128`) and the `shadow_return` tail rates are
+    still around `0.82`-`0.87`.
+  - Script `124` with distributed block sampling shows the symbolic tail
+    is pessimistic: at `S=75,A=10`, symbolic return-tail mean is `0.5`,
+    but killed-kernel unresolved tail mean is `0`; two tested phases are
+    full-return phases and two are full-drop phases on the distributed
+    sample.
+  - Script `125` decomposes the remaining killed-kernel mismatch.  For all
+    tested `(S,A)`, nonzero pointwise L1 is entirely `delta_only`; there
+    are no destination-label changes, no drop/return flips, and no
+    tail/return boundaries.  At `S=75,A=10`, aggregate point L1 mean is
+    `0.02276611328` and nonzero rate is `0.1821289062`.
+- Next recommended task: state and test the bit-length/`delta` boundary
+  lemma for returning phases.  The target should bound the block average of
+  `|2^-delta(t+2^m)-2^-delta(t)|` on fixed bounded congruential return
+  labels.
+
+### 2026-05-25 (A0 weak branch: exact high-v2 tail) — Codex + Piero Borgatta
+
+- Tasks advanced: 10.K, 10.L; 10.M opened as the active proof target.
+- Artifacts produced or updated:
+  - `CollatzShadowing/WeakBridge.lean`
+  - `CollatzShadowing.lean`
+  - `scripts/spectral_program/117_A0_v2_tail_formula.py`
+  - `scripts/spectral_program/collatz_117_current_A0_A0_v2_tail_formula_report.md`
+  - `notes/phase10_A0_v2_tail_formula_2026-05-25.md`
+  - `notes/phase10_A0_finite_weak_bridge_2026-05-25.md`
+  - `notes/phase10_A0_weak_approximation_theorem_2026-05-25.md`
+  - `notes/phase10_index.md`
+  - `notes/phase10_master_report.md`
+  - `notes/phase10_repro_manifest.md`
+  - `lean/TODO.md`
+  - `scripts/spectral_program/118_A0_low_v2_phase_decay_probe.py`
+  - `scripts/spectral_program/119_A0_low_v2_return_depth_probe.py`
+  - `scripts/spectral_program/120_A0_dependency_depth_probe.py`
+  - `scripts/spectral_program/121_A0_walsh_haar_probe.py`
+  - `scripts/spectral_program/collatz_118_current_A0_A0_low_v2_phase_decay_probe_report.md`
+  - `scripts/spectral_program/collatz_119_T14_j64_128_sample_A0_low_v2_return_depth_probe_report.md`
+  - `scripts/spectral_program/collatz_120_T14_j128_sample_A0_dependency_depth_probe_report.md`
+  - `scripts/spectral_program/collatz_121_T14_j128_sample_A0_walsh_haar_probe_report.md`
+  - `notes/phase10_A0_low_v2_mechanism_2026-05-25.md`
+- Notes:
+  - The finite row-source bridge is formalized as
+    `CollatzShadowing.WeakBridge.weighted_action_diff_le`.
+  - The high-`v2` A0 source-tail mass is no longer empirical in the
+    current script-`111` source model.  It is exactly
+    `(floor((L - 1)/2^R) + floor((R' - 1)/2^R))/(L + R' - 2) <= 2^-R`
+    for the two compared prefixes with `t=0` excluded.
+  - The integer core is formalized as
+    `CollatzShadowing.WeakBridge.TailCount.dyadic_tail_count_mul_le`.
+  - Verification passed:
+    `python3 -m py_compile scripts/spectral_program/117_A0_v2_tail_formula.py`,
+    `lake build CollatzShadowing.WeakBridge`, and
+    `lake build CollatzShadowing`.
+  - Script `118` shows the low-`v2` decay is broad but not uniform by
+    phase: for `v2 < 8`, median per-phase alpha is `0.6112066004`, while
+    slower phases include `7|3|h`, `7|1|h`, `6|1|h`, and `3|1|h`.
+  - Script `119` retraces representative phases and finds
+    `prefix_l1 / half_l1 = 0.5` exactly, so the remaining low-`v2`
+    obstruction is dyadic block discrepancy.  The largest pieces are
+    medium-depth returns (`step 11-25`, `delta 0` or `1-3`), not
+    long-return tails.
+  - Script `120` tests the naive dependency-depth/local-constancy route.
+    It is not clean: for `0|3|0`, return-phase majority error drops from
+    `0.712411342` at `m=8` to `0.046751945` at `m=20`, but by then the
+    singleton fraction is already `0.389220953`; for the medium-return
+    subset, error remains `0.256938037` at `m=18` with singleton fraction
+    `0.765021584`.
+  - Script `121` computes the Walsh-Haar spectrum.  The signals are rough
+    at fine scales, with about half the `L2` Haar energy at block size `2`,
+    but the root coefficient is tiny: for `0|3|0` return/phase, root
+    half-L1 is `0.000413223985`; for `7|3|0`, it is `0.007874965668`.
+    Therefore the precise target is top dyadic Haar coefficient decay, not
+    global smoothness or small high-frequency energy.
+  - This does not prove Collatz and does not close Gate 10.B.  It removes
+    one obstacle from the A0 weak-approximation program.
+- Next recommended task: 10.M — prove or falsify fixed-threshold low-`v2`
+  decay `D_N(v2 < R) -> 0`; next diagnostic should measure top-Haar
+  coefficient decay across larger prefix scales and across all low-`v2`
+  phases, not just representative samples.
 
 ### 2026-05-20 (conditional Collatz proof bridge) — Codex + Piero Borgatta
 
