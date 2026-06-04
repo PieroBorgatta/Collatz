@@ -1,0 +1,726 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{seqsplit}
+
+\geometry{margin=2.8cm}
+
+\setlength{\emergencystretch}{3em}
+\sloppy
+\newcommand{\ttbr}[1]{\texttt{\seqsplit{#1}}}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  citecolor=blue!50!black,
+  urlcolor=blue!50!black,
+  pdftitle={Phantom Orbit Shadowing for the Collatz Conjecture: Verified Core, Two Barriers, and a Repositioning (v4)},
+  pdfauthor={Piero Borgatta}
+}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+\DeclareMathOperator{\nutwo}{\nu_2}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Zp}{\mathbb{Z}_2}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\full}{\mathrm{FULL}}
+\newcommand{\core}{\mathrm{CORE}}
+\newcommand{\tail}{\mathrm{TAIL}}
+\newcommand{\spec}{\rho}
+
+\title{
+  Phantom Orbit Shadowing for the Collatz Conjecture: \\
+  Verified Core, Two Barriers, and a Repositioning \\
+  \large (v4 --- consolidation and limitations)
+}
+\author{Piero Borgatta\thanks{Independent researcher. Correspondence:
+\texttt{info@pieroborgatta.com}; ORCID 0009-0001-8025-2405.}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This is a \emph{consolidation and repositioning} version of an ongoing,
+AI-assisted personal research program on the Collatz conjecture. It does
+\textbf{not} report progress toward a proof of the conjecture. Its purpose
+is the opposite and, we argue, equally worthwhile: to state precisely what
+the program has \emph{rigorously established}, to identify exactly
+\emph{where} and \emph{why} the program stops, and to record an honest
+decision about what to do next.
+
+We first recall the verified core, all mechanically checked in Lean~4 with
+Mathlib and \texttt{sorry}-free: an exact congruential shadowing lemma, its
+no-infinite-(periodic-)shadowing corollary, a family of finite
+Collatz--Wielandt spectral-radius certificates, a finite phantom-set
+taxonomy, and an elementary, formally verified bridge reducing the
+conjecture to a uniform strict-descent hypothesis.
+
+We then analyze the two analytic branches developed after v3 --- a
+weak/operator (averaged) branch and a pointwise first-barrier branch ---
+and reach a definite conclusion about each. The weak branch, even if
+completed, yields an averaged (``almost-all'') statement and is blocked by
+the distributional-to-pointwise barrier. For the pointwise branch we show that, \emph{within the present
+phantom/$2$-adic formalism}, the desired
+2-adic rigidity on the limit point $\xi_W$ of an aperiodic expanding word
+is \emph{logically equivalent} to the nonexistence of divergent integer
+orbits, hence cannot act as an independent lever. The reason is a precise
+\emph{non-transport lemma} (conditional on the standard Lagarias
+parity-vector coding): the Syracuse parity-vector conjugacy carries
+eventual periodicity to dynamical pre-periodicity, \emph{not} to
+rationality. As a by-product we record one new elementary fact, already
+\emph{Lean-checked} in post-prefix congruence form: no positive integer
+lies on an expanding cycle (Proposition~\ref{prop:expansive}), generalizing
+the no-infinite-shadowing corollary.
+
+Finally we separate the Collatz problem into its two genuinely distinct
+hard halves --- absence of divergent orbits (barrier: measure-to-pointwise)
+and absence of nontrivial cycles (barrier: Diophantine approximation of
+$\log_2 3$) --- locate every part of this program relative to those two
+barriers, and state the resulting repositioning: stop pushing the
+weak/operator and first-barrier branches as direct routes to the
+conjecture; redirect effort to the cycle half (where partial results and
+tools genuinely bite) and to Lean formalization, while keeping the
+methodology study of AI-assisted mathematics as an explicit goal. All
+claims here are honest about scope; we make no claim of subcriticality, no
+spectral gap, and no proof of the conjecture.
+\end{abstract}
+
+\noindent\textit{Research program note.} This is the fourth versioned
+artifact of a personal program by the author, an independent researcher,
+exploring whether iterative collaboration with large language model (LLM)
+assistants can support non-standard attempts at open problems.
+\emph{Testing the practical limits of such collaboration is an explicit
+secondary goal, on equal footing with the mathematics.} v4 differs in kind
+from v1--v3: where earlier versions added constructions and certificates,
+v4 reports the program reaching --- and recognizing --- its barriers, and
+documents the resulting strategic decision. We regard the explicit,
+provable identification of an approach's own ceiling as a legitimate
+scientific output. The earlier versions remain available: concept DOI
+\texttt{10.5281/zenodo.20021537}; v2 \texttt{10.5281/zenodo.20098868}; v3
+record \url{https://zenodo.org/records/20160154}, DOI
+\texttt{10.5281/zenodo.20160154}.
+
+\tableofcontents
+
+\section{Introduction}
+\label{sec:intro}
+
+The Collatz conjecture asserts that the map $n \mapsto n/2$ ($n$ even),
+$n \mapsto 3n+1$ ($n$ odd) sends every positive integer to $1$. We work
+throughout with the accelerated Syracuse map on positive odd integers,
+\[
+  S(n) = \frac{3n+1}{2^{\nutwo(3n+1)}},
+\]
+where $\nutwo$ is the $2$-adic valuation; $S$ maps positive odds to
+positive odds, and Collatz for $S$ is equivalent to the classical
+statement (Section~\ref{sec:bridge}).
+
+\paragraph{What this program built (v1--v3).}
+The program grew from a single empirical observation: ``rebel'' orbits of
+$S$ shadow, for finite stretches, periodic rational points of the $2$-adic
+dynamics attached to negative rational fixed points --- \emph{phantom
+cycles} in the terminology of \cite{chang2026}, the underlying object
+being classical \cite{lagarias1985}. From this, v1--v3 constructed an
+episode graph on phantom orbits, encoded its critical strongly connected
+component (SCC) as a finite weighted transfer operator on a refined phase
+state, proved an exact congruential shadowing lemma, and produced finite
+Collatz--Wielandt spectral-radius certificates --- several of them
+mechanically verified in Lean~4. v3 \cite{borgatta_v3} framed the result
+as a \emph{conditional spectral reduction}: \emph{if} two explicit
+finite-matrix estimates held (a uniform bound under refinement and a
+signature-closure condition), the critical SCC would be subcritical.
+
+\paragraph{What changed after v3.}
+Substantial post-v3 work pursued those two estimates along two distinct
+routes, and this version reports the honest outcome. Neither route reaches
+the conjecture, and --- crucially --- we can now say \emph{why}, in each
+case precisely. The contributions of v4 are:
+\begin{enumerate}[leftmargin=2em]
+  \item A clean restatement of the verified core
+        (Section~\ref{sec:core}) and of the elementary descent bridge
+        (Section~\ref{sec:bridge}), including the observation that the
+        bridge \emph{reorganizes} the difficulty rather than reducing it.
+  \item A status report on the two analytic branches
+        (Section~\ref{sec:branches}): a weak/operator (A0) branch, whose
+        finite skeleton is partly formalized but whose natural conclusion
+        is an averaged statement; and a pointwise first-barrier branch,
+        which targets the correct (every-$n$) statement.
+  \item The main new result, a \emph{negative} resolution of the
+        currently available phantom/$2$-adic rigidity route
+        (Section~\ref{sec:gate}): a non-transport lemma (conditional on
+        the standard Lagarias coding) showing that the sought aperiodic
+        rigidity is logically equivalent to the divergence half of the
+        conjecture itself.
+  \item A small new fact (Proposition~\ref{prop:expansive}), Lean-checked
+        in post-prefix congruence form: no positive integer lies on an
+        expanding cycle.
+  \item A precise two-barrier map of the whole problem
+        (Section~\ref{sec:barriers}) and the resulting repositioning
+        (Section~\ref{sec:decision}).
+\end{enumerate}
+
+\paragraph{Stance.}
+We make no claim of progress toward Collatz. We claim a verified core, a
+provable account of where two natural approaches stop, and a defensible
+plan. Throughout, ``rigorous'' means proved (and, where stated, machine
+checked); ``empirical'' means numerically supported only; ``conditional''
+means valid under a named, unproved hypothesis.
+
+\section{The verified core}
+\label{sec:core}
+
+All statements in this section are formalized in Lean~4 with Mathlib and
+are \texttt{sorry}-, \texttt{admit}- and \texttt{axiom}-free in the project
+sources.
+
+\subsection{Exact congruential shadowing}
+
+For a phantom word $w$ (a nonempty list of positive exponents) with period
+sum $A$ and length $L$, let $q_w \in \Q$ be its rational fixed point and
+$\xi_m$ its $2$-adic prefix data.
+
+\begin{lemma}[Exact shadowing; \ttbr{exact\_shadowing}]
+\label{lem:shadowing}
+A positive integer $n$ realizes the first $m$ exponents of $w$ if and only
+if $n \equiv q_w \pmod{2^{B_m+1}}$, where $B_m$ is the corresponding
+partial period sum. In particular, $b$-fold shadowing is governed by the
+single residue condition $n \equiv q_w \pmod{2^{bA+1}}$.
+\end{lemma}
+
+This is the iterated step-by-step form of the per-block $2$-adic repulsion
+identity of \cite[Prop.~7.4]{chang2026}, equivalent in content to the
+classical inverse formula for parity vectors \cite{rozier2025}. We
+emphasize this equivalence: the $2$-adic/phantom encoding is a faithful
+\emph{re-encoding} of the parity-vector picture, not new information --- a
+point that becomes decisive in Section~\ref{sec:gate}.
+
+\begin{corollary}[No infinite periodic shadowing;
+\ttbr{no\_infinite\_period\_congruence\_expansive}]
+\label{cor:no-infinite}
+For an expanding phantom $w$ (i.e.\ $3^L > 2^A$), no positive integer
+shadows $w^\infty$ for all $m$: the limiting congruence forces $n = q_w$,
+and $q_w < 0$.
+\end{corollary}
+
+\subsection{Finite spectral-radius certificates}
+
+For each truncation depth $T$ and high-bit lift count $j$, the program
+builds a finite matrix $\full_{T,j} = \core_{T,j} + \tail_{T,j}$ encoding
+first-return behavior at the critical node, and applies a weighted
+Collatz--Wielandt bound \cite{lemmensnussbaum}. Two certificates are
+exposed to Mathlib's real \texttt{spectralRadius}:
+
+\begin{theorem}[\ttbr{t10j32HighBitTailSpectralRadiusBound\_97\_2000}]
+$\spec(\full_{10,32}) \le 97/2000 = 0.0485$, with no \texttt{axiom},
+\texttt{sorry}, or \texttt{admit} in the generated certificate.
+\end{theorem}
+
+\begin{theorem}[\ttbr{k16s16KDeterministicGeneratedSpectralRadiusBound}]
+The deterministic finite-residue-cell retention matrix on the compressed
+$(K,b)$ macro-state space of the $K_0 = 16$ taxonomy SCC ($37$ states) has
+exact rational max ratio
+\[
+  \frac{90833233962213}{129559208330288} < \frac{3}{4},
+\]
+with sensitivity confirmed at $\mathrm{lift\_bits} \in \{4,5,6\}$.
+\end{theorem}
+
+These are exact statements about \emph{declared finite matrices}. They do
+not assert a spectral gap for any infinite operator, and v4 retracts no
+part of v3 here: it only stresses the gap between a finite certificate and
+an infinite conclusion (Sections~\ref{sec:branches}--\ref{sec:gate}).
+
+\section{The descent bridge, and why it does not reduce difficulty}
+\label{sec:bridge}
+
+Let $S^{[k]}$ denote $k$-fold iteration of $S$.
+
+\begin{definition}[\ttbr{UniformStrictDescentHypothesis}]
+\label{def:usd}
+For every positive odd $n \ne 1$ there exists $k$ with $S^{[k]}(n)$
+positive, odd, and $S^{[k]}(n) < n$.
+\end{definition}
+
+\begin{theorem}[Lean-verified bridge;
+\ttbr{classicalCollatz\_of\_uniformStrictDescent\_provedBridge}]
+\label{thm:bridge}
+Definition~\ref{def:usd} implies the accelerated Collatz statement (by
+strong induction), and the accelerated statement implies the classical
+Collatz conjecture (by expanding each $S$-step into one $3n+1$ step
+followed by the exact halvings). Both implications are proved in Lean,
+\texttt{sorry}-free.
+\end{theorem}
+
+\begin{remark}[The bridge reorganizes; it does not reduce]
+\label{rem:bridge}
+Definition~\ref{def:usd} is the classical ``every $n$ eventually descends
+below itself,'' which is equivalent to the convergence half of Collatz.
+Theorem~\ref{thm:bridge} is therefore a faithful, mechanically verified
+\emph{restatement}, valuable for organizing a formal proof, but it carries
+the full difficulty. Every elaboration of the bridge in our sources (a
+global descent cover, finite-model soundness interfaces, branch/loss
+audits) shares this property: each requires one to \emph{produce} actual
+strict-descent witnesses for every source class. Such scaffolding isolates
+the obligation cleanly; it does not lighten it. We state this plainly to
+forestall the most common misreading of programs of this type.
+\end{remark}
+
+\section{The two analytic branches after v3}
+\label{sec:branches}
+
+The two estimates left open by v3 were attacked along two routes. We
+describe each and its honest status.
+
+\subsection{Branch A: the weak/operator (A0) route}
+\label{sec:branchA}
+
+Branch A treats the generated matrices as an averaged row-source kernel
+$K_N$ on a finite phase alphabet, with source weight $\mu_N$, and studies
+the weighted row-$L^1$ prefix drift
+\[
+  D_N = \sum_i \mu_N(i) \sum_j \bigl| K_{2N}(i,j) - K_N(i,j) \bigr|.
+\]
+The target is an A0 weak approximation theorem with named hypotheses
+A0W1--A0W7 (finite kernel identification; $D_N \to 0$; an
+exceptional high-$\nutwo$ source tail; tail/killing control; uniform
+projection and inclusion bounds for a Banach pair $B_s \to B_w$; a limit
+operator convention). Genuine, partly formalized, progress was made:
+
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{High-$\nutwo$ tail mass, exactly, in Lean}
+        (\ttbr{TailCount.dyadic\_tail\_count\_mul\_le},
+        \ttbr{dyadic\_tail\_mass\_le}): for the two-prefix source model,
+        $\mu_N(\nutwo \ge R) \le 2^{-R}$. This closes one half of the
+        $D_N$ split rigorously.
+  \item \textbf{A bit-length boundary mechanism, in Lean}
+        (\ttbr{biAffineDelta\_dyadicWeight\_period\_boundary\_le} and the
+        \texttt{BitLength} development): under a period shift, the
+        discrepancy of the dyadic return weights $2^{-\delta}$ is
+        controlled by the weighted mass of an explicit set of dyadic
+        boundary crossings of cardinality $O(c\log N)$.
+  \item \textbf{Exact $2$-adic periodicity of bounded words}
+        (script-level, finite): the pure bounded valuation word is
+        eventually periodic modulo $2^M$, so the bounded congruential part
+        of $D_N$ cancels \emph{exactly} (top dyadic Haar coefficient $0$).
+  \item The finite algebraic bridge
+        (\ttbr{weighted\_action\_diff\_le}): weighted row-$L^1$ drift
+        controls the finite $\ell^\infty \to L^1(\mu_N)$ action error.
+\end{itemize}
+
+\begin{remark}[Why Branch A cannot reach Collatz]
+\label{rem:branchA}
+Every object of Branch A is an \emph{averaged} quantity: $L^1(\mu_N)$,
+weighted row means, density-type boundary estimates ($O(\log N / N)$). The
+uniform / supremum analogues do not contract (the diagnostics show
+$p_{95}$ and maxima persisting; the natural $\Z_2$ martingale Banach space
+fails). A completed A0 theorem would establish that the finite matrices
+have a legitimate \emph{weak} operator limit; by the very nature of an
+averaged norm, the dynamical consequence is an ``almost-all'' / density
+statement, not control of every orbit. This is the
+distributional-to-pointwise barrier that \cite[Sect.~9]{chang2026}
+identifies as the irreducible obstruction to all standard routes. We do
+not invoke Hennion or Keller--Liverani: the prerequisites (Banach pair,
+boundedness, compactness, a Lasota--Yorke inequality) are absent. Branch A
+is therefore retained, if at all, as a \emph{separate} operator-approximation
+program, not as a route to the conjecture.
+\end{remark}
+
+\subsection{Branch B: the pointwise first-barrier route}
+\label{sec:branchB}
+
+Branch B is genuinely different in kind: it is pointwise and parametric,
+not averaged. On the source cylinder $n = 103 + 256t$, a parametric
+common prefix $[1,1,2,1,1,1]$ (a congruence valid for all $t$, Lean:
+\ttbr{a0SemanticDropCommonPrefix\_matches\_source\_cylinder}) carries the
+orbit to the endpoint coordinate $593 + 1458t$. One then asks, for every
+$t$, whether some matched suffix from the endpoint drops below the source.
+The machinery built and verified is the \emph{easy direction} plus its
+arithmetic plumbing:
+\begin{itemize}[leftmargin=2em]
+  \item if a matched suffix crosses the slope barrier
+        $1458\cdot 3^{\mathrm{len}} \le 256\cdot 2^{\mathrm{sum}}$ and a
+        threshold inequality holds, then $t$ exits
+        (\ttbr{a0EndpointSuffixExit\_of\_suffix\_threshold\_contracting});
+  \item the threshold is monotone in $t$ (verify at one $t_0$, then
+        extend), and matching \emph{forces} a $2$-adic congruence on $t$
+        (\ttbr{a0EndpointSuffixCongruence\_of\_matches}).
+\end{itemize}
+The descent of the whole cylinder then follows --- but only
+\emph{conditionally}:
+
+\begin{theorem}[Conditional cylinder descent;
+\ttbr{A0EndpointSuffixExitAll\_of\_firstBarrier}]
+\label{thm:firstbarrier}
+If \ttbr{A0FirstBarrierExistsAll} (every $t$ reaches a first
+barrier-crossing suffix) and \ttbr{A0FirstBarrierThresholdAutomatic} (the
+threshold holds at that crossing), then every $t$ exits, and every
+$n = 103 + 256t$ has a strict descent.
+\end{theorem}
+
+Both hypotheses are \texttt{def \ldots\ : Prop} in the sources --- named,
+\emph{not} discharged. \ttbr{A0FirstBarrierExistsAll} says that every
+orbit on the cylinder eventually contracts past the slope barrier, i.e.\
+that no orbit is eternally expanding. This is precisely the correct
+(every-$t$) target. The question of v4 is whether the first-barrier
+structure supplies a new lever on it.
+
+\section{Negative resolution of the present phantom/2-adic rigidity route}
+\label{sec:gate}
+
+We show that the \emph{currently available} phantom/$2$-adic route does
+not supply a new lever, and we prove \emph{why}. We flag the rigor status
+explicitly: the expanding-cycle fact (Proposition~\ref{prop:expansive}) is
+Lean-checked in congruence form, whereas the non-transport lemma
+(Lemma~\ref{lem:nontransport}) and the gate resolution
+(Proposition~\ref{prop:gate}) are paper-level arguments \emph{conditional
+on the standard Lagarias parity-vector coding}, not formalized.
+
+\begin{definition}[Conjugacy and limit point]
+Let $\widetilde{S}: \Zp \to \Zp$ be the continuous extension of $S$, and
+let $Q:\Zp \to \prod_{k\ge 1}\{a:a\ge 1\}$, $Q(x)_k = \nutwo(3\,
+\widetilde{S}^{k-1}(x)+1)$, be the parity-vector conjugacy (a topological
+conjugacy of $\widetilde S$ with the shift). For an infinite word $W$ with
+all entries $\ge 1$, let $\xi_W = \lim_m \xi_m \in \Zp$ be the limit of the
+prefix representatives. If a positive integer $n$ has valuation word $W$,
+then $n = \xi_W$.
+\end{definition}
+
+\begin{proposition}[Expanding cycles exclude integers]
+\label{prop:expansive}
+No positive integer lies on a periodic orbit of $S$ whose period word $v$
+is expanding ($3^{|v|} > 2^{A_v}$). In particular no positive integer has
+an eventually periodic, eventually expanding valuation word.
+\end{proposition}
+\begin{proof}
+A periodic point with word $v$ equals the fixed point
+$q_v = C_v/(2^{A_v} - 3^{|v|})$, with $C_v > 0$ and, in the expanding case,
+$2^{A_v} - 3^{|v|} < 0$, so $q_v < 0$. Every iterate of a positive odd
+integer under $S$ is a positive integer (\ttbr{syracuse\_pos}). A positive
+orbit cannot contain $q_v < 0$. The eventual case follows by applying this
+to the tail $\widetilde S^{|u|}(n)$ after a finite prefix $u$.
+\end{proof}
+
+This is the exact extent of what the phantom/$2$-adic sign argument gives:
+it generalizes Corollary~\ref{cor:no-infinite} from the periodic to the
+eventually periodic obstruction. Its post-prefix congruence form is
+\emph{Lean-checked}, \texttt{sorry}-free, as
+\ttbr{no\_positive\_endpoint\_eventually\_periodic\_expansive\_congruence}
+in \texttt{NoInfinite.lean}: after any finite prefix, the positive endpoint
+of an integer orbit cannot remain, for all numbers of periods, in the
+congruence classes of an expanding phantom period. It deliberately
+addresses only the eventually periodic case and does \emph{not} rule out an
+aperiodic word shadowing different phantom neighborhoods in succession ---
+exactly the gap analyzed next.
+
+\begin{lemma}[Non-transport of the rational/periodic dichotomy; standard Lagarias coding]
+\label{lem:nontransport}
+Under $Q$, eventual periodicity of $W$ corresponds to \emph{pre-periodicity}
+of $\xi_W$ under $\widetilde S$ (the orbit enters a cycle), \emph{not} to
+rationality of $\xi_W$. Consequently the implication
+\[
+  \bigl[\, W \text{ not eventually periodic} \ \Longrightarrow\
+  \xi_W \notin \Z_{>0} \,\bigr]
+\]
+is logically equivalent to the nonexistence of divergent positive-integer
+$S$-orbits.
+\end{lemma}
+\begin{proof}
+$Q$ is a topological conjugacy, so $W$ is eventually periodic iff
+$\xi_W$ is pre-periodic under $\widetilde S$. The contrapositive of the
+displayed implication reads
+$[\,\xi_W = n \in \Z_{>0} \Rightarrow W \text{ eventually periodic}\,]$,
+i.e.\ $[\,n \in \Z_{>0} \Rightarrow n \text{ is pre-periodic}\,]$, i.e.\
+every integer orbit eventually enters a cycle --- the negation of the
+existence of a divergent integer orbit.
+\end{proof}
+
+\begin{remark}[Contrast with binary digits]
+For the binary-digit map $d$, ``aperiodic digits $\Rightarrow$ irrational''
+is a free theorem, because $d$ transports eventual periodicity to
+\emph{rationality}. The valuation/parity vector is a different coordinate
+system: $Q$ transports eventual periodicity to \emph{pre-periodicity}, and
+``integer $\Rightarrow$ pre-periodic'' is exactly the open divergence
+problem. This is the precise structural reason no Diophantine rigidity on
+$\xi_W$ is available in the aperiodic case.
+\end{remark}
+
+\begin{proposition}[Gate resolution: no new lever within the present formalism]
+\label{prop:gate}
+On its hard (aperiodic) part, \ttbr{A0FirstBarrierExistsAll} carries the
+full classical difficulty of the divergence half of Collatz, with no
+additional $2$-adic leverage supplied by the \emph{currently available}
+phantom/first-barrier formalism. Concretely:
+\begin{enumerate}[leftmargin=2em,label=(\roman*)]
+  \item The eventually periodic expanding case is excluded by the sign
+        argument (Proposition~\ref{prop:expansive}).
+  \item The aperiodic case admits no rationality / irrationality
+        obstruction on $\xi_W$ (Lemma~\ref{lem:nontransport}).
+  \item Orbit-wide integrality is automatic
+        (\ttbr{syracuse\_pos}/\ttbr{syracuse\_odd}) and adds no constraint.
+  \item The only genuinely new datum of the formalism --- the sign of the
+        periodic fixed point --- is vacuous on both open cases: contractive
+        cycles have $q_w > 0$ (no sign contradiction; the cycle problem is
+        untouched), and aperiodic words have no fixed-point equation at all
+        (the divergence problem is untouched).
+\end{enumerate}
+\end{proposition}
+
+\begin{remark}[Consistency with the historical record]
+This is not surprising; it is the precise articulation, in the program's
+own $\xi_W$ language, of why the problem has resisted since the 1970s.
+Density-one stopping-time results \cite{terras1976, everett1977} are
+reachable because the separating tool is statistical \emph{drift} (the
+mean valuation $2 > \log_2 3$); ``every $n$'' is out of reach because drift
+does not constrain an individual $\xi_W$. Both branches of this program hit
+\emph{this same wall}: Branch A as the distributional-to-pointwise barrier,
+Branch B as the absence of rigidity on $\xi_W$ --- two faces of
+``density one yes, every $n$ no.''
+\end{remark}
+
+\section{The two barriers, precisely}
+\label{sec:barriers}
+
+It is useful to separate the conjecture into its two genuinely distinct
+hard halves, and to locate every part of this program relative to each.
+
+\paragraph{Half 1: no nontrivial cycles.}
+A cycle is a positive-integer solution of $n = C_w/(2^{A} - 3^{L})$; for
+$n>0$ one needs $2^A > 3^L$ (contractive). Ruling out all such reduces to
+lower bounds on $|A\log 2 - L\log 3|$ for all $(A,L)$ --- the Diophantine
+approximation of $\log_2 3$. Baker-type bounds on linear forms in
+logarithms give partial exclusions: no $1$-cycles \cite{steiner1977}, no
+$2$-cycles \cite{simons2005}, no $m$-cycles up to $m \approx 68$
+\cite{simonsdeweger2005}; combined with computational verification to
+$\approx 2^{69}$ \cite{barina2021}, any nontrivial cycle must be
+astronomically large. The full statement is \emph{open}: the available
+bounds leave an uncovered range, and closing it would need a major advance
+in the irrationality measure of $\log_2 3$ or a new structural idea. This
+is a real but \emph{different} wall from Half~2.
+
+\paragraph{Half 2: no divergent orbits.}
+This is the measure-to-pointwise barrier of
+Section~\ref{sec:gate}/Remark~\ref{rem:branchA}: density-one descent is
+known \cite{terras1976, tao2019}; every-$n$ descent is not, and no
+pointwise obstruction is known. This program's phantom/spectral/first-barrier
+machinery lives entirely here.
+
+\paragraph{Locating the program.}
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+component & half & status \\
+\midrule
+shadowing lemma + Lean core & both (structure) & rigorous \\
+finite CW certificates & --- (finite) & rigorous, finite only \\
+expanding-cycle exclusion (Prop.~\ref{prop:expansive}) & Half 1 & rigorous (narrow) \\
+weak/operator branch A & Half 2 & blocked (averaged) \\
+first-barrier branch B & Half 2 & blocked (Prop.~\ref{prop:gate}) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The program contributes a verified \emph{structural} core to both halves
+and one narrow rigorous exclusion in Half~1, but its analytic effort is
+concentrated entirely in Half~2, against the harder of the two walls.
+
+\section{Decision and planned direction}
+\label{sec:decision}
+
+We record the strategic decision reached, with reasons.
+
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{Stop} treating Branch A (weak/operator) and Branch B
+        (first-barrier) as routes to the conjecture. By
+        Remark~\ref{rem:branchA} and Proposition~\ref{prop:gate}, further
+        finite refinement (more $T$, more $j$, more cylinders, more
+        suffixes) cannot cross the Half-2 wall \emph{by this route}; it
+        only re-confirms the reformulation. Branch A may continue \emph{only} as a separate,
+        honestly labeled operator-approximation study.
+  \item \textbf{Redirect} mathematical effort to Half~1 (cycles), the only
+        half where partial theorems exist and tools bite. The realistic,
+        finishable target for this program is the \emph{structural} layer
+        (the cycle equation, the Diophantine condition $A/L \approx
+        \log_2 3$, elementary exclusions, the link to computational
+        verification), \emph{formalized in Lean}. We are explicit about
+        the limit: a usable form of Baker's theorem on linear forms in
+        logarithms is, to our knowledge, not in Mathlib, so the deep
+        analytic exclusions are not cheaply formalizable; the structural
+        layer is.
+  \item \textbf{Consolidate} the verified assets (this paper) so the
+        program's real output --- a \texttt{sorry}-free core, finite
+        certificates, a taxonomy, and a precise barrier map --- is on the
+        record independently of the conjecture.
+  \item \textbf{Continue} the methodology study (Section~\ref{sec:method})
+        as an explicit goal: this phase is itself a data point on how far
+        cross-AI collaboration carries a non-standard attempt, including
+        its capacity to recognize and prove its own ceiling.
+\end{enumerate}
+
+\paragraph{What a genuine new idea would have to supply.}
+For Half~2, a single-orbit (non-measure) control of the valuation average
+--- outside the phantom/$2$-adic circle, since
+Lemma~\ref{lem:nontransport} shows that circle is closed. For Half~1, an
+improvement in the effective irrationality measure of $\log_2 3$ beyond
+current Baker-type bounds, or a structural substitute. We claim neither.
+
+\section{Methodology: AI-assisted attempt on an open problem}
+\label{sec:method}
+
+The program is conducted by the author in collaboration with LLM
+assistants used in a cross-checking configuration (independent assistants
+proposing and auditing each other's constructions, with all formal claims
+funneled through Lean). v1--v3 demonstrated that this configuration can
+produce nontrivial, machine-verified mathematics (the shadowing core and
+the finite certificates) and can manage a large, multi-month formalization.
+
+v4 reports a different and, we think, more informative methodological
+outcome: in this phase the cross-AI process \emph{converged on a precise
+negative result about its own approach} --- the two-barrier map and the
+gate resolution of Section~\ref{sec:gate} --- rather than on new progress.
+We regard the ability of such a collaboration to (i) avoid overclaiming,
+(ii) localize its own obstruction to a single named hypothesis, and
+(iii) prove that hypothesis equivalent to the open problem, as a positive
+methodological finding, distinct from progress on the mathematics. The
+session logs and the four updated working documents
+(\texttt{TODO.md}, \texttt{INVENTORY.md},
+\texttt{phase10\_repro\_manifest.md}, \texttt{phase10\_master\_report.md})
+record the decision trail.
+
+\section{Honest scope and conclusion}
+\label{sec:conclusion}
+
+\paragraph{Established (rigorous, mechanically verified).}
+The shadowing lemma and its no-infinite-periodic-shadowing corollary; the
+finite Collatz--Wielandt certificates exposed to Mathlib's
+\texttt{spectralRadius}; the elementary descent bridge; the verified-core
+\texttt{sorry}-freeness; and, new in this version, the post-prefix
+congruence form of Proposition~\ref{prop:expansive}
+(\ttbr{no\_positive\_endpoint\_eventually\_periodic\_expansive\_congruence}).
+
+\paragraph{Established (on paper, this version; conditional on the standard
+Lagarias coding).}
+Lemma~\ref{lem:nontransport} (non-transport) and
+Proposition~\ref{prop:gate}: within the currently available phantom/$2$-adic
+formalism, the first-barrier route supplies no new lever on Half~2. These
+are not Lean-formalized and are stated modulo the standard parity-vector
+conjugacy.
+
+\paragraph{Empirical (not proved).}
+All numerical spectral bounds and decay trends of v1--v3; the finite $D_N$
+decay of Branch A.
+
+\paragraph{Missing (and, we argue, behind known barriers).}
+A proof of either half of Collatz. Half~2 is blocked by the
+measure-to-pointwise barrier, into which both analytic branches of this
+program provably fall. Half~1 is open behind the Diophantine wall, with
+partial results but no full exclusion.
+
+\paragraph{Honest claim.}
+We have built and verified a structural core around the Collatz problem, we
+have determined precisely where two natural analytic approaches stop and
+proved why, and we have repositioned the program accordingly. We do not
+claim a proof of the conjecture, nor progress toward one; we claim a clear,
+verified, and honestly bounded map of an attempt.
+
+\section*{Reproducibility}
+The Lean~4 development, the enumeration and diagnostic scripts, and the
+working notes referenced here are provided in the supplementary archive.
+Theorem-to-file correspondences are given inline by Lean declaration name.
+Earlier versions: concept DOI \texttt{10.5281/zenodo.20021537}; v3 record
+\url{https://zenodo.org/records/20160154}.
+
+\begin{thebibliography}{99}
+
+\bibitem{borgatta_v3}
+P.~Borgatta,
+\emph{A Spectral Reduction of the Collatz Conjecture via Phantom Orbit
+Shadowing} (v3),
+Zenodo, DOI \texttt{10.5281/zenodo.20160154}, 2026.
+
+\bibitem{chang2026}
+(Chang),
+\emph{Phantom cycles and information-theoretic bounds for the Collatz
+map}, 2026. (Concurrent, independent work; cited as in v3.)
+
+\bibitem{lagarias1985}
+J.~C.~Lagarias,
+\emph{The $3x+1$ problem and its generalizations},
+Amer. Math. Monthly \textbf{92} (1985), 3--23.
+
+\bibitem{rozier2025}
+(Rozier),
+\emph{Inverse parity-vector formula for the Syracuse map}, 2025.
+(Cited as in v3.)
+
+\bibitem{lemmensnussbaum}
+B.~Lemmens and R.~Nussbaum,
+\emph{Nonlinear Perron--Frobenius Theory},
+Cambridge Tracts in Mathematics \textbf{189}, Cambridge Univ. Press, 2012.
+
+\bibitem{tao2019}
+T.~Tao,
+\emph{Almost all orbits of the Collatz map attain almost bounded values},
+Forum Math. Pi \textbf{10} (2022), e12 (arXiv:1909.03562).
+
+\bibitem{terras1976}
+R.~Terras,
+\emph{A stopping time problem on the positive integers},
+Acta Arith. \textbf{30} (1976), 241--252.
+
+\bibitem{everett1977}
+C.~J.~Everett,
+\emph{Iteration of the number-theoretic function $f(2n)=n$, $f(2n+1)=3n+2$},
+Adv. Math. \textbf{25} (1977), 42--45.
+
+\bibitem{steiner1977}
+R.~P.~Steiner,
+\emph{A theorem on the Syracuse problem},
+Proc. 7th Manitoba Conf. on Numerical Mathematics, 1977, 553--559.
+
+\bibitem{simons2005}
+J.~L.~Simons,
+\emph{On the nonexistence of $2$-cycles for the $3x+1$ problem},
+Math. Comp. \textbf{74} (2005), 1565--1572.
+
+\bibitem{simonsdeweger2005}
+J.~L.~Simons and B.~M.~M.~de Weger,
+\emph{Theoretical and computational bounds for $m$-cycles of the
+$3n+1$ problem},
+Acta Arith. \textbf{117} (2005), 51--70.
+
+\bibitem{barina2021}
+D.~Barina,
+\emph{Convergence verification of the Collatz problem},
+J. Supercomput. \textbf{77} (2021), 2681--2688.
+
+\bibitem{kellerliverani}
+G.~Keller and C.~Liverani,
+\emph{Stability of the spectrum for transfer operators},
+Ann. Scuola Norm. Sup. Pisa \textbf{28} (1999), 141--152.
+
+\end{thebibliography}
+
+\end{document}

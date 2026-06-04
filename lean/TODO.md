@@ -76,7 +76,7 @@ When you complete or partially advance a task:
 
 ## Current status (most recent first)
 
-> *Last updated: 2026-05-27 — **Phase 5 complete: Lemma 3.1 and Corollary 3.4 formalized**. Project is `sorry`-free. **Phase 6 complete**: paper v2 drafted, Lean note written, Related Work + Chang comparison done, GitHub README updated, METHODOLOGY.md updated, Zenodo v2 published, and `pdflatex` verified online by Piero. **Phase 7 complete for the current branch**: tasks 7.1-7.4, 7.6, and 7.7 are complete; 7.4 closes with the full `K0=16` sampled run and SCC report, outcome (b), so 7.5 is not applicable. **F.1 is closed for the declared finite residue-cell scope and imported in Lean**: `deterministic_residue_transfer.py` enumerates all `2^4` finite residue subclasses for each of the 1240 raw SCC source states, writes exact deterministic transition matrices, and the `(K,b)` matrix has a generated Lean/Python exact CW certificate with max ratio `90833233962213/129559208330288 < 3/4`; sensitivity checks at `lift_bits = 5, 6` also stay below `3/4`. **Phase 8 complete for the current branch**: 8.1-8.9 are complete; 8.3 closes on the generated 37-state compressed `K,b` SCC certificate; 8.5 has the matrix/decomposition API, a generated exact import of the empirical `T = 10` critical-symbolic full transfer matrix, and an exact generated `T = 10, j = 32` majority `core/tail` `OperatorDecomposition`; 8.6 connects finite CW certificates to Mathlib `spectralRadius`; 8.7 exposes the `T = 10, j = 32` numerical spectral-radius bound `97/2000 = 0.0485` through a fully expanded Lean-checked 224-row CW certificate generated from the exact CSV. **Phase 9 complete**: paper v3 redaction and publication were completed externally by Piero; v3 DOI/record `10.5281/zenodo.20160154` / `https://zenodo.org/records/20160154`. **Phase 10 A0 weak branch reopened**: the finite row-L1 bridge is formalized in `CollatzShadowing/WeakBridge.lean`; the high-`v2` source-tail mass is now both an exact count and a real mass estimate with Lean theorems `WeakBridge.TailCount.dyadic_tail_count_mul_le` and `WeakBridge.TailCount.dyadic_tail_mass_le`; the general finite low/tail split is formalized as `WeakBridge.FiniteSplit.weighted_sum_le_low_plus_tail`; the `delta_only` reduction is formalized as `WeakBridge.FiniteSplit.weighted_dyadic_delta_boundary_le`; first bit-length infrastructure is formalized as `WeakBridge.BitLength.bitLength_two_mul`, same-window add/sub lemmas, dyadic-boundary crossing lemmas, endpoint-union bounds, affine endpoint-union bounds, `WeakBridge.BitLength.affineDelta_period_eq_of_not_mem_badSet`, `WeakBridge.BitLength.biAffineDelta_period_eq_of_not_mem_badSet`, `WeakBridge.BitLength.biAffineDelta_dyadicWeight_period_boundary_le`, and `WeakBridge.BitLength.biAffineDelta_refine`; script `126` now records exact valuation-word cylinder arithmetic, an affine no-drop prefix certificate, destination-refined bi-affine return branches, and an exact congruence diagnostic for the `best_shadow` label gate. Through complete prefixes `T12/T13/T14`, formula/delta/word/no-drop/refined failures remain zero, no final competitor phantom is detected, and the target high-lift boundary is converted into an exact continuation branch: all rows have high-lift continuation support, step delta exactly `+6`, and zero integrality/no-drop failures. Lean still imports the open label-gate count `6628`, now attributable to possible intermediate phantom-label congruences plus the high-lift boundary bookkeeping. Script `125` complete-prefix period-shift runs through `T14` remain entirely `delta_only`, with no destination/drop/tail boundary. The next open proof target is splitting/controlling the intermediate visible-label congruence families in an automaton-aware way.*
+> *Last updated: 2026-05-28 — **Phase 5 complete: Lemma 3.1 and Corollary 3.4 formalized**. Project is `sorry`-free. **Phase 6 complete**: paper v2 drafted, Lean note written, Related Work + Chang comparison done, GitHub README updated, METHODOLOGY.md updated, Zenodo v2 published, and `pdflatex` verified online by Piero. **Phase 7 complete for the current branch**: tasks 7.1-7.4, 7.6, and 7.7 are complete; 7.4 closes with the full `K0=16` sampled run and SCC report, outcome (b), so 7.5 is not applicable. **F.1 is closed for the declared finite residue-cell scope and imported in Lean**: `deterministic_residue_transfer.py` enumerates all `2^4` finite residue subclasses for each of the 1240 raw SCC source states, writes exact deterministic transition matrices, and the `(K,b)` matrix has a generated Lean/Python exact CW certificate with max ratio `90833233962213/129559208330288 < 3/4`; sensitivity checks at `lift_bits = 5, 6` also stay below `3/4`. **Phase 8 complete for the current branch**: 8.1-8.9 are complete; 8.3 closes on the generated 37-state compressed `K,b` SCC certificate; 8.5 has the matrix/decomposition API, a generated exact import of the empirical `T = 10` critical-symbolic full transfer matrix, and an exact generated `T = 10, j = 32` majority `core/tail` `OperatorDecomposition`; 8.6 connects finite CW certificates to Mathlib `spectralRadius`; 8.7 exposes the `T = 10, j = 32` numerical spectral-radius bound `97/2000 = 0.0485` through a fully expanded Lean-checked 224-row CW certificate generated from the exact CSV. **Phase 9 complete**: paper v3 redaction and publication were completed externally by Piero; v3 DOI/record `10.5281/zenodo.20160154` / `https://zenodo.org/records/20160154`. **Phase 10 A0 weak branch reopened**: the finite row-L1 bridge is formalized in `CollatzShadowing/WeakBridge.lean`; the high-`v2` source-tail mass is now both an exact count and a real mass estimate with Lean theorems `WeakBridge.TailCount.dyadic_tail_count_mul_le` and `WeakBridge.TailCount.dyadic_tail_mass_le`; the general finite low/tail split is formalized as `WeakBridge.FiniteSplit.weighted_sum_le_low_plus_tail`; the `delta_only` reduction is formalized as `WeakBridge.FiniteSplit.weighted_dyadic_delta_boundary_le`; first bit-length infrastructure is formalized as `WeakBridge.BitLength.bitLength_two_mul`, same-window add/sub lemmas, dyadic-boundary crossing lemmas, endpoint-union bounds, affine endpoint-union bounds, `WeakBridge.BitLength.affineDelta_period_eq_of_not_mem_badSet`, `WeakBridge.BitLength.biAffineDelta_period_eq_of_not_mem_badSet`, `WeakBridge.BitLength.biAffineDelta_dyadicWeight_period_boundary_le`, and `WeakBridge.BitLength.biAffineDelta_refine`; script `126` now records exact valuation-word cylinder arithmetic, an affine no-drop prefix certificate, destination-refined bi-affine return branches, and an exact congruence diagnostic for the `best_shadow` label gate. Through complete prefixes `T12/T13/T14`, formula/delta/word/no-drop/refined failures remain zero, no final competitor phantom is detected, and the target high-lift boundary is converted into an exact continuation branch: all rows have high-lift continuation support, step delta exactly `+6`, and zero integrality/no-drop failures. Lean still imports the open label-gate count `6628`, now attributable to possible intermediate phantom-label congruences plus the high-lift boundary bookkeeping. Script `125` complete-prefix period-shift runs through `T14` remain entirely `delta_only`, with no destination/drop/tail boundary. The next open proof target is splitting/controlling the intermediate visible-label congruence families in an automaton-aware way.*
 
 Latest Phase-10 reduction: the intermediate label obstruction is now split
 in Lean.  Across `T12/T13/T14`, target visibility contributes `92`,
@@ -120,13 +120,99 @@ that the branch-row sample counts cover all `11752` finite return samples
 with zero coverage failures.  The same finite accounting is now lifted to
 the complete prefix outcome decomposition.  `WeakBridge.LabelSplit.OutcomeSummary`
 records total samples, covered return samples, drop samples,
-valuation-tail samples, and step-tail samples; the generated theorem
-`a0CompletePrefixSummariesV2Lt8_outcome_decomposition_resolved` proves
-for the imported `T12/T13/T14` summaries that
-`11752 + 101628 + 844 + 16 = 114240`, with covered return samples equal
-to all finite return samples and zero return-coverage failures.  This is
-only a finite prefix balance sheet; the nonzero tails are not eliminated
-by this theorem.
+	valuation-tail samples, and step-tail samples; the generated theorem
+	`a0CompletePrefixSummariesV2Lt8_outcome_decomposition_resolved` proves
+	for the imported `T12/T13/T14` summaries that
+	`11752 + 101628 + 844 + 16 = 114240`, with covered return samples equal
+	to all finite return samples and zero return-coverage failures.  This is
+	only a finite prefix balance sheet; the nonzero tails are not eliminated
+	by this theorem.  The generated theorem
+	`a0CompletePrefixSummariesV2Lt8_declared_tail_counts` extracts the
+	declared residual tail counts (`844`, `16`, total `860`), and
+	`a0CompletePrefixSummariesV2Lt8_declared_tail_positive` records that this
+	finite prefix summary is not loss-free.
+
+The direct-return descent route has now been ruled out for the current
+script-126 complete-prefix return rows.  A read-only JSON audit of
+`T12/T13/T14` found zero coefficientwise decreasing return branches in
+either the base coordinates or the destination-refined coordinates: all
+`860/1564/2868` rows satisfy `a >= q` and `b >= r`, and all refined rows
+satisfy `refined_a >= refined_q` and `refined_b >= refined_r`.  The minimum
+base slope ratio is `531441/524288 > 1`, and every row is strictly
+expansive in at least one coefficient.  Lean now contains the generic
+negative lemma `AffineTBranch.not_nextLocalInteger_lt_sourceLocalInteger_of_coeffNondecreasing`:
+a branch with `source_t = q*u+r`, `next_t = a*u+b`, `a >= q`, `b >= r`
+cannot by itself be a strict descent in the same fixed local residue
+coordinate.  This does not prove an infinite theorem, but it prevents a
+false proof strategy: concatenating only these same-coordinate A0 return
+branches cannot supply the endpoint descent required by
+`BranchTransitionChainDropSound` unless some later mechanism leaves this
+monotone return class or reaches a genuine drop/loss redirection.
+
+The complementary direct-drop audit is positive on the same finite
+complete-prefix artifacts.  Reconstructing the script-126 traces in read-only
+mode, the finite `drop_samples` group into exact `(phase, word)`
+congruence classes with a source affine integer and endpoint affine integer.
+For `T12/T13/T14`, all `9032/16692/30900` drop groups have integer endpoint
+formulae and satisfy the coefficientwise drop condition on the whole
+observed congruence progression, covering exactly `14548/29040/58040`
+finite drop samples with zero bad groups and zero noninteger groups.  Lean
+now has the generic arithmetic certificate
+`AffineNatDropBranch.targetN_lt_sourceN_of_coeffDrop`, which proves
+`targetSlope*u + targetIntercept < sourceSlope*u + sourceIntercept` from
+`targetSlope <= sourceSlope` and `targetIntercept < sourceIntercept`.  This
+is connected to the Syracuse-word bridge by
+`directDropAt_of_word_matches_affineNatDrop`: a matched word plus source and
+endpoint affine equalities plus this coefficientwise drop certificate gives
+`DirectDropAt`.  This is the right local shape for future
+`DirectDropAtSound`, but it is still only local arithmetic plus finite
+reconstruction: it does not prove that the finite prefix classes form an
+infinite A0/Collatz cover, and it does not remove the declared
+valuation/step tails.
+
+The declared tail taxonomy has also been sharpened.  A read-only replay of
+script-126 traces shows that every finite `valuation_tail` in
+`T12/T13/T14` is already below the original start immediately after the
+high-valuation step: `120/120`, `240/240`, and `484/484`.  These were
+classified as tails because script `126` checks `a_val > a_cap` before
+checking `cur < n0`.  Lean now proves the general one-step arithmetic lemma
+`syracuse_lt_self_of_two_le_exponent`: if `1 < n` and
+`2 <= syracuseExponent n`, then `S n < n`.  This gives a plausible
+redirection path for valuation-tail classes, subject to proving the
+intermediate value is `> 1` and matching the actual step in the global
+source model.  The wrapper
+`directDropAt_one_of_two_le_syracuseExponent` packages the same fact as
+`DirectDropAt 1 n`, the form required by `DirectDropAtSound`.  The
+`step_tail` samples are different: the replay finds
+`0/8` and `0/8` final drops at the original cap `75`.  Extending only those
+eight representatives to cap `100` shows they are budget artifacts rather
+than new observed obstruction classes: the four `t = 4853` cases
+(`phase = 0|1|h`, `h=0..3`) drop at step `91`, and the four `t = 7110`
+cases (`phase = 1|3|h`, `h=0..3`) drop at step `76`.  This finite replay
+suggests cap extension can remove the current prefix `step_tail` counts,
+but it is not an infinite no-budget-exit theorem.
+With the semantically corrected priority "drop before valuation-tail" and
+cap `100`, the same read-only replay has no residual finite losses:
+`T12 = 14668` drops plus `1652` returns, `T13 = 29288` drops plus `3352`
+returns, and `T14 = 58532` drops plus `6748` returns.  This should guide
+the next generated artifact, but it does not by itself replace the existing
+Lean import, which still records the conservative cap-75 outcome summary.
+Script `126` now has an opt-in `--semantic-replay-step-cap` flag that
+records exactly these proof-facing replay counters in `stats` without
+changing the return-branch rows or the default output policy.  A no-write
+`T14` run with `--semantic-replay-step-cap 100` reports
+`semantic_replay=step_cap:100,drop:58532,return:6748,valuation_tail:0,step_tail:0,loss:0,loss_free:1`
+and `semantic_replay_step_max=drop:91,return:75,valuation_tail:0,step_tail:0`.
+A direct no-write call to `analyze(...)` verifies all three complete
+prefixes with the modified script: `T12` has max semantic drop/return steps
+`68/51`, `T13` has `91/73`, and `T14` has `91/75`, all with
+`semantic_replay_loss_free = 1`.
+Lean imports this as the separate semantic-replay summary
+`a0SemanticReplaySummariesV2Lt8Cap100` and theorem
+`a0SemanticReplayV2Lt8Cap100_loss_free`: total `114240`, drop `102488`,
+return `11752`, valuation-tail `0`, step-tail `0`, max drop/return steps
+`91/75`, and resolved finite outcome accounting.  This theorem is finite
+and cap-specific; it does not assert an infinite loss-free cover.
 
 - **Phase 0 complete.** Lake project initialized with `math` template,
   pinned to **Lean 4 v4.29.1** and **Mathlib v4.29.1**. Mathlib
@@ -340,6 +426,7 @@ formalized and proved.
 | 5.3 | [x] | Prove `qw_orbit_matches`, discharging `h_qw_matches`. | `Auxiliary.lean:qw_orbit_matches` proved. `Shadowing.lean:exact_shadowing` and `exact_shadowing_periods` no longer require `h_qw_matches`; they use `qw_orbit_matches` internally. |
 | 5.4 | [x] | State Corollary 3.4 in Lean. | New `NoInfinite.lean` states and proves the 2-adic congruential core: congruence modulo all powers forces equality, and period congruence for every `b` is impossible unless `(n : ℤ_[2]) = q_w`. No `sorry`. |
 | 5.5 | [x] | Prove the full paper Corollary 3.4 for expansive phantoms. | `NoInfinite.lean:PhantomWord.Expansive`, `qwRat_neg_of_expansive`, `qwZ2_ne_natCast_of_expansive`, and `no_infinite_period_congruence_expansive` proved, no `sorry`. |
+| 5.6 | [x] | Record the post-prefix boundary theorem for eventually periodic expansive shadowing. | `NoInfinite.lean:no_positive_endpoint_eventually_periodic_expansive_congruence` proves that any positive post-prefix endpoint cannot remain in the congruence classes of an expansive phantom period for all numbers of periods. This is a boundary theorem: it excludes the eventually periodic expansive obstruction, not aperiodic infinite concatenations. |
 
 ---
 
@@ -607,7 +694,7 @@ The first Lean bridge is now formalized in
 | 11.B | [x] | Formalize the strict-descent bridge. | `UniformStrictDescentHypothesis` states that every positive odd `n ≠ 1` has a finite accelerated iterate that is positive odd and strictly smaller than `n`; `acceleratedCollatz_of_uniformStrictDescent` proves this hypothesis implies accelerated termination by strong induction. |
 | 11.C | [x] | Separate classical-vs-accelerated bookkeeping from the finite phantom-shadowing gap. | `CollatzBridge.lean` now proves the elementary bridge `acceleratedToClassicalBridge`: accelerated termination on positive odd inputs implies classical Collatz termination on all positive naturals. The proof formalizes the initial even-tail halving, expands each accelerated Syracuse step into one odd `3n+1` step plus the exact number of halvings, and removes `AcceleratedToClassicalBridge` as an external hypothesis. |
 | 11.D | [~] | Connect the finite phantom-shadowing layer to `UniformStrictDescentHypothesis`. | `CollatzBridge.lean` now defines `StrictDescentWitness`, `BranchDescentModel`, and proves `uniformStrictDescent_of_branchDescentModel`: a resolved finite branch-cover model would imply `UniformStrictDescentHypothesis`. With 11.C closed, it also proves `classicalCollatz_of_branchDescentModel`: such a resolved global branch-descent model would imply `ClassicalCollatzConjecture`. This is only a conditional bridge. The substantive open problem is still to construct such a global branch-cover model from the phantom-shadowing certificates, with no uncontrolled outside/budget/tail class. The K16 finite CW certificate alone does not prove this. |
-| 11.E | [~] | Classify all finite-model losses for the global proof. | `CollatzBridge.lean` now defines `GlobalDescentCover`, whose cover cases are exactly: direct strict-descent witness, resolved branch witness, or declared loss label with its own strict-descent witness. It also defines the concrete audit types `FiniteModelLossKind` (`outsideSCC`, `budgetExit`, `valuationTail`, `stepTail`), `FiniteModelCoverClass`, `CoverClassStatus`, and theorem `finiteModelCoverClass_currentStatus`: `directDrop` is already `witness`, `resolvedBranch` is `branch`, and all four loss classes are `openLoss`. The theorem `classicalCollatz_of_finiteModelGlobalCover` proves that a resolved cover with exactly these declared loss labels implies `ClassicalCollatzConjecture`. The new `FiniteModelCoverSpec` separates the direct-drop predicate from the direct-drop witness and proves `classicalCollatz_of_finiteModelCoverSpec` via `toGlobalDescentCover`. This does not classify the actual A0/K16 losses yet; it makes their required status explicit. Needed next split: `drop below start` is a direct witness; internal certified transitions are branch witnesses; outside-SCC, budget exits, valuation tails, and step tails must be proved impossible, redirected to descent, or assigned a real loss witness. |
+| 11.E | [~] | Classify all finite-model losses for the global proof. | `CollatzBridge.lean` now defines `GlobalDescentCover`, whose cover cases are exactly: direct strict-descent witness, resolved branch witness, or declared loss label with its own strict-descent witness. It also defines the concrete audit types `FiniteModelLossKind` (`outsideSCC`, `budgetExit`, `valuationTail`, `stepTail`), `FiniteModelCoverClass`, `CoverClassStatus`, and theorem `finiteModelCoverClass_currentStatus`: `directDrop` is already `witness`, `resolvedBranch` is `branch`, and all four loss classes are `openLoss`. The theorem `classicalCollatz_of_finiteModelGlobalCover` proves that a resolved cover with exactly these declared loss labels implies `ClassicalCollatzConjecture`. `FiniteModelCoverSpec` is the witness-level interface, and `FiniteModelSoundSpec` is the propositional interface with exactly three soundness obligations: `DirectDropSound`, `BranchSound`, and `LossSound`. This does not classify the actual A0/K16 losses yet; it makes their required status explicit. Needed next split: `drop below start` is a direct witness; internal certified transitions are branch witnesses; outside-SCC, budget exits, valuation tails, and step tails must be proved impossible, redirected to descent, or assigned a real loss witness. |
 
 Minimal theorem chain now visible:
 
@@ -640,6 +727,576 @@ finite phantom-shadowing/CW layer
 > - Notes: any blockers, open questions, things the next session should know
 > - Next recommended task: X.Y
 > ```
+
+### 2026-05-28 (A0 return branches: monotone-return exclusion) — Codex + Piero Borgatta
+
+- Tasks advanced: 10.M, 11.D.
+- Artifacts modified:
+  - `CollatzShadowing/CollatzBridge.lean`
+  - `CollatzShadowing/Generated/A0ReturnBranches.lean`
+  - `CollatzShadowing/INVENTORY.md`
+  - `scripts/spectral_program/126_A0_return_branch_affine_probe.py`
+  - `notes/phase10_repro_manifest.md`
+  - `lean/TODO.md`
+- Notes:
+  - Added the generic Lean record `AffineTBranch` with local coordinates
+    `source_t = q*u+r` and `next_t = a*u+b`.
+  - Proved
+    `AffineTBranch.not_nextLocalInteger_lt_sourceLocalInteger_of_coeffNondecreasing`:
+    if `a >= q` and `b >= r`, the embedded integer
+    `residue + modulus*next_t` cannot be strictly smaller than
+    `residue + modulus*source_t`.
+  - Ran a read-only exact JSON audit of the existing script-126
+    complete-prefix artifacts.  For `T12/T13/T14`, all return rows are
+    coefficientwise nondecreasing in both base and refined coordinates:
+    `0/860`, `0/1564`, `0/2868` base failures and the same zero refined
+    failures.  Every row is strictly expansive in at least one coefficient;
+    the minimum slope ratio is `531441/524288 > 1`.
+  - Consequence: the current A0 same-coordinate return rows cannot provide
+    the endpoint descent required by `BranchWordDropSound` or by a
+    transition chain made only of these monotone return rows.  Any future
+    global proof must use actual drop outcomes, prove/redirect the declared
+    tails, or identify a different semantic mechanism; a chain of the
+    imported A0 return branches alone is a dead end.
+  - Added `AffineNatDropBranch` and theorem
+    `AffineNatDropBranch.targetN_lt_sourceN_of_coeffDrop`, the generic
+    arithmetic certificate for direct-drop affine branches, plus
+    `directDropAt_of_word_matches_affineNatDrop`, which connects such a
+    certificate to `DirectDropAt` when the Syracuse word match and affine
+    source/endpoint equalities are supplied.
+  - Ran a read-only reconstruction of script-126 drop traces.  The complete
+    prefixes `T12/T13/T14` have `9032/16692/30900` drop groups covering
+    `14548/29040/58040` finite drop samples; every group has an integer
+    affine endpoint and satisfies the coefficientwise global drop criterion
+    on its observed congruence progression.  This supports the local
+    `DirectDropAtSound` route, but only after an actual infinite cover or
+    parametric source partition is proved.
+  - Replayed the declared tails.  All finite valuation-tail samples already
+    satisfy `cur < n0` after the high-valuation step (`120/120`,
+    `240/240`, `484/484`), so they are candidate direct drops rather than
+    genuine losses.  The `step_tail` samples do not drop at the original cap
+    (`0/8`, `0/8`), but extending just those eight representatives to cap
+    `100` gives drops at steps `91` (`t=4853`, phases `0|1|h`) and `76`
+    (`t=7110`, phases `1|3|h`).  This points to a finite budget-cap
+    artifact, not a theorem-level absence of budget exits.
+  - Reclassified the complete prefixes in read-only mode with drop checked
+    before high-valuation tail and cap `100`.  Under that semantic order,
+    `T12/T13/T14` have zero residual finite losses:
+    `14668+1652=16320`, `29288+3352=32640`, and `58532+6748=65280`
+    as drop/return decompositions.
+  - Extended script `126` with opt-in flag `--semantic-replay-step-cap`.
+    The default extraction is unchanged; with the flag, the script adds
+    proof-facing replay counters to `stats` and stdout.  Verified with
+    `../.venv/bin/python -m py_compile` and a no-write `T14` run:
+    `loss_free=1`, `drop=58532`, `return=6748`, max drop step `91`.
+    A direct no-write `analyze(...)` check verifies all `T12/T13/T14`:
+    semantic counts are respectively `(drop,return) = (14668,1652)`,
+    `(29288,3352)`, `(58532,6748)`, all with zero semantic loss samples.
+  - Added the Lean finite summary
+    `a0SemanticReplaySummariesV2Lt8Cap100` and theorem
+    `a0SemanticReplayV2Lt8Cap100_loss_free`.  This imports the cap-100
+    semantic replay separately from the existing conservative cap-75
+    outcome summary.
+  - Added
+    `a0SemanticReplayV2Lt8Cap100_reclassifies_conservative_tails`: Lean now
+    checks that the semantic replay keeps the same finite total and return
+    count as the conservative complete-prefix summary, while moving exactly
+    the conservative `860` tail samples into the drop count.  This is a
+    finite replay comparison only, not a proof of an infinite source
+    partition.
+  - Proved `syracuse_lt_self_of_two_le_exponent`: if `1 < n` and the
+    accelerated Syracuse exponent is at least `2`, then the next accelerated
+    iterate is below `n`.  Added
+    `directDropAt_one_of_two_le_syracuseExponent`, which packages this as
+    `DirectDropAt 1 n`.  This is the theorem-level ingredient for
+    redirecting high-valuation tails, but it does not prove that every
+    valuation-tail class in the global model is covered.
+  - Added word-concatenation infrastructure:
+    `evalSyracuseWord_append`, `SyracuseWordMatchesFrom_append`, and
+    `directDropAt_of_suffix_after_prefix_matches_eval_lt`.  This supports the
+    observed factorization of semantic drop words into a common initial block
+    plus a suffix that actually produces descent.
+  - Added the exact matched-word affine formula
+    `evalSyracuseWord_mul_pow_sum_eq_affine_of_matches`, the contraction
+    criterion `directDropAt_of_word_matches_affine_contracting`, and the
+    suffix version
+    `directDropAt_of_suffix_after_prefix_affine_contracting`.
+    Specialized the observed common prefix as
+    `a0SemanticDropCommonPrefix = [1,1,2,1,1,1]` and proved
+    `a0SemanticDropCommonPrefix_affine_of_matches`:
+    `128 * endpoint = 729*n + 817` for a matched prefix.  The `817` is the
+    integer-coordinate constant; the earlier `19` belongs to a local `t`
+    coordinate after subtracting the target residue.
+  - Added
+    `directDropAt_of_a0CommonPrefix_suffix_scaled_contracting`: a suffix after
+    the common prefix gives a direct drop if the scaled inequality
+    `3^len(s)*(729*n+817)+128*C_s < 128*2^A_s*n` is certified.
+    Added the threshold form
+    `directDropAt_of_a0CommonPrefix_suffix_threshold_contracting`, which
+    derives the scaled inequality from a nonnegative slope gap
+    `729*3^len(s) <= 128*2^A_s` and an explicit lower-bound inequality for
+    `n`.  This is the Lean target corresponding to the audit's
+    `suffix_threshold_max`.
+  - Added a finite small-case Lean check for the suffix-threshold route:
+    `smallOddHasDirectDropWithin100Bool` verifies by `native_decide` that
+    every positive odd `n < 455`, `n != 1`, has a direct accelerated drop
+    within `100` steps; `hasStrictDescent_of_odd_lt_455` packages this as
+    `HasStrictDescent n`.  This closes only the finite exception range for
+    the current observed threshold; it is not a global cover theorem.
+  - Added
+    `hasStrictDescent_of_a0CommonPrefix_suffix_threshold_at_455`, combining
+    the finite small-case theorem with the A0 common-prefix suffix threshold:
+    if a matched word has the common prefix, a nonempty suffix, slope gap
+    `729*3^len(s) <= 128*2^A_s`, and the intercept inequality already holds
+    at `455`, then the original `n` has `HasStrictDescent`.  This is now the
+    preferred compact target for a future generated suffix certificate.
+  - Added the proof-facing Lean row type
+    `A0SemanticSuffixCertificate` and predicate
+    `A0SemanticSuffixCertificate.ValidAt455`.  The theorem
+    `A0SemanticSuffixCertificate.hasStrictDescent_of_validAt455` turns one
+    valid suffix row plus a matched common-prefix word into `HasStrictDescent`.
+    This is only a local bridge: it does not prove that the generated finite
+    suffix list covers all future sources.
+  - Added the coarser Lean row type `A0SemanticSuffixPairCertificate`, with
+    theorem `A0SemanticSuffixPairCertificate.hasStrictDescent_of_validAt455`:
+    one valid pair row certifies any concrete suffix with matching
+    `(length,sum)` and `syracuseWordConst` bounded by the row's declared
+    maximum.  This is the proof-facing meaning of the `351`-row T14 pair
+    compression.  Added the computable checker
+    `A0SemanticSuffixPairCertificate.allValidAt455Bool` and membership lemma
+    `validAt455_of_mem_of_allValidAt455Bool`, so a future generated list can
+    be checked as a whole and then used row-by-row.
+  - Ran a read-only compression audit of the semantic drop words with the
+    complete `v2 < 8` phase list.  At `T14` the raw semantic drops would give
+    `31324` phase-word groups, `28852` of them singleton, so a raw Lean import
+    of drop rows is the wrong direction.  All semantic drop words in
+    `T12/T13/T14` share the common prefix `[1,1,2,1,1,1]`; the next reduction
+    should factor this prefix and prove a suffix/contractive-word criterion,
+    not export thousands of one-off rows.
+  - Extended script `126` with opt-in flag `--semantic-replay-word-audit`.
+    With `--semantic-replay-step-cap 100`, a no-write complete `T14` run now
+    prints
+    `semantic_replay_drop_word_audit=distinct_words:7831,phase_word_groups:31324,phase_word_singletons:28852,distinct_suffixes:7831,suffix_slope_failures:0,suffix_threshold_max:455,common_prefix_failures:0,common_prefix_samples:58532`.
+    Added the separate opt-in flag `--semantic-replay-suffix-certificate`,
+    which stores one exact row per observed suffix after the common prefix in
+    the JSON stats payload when writing is enabled.  No new artifact is
+    produced by default.  Read-only checks give `rows:2287, failures:0,
+    threshold_max:320` at `T12` and `rows:7831, failures:0,
+    threshold_max:455` at `T14`.
+    Verified with `../.venv/bin/python -m py_compile`.
+  - Imported the compact audit into Lean as
+    `a0SemanticDropWordAuditSummariesV2Lt8Cap100` and theorem
+    `a0SemanticDropWordAuditV2Lt8Cap100_summary`: across `T12/T13/T14`,
+    common-prefix samples equal all semantic drop samples (`102488`), common
+    prefix failures are `0`, suffix slope-failure words are `0`, and the
+    maximum observed suffix threshold is `455`.  The same theorem records why
+    raw import is unattractive: `57392` phase-word groups, `52696` singleton
+    groups.  It now also records the suffix-certificate aggregate:
+    `14348` suffix rows across `T12/T13/T14`, equal to the distinct suffix
+    count, with `0` suffix-certificate failures and certificate threshold max
+    `455`.  The same opt-in export now records a pair compression by
+    `(suffix_len, suffix_sum)`: `882` pair rows across `T12/T13/T14`, T14 max
+    `351` pair rows, `0` pair-certificate failures, and pair threshold max
+    `455`.  The pair-failure counter now checks the same `ValidAt455` formula
+    used by the Lean pair-certificate bridge.  A read-only inclusion audit
+    shows that the T14 pair set contains all T12/T13 pairs; for common pairs,
+    T14 also dominates the earlier `suffixConstMax` and threshold maxima.  If
+    a generated table is imported, the minimal current candidate is therefore
+    the single T14 table with `351` pair rows.
+    The script now also prints the current-run pair coverage audit.  At T14:
+    `semantic_replay_suffix_pair_coverage=suffix_rows:7831,covered_suffix_rows:7831,uncovered_suffix_rows:0,covered_drop_samples:58532,covered_phase_word_groups:31324,failures:missing_pair:0,const_bound:0,threshold_bound:0,loss_free:1`.
+    It also prints source-level coverage:
+    `semantic_replay_source_pair_coverage=drop_samples:58532,covered_samples:58532,uncovered_samples:0,common_prefix_failures:0,failure_total:0,loss_free:1`.
+  - Ran read-only stability checks beyond T14.  The fixed T14 pair table does
+    not cover T15: T15 has `117016` semantic-drop samples, `14201` distinct
+    suffixes, and `404` current-run pair rows; using the T14 table leaves `53`
+    missing pair keys, `69` missing suffix rows, `224` const-bound failures,
+    and `37` threshold-bound failures.  T15 does not stabilize T16 either:
+    T16 has `233992` semantic-drop samples, `26112` distinct suffixes, `473`
+    current-run pair rows, and threshold max `463`; using the T15 table leaves
+    `69` missing pair keys, `85` missing suffix rows, `263` const-bound
+    failures, and `56` threshold-bound failures.  T16 still does not stabilize
+    T17: T17 has `467696` semantic-drop samples, `47843` distinct suffixes,
+    `560` current-run pair rows, and threshold max `463`; using the T16 table
+    leaves `87` missing pair keys, `115` missing suffix rows, `321`
+    const-bound failures, and `51` threshold-bound failures.  This falsifies
+    the tentative idea that any one of the current finite tables is a stable
+    future cover.
+  - Generalized the Lean cutoff bridge.  Added
+    `smallOddHasDirectDropWithin100Bool464`,
+    `hasStrictDescent_of_odd_lt_464`,
+    `smallOddHasDirectDropWithin100Bool648`,
+    `hasStrictDescent_of_odd_lt_648`,
+    `hasStrictDescent_of_a0CommonPrefix_suffix_threshold_at_cutoff`, and
+    cutoff wrappers at `464` and `648`.  The point is conceptual: `455` was
+    an observed finite cutoff, not a structural constant; T16 already needs
+    cutoff support beyond it, and T18 has threshold max `647`.
+  - Generalized the suffix/pair certificate API itself.  Added
+    `A0SemanticSuffixCertificate.ValidAtCutoff`,
+    `A0SemanticSuffixCertificate.ValidAt464`,
+    `A0SemanticSuffixPairCertificate.ValidAtCutoff`,
+    `A0SemanticSuffixPairCertificate.ValidAt464`,
+    `validAtCutoffBool`, `allValidAtCutoffBool`, and the corresponding
+    membership/use theorems.  This is required before any T16-style table can
+    be represented honestly.
+  - Extended script `126` with
+    `--semantic-replay-certificate-cutoff`.  Default `455` preserves the T14
+    audit; running T18 with cutoff `648` gives
+    `semantic_replay_suffix_certificate=rows:85753,cutoff:648,failures:0,threshold_max:647`,
+    `semantic_replay_suffix_pair_certificate=rows:652,cutoff:648,failures:0,threshold_max:647`,
+    and
+    `semantic_replay_source_pair_coverage=drop_samples:934832,covered_samples:934832,uncovered_samples:0,common_prefix_failures:0,failure_total:0,loss_free:1`.
+  - Ran T19 read-only.  With the old operational cap (`a_cap=10`, step cap
+    `100`) T19 is not loss-free: `drop=1869460`, `return=219456`,
+    `valuation_tail=8`, `step_tail=36`, `loss=44`; nevertheless the drop
+    suffixes have threshold max `647`, `156178` distinct suffixes, `741` pair
+    rows, and zero pair/source coverage failures for the drop part.  With
+    enlarged operational caps (`a_cap=20`, semantic step cap `200`) T19 becomes
+    loss-free: `drop=1869500`, `return=219460`, `valuation_tail=0`,
+    `step_tail=0`, max drop/return steps `138/105`, `156188` distinct
+    suffixes, `749` pair rows, threshold max `647`, and full source coverage
+    for all drops.  A follow-up no-write run with certificate cutoff `648`
+    also has zero suffix/pair certificate failures, so the Lean summary uses
+    the smaller cutoff.  Imported this as compact Lean summary
+    `a0SemanticReplayT19A20Cap200Cutoff648` with theorem
+    `a0SemanticReplayT19A20Cap200Cutoff648_summary`.
+  - Ran T20 read-only with the same enlarged caps (`a_cap=20`, semantic step
+    cap `200`) and certificate cutoff `648`.  The replay is again loss-free:
+    `drop=3739212`, `return=438708`, no valuation/step tails, max drop/return
+    steps still `138/105`, `284363` distinct suffixes, `842` pair rows,
+    threshold max still `647`, and full source coverage
+    `3739212/3739212`.  Imported this as compact Lean summary
+    `a0SemanticReplayT20A20Cap200Cutoff648` with theorem
+    `a0SemanticReplayT20A20Cap200Cutoff648_summary`; theorem
+    `a0SemanticReplayT19T20A20Cap200Cutoff648_stable_bounds` records only
+    the finite observed stability of threshold and step maxima, not a global
+    bound.
+  - Removed a T14-specific proof-interface bottleneck.  `CollatzBridge.lean`
+    now has generic `A0SemanticSuffixPairCover` and
+    `A0SemanticDropSourcePairCover` objects for any finite pair-certificate
+    table valid at an arbitrary cutoff, with use theorems
+    `hasStrictDescent_of_a0SemanticSuffixPairCoverAtCutoff` and
+    `hasStrictDescent_of_a0SemanticDropSourcePairCoverAtCutoff`.  The
+    generated T14 cover is now explicitly viewed as a special case through
+    `a0SemanticSuffixPairCertificatesT14_allValidAtCutoff455` and
+    `A0SemanticSuffixT14PairCover.toGeneric`.  This is a genuine proof-shape
+    reduction: T18/T20-style tables no longer need new descent theorems, only
+    valid rows plus source/suffix assignment.
+  - Added `A0SemanticDropTableSpec`, packaging a finite pair table, its cutoff,
+    `allValidAtCutoffBool`, and the corresponding small-exception theorem.
+    Its theorem `A0SemanticDropTableSpec.hasStrictDescent_of_sourceCover`
+    states the remaining local obligation cleanly: provide source-cover data
+    into the table, and strict descent follows.  The generated T14 table now
+    instantiates this as `a0SemanticDropTableSpecT14`, with theorem
+    `hasStrictDescent_of_a0SemanticDropTableSpecT14_sourceCover`.
+  - Connected the table spec to the existing global bridge shape.  Added
+    `A0SemanticDropBranchCoverSound` and
+    `branchSound_of_a0SemanticDropBranchCoverSound`: a resolved finite branch
+    is sound if it supplies `T.SourceCover n` for a fixed
+    `A0SemanticDropTableSpec T`.  This identifies the next nontrivial proof
+    obligation without claiming it is solved.
+  - Proved the common-prefix part of that source-cover premise
+    parametrically on the natural A0 source cylinder.  Script `126` uses
+    source integers `n = 103 + 256*t`; Lean now proves
+    `a0SemanticDropCommonPrefix_matches_source_cylinder`, namely every such
+    source has accelerated exponent prefix `[1,1,2,1,1,1]`, and
+    `eval_a0SemanticDropCommonPrefix_source_cylinder`, with endpoint
+    `593 + 1458*t`.  The `AffineTBranch.localInteger` wrappers record the
+    same fact in the local-coordinate language.  Added the missing append
+    direction `SyracuseWordMatchesFrom_append_of_matches` and the constructor
+    `AffineTBranch.a0SemanticDropSourcePairCover_of_localInteger_suffixCover`;
+    therefore, for A0 sources, the remaining `SourceCover` obligation is now
+    just: prove a suffix match from `593 + 1458*t` and assign that suffix to a
+    valid pair row.
+  - Named that remaining obligation as `A0EndpointSuffixPairCover`.  It
+    packages exactly a suffix-pair cover plus
+    `SyracuseWordMatchesFrom suffix (593 + 1458*t)`.  The theorem
+    `A0EndpointSuffixPairCover.hasStrictDescent_atCutoff` and the table-level
+    wrapper `A0SemanticDropTableSpec.hasStrictDescent_of_endpointSuffixCover`
+    turn such data into `HasStrictDescent (103 + 256*t)`.  The generated T14
+    table exposes this as
+    `hasStrictDescent_of_a0SemanticDropTableSpecT14_endpointSuffixCover`.
+  - Added the first formal suffix split after the common prefix:
+    `syracuseExponent_a0CommonPrefix_endpoint`,
+    `syracuseExponent_a0CommonPrefix_endpoint_of_odd_t`, and
+    `syracuseExponent_a0CommonPrefix_endpoint_even_t`.  In particular, if
+    `t` is odd then the next exponent from `593 + 1458*t` is forced to be
+    `1`; if `t = 2*u`, the next exponent is
+    `2 + ν₂(445 + 2187*u)`.  This identifies the next real recursive
+    obstruction rather than hiding it inside finite suffix words.
+  - Ran a quick no-write suffix-closure probe from endpoint `593 + 1458*t`.
+    For every `t < 2^20`, the suffix drops below `103 + 256*t` within cap
+    `300`; the observed max suffix length is `205`.  However this does not
+    look like a small finite word-table closure: distinct suffix words grow
+    from `206920` at `D=19` to `383215` at `D=20`, and pair rows
+    `(suffixLength,suffixSum)` grow from `982` to `1123`.  The first split is
+    benign for high exponents: if the first suffix exponent is `≥ 5`, the
+    branch drops in one step coefficientwise.  The only first bad exponents
+    are `1..4`, but recursively the low-exponent branches keep regenerating
+    new affine states.  Current verdict: strong finite evidence of descent,
+    no evidence yet of a small finite suffix automaton; the plausible next
+    route is a drift/renewal bound on the recursive affine-valuation process,
+    or a finite-rank fallback.
+  - Sharpened that verdict with an exact no-write `e=1` branch probe.  For
+    each tested depth `m <= 30`, there is a residue class
+    `t == r_m (mod 2^m)` for which the first `m` post-prefix suffix exponents
+    are all `1`, and the affine endpoint after those `m` suffix steps is still
+    coefficientwise above the original source.  Example: at `m=30`,
+    `t == 79536431 (mod 2^30)`, and the affine slope ratio has grown to about
+    `1.09e6`.  Thus a proof by uniformly bounded suffix length/table closure
+    is not the right target.  This is a finite exact obstruction probe, not a
+    global theorem about all infinite low-exponent paths.  Lean now records
+    the corresponding local obstruction API via
+    `AffineNatDropBranch.CoeffNondecreasing`,
+    `AffineNatDropBranch.eOneChild`, and
+    `AffineNatDropBranch.eOneChild_not_coeffDrop_of_slope_growth`; build
+    `lake build CollatzShadowing.CollatzBridge` passes (`3291` jobs; latest
+    run `81s` after the phantom-boundary identity).
+  - Identified the exact 2-adic boundary behind that repeated `e=1` branch.
+    The residue bits are periodic with period `18` in the no-write probe,
+    corresponding to the 2-adic value `t = -11/27`; Lean records the rational
+    identities
+    `a0Endpoint_phantomParameter_eq_negOne`:
+    `593 + 1458*(-11/27) = -1`, and
+    `a0Source_phantomParameter_eq_negThirtyFiveOverTwentySeven`:
+    `103 + 256*(-11/27) = -35/27`.  Thus the all-`1` suffix obstruction is
+    the usual `-1` phantom endpoint in the post-prefix coordinate.  This
+    explains why no uniform finite suffix table should be expected, while not
+    proving that all other low-exponent paths are harmless.
+  - Generalized the periodic-boundary diagnosis in Lean.  Added
+    `syracuseWordAffineEndpointQ`, `syracuseWordFormalFixedPoint`,
+    `syracuseWordFormalFixedPoint_fixed`, and
+    `syracuseWordFormalFixedPoint_neg_of_expanding`: for any nonempty
+    periodic exponent word with `2^sum(word) < 3^length(word)`, the formal
+    rational fixed point is negative.  Concrete checks
+    `syracuseWordFormalFixedPoint_one`,
+    `syracuseWordFormalFixedPoint_one_two`, and
+    `syracuseWordFormalFixedPoint_two_one` give the first phantom endpoints
+    `-1`, `-5`, and `-7`.  A no-write enumeration of primitive binary
+    periodic words on `{1,2}` through length `12` found `6050` low-average
+    periodic words, all falling under this negative phantom mechanism.  This
+    is a structural explanation for the failure of finite suffix closure, not
+    a global exit theorem for nonperiodic low-exponent paths.
+  - Checked representative repeated patterns `[1]`, `[1,2]`, `[2,1]`,
+    `[1,1,2]`, `[1,2,1]`, and `[2,1,1]` by exact no-write residue lifting.
+    For repetitions `1,2,4,8,12`, each pattern has a unique compatible
+    residue class and remains coefficientwise non-dropping through the forced
+    prefix; the slope ratio grows as predicted by
+    `(3^length)/(2^sum) > 1`.  Thus the obstruction is not just the all-`1`
+    path: any proof must handle arbitrarily long neighborhoods of many
+    negative periodic phantom endpoints.
+  - Added the exact affine-deviation identity
+    `syracuseWordAffineEndpointQ_sub_formalFixedPoint`: one application of a
+    word sends `x - x_*` to `(3^length/2^sum) * (x - x_*)`, where `x_*` is the
+    formal fixed point.  The companion lemma
+    `syracuseWordExpansionFactor_gt_one_of_expanding` records that this factor
+    is `> 1` in the low-exponent expanding case.  A no-write exit probe on
+    the repeated patterns above, for repetitions `1,2,4,8,12,16,20`, found no
+    misses under suffix cap `5000`; observed drops occur after the forced
+    bad prefix plus a finite extra segment.  This is encouraging for an
+    exit/renewal theorem but remains empirical: no uniform bound and no
+    nonperiodic-path theorem has been proved.
+  - Isolated the table-free endpoint target as `A0EndpointSuffixExit t`.
+    It says: from the already-proved A0 endpoint `593 + 1458*t`, there exists
+    an actual suffix word whose endpoint is below the original source
+    `103 + 256*t`.  The theorem `hasStrictDescent_of_a0EndpointSuffixExit`
+    proves that this target alone implies `HasStrictDescent (103 + 256*t)`.
+    The wrapper `A0EndpointSuffixExitAll` and theorem
+    `hasStrictDescent_a0Cylinder_of_endpointSuffixExitAll` package the
+    corresponding cylinder-wide conditional result.  This is now the cleanest
+    formulation of the desired exit/renewal theorem, separated from finite
+    pair tables and from the CW finite-rank fallback.
+  - Added direct proof-facing criteria for that endpoint target:
+    `a0EndpointSuffixExit_of_suffix_scaled_contracting`,
+    `a0EndpointSuffix_scaled_contracting_of_threshold`, and
+    `a0EndpointSuffixExit_of_suffix_threshold_contracting`.  These avoid a
+    finite pair-table assignment: a matched suffix from `593 + 1458*t` gives
+    `A0EndpointSuffixExit t` as soon as the endpoint affine inequality
+    `3^len*s_endpoint + C_s < 2^sum*s_source` holds, or via the equivalent
+    threshold form with slope gap
+    `256*2^sum - 1458*3^len`.  The wide no-write phantom-neighborhood probe
+    suggests this slope/threshold barrier is the right local certificate:
+    over `62037` primitive expanding words on `{1,2,3,4}` through length `12`
+    and `10` repetitions, no cap-`5000` exit miss was found; the smallest
+    observed surplus margin above `log2(729/128)` was about `0.001474779`.
+    A follow-up no-write check found a sharper empirical rule: in all `62037`
+    phantom-neighborhood cases, the exit occurs exactly at the first prefix
+    of the matched suffix satisfying the slope barrier
+    `1458*3^L <= 256*2^A`, and the endpoint threshold inequality already
+    holds at that first crossing.  The same first-barrier rule also holds for
+    every dense natural sample `0 <= t < 2^20` under cap `1000`; all
+    `1048576` cases exit at first crossing, with maximum suffix length `205`.
+    This is strong finite evidence for a “first barrier crossing” theorem,
+    not yet a proof.
+    A fixed-pattern repetition probe (`[1]`, `[1,2]`, `[1,1,2]`,
+    `11121211212`, `121111114121`, `211111311111`, etc.) shows that the
+    post-periodic extra tail is not uniformly bounded in any obvious way:
+    for some patterns the extra segment grows to several hundred steps by
+    `60` repetitions.  Thus the viable formulation is not “periodic phantom
+    plus bounded tail”, but “exit at first A0 slope-barrier crossing”.
+  - Formalized that formulation in Lean.  Added
+    `A0EndpointSuffixSlopeBarrier`, `A0EndpointSuffixThreshold`,
+    `A0FirstBarrierSuffix`, `A0FirstBarrierExistsAll`, and
+    `A0FirstBarrierThresholdAutomatic`.  The theorem
+    `a0EndpointSuffixExit_of_firstBarrier_threshold` proves the local easy
+    implication: first barrier plus threshold gives `A0EndpointSuffixExit t`.
+    The theorem `A0EndpointSuffixExitAll_of_firstBarrier` packages the exact
+    remaining decomposition:
+    `A0FirstBarrierExistsAll + A0FirstBarrierThresholdAutomatic =>
+    A0EndpointSuffixExitAll`.  Thus the current A0 endpoint program is now
+    split into two explicit open obligations, neither of which is claimed as
+    proved.
+  - Added the word arithmetic lemma `syracuseWordConst_append_singleton`, and
+    proved the singleton first-barrier threshold case in Lean:
+    `a0EndpointSuffixThreshold_singleton_of_barrier` and
+    `a0FirstBarrierThreshold_singleton`.  This is only the length-one base
+    case for the threshold obligation.  It does not prove
+    `A0FirstBarrierThresholdAutomatic` for longer suffixes and does not address
+    `A0FirstBarrierExistsAll`.
+  - Added the monotonicity lemmas `a0EndpointSuffixThreshold_mono_t` and
+    `a0EndpointSuffixThreshold_of_one_le`: once the endpoint threshold
+    inequality is true at a parameter value, it remains true for larger `t`.
+    This is the proof-facing interface for any future congruence-derived lower
+    bound on the matched parameter.
+  - Added the matching-to-congruence bridge in Lean.  The lemma
+    `evalSyracuseWord_odd_of_matches` proves that a nonempty matched word lands
+    at an odd endpoint; `padicValNat_syracuseWordAffine_of_matches` then proves
+    the exact valuation
+    `ν₂(3^len*n + C_word) = sum(word)`.  The A0 endpoint corollary
+    `padicValNat_a0EndpointSuffixAffine_of_matches` specializes this to
+    `n = 593 + 1458*t`.  This is the right formal handle for deriving residue
+    classes/lower bounds on `t` from `SyracuseWordMatchesFrom`.
+  - Added the divisibility/congruence form of the same bridge:
+    `syracuseWordAffine_dvd_of_matches`,
+    `a0EndpointSuffixAffine_dvd_of_matches`,
+    `A0EndpointSuffixCongruence`, and
+    `a0EndpointSuffixCongruence_of_matches`.  The A0 congruence is written as
+    `2^sum ∣ (593*3^len + C_word) + 2*(729*3^len)*t`, deliberately avoiding a
+    premature choice of inverse modulo `2^sum`.  Solving this linear
+    congruence, together with first-barrier minimality, is now the concrete
+    lower-bound/residue task.  Lean also proves
+    `a0EndpointSuffixCongruence_reducedCoeff_odd`, recording that the reduced
+    coefficient `729*3^len` is odd and therefore the right candidate for
+    inversion modulo powers of two.
+    The conditional halving lemma
+    `a0EndpointSuffixCongruence_half_of_even_constant` proves the next exact
+    step: if `sum = a+1` and
+    `593*3^len + C_word = 2*b`, then the A0 congruence implies
+    `2^a ∣ b + (729*3^len)*t`.  This is the inverse-ready congruence modulo
+    `2^(sum-1)`.
+  - Recast the longer-suffix threshold target through a witness interface.
+    `A0EndpointSuffixThresholdWitness t suff` asks for some `t0 <= t` at which
+    the threshold inequality already holds; theorem
+    `a0EndpointSuffixThreshold_of_thresholdWitness` promotes it to `t` by
+    monotonicity.  The obligation
+    `A0FirstBarrierThresholdWitnessAutomatic` and theorem
+    `A0FirstBarrierThresholdAutomatic_of_thresholdWitness` now isolate the next
+    proof problem: construct such a `t0` from the exact matching congruence.
+    The further reduction
+    `A0FirstBarrierCongruenceThresholdWitnessAutomatic`, together with
+    `a0FirstBarrierSuffix_congruence` and
+    `A0FirstBarrierThresholdWitnessAutomatic_of_congruence`, makes this fully
+    explicit: the remaining threshold-side problem is now
+    `first-barrier + A0 linear congruence => threshold witness`.
+  - Ruled out the naive slope-only extension.  Lean now defines
+    `a0NaiveSlopeBarrierCounterexampleWord` and proves both
+    `a0NaiveSlopeBarrierCounterexample_crosses` and
+    `a0NaiveSlopeBarrierCounterexample_thresholdZeroFails`: the word crosses
+    the slope barrier but fails `A0EndpointSuffixThreshold 0`.  A no-write
+    congruence lift for the same word shows why this does not falsify the
+    matched first-barrier program: matching from `593 + 1458*t` forces
+    `t ≡ 237364345562 (mod 2^39)`, while the threshold needs only `t >= 1`.
+    Thus the next proof target is not pure slope arithmetic; it must combine
+    first-barrier crossing with the lower bounds/residue constraints forced by
+    `SyracuseWordMatchesFrom`.
+    Lean now also proves the local repair
+    `a0NaiveSlopeBarrierCounterexample_threshold_of_match`: if this same word
+    actually matches from `593 + 1458*t`, its first exponent forces `t ≠ 0`,
+    hence `t ≥ 1`; since the threshold holds at `t = 1`, monotonicity gives the
+    threshold at the matched parameter.  This is only a concrete model of the
+    intended argument, not the general theorem.
+  - Decision recorded 2026-06-04 after comparing the weak/spectral and
+    pointwise branches.  The weak/L1/operator branch remains mathematically
+    valuable as an approximation program, but it does not by itself address the
+    pointwise Collatz requirement.  The Collatz-relevant branch is the
+    pointwise A0 first-barrier route.  Its current hard gate is not more finite
+    evidence but the aperiodic obstruction: `A0FirstBarrierExistsAll` would
+    fail precisely through an infinite low-exponent/expanding path that
+    shadows changing phantom neighborhoods without ever crossing the slope
+    barrier.  Corollary 3.4 rules out infinite periodic phantom shadowing, but
+    does not rule out such aperiodic concatenations.  The next mathematical
+    target is therefore a rigidity theorem for aperiodic parity/valuation-word
+    limits `ξ_W`, or a sharp proof that the present first-barrier formalism is
+    only a cleaner parity-vector reformulation and supplies no new aperiodic
+    leverage.
+  - Lean boundary theorem added for the periodic side of that decision:
+    `NoInfinite.lean:no_positive_endpoint_eventually_periodic_expansive_congruence`.
+    It is the post-prefix form of Corollary 3.4: a positive natural endpoint
+    cannot stay congruent to the fixed point of an expansive phantom period for
+    every number of periods.  This records exactly what the phantom sign
+    argument can prove.  It deliberately does not address the aperiodic
+    obstruction behind `A0FirstBarrierExistsAll`.
+  - Added a single worst-threshold feasibility row
+    `a0SemanticSuffixPairCertificateT14ThresholdMax` in generated Lean data.
+    Lean proves
+    `a0SemanticSuffixPairCertificateT14ThresholdMax.ValidAt455` by exact
+    arithmetic (`norm_num`), and the one-row prototype list
+    `a0SemanticSuffixPairCertificatesT14Prototype` passes
+    `A0SemanticSuffixPairCertificate.allValidAt455Bool` by `native_decide`.
+  - Imported the full T14 pair-compressed table
+    `a0SemanticSuffixPairCertificatesT14` with `351` rows.  Lean proves
+    `a0SemanticSuffixPairCertificatesT14_rowCount` and
+    `a0SemanticSuffixPairCertificatesT14_allValid` by `native_decide`; theorem
+    `a0SemanticSuffixPairCertificatesT14_matches_summary` ties the table's
+    row count and threshold maximum back to the compact audit summary.  This
+    is now a genuine finite pair-certificate table for the observed T14
+    semantic-drop suffixes, but it is still not a global cover theorem.
+    The use theorem
+    `hasStrictDescent_of_mem_a0SemanticSuffixPairCertificatesT14` now says:
+    if a concrete suffix is assigned to a member of the T14 pair table, has
+    matching length/sum and bounded `syracuseWordConst`, and the full
+    common-prefix word matches the orbit, then `HasStrictDescent n`.
+  - Added the proof-facing assignment type
+    `A0SemanticSuffixT14PairCover` and theorem
+    `hasStrictDescent_of_a0SemanticSuffixT14PairCover`.  This is the local
+    object a future generated suffix-cover map must provide.
+  - Added finite coverage accounting
+    `a0SemanticSuffixT14PairCoverageSummariesV2Lt8Cap100` and theorem
+    `a0SemanticSuffixT14PairCoverageV2Lt8Cap100_summary`: across T12/T13/T14,
+    all `14348` distinct observed suffix rows and all `102488` drop samples
+    are covered by the T14 pair table, with `0` missing-pair, const-bound, or
+    threshold-bound failures.  This remains finite-prefix coverage, not a
+    parametric/global cover theorem.
+  - Added source-level cover target `A0SemanticDropSourceT14PairCover` and
+    theorem `hasStrictDescent_of_a0SemanticDropSourceT14PairCover`: a concrete
+    source with positivity/oddness/non-one, a suffix-to-T14-pair cover, and the
+    common-prefix word match has `HasStrictDescent`.  Added finite source
+    accounting `a0SemanticDropSourceT14CoverageSummariesV2Lt8Cap100` and
+    theorem `a0SemanticDropSourceT14CoverageV2Lt8Cap100_summary`: all `102488`
+    observed semantic-drop source samples through T12/T13/T14 are recorded as
+    covered with zero finite source-coverage failures.
+  - Verified `lake build CollatzShadowing.CollatzBridge` successfully
+    (`3291` jobs; latest run `150s` after the conditional halving congruence).
+  - Verified `lake build CollatzShadowing.NoInfinite` successfully
+    (`1798` jobs; latest run `59s` after the post-prefix eventually-periodic
+    boundary theorem).
+  - Verified `lake build CollatzShadowing.Generated.A0ReturnBranches`
+    (`3292` jobs; latest run `142s` after the first-barrier congruence
+    reduction)
+    and aggregate `lake build CollatzShadowing` (`3350` jobs; latest run
+    `86s` after first-barrier packaging).
+- Next recommended task: stop extending finite `T` audits as if they could
+  close the pointwise theorem.  First run the mathematical aperiodic-rigidity
+  test.  Define the infinite valuation-word limit `ξ_W` associated to an
+  expanding aperiodic word `W`; compare the periodic case, where the fixed-point
+  equation `(2^A - 3^L) q = C` excludes positive integers, with the aperiodic
+  case, where no such algebraic equation is currently available.  The concrete
+  question is whether first-barrier minimality plus the A0 congruence/threshold
+  package imposes any constraint on `ξ_W` beyond the classical parity-vector
+  residue class.  If yes, formalize that constraint as the next Lean target.  If
+  no, document the pointwise branch as a clean isolation of the classical
+  aperiodic obstruction and keep the v4/appendix result honest rather than
+  claiming progress toward a full proof.
 
 ### 2026-05-27 (A0 weak branch: finite outcome accounting) — Codex + Piero Borgatta
 
@@ -719,18 +1376,71 @@ finite phantom-shadowing/CW layer
     conversion `FiniteModelCoverSpec.toGlobalDescentCover` and theorem
     `classicalCollatz_of_finiteModelCoverSpec` prove that a resolved spec
     would imply classical Collatz.
-  - Added `DirectDropSound`, the propositional soundness condition for a
-    direct-drop predicate on a source space, and
-    `directDropWitnessOfSound`, which packages such a proof into the
-    concrete witness function required by `FiniteModelCoverSpec`.  This
-    is the first small bridge from a natural source predicate to the global
-    cover interface.
+  - Added `DirectDropSound`, `BranchSound`, and `LossSound`, the three
+    propositional soundness obligations for the finite global-cover
+    interface.  The witness constructors `directDropWitnessOfSound`,
+    `branchWitnessOfSound`, and `lossWitnessOfSound` package these proofs
+    into the concrete witness functions required by `FiniteModelCoverSpec`.
+  - Added the step-indexed reducers `DirectDropAtSound`,
+    `BranchDropAtSound`, and `LossDropAtSound`, plus the absence reducer
+    `LossAbsent`.  Their theorems
+    `directDropSound_of_directDropAtSound`,
+    `branchSound_of_branchDropAtSound`, `lossSound_of_lossDropAtSound`, and
+    `lossSound_of_lossAbsent` show that the next concrete proof can target
+    explicit accelerated descent times or absence of declared loss classes.
+  - Added a minimal natural-number semantics for finite Syracuse exponent
+    words: `syracuseStepWithExponent`, `evalSyracuseWord`,
+    `SyracuseWordMatchesFrom`, and
+    `evalSyracuseWord_eq_iterate_of_matches`.  The theorem
+    `directDropAt_of_word_matches_eval_lt` proves that a matched nonempty
+    exponent word whose evaluated endpoint is below the starting integer
+    gives `DirectDropAt`.  This is the first formal bridge from branch-word
+    arithmetic toward the direct-drop obligation.
+  - Added `BranchWordDropSound`, the branch-facing obligation that a resolved
+    branch supplies a matched nonempty Syracuse word whose evaluated endpoint
+    is below the source integer.  The theorems
+    `branchDropAtSound_of_branchWordDropSound` and
+    `branchSound_of_branchWordDropSound` route this obligation into
+    `BranchDropAtSound` and then `BranchSound`.
+  - Added the transition-chain version for growing return branches:
+    `evalSyracuseWordChain`, `syracuseWordChainLength`,
+    `SyracuseWordChainMatchesFrom`,
+    `evalSyracuseWordChain_eq_iterate_of_matches`, and
+    `directDropAt_of_word_chain_matches_eval_lt`.  The corresponding
+    branch-facing obligation is `BranchTransitionChainDropSound`: a resolved
+    branch may pass through a finite chain of matched words, but the final
+    endpoint must be below the original source integer.  The theorems
+    `branchDropAtSound_of_branchTransitionChainDropSound` and
+    `branchSound_of_branchTransitionChainDropSound` route such chains into
+    the same `BranchSound` interface.  This avoids the false shortcut of a
+    rank that descends only below the last intermediate value.
+  - Ran a read-only coefficient audit on the existing complete-prefix script
+    126 CSV outputs for `T12/T13/T14`.  All imported return-branch rows have
+    `next_t = a*u+b` coefficientwise above the source progression
+    `source_t = q*u+r` (`0/860`, `0/1564`, and `0/2868` rows are immediate
+    affine direct drops).  This is not a Lean theorem and does not alter the
+    generated artifacts, but it is an important negative guide:
+    `BranchWordDropSound` is not the right instantiation for the current A0
+    return branches.  Those rows need a genuine transition/descent mechanism,
+    not a one-word direct-drop wrapper.
+  - Added generated audit theorems
+    `a0CompletePrefixSummariesV2Lt8_declared_tail_counts` and
+    `a0CompletePrefixSummariesV2Lt8_declared_tail_positive`.  These make the
+    current finite-prefix obstruction explicit: the imported complete A0
+    summaries still contain `860` declared residual tail samples, so a
+    future `FiniteModelSoundSpec` cannot use loss absence at this level.
+  - Added `FiniteModelSoundSpec`, the current recommended interface for a
+    future A0/K16 instantiation.  It contains source predicates, branch
+    counters, the three soundness obligations, and the finite cover
+    decomposition; `FiniteModelSoundSpec.toCoverSpec` and
+    `classicalCollatz_of_finiteModelSoundSpec` route it to the already proved
+    conditional Collatz bridge.
   - Verification: `lake build CollatzShadowing.WeakBridge` succeeded
     (`3285` jobs), `lake build CollatzShadowing.Generated.A0ReturnBranches`
-    succeeded (`3286` jobs; latest run `82s`),
+    succeeded (`3286` jobs; latest run `75s` after declared-tail extraction),
     `lake build CollatzShadowing.CollatzBridge` succeeded (`3291` jobs;
-    latest run `98s` after `DirectDropAt`), and `lake build
-    CollatzShadowing` succeeded (`3350` jobs; latest run `78s`).  No commit
+    latest run `91s` after transition-chain soundness), and `lake build
+    CollatzShadowing` succeeded (`3350` jobs; latest run `124s`).  No commit
     or push was made.
 - Next recommended task: decide the next genuine proof obligation: either
   prove a parametric branch-cover theorem for the fixed A0 family, or

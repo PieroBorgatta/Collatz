@@ -105,6 +105,56 @@ artifact on these windows.
 This is encouraging finite evidence for the phase-only bridge.  It is
 not a Cauchy theorem and not a limiting operator.
 
+2026-05-25 A0 weak-bridge update: the high-`v2` source-tail mass for the
+current A0 source model is now an exact count, formalized in Lean as
+`WeakBridge.TailCount.dyadic_tail_count_mul_le`.  The remaining A0
+target has been sharpened by scripts `118`-`122` to a dyadic
+top-Haar/block-discrepancy statement:
+
+```text
+for every fixed low-v2 source phase p,
+  ||mean_[N,2N) K_p - mean_[0,N) K_p||_1 -> 0.
+```
+
+Script `122` rewrites the current script-`111` A0 data in this form.
+The aggregate threshold exponents are near `0.6`; for `v2 < 8`, the
+latest root-Haar component is `0.0005326722352`, about `93.2%` of the
+total latest root drift.  This is finite evidence only.  The missing
+mathematical step is a structural dyadic discrepancy lemma for
+bounded/medium-depth Syracuse return signatures.
+
+The first precise candidate is recorded and corrected in
+`notes/phase10_A0_dyadic_discrepancy_lemma_2026-05-25.md`: after fixing a
+return-depth cutoff `S` and an intermediate valuation cap `A`, the bounded
+congruential signature should be exactly periodic modulo some `2^M`.
+Script `123` confirms this for the pure valuation word: for `S=25,A=8`,
+all tested phases have zero valuation-word mismatches at large `m`
+(`m=192,193,200`).  But the actual weighted kernel is not purely 2-adic:
+bit-growth weights `2^-delta` and the terminal/drop test are archimedean.
+The residual bounded-kernel mismatches (`0/128` to `9/128` in the large-m
+sample) identify a separate boundary term.  Intermediate high-valuation
+tails should be controlled by modular counting (`<= S * 2^-A`).  The
+remaining hard theorem is return-depth tail control plus this
+archimedean boundary estimate.
+
+Script `124` improves that picture: the symbolic return-depth tail is
+pessimistic because it ignores drops below `n0`, whereas the killed kernel
+maps drops to the zero row.  With distributed block sampling on the grid
+`S in {10,25,50,75}`, `A in {4,6,8,10}`, the pure valuation-word mismatch
+is zero throughout with the chosen large periods.  At `S=75,A=10`, the
+symbolic return-tail mean is `0.5`, but the killed-kernel unresolved tail
+mean is `0`; two tested phases are full-return phases and two are
+full-drop phases in the distributed sample.
+
+Script `125` then decomposes the remaining killed-kernel mismatch.  It is
+not caused by destination-label changes, not by drop/return flips, and not
+by tail/return boundaries.  For all tested `(S,A)`, all nonzero pointwise
+kernel L1 is `delta_only`: the destination label is identical, but the
+weight `2^-delta` changes.  At `S=75,A=10`, aggregate point L1 mean is
+`0.02276611328`, with nonzero rate `0.1821289062`.  Thus the active
+bottleneck has sharpened to a bit-length/`delta` boundary lemma for
+returning phases.
+
 This closes only the finite bookkeeping layer.  It does not close the
 infinite Gate 10.B.
 
@@ -254,6 +304,407 @@ much noisier than the phase-only kernel at this scale.  At the last
 comparison, `b=10` is still about twenty times the phase-only drift.
 This supports keeping `A1` as a research branch, not as the main
 Phase-10 bridge for the existing `FULL` matrices.
+
+The larger-prefix update at `T=14`, `j=32->64` keeps the same qualitative
+picture:
+
+```text
+b=0:  0.000420440901
+b=5:  0.00160995368
+b=8:  0.00848590605
+b=10: 0.0121733793
+```
+
+Thus the A1 refined-square drift still decreases when the prefix size is
+increased, but `b=10` remains roughly `29` times the phase-only drift on
+this window.
+
+Script `111_refined_square_key_drift_inspector.py` then decomposes the
+same `T=14`, `j=32->64`, `b=10` drift by refined source key.  It rules out
+the simplest exceptional-list explanation:
+
+```text
+top 10 source-key contribution  = 0.0822067093
+top 25 source-key contribution  = 0.131231692
+top 100 source-key contribution = 0.254601736
+```
+
+The obstruction is instead broad but structured.  Aggregating phase strata
+by `(v2, odd mod 4)`, the four families
+
+```text
+0|3, 0|1, 1|3, 1|1
+```
+
+explain about `0.759884454` of the total `b=10` drift.  Therefore a
+serious A1 theorem should not try to delete a short list of bad residues.
+It should introduce a source-family weighted weak norm or a two-level
+quotient that controls low-`v2`/odd-residue families explicitly.
+
+Script `112_family_weighted_norm_probe.py` tests that idea directly on
+the same finite window.  It separates two quantities:
+
+```text
+source_weighted_l1:
+  average row L1 after reweighting source mass by V(src)
+
+operator_weighted_l1:
+  average of sum_dst |Delta K(src,dst)| V(dst)/V(src)
+```
+
+The second quantity is the relevant finite proxy for a weighted strong
+norm.  The result is negative for simple source-family weights.  Weighting
+the dominant four families, or equivalently all `v2 <= 1` families on this
+window, worsens the operator proxy:
+
+```text
+identity operator mean     = 0.0121733793
+dominant4_x1.25 mean       = 0.0122560449
+dominant4_x1.50 mean       = 0.0124930228
+dominant4_x2.00 mean       = 0.0131984470
+```
+
+The best tested operator-weighted candidate is not a source-family weight
+but the fitted residue band `rlo mod 32 in {6,26}`:
+
+```text
+rlo_mod32_6_26_x1.5 mean  = 0.0118894199
+relative improvement      = 0.0233262632
+operator p95              = 0.0373992920
+operator max              = 0.638671875
+rows worsened             = 0.441005803
+```
+
+This is too small and too fitted to be the main theorem path.  Therefore
+`A1` remains a diagnostic/refinement branch, while the main Gate-10.B
+program returns to the phase-only `A0` weak averaged bridge.
+
+The first larger A0 follow-up is positive.  Re-running the same square
+probe with `b=0` only at `T=14`, `j=32,64,128` gives:
+
+```text
+j=32 -> 64:
+  weighted_l1_mean = 0.000420440901
+  weighted_l1_p95  = 0.000633001328
+  weighted_l1_p99  = 0.00498771667
+  weighted_l1_max  = 0.0309139785
+
+j=64 -> 128:
+  weighted_l1_mean = 0.000285774472
+  weighted_l1_p95  = 0.000561684370
+  weighted_l1_p99  = 0.00205135345
+  weighted_l1_max  = 0.0331541219
+```
+
+This is the cleanest current finite signal for A0: the weak averaged
+phase-only prefix drift decreases at the next scale.  The rare-row maximum
+does not decrease monotonically, so the correct target remains weak
+averaged control with an exceptional-source tail, not uniform row-TV.
+
+The matching key-drift inspection of the `64->128`, `b=0` comparison shows
+that this rare-row maximum is indeed sparse.  The largest row drift comes
+from the four high-`v2` phases `14|3|h`:
+
+```text
+row L1        = 0.0331541219
+sample weight = 47
+```
+
+while the high-contribution average drift is carried by low phases such as
+`0|3|h`, `1|3|h`, and `0|1|h`.  This splits the A0 obstruction into the
+right shape for a weak theorem:
+
+```text
+mean drift: low-phase structural families
+max drift: sparse high-v2 exceptional tail
+```
+
+The finite row-source bridge itself is now formalized in Lean:
+
+```text
+lean/CollatzShadowing/WeakBridge.lean
+```
+
+Main theorem:
+
+```text
+CollatzShadowing.WeakBridge.weighted_action_diff_le
+```
+
+It proves the exact finite estimate used by the A0 program.  For finite
+row-source kernels `K,L`, nonnegative source weights `mu`, and any
+observable satisfying `|f| <= C`:
+
+```text
+sum_i mu(i) |(Kf)(i) - (Lf)(i)|
+  <= C * sum_i mu(i) sum_j |K(i,j) - L(i,j)|.
+```
+
+Therefore the script-`110` value `D_N = weighted_l1_mean` is already the
+finite `ell_infty -> L1(mu_N)` operator error.  The unresolved part is not
+this finite inequality; it is proving `D_N -> 0`, controlling the sparse
+high-`v2` exceptional rows, and constructing Banach projection/inclusion
+maps with constants independent of `N`.
+
+The resulting conditional theorem target is now recorded as
+`notes/phase10_A0_weak_approximation_theorem_2026-05-25.md`.  Its named
+assumptions are:
+
+```text
+A0W1 finite kernel identification,
+A0W2 D_N -> 0,
+A0W3 exceptional-source tail,
+A0W4 tail/killing control,
+A0W5 projection bound,
+A0W6 inclusion bound,
+A0W7 limit operator convention.
+```
+
+Under these assumptions the theorem gives:
+
+```text
+|| I_N (K_{2N} - K_N) E_N ||_{B_s -> B_w}
+  <= C_E C_I (D_N + r_N + tau_{N,L} + exceptional_tail_N).
+```
+
+This is now the precise Gate-10.B target.  It is still conditional, but
+the computational term entering the theorem is no longer ambiguous.
+
+Script `113_A0_decay_law_probe.py` estimates the current finite decay of
+that computational term from the available script-`110` A0 by-pair CSVs.
+After deduplicating equivalent prefix scales by `N = j_left * 2^T`, five
+scales fit:
+
+```text
+D_N ~= c N^{-alpha}
+alpha = 0.594000397
+c     = 1.07934526
+R^2   = 0.989858124
+```
+
+Robustness checks are compatible with the same scale:
+
+```text
+local-alpha median      = 0.589521649
+leave-one-out alpha min = 0.571758588
+leave-one-out alpha max = 0.644405036
+```
+
+This is finite evidence for A0W2, not a theorem.  The conservative analytic
+target suggested by the data is:
+
+```text
+D_N <= C N^{-1/2+epsilon}
+```
+
+plus an exceptional high-`v2` tail estimate.  The rate being close to
+`1/2` is useful but also a warning: it may reflect Cesaro/averaging
+fluctuation rather than a spectral gap.
+
+Script `114_A0_high_v2_tail_split.py` then quantifies the exceptional-tail
+side on the latest A0 `T=14`, `64->128`, `b=0` key-drift data.  For
+thresholds `{v2 >= R}`:
+
+```text
+R=10: tail mass 0.0009759273, contribution 0.0332404560
+R=12: tail mass 0.0002435050, contribution 0.0137910747
+R=14: tail mass 0.0000603994, contribution 0.0048224593
+```
+
+The family carrying the maximum row drift, `14|3`, has mass
+`0.0000298818` and contribution `0.0034667383`, with row `L1`
+`0.0331541219`.  Meanwhile the largest average contributions are low
+phases (`0|3`, `1|3`, `0|1`).  This supports the proof decomposition:
+
+```text
+D_N <= D_N(v2 < R) + 2 * mu_N(v2 >= R).
+```
+
+The analytic task is now sharply split: prove low-phase decay and prove a
+uniform high-`v2` source-mass tail.
+
+Script `115_A0_decomposition_decay_probe.py` tests this split across all
+available A0 phase-strata scales:
+
+```text
+N = 65536, 131072, 262144, 524288, 1048576.
+```
+
+For every tested threshold `R`, the low component decays with exponent near
+`0.6`:
+
+```text
+R=4:  low alpha 0.611642619
+R=6:  low alpha 0.618811958
+R=8:  low alpha 0.599275586
+R=10: low alpha 0.595091262
+R=12: low alpha 0.597682614
+R=14: low alpha 0.595226457
+```
+
+But the fixed-threshold tail mass does not decay with `N`; its fitted
+exponent is near zero.  This corrects the theorem shape.  The A0 target is
+not a single limit in `N` for a fixed tail threshold, but a double-limit
+statement:
+
+```text
+lim_{R -> infinity} limsup_{N -> infinity}
+  [D_N(v2 < R) + 2 * mu_N(v2 >= R)] = 0.
+```
+
+At the latest scale, `R=14` is already a reasonably tight proof-style split:
+
+```text
+observed D_N       = 0.000285774472
+D_N(v2 < 14)       = 0.000284396336
+2 * mu_N(v2 >= 14) = 0.000120798824
+bound / observed   = 1.41788438
+```
+
+Script `117_A0_v2_tail_formula.py` closes the second half for the current
+finite source model.  The high-`v2` mass is not a fitted law; it is exact
+counting.  For a script-`111` comparison with
+
+```text
+L = j_left * 2^T,
+R = j_right * 2^T,
+t=0 excluded,
+```
+
+the source tail is exactly:
+
+```text
+mu(v2 >= q)
+  = (floor((L - 1)/2^q) + floor((R - 1)/2^q)) / (L + R - 2)
+  <= 2^-q.
+```
+
+The verification against all current A0 phase-strata CSVs has max
+observed-formula error `0`.  The integer core is formalized in Lean as:
+
+```text
+CollatzShadowing.WeakBridge.TailCount.dyadic_tail_count_mul_le
+```
+
+So the sharpest current A0 route is now: prove low-`v2` decay for every
+fixed threshold, then use the exact dyadic tail and take the double limit.
+
+Scripts `118_A0_low_v2_phase_decay_probe.py` and
+`119_A0_low_v2_return_depth_probe.py` begin that remaining low-`v2`
+attack.  Script `118` fits the phase-by-phase decay from the existing
+script-`111` phase strata.  For `v2 < 8`, the median per-phase alpha is:
+
+```text
+0.6112066004
+```
+
+The dominant latest low phases are the mass families `0|3|h`, `1|3|h`,
+`0|1|h`, and `2|1|h`.  The slowest fitted low phases are currently:
+
+```text
+7|3|h: alpha 0.2298668295
+7|1|h: alpha 0.3420981079
+6|1|h: alpha 0.4064120870
+3|1|h: alpha 0.4142787183
+```
+
+These slow phases are not the dominant mass contributors at the latest
+scale, but they are the first candidates to isolate if low-`v2` decay
+fails.
+
+Script `119` retraces four representative phases:
+
+```text
+0|3|0, 1|3|0, 3|1|0, 7|3|0.
+```
+
+For all four, it finds:
+
+```text
+prefix_l1 / half_l1 = 0.5.
+```
+
+Thus the measured A0 prefix drift is exactly ordinary dyadic block
+discrepancy:
+
+```text
+K_[0,2N) - K_[0,N)
+  = (1/2) * (K_[N,2N) - K_[0,N)).
+```
+
+The top drift bins are not long-return tails.  They are mostly medium
+returns:
+
+```text
+step 11-25,
+delta 0 or delta 1-3.
+```
+
+So the next proof mechanism is probably not another tail estimate.  It is
+a bounded-depth residue-period or dependency-depth discrepancy lemma:
+
+```text
+bounded-depth return signatures have vanishing dyadic block discrepancy
+inside each fixed source phase.
+```
+
+Script `120_A0_dependency_depth_probe.py` tests the naive version of that
+idea directly by grouping selected phases by `t mod 2^m`.  The result is
+not clean local constancy.  For the dominant phase `0|3|0`, return-phase
+majority error behaves as:
+
+```text
+m=8:   error 0.712411342, singleton 0
+m=12:  error 0.410966196, singleton 0
+m=16:  error 0.247757128, singleton 0.202980411
+m=20:  error 0.046751945, singleton 0.389220953
+```
+
+For the medium-return subset, error remains large until the cells are
+already highly sparse:
+
+```text
+m=18: error 0.256938037, singleton 0.765021584.
+```
+
+Thus the simple claim "bounded-depth signatures depend on few low 2-adic
+bits" is probably false or too weak.  The more plausible low-`v2` proof
+route is now:
+
+```text
+2-adic discrepancy / Walsh-Haar cancellation
+```
+
+for bounded-depth signature functions over dyadic blocks.
+
+Script `121_A0_walsh_haar_probe.py` computes that spectrum directly for
+the same two phases.  It confirms that the root Haar coefficient is exactly
+the half-block discrepancy from script `119`:
+
+```text
+0|3|0 return/phase:
+  root half L1 = 0.000413223985
+  prefix L1    = 0.000206611992
+
+7|3|0 return/phase:
+  root half L1 = 0.007874965668
+  prefix L1    = 0.003937482834
+```
+
+But the full signal is not smooth in the naive spectral sense.  For
+`0|3|0`, the finest two Haar levels carry about `0.4999` and `0.2504` of
+the `L2` Haar energy; the root share is only about `4.7e-7`.  For `7|3|0`,
+the same phenomenon appears, with root share about `3.5e-4`.
+
+This means the proof target should not be "the signal has little
+high-frequency content."  It should be the sharper dyadic-block statement:
+
+```text
+for each fixed low-v2 phase,
+|| average over [0,N) - average over [N,2N) ||_1 -> 0.
+```
+
+In other words, A0W2 is a top-Haar-coefficient decay problem.
 
 The finite-to-Banach bridge is now reduced to one conditional estimate.
 For phase-prefix drift:
@@ -917,6 +1368,28 @@ not a production theorem.
 ```
 
 ## 11. Current Recommendation
+
+Decision update 2026-06-04: Branch A should continue only as a conditional
+operator/Banach-space or finite-rank publication track.  It should not be
+presented as a path to the pointwise Collatz statement unless a separate
+distributional-to-pointwise theorem is discovered.
+
+For the Collatz proof attempt, the current branch is the pointwise A0
+first-barrier program.  The hard gate is not more finite `T` data; it is the
+aperiodic obstruction.  Periodic phantom shadowing is excluded by the fixed
+point equation `(2^A - 3^L) q = C`, but an infinite aperiodic valuation word
+has only a 2-adic limit `xi_W` and no known algebraic rigidity excluding
+positive integer realizations.  The next mathematical test is whether
+first-barrier minimality plus the A0 congruence/threshold package yields a
+constraint on aperiodic `xi_W` beyond the classical parity-vector residue
+description.  If not, the pointwise branch should be reported as an exact
+isolation of the classical aperiodic obstruction, not as a proof route.
+The periodic boundary is now Lean-checked in post-prefix form:
+`NoInfinite.lean:no_positive_endpoint_eventually_periodic_expansive_congruence`
+excludes any positive endpoint from remaining in all congruence classes of an
+expansive phantom period.  This theorem marks the useful boundary of the
+current phantom sign argument: eventually periodic expansive behavior is
+excluded; aperiodic infinite concatenation is not.
 
 Continue Branch A only as a conditional operator/Banach-space program.
 

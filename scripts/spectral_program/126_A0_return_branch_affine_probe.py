@@ -49,6 +49,19 @@ With --sample-mode dyadic-prefix, the script enumerates all selected
 phase points with t < 2^prefix_bits.  That is a complete finite prefix
 partition for the selected phases, not an infinite residue-class proof.
 
+The optional --semantic-replay-step-cap flag performs a second finite outcome
+replay with proof-facing priority: after each Syracuse step it checks
+`cur < n0` before declaring a valuation tail.  This replay only records
+summary counters in `stats`; it does not change the return-branch rows.
+The optional --semantic-replay-word-audit flag adds compression counters for
+semantic drop words; it is an audit aid, not a new branch extractor.
+The optional --semantic-replay-suffix-certificate flag additionally stores
+one compact exact row per observed suffix after the common semantic drop
+prefix (1,1,2,1,1,1).  This is still a finite audit artifact.
+Use --semantic-replay-certificate-cutoff to set the finite small-case cutoff
+used by those certificate checks; the default 455 matches the original T14
+audit, while later prefixes may need a larger finite cutoff.
+
 This script is only a finite extraction/verification tool.  It does not
 prove that a sampled return label persists for all u, and it does not
 prove the low-v2 limit.
@@ -85,6 +98,7 @@ INTERMEDIATE_RECORD_KEYS: tuple[tuple[int, int], ...] = (
 )
 INTERMEDIATE_CLASS_PROBE_SHIFTS = 8
 INTERMEDIATE_CONTINUATION_EXTRA_BITS_CAP = 16
+COMMON_SEMANTIC_DROP_PREFIX: tuple[int, ...] = (1, 1, 2, 1, 1, 1)
 
 
 def load_module(filename: str, name: str):
@@ -204,6 +218,28 @@ def compressed_integer_coefficients(word: tuple[int, ...]) -> tuple[int, int, in
         power3 *= 3
         total_a += a
     return power3, constant, total_a
+
+
+def common_prefix_suffix_threshold(word: tuple[int, ...]) -> tuple[bool, int]:
+    """Slope/intercept threshold after the common semantic-drop prefix.
+
+    For a suffix `s`, the common-prefix formula is
+
+        128*y = 729*n + 817.
+
+    The sufficient scaled contraction condition is
+
+        3^len(s)*(729*n+817) + 128*C_s < 128*2^A_s*n.
+
+    This returns whether the slope gap is positive and, if so, the smallest
+    natural `n` satisfying the strict inequality.
+    """
+    power3, constant, total_a = compressed_integer_coefficients(word)
+    gap = 128 * (1 << total_a) - 729 * power3
+    if gap <= 0:
+        return False, 0
+    intercept = 817 * power3 + 128 * constant
+    return True, intercept // gap + 1
 
 
 def prefix_integer_coefficients(word: tuple[int, ...]) -> list[tuple[int, int, int]]:
@@ -1203,7 +1239,7 @@ def write_json_certificate(
     *,
     args: argparse.Namespace,
     rows: list[dict[str, Any]],
-    stats: dict[str, int],
+    stats: dict[str, Any],
     path: Path,
 ) -> None:
     certificate_rows: list[dict[str, Any]] = []
@@ -1358,6 +1394,9 @@ def write_json_certificate(
             "odd_bits": args.odd_bits,
             "hit_bits": args.hit_bits,
             "v2_cap": args.v2_cap,
+            "semantic_replay_step_cap": int(
+                getattr(args, "semantic_replay_step_cap", 0) or 0
+            ),
         },
         "stats": stats,
         "verification_meaning": (
@@ -1389,11 +1428,22 @@ def write_json_certificate(
     path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
-def analyze(args: argparse.Namespace) -> tuple[list[dict[str, Any]], dict[str, int]]:
+def analyze(args: argparse.Namespace) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     op, shadowing, records, target, target_key, residue, modulus, target_modulus_bits = setup()
     target_word = tuple(int(a) for a in target["word"])
     period_m = max(args.min_period_m, args.step_cap * args.a_cap + 1 - target_modulus_bits)
     span = 1 << (args.prefix_bits if args.sample_mode == "dyadic-prefix" else period_m)
+    semantic_replay_step_cap = int(getattr(args, "semantic_replay_step_cap", 0) or 0)
+    semantic_replay_suffix_certificate = bool(
+        getattr(args, "semantic_replay_suffix_certificate", False)
+    )
+    semantic_replay_certificate_cutoff = int(
+        getattr(args, "semantic_replay_certificate_cutoff", 455) or 455
+    )
+    semantic_replay_word_audit = bool(
+        getattr(args, "semantic_replay_word_audit", False)
+        or semantic_replay_suffix_certificate
+    )
 
     @lru_cache(maxsize=None)
     def trace_return(t: int, h: int) -> tuple[Any, ...]:
@@ -1428,15 +1478,86 @@ def analyze(args: argparse.Namespace) -> tuple[list[dict[str, Any]], dict[str, i
                 last_key = key
         return ("step_tail", tuple(word))
 
+    @lru_cache(maxsize=None)
+    def trace_semantic_replay(t: int, h: int) -> tuple[str, int, tuple[int, ...]]:
+        """Replay with proof-facing terminal priority.
+
+        The production branch extractor keeps the historical conservative
+        order `valuation_tail` before `drop`.  For the descent bridge, a
+        point that is already below its source after the current Syracuse
+        step should be classified as a direct drop.  This optional replay
+        records only finite outcome counters; it does not alter the return
+        branch extraction.
+        """
+        n0 = op.make_start_from_residue(residue, modulus, t)
+        cur = n0
+        last_key = target_key
+        word: list[int] = []
+        for step in range(1, semantic_replay_step_cap + 1):
+            a_val, cur = shadowing.odd_syracuse_step(cur)
+            word.append(a_val)
+            if cur < n0:
+                return "drop", step, tuple(word)
+            if a_val > args.a_cap:
+                return "valuation_tail", step, tuple(word)
+
+            key, _best_v = op.best_shadow(cur, records, shadowing)
+            if key is None:
+                last_key = None
+                continue
+            if key != last_key:
+                if key == target_key:
+                    return "return", step, tuple(word)
+                last_key = key
+        return "step_tail", semantic_replay_step_cap, tuple(word)
+
     groups: dict[tuple[Any, ...], list[dict[str, Any]]] = {}
     total_samples = 0
     return_samples = 0
     kind_counts: dict[str, int] = {}
+    semantic_kind_counts: dict[str, int] = {}
+    semantic_step_max: dict[str, int] = {}
+    semantic_drop_words: set[tuple[int, ...]] = set()
+    semantic_drop_phase_words: dict[tuple[str, tuple[int, ...]], int] = {}
+    semantic_drop_suffix_thresholds: dict[tuple[int, ...], int] = {}
+    semantic_drop_suffix_slope_failures: set[tuple[int, ...]] = set()
+    semantic_drop_suffix_samples: dict[tuple[int, ...], int] = {}
+    semantic_drop_common_prefix_samples = 0
     for phase in parse_phases(args.phases):
         v2, odd, h = phase
         samples = phase_samples(v2, odd, args.sample_limit, span, args.sample_mode)
         total_samples += len(samples)
         for t in samples:
+            if semantic_replay_step_cap > 0:
+                semantic_kind, semantic_step, semantic_word = trace_semantic_replay(t, h)
+                semantic_kind_counts[semantic_kind] = (
+                    semantic_kind_counts.get(semantic_kind, 0) + 1
+                )
+                semantic_step_max[semantic_kind] = max(
+                    semantic_step_max.get(semantic_kind, 0),
+                    semantic_step,
+                )
+                if semantic_replay_word_audit and semantic_kind == "drop":
+                    semantic_drop_words.add(semantic_word)
+                    phase_word = (fmt_phase(phase), semantic_word)
+                    semantic_drop_phase_words[phase_word] = (
+                        semantic_drop_phase_words.get(phase_word, 0) + 1
+                    )
+                    if semantic_word[: len(COMMON_SEMANTIC_DROP_PREFIX)] == (
+                        COMMON_SEMANTIC_DROP_PREFIX
+                    ):
+                        semantic_drop_common_prefix_samples += 1
+                        suffix = semantic_word[len(COMMON_SEMANTIC_DROP_PREFIX):]
+                        semantic_drop_suffix_samples[suffix] = (
+                            semantic_drop_suffix_samples.get(suffix, 0) + 1
+                        )
+                        slope_ok, min_n = common_prefix_suffix_threshold(suffix)
+                        if slope_ok:
+                            prior = semantic_drop_suffix_thresholds.get(suffix)
+                            if prior is None or min_n > prior:
+                                semantic_drop_suffix_thresholds[suffix] = min_n
+                        else:
+                            semantic_drop_suffix_slope_failures.add(suffix)
             traced = trace_return(t, h)
             kind_counts[str(traced[0])] = kind_counts.get(str(traced[0]), 0) + 1
             if traced[0] != "return":
@@ -2001,6 +2122,320 @@ def analyze(args: argparse.Namespace) -> tuple[list[dict[str, Any]], dict[str, i
         "refined_formula_failures": sum(int(row["refined_formula_failures"]) for row in rows),
         "refined_state_failures": sum(int(row["refined_state_failures"]) for row in rows),
     }
+    if semantic_replay_step_cap > 0:
+        semantic_drop_samples = semantic_kind_counts.get("drop", 0)
+        semantic_return_samples = semantic_kind_counts.get("return", 0)
+        semantic_valuation_tail_samples = semantic_kind_counts.get("valuation_tail", 0)
+        semantic_step_tail_samples = semantic_kind_counts.get("step_tail", 0)
+        semantic_loss_samples = (
+            semantic_valuation_tail_samples + semantic_step_tail_samples
+        )
+        stats.update(
+            {
+                "semantic_replay_enabled": 1,
+                "semantic_replay_step_cap": semantic_replay_step_cap,
+                "semantic_replay_total_samples": total_samples,
+                "semantic_replay_drop_samples": semantic_drop_samples,
+                "semantic_replay_return_samples": semantic_return_samples,
+                "semantic_replay_valuation_tail_samples": semantic_valuation_tail_samples,
+                "semantic_replay_step_tail_samples": semantic_step_tail_samples,
+                "semantic_replay_loss_samples": semantic_loss_samples,
+                "semantic_replay_loss_free": int(semantic_loss_samples == 0),
+                "semantic_replay_drop_step_max": semantic_step_max.get("drop", 0),
+                "semantic_replay_return_step_max": semantic_step_max.get("return", 0),
+                "semantic_replay_valuation_tail_step_max": semantic_step_max.get(
+                    "valuation_tail", 0
+                ),
+                "semantic_replay_step_tail_step_max": semantic_step_max.get(
+                    "step_tail", 0
+                ),
+            }
+        )
+        if semantic_replay_word_audit:
+            semantic_drop_phase_word_singletons = sum(
+                1 for count in semantic_drop_phase_words.values() if count == 1
+            )
+            semantic_drop_suffix_phase_groups: dict[tuple[int, ...], int] = {}
+            semantic_drop_suffix_phase_singletons: dict[tuple[int, ...], int] = {}
+            for (_phase_text, word), count in semantic_drop_phase_words.items():
+                if word[: len(COMMON_SEMANTIC_DROP_PREFIX)] != (
+                    COMMON_SEMANTIC_DROP_PREFIX
+                ):
+                    continue
+                suffix = word[len(COMMON_SEMANTIC_DROP_PREFIX):]
+                semantic_drop_suffix_phase_groups[suffix] = (
+                    semantic_drop_suffix_phase_groups.get(suffix, 0) + 1
+                )
+                if count == 1:
+                    semantic_drop_suffix_phase_singletons[suffix] = (
+                        semantic_drop_suffix_phase_singletons.get(suffix, 0) + 1
+                    )
+            suffix_certificate_rows: list[dict[str, Any]] = []
+            all_suffixes = (
+                set(semantic_drop_suffix_thresholds)
+                | semantic_drop_suffix_slope_failures
+                | set(semantic_drop_suffix_samples)
+            )
+            for suffix in sorted(all_suffixes, key=lambda s: (len(s), sum(s), s)):
+                power3, const, total_a = compressed_integer_coefficients(suffix)
+                slope_gap = 128 * (1 << total_a) - 729 * power3
+                slope_ok, min_n = common_prefix_suffix_threshold(suffix)
+                suffix_certificate_rows.append(
+                    {
+                        "suffix": list(suffix),
+                        "suffix_len": len(suffix),
+                        "suffix_sum": total_a,
+                        "suffix_const": const,
+                        "slope_gap": slope_gap,
+                        "threshold_min_n": min_n,
+                        "slope_ok": int(slope_ok),
+                        "threshold_le_455": int(slope_ok and min_n <= 455),
+                        "threshold_le_cutoff": int(
+                            slope_ok and min_n <= semantic_replay_certificate_cutoff
+                        ),
+                        "sample_count": semantic_drop_suffix_samples.get(suffix, 0),
+                        "phase_word_group_count":
+                            semantic_drop_suffix_phase_groups.get(suffix, 0),
+                        "phase_word_singleton_group_count":
+                            semantic_drop_suffix_phase_singletons.get(suffix, 0),
+                    }
+                )
+            suffix_pair_rows_by_key: dict[tuple[int, int], dict[str, Any]] = {}
+            for row in suffix_certificate_rows:
+                key = (int(row["suffix_len"]), int(row["suffix_sum"]))
+                pair = suffix_pair_rows_by_key.get(key)
+                if pair is None:
+                    pair = {
+                        "suffix_len": key[0],
+                        "suffix_sum": key[1],
+                        "row_count": 0,
+                        "sample_count": 0,
+                        "phase_word_group_count": 0,
+                        "phase_word_singleton_group_count": 0,
+                        "slope_gap": int(row["slope_gap"]),
+                        "suffix_const_max": int(row["suffix_const"]),
+                        "threshold_min_n_max": int(row["threshold_min_n"]),
+                        "slope_ok": int(row["slope_ok"]),
+                        "threshold_le_455": int(row["threshold_le_455"]),
+                        "threshold_le_cutoff": int(row["threshold_le_cutoff"]),
+                    }
+                    suffix_pair_rows_by_key[key] = pair
+                pair["row_count"] = int(pair["row_count"]) + 1
+                pair["sample_count"] = (
+                    int(pair["sample_count"]) + int(row["sample_count"])
+                )
+                pair["phase_word_group_count"] = (
+                    int(pair["phase_word_group_count"])
+                    + int(row["phase_word_group_count"])
+                )
+                pair["phase_word_singleton_group_count"] = (
+                    int(pair["phase_word_singleton_group_count"])
+                    + int(row["phase_word_singleton_group_count"])
+                )
+                pair["suffix_const_max"] = max(
+                    int(pair["suffix_const_max"]), int(row["suffix_const"])
+                )
+                pair["threshold_min_n_max"] = max(
+                    int(pair["threshold_min_n_max"]), int(row["threshold_min_n"])
+                )
+                pair["slope_ok"] = min(int(pair["slope_ok"]), int(row["slope_ok"]))
+                pair["threshold_le_455"] = min(
+                    int(pair["threshold_le_455"]),
+                    int(row["threshold_le_455"]),
+                )
+                pair["threshold_le_cutoff"] = min(
+                    int(pair["threshold_le_cutoff"]),
+                    int(row["threshold_le_cutoff"]),
+                )
+            suffix_pair_rows = sorted(
+                suffix_pair_rows_by_key.values(),
+                key=lambda row: (int(row["suffix_len"]), int(row["suffix_sum"])),
+            )
+            for row in suffix_pair_rows:
+                suffix_len = int(row["suffix_len"])
+                suffix_sum = int(row["suffix_sum"])
+                slope_gap = int(row["slope_gap"])
+                threshold_max = int(row["threshold_min_n_max"])
+                suffix_const_max = int(row["suffix_const_max"])
+                expected_gap = 128 * (1 << suffix_sum) - 729 * (3 ** suffix_len)
+                valid_at_455 = (
+                    suffix_len > 0
+                    and 729 * (3 ** suffix_len) <= 128 * (1 << suffix_sum)
+                    and slope_gap == expected_gap
+                    and 817 * (3 ** suffix_len) + 128 * suffix_const_max
+                    < slope_gap * threshold_max
+                    and threshold_max <= 455
+                )
+                valid_at_cutoff = (
+                    suffix_len > 0
+                    and 729 * (3 ** suffix_len) <= 128 * (1 << suffix_sum)
+                    and slope_gap == expected_gap
+                    and 817 * (3 ** suffix_len) + 128 * suffix_const_max
+                    < slope_gap * threshold_max
+                    and threshold_max <= semantic_replay_certificate_cutoff
+                )
+                row["valid_at_455"] = int(valid_at_455)
+                row["valid_at_cutoff"] = int(valid_at_cutoff)
+            suffix_certificate_failures = sum(
+                1
+                for row in suffix_certificate_rows
+                if not int(row["slope_ok"]) or not int(row["threshold_le_cutoff"])
+            )
+            suffix_pair_certificate_failures = sum(
+                1
+                for row in suffix_pair_rows
+                if not int(row["valid_at_cutoff"])
+            )
+            suffix_pair_coverage_missing_failures = 0
+            suffix_pair_coverage_const_bound_failures = 0
+            suffix_pair_coverage_threshold_bound_failures = 0
+            suffix_pair_coverage_covered_suffix_rows = 0
+            suffix_pair_coverage_covered_samples = 0
+            suffix_pair_coverage_covered_phase_word_groups = 0
+            for row in suffix_certificate_rows:
+                key = (int(row["suffix_len"]), int(row["suffix_sum"]))
+                pair = suffix_pair_rows_by_key.get(key)
+                if pair is None:
+                    suffix_pair_coverage_missing_failures += 1
+                    continue
+                const_ok = int(row["suffix_const"]) <= int(pair["suffix_const_max"])
+                threshold_ok = int(row["threshold_min_n"]) <= int(
+                    pair["threshold_min_n_max"]
+                )
+                valid_pair = bool(int(pair.get("valid_at_cutoff", 0)))
+                if not const_ok:
+                    suffix_pair_coverage_const_bound_failures += 1
+                if not threshold_ok or not valid_pair:
+                    suffix_pair_coverage_threshold_bound_failures += 1
+                if const_ok and threshold_ok and valid_pair:
+                    suffix_pair_coverage_covered_suffix_rows += 1
+                    suffix_pair_coverage_covered_samples += int(row["sample_count"])
+                    suffix_pair_coverage_covered_phase_word_groups += int(
+                        row["phase_word_group_count"]
+                    )
+            suffix_pair_coverage_uncovered_suffix_rows = (
+                len(suffix_certificate_rows)
+                - suffix_pair_coverage_covered_suffix_rows
+            )
+            source_pair_coverage_covered_samples = (
+                suffix_pair_coverage_covered_samples
+            )
+            source_pair_coverage_uncovered_samples = (
+                semantic_drop_samples - source_pair_coverage_covered_samples
+            )
+            source_pair_coverage_failure_total = (
+                source_pair_coverage_uncovered_samples
+                + suffix_pair_coverage_missing_failures
+                + suffix_pair_coverage_const_bound_failures
+                + suffix_pair_coverage_threshold_bound_failures
+                + (semantic_drop_samples - semantic_drop_common_prefix_samples)
+            )
+            stats.update(
+                {
+                    "semantic_replay_word_audit_enabled": 1,
+                    "semantic_replay_drop_distinct_words": len(semantic_drop_words),
+                    "semantic_replay_drop_phase_word_groups": len(
+                        semantic_drop_phase_words
+                    ),
+                    "semantic_replay_drop_phase_word_singleton_groups":
+                        semantic_drop_phase_word_singletons,
+                    "semantic_replay_drop_distinct_suffixes": len(
+                        semantic_drop_suffix_thresholds
+                    ) + len(semantic_drop_suffix_slope_failures),
+                    "semantic_replay_drop_suffix_slope_failure_words": len(
+                        semantic_drop_suffix_slope_failures
+                    ),
+                    "semantic_replay_drop_suffix_threshold_max": (
+                        max(semantic_drop_suffix_thresholds.values())
+                        if semantic_drop_suffix_thresholds else 0
+                    ),
+                    "semantic_replay_drop_common_prefix_len": len(
+                        COMMON_SEMANTIC_DROP_PREFIX
+                    ),
+                    "semantic_replay_drop_common_prefix_samples":
+                        semantic_drop_common_prefix_samples,
+                    "semantic_replay_drop_common_prefix_failures":
+                        semantic_drop_samples
+                        - semantic_drop_common_prefix_samples,
+                }
+            )
+            if semantic_replay_suffix_certificate:
+                stats.update(
+                    {
+                        "semantic_replay_suffix_certificate_enabled": 1,
+                        "semantic_replay_suffix_certificate_cutoff":
+                            semantic_replay_certificate_cutoff,
+                        "semantic_replay_suffix_certificate_row_count": len(
+                            suffix_certificate_rows
+                        ),
+                        "semantic_replay_suffix_certificate_failures":
+                            suffix_certificate_failures,
+                        "semantic_replay_suffix_certificate_threshold_max": max(
+                            (
+                                int(row["threshold_min_n"])
+                                for row in suffix_certificate_rows
+                                if int(row["slope_ok"])
+                            ),
+                            default=0,
+                        ),
+                        "semantic_replay_suffix_certificate_rows":
+                            suffix_certificate_rows,
+                        "semantic_replay_suffix_pair_certificate_row_count": len(
+                            suffix_pair_rows
+                        ),
+                        "semantic_replay_suffix_pair_certificate_cutoff":
+                            semantic_replay_certificate_cutoff,
+                        "semantic_replay_suffix_pair_certificate_failures":
+                            suffix_pair_certificate_failures,
+                        "semantic_replay_suffix_pair_certificate_threshold_max": max(
+                            (
+                                int(row["threshold_min_n_max"])
+                                for row in suffix_pair_rows
+                                if int(row["slope_ok"])
+                            ),
+                            default=0,
+                        ),
+                        "semantic_replay_suffix_pair_certificate_rows":
+                            suffix_pair_rows,
+                        "semantic_replay_suffix_pair_coverage_suffix_rows": len(
+                            suffix_certificate_rows
+                        ),
+                        "semantic_replay_suffix_pair_coverage_covered_suffix_rows":
+                            suffix_pair_coverage_covered_suffix_rows,
+                        "semantic_replay_suffix_pair_coverage_uncovered_suffix_rows":
+                            suffix_pair_coverage_uncovered_suffix_rows,
+                        "semantic_replay_suffix_pair_coverage_covered_drop_samples":
+                            suffix_pair_coverage_covered_samples,
+                        "semantic_replay_suffix_pair_coverage_covered_phase_word_groups":
+                            suffix_pair_coverage_covered_phase_word_groups,
+                        "semantic_replay_suffix_pair_coverage_missing_pair_failures":
+                            suffix_pair_coverage_missing_failures,
+                        "semantic_replay_suffix_pair_coverage_const_bound_failures":
+                            suffix_pair_coverage_const_bound_failures,
+                        "semantic_replay_suffix_pair_coverage_threshold_bound_failures":
+                            suffix_pair_coverage_threshold_bound_failures,
+                        "semantic_replay_suffix_pair_coverage_loss_free": int(
+                            suffix_pair_coverage_uncovered_suffix_rows == 0
+                            and suffix_pair_coverage_missing_failures == 0
+                            and suffix_pair_coverage_const_bound_failures == 0
+                            and suffix_pair_coverage_threshold_bound_failures == 0
+                        ),
+                        "semantic_replay_source_pair_coverage_drop_samples":
+                            semantic_drop_samples,
+                        "semantic_replay_source_pair_coverage_covered_samples":
+                            source_pair_coverage_covered_samples,
+                        "semantic_replay_source_pair_coverage_uncovered_samples":
+                            source_pair_coverage_uncovered_samples,
+                        "semantic_replay_source_pair_coverage_common_prefix_failures":
+                            semantic_drop_samples
+                            - semantic_drop_common_prefix_samples,
+                        "semantic_replay_source_pair_coverage_failure_total":
+                            source_pair_coverage_failure_total,
+                        "semantic_replay_source_pair_coverage_loss_free": int(
+                            source_pair_coverage_failure_total == 0
+                        ),
+                    }
+                )
     return rows, stats
 
 
@@ -2021,6 +2456,40 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--odd-bits", type=int, default=2)
     parser.add_argument("--hit-bits", type=int, default=2)
     parser.add_argument("--v2-cap", type=int, default=13)
+    parser.add_argument(
+        "--semantic-replay-step-cap",
+        type=int,
+        default=0,
+        help=(
+            "optional finite replay cap using proof-facing terminal priority: "
+            "drop is checked before valuation_tail; 0 disables the replay"
+        ),
+    )
+    parser.add_argument(
+        "--semantic-replay-word-audit",
+        action="store_true",
+        help=(
+            "when semantic replay is enabled, count distinct drop words and "
+            "phase-word groups; this is an audit only and does not alter rows"
+        ),
+    )
+    parser.add_argument(
+        "--semantic-replay-suffix-certificate",
+        action="store_true",
+        help=(
+            "when semantic replay is enabled, include exact suffix certificate "
+            "rows after the common drop prefix in the JSON stats payload"
+        ),
+    )
+    parser.add_argument(
+        "--semantic-replay-certificate-cutoff",
+        type=int,
+        default=455,
+        help=(
+            "finite small-case cutoff used when checking semantic suffix/pair "
+            "certificates; default 455 matches the original T14 audit"
+        ),
+    )
     parser.add_argument("--output-tag", default="current_A0")
     parser.add_argument("--no-write", action="store_true")
     return parser.parse_args()
@@ -2201,6 +2670,91 @@ def main() -> None:
     print(f"arithmetic_certificate_rows={stats['arithmetic_certificate_rows']}")
     print(f"refined_formula_failures={stats['refined_formula_failures']}")
     print(f"refined_state_failures={stats['refined_state_failures']}")
+    if stats.get("semantic_replay_enabled", 0):
+        print(
+            "semantic_replay="
+            f"step_cap:{stats['semantic_replay_step_cap']},"
+            f"drop:{stats['semantic_replay_drop_samples']},"
+            f"return:{stats['semantic_replay_return_samples']},"
+            f"valuation_tail:{stats['semantic_replay_valuation_tail_samples']},"
+            f"step_tail:{stats['semantic_replay_step_tail_samples']},"
+            f"loss:{stats['semantic_replay_loss_samples']},"
+            f"loss_free:{stats['semantic_replay_loss_free']}"
+        )
+        print(
+            "semantic_replay_step_max="
+            f"drop:{stats['semantic_replay_drop_step_max']},"
+            f"return:{stats['semantic_replay_return_step_max']},"
+            f"valuation_tail:{stats['semantic_replay_valuation_tail_step_max']},"
+            f"step_tail:{stats['semantic_replay_step_tail_step_max']}"
+        )
+        if stats.get("semantic_replay_word_audit_enabled", 0):
+            print(
+                "semantic_replay_drop_word_audit="
+                f"distinct_words:{stats['semantic_replay_drop_distinct_words']},"
+                f"phase_word_groups:{stats['semantic_replay_drop_phase_word_groups']},"
+                "phase_word_singletons:"
+                f"{stats['semantic_replay_drop_phase_word_singleton_groups']},"
+                "distinct_suffixes:"
+                f"{stats['semantic_replay_drop_distinct_suffixes']},"
+                "suffix_slope_failures:"
+                f"{stats['semantic_replay_drop_suffix_slope_failure_words']},"
+                "suffix_threshold_max:"
+                f"{stats['semantic_replay_drop_suffix_threshold_max']},"
+                "common_prefix_failures:"
+                f"{stats['semantic_replay_drop_common_prefix_failures']},"
+                "common_prefix_samples:"
+                f"{stats['semantic_replay_drop_common_prefix_samples']}"
+            )
+        if stats.get("semantic_replay_suffix_certificate_enabled", 0):
+            print(
+                "semantic_replay_suffix_certificate="
+                f"rows:{stats['semantic_replay_suffix_certificate_row_count']},"
+                f"cutoff:{stats['semantic_replay_suffix_certificate_cutoff']},"
+                f"failures:{stats['semantic_replay_suffix_certificate_failures']},"
+                "threshold_max:"
+                f"{stats['semantic_replay_suffix_certificate_threshold_max']}"
+            )
+            print(
+                "semantic_replay_suffix_pair_certificate="
+                f"rows:{stats['semantic_replay_suffix_pair_certificate_row_count']},"
+                f"cutoff:{stats['semantic_replay_suffix_pair_certificate_cutoff']},"
+                f"failures:"
+                f"{stats['semantic_replay_suffix_pair_certificate_failures']},"
+                "threshold_max:"
+                f"{stats['semantic_replay_suffix_pair_certificate_threshold_max']}"
+            )
+            print(
+                "semantic_replay_suffix_pair_coverage="
+                f"suffix_rows:{stats['semantic_replay_suffix_pair_coverage_suffix_rows']},"
+                "covered_suffix_rows:"
+                f"{stats['semantic_replay_suffix_pair_coverage_covered_suffix_rows']},"
+                "uncovered_suffix_rows:"
+                f"{stats['semantic_replay_suffix_pair_coverage_uncovered_suffix_rows']},"
+                "covered_drop_samples:"
+                f"{stats['semantic_replay_suffix_pair_coverage_covered_drop_samples']},"
+                "covered_phase_word_groups:"
+                f"{stats['semantic_replay_suffix_pair_coverage_covered_phase_word_groups']},"
+                "failures:"
+                f"missing_pair:{stats['semantic_replay_suffix_pair_coverage_missing_pair_failures']},"
+                f"const_bound:{stats['semantic_replay_suffix_pair_coverage_const_bound_failures']},"
+                "threshold_bound:"
+                f"{stats['semantic_replay_suffix_pair_coverage_threshold_bound_failures']},"
+                f"loss_free:{stats['semantic_replay_suffix_pair_coverage_loss_free']}"
+            )
+            print(
+                "semantic_replay_source_pair_coverage="
+                f"drop_samples:{stats['semantic_replay_source_pair_coverage_drop_samples']},"
+                "covered_samples:"
+                f"{stats['semantic_replay_source_pair_coverage_covered_samples']},"
+                "uncovered_samples:"
+                f"{stats['semantic_replay_source_pair_coverage_uncovered_samples']},"
+                "common_prefix_failures:"
+                f"{stats['semantic_replay_source_pair_coverage_common_prefix_failures']},"
+                "failure_total:"
+                f"{stats['semantic_replay_source_pair_coverage_failure_total']},"
+                f"loss_free:{stats['semantic_replay_source_pair_coverage_loss_free']}"
+            )
     if not args.no_write:
         print(f"wrote {csv_path}")
         print(f"wrote {json_path}")

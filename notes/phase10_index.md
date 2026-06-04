@@ -70,6 +70,18 @@ No spectral gap for an infinite operator has been proved.
 | `notes/phase10_literature_source_map.md` | Local/online source audit |
 | `notes/phase10_finite_rank_fallback.md` | K16 fallback theorem candidate and K20 smoke preflight |
 | `notes/phase10_finite_rank_note_outline.md` | Standalone finite-rank computational-note outline |
+| `notes/phase10_refined_square_extension_2026-05-22.md` | Larger-prefix script-`110` A1 refined-square update |
+| `notes/phase10_refined_square_key_drift_2026-05-25.md` | Script-`111` diagnosis of which refined source keys/families drive `b=10` drift |
+| `notes/phase10_family_weighted_norm_probe_2026-05-25.md` | Script-`112` test of source-family weighted weak-norm proxies for A1 |
+| `notes/phase10_A0_phase_prefix_extension_2026-05-25.md` | Larger script-`110` phase-only A0 prefix extension through `j=128` |
+| `notes/phase10_A0_finite_weak_bridge_2026-05-25.md` | A0 finite weak bridge: Lean row-L1 lemma, `D_N`, exceptional-tail split, Banach obligations |
+| `notes/phase10_A0_weak_approximation_theorem_2026-05-25.md` | Conditional A0 weak approximation theorem with named assumptions A0W1-A0W7 |
+| `notes/phase10_A0_decay_law_2026-05-25.md` | Script-`113` finite decay-law fit for A0 drift `D_N ~ c N^{-alpha}` |
+| `notes/phase10_A0_high_v2_tail_split_2026-05-25.md` | Script-`114` finite split of A0 drift into low-phase contribution and high-`v2` tail |
+| `notes/phase10_A0_decomposition_decay_2026-05-25.md` | Script-`115` multi-scale test of `D_N(v2<R) + 2 mu_N(v2>=R)` and the required double limit |
+| `notes/phase10_A0_v2_tail_formula_2026-05-25.md` | Script-`117` exact source-count formula proving the high-`v2` mass bound `mu(v2>=R) <= 2^-R` for the current A0 source model |
+| `notes/phase10_A0_low_v2_mechanism_2026-05-25.md` | Scripts `118`-`122` low-`v2` phase decay, return-depth, dependency-depth, Walsh-Haar, and top-Haar reformulation for A0W2/TODO 10.M |
+| `notes/phase10_A0_dyadic_discrepancy_lemma_2026-05-25.md` | Candidate proof lemma: bounded finite-depth signatures are eventually 2-adically periodic; remaining bottleneck is return-depth tail control |
 | `notes/phase10_repro_manifest.md` | Reproducibility commands and artifact map |
 
 ## 3. New Diagnostic Scripts
@@ -100,6 +112,26 @@ No spectral gap for an infinite operator has been proved.
 | `scripts/spectral_program/108_source_refinement_collapse.py` | Score source-state refinements by source-cell-to-key collapse error |
 | `scripts/spectral_program/109_refined_prefix_cauchy.py` | Measure prefix drift after source-state refinement |
 | `scripts/spectral_program/110_refined_square_probe.py` | Smoke-test square refined kernels with destination low residue bits |
+| `scripts/spectral_program/111_refined_square_key_drift_inspector.py` | Rank refined source keys/families by contribution to square A1 prefix drift |
+| `scripts/spectral_program/112_family_weighted_norm_probe.py` | Probe source-family and residue-band weights for the A1 weighted-norm proxy |
+| `scripts/spectral_program/113_A0_decay_law_probe.py` | Fit the finite A0 weak drift decay law `D_N ~ c N^{-alpha}` from script-`110` CSVs |
+| `scripts/spectral_program/114_A0_high_v2_tail_split.py` | Quantify high-`v2` exceptional-source mass/contribution from script-`111` phase strata |
+| `scripts/spectral_program/115_A0_decomposition_decay_probe.py` | Test low-`v2` decay and high-`v2` tail bounds across A0 phase-strata scales |
+| `scripts/spectral_program/117_A0_v2_tail_formula.py` | Verify the exact high-`v2` source-tail count formula against script-`111` phase strata |
+| `scripts/spectral_program/118_A0_low_v2_phase_decay_probe.py` | Fit phase-by-phase low-`v2` drift decay from script-`111` phase strata |
+| `scripts/spectral_program/119_A0_low_v2_return_depth_probe.py` | Retrace selected low-`v2` phases and decompose prefix drift by return-depth and bit-growth bins |
+| `scripts/spectral_program/120_A0_dependency_depth_probe.py` | Test whether selected low-`v2` return signatures are determined by `t mod 2^m` at moderate dependency depth |
+| `scripts/spectral_program/121_A0_walsh_haar_probe.py` | Compute Walsh-Haar scale spectra for selected low-`v2` return signals and identify the top dyadic block coefficient |
+| `scripts/spectral_program/122_A0_top_haar_decay_summary.py` | Recast script-`111` phase-strata drift as top dyadic Haar coefficient decay across all current A0 scales and low-`v2` thresholds |
+| `scripts/spectral_program/123_A0_bounded_periodicity_probe.py` | Separate pure valuation-word periodicity, symbolic return labels, and actual weighted-kernel archimedean effects for the A0 dyadic discrepancy lemma |
+| `scripts/spectral_program/124_A0_tail_grid_probe.py` | Vary return-depth cutoff `S` and valuation cap `A` to split symbolic tail, killed-kernel unresolved tail, drop mass, and archimedean boundary |
+| `scripts/spectral_program/125_A0_kernel_mismatch_decomposition.py` | Decompose residual killed-kernel mismatch into destination changes, delta-only weight changes, drop/return flips, and tail/return boundaries |
+
+Lean bridge artifact:
+
+| Lean File | Role |
+|---|---|
+| `lean/CollatzShadowing/WeakBridge.lean` | Formal finite row-source lemma: weighted row-L1 drift controls `ell_infty -> L1` action error |
 
 ## 4. Key Diagnostic Results
 
@@ -286,6 +318,92 @@ Interpretation:
   `0.001386190 -> 0.001097048 -> 0.000647069`.  This keeps `A1` alive
   as a research branch but argues against switching the main `FULL`
   story to it prematurely.
+- A larger script-`110` run at `T=14`, `j=32->64` gives another decrease:
+  `b=0` drift `0.000420440901`, `b=5` `0.00160995368`, `b=8`
+  `0.00848590605`, and `b=10` `0.0121733793`.  Thus A1 still trends
+  down with prefix size, but `b=10` remains about `29` times the
+  phase-only drift.
+- Script `111` inspects that `T=14`, `j=32->64`, `b=10` drift.  The
+  obstruction is not a tiny exceptional list: the top `10/25/100`
+  source keys explain only `0.0822067093 / 0.131231692 / 0.254601736`
+  of total contribution.  But it is structured by source family:
+  `(v2,odd) = 0|3, 0|1, 1|3, 1|1` together explain about
+  `0.759884454` of the drift.  This pushes A1 toward source-family
+  weighted weak norms, not residue-key deletion.
+- Script `112` tests that source-family weighted-norm idea on the same
+  `T=14`, `j=32->64`, `b=10` window.  The result is negative for simple
+  family weights: weighting the dominant families or all `v2 <= 1`
+  families worsens the operator proxy.  The best operator-weighted
+  candidate is instead the fitted residue band `rlo mod 32 in {6,26}`,
+  with only a `0.0233262632` relative mean improvement and worse p95/max.
+  This keeps A1 as a diagnostic side branch and returns the main Gate-10.B
+  route to the phase-only A0 weak averaged bridge.
+- A phase-only script-`110` extension at `T=14`, `b=0`,
+  `j=32->64->128` gives the cleanest current A0 signal:
+  weighted `L1` mean decreases `0.000420440901 -> 0.000285774472`,
+  p95 decreases `0.000633001328 -> 0.000561684370`, and p99 decreases
+  `0.00498771667 -> 0.00205135345`.  The max increases slightly
+  `0.0309139785 -> 0.0331541219`, so the evidence supports weak averaged
+  control, not uniform row control.
+- A script-`111` inspection of the `T=14`, `64->128`, `b=0` comparison
+  shows that the max comes from sparse high-`v2` phases `14|3|h` with
+  sample weight `47`, while the average contribution comes from low
+  phases such as `0|3|h`, `1|3|h`, and `0|1|h`.  This is favorable for
+  an A0 weak averaged theorem with an exceptional-source tail.
+- The finite row-source part of the A0 bridge is now formalized in Lean
+  as `CollatzShadowing.WeakBridge.weighted_action_diff_le`: for finite
+  kernels `K,L`, nonnegative row weights `mu`, and `|f| <= C`,
+  the weighted `L1` action error is bounded by `C` times the weighted
+  row-L1 drift.  Thus the measured `D_N` is exactly the finite
+  `ell_infty -> L1(mu_N)` error term.  Remaining obligations are
+  `D_N -> 0`, exceptional high-`v2` mass control, and uniform
+  projection/inclusion constants.
+- Script `113` fits the available phase-only A0 drift scales to
+  `D_N ~= c N^{-alpha}`.  On five deduplicated scales it gives
+  `alpha = 0.594000397`, `R^2 = 0.989858124`; local consecutive alpha
+  median is `0.589521649`, and leave-one-out alpha stays in
+  `[0.571758588, 0.644405036]`.  This is finite evidence for A0W2, not a
+  proof.  A conservative target is now `D_N <= C N^{-1/2+epsilon}` plus
+  exceptional high-`v2` tail control.
+- Script `114` quantifies the latest A0 high-`v2` tail.  For
+  `T=14`, `64->128`, `b=0`, the threshold tail `{v2 >= 14}` has mass
+  `0.0000603994` and contribution `0.0048224593`; the maximum row family
+  `14|3` alone has mass `0.0000298818` and contribution `0.0034667383`.
+  Low phases such as `0|3`, `1|3`, and `0|1` carry the average drift.
+  This supports the decomposition
+  `D_N <= D_N(v2<R) + 2 mu_N(v2>=R)`.
+- Script `115` tests that decomposition across five A0 scales.  For all
+  thresholds `R=4,6,8,10,12,14`, the low part `D_N(v2<R)` decays with
+  fitted alpha near `0.6`; for example `R=14` gives alpha `0.595226457`
+  and `R^2=0.989774358`.  The high-`v2` mass does not decay with `N` at
+  fixed `R`, which means the theorem must use a double limit:
+  first make `R` large, then make `N` large.  The latest-scale
+  proof-style bound for `R=14` is only `1.41788438` times the observed
+  total drift.
+- Script `117` proves that the high-`v2` source mass in the current A0
+  source model is not a fitted law but exact counting:
+  `mu(v2>=R) = (floor((L-1)/2^R)+floor((R'-1)/2^R))/(L+R'-2) <= 2^-R`
+  for the two compared prefixes `L,R'` with `t=0` excluded.  The CSV
+  verification has max observed-formula error `0`, and the integer core
+  is formalized in Lean as
+  `CollatzShadowing.WeakBridge.TailCount.dyadic_tail_count_mul_le`.
+- Scripts `118` and `119` start the remaining low-`v2` attack.  Script
+  `118` shows median per-phase alpha `0.6112066004` for `v2 < 8`, while
+  the slowest low phases are currently `7|3|h`, `7|1|h`, `6|1|h`, and
+  `3|1|h`.  Script `119` confirms on representative phases that
+  `prefix_l1 / half_l1 = 0.5`, so A0 drift is dyadic block discrepancy;
+  the dominant pieces are medium returns (`step 11-25`, `delta 0` or
+  `delta 1-3`), not long-return tails.  Script `120` then weakens the
+  naive finite-period idea: dependency-depth majority error falls mainly
+  when cells become sparse/singleton.  The next candidate proof route is
+  therefore 2-adic discrepancy/Walsh-Haar cancellation, not simple local
+  constancy at a small modulus.  Script `121` confirms the refined target:
+  the signals are rough at fine Haar scales, but the root coefficient is
+  tiny.  For `0|3|0` return/phase, root half-L1 is `0.000413223985`
+  while finest-scale L2 energy share is about `0.5`; for `7|3|0`,
+  root half-L1 is `0.007874965668`.  Thus A0W2 should be stated as decay
+  of the top dyadic Haar/block-discrepancy coefficient, not as global
+  low-frequency smoothness.
 - source-stratum structure may matter for a future drift/tail norm.
 - the first source-stratum drift probe is not falsified, but remains a
   weak side channel; the harder `T15_j16` probe is negative for the

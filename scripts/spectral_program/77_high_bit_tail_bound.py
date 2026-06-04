@@ -128,6 +128,8 @@ def trace_row(
     if result.get("terminal"):
         return {
             "terminal": 1,
+            "step": result.get("step"),
+            "unresolved": result.get("unresolved", 0),
             "src": src,
             "dst": None,
             "delta": None,
@@ -141,6 +143,8 @@ def trace_row(
     weight = 2.0 ** (-delta)
     return {
         "terminal": 0,
+        "step": result.get("step"),
+        "unresolved": 0,
         "src": src,
         "dst": dst,
         "delta": delta,

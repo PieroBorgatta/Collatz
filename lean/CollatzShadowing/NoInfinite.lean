@@ -130,4 +130,24 @@ theorem no_infinite_period_congruence_expansive
   exact no_infinite_period_congruence_to_qw w n
     (w.qwZ2_ne_natCast_of_expansive h_exp n hn)
 
+/--
+Boundary theorem for eventual periodic expansive phantom shadowing.
+
+This is the post-prefix form of `no_infinite_period_congruence_expansive`.
+After any finite prefix, the endpoint of a positive accelerated integer orbit
+is again a positive natural.  Such an endpoint cannot remain, for all numbers
+of periods, in the congruence classes of an expansive phantom period.
+
+This deliberately addresses only the eventually periodic obstruction.  It does
+not rule out an aperiodic infinite valuation word that shadows different
+phantom neighborhoods successively.
+-/
+theorem no_positive_endpoint_eventually_periodic_expansive_congruence
+    (w : PhantomWord) (h_exp : w.Expansive)
+    (endpoint : ℕ) (h_endpoint_pos : 0 < endpoint) :
+    ¬ ∀ b : ℕ,
+      PadicCongruentModPow2 (endpoint : ℤ_[2])
+        (qwZ2 w (PhantomWord.qwOddDen w)) (b * w.A + 1) :=
+  no_infinite_period_congruence_expansive w h_exp endpoint h_endpoint_pos
+
 end CollatzShadowing
