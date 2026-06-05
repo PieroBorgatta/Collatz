@@ -105,7 +105,7 @@ AI-authored.
 | v2 | 10.5281/zenodo.20098868 | Lean shadowing core + Chang comparison |
 | v3 | 10.5281/zenodo.20160154 | conditional reduction + taxonomy + extended Lean |
 | v4 | 10.5281/zenodo.20544464 | verified core, two barriers, repositioning |
-| **v5 (planned)** | — | methodology retrospective + this statistics + honest close |
+| **v5 (current)** | 10.5281/zenodo.20554750 | methodology retrospective + this statistics + honest close |
 
 The v1→v5 arc (ambition → honest repositioning → retrospective) is the
 narrative spine of the methodology paper.
