@@ -146,11 +146,12 @@ These are NOT cleanly measurable from the repo. Fill them honestly, labelled
 as estimates; **do not invent an "AI work hours" number** — LLM inference
 time is not comparable to human labour hours.
 
-- Human hours (your own estimate): `____`
-- Number of AI sessions (Claude Code + Codex), if recoverable from logs: `____`
-- Approx. number of conversational turns/messages: `____`
-- Token volume, if logged (rough): `____`
-- Distinct AI models used over the project: Claude (Code), Codex, Gemini — list exact variants if known: `____`
+- Human hours (author's own work — direction, review, decisions, external actions), estimate: **≈ 8 h**.
+- Interactive AI-chat session time (wall-clock), estimate: **≈ 60 h** (session wall-clock, *not* a fabricated "AI inference hours" figure).
+- Number of AI sessions (Claude Code + Codex): not yet determined — to be investigated later from logs.
+- Approx. number of conversational turns/messages: not yet determined — to be investigated later.
+- Token volume: not logged — to be investigated later.
+- Distinct AI models used over the project: Claude (Code), Codex, Gemini (exact variants to be detailed later).
 
 Honest framing for the paper: report **interaction volume + wall-clock span +
 your estimated human hours**, each clearly labelled. That is defensible; a
