@@ -1,6 +1,7 @@
 # Phantom Orbit Shadowing for the Collatz Conjecture
 
 [![DOI (latest)](https://img.shields.io/badge/DOI%20(latest)-10.5281%2Fzenodo.20021537-1682d4?logo=doi&logoColor=white)](https://doi.org/10.5281/zenodo.20021537)
+[![DOI (v5)](https://img.shields.io/badge/DOI%20(v5)-10.5281%2Fzenodo.20554750-1682d4?logo=doi&logoColor=white)](https://doi.org/10.5281/zenodo.20554750)
 [![DOI (v4)](https://img.shields.io/badge/DOI%20(v4)-10.5281%2Fzenodo.20544464-1682d4?logo=doi&logoColor=white)](https://doi.org/10.5281/zenodo.20544464)
 [![DOI (v3)](https://img.shields.io/badge/DOI%20(v3)-10.5281%2Fzenodo.20160154-1682d4?logo=doi&logoColor=white)](https://doi.org/10.5281/zenodo.20160154)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
@@ -26,13 +27,14 @@ Mathlib and `sorry`-free.
 
 ## Paper
 
-The current authoritative version is **v4** (consolidation and
-limitations). It supersedes v3’s *conditional spectral reduction* framing
-with an honest map of the program’s verified core and its two barriers.
+The latest version is **v5** (a methodology retrospective and honest close).
+The core mathematical paper is **v4** (consolidation and limitations): the
+verified core, an honest map of the two barriers, and the repositioning.
 
 | Version | Framing | LaTeX | Frozen PDF |
 |---|---|---|---|
-| **v4 (current)** | Verified core, two barriers, repositioning | [`paper/collatz_spectral_reduction_v4.tex`](paper/collatz_spectral_reduction_v4.tex) | [Zenodo doi:10.5281/zenodo.20544464](https://doi.org/10.5281/zenodo.20544464) |
+| **v5 (current)** | Methodology retrospective; verified core + Reservoir library | [`paper/collatz_spectral_reduction_v5.tex`](paper/collatz_spectral_reduction_v5.tex) | [Zenodo doi:10.5281/zenodo.20554750](https://doi.org/10.5281/zenodo.20554750) |
+| v4 | Verified core, two barriers, repositioning | [`paper/collatz_spectral_reduction_v4.tex`](paper/collatz_spectral_reduction_v4.tex) | [Zenodo doi:10.5281/zenodo.20544464](https://doi.org/10.5281/zenodo.20544464) |
 | v3 | Conditional spectral reduction + taxonomy + extended Lean | [`paper/collatz_spectral_reduction_v3.tex`](paper/collatz_spectral_reduction_v3.tex) | [Zenodo doi:10.5281/zenodo.20160154](https://doi.org/10.5281/zenodo.20160154) |
 | v2 | Lean shadowing core + Chang comparison | [`paper/collatz_spectral_reduction_v2.tex`](paper/collatz_spectral_reduction_v2.tex) | [Zenodo doi:10.5281/zenodo.20098868](https://doi.org/10.5281/zenodo.20098868) |
 | v1 (archival) | Original spectral program | [`paper/collatz_spectral_reduction.tex`](paper/collatz_spectral_reduction.tex) | [Zenodo doi:10.5281/zenodo.20021538](https://doi.org/10.5281/zenodo.20021538) |
@@ -195,15 +197,15 @@ invited. See [`METHODOLOGY.md`](METHODOLOGY.md).
 ## Citation
 
 ```bibtex
-@misc{borgatta2026collatz_v4,
+@misc{borgatta2026collatz_v5,
   author    = {Borgatta, Piero},
-  title     = {Phantom Orbit Shadowing for the Collatz Conjecture:
-               Verified Core, Two Barriers, and a Repositioning},
+  title     = {Cross-AI, Lean-Verified Mathematics:
+               A Case Study on the Collatz Conjecture},
   year      = {2026},
-  version    = {4.0.0},
+  version   = {5.0.0},
   publisher = {Zenodo},
-  doi       = {10.5281/zenodo.20544464},
-  url       = {https://doi.org/10.5281/zenodo.20544464},
+  doi       = {10.5281/zenodo.20554750},
+  url       = {https://doi.org/10.5281/zenodo.20554750},
   note      = {Source and Lean 4 formalization:
                \url{https://github.com/PieroBorgatta/Collatz}.
                Concept DOI: \url{https://doi.org/10.5281/zenodo.20021537}}
