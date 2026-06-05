@@ -1,0 +1,383 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{seqsplit}
+
+\geometry{margin=2.8cm}
+\setlength{\emergencystretch}{3em}
+\sloppy
+\newcommand{\ttbr}[1]{\texttt{\seqsplit{#1}}}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  citecolor=blue!50!black,
+  urlcolor=blue!50!black,
+  pdftitle={Cross-AI, Lean-Verified Mathematics: A Case Study on the Collatz Conjecture (v5)},
+  pdfauthor={Piero Borgatta}
+}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Zp}{\mathbb{Z}_2}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+
+\title{
+  Cross-AI, Lean-Verified Mathematics: \\
+  A Case Study on the Collatz Conjecture \\
+  \large (v5 --- methodology retrospective and honest close)
+}
+\author{Piero Borgatta\thanks{Independent researcher.
+\texttt{info@pieroborgatta.com}; ORCID 0009-0001-8025-2405.}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This is the fifth and closing version of a personal research program on the
+Collatz conjecture. Its primary subject is the program's \emph{explicitly
+declared secondary goal} from v2 onward: testing how far iterative,
+cross-checked collaboration with large language model (LLM) assistants can
+carry a non-standard attempt on an open mathematical problem. The
+mathematics is reported honestly as a closed (but not abandoned) chapter,
+and the methodology is brought to the foreground.
+
+We report, with reproducible figures, what an AI pair (Anthropic Claude and
+OpenAI Codex, with Google Gemini in the earliest phase) produced under the
+author's direction over a five-week span: a mechanically verified,
+\texttt{sorry}-/\texttt{admit}-/\texttt{axiom}-free Lean~4 + Mathlib core
+(an exact congruential shadowing lemma, a no-infinite-shadowing corollary,
+an expanding-cycle exclusion, finite Collatz--Wielandt spectral-radius
+certificates, and an elementary descent bridge); a finite phantom-set
+taxonomy; and roughly $1.4\times 10^{5}$ lines of AI-produced code and
+prose, of which the author typed none by hand. We also report the
+program's \emph{negative} results honestly --- the analytic routes that hit
+documented barriers, including a cross-AI episode in which the assistants
+generated, and then demolished, four ``revolutionary'' proposals --- and
+we record the methodological observation we consider most interesting: a
+cross-AI loop, when one side is anchored to concrete obstructions, can
+\emph{recognize and prove the ceiling of its own approach}. We distill
+transferable lessons and failure modes for AI-assisted theorem proving.
+The mathematical frontier the program identified as the only productive one
+(cycle exclusion) is left explicitly open as future work, not closed. We do
+not claim a proof of the Collatz conjecture.
+\end{abstract}
+
+\tableofcontents
+
+\section{The v1$\to$v5 arc}
+\label{sec:arc}
+
+This program began (v1) as an ambitious proposal: a spectral reduction of
+the Collatz conjecture via ``phantom orbit shadowing,'' framed as a
+\emph{possible route to a resolution}. It then evolved honestly:
+
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{v1} --- the original spectral program, proposed as a possible
+        Collatz resolution.
+  \item \textbf{v2} --- the shadowing core mechanically verified in Lean~4;
+        comparison with the concurrent work of \cite{chang2026}; the
+        AI-collaboration methodology declared as an explicit secondary goal.
+  \item \textbf{v3} --- a conditional spectral reduction, a phantom-set
+        taxonomy at depth $K_0=16$, and an extended Lean operator/certificate
+        layer.
+  \item \textbf{v4} --- a consolidation that \emph{proved} the program's two
+        analytic branches cannot reach the conjecture, mapping the two
+        distinct barriers and isolating the open content precisely
+        \cite{borgatta_v4}.
+  \item \textbf{v5} (this document) --- the secondary goal becomes the
+        subject: an honest methodology retrospective and the program's close,
+        with the verified artifacts as evidence and the productive
+        mathematical frontier left open.
+\end{itemize}
+
+We regard this arc --- from ``possible solution'' to a precise, honest map
+of \emph{why} the approach stops and \emph{what} is nonetheless verified ---
+as the scientifically valuable shape of the work, more so than any single
+intermediate claim. Reporting it candidly, including the failures, is the
+point of v5.
+
+\section{The verified artifact}
+\label{sec:artifact}
+
+All of the following is formalized in Lean~4 + Mathlib and is
+\texttt{sorry}-, \texttt{admit}- and \texttt{axiom}-free (verified by
+\texttt{grep} over the \texttt{CollatzShadowing} sources and by
+\texttt{lake build}).
+
+\begin{itemize}[leftmargin=2em]
+  \item \ttbr{exact\_shadowing}, \ttbr{exact\_shadowing\_periods} --- the
+        exact congruential shadowing lemma.
+  \item \ttbr{no\_infinite\_period\_congruence\_expansive} --- no infinite
+        periodic shadowing.
+  \item \ttbr{no\_positive\_endpoint\_eventually\_periodic\_expansive\_congruence}
+        --- no positive integer on an expanding cycle (post-prefix form).
+  \item \ttbr{spectralRadius\_le\_of\_finiteCWCertificate} --- the generic
+        weighted Collatz--Wielandt bound, bridged to Mathlib's real
+        \texttt{spectralRadius}.
+  \item \ttbr{t10j32HighBitTailSpectralRadiusBound\_97\_2000} (single node,
+        $\le 97/2000$) and
+        \ttbr{k16s16KDeterministicGeneratedSpectralRadiusBound}
+        (deterministic $(K,b)$ bound $< 3/4$ at $K_0=16$).
+  \item \ttbr{classicalCollatz\_of\_uniformStrictDescent\_provedBridge} ---
+        the elementary descent bridge to the classical conjecture.
+\end{itemize}
+
+The full declaration map is in \texttt{lean/CollatzShadowing/THEOREM\_INDEX.md};
+the build is reproducible from \texttt{lean/} via \texttt{lake exe cache get}
+then \texttt{lake build}.
+
+\section{Quantitative summary}
+\label{sec:stats}
+
+All figures are read-only measurements of the repository
+(\texttt{git}, \texttt{wc}, \texttt{grep}); reproduction commands and the
+full breakdown are in \texttt{notes/PROJECT\_STATISTICS.md}.
+
+\paragraph{Authorship.} Every file in the repository --- all code and all
+prose --- was produced by the AI assistants under the author's direction.
+\textbf{The author typed none of it by hand}; his contribution is direction,
+conceptual framing, decisions, editing-by-instruction, and all external
+actions (publication, compilation, version control operations).
+
+\begin{center}
+\begin{tabular}{lrl}
+\toprule
+category & lines & content \\
+\midrule
+AI-authored source & $\approx 61{,}800$ & Lean proofs $7{,}805$ + Python $54{,}009$ \\
+generator-emitted & $43{,}513$ & Lean finite certificates (script output) \\
+prose & $34{,}899$ & working notes $28{,}716$ + LaTeX $6{,}183$ \\
+\midrule
+total (AI-produced) & $\approx 140{,}200$ & human-typed: $0$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{Lean:} 40 files; 302 AI-authored theorems/lemmas (14 modules)
+        plus 966 emitted by generators (26 certificate modules); \emph{zero}
+        \texttt{sorry}/\texttt{admit}/\texttt{axiom}.
+  \item \textbf{Python:} 151 scripts (all tracked, none missed) ---
+        spectral program 83, phase-one empirical 42, phantom taxonomy 16,
+        root-level 10.
+  \item \textbf{History:} 84 commits over 37 days ($\approx$ 5.3 weeks);
+        commit authorship (via \texttt{.mailmap}) Codex 52, Piero Borgatta 35.
+  \item \textbf{Honesty caveat:} never quote the 51k Lean total or the 1{,}268
+        theorem count without the AI-authored vs generator-emitted split; the
+        generator output dominates both.
+\end{itemize}
+
+\paragraph{Soft metrics.} Human hours, number of AI sessions, and message
+volume are not cleanly measurable from the repository and are reported
+separately as labelled estimates; we deliberately do \emph{not} state an
+``AI work hours'' figure, since LLM inference time is not comparable to human
+labour hours.
+
+\section{Methodology: the cross-AI protocol}
+\label{sec:method}
+
+The working configuration was:
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{Human direction.} The author set the research direction and
+        framing, made all strategic and publication decisions, and performed
+        all external actions.
+  \item \textbf{Generate / critique split.} The assistants alternated roles:
+        one proposing constructions or proofs, the other auditing them
+        against the concrete state of the problem.
+  \item \textbf{Lean as ground truth.} Every formal claim was funnelled
+        through Lean: a proof counts only if \texttt{lake build} succeeds
+        with no \texttt{sorry}. This converts ``plausible-looking'' AI output
+        into a binary, machine-checked verdict --- the single most important
+        discipline of the project.
+\end{enumerate}
+
+The decisive methodological lesson (Section~\ref{sec:limits}) is that the
+generate/critique split is productive \emph{only when the critic is anchored
+to concrete objects and obstructions}, not to labels. The same kind of model,
+in the generative role, repeatedly produced plausible but structurally empty
+proposals; in the critic role, with the problem's barriers loaded as context,
+it dismantled them. The asymmetry is one of \emph{role and discipline}, not of
+model capability.
+
+\section{What worked}
+\label{sec:worked}
+
+\begin{itemize}[leftmargin=2em]
+  \item Producing and \emph{mechanically verifying} a real (if elementary)
+        body of mathematics: the shadowing core and the finite certificates.
+  \item Managing a large, multi-week formalization with a coherent module
+        structure and a clean \texttt{sorry}-free state.
+  \item Generating exact finite certificates programmatically and importing
+        them into Lean with machine-checked row witnesses.
+  \item Cross-AI auditing that repeatedly caught Mathlib API mismatches and
+        Lean~3-vs-4 syntax errors one assistant alone missed.
+\end{itemize}
+
+\section{What failed --- honest failure modes}
+\label{sec:failed}
+
+This is, in our view, the most useful part of the report: most accounts of
+``LLMs doing mathematics'' present only successes.
+
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{Abandoned analytic branches.} A $\Zp$ martingale Banach space
+        (failed: negative 2-adic child-cylinder signal); an A0 weak averaged
+        bridge and an A1 refined-square kernel (partial; barrier); a pointwise
+        first-barrier branch (conditional; negatively resolved in v4).
+  \item \textbf{``Prestige-transfer'' proposals.} In a documented cross-AI
+        episode, the assistants generated four ``revolutionary'' pivots
+        (Galois/anabelian action on the inverse tree; non-standard models /
+        independence; ``exotic'' Banach spaces; holomorphic extension), each
+        of which was then dismantled with a specific structural reason. The
+        common failure: each imports rigidity from a richer ambient category
+        (algebraic, logical, measure-analytic, complex-analytic), but the hard
+        invariant --- an individual integer carrying an aperiodic $2$-adic
+        valuation word --- is precisely what every such embedding renders
+        generic or invisible.
+  \item \textbf{Label pattern-matching.} Concrete instances: proposing
+        Mathlib contributions based on \emph{removed} API
+        (\texttt{Nat.bit0}/\texttt{bit1}); hallucinated lemma names; assuming
+        novel general-purpose lemmas where the project had in fact
+        \emph{assembled} existing Mathlib primitives.
+  \item \textbf{Generative overreach.} A persistent tendency to connect
+        semantically adjacent domains without checking structural
+        compatibility against the actual objects.
+\end{itemize}
+
+\section{The limits, recognized and proved}
+\label{sec:limits}
+
+The program's strongest methodological outcome is that the cross-AI loop did
+not merely fail quietly; it \emph{localized and proved its own ceiling}.
+
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{Two barriers, separated.} v4 establishes that Collatz splits
+        into two distinct hard halves: \emph{no divergent orbits}
+        (barrier: distributional-to-pointwise) and \emph{no nontrivial cycles}
+        (barrier: Diophantine approximation of $\log_2 3$). The program's
+        entire analytic effort lived in the first.
+  \item \textbf{A negative structural result.} Within the phantom/$2$-adic
+        formalism, the rigidity one would need on the orbit limit point is
+        \emph{logically equivalent} to the divergence conjecture itself
+        (a non-transport observation: the parity-vector conjugacy carries
+        eventual periodicity to dynamical pre-periodicity, not to
+        rationality; conditional on the standard Lagarias coding).
+\end{itemize}
+
+That an AI-assisted process can arrive at, and rigorously articulate, ``this
+approach cannot work, and here is why'' --- rather than continuing to produce
+hopeful variations --- is a result we did not anticipate and consider the
+central methodological finding.
+
+\section{Open mathematical direction (left open, not closed)}
+\label{sec:open}
+
+The program is closed as a methodology study, but the mathematics it pointed
+to is \emph{not abandoned}. v4 identified one genuinely productive frontier,
+and we keep it explicitly open as future work:
+
+\begin{quote}
+The \textbf{cycle half} (no nontrivial cycles). This is the only half whose
+tools (linear forms in logarithms; continued fractions of $\log_2 3$;
+computational verification; \cite{steiner1977, simons2005, simonsdeweger2005,
+barina2021}) genuinely bite. The realistic, finishable target is the
+\emph{structural layer} formalized in Lean --- the cycle equation
+$n\,(2^A - 3^L) = C_w$, the contractivity condition $2^A > 3^L$ for positive
+cycles, the Diophantine condition on $A/L$, and the link to computational
+verification --- with the deep analytic exclusions left as named hypotheses,
+since a usable form of Baker's theorem is not currently in Mathlib.
+\end{quote}
+
+Anyone (the author included) may resume the program from this point. The
+verified Lean library (Section~\ref{sec:artifact}) is the natural foundation
+for that continuation.
+
+\section{Lessons for AI-assisted mathematics}
+\label{sec:lessons}
+
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{Mechanical verification is the load-bearing discipline.}
+        Lean's binary verdict is what separates this program's verified core
+        from the unverifiable analytic speculation; AI prose proofs without it
+        are not evidence.
+  \item \textbf{Cross-AI value is adversarial, not additive.} The benefit came
+        from one model auditing another against concrete obstructions, not
+        from two models agreeing.
+  \item \textbf{Generative fluency is not mathematical judgment.} The same
+        system produces both verified proofs and structurally empty
+        ``revolutionary'' proposals; the discriminator is anchoring to objects,
+        not to vocabulary.
+  \item \textbf{Honest negative results are a deliverable.} Localizing and
+        proving an approach's ceiling saved further wasted effort and is, we
+        argue, the most transferable output here.
+  \item \textbf{Beware inflated metrics.} Report AI-authored vs generated
+        separately; do not fabricate ``AI hours.''
+\end{enumerate}
+
+\section{Reproducibility}
+\label{sec:repro}
+
+The Lean~4 library, the Python scripts, the working notes (including
+\texttt{PROJECT\_STATISTICS.md} with reproduction commands), and the paper
+sources are in the supplementary archive and at
+\url{https://github.com/PieroBorgatta/Collatz}. Earlier versions: concept DOI
+\texttt{10.5281/zenodo.20021537}; v4 \texttt{10.5281/zenodo.20544464}.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+Over five weeks, an AI pair under human direction produced a mechanically
+verified mathematical core, a precise map of two barriers blocking the
+Collatz conjecture, an honest catalogue of failed routes, and --- the result
+we find most interesting --- a proof of its own approach's ceiling. We do not
+claim progress on the conjecture. We claim a verified artifact, a candid
+account of what cross-AI mathematical collaboration can and cannot do, and a
+clearly delimited open frontier for whoever continues.
+
+\begin{thebibliography}{9}
+
+\bibitem{borgatta_v4}
+P.~Borgatta, \emph{Phantom Orbit Shadowing for the Collatz Conjecture:
+Verified Core, Two Barriers, and a Repositioning} (v4), Zenodo, DOI
+\texttt{10.5281/zenodo.20544464}, 2026.
+
+\bibitem{chang2026}
+(Chang), \emph{Exploring Collatz Dynamics with Human--LLM Collaboration},
+2026 (concurrent, independent; cited as in v2--v4).
+
+\bibitem{steiner1977}
+R.~P.~Steiner, \emph{A theorem on the Syracuse problem}, Proc. 7th Manitoba
+Conf. on Numerical Mathematics, 1977, 553--559.
+
+\bibitem{simons2005}
+J.~L.~Simons, \emph{On the nonexistence of $2$-cycles for the $3x+1$ problem},
+Math. Comp. \textbf{74} (2005), 1565--1572.
+
+\bibitem{simonsdeweger2005}
+J.~L.~Simons and B.~M.~M.~de Weger, \emph{Theoretical and computational bounds
+for $m$-cycles of the $3n+1$ problem}, Acta Arith. \textbf{117} (2005), 51--70.
+
+\bibitem{barina2021}
+D.~Barina, \emph{Convergence verification of the Collatz problem},
+J. Supercomput. \textbf{77} (2021), 2681--2688.
+
+\end{thebibliography}
+
+\end{document}

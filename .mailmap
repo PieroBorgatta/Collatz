@@ -1,0 +1,15 @@
+# Author remapping for git shortlog / log / blame / statistics.
+#
+# The default-placeholder identity "Your Name <you@example.com>" was used by
+# AI-assistant commit sessions (git was left unconfigured). They are remapped
+# to "Codex" to reflect the actual AI authorship. Piero's several machine-local
+# emails are consolidated to his canonical address.
+#
+# Note: .mailmap changes how git (and GitHub's contributor views) DISPLAY
+# authors; it does not rewrite commit objects/hashes.
+
+Codex <you@example.com>
+
+Piero Borgatta <info@pieroborgatta.com> <pbr@MacBook-Pro-di-Piero.local>
+Piero Borgatta <info@pieroborgatta.com> <pbr@MacBookPro.lan>
+Piero Borgatta <info@pieroborgatta.com> <pbr@MBP-di-Piero.lan>

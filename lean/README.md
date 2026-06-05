@@ -1,131 +1,97 @@
-# Lean 4 Formalization — Collatz Spectral Reduction
+# CollatzShadowing — a Lean 4 + Mathlib formalization
 
-Machine-verified proofs of the mathematical content of
-[`../paper/collatz_spectral_reduction.tex`](../paper/collatz_spectral_reduction.tex).
+A self-contained Lean 4 (Lake) library formalizing the verified core of the
+*Phantom Orbit Shadowing* program on the Collatz conjecture. The
+`CollatzShadowing` sources are **`sorry`-, `admit`- and `axiom`-free**.
 
-> **Status: builds cleanly.** The Lean core for Lemma 3.1 and
-> Corollary 3.4 is `sorry`-free. Phase 8 adds finite episode-graph and
-> operator-certificate infrastructure, including a generated 37-state
-> SCC certificate, Collatz-Wielandt certificate, and Mathlib
-> spectral-radius bound for the empirical `K,b` matrix, plus a generated
-> exact `T = 10` critical-symbolic transfer-matrix import and a generated
-> `T = 10, j = 32` majority core/tail import with a fully Lean-checked
-> generated 224-row numerical spectral-radius bound `97/2000 = 0.0485`.
+> This library does **not** prove the Collatz conjecture. It formalizes a
+> shadowing lemma, a no-infinite-shadowing corollary, an expanding-cycle
+> exclusion, finite Collatz–Wielandt spectral-radius certificates, and an
+> elementary descent bridge — the rigorously verified part of the program.
+> See the project paper (v4) and [`../README.md`](../README.md) for scope.
 
-## Goal
+## At a glance
 
-Produce a Lean 4 + Mathlib formalization of:
+- **14 AI-authored modules** (~7,800 lines, ~300 theorems/lemmas) — Lean proofs written by the AI line by line.
+- **26 machine-generated certificate modules** (~43,500 lines) under
+  `CollatzShadowing/Generated/`, emitted by the Python generators in
+  `../scripts/phantom_taxonomy/` and checked by Lean.
+- Toolchain: **Lean v4.29.1 + Mathlib v4.29.1** (pinned in `lean-toolchain`
+  and `lakefile.toml`).
+- Full declaration → file map: [`CollatzShadowing/` theorem index](CollatzShadowing/THEOREM_INDEX.md).
 
-- **Lemma 3.1** of the paper (the exact congruential shadowing lemma)
-- **Corollary 3.4** (no positive integer can shadow an expansive
-  phantom forever)
-
-Those two results are formalized and build without `sorry`. The current
-extension work formalizes Phase-8 finite operator/certificate APIs that
-support the later spectral-reduction layer.
-
-## Build Instructions
+## Build
 
 ```bash
 cd lean
-lake build
+lake exe cache get   # download the Mathlib precompiled cache (several GB)
+lake build           # build the whole project
 ```
 
-The first build downloads Mathlib cache artifacts and may require
-several GB of disk space.
-
-To verify a specific module:
+Verify a single module, e.g. the shadowing core:
 
 ```bash
 lake build CollatzShadowing.Shadowing
+lake build CollatzShadowing.NoInfinite
 ```
 
-Useful Phase-8 targets:
+Check there are no proof placeholders (no output = clean):
 
 ```bash
-lake build CollatzShadowing.Bound
-lake build CollatzShadowing.Generated.K16S16KExactCWSummary
-lake build CollatzShadowing.Generated.K16S16KSCC
-lake build CollatzShadowing.Generated.K16S16KBridge
-lake build CollatzShadowing.Generated.T10CriticalSymbolic
-lake build CollatzShadowing.Generated.T10J32HighBitTail
-lake build CollatzShadowing.Generated.T10J32HighBitTailCW
+grep -rnE 'sorry|admit|^[[:space:]]*axiom' CollatzShadowing --include='*.lean'
 ```
 
-To check for proof placeholders:
+## Headline results
 
-```bash
-rg -n "sorry|admit" CollatzShadowing *.lean
-```
+| Result | Declaration | Module |
+|---|---|---|
+| Exact congruential shadowing (Lemma 3.1) | `exact_shadowing`, `exact_shadowing_periods` | `Shadowing` |
+| No infinite (periodic) shadowing (Cor. 3.4) | `no_infinite_period_congruence_expansive` | `NoInfinite` |
+| No positive integer on an expanding cycle | `no_positive_endpoint_eventually_periodic_expansive_congruence` | `NoInfinite` |
+| Generic weighted Collatz–Wielandt bound | `spectralRadius_le_of_finiteCWCertificate` | `Bound` |
+| Single-node spectral bound `ρ ≤ 97/2000` | `t10j32HighBitTailSpectralRadiusBound_97_2000` | `Generated/T10J32HighBitTailCW` |
+| Deterministic `(K,b)` bound `< 3/4` (`K₀=16`) | `k16s16KDeterministicGeneratedSpectralRadiusBound` | `Generated/K16S16KDeterministicCW` |
+| Finite weak row-`L¹` bridge | `WeakBridge.weighted_action_diff_le` | `WeakBridge` |
+| High-`ν₂` source-tail mass `≤ 2⁻ᴿ` | `WeakBridge.TailCount.dyadic_tail_count_mul_le` | `WeakBridge` |
+| Descent ⇒ Collatz (elementary) | `classicalCollatz_of_uniformStrictDescent_provedBridge` | `CollatzBridge` |
 
-No output means the searched Lean files contain no explicit proof
-placeholders.
+## Modules
 
-## Main Modules
+**Shadowing core**
+- `Basic` — accelerated Syracuse map `S`, valuation `ν₂`.
+- `Phantom` — phantom words, affine fold, `C_w`, `A_w`, fixed point `q_w = C_w/(2^A − 3^L)`.
+- `Syracuse2Adic` — the 2-adic extension `S̃ : ℤ₂ → ℤ₂` and the `ℕ` bridge.
+- `Auxiliary` — supporting lemmas (ultrametric stability, `B`-recursion, …).
+- `Shadowing` — Lemma 3.1.
+- `NoInfinite` — Cor. 3.4 and the expanding-cycle exclusion.
 
-- `CollatzShadowing.Basic`: accelerated Syracuse map and valuation
-  aliases.
-- `CollatzShadowing.Phantom`: phantom words, affine folds, periodic
-  exponent sums, and the 2-adic fixed point `q_w`.
-- `CollatzShadowing.Syracuse2Adic`: the 2-adic Syracuse extension and
-  natural-number bridge.
-- `CollatzShadowing.Shadowing`: paper Section 3, Lemma 3.1.
-- `CollatzShadowing.NoInfinite`: paper Corollary 3.4.
-- `CollatzShadowing.EpisodeGraph`: Phase-8 directed-relation episode
-  graph and SCC certificate interfaces.
-- `CollatzShadowing.Operator`: finite phase states and
-  `full = core + tail` operator decomposition API.
-- `CollatzShadowing.Bound`: finite Collatz-Wielandt certificate API,
-  cleared-denominator arithmetic bridge, evaluated row bridge, and
-  finite `core + tail` spectral-radius bridge.
-- `CollatzShadowing.Generated.K16S16KExactCWSummary`: generated exact
-  37-state empirical `K,b` matrix certificate, including
-  `k16s16KFiniteCWCertificate`.
-- `CollatzShadowing.Generated.K16S16KSCC`: generated 37-state empirical
-  `K,b` SCC certificate with hub-based finite walks.
-- `CollatzShadowing.Generated.K16S16KBridge`: checked bridge showing
-  that the generated SCC and CW certificates use the same `Fin 37`
-  state ordering and labels; it also exposes the packaged object
-  `k16s16KCertifiedComponentWithCW` and the concrete theorem
-  `k16s16KSpectralRadiusBound`.
-- `CollatzShadowing.Generated.T10CriticalSymbolic`: generated exact
-  empirical `T = 10` critical-symbolic `TransferMatrix`, its
-  row-substochasticity proof, and a baseline `OperatorDecomposition`
-  with `core = full` and `tail = 0`.
-- `CollatzShadowing.Generated.T10J32HighBitTail`: generated exact
-  empirical `T = 10, j = 32` majority-signature `core` and `tail`
-  matrices, with `full` definitionally equal to `core + tail`, generated
-  row-substochasticity certificates, and
-  `t10j32HighBitTailDecomposition`.
-- `CollatzShadowing.Generated.T10J32HighBitTailCW`: paper-facing
-  numerical spectral-radius bound for the generated `T = 10, j = 32`
-  224-state matrix from the exact CSV, stated as
-  `t10j32HighBitTailSpectralRadiusBound_97_2000`. The generator
-  `../scripts/phantom_taxonomy/lean_t10j32_cw.py` emits the matrix data,
-  positive CW basis, and 14 row modules with all 224 evaluated row
-  witnesses checked directly by Lean.
+**Finite operator / certificate layer**
+- `EpisodeGraph` — directed-relation episode graph, SCC interfaces.
+- `Operator` — finite phase states, `full = core + tail` decomposition.
+- `Bound` — finite Collatz–Wielandt certificate API and the spectral-radius bridge to Mathlib's `spectralRadius`.
 
-## Plan and progress
+**Phase-10 finite bridges**
+- `WeakBridge` — the A0 weak-bridge finite lemmas: weighted row-`L¹` action bound, the exact high-`ν₂` tail count, the `BitLength`/dyadic-boundary development, and the `LabelSplit` schema.
+- `CollatzBridge` — the elementary descent bridge (`UniformStrictDescentHypothesis ⇒ Collatz`) and the conditional first-barrier machinery (open hypotheses isolated as named `Prop`s, not faked).
 
-See [`TODO.md`](TODO.md) for the detailed phase-by-phase plan, current
-status of each task, and the session log of what each AI/human
-collaboration session accomplished.
+**Generated/** — finite certificates emitted by AI-written Python generators (CW row witnesses, residue-cell matrices, SCC walks). Verified by Lean; not reasoned line by line.
 
-## Methodology disclosure
+`Inventory` / `EpisodeInventory` are Mathlib-API scratch buffers, not proof content.
 
-The Lean formalization is being carried out by the project author
-collaboratively with multiple AI assistants (Claude, Codex, Gemini),
-following the same disclosed methodology as the rest of the project.
-See [`../METHODOLOGY.md`](../METHODOLOGY.md) for the full disclosure.
+## Reusing this library
 
-The crucial difference between AI-assisted Lean formalization and
-AI-assisted ordinary mathematics is that **Lean is a mechanical
-verifier**: a Lean proof is correct if and only if `lake build`
-succeeds with no `sorry`s and no errors. AI assistants can produce
-plausible-looking incorrect Lean code, but unlike ordinary prose
-proofs, the verification is automatic. Successful builds are
-therefore much stronger evidence than AI-generated prose.
+`lean/` is already a standalone Lake project. To depend on it, point a
+`require` at this repository (subdirectory `lean`) at the pinned toolchain.
+A citable, frozen snapshot is on Zenodo (concept DOI
+[10.5281/zenodo.20021537](https://doi.org/10.5281/zenodo.20021537)).
+
+## Methodology
+
+Built by the author in cross-AI collaboration (Claude, Codex, Gemini), with
+all formal claims funnelled through Lean: a proof counts only if `lake build`
+succeeds with no `sorry`. See [`../METHODOLOGY.md`](../METHODOLOGY.md) and the
+phase log in [`TODO.md`](TODO.md).
 
 ## License
 
-Same as the parent repository: [CC BY 4.0](../LICENSE).
+[CC BY 4.0](../LICENSE), as the parent repository.
