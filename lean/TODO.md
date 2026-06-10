@@ -1,27 +1,5 @@
 # Lean 4 Formalization Plan — Collatz Spectral Reduction
 
-## Verifiche manuali documentazione Wiki.js — 2026-06-10
-
-Questa sezione e stata aggiunta durante la generazione della struttura
-documentale per Wiki.js.
-
-- [x] Eseguire build completo:
-  `/Volumes/AFUOCO/MAC/Applicazioni/elan/bin/lake build`.
-  Verificato il 2026-06-10: `Build completed successfully (3350 jobs).`
-- [ ] Salvare screenshot del build riuscito in
-  `docs/assets/screenshots/lake-build-success.png`.
-- [x] Eseguire controllo placeholder:
-  `rg -n "sorry|admit|^[[:space:]]*axiom" CollatzShadowing -g "*.lean"`.
-  Verificato il 2026-06-10: nessuna occorrenza.
-- [ ] Salvare screenshot del controllo placeholder in
-  `docs/assets/screenshots/no-placeholders-check.png`.
-- [ ] Salvare screenshot della struttura progetto in
-  `docs/assets/screenshots/project-structure.png`.
-- [ ] Importare o sincronizzare `docs/wiki-source.md` in Wiki.js.
-- [ ] Inserire in `docs/wiki-source.md` l'URL/IP reale della istanza Wiki.js.
-- [ ] Verificare, script per script, la procedura precisa di rigenerazione dei
-  moduli in `CollatzShadowing/Generated/`.
-
 This document is the operational plan for formalizing the mathematical
 content of [`paper/collatz_spectral_reduction.tex`](../paper/collatz_spectral_reduction.tex)
 in **Lean 4** with **Mathlib**.
