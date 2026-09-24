@@ -1,0 +1,67 @@
+{
+  "date": "2026-09-24",
+  "verified_code_commit": "c2a194962870b157bf6dc6f216baf49eb000f9f3",
+  "experiment_ci": {
+    "conclusion": "success",
+    "status": "completed",
+    "headSha": "c2a194962870b157bf6dc6f216baf49eb000f9f3",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36023967396"
+  },
+  "existing_lean_ci": {
+    "conclusion": "success",
+    "status": "completed",
+    "headSha": "c2a194962870b157bf6dc6f216baf49eb000f9f3",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36023967347"
+  },
+  "results": {
+    "modular_level_pairs": 512,
+    "direct_modular_power_checks": 8,
+    "precision_bits": 4096,
+    "certified_limit_prefix_steps": 2032,
+    "certified_limit_prefix_sum": 4094,
+    "actual_steps": 213894,
+    "censored_levels": [],
+    "previous_experiment_overlap": 13
+  },
+  "actual_integer_levels": {
+    "minimum": 5,
+    "maximum": 18,
+    "count": 14,
+    "new_q": 131071
+  },
+  "regression_tests": 6,
+  "artifact_byte_comparison": "Both downloaded result files match local files exactly.",
+  "mathematical_status": {
+    "common_prefix_criterion": "Informal proof, reviewed internally; not formalized in Lean.",
+    "no_descent_on_shared_prefixes": "Informal proof for every v>=5, reviewed internally.",
+    "residual_stopping_times_unbounded": "Informal proof using classical Mahler transcendence; infinity allowed for individual times.",
+    "uniform_descent": "Not proved.",
+    "novelty": "Not established.",
+    "new_lean_declarations": 0
+  },
+  "scope_notes": [
+    "The 512 modular pairs are not complete positive integer orbit checks.",
+    "Thirteen of the fourteen complete integer cases overlap the previous experiment.",
+    "CI replays the same program on Linux; it is not an independent implementation.",
+    "Small-level tests separately check prefixes using repeated division.",
+    "The existing Lean build does not verify the new informal mathematical proofs.",
+    "Documentation after the verified commit does not change experiment code, workflow, or data.",
+    "Earlier verification manifests remain historical snapshots."
+  ],
+  "frozen_v6_sha256": {
+    "paper/collatz_spectral_reduction_v6.pdf": "a959282145d5042550c3938b445a4964305299b4eca71bcc62539804c5b585f9",
+    "collatz_spectral_reduction_v6_supplementary.zip": "20f9195443dd058aeae16b9316ed0f6beafb6d360182ba93b875107a0ee9da60"
+  },
+  "files_sha256": {
+    ".github/workflows/tower-levels.yml": "35eae98a8b04aa26ced0b7ec4d13182852c49cae392052f2f510e624422fe762",
+    "README.md": "b8c9bf95a050e82e355dd0e8f4b028ff4fd6e6a5d35c9fad2ed2eaa97d741152",
+    "notes/post_v6_descent_2026-09-24/descent_cases.csv": "66ebf21295bb353bafa80b00e9021b77a4834e585a1f17a62a731ecde021f9bf",
+    "notes/post_v6_levels_2026-09-24/RESULTS_IT.md": "6da6e3b1fe1ed9eced6438cdbc63d834aec4e78badabe4a88678df6843a26fb4",
+    "notes/post_v6_levels_2026-09-24/REVIEW_IT.md": "ca679b7cb5ae411e111504b3efddc91b5ea2d202b667c1b3c59fe8f0da5fbf29",
+    "notes/post_v6_levels_2026-09-24/ci_36023967396.log.gz": "c11757f0d5ad52c4e51e5fde9304993296b811a6a6cef49f55d521e8bf25994d",
+    "notes/post_v6_levels_2026-09-24/levels_probe.py": "95473b37a76844d71e35df64de0064b7823ab990abb497b68da078d693a58ec5",
+    "notes/post_v6_levels_2026-09-24/levels_results.json": "0f4b2028c492930c16c67b87f128ec1a5b16f6bff0fe86d61630ce14a07387ae",
+    "notes/post_v6_levels_2026-09-24/limit_prefix.json": "40b2b13768eaea1267fc76fa6d1653fe3d4f952f1df51855e884757222b9b581",
+    "notes/post_v6_levels_2026-09-24/test_levels.py": "60f59b58a12db09a43ac35e1f75dbc6af43759105ce909859c150b5225a0ad03"
+  }
+}

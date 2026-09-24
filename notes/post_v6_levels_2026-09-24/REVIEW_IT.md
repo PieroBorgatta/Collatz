@@ -55,3 +55,11 @@ sovrapposizione; l'unico nuovo parametro intero completo è q=131071.
 I 512 confronti modulari non sono 512 verifiche complete di discesa.
 Il cap operativo resta una censura: non raggiungerlo con successo non
 sarebbe una dimostrazione di divergenza.
+
+La riproduzione completa è passata nella
+[CI 36023967396](https://github.com/PieroBorgatta/Collatz/actions/runs/36023967396),
+al commit `c2a194962870b157bf6dc6f216baf49eb000f9f3`: entrambi i risultati
+scaricati coincidono byte per byte. Sono passati anche build e audit Lean
+esistenti nella [CI 36023967347](https://github.com/PieroBorgatta/Collatz/actions/runs/36023967347).
+Il successo Lean riguarda il progetto già formalizzato, non le prove
+informali di questa continuazione.

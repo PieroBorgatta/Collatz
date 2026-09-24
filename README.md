@@ -270,6 +270,9 @@ The exact experiment checks 512 modular pairs and 14 full integer orbits
 (213,894 residual steps), all of which descend after their shared prefixes.
 Thirteen cases overlap the previous experiment. No infinite-family descent,
 new Lean declaration, or mathematical priority is claimed.
+The full level experiment passed in
+[CI 36023967396](https://github.com/PieroBorgatta/Collatz/actions/runs/36023967396)
+with both result files byte-identical.
 
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch

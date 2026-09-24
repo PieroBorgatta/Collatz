@@ -17,6 +17,15 @@ la rispettiva sorgente, dopo la separazione dal livello successivo.
 Tredici di questi casi erano già presenti nello studio precedente: non sono
 tredici nuovi casi indipendenti. Il nuovo caso è q=131071.
 
+La [CI 36023967396](https://github.com/PieroBorgatta/Collatz/actions/runs/36023967396)
+ha ripetuto tutti i controlli al commit
+`c2a194962870b157bf6dc6f216baf49eb000f9f3`. I due file di risultati
+scaricati dalla CI coincidono byte per byte con quelli locali.
+Sono passati anche build e audit del progetto nella
+[CI Lean 36023967347](https://github.com/PieroBorgatta/Collatz/actions/runs/36023967347).
+[Manifest di verifica](verification_manifest.json) e
+[log della corsa sperimentale](ci_36023967396.log.gz).
+
 ## 1. La sottofamiglia e il significato di discesa
 
 Scriviamo S(x)=(3x+1)/2^{ν₂(3x+1)} per x positivo dispari. Definiamo
