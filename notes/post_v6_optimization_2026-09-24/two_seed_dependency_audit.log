@@ -1,0 +1,16 @@
+TWO_SEED_DEPENDENCY_AUDIT: PASS
+root: Erdos1135.ND.PositiveDensity.TwoSeedDensity.generalTarget_predecessors_explicit_lower_bound
+reachable declarations inspected: 43248
+private declarations inspected: 5035
+declaration bodies inspected: 41292
+type/body dependency edges inspected: 1094025
+required dependencies reached: [Erdos1135.ND.PositiveDensity.TwoSeedNonreturn.exists_bounded_nonreturning_predecessor_in_residue,
+ Erdos1135.ND.PositiveDensity.TwoSeedNonreturn.noReturn_or_noReturn_of_same_image]
+forbidden unbounded seed dependencies: absent
+axioms reached by complete traversal: [Quot.sound, Classical.choice, propext]
+axioms reported by collectAxioms: [propext, Classical.choice, Quot.sound]
+traversal boundary: none; every reachable named declaration inspected
+build scope: imported TwoSeedDensity module; no assembled verification bundle
+'Erdos1135.ND.PositiveDensity.TwoSeedDensity.generalTarget_predecessors_explicit_lower_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

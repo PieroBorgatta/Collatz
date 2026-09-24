@@ -1,8 +1,13 @@
 # Audit semantico del conduttore ottimizzato
 
+**Aggiornamento successivo:** nuova via e confronti verificati nella
+[CI 36009718722](https://github.com/PieroBorgatta/Collatz/actions/runs/36009718722).
+Il testo sotto conserva il perimetro della lettura statica iniziale;
+le evidenze del replay sono nel [resoconto finale](RESULTS_IT.md).
+
 24 settembre 2026. Lettura dei sorgenti `OptimizedConductor.lean`,
 `OptimizedDensity.lean` e delle API esterne immediatamente utilizzate.
-**Stato: nuova implementazione ancora in attesa di CI.** Questa nota non
+**Stato al momento della lettura iniziale: nuova implementazione in attesa di CI.** Questa nota non
 attesta compilazione o audit delle dipendenze della nuova via; non è un
 nuovo controllo dell'intera dimostrazione analitica esterna.
 
@@ -91,4 +96,4 @@ monotono nel numero di generazioni, e il fattore esterno `T` è strettamente
 crescente: la riduzione stretta del cutoff non richiede `C>0`.
 Anche il coefficiente migliora strettamente quando l'arrotondamento lascia
 `m` invariato, grazie a `T` strettamente minore. Nessun disallineamento
-semantico individuato; l'elaborazione Lean di questi confronti resta da CI.
+semantico individuato; l'elaborazione Lean di questi confronti era ancora da verificare in CI.

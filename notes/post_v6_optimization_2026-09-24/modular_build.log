@@ -1,0 +1,799 @@
+START FormalConjectures.Wikipedia.CollatzConjecture
+START Erdos1135.Tao.Probability.Finite
+[1/399] reuse Erdos1135.Tao.Probability.Finite: exit=0 seconds=2.581
+START Erdos1135.Tao.Probability.Geom
+[2/399] reuse FormalConjectures.Wikipedia.CollatzConjecture: exit=0 seconds=1.376
+START Erdos1135.Basic
+[3/399] reuse Erdos1135.Tao.Probability.Geom: exit=0 seconds=3.433
+START Erdos1135.Tao.Probability.Pascal
+[4/399] reuse Erdos1135.Basic: exit=0 seconds=2.682
+START Erdos1135.CollatzStep
+[5/399] reuse Erdos1135.Tao.Probability.Pascal: exit=0 seconds=2.829
+START Erdos1135.Tao.Fourier.Section7ProductPenalty
+[6/399] reuse Erdos1135.CollatzStep: exit=0 seconds=2.878
+START Erdos1135.Terras.Core.Defs
+[7/399] reuse Erdos1135.Tao.Fourier.Section7ProductPenalty: exit=0 seconds=3.283
+START Erdos1135.Tao.Probability.PascalPrime
+[8/399] reuse Erdos1135.Terras.Core.Defs: exit=0 seconds=2.628
+START Erdos1135.Tao.Syracuse.Defs
+[9/399] reuse Erdos1135.Tao.Probability.PascalPrime: exit=0 seconds=5.736
+START Erdos1135.Tao.Fourier.Section7WhiteHitSplit
+[10/399] reuse Erdos1135.Tao.Syracuse.Defs: exit=0 seconds=2.53
+START Erdos1135.Tao.Syracuse.Basic
+[11/399] reuse Erdos1135.Tao.Fourier.Section7WhiteHitSplit: exit=0 seconds=2.779
+START Erdos1135.Tao.Renewal.HoldPoint
+[12/399] reuse Erdos1135.Tao.Syracuse.Basic: exit=0 seconds=2.882
+START Erdos1135.Tao.Syracuse.Affine
+[13/399] reuse Erdos1135.Tao.Renewal.HoldPoint: exit=0 seconds=2.78
+START Erdos1135.Tao.Renewal.QFinite
+[14/399] reuse Erdos1135.Tao.Syracuse.Affine: exit=0 seconds=3.082
+START Erdos1135.Tao.Probability.Truncation
+[15/399] reuse Erdos1135.Tao.Probability.Truncation: exit=0 seconds=2.681
+START Erdos1135.Tao.Syracuse.ParityBridge
+[16/399] reuse Erdos1135.Tao.Renewal.QFinite: exit=0 seconds=3.033
+START Erdos1135.Tao.Renewal.SourceListBridge
+[17/399] reuse Erdos1135.Tao.Syracuse.ParityBridge: exit=0 seconds=2.631
+START Erdos1135.Tao.Syracuse.ValuationDistribution
+[18/399] reuse Erdos1135.Tao.Renewal.SourceListBridge: exit=0 seconds=3.181
+START Erdos1135.Tao.Fourier.Section7Geometry
+[19/399] reuse Erdos1135.Tao.Syracuse.ValuationDistribution: exit=0 seconds=3.081
+START Erdos1135.Tao.Syracuse.Syrac
+[20/399] reuse Erdos1135.Tao.Fourier.Section7Geometry: exit=0 seconds=19.817
+START Erdos1135.Tao.Probability.PascalPrimeList
+[21/399] reuse Erdos1135.Tao.Syracuse.Syrac: exit=0 seconds=4.586
+START Erdos1135.Tao.Fourier.Basic
+[22/399] reuse Erdos1135.Tao.Probability.PascalPrimeList: exit=0 seconds=3.334
+START Erdos1135.Tao.Renewal.HoldPMF
+[23/399] reuse Erdos1135.Tao.Fourier.Basic: exit=0 seconds=2.984
+START Erdos1135.Tao.Fourier.DecayStatement
+[24/399] reuse Erdos1135.Tao.Renewal.HoldPMF: exit=0 seconds=2.736
+START Erdos1135.Tao.Renewal.HoldExpectation
+[25/399] reuse Erdos1135.Tao.Fourier.DecayStatement: exit=0 seconds=2.729
+START Erdos1135.Tao.Fourier.Section7Character
+[26/399] reuse Erdos1135.Tao.Renewal.HoldExpectation: exit=0 seconds=3.479
+START Erdos1135.Tao.Renewal.HoldIID
+[27/399] reuse Erdos1135.Tao.Fourier.Section7Character: exit=0 seconds=5.741
+START Erdos1135.Tao.Fourier.Section7Cancellation
+[28/399] reuse Erdos1135.Tao.Renewal.HoldIID: exit=0 seconds=3.58
+START Erdos1135.Tao.Fourier.Section7SourceLaw
+[29/399] reuse Erdos1135.Tao.Fourier.Section7Cancellation: exit=0 seconds=5.99
+START Erdos1135.Tao.Fourier.Section7SourceFThreeQFinite
+[30/399] reuse Erdos1135.Tao.Fourier.Section7SourceLaw: exit=0 seconds=3.531
+START Erdos1135.Tao.Fourier.Section7SourcePairing
+[31/399] reuse Erdos1135.Tao.Fourier.Section7SourceFThreeQFinite: exit=0 seconds=2.978
+START Erdos1135.Tao.Fourier.Section7SourcePredicates
+[32/399] reuse Erdos1135.Tao.Fourier.Section7SourcePairing: exit=0 seconds=2.78
+START Erdos1135.Tao.Fourier.Section7PairFiber
+[33/399] reuse Erdos1135.Tao.Fourier.Section7SourcePredicates: exit=0 seconds=2.682
+START Erdos1135.Tao.Fourier.Section7SourceDomain
+[34/399] reuse Erdos1135.Tao.Fourier.Section7PairFiber: exit=0 seconds=4.282
+START Erdos1135.Tao.Fourier.Section7PairExpansion
+[35/399] reuse Erdos1135.Tao.Fourier.Section7SourceDomain: exit=0 seconds=2.83
+START Erdos1135.Tao.Renewal.QExpectation
+[36/399] reuse Erdos1135.Tao.Fourier.Section7PairExpansion: exit=0 seconds=5.488
+START Erdos1135.Tao.Fourier.Section7PairExpectation
+[37/399] reuse Erdos1135.Tao.Renewal.QExpectation: exit=0 seconds=2.481
+START Erdos1135.Tao.Renewal.QFiniteApprox
+[38/399] reuse Erdos1135.Tao.Fourier.Section7PairExpectation: exit=0 seconds=6.094
+START Erdos1135.Tao.Renewal.SourceRegeneration
+[39/399] reuse Erdos1135.Tao.Renewal.QFiniteApprox: exit=0 seconds=3.531
+START Erdos1135.Tao.Renewal.QActualRecursion
+[40/399] reuse Erdos1135.Tao.Renewal.SourceRegeneration: exit=0 seconds=3.58
+START Erdos1135.Tao.Probability.FullL1
+[41/399] reuse Erdos1135.Tao.Renewal.QActualRecursion: exit=0 seconds=2.781
+START Erdos1135.Tao.Renewal.QActualLimit
+[42/399] reuse Erdos1135.Tao.Probability.FullL1: exit=0 seconds=2.229
+START Erdos1135.Tao.Probability.Geom2ListProjectivity
+[43/399] reuse Erdos1135.Tao.Renewal.QActualLimit: exit=0 seconds=2.731
+START Erdos1135.Tao.Renewal.SourceActualQ
+[44/399] reuse Erdos1135.Tao.Probability.Geom2ListProjectivity: exit=0 seconds=2.982
+START Erdos1135.Tao.Syracuse.OffsetInjectivity
+[45/399] reuse Erdos1135.Tao.Renewal.SourceActualQ: exit=0 seconds=2.634
+START Erdos1135.Tao.Renewal.SourceCutoffStabilization
+[46/399] reuse Erdos1135.Tao.Syracuse.OffsetInjectivity: exit=0 seconds=3.582
+START Erdos1135.Tao.Syracuse.AffineReverse
+[47/399] reuse Erdos1135.Tao.Renewal.SourceCutoffStabilization: exit=0 seconds=2.979
+START Erdos1135.Tao.Fourier.Section7SChiActualQ
+[48/399] reuse Erdos1135.Tao.Syracuse.AffineReverse: exit=0 seconds=3.379
+START Erdos1135.Tao.Probability.Geom2ListReverse
+[49/399] reuse Erdos1135.Tao.Fourier.Section7SChiActualQ: exit=0 seconds=3.883
+START Erdos1135.Tao.Syracuse.AffineEnvelope
+[50/399] reuse Erdos1135.Tao.Probability.Geom2ListReverse: exit=0 seconds=2.577
+START Erdos1135.Tao.Syracuse.AffineOdd
+[51/399] reuse Erdos1135.Tao.Syracuse.AffineEnvelope: exit=0 seconds=2.729
+START Erdos1135.Tao.Syracuse.OddSource
+[52/399] reuse Erdos1135.Tao.Syracuse.AffineOdd: exit=0 seconds=3.081
+START Erdos1135.Tao.Fourier.MixingStatement
+[53/399] reuse Erdos1135.Tao.Syracuse.OddSource: exit=0 seconds=2.481
+START Erdos1135.Tao.Syracuse.AffineResidue
+[54/399] reuse Erdos1135.Tao.Fourier.MixingStatement: exit=0 seconds=2.628
+START Erdos1135.Tao.Section6.ModulusProjection
+[55/399] reuse Erdos1135.Tao.Syracuse.AffineResidue: exit=0 seconds=3.385
+START Erdos1135.Tao.Section5.AffineSourceLaw
+[56/399] reuse Erdos1135.Tao.Section6.ModulusProjection: exit=0 seconds=3.232
+START Erdos1135.Tao.Section6.ConductorProjectivity
+[57/399] reuse Erdos1135.Tao.Section6.ConductorProjectivity: exit=0 seconds=2.928
+[58/399] reuse Erdos1135.Tao.Section5.AffineSourceLaw: exit=0 seconds=3.179
+START Erdos1135.Tao.Section6.ConductorDFT
+START Erdos1135.Tao.Section6.Corollary63
+[59/399] reuse Erdos1135.Tao.Section6.ConductorDFT: exit=0 seconds=3.487
+START Erdos1135.Tao.Section6.ConductorIndex
+[60/399] reuse Erdos1135.Tao.Section6.Corollary63: exit=0 seconds=13.717
+START Erdos1135.Tao.Section6.FiniteFourierConvolution
+[61/399] reuse Erdos1135.Tao.Section6.ConductorIndex: exit=0 seconds=2.979
+START Erdos1135.Tao.Section6.ConductorFrequency
+[62/399] reuse Erdos1135.Tao.Section6.FiniteFourierConvolution: exit=0 seconds=3.079
+START Erdos1135.Tao.Section6.FiniteFourierParseval
+[63/399] reuse Erdos1135.Tao.Section6.ConductorFrequency: exit=0 seconds=3.632
+START Erdos1135.Tao.Section6.FiberAverageDFT
+[64/399] reuse Erdos1135.Tao.Section6.FiniteFourierParseval: exit=0 seconds=3.529
+START Erdos1135.Tao.Section6.AmbientTailDFT
+[65/399] reuse Erdos1135.Tao.Section6.FiberAverageDFT: exit=0 seconds=6.037
+START Erdos1135.Tao.Section6.FiniteFourierCollision
+[66/399] reuse Erdos1135.Tao.Section6.AmbientTailDFT: exit=0 seconds=3.13
+START Erdos1135.Tao.Section6.AmbientOffsetAppend
+[67/399] reuse Erdos1135.Tao.Section6.FiniteFourierCollision: exit=0 seconds=3.534
+START Erdos1135.Tao.Section6.Cor63HeadPrefix
+[68/399] reuse Erdos1135.Tao.Section6.AmbientOffsetAppend: exit=0 seconds=4.132
+START Erdos1135.Tao.Probability.GatedSubmass
+[69/399] reuse Erdos1135.Tao.Section6.Cor63HeadPrefix: exit=0 seconds=2.928
+START Erdos1135.Tao.Section6.HeadGate
+[70/399] reuse Erdos1135.Tao.Probability.GatedSubmass: exit=0 seconds=2.78
+START Erdos1135.Tao.Section6.OptionHeadTailConvolution
+[71/399] reuse Erdos1135.Tao.Section6.HeadGate: exit=0 seconds=2.634
+START Erdos1135.Tao.Section6.HeadGateLocalization
+[72/399] reuse Erdos1135.Tao.Section6.OptionHeadTailConvolution: exit=0 seconds=2.881
+START Erdos1135.Tao.Syracuse.AffineTrajectory
+[73/399] reuse Erdos1135.Tao.Section6.HeadGateLocalization: exit=0 seconds=3.431
+START Erdos1135.Tao.Section6.HeadSubmass
+[74/399] reuse Erdos1135.Tao.Syracuse.AffineTrajectory: exit=0 seconds=2.631
+START Erdos1135.Terras.Density.NaturalDensity
+[75/399] reuse Erdos1135.Tao.Section6.HeadSubmass: exit=0 seconds=2.629
+START Erdos1135.Tao.Section6.GatedSourceConvolution
+[76/399] reuse Erdos1135.Terras.Density.NaturalDensity: exit=0 seconds=1.881
+START Erdos1135.ND.PositiveDensity.CommonZReverseGenerator
+[77/399] reuse Erdos1135.Tao.Section6.GatedSourceConvolution: exit=0 seconds=3.028
+START Erdos1135.ND.Fourier.FixedTotalReferenceRatio
+[78/399] reuse Erdos1135.ND.PositiveDensity.CommonZReverseGenerator: exit=0 seconds=2.881
+START Erdos1135.Tao.Syracuse.FirstPassageInterval
+[79/399] reuse Erdos1135.ND.Fourier.FixedTotalReferenceRatio: exit=0 seconds=2.529
+START Erdos1135.ND.PositiveDensity.TerminalTotalCancellation
+[80/399] reuse Erdos1135.Tao.Syracuse.FirstPassageInterval: exit=0 seconds=2.579
+START Erdos1135.Tao.Syracuse.CollatzBridge
+[81/399] reuse Erdos1135.ND.PositiveDensity.TerminalTotalCancellation: exit=0 seconds=2.677
+START Erdos1135.ND.PositiveDensity.BoundedPMFDisintegration
+[82/399] reuse Erdos1135.Tao.Syracuse.CollatzBridge: exit=0 seconds=2.731
+START Erdos1135.Tao.Syracuse.LogTimeCollatzBridge
+[83/399] reuse Erdos1135.Tao.Syracuse.LogTimeCollatzBridge: exit=0 seconds=2.628
+START Erdos1135.ND.PositiveDensity.CommonZPathTelescoping
+[84/399] reuse Erdos1135.ND.PositiveDensity.BoundedPMFDisintegration: exit=0 seconds=10.046
+START Erdos1135.Tao.Probability.CountableMarkov
+[85/399] reuse Erdos1135.Tao.Probability.CountableMarkov: exit=0 seconds=2.432
+START Erdos1135.Tao.Probability.Geom2TerminalMoment
+[86/399] reuse Erdos1135.ND.PositiveDensity.CommonZPathTelescoping: exit=0 seconds=2.833
+START Erdos1135.Tao.Section5.FiveStepCompression
+[87/399] reuse Erdos1135.Tao.Section5.FiveStepCompression: exit=0 seconds=2.681
+START Erdos1135.Tao.Syracuse.TruncatedValuationPacking
+[88/399] reuse Erdos1135.Tao.Probability.Geom2TerminalMoment: exit=0 seconds=2.532
+START Erdos1135.Tao.Probability.GatedSubmassPartition
+[89/399] reuse Erdos1135.Tao.Probability.GatedSubmassPartition: exit=0 seconds=5.035
+START Erdos1135.Tao.Probability.GatedSubmassComplement
+[90/399] reuse Erdos1135.Tao.Syracuse.TruncatedValuationPacking: exit=0 seconds=2.831
+START Erdos1135.ND.PositiveDensity.CommonZEndpointPrefixFactorization
+[91/399] reuse Erdos1135.Tao.Probability.GatedSubmassComplement: exit=0 seconds=2.677
+START Erdos1135.Tao.Fourier.OscillationAlgebra
+[92/399] reuse Erdos1135.ND.PositiveDensity.CommonZEndpointPrefixFactorization: exit=0 seconds=2.678
+START Erdos1135.Tao.Probability.Geom2CenteredMoment
+[93/399] reuse Erdos1135.Tao.Fourier.OscillationAlgebra: exit=0 seconds=3.731
+START Erdos1135.Tao.Section6.UniformLift
+[94/399] reuse Erdos1135.Tao.Probability.Geom2CenteredMoment: exit=0 seconds=8.389
+START Erdos1135.Tao.Section5.EndpointRatio
+[95/399] reuse Erdos1135.Tao.Section6.UniformLift: exit=0 seconds=3.629
+START Erdos1135.ND.PositiveDensity.CommonZFullReverseKernel
+[96/399] reuse Erdos1135.Tao.Section5.EndpointRatio: exit=0 seconds=2.583
+START Erdos1135.ND.PositiveDensity.Statement
+[97/399] reuse Erdos1135.ND.PositiveDensity.CommonZFullReverseKernel: exit=0 seconds=3.582
+START Erdos1135.ND.PositiveDensity.GatedFiberCovariance
+[98/399] reuse Erdos1135.ND.PositiveDensity.Statement: exit=0 seconds=2.628
+START Erdos1135.ND.Probability.Geom2FiniteTwoEventTail
+[99/399] reuse Erdos1135.ND.PositiveDensity.GatedFiberCovariance: exit=0 seconds=2.731
+START Erdos1135.ND.PositiveDensity.CommonZKCapLongTailFiberCentering
+[100/399] reuse Erdos1135.ND.Probability.Geom2FiniteTwoEventTail: exit=0 seconds=2.579
+START Erdos1135.Tao.Renewal.RenewalPathBasic
+[101/399] reuse Erdos1135.ND.PositiveDensity.CommonZKCapLongTailFiberCentering: exit=0 seconds=3.588
+START Erdos1135.Tao.Renewal.Outer736SourceAlgebra
+[102/399] reuse Erdos1135.Tao.Renewal.RenewalPathBasic: exit=0 seconds=2.777
+START Erdos1135.Tao.Renewal.Lemma77PotentialCore
+[103/399] reuse Erdos1135.Tao.Renewal.Outer736SourceAlgebra: exit=0 seconds=4.732
+START Erdos1135.Tao.Renewal.Prop78Case1Scalar
+[104/399] reuse Erdos1135.Tao.Renewal.Lemma77PotentialCore: exit=0 seconds=3.381
+START Erdos1135.Tao.Renewal.Lemma77PascalPotential
+[105/399] reuse Erdos1135.Tao.Renewal.Prop78Case1Scalar: exit=0 seconds=6.89
+START Erdos1135.Tao.Renewal.QmStatement
+[106/399] reuse Erdos1135.Tao.Renewal.Lemma77PascalPotential: exit=0 seconds=5.734
+START Erdos1135.Tao.Renewal.Lemma77PascalComposition
+[107/399] reuse Erdos1135.Tao.Renewal.QmStatement: exit=0 seconds=3.53
+START Erdos1135.Tao.Renewal.Outer736HoldExpectation
+[108/399] reuse Erdos1135.Tao.Renewal.Lemma77PascalComposition: exit=0 seconds=6.287
+START Erdos1135.Tao.Renewal.Lemma77PascalFormula
+[109/399] reuse Erdos1135.Tao.Renewal.Outer736HoldExpectation: exit=0 seconds=11.954
+START Erdos1135.Tao.Renewal.VerticalFirstPassageBasic
+[110/399] reuse Erdos1135.Tao.Renewal.Lemma77PascalFormula: exit=0 seconds=3.731
+START Erdos1135.Tao.Renewal.Lemma77PascalGaussian
+[111/399] reuse Erdos1135.Tao.Renewal.VerticalFirstPassageBasic: exit=0 seconds=2.778
+START Erdos1135.Tao.Renewal.HoldFirstPassagePMF
+[112/399] reuse Erdos1135.Tao.Renewal.Lemma77PascalGaussian: exit=0 seconds=11.303
+START Erdos1135.Tao.Renewal.HoldStoppedTail
+[113/399] reuse Erdos1135.Tao.Renewal.HoldFirstPassagePMF: exit=0 seconds=3.633
+START Erdos1135.Tao.Renewal.CanonicalFirstPassageEndpoint
+[114/399] reuse Erdos1135.Tao.Renewal.HoldStoppedTail: exit=0 seconds=2.728
+START Erdos1135.Tao.Renewal.SeparatedWindowSum
+[115/399] reuse Erdos1135.Tao.Renewal.CanonicalFirstPassageEndpoint: exit=0 seconds=2.881
+START Erdos1135.Tao.Renewal.GeometryBridge
+[116/399] reuse Erdos1135.Tao.Renewal.SeparatedWindowSum: exit=0 seconds=2.684
+START Erdos1135.Tao.Renewal.Lemma710KernelWindow
+[117/399] reuse Erdos1135.Tao.Renewal.GeometryBridge: exit=0 seconds=2.833
+START Erdos1135.Tao.Renewal.Prop78Case3Event
+[118/399] reuse Erdos1135.Tao.Renewal.Lemma710KernelWindow: exit=0 seconds=2.98
+START Erdos1135.Tao.Probability.HoldExpWeight
+[119/399] reuse Erdos1135.Tao.Renewal.Prop78Case3Event: exit=0 seconds=4.687
+START Erdos1135.Tao.Renewal.Prop78Case3TriangleExit
+[120/399] reuse Erdos1135.Tao.Probability.HoldExpWeight: exit=0 seconds=3.936
+START Erdos1135.Tao.Renewal.Prop78Case3CutoffAlignment
+[121/399] reuse Erdos1135.Tao.Renewal.Prop78Case3TriangleExit: exit=0 seconds=2.882
+START Erdos1135.Tao.Renewal.PathGrowth
+[122/399] reuse Erdos1135.Tao.Renewal.Prop78Case3CutoffAlignment: exit=0 seconds=2.779
+START Erdos1135.Tao.Fourier.Lemma74ThetaArithmetic
+[123/399] reuse Erdos1135.Tao.Renewal.PathGrowth: exit=0 seconds=3.183
+START Erdos1135.Tao.Renewal.Prop78Case3Stopping
+[124/399] reuse Erdos1135.Tao.Fourier.Lemma74ThetaArithmetic: exit=0 seconds=6.942
+START Erdos1135.Tao.Fourier.Lemma74PrimitiveStrip
+[125/399] reuse Erdos1135.Tao.Renewal.Prop78Case3Stopping: exit=0 seconds=3.385
+START Erdos1135.Tao.Renewal.Lemma710PostStoppedKernel
+[126/399] reuse Erdos1135.Tao.Fourier.Lemma74PrimitiveStrip: exit=0 seconds=8.293
+START Erdos1135.Tao.Fourier.Lemma74ClaimStarScalars
+[127/399] reuse Erdos1135.Tao.Renewal.Lemma710PostStoppedKernel: exit=0 seconds=2.828
+START Erdos1135.Tao.Renewal.Lemma710EprimeProbability
+[128/399] reuse Erdos1135.Tao.Fourier.Lemma74ClaimStarScalars: exit=0 seconds=5.284
+START Erdos1135.Tao.Fourier.Lemma74SoutheastTransport
+[129/399] reuse Erdos1135.Tao.Renewal.Lemma710EprimeProbability: exit=0 seconds=2.526
+START Erdos1135.Tao.Renewal.Lemma77HorizontalMarginal
+[130/399] reuse Erdos1135.Tao.Fourier.Lemma74SoutheastTransport: exit=0 seconds=3.431
+START Erdos1135.Tao.Fourier.Lemma74CanonicalRaw
+[131/399] reuse Erdos1135.Tao.Renewal.Lemma77HorizontalMarginal: exit=0 seconds=2.678
+START Erdos1135.Tao.Renewal.Lemma77FirstPassageEndpoint
+[132/399] reuse Erdos1135.Tao.Fourier.Lemma74CanonicalRaw: exit=0 seconds=6.295
+START Erdos1135.Tao.Renewal.Lemma77LocalLimit
+[133/399] reuse Erdos1135.Tao.Renewal.Lemma77FirstPassageEndpoint: exit=0 seconds=2.58
+START Erdos1135.Tao.Fourier.Lemma74ClaimStarMetric
+[134/399] reuse Erdos1135.Tao.Renewal.Lemma77LocalLimit: exit=0 seconds=27.192
+START Erdos1135.Tao.Renewal.Lemma77EndpointAssembly
+[135/399] reuse Erdos1135.Tao.Fourier.Lemma74ClaimStarMetric: exit=0 seconds=4.684
+START Erdos1135.Tao.Fourier.Lemma74ClaimStarPropagation
+[136/399] reuse Erdos1135.Tao.Renewal.Lemma77EndpointAssembly: exit=0 seconds=5.741
+START Erdos1135.Tao.Renewal.CanonicalFirstPassageTerminal
+[137/399] reuse Erdos1135.Tao.Fourier.Lemma74ClaimStarPropagation: exit=0 seconds=4.787
+START Erdos1135.Tao.Renewal.Lemma77TerminalHoldMoment
+[138/399] reuse Erdos1135.Tao.Renewal.CanonicalFirstPassageTerminal: exit=0 seconds=4.133
+START Erdos1135.Tao.Fourier.Lemma74CanonicalClaimStar
+[139/399] reuse Erdos1135.Tao.Renewal.Lemma77TerminalHoldMoment: exit=0 seconds=5.338
+START Erdos1135.Tao.Renewal.CanonicalFirstPassageHorizontal
+[140/399] reuse Erdos1135.Tao.Fourier.Lemma74CanonicalClaimStar: exit=0 seconds=5.835
+START Erdos1135.Tao.Fourier.Lemma74CanonicalSourceMem
+[141/399] reuse Erdos1135.Tao.Renewal.CanonicalFirstPassageHorizontal: exit=0 seconds=3.431
+START Erdos1135.Tao.Renewal.CanonicalFirstPassageTails
+[142/399] reuse Erdos1135.Tao.Fourier.Lemma74CanonicalSourceMem: exit=0 seconds=3.433
+START Erdos1135.Tao.Fourier.Lemma74CanonicalCoherence
+[143/399] reuse Erdos1135.Tao.Renewal.CanonicalFirstPassageTails: exit=0 seconds=9.195
+START Erdos1135.Tao.Renewal.CanonicalFirstPassageLocalizedMass
+[144/399] reuse Erdos1135.Tao.Fourier.Lemma74CanonicalCoherence: exit=0 seconds=3.883
+START Erdos1135.Tao.Fourier.Lemma74CanonicalFamily
+[145/399] reuse Erdos1135.Tao.Renewal.CanonicalFirstPassageLocalizedMass: exit=0 seconds=3.029
+START Erdos1135.Tao.Renewal.Prop78Boundary
+[146/399] reuse Erdos1135.Tao.Fourier.Lemma74CanonicalFamily: exit=0 seconds=3.231
+START Erdos1135.Tao.Renewal.Prop78Threshold
+[147/399] reuse Erdos1135.Tao.Renewal.Prop78Boundary: exit=0 seconds=2.828
+START Erdos1135.Tao.Renewal.Prop78Case1White
+[148/399] reuse Erdos1135.Tao.Renewal.Prop78Threshold: exit=0 seconds=2.779
+START Erdos1135.Tao.Renewal.Prop78CaseAssembly
+[149/399] reuse Erdos1135.Tao.Renewal.Prop78Case1White: exit=0 seconds=4.233
+START Erdos1135.Tao.Renewal.HoldListHorizontalMoment
+[150/399] reuse Erdos1135.Tao.Renewal.Prop78CaseAssembly: exit=0 seconds=2.778
+START Erdos1135.Tao.Renewal.Prop78ActiveCover
+[151/399] reuse Erdos1135.Tao.Renewal.HoldListHorizontalMoment: exit=0 seconds=3.882
+START Erdos1135.Tao.Renewal.CanonicalFirstPassageExpMoment
+[152/399] reuse Erdos1135.Tao.Renewal.Prop78ActiveCover: exit=0 seconds=2.781
+START Erdos1135.Tao.Renewal.Prop78Case2Discount
+[153/399] reuse Erdos1135.Tao.Renewal.CanonicalFirstPassageExpMoment: exit=0 seconds=3.437
+START Erdos1135.Tao.Renewal.Prop78Case2MomentScalar
+[154/399] reuse Erdos1135.Tao.Renewal.Prop78Case2Discount: exit=0 seconds=4.086
+START Erdos1135.Tao.Renewal.Prop78Case2EndpointSplit
+[155/399] reuse Erdos1135.Tao.Renewal.Prop78Case2MomentScalar: exit=0 seconds=4.185
+START Erdos1135.Tao.Renewal.Prop78Case2Geometry
+[156/399] reuse Erdos1135.Tao.Renewal.Prop78Case2EndpointSplit: exit=0 seconds=2.779
+START Erdos1135.Tao.Renewal.Lemma79TailExpectationCore
+[157/399] reuse Erdos1135.Tao.Renewal.Prop78Case2Geometry: exit=0 seconds=8.993
+START Erdos1135.Tao.Renewal.Prop78Case2Pointwise
+[158/399] reuse Erdos1135.Tao.Renewal.Lemma79TailExpectationCore: exit=0 seconds=4.032
+START Erdos1135.Tao.Renewal.QPrefixFactor
+[159/399] reuse Erdos1135.Tao.Renewal.Prop78Case2Pointwise: exit=0 seconds=2.782
+START Erdos1135.Tao.Renewal.Prop78Case3EStarSupportProducer
+[160/399] reuse Erdos1135.Tao.Renewal.QPrefixFactor: exit=0 seconds=2.778
+START Erdos1135.Tao.Renewal.QStoppedApprox
+[161/399] reuse Erdos1135.Tao.Renewal.Prop78Case3EStarSupportProducer: exit=0 seconds=3.333
+START Erdos1135.Tao.Renewal.Prop78Case3BaseKcutFiniteSum
+[162/399] reuse Erdos1135.Tao.Renewal.QStoppedApprox: exit=0 seconds=3.934
+START Erdos1135.Tao.Renewal.QStoppedEndpoint
+[163/399] reuse Erdos1135.Tao.Renewal.Prop78Case3BaseKcutFiniteSum: exit=0 seconds=4.938
+START Erdos1135.Tao.Renewal.Lemma79InclusiveTrace
+[164/399] reuse Erdos1135.Tao.Renewal.QStoppedEndpoint: exit=0 seconds=3.38
+START Erdos1135.Tao.Renewal.Prop78Case2Expectation
+[165/399] reuse Erdos1135.Tao.Renewal.Prop78Case2Expectation: exit=0 seconds=3.235
+START Erdos1135.Tao.Renewal.Lemma79CanonicalExitWhite
+[166/399] reuse Erdos1135.Tao.Renewal.Lemma79InclusiveTrace: exit=0 seconds=4.533
+START Erdos1135.Tao.Renewal.Lemma79CutoffLocality
+[167/399] reuse Erdos1135.Tao.Renewal.Lemma79CanonicalExitWhite: exit=0 seconds=3.28
+START Erdos1135.Tao.Renewal.Lemma79R2Scalar
+[168/399] reuse Erdos1135.Tao.Renewal.Lemma79CutoffLocality: exit=0 seconds=2.929
+START Erdos1135.Tao.Renewal.Lemma79CutoffStatistic
+[169/399] reuse Erdos1135.Tao.Renewal.Lemma79R2Scalar: exit=0 seconds=3.082
+START Erdos1135.Tao.Renewal.Lemma79FirstEntryCylinder
+[170/399] reuse Erdos1135.Tao.Renewal.Lemma79CutoffStatistic: exit=0 seconds=3.035
+START Erdos1135.Tao.Renewal.Lemma79CanonicalTraceProjection
+[171/399] reuse Erdos1135.Tao.Renewal.Lemma79FirstEntryCylinder: exit=0 seconds=2.879
+START Erdos1135.Tao.Renewal.Lemma79FirstEntryFiberLaw
+[172/399] reuse Erdos1135.Tao.Renewal.Lemma79CanonicalTraceProjection: exit=0 seconds=2.981
+START Erdos1135.Tao.Renewal.Lemma79Restart
+[173/399] reuse Erdos1135.Tao.Renewal.Lemma79Restart: exit=0 seconds=3.881
+START Erdos1135.Tao.Renewal.Lemma79FirstExit
+[174/399] reuse Erdos1135.Tao.Renewal.Lemma79FirstEntryFiberLaw: exit=0 seconds=3.383
+START Erdos1135.Tao.Renewal.Lemma79R2EndpointContraction
+[175/399] reuse Erdos1135.Tao.Renewal.Lemma79FirstExit: exit=0 seconds=3.736
+START Erdos1135.Tao.Renewal.Lemma79FirstEntryCount
+[176/399] reuse Erdos1135.Tao.Renewal.Lemma79R2EndpointContraction: exit=0 seconds=3.531
+START Erdos1135.Tao.Renewal.Lemma79ClockDeath
+[177/399] reuse Erdos1135.Tao.Renewal.Lemma79FirstEntryCount: exit=0 seconds=3.132
+START Erdos1135.Tao.Renewal.Lemma79Recurrence
+[178/399] reuse Erdos1135.Tao.Renewal.Lemma79ClockDeath: exit=0 seconds=2.882
+START Erdos1135.Tao.Renewal.PMFExpectationThreeRegion
+[179/399] reuse Erdos1135.Tao.Renewal.Lemma79Recurrence: exit=0 seconds=3.434
+START Erdos1135.Tao.Renewal.Lemma79R2Pointwise
+[180/399] reuse Erdos1135.Tao.Renewal.PMFExpectationThreeRegion: exit=0 seconds=4.784
+START Erdos1135.Tao.Renewal.Outer754HorizontalFactor
+[181/399] reuse Erdos1135.Tao.Renewal.Lemma79R2Pointwise: exit=0 seconds=2.983
+START Erdos1135.Tao.Renewal.Lemma79R2Aggregation
+[182/399] reuse Erdos1135.Tao.Renewal.Outer754HorizontalFactor: exit=0 seconds=3.832
+START Erdos1135.Tao.Renewal.Lemma79R2MasterAtom
+[183/399] reuse Erdos1135.Tao.Renewal.Lemma79R2Aggregation: exit=0 seconds=3.28
+START Erdos1135.Tao.Renewal.Lemma79R2MasterTransport
+[184/399] reuse Erdos1135.Tao.Renewal.Lemma79R2MasterAtom: exit=0 seconds=3.283
+START Erdos1135.Tao.Renewal.Lemma79R2PositiveKey
+[185/399] reuse Erdos1135.Tao.Renewal.Lemma79R2MasterTransport: exit=0 seconds=2.982
+START Erdos1135.Tao.Renewal.Lemma79PostExitFreshTail
+[186/399] reuse Erdos1135.Tao.Renewal.Lemma79R2PositiveKey: exit=0 seconds=3.032
+START Erdos1135.Tao.Renewal.Lemma79R2PositiveKeyBound
+[187/399] reuse Erdos1135.Tao.Renewal.Lemma79PostExitFreshTail: exit=0 seconds=3.131
+START Erdos1135.Tao.Renewal.Lemma79R3MasterAtom
+[188/399] reuse Erdos1135.Tao.Renewal.Lemma79R2PositiveKeyBound: exit=0 seconds=2.829
+START Erdos1135.Tao.Renewal.Lemma79R3Prefix
+[189/399] reuse Erdos1135.Tao.Renewal.Lemma79R3MasterAtom: exit=0 seconds=3.131
+START Erdos1135.Tao.Renewal.Outer754SourceWeight
+[190/399] reuse Erdos1135.Tao.Renewal.Lemma79R3Prefix: exit=0 seconds=2.778
+START Erdos1135.Tao.Renewal.Lemma79R3Pointwise
+[191/399] reuse Erdos1135.Tao.Renewal.Outer754SourceWeight: exit=0 seconds=2.829
+START Erdos1135.Tao.Renewal.Lemma79EndpointFreshCoordinates
+[192/399] reuse Erdos1135.Tao.Renewal.Lemma79EndpointFreshCoordinates: exit=0 seconds=2.731
+START Erdos1135.Tao.Renewal.QmHorizontalNormalization
+[193/399] reuse Erdos1135.Tao.Renewal.Lemma79R3Pointwise: exit=0 seconds=3.081
+START Erdos1135.Tao.Renewal.Lemma79R3AtomBound
+[194/399] reuse Erdos1135.Tao.Renewal.QmHorizontalNormalization: exit=0 seconds=3.331
+START Erdos1135.Tao.Renewal.QFiniteIteration
+[195/399] reuse Erdos1135.Tao.Renewal.Lemma79R3AtomBound: exit=0 seconds=3.282
+START Erdos1135.Tao.Renewal.Lemma79OneStepBound
+[196/399] reuse Erdos1135.Tao.Renewal.QFiniteIteration: exit=0 seconds=3.887
+START Erdos1135.Tao.Renewal.SourceActualQIteration
+[197/399] reuse Erdos1135.Tao.Renewal.Lemma79OneStepBound: exit=0 seconds=3.733
+START Erdos1135.Tao.Renewal.Lemma79AllRBound
+[198/399] reuse Erdos1135.Tao.Renewal.SourceActualQIteration: exit=0 seconds=2.732
+START Erdos1135.Tao.Renewal.CanonicalFirstPassageSignedSparse
+[199/399] reuse Erdos1135.Tao.Renewal.Lemma79AllRBound: exit=0 seconds=2.829
+START Erdos1135.Tao.Renewal.Lemma79NativeMarkov
+[200/399] reuse Erdos1135.Tao.Renewal.CanonicalFirstPassageSignedSparse: exit=0 seconds=6.844
+START Erdos1135.Tao.Renewal.Lemma79EndpointFreshLaw
+[201/399] reuse Erdos1135.Tao.Renewal.Lemma79NativeMarkov: exit=0 seconds=3.135
+START Erdos1135.Tao.Renewal.Lemma79Case3EventAdapter
+[202/399] reuse Erdos1135.Tao.Renewal.Lemma79EndpointFreshLaw: exit=0 seconds=2.932
+START Erdos1135.Tao.Renewal.QEndpointFreshDomain
+[203/399] reuse Erdos1135.Tao.Renewal.Lemma79Case3EventAdapter: exit=0 seconds=3.131
+START Erdos1135.Tao.Renewal.QEndpointFreshTower
+[204/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshDomain: exit=0 seconds=3.286
+START Erdos1135.Tao.Renewal.QEndpointFreshCount
+[205/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshTower: exit=0 seconds=3.329
+START Erdos1135.Tao.Renewal.QEndpointFreshSupport
+[206/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshCount: exit=0 seconds=2.982
+START Erdos1135.Tao.Renewal.QEndpointFreshCloseout
+[207/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshSupport: exit=0 seconds=2.881
+START Erdos1135.Tao.Renewal.SeparatedWindowGeometry
+[208/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshCloseout: exit=0 seconds=3.182
+START Erdos1135.Tao.Renewal.QEndpointFreshPriorityPartition
+[209/399] reuse Erdos1135.Tao.Renewal.SeparatedWindowGeometry: exit=0 seconds=2.88
+START Erdos1135.Tao.Renewal.CanonicalFirstPassageSignedAverage
+[210/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshPriorityPartition: exit=0 seconds=4.583
+START Erdos1135.Tao.Renewal.QEndpointFreshSurvival
+[211/399] reuse Erdos1135.Tao.Renewal.CanonicalFirstPassageSignedAverage: exit=0 seconds=2.983
+START Erdos1135.Tao.Renewal.CanonicalFirstPassageSignedTotal
+[212/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshSurvival: exit=0 seconds=3.681
+START Erdos1135.Tao.Renewal.Prop78Case3FixedParameters
+[213/399] reuse Erdos1135.Tao.Renewal.CanonicalFirstPassageSignedTotal: exit=0 seconds=4.534
+START Erdos1135.Tao.Renewal.SeparatedWindowFlattening
+[214/399] reuse Erdos1135.Tao.Renewal.Prop78Case3FixedParameters: exit=0 seconds=2.829
+START Erdos1135.Tao.Renewal.PMFIntWindowUnion
+[215/399] reuse Erdos1135.Tao.Renewal.PMFIntWindowUnion: exit=0 seconds=3.136
+START Erdos1135.Tao.Renewal.QEndpointFreshEStarMass
+[216/399] reuse Erdos1135.Tao.Renewal.SeparatedWindowFlattening: exit=0 seconds=13.006
+START Erdos1135.Tao.Renewal.CanonicalFirstPassageSignedCenterSum
+[217/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshEStarMass: exit=0 seconds=3.035
+START Erdos1135.Tao.Renewal.QEndpointFreshEStarFiber
+[218/399] reuse Erdos1135.Tao.Renewal.CanonicalFirstPassageSignedCenterSum: exit=0 seconds=3.633
+START Erdos1135.Tao.Renewal.CanonicalFirstPassageSigmaCenters
+[219/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshEStarFiber: exit=0 seconds=2.878
+START Erdos1135.Tao.Renewal.QEndpointFreshEStarEprime
+[220/399] reuse Erdos1135.Tao.Renewal.CanonicalFirstPassageSigmaCenters: exit=0 seconds=3.781
+START Erdos1135.Tao.Renewal.Prop78Case3PriorityScalar
+[221/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshEStarEprime: exit=0 seconds=2.88
+START Erdos1135.Tao.Renewal.QEndpointFreshOutsideEprimeNearSigma
+[222/399] reuse Erdos1135.Tao.Renewal.Prop78Case3PriorityScalar: exit=0 seconds=3.385
+START Erdos1135.Tao.Renewal.QEndpointFreshMarginals
+[223/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshOutsideEprimeNearSigma: exit=0 seconds=3.079
+START Erdos1135.Tao.Renewal.QEndpointFreshOutsideEprimeFiber
+[224/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshMarginals: exit=0 seconds=2.828
+START Erdos1135.Tao.Renewal.QEndpointFreshEprimeFourTail
+[225/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshOutsideEprimeFiber: exit=0 seconds=3.282
+START Erdos1135.Tao.Renewal.QEndpointFreshOutsideEprimeWindow
+[226/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshEprimeFourTail: exit=0 seconds=3.883
+START Erdos1135.Tao.Renewal.HoldListVerticalTail
+[227/399] reuse Erdos1135.Tao.Renewal.HoldListVerticalTail: exit=0 seconds=5.735
+START Erdos1135.Tao.Renewal.HoldListHorizontalTail
+[228/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshOutsideEprimeWindow: exit=0 seconds=2.881
+START Erdos1135.Tao.Renewal.QEndpointFreshOutsideEprimeHorizontal
+[229/399] reuse Erdos1135.Tao.Renewal.HoldListHorizontalTail: exit=0 seconds=3.48
+START Erdos1135.Tao.Renewal.QEndpointFreshEprimeMarginalMass
+[230/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshOutsideEprimeHorizontal: exit=0 seconds=2.88
+START Erdos1135.Tao.Renewal.QEndpointFreshOutsideEprimeScalar
+[231/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshEprimeMarginalMass: exit=0 seconds=3.035
+START Erdos1135.Tao.Renewal.QEndpointFreshPairFSlack
+[232/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshPairFSlack: exit=0 seconds=3.031
+START Erdos1135.Tao.Renewal.QEndpointFreshMiddleMass
+[233/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshOutsideEprimeScalar: exit=0 seconds=6.991
+START Erdos1135.Tao.Renewal.QEndpointFreshOutsideEprimeWidth
+[234/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshOutsideEprimeWidth: exit=0 seconds=5.889
+START Erdos1135.Tao.Renewal.Prop78Case3EventualScale
+[235/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshMiddleMass: exit=0 seconds=3.181
+START Erdos1135.Tao.Renewal.QEndpointFreshOutsideEprimeSourceWidth
+[236/399] reuse Erdos1135.Tao.Renewal.Prop78Case3EventualScale: exit=0 seconds=2.782
+START Erdos1135.Tao.Renewal.QEndpointFreshOuterBadJ
+[237/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshOutsideEprimeSourceWidth: exit=0 seconds=2.929
+START Erdos1135.Tao.Renewal.QEndpointFreshEprimeMasterWidth
+[238/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshEprimeMasterWidth: exit=0 seconds=3.434
+START Erdos1135.Tao.Renewal.QEndpointFreshEprimeHorizontalTail
+[239/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshOuterBadJ: exit=0 seconds=3.736
+START Erdos1135.Tao.Renewal.QEndpointFreshOutsideEprimeSourceMargin
+[240/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshOutsideEprimeSourceMargin: exit=0 seconds=2.981
+START Erdos1135.Tao.Renewal.QEndpointFreshOutsideEprimeBudget
+[241/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshEprimeHorizontalTail: exit=0 seconds=8.093
+START Erdos1135.Tao.Renewal.QEndpointFreshOuterBadJBoundary
+[242/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshOuterBadJBoundary: exit=0 seconds=3.079
+START Erdos1135.Tao.Section6.AdjacentOneStep
+[243/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshOutsideEprimeBudget: exit=0 seconds=3.989
+START Erdos1135.Tao.Renewal.QEndpointFreshOutsideEprimeNative
+[244/399] reuse Erdos1135.Tao.Section6.AdjacentOneStep: exit=0 seconds=2.98
+START Erdos1135.Tao.Section6.AmbientTailDecay
+[245/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshOutsideEprimeNative: exit=0 seconds=2.785
+START Erdos1135.Tao.Renewal.QEndpointFreshEStarCountable
+[246/399] reuse Erdos1135.Tao.Section6.AmbientTailDecay: exit=0 seconds=3.23
+START Erdos1135.Tao.Renewal.QEndpointFreshOutsideEprimeBoundary
+[247/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshEStarCountable: exit=0 seconds=2.932
+START Erdos1135.Tao.Renewal.QEndpointFreshEStarUniform
+[248/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshEStarUniform: exit=0 seconds=2.829
+START Erdos1135.Tao.Section6.GlobalTypicalEvent
+[249/399] reuse Erdos1135.Tao.Renewal.QEndpointFreshOutsideEprimeBoundary: exit=0 seconds=3.081
+START Erdos1135.Tao.Renewal.Prop78Pointwise737
+[250/399] reuse Erdos1135.Tao.Renewal.Prop78Pointwise737: exit=0 seconds=3.079
+START Erdos1135.Tao.Section6.HeadGateIndex
+[251/399] reuse Erdos1135.Tao.Section6.GlobalTypicalEvent: exit=0 seconds=2.885
+START Erdos1135.Tao.Section6.FixedSliceCollision
+[252/399] reuse Erdos1135.Tao.Section6.HeadGateIndex: exit=0 seconds=7.445
+START Erdos1135.Tao.Section6.FirstCrossingPartition
+[253/399] reuse Erdos1135.Tao.Section6.FixedSliceCollision: exit=0 seconds=2.981
+START Erdos1135.Tao.Section6.HeadEntropyScalar
+[254/399] reuse Erdos1135.Tao.Section6.FirstCrossingPartition: exit=0 seconds=10.653
+START Erdos1135.Tao.Section6.InversePowerTail
+[255/399] reuse Erdos1135.Tao.Section6.HeadEntropyScalar: exit=0 seconds=3.182
+START Erdos1135.Tao.Section6.FixedAmbientSlice
+[256/399] reuse Erdos1135.Tao.Section6.InversePowerTail: exit=0 seconds=2.48
+START Erdos1135.Tao.Section6.GlobalOscillationBound
+[257/399] reuse Erdos1135.Tao.Section6.FixedAmbientSlice: exit=0 seconds=2.785
+START Erdos1135.Tao.Section6.GatePartition
+[258/399] reuse Erdos1135.Tao.Section6.GlobalOscillationBound: exit=0 seconds=2.728
+START Erdos1135.Tao.Section6.AdjacentTelescope
+[259/399] reuse Erdos1135.Tao.Section6.GatePartition: exit=0 seconds=3.283
+START Erdos1135.Tao.Section6.EventAggregation
+[260/399] reuse Erdos1135.Tao.Section6.AdjacentTelescope: exit=0 seconds=2.781
+START Erdos1135.Tao.Syracuse.TruncatedValuationTV
+[261/399] reuse Erdos1135.Tao.Section6.EventAggregation: exit=0 seconds=2.833
+START Erdos1135.Tao.Section6.Geom2IntervalConcentration
+[262/399] reuse Erdos1135.Tao.Syracuse.TruncatedValuationTV: exit=0 seconds=3.184
+START Erdos1135.ND.PositiveDensity.CommonZProjectionEnergyBound
+[263/399] reuse Erdos1135.Tao.Section6.Geom2IntervalConcentration: exit=0 seconds=9.252
+START Erdos1135.Tao.Section6.HighRegimeMixing
+[264/399] reuse Erdos1135.ND.PositiveDensity.CommonZProjectionEnergyBound: exit=0 seconds=2.679
+START Erdos1135.ND.PositiveDensity.Geom2OneLawAlignedRenewalReturnRate
+[265/399] reuse Erdos1135.Tao.Section6.HighRegimeMixing: exit=0 seconds=3.281
+START Erdos1135.Tao.Section6.HighRegimeAllScale
+[266/399] reuse Erdos1135.ND.PositiveDensity.Geom2OneLawAlignedRenewalReturnRate: exit=0 seconds=3.136
+START Erdos1135.ND.PositiveDensity.ReversedPrefixPredictableSibling
+[267/399] reuse Erdos1135.Tao.Section6.HighRegimeAllScale: exit=0 seconds=2.833
+START Erdos1135.Tao.Section6.Prop114Assembly
+[268/399] reuse Erdos1135.ND.PositiveDensity.ReversedPrefixPredictableSibling: exit=0 seconds=3.833
+START Erdos1135.ND.PositiveDensity.SyracuseBoundedRealizer
+[269/399] reuse Erdos1135.Tao.Section6.Prop114Assembly: exit=0 seconds=2.781
+START Erdos1135.ND.PositiveDensity.TargetCounting
+[270/399] reuse Erdos1135.ND.PositiveDensity.SyracuseBoundedRealizer: exit=0 seconds=2.681
+START Erdos1135.ND.PositiveDensity.A5CoarseUnitSupport
+[271/399] reuse Erdos1135.ND.PositiveDensity.TargetCounting: exit=0 seconds=2.729
+START Erdos1135.ND.PositiveDensity.A5SupportedTargetCounting
+[272/399] reuse Erdos1135.ND.PositiveDensity.A5SupportedTargetCounting: exit=0 seconds=2.834
+START Erdos1135.ND.PositiveDensity.CommonZEndpointAdaptiveCanonicalTotal
+[273/399] reuse Erdos1135.ND.PositiveDensity.A5CoarseUnitSupport: exit=0 seconds=3.083
+START Erdos1135.ND.PositiveDensity.CommonZLongRangeCoordinateCapFirstBad
+[274/399] reuse Erdos1135.ND.PositiveDensity.CommonZEndpointAdaptiveCanonicalTotal: exit=0 seconds=3.082
+START Erdos1135.ND.PositiveDensity.CommonZBalancedChainFirstEntryEnergyNoRate
+[275/399] reuse Erdos1135.ND.PositiveDensity.CommonZLongRangeCoordinateCapFirstBad: exit=0 seconds=3.131
+START Erdos1135.ND.PositiveDensity.A5HistoricalAdjacentCylinderPreviousPhysicalLowerShellNoGo
+[276/399] reuse Erdos1135.ND.PositiveDensity.CommonZBalancedChainFirstEntryEnergyNoRate: exit=0 seconds=2.931
+START Erdos1135.ND.PositiveDensity.Geom2OneLawGaussianFirstHitRate
+[277/399] reuse Erdos1135.ND.PositiveDensity.A5HistoricalAdjacentCylinderPreviousPhysicalLowerShellNoGo: exit=0 seconds=2.936
+START Erdos1135.ND.PositiveDensity.SuccessfulRootTernaryResidueCoverage
+[278/399] reuse Erdos1135.ND.PositiveDensity.Geom2OneLawGaussianFirstHitRate: exit=0 seconds=3.132
+START Erdos1135.ND.PositiveDensity.Geom2OneLawGaussianBaseAdaptiveFirstHitRate
+[279/399] reuse Erdos1135.ND.PositiveDensity.SuccessfulRootTernaryResidueCoverage: exit=0 seconds=3.583
+START Erdos1135.StoppingTime
+[280/399] reuse Erdos1135.ND.PositiveDensity.Geom2OneLawGaussianBaseAdaptiveFirstHitRate: exit=0 seconds=2.981
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricBalancedCrossingRate
+[281/399] reuse Erdos1135.StoppingTime: exit=0 seconds=2.83
+START Erdos1135.ND.PositiveDensity.A5HistoricalAdjacentCylinderQOneRootDyadicPhysicalCensus
+[282/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricBalancedCrossingRate: exit=0 seconds=7.443
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricBalancedCrossingAffineDensity
+[283/399] reuse Erdos1135.ND.PositiveDensity.A5HistoricalAdjacentCylinderQOneRootDyadicPhysicalCensus: exit=0 seconds=3.085
+START Erdos1135.ND.PositiveDensity.Geom2MarkedFirstHitUnitSupportEnergyFloor
+[284/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricBalancedCrossingAffineDensity: exit=0 seconds=2.933
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricFirstCrossingPhysicalShell
+[285/399] reuse Erdos1135.ND.PositiveDensity.Geom2MarkedFirstHitUnitSupportEnergyFloor: exit=0 seconds=2.933
+START Erdos1135.ND.PositiveDensity.ExplicitPolynomialGeometricTail
+[286/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricFirstCrossingPhysicalShell: exit=0 seconds=4.037
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricFirstCrossingOvershootRate
+[287/399] reuse Erdos1135.ND.PositiveDensity.ExplicitPolynomialGeometricTail: exit=0 seconds=2.132
+START Erdos1135.ND.PositiveDensity.ExplicitCanonicalGeom4Moment
+[288/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricFirstCrossingOvershootRate: exit=0 seconds=4.683
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricBoundedOvershootPhysicalIncidence
+[289/399] reuse Erdos1135.ND.PositiveDensity.ExplicitCanonicalGeom4Moment: exit=0 seconds=3.031
+START Erdos1135.ND.PositiveDensity.ExplicitCanonicalFirstPassagePointwise
+[290/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricBoundedOvershootPhysicalIncidence: exit=0 seconds=2.68
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricOutwardBaseGrowth
+[291/399] reuse Erdos1135.ND.PositiveDensity.ExplicitCanonicalFirstPassagePointwise: exit=0 seconds=6.137
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideBoundedOvershootRate
+[292/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricOutwardBaseGrowth: exit=0 seconds=3.13
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRegenerativeState
+[293/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideBoundedOvershootRate: exit=0 seconds=2.729
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideBoundedOvershootPhysicalIncidence
+[294/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRegenerativeState: exit=0 seconds=2.779
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricPhysicalScaleIntervalOverlap
+[295/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideBoundedOvershootPhysicalIncidence: exit=0 seconds=3.433
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideHistoryInjectivity
+[296/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideHistoryInjectivity: exit=0 seconds=2.678
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideHistoryPhysicalCollision
+[297/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricPhysicalScaleIntervalOverlap: exit=0 seconds=4.431
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricPhysicalScaleIntervalAdvance
+[298/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricPhysicalScaleIntervalAdvance: exit=0 seconds=3.029
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideUnitChildRate
+[299/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideHistoryPhysicalCollision: exit=0 seconds=2.879
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideIntervalFirstReachingRootTerminal
+[300/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideIntervalFirstReachingRootTerminal: exit=0 seconds=3.282
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideIntervalFirstReachingTerminalSourceClock
+[301/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideUnitChildRate: exit=0 seconds=3.482
+START Erdos1135.ND.PositiveDensity.ExplicitCanonicalFirstPassageTails
+[302/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideIntervalFirstReachingTerminalSourceClock: exit=0 seconds=2.784
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideKilledLiftHighExitPhysical
+[303/399] reuse Erdos1135.ND.PositiveDensity.ExplicitCanonicalFirstPassageTails: exit=0 seconds=8.744
+START Erdos1135.ND.PositiveDensity.ExplicitCanonicalFreshEprime
+[304/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideKilledLiftHighExitPhysical: exit=0 seconds=2.778
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideUniformFloorPhysical
+[305/399] reuse Erdos1135.ND.PositiveDensity.ExplicitCanonicalFreshEprime: exit=0 seconds=7.088
+START Erdos1135.ND.PositiveDensity.ExplicitCanonicalSourceMargin
+[306/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideUniformFloorPhysical: exit=0 seconds=6.036
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideUniformFloorUnitChildState
+[307/399] reuse Erdos1135.ND.PositiveDensity.ExplicitCanonicalSourceMargin: exit=0 seconds=5.238
+START Erdos1135.ND.PositiveDensity.ExplicitCanonicalOutsideEprime
+[308/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideUniformFloorUnitChildState: exit=0 seconds=4.482
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideUniformFloorUnitChildTerminalPrefixCode
+[309/399] reuse Erdos1135.ND.PositiveDensity.ExplicitCanonicalOutsideEprime: exit=0 seconds=5.494
+START Erdos1135.ND.PositiveDensity.ExplicitCanonicalFreshEStar
+[310/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideUniformFloorUnitChildTerminalPrefixCode: exit=0 seconds=2.884
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideUniformFloorTerminalHighExitAggregation
+[311/399] reuse Erdos1135.ND.PositiveDensity.ExplicitCanonicalFreshEStar: exit=0 seconds=4.231
+START Erdos1135.ND.PositiveDensity.ExplicitCanonicalCase3Parameters
+[312/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideUniformFloorTerminalHighExitAggregation: exit=0 seconds=3.334
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideUniformFloorTerminalSourceTariff
+[313/399] reuse Erdos1135.ND.PositiveDensity.ExplicitCanonicalCase3Parameters: exit=0 seconds=6.637
+START Erdos1135.ND.PositiveDensity.ExplicitCanonicalCase1Threshold
+[314/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideUniformFloorTerminalSourceTariff: exit=0 seconds=2.983
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideUniformFloorGeometricIntervalStoppingGeometry
+[315/399] reuse Erdos1135.ND.PositiveDensity.ExplicitCanonicalCase1Threshold: exit=0 seconds=5.839
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideUniformFloorIntervalStoppedFlux
+[316/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideUniformFloorGeometricIntervalStoppingGeometry: exit=0 seconds=3.429
+START Erdos1135.ND.PositiveDensity.ExplicitCanonicalCase2Moment
+[317/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideUniformFloorIntervalStoppedFlux: exit=0 seconds=2.832
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideUniformFloorGeometricIntervalStoppedFlux
+[318/399] reuse Erdos1135.ND.PositiveDensity.ExplicitCanonicalCase2Moment: exit=0 seconds=11.896
+START Erdos1135.ND.PositiveDensity.ExplicitCanonicalCollar
+[319/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideUniformFloorGeometricIntervalStoppedFlux: exit=0 seconds=3.184
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideGeometricSynchronizedIntervals
+[320/399] reuse Erdos1135.ND.PositiveDensity.ExplicitCanonicalCollar: exit=0 seconds=5.589
+START Erdos1135.ND.PositiveDensity.ExplicitCanonicalCase2Threshold
+[321/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideGeometricSynchronizedIntervals: exit=0 seconds=4.681
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideCommonFloorFullTerminalPhysical
+[322/399] reuse Erdos1135.ND.PositiveDensity.ExplicitCanonicalCase2Threshold: exit=0 seconds=8.798
+START Erdos1135.ND.PositiveDensity.ExplicitCanonicalCase3Scale
+[323/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideCommonFloorFullTerminalPhysical: exit=0 seconds=4.131
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideGeometricFullTerminalCount
+[324/399] reuse Erdos1135.ND.PositiveDensity.ExplicitCanonicalCase3Scale: exit=0 seconds=3.233
+START Erdos1135.ND.PositiveDensity.ExplicitCanonicalOuterBadJTail
+[325/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideGeometricFullTerminalCount: exit=0 seconds=6.038
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideGeometricHistogramCapacity
+[326/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootSideGeometricHistogramCapacity: exit=0 seconds=2.833
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricReferenceDensityTransport
+[327/399] reuse Erdos1135.ND.PositiveDensity.ExplicitCanonicalOuterBadJTail: exit=0 seconds=7.337
+START Erdos1135.ND.PositiveDensity.GeneralTargetSeedNonreturn
+[328/399] reuse Erdos1135.ND.PositiveDensity.GeneralTargetSeedNonreturn: exit=0 seconds=7.791
+START Erdos1135.ND.PositiveDensity.ExplicitCanonicalOuterBadJAbsorption
+[329/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricReferenceDensityTransport: exit=0 seconds=6.842
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricReferenceMarkedPhysicalIncidence
+[330/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricReferenceMarkedPhysicalIncidence: exit=0 seconds=5.64
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootUniformGroupedCapacity
+[331/399] reuse Erdos1135.ND.PositiveDensity.ExplicitCanonicalOuterBadJAbsorption: exit=0 seconds=4.435
+START Erdos1135.ND.PositiveDensity.ExplicitCanonicalCase3Threshold
+[332/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootUniformGroupedCapacity: exit=0 seconds=6.485
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootUniformCoreCapacity
+[333/399] reuse Erdos1135.ND.PositiveDensity.ExplicitCanonicalCase3Threshold: exit=0 seconds=2.982
+START WeightedPathOccupation
+[334/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricRootUniformCoreCapacity: exit=0 seconds=6.492
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricCoreStripRate
+[335/399] reuse WeightedPathOccupation: exit=0 seconds=4.33
+START Erdos1135.ND.PositiveDensity.ExplicitCanonicalMonotonicity
+[336/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricCoreStripRate: exit=0 seconds=6.591
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricCoreBackwardMean
+[337/399] reuse Erdos1135.ND.PositiveDensity.ExplicitCanonicalMonotonicity: exit=0 seconds=3.536
+START Erdos1135.ND.PositiveDensity.ExplicitCanonicalPrimitiveCoefficient
+[338/399] reuse Erdos1135.ND.PositiveDensity.ExplicitCanonicalPrimitiveCoefficient: exit=0 seconds=2.932
+START Erdos1135.ND.PositiveDensity.ExplicitNumericalPrimitiveDecay
+[339/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricCoreBackwardMean: exit=0 seconds=7.19
+START WeightedTerminalAdapter
+[340/399] reuse WeightedTerminalAdapter: exit=0 seconds=2.78
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricTerminalDepthShiftTail
+[341/399] reuse Erdos1135.ND.PositiveDensity.ExplicitNumericalPrimitiveDecay: exit=0 seconds=2.476
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricCoreVariation
+[342/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricCoreVariation: exit=0 seconds=4.083
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricCoreSummedVariation
+[343/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricTerminalDepthShiftTail: exit=0 seconds=4.633
+START Erdos1135.ND.PositiveDensity.ExplicitSection6NumericalCutoff
+[344/399] reuse Erdos1135.ND.PositiveDensity.ExplicitSection6NumericalCutoff: exit=0 seconds=3.329
+START Erdos1135.ND.PositiveDensity.ExplicitSection6FixedSlice
+[345/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricCoreSummedVariation: exit=0 seconds=9.695
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricTerminalShiftImageRate
+[346/399] reuse Erdos1135.ND.PositiveDensity.ExplicitSection6FixedSlice: exit=0 seconds=2.827
+START Erdos1135.ND.PositiveDensity.ExplicitSection6Mixing
+[347/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricTerminalShiftImageRate: exit=0 seconds=3.179
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricTerminalDepthShiftMarkedLoss
+[348/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricTerminalDepthShiftMarkedLoss: exit=0 seconds=4.231
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricTerminalCapOneCompression
+[349/399] reuse Erdos1135.ND.PositiveDensity.ExplicitSection6Mixing: exit=0 seconds=2.729
+START Erdos1135.ND.PositiveDensity.ExplicitNumericalSyracuseMixing
+[350/399] reuse Erdos1135.ND.PositiveDensity.ExplicitNumericalSyracuseMixing: exit=0 seconds=2.275
+START Erdos1135.ND.PositiveDensity.ExplicitCoreVariation
+[351/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricTerminalCapOneCompression: exit=0 seconds=8.287
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricTerminalWeightedCensus
+[352/399] reuse Erdos1135.ND.PositiveDensity.ExplicitCoreVariation: exit=0 seconds=4.783
+START Erdos1135.ND.PositiveDensity.ExplicitTerminalVariation
+[353/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricTerminalWeightedCensus: exit=0 seconds=8.743
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricTerminalMaskedCensus
+[354/399] reuse Erdos1135.ND.PositiveDensity.ExplicitTerminalVariation: exit=0 seconds=5.435
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricExplicitCoreProduct
+[355/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricTerminalMaskedCensus: exit=0 seconds=2.827
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricTerminalDepthShiftCensus
+[356/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricTerminalDepthShiftCensus: exit=0 seconds=3.381
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricExplicitConductor
+[357/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricExplicitCoreProduct: exit=0 seconds=4.181
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricExplicitVariationTail
+[358/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricExplicitConductor: exit=0 seconds=2.528
+START Erdos1135.ND.PositiveDensity.PredecessorAnalyticSupport
+[359/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricExplicitVariationTail: exit=0 seconds=3.83
+START Erdos1135.ND.PositiveDensity.ExplicitVariationBudgets
+[360/399] reuse Erdos1135.ND.PositiveDensity.ExplicitVariationBudgets: exit=0 seconds=4.032
+START Erdos1135.ND.PositiveDensity.ExplicitFrozenCoreSeed
+[361/399] reuse Erdos1135.ND.PositiveDensity.PredecessorAnalyticSupport: exit=0 seconds=4.081
+START Erdos1135.ND.PositiveDensity.GeneralTargetResidueCoverage
+[362/399] reuse Erdos1135.ND.PositiveDensity.ExplicitFrozenCoreSeed: exit=0 seconds=2.63
+START Erdos1135.ND.PositiveDensity.ExplicitRetainedGeometricTail
+[363/399] reuse Erdos1135.ND.PositiveDensity.GeneralTargetResidueCoverage: exit=0 seconds=3.629
+START Erdos1135.ND.PositiveDensity.ExplicitLogarithmicConductorRoom
+[364/399] reuse Erdos1135.ND.PositiveDensity.ExplicitRetainedGeometricTail: exit=0 seconds=2.526
+START Erdos1135.ND.PositiveDensity.ExplicitLogarithmicVariationBudgets
+[365/399] reuse Erdos1135.ND.PositiveDensity.ExplicitLogarithmicConductorRoom: exit=0 seconds=2.678
+START Erdos1135.ND.PositiveDensity.SyracuseWholeHistoryOrdinaryClock
+[366/399] reuse Erdos1135.ND.PositiveDensity.ExplicitLogarithmicVariationBudgets: exit=0 seconds=2.927
+START Erdos1135.ND.PositiveDensity.ExplicitLogarithmicFrozenSeed
+[367/399] reuse Erdos1135.ND.PositiveDensity.SyracuseWholeHistoryOrdinaryClock: exit=0 seconds=2.977
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricWholeHistoryOrdinaryClock
+[368/399] reuse Erdos1135.ND.PositiveDensity.ExplicitLogarithmicFrozenSeed: exit=0 seconds=2.276
+START Erdos1135.ND.PositiveDensity.ExplicitReferenceHeightCensus
+[369/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricWholeHistoryOrdinaryClock: exit=0 seconds=5.335
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricCoreOrdinaryElevenClock
+[370/399] reuse Erdos1135.ND.PositiveDensity.ExplicitReferenceHeightCensus: exit=0 seconds=2.877
+START Erdos1135.ND.PositiveDensity.ExplicitOnePeriodSuccessfulRoot
+[371/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricCoreOrdinaryElevenClock: exit=0 seconds=2.378
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricTerminalDepthShiftOrdinaryClock
+[372/399] reuse Erdos1135.ND.PositiveDensity.ExplicitOnePeriodSuccessfulRoot: exit=0 seconds=5.335
+START TwoSeedNonreturn
+[373/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricTerminalDepthShiftOrdinaryClock: exit=0 seconds=6.742
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricOrdinaryTen46Clock
+[374/399] reuse TwoSeedNonreturn: exit=0 seconds=3.633
+START CompactSeedNonreturn
+[375/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricOrdinaryTen46Clock: exit=0 seconds=4.432
+START Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricExplicitCutoffCount
+[376/399] reuse CompactSeedNonreturn: exit=0 seconds=4.336
+START OptimizedConductor
+[377/399] reuse Erdos1135.ND.PositiveDensity.Geom2ShiftedWideSymmetricExplicitCutoffCount: exit=0 seconds=2.977
+START Erdos1135.ND.PositiveDensity.ExplicitAccumulatedFloorHeight
+[378/399] reuse OptimizedConductor: exit=0 seconds=3.534
+START Erdos1135.ND.PositiveDensity.PredecessorCountSupport
+[379/399] reuse Erdos1135.ND.PositiveDensity.ExplicitAccumulatedFloorHeight: exit=0 seconds=2.426
+START Erdos1135.ND.PositiveDensity.ExplicitSeedToCount
+[380/399] reuse Erdos1135.ND.PositiveDensity.PredecessorCountSupport: exit=0 seconds=1.573
+[381/399] reuse Erdos1135.ND.PositiveDensity.ExplicitSeedToCount: exit=0 seconds=2.727
+START Erdos1135.ND.PositiveDensity.ExplicitPositiveDensityPair
+[382/399] reuse Erdos1135.ND.PositiveDensity.ExplicitPositiveDensityPair: exit=0 seconds=2.225
+START Erdos1135.ND.PositiveDensity.ExplicitSixthRootSeedToCount
+[383/399] reuse Erdos1135.ND.PositiveDensity.ExplicitSixthRootSeedToCount: exit=0 seconds=2.326
+START Erdos1135.ND.PositiveDensity.ExplicitExactSeedConductor
+[384/399] reuse Erdos1135.ND.PositiveDensity.ExplicitExactSeedConductor: exit=0 seconds=2.225
+START Erdos1135.ND.PositiveDensity.ExplicitOnePeriodSeedToCount
+[385/399] reuse Erdos1135.ND.PositiveDensity.ExplicitOnePeriodSeedToCount: exit=0 seconds=2.427
+START Erdos1135.ND.PositiveDensity.ExplicitUnitSupportedCoreSeed
+[386/399] reuse Erdos1135.ND.PositiveDensity.ExplicitUnitSupportedCoreSeed: exit=0 seconds=2.826
+START Erdos1135.ND.PositiveDensity.ExplicitUnitSupportedFrozenSeed
+[387/399] reuse Erdos1135.ND.PositiveDensity.ExplicitUnitSupportedFrozenSeed: exit=0 seconds=3.83
+START Erdos1135.ND.PositiveDensity.GeneralTargetFrozenSeed
+START WeightedFrozenSeed
+[388/399] reuse WeightedFrozenSeed: exit=0 seconds=3.581
+[389/399] reuse Erdos1135.ND.PositiveDensity.GeneralTargetFrozenSeed: exit=0 seconds=3.443
+START Erdos1135.ND.PositiveDensity.GeneralTargetTerminalCensus
+[390/399] reuse Erdos1135.ND.PositiveDensity.GeneralTargetTerminalCensus: exit=0 seconds=3.729
+START Erdos1135.ND.PositiveDensity.GeneralTargetPredecessorCount
+[391/399] reuse Erdos1135.ND.PositiveDensity.GeneralTargetPredecessorCount: exit=0 seconds=2.927
+START WeightedCensus
+START TwoSeedDensity
+[392/399] reuse TwoSeedDensity: exit=0 seconds=5.637
+START OptimizedDensity
+[393/399] reuse WeightedCensus: exit=0 seconds=4.332
+START WeightedPredecessorDensity
+[394/399] reuse OptimizedDensity: exit=0 seconds=4.031
+START OptimizedComparison
+[395/399] reuse WeightedPredecessorDensity: exit=0 seconds=3.381
+START Erdos1135.ND.PositiveDensity.GeneralTargetPositiveDensity
+[396/399] reuse Erdos1135.ND.PositiveDensity.GeneralTargetPositiveDensity: exit=0 seconds=3.278
+START Erdos1135.ND.PositiveDensity.NonconvergenceDensityAmplification
+[397/399] reuse Erdos1135.ND.PositiveDensity.NonconvergenceDensityAmplification: exit=0 seconds=2.877
+START CollatzPredecessorDensity
+[398/399] reuse CollatzPredecessorDensity: exit=0 seconds=2.376
+[399/399] compiled OptimizedComparison: exit=0 seconds=3.483
+SUCCESS: 399 local modules checked; external packages cached.

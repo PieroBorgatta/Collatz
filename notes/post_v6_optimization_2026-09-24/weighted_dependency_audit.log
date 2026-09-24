@@ -1,0 +1,12 @@
+WEIGHTED_DEPENDENCY_AUDIT: PASS
+root: Erdos1135.ND.PositiveDensity.weighted_predecessors_positive_lower_density
+local declarations expanded: 4672
+private local declarations expanded: 339
+local owning modules: 359
+type/body dependency edges inspected: 298851
+third-party/builtin frontier declarations: 2940
+required occupation dependency reached: Erdos1135.ND.PositiveDensity.WeightedPathOccupation.sum_weight_visits_le
+required constructive residue dependency reached: Erdos1135.ND.PositiveDensity.weighted_exists_large_predecessor_in_residue
+forbidden old non-returning-seed and old final-theorem dependencies: absent
+root axioms: [propext, Classical.choice, Quot.sound]
+scope: module-owned local transitive proof/type closure; imported third-party bodies not traversed

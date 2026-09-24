@@ -217,13 +217,15 @@ See [the counting report](notes/post_v6_counting_2026-09-24/RESULTS_IT.md).
 A separate [predecessor adapter](research/weighted_predecessors_adapter/README.md)
 ports the weighted argument to the exact external path types and proves a
 second route using two bounded candidate seeds, giving constants uniform in
-the target without an unknown cycle-height bound. All 395 local modules and
-both final dependency audits passed in
-[CI 36005012141](https://github.com/PieroBorgatta/Collatz/actions/runs/36005012141).
-This replay is separate from the main-library build and reuses authenticated
-compiled receipts and pinned external package objects; the
-[continuation report](notes/post_v6_adapter_2026-09-24/RESULTS_IT.md) records
-the exact verification boundary and preserved evidence.
+the target without an unknown cycle-height bound. A further verified construction
+uses compact seeds and preserves the sixth-power mixing decay. Its coefficient
+is strictly larger and its cutoff strictly smaller than the previous uniform
+two-seed formulas. All 399 local modules and three dependency audits passed in
+[CI 36009718722](https://github.com/PieroBorgatta/Collatz/actions/runs/36009718722).
+This replay is separate from the main-library build and reuses checked compiled
+receipts and pinned external package objects; the
+[optimization report](notes/post_v6_optimization_2026-09-24/RESULTS_IT.md) records
+the theorem statements, comparisons, and preserved evidence.
 Separately, exact parameter
 formulas describe a second growth burst after the cancellation towers
 and classify the following valuation by lifted residue roots; those

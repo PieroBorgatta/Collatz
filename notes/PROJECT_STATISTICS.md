@@ -58,7 +58,10 @@ The independent `research/weighted_predecessors_adapter/` package is excluded
 from these main-library totals. It contains new proofs and attributed
 Apache-2.0 derivatives of Lech Mazur's external sources, with a separate
 Lean 4.30.0-rc2 toolchain and verification boundary. Its provenance and status
-are recorded in `post_v6_adapter_2026-09-24/RESULTS_IT.md`.
+are recorded in `post_v6_adapter_2026-09-24/RESULTS_IT.md` and the subsequent
+`post_v6_optimization_2026-09-24/RESULTS_IT.md`. The latter adds four external
+modules with 40 public theorems and two private lemmas; the main-library table
+above is unchanged.
 
 These are textual source counts, not counts of independent mathematical
 results. The table can be regenerated with the command below after any

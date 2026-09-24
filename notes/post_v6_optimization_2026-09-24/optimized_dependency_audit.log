@@ -1,0 +1,31 @@
+COMPARISON_AXIOM_AUDIT: PASS Erdos1135.ND.PositiveDensity.OptimizedComparison.public_constants_strictly_improve; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+COMPARISON_AXIOM_AUDIT: PASS Erdos1135.ND.PositiveDensity.OptimizedComparison.old_coefficient_lt; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+COMPARISON_AXIOM_AUDIT: PASS Erdos1135.ND.PositiveDensity.OptimizedComparison.cutoff_lt; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+COMPARISON_AXIOM_AUDIT: PASS Erdos1135.ND.PositiveDensity.OptimizedConductor.conductor_minimal; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+OPTIMIZED_DEPENDENCY_AUDIT: PASS
+root: Erdos1135.ND.PositiveDensity.OptimizedDensity.generalTarget_predecessors_explicit_lower_bound
+reachable declarations inspected: 43285
+private declarations inspected: 5037
+declaration bodies inspected: 41329
+type/body dependency edges inspected: 1094941
+required dependencies reached: [Erdos1135.ND.PositiveDensity.CompactSeedNonreturn.exists_bounded_nonreturning_predecessor_in_residue,
+ Erdos1135.ND.PositiveDensity.TwoSeedNonreturn.noReturn_or_noReturn_of_same_image,
+ Erdos1135.ND.PositiveDensity.OptimizedConductor.scaled_quadratic_mixing,
+ Erdos1135.ND.PositiveDensity.OptimizedConductor.conductor_budget]
+forbidden unbounded seed dependencies: absent
+axioms reached by complete traversal: [Quot.sound, Classical.choice, propext]
+axioms reported by collectAxioms: [propext, Classical.choice, Quot.sound]
+traversal boundary: none; every reachable named declaration inspected
+build scope: imported OptimizedDensity module through OptimizedComparison; no assembled verification bundle
+'Erdos1135.ND.PositiveDensity.OptimizedDensity.generalTarget_predecessors_explicit_lower_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+CONDUCTOR_EXECUTION_SMOKE: PASS [1, 1, 3, 5]

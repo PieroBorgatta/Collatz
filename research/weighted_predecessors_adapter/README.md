@@ -5,20 +5,23 @@ source release. It replaces the non-returning-seed counting argument with a
 weighted occupation bound. The main `lean/` project and the published Zenodo v6
 artifacts are not modified by this overlay.
 
-**Verification status: PASS** on [CI 36005012141](https://github.com/PieroBorgatta/Collatz/actions/runs/36005012141),
-commit `171150edde2dcf0329e8c82b18c02bbc3cdc40ec`. The modular replay checked
-all **395 local modules**, including both final theorems. This final run
-validated and reused 394 previously compiled source/dependency/object receipts
-and compiled the remaining module. Both dependency audits passed, with only
-`propext`, `Classical.choice`, and `Quot.sound`.
+**Verification status: PASS** on [CI 36009718722](https://github.com/PieroBorgatta/Collatz/actions/runs/36009718722),
+commit `1847065cff482fd9a71c4b7b7c9850b47fe9e23c`. The modular replay checked
+all **399 local modules**, including the weighted, two-seed, and optimized
+final theorems and the quantitative comparisons. The final run validated and
+reused 398 compiled source/dependency/object receipts and compiled the remaining
+module. All three dependency audits passed, with only `propext`,
+`Classical.choice`, and `Quot.sound`.
 
-The weighted audit inspected 4,672 local declarations; the two-seed audit
-traversed 43,248 reachable declarations without a module boundary. The required
-new lemmas were reached and the respective forbidden old seed dependencies
-were absent within each audit's declared scope. The
-[verification manifest and preserved evidence](../../notes/post_v6_adapter_2026-09-24/verification_manifest.json)
-record the exact inputs and checks. This is a pinned Lean replay, with cached
-external package objects, not an independent kernel or mathematical review.
+The optimized audit traversed 43,285 reachable declarations without a module
+boundary, reached the compact seed and sixth-power budget, and excluded the
+specified older seed/density dependencies. Four comparison/minimality roots
+also passed their axiom audits. The
+[optimization manifest and preserved evidence](../../notes/post_v6_optimization_2026-09-24/verification_manifest.json)
+record the exact inputs and checks. The original
+[395-module snapshot](../../notes/post_v6_adapter_2026-09-24/verification_manifest.json)
+remains archived at its verified commit. This is a pinned Lean replay, with
+cached external package objects, not an independent kernel or mathematical review.
 
 The target statement is the existing positive-lower-density theorem: for each
 positive ordinary Collatz target `a` not divisible by 3, there are `c>0` and
@@ -85,15 +88,21 @@ in the associated coefficient formulas. That comparison is paper-level,
 not Lean-verified; it neither identifies the current weighted chooser with
 those candidates nor compares the cutoffs.
 
-## Further optimization under verification
+## Verified optimization: smaller seeds and sixth-power decay
 
-Four additional modules are being checked separately from the verified
-395-module snapshot above. `CompactSeedNonreturn` replaces the root bound
-`G(2*a,(16^b+3)*3^q)` by `G(2*a,2*b+2*3^q)`. `OptimizedConductor` preserves
-the full sixth-power mixing decay and chooses the least positive m with
-`88*T*C ≤ m^6`. `OptimizedDensity` connects these choices to the same census;
-`OptimizedComparison` states strict improvements in both the coefficient and
-cutoff. These new modules and their audit are **pending CI verification**.
+Four additional modules improve the preceding uniform two-seed constants.
+`CompactSeedNonreturn` replaces `G(2*a,(16^b+3)*3^q)` by
+`G(2*a,2*b+2*3^q)`. `OptimizedConductor` preserves the full sixth-power
+mixing decay and chooses the least positive m with `88*T*C ≤ m^6`.
+`OptimizedDensity` connects these choices to the same census.
+
+`OptimizedComparison.public_constants_strictly_improve` proves, for every
+positive target, a **strictly larger coefficient and strictly smaller cutoff**
+than the preceding `TwoSeedDensity` formulas. The comparisons themselves need
+no mixing or nondivisibility assumption; the new density theorem still requires
+`3 ∤ a` and uses the same external numerical mixing result. All 40 new public
+theorems and two private lemmas compiled, and the root/comparison audits passed.
+No global optimality or practical evaluation of the enormous constants is claimed.
 See the [optimization report](../../notes/post_v6_optimization_2026-09-24/RESULTS_IT.md).
 
 ## Reproduce in a separate directory

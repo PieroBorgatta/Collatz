@@ -102,6 +102,16 @@ wrappers do not replace independent review of the full analytical argument.
 The earlier interrupted local and aggregate attempts remain historical
 failures to complete those separate checks, not additional successful replays.
 
+The subsequent optimization is also verified in
+[CI 36009718722](https://github.com/PieroBorgatta/Collatz/actions/runs/36009718722):
+399 local modules and three dependency audits. Four new external modules add
+40 public theorems and two private lemmas. Compact congruent seeds reduce the
+uniform root bound, and preserving sixth-power mixing allows the least positive
+m with `88*T*C ≤ m^6`. Direct Lean comparisons prove a strictly larger density
+coefficient and a strictly smaller cutoff than the preceding uniform two-seed
+formulas. The main-library counts below do not include these external modules.
+See the [optimization report](../notes/post_v6_optimization_2026-09-24/RESULTS_IT.md).
+
 The integrated main-library build with `TwoSeed` and `NonreturnCounting`
 passed (3371 jobs), as did CI run 36001432687. Sixteen headline declarations
 were audited and use only `propext`, `Classical.choice`, and `Quot.sound`.
