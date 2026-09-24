@@ -31,6 +31,17 @@
         "OptimizedComparison"
       ],
       "failure": "One arithmetic bound needs explicit nonnegativity of the natural remainder; optimized conductor module passed."
+    },
+    {
+      "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36009040855",
+      "commit": "dadc4a3e5dd77d38f4dacfbd8dc6fc9d9adf2103",
+      "status": "failed",
+      "passed_modules": 398,
+      "failed_modules": [
+        "OptimizedComparison"
+      ],
+      "blocked_modules": [],
+      "failure": "Optimized density theorem compiled. Positivity tactic in comparison unfolds enormous constants; replaced by explicit nonnegativity/positivity proofs."
     }
   ],
   "finite_checks": {
@@ -46,13 +57,13 @@
   },
   "files_sha256": {
     ".github/workflows/predecessor-adapter.yml": "8893cc68b29a367af2e434a7c51ec1ff75eda299864c430c92c731b53d6cbfc4",
-    "notes/post_v6_optimization_2026-09-24/RESULTS_IT.md": "d62a102fdc9ccf950fbc043e8a58bb214b2dedea58bda553ad8a2e94a0744a76",
+    "notes/post_v6_optimization_2026-09-24/RESULTS_IT.md": "a3e93f6705202043bf639e51859e773662bdebbac6eff514a8bb09d7560f4823",
     "notes/post_v6_optimization_2026-09-24/SEMANTIC_AUDIT_IT.md": "c96e71c9763fe5db021091c49f0c02198fd77813d8fb65d162cbeed17662dd53",
     "notes/post_v6_optimization_2026-09-24/exact_checks.json": "d21149092fe3955f40947bb2982d27cd9dccc916651b01fd53d639ef042825da",
     "notes/post_v6_optimization_2026-09-24/exact_checks.py": "5585dcddd6aa76f76f74148a3727534f24b2b031c037a2a1a567338a2f0c2a93",
     "notes/post_v6_optimization_2026-09-24/prepare_check.log": "acfc847e3483a3d8d6184c631ee306e13f5fc1de35cd38a5cb67cce56dee43fb",
     "research/weighted_predecessors_adapter/CompactSeedNonreturn.lean": "b71b66a333526493573f31fa2c63d8e9a35cadc8d2de0acebb88896e76ff6982",
-    "research/weighted_predecessors_adapter/OptimizedComparison.lean": "90a4b5545d136d344e27aee20c2bea61cefdf6d453d8ba76d6044d68e1aefc97",
+    "research/weighted_predecessors_adapter/OptimizedComparison.lean": "d01c748e77a46f7693a92f21ba46e1556871e21c2a22079c68a8c751aec9b17e",
     "research/weighted_predecessors_adapter/OptimizedConductor.lean": "3881c920ebafd69d0b831269a71c1cdde9e2e37023592a9e8152dd2a7da2ab31",
     "research/weighted_predecessors_adapter/OptimizedDensity.lean": "2bd1970305084626de67a188d2196d38dd5d60275d035098171087041911b4c0",
     "research/weighted_predecessors_adapter/OptimizedDependencyAudit.lean": "3a7f6484cbf14e76de4513dab520b19cf694698b36fd4e3cb8bad5270f9e7316",
@@ -63,5 +74,9 @@
     "Full independent mathematical review of the imported analytic chain remains open.",
     "Public constants remain enormous; the natural conductor search is not presented as a practical computation of them.",
     "Finite arithmetic checks do not decide which seed is nonreturning."
-  ]
+  ],
+  "new_theorem_counts": {
+    "public": 40,
+    "private": 2
+  }
 }

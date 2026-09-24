@@ -58,3 +58,9 @@ nella scelta dell'esponente richiedeva di fornire esplicitamente
 `0 ≤ B % Q` alla tattica aritmetica; la correzione è in verifica.
 La [lettura semantica](SEMANTIC_AUDIT_IT.md) conferma l'ordine dei parametri
 e il mantenimento della costante globale C nella costruzione del seme.
+
+Il [secondo replay CI](https://github.com/PieroBorgatta/Collatz/actions/runs/36009040855)
+ha verificato 398 moduli su 399, incluso il nuovo teorema di densità.
+Il confronto finale richiedeva di usare la positività nota dei fattori,
+impedendo alla tattica di espandere le costanti astronomiche. La correzione
+fornisce direttamente tali prove, senza aumentare i limiti del compilatore.

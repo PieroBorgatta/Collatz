@@ -22,7 +22,10 @@ theorem rootBound_pos {a : ℕ} (ha : 0 < a) (C : ℕ) :
 
 theorem rootBound_lt {a : ℕ} (ha : 0 < a) (C : ℕ) :
     OptimizedDensity.rootBound a C < TwoSeedDensity.rootBound a C := by
-  exact CompactSeedNonreturn.seedBound_lt_old ha _ _
+  exact CompactSeedNonreturn.seedBound_lt_old ha
+    (ndRootCoreBackwardConductor OptimizedDensity.fixedFloor
+      (explicitSeedFloor OptimizedDensity.fixedFloor (OptimizedDensity.seedGeneration C) / 4)
+      (OptimizedDensity.seedGeneration C)) OptimizedDensity.fixedFloor
 
 theorem conductor_le {a : ℕ} (ha : 0 < a) (C : ℕ) :
     OptimizedDensity.conductor a C ≤ TwoSeedDensity.conductor a C := by
@@ -128,6 +131,8 @@ theorem old_coefficient_lt {a : ℕ} (ha : 0 < a) (C : ℕ) :
   have hpow : (3 : ℝ) ^ OptimizedDensity.conductor a C ≤
       (3 : ℝ) ^ TwoSeedDensity.conductor a C :=
     pow_le_pow_right₀ (by norm_num) (conductor_le ha C)
+  have hpowpos : (0 : ℝ) < (3 : ℝ) ^ OptimizedDensity.conductor a C :=
+    pow_pos (by norm_num) _
   have hdenom :
       256 * (OptimizedDensity.rootBound a C : ℝ) *
           (3 : ℝ) ^ OptimizedDensity.conductor a C <
@@ -137,9 +142,11 @@ theorem old_coefficient_lt {a : ℕ} (ha : 0 < a) (C : ℕ) :
       _ < 256 * (TwoSeedDensity.rootBound a C : ℝ) *
           (3 : ℝ) ^ OptimizedDensity.conductor a C :=
         mul_lt_mul_of_pos_right
-          (mul_lt_mul_of_pos_left hrootlt (by norm_num)) (by positivity)
-      _ ≤ _ := mul_le_mul_of_nonneg_left hpow (by positivity)
-  exact div_lt_div_of_pos_left (by norm_num) (by positivity) hdenom
+          (mul_lt_mul_of_pos_left hrootlt (by norm_num)) hpowpos
+      _ ≤ _ := mul_le_mul_of_nonneg_left hpow
+        (mul_nonneg (by norm_num : (0 : ℝ) ≤ 256) (Nat.cast_nonneg _))
+  exact div_lt_div_of_pos_left (by norm_num)
+    (mul_pos (mul_pos (by norm_num) hrootpos) hpowpos) hdenom
 
 theorem publicCoefficient_lt {a : ℕ} (ha : 0 < a) :
     TwoSeedDensity.publicCoefficient a < OptimizedDensity.publicCoefficient a :=
