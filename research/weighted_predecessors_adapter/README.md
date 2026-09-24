@@ -85,6 +85,17 @@ in the associated coefficient formulas. That comparison is paper-level,
 not Lean-verified; it neither identifies the current weighted chooser with
 those candidates nor compares the cutoffs.
 
+## Further optimization under verification
+
+Four additional modules are being checked separately from the verified
+395-module snapshot above. `CompactSeedNonreturn` replaces the root bound
+`G(2*a,(16^b+3)*3^q)` by `G(2*a,2*b+2*3^q)`. `OptimizedConductor` preserves
+the full sixth-power mixing decay and chooses the least positive m with
+`88*T*C ≤ m^6`. `OptimizedDensity` connects these choices to the same census;
+`OptimizedComparison` states strict improvements in both the coefficient and
+cutoff. These new modules and their audit are **pending CI verification**.
+See the [optimization report](../../notes/post_v6_optimization_2026-09-24/RESULTS_IT.md).
+
 ## Reproduce in a separate directory
 
 Requirements: Python 3, curl, Git, elan/Lake, and enough space for the pinned
@@ -98,9 +109,10 @@ python3 research/weighted_predecessors_adapter/prepare.py /absolute/fresh/projec
 cd /absolute/fresh/project
 lake exe cache get
 lake env python3 /absolute/Collatz/research/weighted_predecessors_adapter/build_closure.py \
-  WeightedPredecessorDensity TwoSeedDensity CollatzPredecessorDensity
+  WeightedPredecessorDensity TwoSeedDensity OptimizedComparison CollatzPredecessorDensity
 lake env lean /absolute/Collatz/research/weighted_predecessors_adapter/WeightedDependencyAudit.lean
 lake env lean /absolute/Collatz/research/weighted_predecessors_adapter/TwoSeedDependencyAudit.lean
+lake env lean /absolute/Collatz/research/weighted_predecessors_adapter/OptimizedDependencyAudit.lean
 ```
 
 The preparation script authenticates both downloaded ZIPs before executing the

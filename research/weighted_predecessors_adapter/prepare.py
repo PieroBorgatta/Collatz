@@ -25,7 +25,8 @@ ARCHIVES = {
 }
 MODULES = ["WeightedPathOccupation", "WeightedTerminalAdapter", "WeightedCensus",
            "WeightedFrozenSeed", "WeightedPredecessorDensity",
-           "TwoSeedNonreturn", "TwoSeedDensity"]
+           "TwoSeedNonreturn", "TwoSeedDensity", "CompactSeedNonreturn",
+           "OptimizedConductor", "OptimizedDensity", "OptimizedComparison"]
 
 
 def main():

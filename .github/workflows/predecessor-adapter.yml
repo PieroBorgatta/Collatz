@@ -84,7 +84,7 @@ jobs:
           set -euo pipefail
           adapter_package="$GITHUB_WORKSPACE/research/weighted_predecessors_adapter"
           lake env python3 "$adapter_package/build_closure.py" --jobs 2 --keep-going \
-            WeightedPredecessorDensity TwoSeedDensity CollatzPredecessorDensity \
+            WeightedPredecessorDensity TwoSeedDensity OptimizedComparison CollatzPredecessorDensity \
             2>&1 | tee "$ADAPTER_EVIDENCE/modular-build.log"
 
       - name: Audit the weighted theorem dependencies
@@ -104,6 +104,15 @@ jobs:
           adapter_package="$GITHUB_WORKSPACE/research/weighted_predecessors_adapter"
           lake env lean --threads=1 -M4096 "$adapter_package/TwoSeedDependencyAudit.lean" \
             2>&1 | tee "$ADAPTER_EVIDENCE/two-seed-dependency-audit.log"
+
+      - name: Audit the optimized theorem and quantitative comparisons
+        if: ${{ !cancelled() && steps.compile.outcome == 'success' }}
+        working-directory: ${{ env.ADAPTER_ASSEMBLY }}
+        run: |
+          set -euo pipefail
+          adapter_package="$GITHUB_WORKSPACE/research/weighted_predecessors_adapter"
+          lake env lean --threads=1 -M4096 "$adapter_package/OptimizedDependencyAudit.lean" \
+            2>&1 | tee "$ADAPTER_EVIDENCE/optimized-dependency-audit.log"
 
       - name: Save checked local module receipts and objects
         if: ${{ !cancelled() && (steps.compile.outcome == 'success' || steps.compile.outcome == 'failure') && steps.module-cache.outputs.cache-hit != 'true' }}
