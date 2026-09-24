@@ -1,0 +1,109 @@
+name: Predecessor adapter
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'research/weighted_predecessors_adapter/**'
+      - '.github/workflows/predecessor-adapter.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  modular-build-and-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      LEAN_NUM_THREADS: '1'
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set replay paths
+        run: |
+          set -euo pipefail
+          printf 'ADAPTER_ASSEMBLY=%s\n' "$RUNNER_TEMP/collatz-predecessor-adapter" >> "$GITHUB_ENV"
+          printf 'ADAPTER_EVIDENCE=%s\n' "$RUNNER_TEMP/predecessor-adapter-evidence" >> "$GITHUB_ENV"
+          mkdir -p "$RUNNER_TEMP/predecessor-adapter-evidence"
+
+      - name: Install official elan
+        run: |
+          set -euo pipefail
+          curl --fail --location --silent --show-error \
+            --proto '=https' --proto-redir '=https' \
+            https://elan.lean-lang.org/elan-init.sh \
+            --output "$RUNNER_TEMP/elan-init.sh"
+          sha256sum "$RUNNER_TEMP/elan-init.sh" > "$ADAPTER_EVIDENCE/elan-installer.sha256"
+          sh "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain none --no-modify-path \
+            2>&1 | tee "$ADAPTER_EVIDENCE/elan-install.log"
+          printf '%s\n' "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/elan" --version | tee "$ADAPTER_EVIDENCE/elan-version.log"
+
+      - name: Prepare authenticated upstream sources and overlay
+        run: |
+          set -euo pipefail
+          adapter_package="$GITHUB_WORKSPACE/research/weighted_predecessors_adapter"
+          python3 "$adapter_package/prepare.py" "$ADAPTER_ASSEMBLY" \
+            2>&1 | tee "$ADAPTER_EVIDENCE/prepare.log"
+
+      - name: Test build receipt handling with a fake compiler
+        run: |
+          set -euo pipefail
+          adapter_package="$GITHUB_WORKSPACE/research/weighted_predecessors_adapter"
+          python3 "$adapter_package/test_build_closure.py" \
+            2>&1 | tee "$ADAPTER_EVIDENCE/receipt-tests.log"
+
+      - name: Fetch the pinned Mathlib cache
+        working-directory: ${{ env.ADAPTER_ASSEMBLY }}
+        run: |
+          set -euo pipefail
+          # The authenticated assembly supplies lean-toolchain and lake-manifest.json.
+          lean --version 2>&1 | tee "$ADAPTER_EVIDENCE/lean-version.log"
+          lake exe cache get 2>&1 | tee "$ADAPTER_EVIDENCE/mathlib-cache.log"
+
+      - name: Compile the local module closures
+        id: compile
+        working-directory: ${{ env.ADAPTER_ASSEMBLY }}
+        run: |
+          set -euo pipefail
+          adapter_package="$GITHUB_WORKSPACE/research/weighted_predecessors_adapter"
+          lake env python3 "$adapter_package/build_closure.py" --jobs 2 \
+            WeightedPredecessorDensity TwoSeedDensity CollatzPredecessorDensity \
+            2>&1 | tee "$ADAPTER_EVIDENCE/modular-build.log"
+
+      - name: Audit the weighted theorem dependencies
+        if: ${{ !cancelled() && steps.compile.outcome == 'success' }}
+        working-directory: ${{ env.ADAPTER_ASSEMBLY }}
+        run: |
+          set -euo pipefail
+          adapter_package="$GITHUB_WORKSPACE/research/weighted_predecessors_adapter"
+          lake env lean --threads=1 -M4096 "$adapter_package/WeightedDependencyAudit.lean" \
+            2>&1 | tee "$ADAPTER_EVIDENCE/weighted-dependency-audit.log"
+
+      - name: Audit the two-seed theorem dependencies
+        if: ${{ !cancelled() && steps.compile.outcome == 'success' }}
+        working-directory: ${{ env.ADAPTER_ASSEMBLY }}
+        run: |
+          set -euo pipefail
+          adapter_package="$GITHUB_WORKSPACE/research/weighted_predecessors_adapter"
+          lake env lean --threads=1 -M4096 "$adapter_package/TwoSeedDependencyAudit.lean" \
+            2>&1 | tee "$ADAPTER_EVIDENCE/two-seed-dependency-audit.log"
+
+      - name: Preserve build and audit evidence
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: predecessor-adapter-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ env.ADAPTER_EVIDENCE }}/
+            ${{ env.ADAPTER_ASSEMBLY }}/build/weighted-replay/
+            ${{ env.ADAPTER_ASSEMBLY }}/weighted-overlay.json
+            ${{ env.ADAPTER_ASSEMBLY }}/lean-toolchain
+            ${{ env.ADAPTER_ASSEMBLY }}/lake-manifest.json
+          if-no-files-found: warn
+          retention-days: 30
