@@ -1,0 +1,248 @@
+{
+  "date": "2026-09-24",
+  "scope": "Post-v6 working-tree development; published PDF and ZIP remain unchanged",
+  "lean_toolchain": "leanprover/lean4:v4.29.1",
+  "mathlib_revision": "5e932f97dd25535344f80f9dd8da3aab83df0fe6",
+  "integrated_build": {
+    "passed": true,
+    "jobs": 3365,
+    "dependency_mode": "pinned cached dependencies; all five new modules and aggregate target re-elaborated"
+  },
+  "new_modules": [
+    "ShortcutCoverage",
+    "MarkedSection",
+    "SectionCoverage",
+    "CancellationTower",
+    "SectionReturn"
+  ],
+  "new_sources_placeholder_axiom_native_scan": "passed",
+  "headline_axiom_audit": [
+    {
+      "declaration": "CollatzShadowing.ShortcutCoverage.exists_iterate_target_linear_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.MarkedSection.section_iff_episodeHits20",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.SectionCoverage.exists_accelerated_hit",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.SectionReturn.recurrent_section_of_never_hits_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.SectionReturn.descending_return_family",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.SectionReturn.first_return_can_increase",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.cancellationTower_run",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.cancellationTower_exit_ternary",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.cancellationTower_noDrop_of_even_ge_thirty",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.cancellationTowerSource_mod_eighteen",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.SectionReturn.marked_sources_noDrop_for_any_horizon",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.SectionReturn.classicalCollatz_of_rankDescent",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.SectionReturn.exists_rankDescent_iff_acceleratedCollatz",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "finite_probe": {
+    "passed": true,
+    "residue_parity_cases": 54,
+    "regular_graph_edges": 43,
+    "integer_samples": 1000000
+  },
+  "published_v6_zip_sha256": "20f9195443dd058aeae16b9316ed0f6beafb6d360182ba93b875107a0ee9da60",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 18878,
+      "sha256": "82e5b1717e7746f4cd752211c3523375083c299d3d4d406a13dfe9c76466c50d"
+    },
+    {
+      "path": "lean/CollatzShadowing/CancellationTower.lean",
+      "bytes": 18006,
+      "sha256": "25866d82de5a7e971133bcac79e6e3e3fababeefb69ce474455c70bb86844601"
+    },
+    {
+      "path": "lean/CollatzShadowing/MarkedSection.lean",
+      "bytes": 7066,
+      "sha256": "a506a8fb2fd989ad404f5d76c953879bb100794ba42d2ba52b165ced48beb224"
+    },
+    {
+      "path": "lean/CollatzShadowing/SectionCoverage.lean",
+      "bytes": 5740,
+      "sha256": "c872fa38d57a6266ded742e60729008ea32abdbd026a814d1bf55aeae93c4fae"
+    },
+    {
+      "path": "lean/CollatzShadowing/SectionReturn.lean",
+      "bytes": 6536,
+      "sha256": "783a8a80077e0ff682c5e2811bef8ca3cb298f61627f0ecf7194e2ab48683b5d"
+    },
+    {
+      "path": "lean/CollatzShadowing/ShortcutCoverage.lean",
+      "bytes": 5571,
+      "sha256": "0361ddac99645ccffe01889c9cb77c53cdbc77cb29583aada34d885a37f933ba"
+    },
+    {
+      "path": "lean/CollatzShadowing/THEOREM_INDEX.md",
+      "bytes": 13171,
+      "sha256": "317b2592efeedf879e826e2490a4bdb65b2a363f928569b088df4ee45cc16b85"
+    },
+    {
+      "path": "lean/CollatzShadowing.lean",
+      "bytes": 1617,
+      "sha256": "4a87e493bd9a0f19f5560eca5d5eebc6eda38a2a012f09f224ed6f277b63e758"
+    },
+    {
+      "path": "lean/README.md",
+      "bytes": 7878,
+      "sha256": "1d20b3a58cf0f989a2e839662e0a37247687573539c5ddd974c62e559642044e"
+    },
+    {
+      "path": "lean/STATUS.md",
+      "bytes": 6074,
+      "sha256": "dcf48c2730fa10a0be683d7d05f677e8d891562b20ef9637554ad27607262a2e"
+    },
+    {
+      "path": "lean/TODO.md",
+      "bytes": 256481,
+      "sha256": "fe2dacd3ea01cd3afabe901eecdbf40a5a97d0f6bd96e352e777b9e52604cf2b"
+    },
+    {
+      "path": "lean/lake-manifest.json",
+      "bytes": 3140,
+      "sha256": "83e5a26c8c107c4615a22196f6e911d51e2632d01d5a4138955b75a70a08fe74"
+    },
+    {
+      "path": "lean/lean-toolchain",
+      "bytes": 25,
+      "sha256": "7dc000621e0046d1aada809e2b7177e64454645cf4c741e9daaf79c99ec2e7a2"
+    },
+    {
+      "path": "notes/PROJECT_STATISTICS.md",
+      "bytes": 11775,
+      "sha256": "177b90bceff5c702cfaefe3a01a813a3c4c13e7862642bbe546c54118ece790e"
+    },
+    {
+      "path": "notes/post_v6_section_2026-09-24/RESULTS_IT.md",
+      "bytes": 10028,
+      "sha256": "0638343df24fbf7f09309b53a4e7462067b678f5d57a1727054a5725135278f4"
+    },
+    {
+      "path": "notes/post_v6_section_2026-09-24/axioms.lean",
+      "bytes": 989,
+      "sha256": "2d29dd25e8eec4678820f708d8043de382af51c140507823621d295a117e5f7e"
+    },
+    {
+      "path": "notes/post_v6_section_2026-09-24/axioms.log",
+      "bytes": 1553,
+      "sha256": "d0c1dd752d57f9134c4981af50947d22f80bc6b2fc8cb3aa4eeab33fe6deddc1"
+    },
+    {
+      "path": "notes/post_v6_section_2026-09-24/coverage_certificate.json",
+      "bytes": 14547,
+      "sha256": "499fa93f90d04f5f5726b260777e937f4ec81f3075c98e33faf6d4c9f7bb7fc5"
+    },
+    {
+      "path": "notes/post_v6_section_2026-09-24/coverage_probe.log",
+      "bytes": 2136,
+      "sha256": "5b68b3aebfc690e0638d5f8c3e7b3ba226b43f2f58306d7d937a4f08933238fa"
+    },
+    {
+      "path": "notes/post_v6_section_2026-09-24/coverage_probe.py",
+      "bytes": 5233,
+      "sha256": "f1842099e0ac6784357ad509f5f583fd52dbf04854cd474b59f398b99729b0b4"
+    },
+    {
+      "path": "notes/post_v6_section_2026-09-24/lean_build.log",
+      "bytes": 391,
+      "sha256": "c6f8476a088965e2678b9886d784f6a737b46a0c5aa240e1501f61a60c66b4e8"
+    },
+    {
+      "path": "scripts/check_published_pdfs.py",
+      "bytes": 1667,
+      "sha256": "6be44833b3cfc2ff24f86e308675e3ff5620570ddcf6651f66e0cf27fdd2c5a0"
+    },
+    {
+      "path": "scripts/published_pdf_checksums.json",
+      "bytes": 2103,
+      "sha256": "94e56f8e6eee3f5aa3a2ac7c003aaf33ad1934935e994eea7e0d5bb8bce3e087"
+    }
+  ]
+}

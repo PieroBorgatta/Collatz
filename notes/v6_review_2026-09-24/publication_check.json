@@ -1,0 +1,22 @@
+{
+  "record": 22936057,
+  "doi": "10.5281/zenodo.22936057",
+  "created": "2026-09-24T09:48:38.053579+00:00",
+  "updated": "2026-09-24T09:49:16.763111+00:00",
+  "files": [
+    {
+      "name": "collatz_spectral_reduction_v6.pdf",
+      "size": 104734,
+      "zenodo_md5": "md5:0cfd141d9f4ff80954846075bf711975",
+      "local_md5": "md5:0cfd141d9f4ff80954846075bf711975",
+      "local_sha256": "a959282145d5042550c3938b445a4964305299b4eca71bcc62539804c5b585f9"
+    },
+    {
+      "name": "collatz_spectral_reduction_v6_supplementary.zip",
+      "size": 377127,
+      "zenodo_md5": "md5:3a1369c85923471555094f88f67a62dc",
+      "local_md5": "md5:3a1369c85923471555094f88f67a62dc",
+      "local_sha256": "20f9195443dd058aeae16b9316ed0f6beafb6d360182ba93b875107a0ee9da60"
+    }
+  ]
+}

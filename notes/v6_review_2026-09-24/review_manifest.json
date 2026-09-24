@@ -1,0 +1,61 @@
+{
+  "date": "2026-09-24",
+  "scope": "Independent analysis artifacts; published v6 files and canonical Lean sources unchanged",
+  "files": [
+    {
+      "name": "REVIEW_IT.md",
+      "bytes": 25324,
+      "sha256": "467ca49ee895d1f2b37af6690b2244004d63ba33fa19ad87e380292fe9d4a55e"
+    },
+    {
+      "name": "lean_audit.md",
+      "bytes": 10562,
+      "sha256": "0e3c0d25c434224bbf1fd32267d7efa0e25568752dd6250d5a947712837a9b10"
+    },
+    {
+      "name": "literature.md",
+      "bytes": 18573,
+      "sha256": "b22053c8f4b5f35bc1abf8255e3303c76714110af68ce73faa007f3f80b4c87a"
+    },
+    {
+      "name": "publication_check.json",
+      "bytes": 778,
+      "sha256": "1e3b0c0c78bc4f1a7adafee9eb9f29522997b446cd46ed4485a393e99db40c66"
+    },
+    {
+      "name": "section_derivation.md",
+      "bytes": 5538,
+      "sha256": "7586ab2d20fbaaf9011b38d2918ebfb29dde93abeeb7487e9bd3fc4fd3ea746c"
+    },
+    {
+      "name": "section_independent_review.md",
+      "bytes": 6618,
+      "sha256": "3057ea8fe3ed17d6eaf4fb486a10f6860975809f66e614a4a0e0d648d75a6600"
+    },
+    {
+      "name": "section_probe.py",
+      "bytes": 4719,
+      "sha256": "ebfb6f2631872ff6078a0ec8b1793185e122a0f5eea5cd54e501121aa7631a5a"
+    },
+    {
+      "name": "section_results.json",
+      "bytes": 1620,
+      "sha256": "e6e075f055de1feaaa8001efca8f18cb1f0cfd16ac9a98d2103652122b08b95e"
+    },
+    {
+      "name": "tower_derivation.md",
+      "bytes": 5791,
+      "sha256": "43a74986115abfb10c485cdc7335ad8eec3b1fa6d6d862095ebe6683fbff8b69"
+    },
+    {
+      "name": "tower_probe.py",
+      "bytes": 3818,
+      "sha256": "5c57523d397c6c47e9de13d00ddbd1077ded61dfa1fa429e3d8b4eeded9a5ac8"
+    },
+    {
+      "name": "tower_results.json",
+      "bytes": 729554,
+      "sha256": "3600146a9b1c2068cc5d8510317b90f85bbb03003c06018b6816f50f9ab07c3c"
+    }
+  ]
+}

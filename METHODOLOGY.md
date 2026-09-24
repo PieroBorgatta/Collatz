@@ -67,6 +67,79 @@ collaboration with LLM systems, as detailed below.
 
 ## AI assistance, by phase
 
+### v5 operational disclosure
+
+By the v5 retrospective, the workflow had become a multi-AI orchestration
+rather than a simple "ask one model" process. The author's account of the
+operational loop is:
+
+1. **Google Gemini** was used for broad, sometimes deliberately speculative
+   idea generation, always under the author's direction and starting from
+   the author's own conceptual framing.
+2. **Claude Code Opus 4.7 / 4.8** was used to validate, refine, and often
+   reject superficial ideas, including ideas first explored with Gemini.
+   Claude Code was also used for proof planning, paper drafting, and
+   comparison against external critiques.
+3. **OpenAI Codex** was used as the repository-operational agent: continuing
+   selected ideas, writing and editing Python scripts, Lean code, generated
+   certificate code, Markdown notes, TODO files, build scripts, and running
+   local checks and builds.
+4. **aider-desk + DeepSeek v4 Flash API** was used as an external-opinion
+   channel. DeepSeek's critique was not treated as authoritative; it was fed
+   back to Claude Code for adversarial comparison before returning to Codex
+   for implementation, rejection, or further tests.
+5. **Overleaf, GitHub, and Zenodo** formed the publication layer. Once the
+   author judged that a paper version was worth drafting, Claude Code often
+   drafted the TeX source, Overleaf was used for online compilation in some
+   versions, and the author or an AI coding agent performed pushes. The
+   author made all publication decisions and Zenodo uploads.
+
+The characteristic loop was:
+
+```text
+human idea/direction
+  -> Gemini exploration
+  -> Claude critique/refinement
+  -> Codex implementation/build
+  -> DeepSeek external opinion
+  -> Claude comparison
+  -> Codex revision/build
+```
+
+Not every iteration used every tool, but this was the recurring pattern.
+Lean 4 + Mathlib was the only authority for formal claims: cross-AI
+agreement was useful for finding and pruning ideas, but a proof counted only
+when the Lean project built without `sorry`, `admit`, or user-declared
+`axiom`. This is a source and build criterion, not a kernel-only guarantee:
+some finite proofs use `native_decide` and therefore trust the native
+compiler. A `#print axioms` audit is needed to report the trusted base of
+each headline theorem. See [`lean/STATUS.md`](lean/STATUS.md) for the later
+audit and toolchain limitation.
+
+### Cost / subscription disclosure
+
+During this project the author maintained general-purpose AI subscriptions
+or credits: Claude at roughly EUR 20/month; Gemini at roughly EUR 20/month;
+ChatGPT/OpenAI at roughly EUR 20/month initially and later roughly
+EUR 100/month as usage increased; and about EUR 50 of DeepSeek API credit
+through the aider-desk channel.
+
+These figures are not an attributable project budget. The same subscriptions
+were used at the same time for unrelated professional and personal tasks:
+Python programming, websites, iOS/Android/React app development, image
+generation for the author's employer, generic writing and coding tasks, VBA
+scripts, and other work. They are therefore reported as environment
+disclosure, not as the cost of the Collatz study.
+
+### Future instrumentation
+
+The project did not log AI usage with enough precision to reconstruct every
+session, turn count, token count, or model handoff. Future AI-assisted
+research runs should instrument this from the start: model/version,
+interface, session wall-clock time, approximate token use, task type,
+artifact produced, verification result, and whether the result survived
+cross-AI or Lean review.
+
 ### Early empirical phase (`scripts/early_empirical/`)
 
 Scripts numbered roughly `01` through `48`, plus `validate_*.py`.

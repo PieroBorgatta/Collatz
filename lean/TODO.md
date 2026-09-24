@@ -76,6 +76,15 @@ When you complete or partially advance a task:
 
 ## Current status (most recent first)
 
+**2026-09-24, post-v6 continuation.** The published v6 snapshot is
+[doi:10.5281/zenodo.22936057](https://doi.org/10.5281/zenodo.22936057).
+The current branch adds an explicit shortcut coverage rank, an exact
+six-progression marked section, universal cancellation-tower formulas,
+and a conditional return-rank interface. Current scope and verification
+are tracked in [`STATUS.md`](STATUS.md) and the
+[continuation report](../notes/post_v6_section_2026-09-24/RESULTS_IT.md).
+The older status and session entries below are historical.
+
 > *Last updated: 2026-05-28 — **Phase 5 complete: Lemma 3.1 and Corollary 3.4 formalized**. Project is `sorry`-free. **Phase 6 complete**: paper v2 drafted, Lean note written, Related Work + Chang comparison done, GitHub README updated, METHODOLOGY.md updated, Zenodo v2 published, and `pdflatex` verified online by Piero. **Phase 7 complete for the current branch**: tasks 7.1-7.4, 7.6, and 7.7 are complete; 7.4 closes with the full `K0=16` sampled run and SCC report, outcome (b), so 7.5 is not applicable. **F.1 is closed for the declared finite residue-cell scope and imported in Lean**: `deterministic_residue_transfer.py` enumerates all `2^4` finite residue subclasses for each of the 1240 raw SCC source states, writes exact deterministic transition matrices, and the `(K,b)` matrix has a generated Lean/Python exact CW certificate with max ratio `90833233962213/129559208330288 < 3/4`; sensitivity checks at `lift_bits = 5, 6` also stay below `3/4`. **Phase 8 complete for the current branch**: 8.1-8.9 are complete; 8.3 closes on the generated 37-state compressed `K,b` SCC certificate; 8.5 has the matrix/decomposition API, a generated exact import of the empirical `T = 10` critical-symbolic full transfer matrix, and an exact generated `T = 10, j = 32` majority `core/tail` `OperatorDecomposition`; 8.6 connects finite CW certificates to Mathlib `spectralRadius`; 8.7 exposes the `T = 10, j = 32` numerical spectral-radius bound `97/2000 = 0.0485` through a fully expanded Lean-checked 224-row CW certificate generated from the exact CSV. **Phase 9 complete**: paper v3 redaction and publication were completed externally by Piero; v3 DOI/record `10.5281/zenodo.20160154` / `https://zenodo.org/records/20160154`. **Phase 10 A0 weak branch reopened**: the finite row-L1 bridge is formalized in `CollatzShadowing/WeakBridge.lean`; the high-`v2` source-tail mass is now both an exact count and a real mass estimate with Lean theorems `WeakBridge.TailCount.dyadic_tail_count_mul_le` and `WeakBridge.TailCount.dyadic_tail_mass_le`; the general finite low/tail split is formalized as `WeakBridge.FiniteSplit.weighted_sum_le_low_plus_tail`; the `delta_only` reduction is formalized as `WeakBridge.FiniteSplit.weighted_dyadic_delta_boundary_le`; first bit-length infrastructure is formalized as `WeakBridge.BitLength.bitLength_two_mul`, same-window add/sub lemmas, dyadic-boundary crossing lemmas, endpoint-union bounds, affine endpoint-union bounds, `WeakBridge.BitLength.affineDelta_period_eq_of_not_mem_badSet`, `WeakBridge.BitLength.biAffineDelta_period_eq_of_not_mem_badSet`, `WeakBridge.BitLength.biAffineDelta_dyadicWeight_period_boundary_le`, and `WeakBridge.BitLength.biAffineDelta_refine`; script `126` now records exact valuation-word cylinder arithmetic, an affine no-drop prefix certificate, destination-refined bi-affine return branches, and an exact congruence diagnostic for the `best_shadow` label gate. Through complete prefixes `T12/T13/T14`, formula/delta/word/no-drop/refined failures remain zero, no final competitor phantom is detected, and the target high-lift boundary is converted into an exact continuation branch: all rows have high-lift continuation support, step delta exactly `+6`, and zero integrality/no-drop failures. Lean still imports the open label-gate count `6628`, now attributable to possible intermediate phantom-label congruences plus the high-lift boundary bookkeeping. Script `125` complete-prefix period-shift runs through `T14` remain entirely `delta_only`, with no destination/drop/tail boundary. The next open proof target is splitting/controlling the intermediate visible-label congruence families in an automaton-aware way.*
 
 Latest Phase-10 reduction: the intermediate label obstruction is now split
@@ -269,11 +278,15 @@ and cap-specific; it does not assert an infinite loss-free cover.
   theorem `PhantomWord.B_closed_form` in `Auxiliary.lean`.
 - **Paper-faithful 2-adic infrastructure landed.** New file
   `CollatzShadowing/Syracuse2Adic.lean` defines
-  `Syracuse2adic : ℤ_[2] → ℤ_[2]`, the natural extension of the
-  accelerated Syracuse map to the 2-adic integers, and proves the
+  `Syracuse2adic : ℤ_[2] → ℤ_[2]`, a totalization of the
+  accelerated Syracuse rule on the 2-adic integers, and proves the
   bridge `Syracuse2adic_natCast` connecting it to the integer-level
   `S : ℕ → ℕ`. The construction uses `PadicInt.unitCoeff` and a
-  documented total extension at the degenerate point `x = -1/3`.
+  documented convention at the degenerate point `x = -1/3`.
+  **September 2026 correction:** this totalization is discontinuous
+  at `-1/3`; it agrees with the natural-number map on positive odd
+  inputs but is not a global continuous extension. See the v6 draft and
+  `SyracuseSingularity.lean` for a finite-precision witness.
 - `Shadowing.lean` refactored: `exact_shadowing` and
   `exact_shadowing_periods` now state Lemma 3.1 in the paper-faithful
   form `ν₂Z2 (3 · Syracuse2adic^[j] x + 1) = aAt w j`, and the
@@ -727,6 +740,25 @@ finite phantom-shadowing/CW layer
 > - Notes: any blockers, open questions, things the next session should know
 > - Next recommended task: X.Y
 > ```
+
+### 2026-09-24 (Post-v6 marked section and parameterized towers) — Codex + Piero Borgatta
+
+- [x] Explicit rank certificate for hitting 1 or `20 mod27`, including a
+  linear hitting-time bound and a reproducible finite coefficient solver.
+- [x] Exact six-progression episode characterization and unconditional
+  accelerated section coverage.
+- [x] Universal cancellation towers, terminal phases, and marked sources
+  defeating every fixed finite no-descent horizon.
+- [x] An infinite descending return family and an increasing first return.
+- [ ] Establish a fixed rank on actual future section returns. The
+  conditional interface remains equivalent to accelerated Collatz.
+- Artifacts: `CollatzShadowing/{ShortcutCoverage,MarkedSection,SectionCoverage,CancellationTower,SectionReturn}.lean`
+  and `../notes/post_v6_section_2026-09-24/`.
+- Published v6 PDF/ZIP preserved; README and checksum registry recognize
+  v6 as published. Pre-existing working-tree changes are retained.
+- Next research target: certified parameterized return families retaining
+  the tower phase and ternary endpoint identities; no fixed-depth trie
+  can provide the required global descent certificate.
 
 ### 2026-05-28 (A0 return branches: monotone-return exclusion) — Codex + Piero Borgatta
 

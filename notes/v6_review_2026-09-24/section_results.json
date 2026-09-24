@@ -1,0 +1,77 @@
+{
+  "claim_type": "finite arithmetic diagnostic, not a proof of universal coverage or Collatz",
+  "episode_convention": "(u,S(u)] excludes source, includes endpoint",
+  "limit_exclusive": 1000000,
+  "admissible_odd_sources_checked": 333333,
+  "mismatches": 0,
+  "order_of_two_mod_27": 18,
+  "ports": [
+    {
+      "j": 1,
+      "residue_mod_9": 4,
+      "residue": 13,
+      "modulus": 18
+    },
+    {
+      "j": 3,
+      "residue_mod_9": 8,
+      "residue": 53,
+      "modulus": 72
+    },
+    {
+      "j": 7,
+      "residue_mod_9": 7,
+      "residue": 853,
+      "modulus": 1152
+    },
+    {
+      "j": 9,
+      "residue_mod_9": 2,
+      "residue": 3413,
+      "modulus": 4608
+    },
+    {
+      "j": 13,
+      "residue_mod_9": 1,
+      "residue": 54613,
+      "modulus": 73728
+    },
+    {
+      "j": 15,
+      "residue_mod_9": 5,
+      "residue": 218453,
+      "modulus": 294912
+    }
+  ],
+  "density_all_positive": "6935/98304",
+  "density_relative_to_odds": "6935/49152",
+  "increasing_first_return": {
+    "kind": "section_return",
+    "path": [
+      31,
+      47,
+      71,
+      107,
+      161,
+      121
+    ]
+  },
+  "nonreturning_convergent_source": {
+    "kind": "hits_one",
+    "path": [
+      13,
+      5,
+      1
+    ]
+  },
+  "infinite_one_step_return_family": {
+    "source": "661+1152t",
+    "destination": "31+54t",
+    "parameter": "integer t>=0",
+    "exact_exponent": 6,
+    "proof": "integer coefficient identities and odd destination",
+    "formalization_status": "paper-level, not Lean"
+  },
+  "tower_section_members_tested": 111,
+  "tower_membership": "for even k>=4: n_k in E iff k=10 mod18"
+}

@@ -1,0 +1,36 @@
+name: Lean
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify published PDF checksums
+        run: python3 scripts/check_published_pdfs.py
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: lean
+          build: 'true'
+          # Lean 4.29.1 gives each native_decide proof a separate axiom.
+          # Allow only the nine finite checks already present in the project;
+          # sorryAx and any new axiom remain forbidden.
+          axiom-audit: 'true'
+          axiom-audit-allow: >-
+            propext,Classical.choice,Quot.sound,
+            CollatzShadowing.smallOddHasDirectDropWithin100Bool._native.native_decide.ax_1_1,
+            CollatzShadowing.smallOddHasDirectDropWithin100Bool464._native.native_decide.ax_1_1,
+            CollatzShadowing.smallOddHasDirectDropWithin100Bool648._native.native_decide.ax_1_1,
+            CollatzShadowing.Generated.a0SemanticSuffixPairCertificatesT14Prototype_allValid._native.native_decide.ax_1_1,
+            CollatzShadowing.Generated.a0SemanticSuffixPairCertificatesT14_rowCount._native.native_decide.ax_1_1,
+            CollatzShadowing.Generated.a0SemanticSuffixPairCertificatesT14_allValid._native.native_decide.ax_1_1,
+            CollatzShadowing.Generated.a0SemanticSuffixPairCertificatesT14_allValidAtCutoff455._native.native_decide.ax_1_1,
+            CollatzShadowing.Generated.a0SemanticSuffixPairCertificatesT14_matches_summary._native.native_decide.ax_1_1,
+            CollatzShadowing.Generated.a0SemanticSuffixT14PairCoverageV2Lt8Cap100_summary._native.native_decide.ax_1_1

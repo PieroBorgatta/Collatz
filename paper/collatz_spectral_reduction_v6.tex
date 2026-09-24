@@ -1,0 +1,593 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{seqsplit}
+
+\geometry{margin=2.8cm}
+\setlength{\emergencystretch}{3em}
+\sloppy
+\newcommand{\ttbr}[1]{\texttt{\seqsplit{#1}}}
+\newcommand{\Zp}{\mathbb{Z}_2}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\nuTwo}{\nu_2}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  citecolor=blue!50!black,
+  urlcolor=blue!50!black,
+  pdftitle={Exact Exponent Cylinders, Precision Budgets, and Singular Coding in Accelerated Syracuse Dynamics},
+  pdfauthor={Piero Borgatta}
+}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{Exact Exponent Cylinders, Precision Budgets,\\
+  and Singular Coding in Accelerated Syracuse Dynamics\\
+  \large Version 6}
+\author{Piero Borgatta\thanks{Independent researcher. Correspondence:
+\texttt{info@pieroborgatta.com}; ORCID 0009-0001-8025-2405.}}
+\date{24 September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This paper continues the published v5 methodology
+retrospective \cite{borgatta_v5}. It reports exact arithmetic results in the
+subsequent Lean development. Every nonempty positive-exponent word is
+characterized by one exact residue congruence, including the final odd
+endpoint bit; repeated blocks inherit a modulus growing with their length.
+A fixed expansive Syracuse exponent word
+consumes a precisely quantified number of $2$-adic precision bits each
+time it matches an integer orbit. Compatible changes of affine phantom
+label preserve that decreasing counter; unrestricted changes can reset it.
+An explicit natural-number lasso demonstrates the failure of a proposed
+rank built from three short-word counters. A paper-level cancellation
+family shows that a constant affine defect need not bound destination
+precision. A separate theorem constructs,
+at every finite precision, positive odd inputs approaching the $2$-adic
+singular point whose accelerated outputs remain different. We give the
+correct domain for infinite positive-exponent coding and record necessary
+cycle and finite-barrier constraints. These results identify a concrete
+certificate-search problem, but they do not prove strict descent for every
+positive integer or exclude every nontrivial cycle. The paper distinguishes
+Lean declarations, paper-level deductions, and open research targets.
+\end{abstract}
+
+\begingroup\small
+\tableofcontents
+\endgroup
+
+\section{Scope and notation}
+
+The v5 paper \cite{borgatta_v5} is a published retrospective of the
+earlier program. This version concerns the later arithmetic
+development. Let
+\[
+  S(n)=\frac{3n+1}{2^{a(n)}},\qquad
+  a(n)=\nuTwo(3n+1)
+\]
+for a positive odd integer $n$. Every iterate of $S$ is again a positive
+odd integer. For a finite word $w=(a_1,\ldots,a_\ell)$ of positive
+exponents, put $A=\sum_i a_i$, $P=3^\ell$, and $Q=2^A$. Its affine
+constant $C_w$ is defined by $C_{()}=0$ and
+\[
+  C_{w\mathbin{\|}(a)}=3C_w+2^{\sum w}.
+\]
+When an orbit starting at $n$ has exactly the first $\ell$ exponents
+$w$, its endpoint $m=S^\ell(n)$ satisfies
+\begin{equation}\label{eq:affine}
+  Qm=Pn+C_w.
+\end{equation}
+This identity is formalized as
+\ttbr{evalSyracuseWord\_mul\_pow\_sum\_eq\_affine\_of\_matches}
+in \texttt{CollatzBridge.lean}. A finite word is \emph{expansive} when
+$P>Q$. This refers to its affine slope, not to a claim that every
+individual matched endpoint exceeds its source.
+
+\section{Exact finite exponent cylinders}
+
+For a nonempty word $w$ with every $a_i>0$, let $\mathcal C_w$ be the
+set of natural starting values whose first $\ell$ accelerated Syracuse
+exponents are exactly $w$. The extra final bit in the following theorem
+distinguishes an odd endpoint from an integral but even one.
+
+\begin{theorem}[Exact cylinder congruence]\label{thm:cylinder}
+For every $n\in\N$,
+\begin{equation}\label{eq:cylinder}
+  n\in\mathcal C_w
+  \quad\Longleftrightarrow\quad
+  (3^\ell n+C_w)\bmod 2^{A+1}=2^A.
+\end{equation}
+If $k\ge1$ and $w^k$ denotes $k$ consecutive copies of $w$, then
+\begin{equation}\label{eq:repeated-cylinder}
+  n\in\mathcal C_{w^k}
+  \quad\Longleftrightarrow\quad
+  (3^{k\ell}n+C_{w^k})\bmod 2^{kA+1}=2^{kA}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+For a matching word, Equation~\eqref{eq:affine} gives
+$3^\ell n+C_w=2^A m$ with $m$ odd, hence the stated residue. Conversely,
+the residue supplies an odd natural endpoint $m$ satisfying this affine
+identity. Reverse induction through the positive exponent word, using
+the parity of each nonempty suffix constant, recovers each intermediate
+odd quotient and proves that every prescribed valuation is exact. Apply
+the same statement to $w^k$, whose exponent sum is $kA$, for
+Equation~\eqref{eq:repeated-cylinder}.
+\end{proof}
+
+The Lean declarations are
+\ttbr{syracuseWordMatches\_iff\_exactResidue} and
+\ttbr{repeatPhantomWord\_matches\_iff\_exactResidue} in
+\texttt{ExactCylinders.lean}; both pass the full library build. The
+final $+1$ matters: for $w=[1,2]$, $A=3$ and $C_w=5$, so $n=3$ makes
+$9n+5=32$ divisible by $8$ but does not realize the word, whereas
+$n=11$ gives $9n+5=104\equiv8\pmod{16}$ and does realize it.
+
+\begin{corollary}[One residue class and its density; paper-level]
+For each such $w$, $\mathcal C_w$ is one odd residue class modulo
+$2^{A+1}$. Its natural density among positive integers is
+$2^{-(A+1)}$, or $2^{-A}$ relative to positive odd integers. The
+positive integer points of this class are dense \emph{within} its
+$2$-adic clopen cylinder, whose Haar measure in $\Zp$ is
+$2^{-(A+1)}$. For $w^k$, replace $A$ by $kA$.
+\end{corollary}
+\begin{proof}
+The coefficient $3^\ell$ is invertible modulo $2^{A+1}$, so
+Equation~\eqref{eq:cylinder} has exactly one residue class. Since
+$C_w$ is odd and $2^A$ is even, that class is odd. Counting one class
+per period gives the natural densities. Every $2$-adic subcylinder of
+this class contains positive representatives of the same integer
+congruence, giving density within the cylinder.
+\end{proof}
+
+The congruence theorem is formalized; uniqueness, density, and the
+topological description in the corollary are deductions in this paper.
+Ross's earlier Zenodo v3 states the corresponding one-class result
+\cite{ross2026}; our contribution here is its exact Lean integration with
+the precision and trace developments, not a claim of mathematical
+priority.
+
+\section{An exact precision budget for one word}
+
+Fix a nonempty expansive word $w$. Write $D=P-Q>0$ and
+\[
+  H_w(n)=Dn+C_w>0,\qquad p_w(n)=\nuTwo(H_w(n)).
+\]
+The rational formal fixed point of the word is $-C_w/D$. Since $D$ is
+odd, $p_w(n)$ is also the $2$-adic precision of the difference between
+$n$ and that point.
+
+\begin{theorem}[Matched-word precision tax]\label{thm:tax}
+If $w$ matches the orbit at $n$ and has endpoint $m$, then
+\begin{equation}\label{eq:tax}
+  QH_w(m)=PH_w(n),\qquad p_w(m)+A=p_w(n).
+\end{equation}
+If $k$ consecutive copies of $w$ match, then
+\begin{equation}\label{eq:budget}
+  kA\le p_w(n)\le\lfloor\log_2 H_w(n)\rfloor.
+\end{equation}
+In particular, one fixed expansive word with $A>0$ cannot repeat
+indefinitely along a positive integer orbit.
+\end{theorem}
+\begin{proof}
+Multiply $H_w(m)=Dm+C_w$ by $Q$ and use
+Equation~\eqref{eq:affine}:
+\[
+  Q(Dm+C_w)=D(Pn+C_w)+QC_w
+    =P(Dn+C_w),
+\]
+because $D+Q=P$. The multiplier $P=3^\ell$ is odd, whereas $Q=2^A$.
+Taking $2$-adic valuations gives Equation~\eqref{eq:tax}; iteration
+telescopes, and nonnegativity of the final valuation gives
+Equation~\eqref{eq:budget}. The final upper bound is the elementary
+valuation-versus-bit-length inequality for a positive natural number.
+\end{proof}
+
+The Lean declarations are
+\ttbr{syracuseWord\_precisionTax\_scaled\_identity\_of\_matches},
+\ttbr{syracuseWordPhantomPrecision\_after\_eval\_add\_sum},
+\ttbr{syracuseWordPhantomPrecision\_after\_iterate\_add\_mul\_sum}, and
+\ttbr{no\_infinite\_matched\_expansive\_word} in
+\texttt{PrecisionTax.lean}. \texttt{PrecisionTemplates.lean} supplies
+the words $[1]$, $[1,2]$, and $[2,1]$, for which $H_w(n)$ is respectively
+$n+1$, $n+5$, and $n+7$. The theorem is a bound on \emph{consecutive
+copies of the same matched word}. It does not bound arbitrary switching
+among different words.
+
+\section{Switching labels and a concrete obstruction}
+
+One can attempt to follow a changing formal point by assigning each state
+an affine label $(D,C)$ and precision $\nuTwo(Dn+C)$. Suppose an exact
+Syracuse step has exponent $e$ and sends $n$ to $m$:
+\[
+  2^e m=3n+1.
+\]
+If source and destination labels obey
+\begin{equation}\label{eq:compat}
+  3D'=qD,\qquad D'+2^e C'=qC
+\end{equation}
+for an odd factor $q$, then
+\begin{equation}\label{eq:switch}
+  2^e(D'm+C')=q(Dn+C).
+\end{equation}
+For nonzero numerators this implies exact precision loss by $e$.
+This is \ttbr{switchingPhantomPrecision\_after\_step\_add\_exponent}
+in \texttt{SwitchingPrecision.lean}.
+
+The compatibility equations matter. At any odd $n$, a freely chosen
+shift $C_k=(2^k-1)n$ gives $\nuTwo(n+C_k)=k$ for every $k$. Thus a
+``choose the closest phantom afresh'' rule need not decrease. This is the
+Lean theorem \ttbr{arbitrary\_phantom\_shift\_can\_set\_precision}.
+
+\begin{proposition}[A short-trace lasso]\label{prop:lasso}
+The exact matched segment $743\to1115\to1255$ has exponent blocks
+$[1]$ and $[1,2]$. The three-counter vector
+\[
+  \bigl(\nuTwo(n+1),\nuTwo(n+5),\nuTwo(n+7)\bigr)
+\]
+takes the values
+\[
+  (3,2,1)\ \longrightarrow\ (2,5,1)\ \longrightarrow\ (3,2,1).
+\]
+The compatible hidden counter $\nuTwo(11n+19)$ loses four bits across
+the full $[1,1,2]$ segment.
+\end{proposition}
+
+The segment and hidden loss are formalized by
+\ttbr{concrete\_shortTrace\_lasso} and
+\ttbr{hiddenTrace\_lasso\_tax} in
+\texttt{ThreeTraceObstruction.lean}. The recurrence
+$n_{k+1}=1024n_k+1767$ with $n_0=743$ produces arbitrarily precise
+positive integer approximants to the formal point $-19/11$; it does not
+produce an infinite positive integer orbit with a repeating state.
+The repeated triple rules out a strictly decreasing rank determined
+\emph{solely} by those three counters; it does not rule out an augmented
+state or a rank tracking the compatible hidden counter.
+Moreover, \texttt{AffineTraceGraph.lean} proves that two prescribed words
+with different nondegenerate rational fixed points cannot both be
+self-cycles of one scalar rational control state
+(\ttbr{no\_common\_rational\_fixed\_point\_of\_distinct\_words}).
+These facts constrain a certificate search based on a small fixed set of
+phantom labels.
+
+\section{The singular point and the coding domain}
+
+\paragraph{Erratum to the published v4.}
+The definition preceding the non-transport lemma in the published v4
+\cite{borgatta_v4} called the accelerated Syracuse map a continuous map
+$\widetilde S:\Zp\to\Zp$ and then called its valuation-word map a
+topological conjugacy with a shift. The first assertion is false, so the
+conjugacy argument as written is invalid. Its advertised global type is
+also wrong: an even input can have first exponent $0$, outside the
+positive-exponent alphabet, while at $x=-1/3$ the numerator vanishes
+and has no finite valuation exponent. We replace those claims with the
+finite arithmetic witness below and restrict infinite-word coding to the
+invariant odd domain on which every numerator is nonzero. The logical
+non-transport observation for positive integer orbits survives by the
+direct arithmetic argument following the theorem; it requires no global
+continuous extension or global topological conjugacy.
+
+The total function \ttbr{Syracuse2adic} in \texttt{Syracuse2Adic.lean}
+uses the odd unit factor of $3x+1$ and sets the value to $0$ at
+$x=-1/3\in\Zp$. This total map agrees with $S$ on positive odd
+integers, but it is not continuous at $-1/3$.
+
+\begin{theorem}[Finite-precision separation]\label{thm:singular}
+For every $R\in\N$, there are positive odd integers $n_1,n_7$ such that
+\[
+  2^R\mid(3n_1+1),\qquad 2^R\mid(3n_7+1),\qquad
+  S(n_1)=1,\quad S(n_7)=7.
+\]
+\end{theorem}
+\begin{proof}
+Starting from $1$ and $9$, repeatedly apply $L(n)=4n+1$.
+The identity $3L(n)+1=4(3n+1)$ raises the valuation by two without
+changing the accelerated output. Thus, with
+\[
+  n_1(k)=\frac{4^{k+1}-1}{3},\qquad
+  n_7(k)=\frac{28\cdot4^k-1}{3},
+\]
+both positive odd sequences have the fixed outputs $1$ and $7$, while
+their numerators are divisible by $2^{2k+2}$. Choose $k$ large enough
+for the given $R$.
+\end{proof}
+
+The Lean theorem is
+\ttbr{singular\_outputs\_separated\_at\_every\_precision} in
+\texttt{SyracuseSingularity.lean}. It asserts the finite arithmetic
+separation, not a topological result. Since $3$ is a $2$-adic unit, both
+sequences converge in $\Zp$ to $-1/3$. Their different constant outputs
+then give the paper-level discontinuity conclusion.
+
+Infinite positive-exponent words require a restricted domain. Let
+$U=\{x\in\Zp:x\text{ odd},\ 3x+1\ne0\}$, and define
+$D=\{x\in U:S^k(x)\in U\text{ for every }k\ge0\}$, with $S$ on $U$
+given by the odd unit factor of $3x+1$.
+For $a\ge1$ and odd $y\in\Zp$, the inverse branch
+\[
+  \phi_a(y)=\frac{2^a y-1}{3}
+\]
+is odd, has valuation exponent $a$, and maps to $y$. Compositions for a
+fixed prefix of $W=(a_1,a_2,\ldots)$ agree modulo
+$2^{a_1+\cdots+a_m}$. Their limit $\xi_W\in D$ is the unique point
+with that exponent word. In particular, a positive odd integer equals
+the point reconstructed from its own infinite word. The coding proof in
+this paragraph is paper-level; the current Lean module formalizes the
+arithmetic singularity witness, not this general reconstruction theorem.
+
+Here \emph{not eventually periodic} means that no tail of a word repeats
+with a fixed positive period. This qualification is essential: the word
+of $n=3$ is $(1,4,2,2,\ldots)$, which is not periodic from the start but
+is eventually periodic. For \emph{all} infinite positive-exponent words,
+the statement ``$W$ is not eventually periodic $\Longrightarrow\xi_W$
+is not a positive integer'' is equivalent to every positive odd integer
+having a bounded accelerated orbit. Indeed, a bounded positive orbit is
+pre-periodic and its exponent word is eventually periodic. Conversely,
+suppose a tail repeats a nonempty block $w$ indefinitely. Then $P\ne Q$:
+$P=3^{|w|}$ is odd and $Q=2^A$ is even. The expansive case $P>Q$ is
+excluded for a positive integer by the matched-word precision budget
+of Theorem~\ref{thm:tax}. In the remaining case $P<Q$, the block endpoint
+recurrence $m=(Pn+C_w)/Q$ has slope strictly below one and bounded
+iterates; its finitely many within-block intermediate states are bounded
+as well. Thus the integer orbit is bounded. This is the
+no-unbounded-orbit half of Collatz; the
+coding equivalence does not prove it. A claim restricted to a particular
+class of non-eventually-periodic words has different logical strength.
+
+\section{Related work and priority}
+
+Tao's almost-bounded-value theorem is an almost-all statement in
+\emph{logarithmic} density \cite{tao2019}. Inselmann proves a different
+almost-all descent estimate in \emph{natural} density on a logarithmic
+time scale \cite{inselmann2024}. Neither is a pointwise theorem for every
+positive integer. They set a stronger statistical context for the local
+finite-precision identities here, while leaving the universal bridge open.
+
+Sharpe's Lean repository reports near-periodicity and mechanical-itinerary
+results, among other formalized Collatz statements \cite{sharpe2026}.
+Fern\'andez and Ib\'a\~nez study extremal parity words through Christoffel
+structures \cite{fernandez2026}. Ross's Zenodo v3 establishes that a
+finite positive-exponent word occupies one odd residue class modulo
+$2^{1+\sum a_i}$ \cite{ross2026}. These sources overlap with the word and
+cycle language used here. The contribution claimed in this note is the
+\emph{specific combination and formalization in this repository} of the
+exact cylinder criterion, a matched-word precision budget, switching
+compatibility, and explicit obstructions. We make no claim of absolute
+mathematical priority
+for the underlying coding or valuation observations.
+
+Recent AI-assisted claims include Mazur's positive-density convergence
+formalization hosted by ProofAtlas \cite{mazur2026} and Shaik's proposed
+polylogarithmic descent for almost all starts \cite{shaik2026}.
+ProofAtlas records a successful theorem-specific build while independent
+publication review remains pending. Shaik reports a Palomar Registry v2
+replay of four selected Lean declarations; that selected replay does not
+by itself review the whole manuscript. The exact scope and evidence of
+both claims merit separate audit. We use neither as a premise, and
+neither presented claim gives a conclusion for every positive integer.
+
+\section{Cycle and finite-barrier constraints}
+
+If a nonempty word $w$ matches a positive integer $n$ and returns to
+$n$, Equation~\eqref{eq:affine} gives
+\begin{equation}\label{eq:cycle}
+  (2^A-3^\ell)n=C_w.
+\end{equation}
+Consequently $2^A>3^\ell$, and any divisor of
+$2^A-3^\ell$ divides $C_w$. These necessary statements are the Lean
+theorems \ttbr{syracuseWordCycleEquationNat},
+\ttbr{syracuseWordCycleContracting}, and
+\ttbr{syracuseWordCycleModularSieve} in
+\texttt{CycleConstraints.lean}. They do not show that all nontrivial
+cycles are impossible.
+
+For a matched contracting finite word, let $d=2^A-3^\ell>0$.
+Rearranging Equation~\eqref{eq:affine} gives the exact displacement
+identity
+\[
+  2^A(n-m)=dn-C_w.
+\]
+Hence $m<n$ if and only if $C_w<dn$. If the least nonnegative
+representative $r=n\bmod 2^{A+1}$ satisfies $C_w<dr$, then $r\le n$
+gives a finite residue certificate of strict descent. These are the
+scope of \ttbr{evalSyracuseWord\_lt\_iff\_source\_above\_barrier}
+and \ttbr{evalSyracuseWord\_lt\_of\_exactResidue\_above\_barrier}
+in \texttt{FirstBarrier.lean}. Evaluating the threshold at the actual
+source is algebraically equivalent to the desired drop; it is not an
+independent global ranking principle.
+
+The related module \texttt{A0InfiniteSubfamily.lean} proves descent on
+the infinite residue classes $n=615+4096u$ and $n=2663+8192u$.
+This is a genuine pointwise result on two families, with no assertion that
+their union covers all positive odd integers.
+
+\section{A testable continuation}
+
+The results suggest a finite-certificate project with three separately
+checkable obligations:
+\begin{enumerate}[leftmargin=2em]
+  \item Use Theorem~\ref{thm:cylinder} to enumerate finite exact exponent
+        cylinders and attach each source residue either to a strict-descent
+        certificate or to a declared control state.
+  \item On every continuing edge, verify a compatible affine label
+        transport of Equation~\eqref{eq:compat}, or explicitly account for
+        any counter reset or cancellation. The lasso of Proposition~\ref{prop:lasso}
+        invalidates a rank that records only the three shortest labels.
+  \item Prove that every possible exit and every uncovered residue has an
+        actual descent witness; a finite matrix bound or a count of
+        exceptional residues is not that witness.
+\end{enumerate}
+The immediate falsifiable milestone is a small, exact certificate checker
+that reports uncovered residue classes and incompatible label cycles,
+not only successful finite examples. A theorem covering all positive odd
+integers remains open. The named hypotheses
+\ttbr{UniformStrictDescentHypothesis},
+\ttbr{A0FirstBarrierExistsAll}, and
+\ttbr{A0FirstBarrierThresholdAutomatic} have not been proved. The last
+two together imply an exit for the A0 family only; the global descent
+bridge still needs a cover of every positive odd source.
+
+\paragraph{A proposed defect and cancellation ledger (paper-level).}
+The compatible switching identity can be extended to measure a failure
+of compatibility. On an exact edge $2^e m=3n+1$, assign integer affine
+labels $F_i(n)=D_i n+C_i$ and $F_j(m)=D_j m+C_j$, and choose an odd
+integer $q$. Define the edge defect
+\[
+  E(n)=(3D_j-qD_i)n+(D_j+2^e C_j-qC_i).
+\]
+Direct substitution gives
+\[
+  2^e F_j(m)=qF_i(n)+E(n).
+\]
+When the compatibility equations~\eqref{eq:compat} hold, $E$ is
+identically zero and the verified switching identity applies. Otherwise
+extend $\nuTwo$ to signed integers by
+$\nuTwo(t)=\nuTwo(|t|)$ for $t\ne0$ and $\nuTwo(0)=+\infty$, and let
+$a=\nuTwo(F_i(n))$, $b=\nuTwo(E(n))$ when both are nonzero. The exact
+valuation ledger has three cases: if $a<b$, then
+$\nuTwo(F_j(m))+e=a$; if $b<a$, then
+$\nuTwo(F_j(m))+e=b$. If $a=b<\infty$, write
+$qF_i(n)=2^a u$ and $E(n)=2^a v$ with $u,v$ odd, and put
+$c=\nuTwo(u+v)\ge1$. Then
+$\nuTwo(F_j(m))=a+c-e$, with the convention for a zero sum above.
+The proposed scalar precision rank drops strictly on this edge only if
+$c<e$; for $e=1$, this is impossible. Cancellation can make the
+destination valuation arbitrarily higher, so the equal case must not
+be treated as a bounded reset.
+
+Indeed, take $e=1$, $q=3$, $F_i(n)=n+1$, and $F_j(m)=m+5$. Then
+$E(n)=8$, a constant with no $2$-adic root. For every even $k\ge4$,
+\[
+  n_k=\frac{2^{k+1}-11}{3},\qquad
+  m_k=S(n_k)=2^k-5
+\]
+are positive odd integers in the fixed exact $[1]$ cylinder
+$n_k\equiv3\pmod4$. Direct
+calculation gives
+$\nuTwo(F_i(n_k))=\nuTwo(E(n_k))=3$ but
+$\nuTwo(F_j(m_k))=k$. Thus absence of a defect root does \emph{not}
+bound destination precision. This family is a paper-level arithmetic
+counterexample, not a Lean declaration.
+
+The defect still gives a useful exact cylinder test. On
+$x\equiv r\pmod{2^K}$, write $E(x)=sx+b_0$ with $s\ne0$ and
+$\alpha=\nuTwo(s)$. If $\nuTwo(E(r))<K+\alpha$, then
+$\nuTwo(E(x))=\nuTwo(E(r))$ throughout the cylinder: write
+$x=r+2^K t$ and compare the valuations of $E(r)$ and $s2^K t$.
+Otherwise $E$
+has a unique zero in that $2$-adic cylinder, approximated by positive
+integer representatives with unbounded defect valuation. For $s=0$,
+the defect is constant. A checker must also split the critical
+$a=b$ cylinders, track zeros of the pulled-back destination numerator
+$3D_j n+D_j+2^e C_j$, or supply a separate descent certificate. The
+proposed falsifiable target is a finite exact-cylinder checker that
+reports both types of valuation tower and candidate non-descending
+control cycles at each tested resolution. No finite closure, global
+cover, or termination theorem follows from this ledger alone.
+The repository script \texttt{lean/scripts/phantom\_taxonomy/}
+\texttt{switching\_defect\_probe.py} checks the identity, all three
+valuation cases, and the constant-defect family at finite depth. It is
+a reproducible diagnostic, not a proof of the proposed checker or a Lean
+formalization.
+
+\section{Verification boundary}
+
+The cited declarations are in the \texttt{lean/CollatzShadowing} library.
+The full library build completed on 24 September 2026 with Lean 4.29.1
+and the matching Mathlib revision.
+There are no source-level \texttt{sorry}, \texttt{admit}, or
+user-declared \texttt{axiom} declarations in that library. Some finite
+proofs use \texttt{native\_decide}, which places native compilation in
+their trusted base; a source scan alone does not establish a kernel-only
+axioms claim. A \texttt{\#print axioms} audit of selected structural
+headline theorems reports only standard Lean axioms.
+
+The pinned toolchain predates the official Lean 4.32.2 kernel soundness
+fix \cite{lean4322} and further Lean 4.34.0 soundness fixes and checks
+\cite{lean4340}. No defect is known to be exercised by this development.
+A fresh build with Lean 4.34.0 and a compatible Mathlib version, followed
+by another axioms audit, is a separate verification task; this manuscript
+does not present it as completed.
+
+\section{Conclusion}
+
+The exact-cylinder theorem, finite-word precision tax, and compatible
+switching identity provide
+exact arithmetic progress measures. The trace lasso, incompatible cycle
+labels, cancellation family, and singularity witness delimit where simple
+globalizations fail. The cycle and barrier theorems supply necessary and
+local tests.
+Their joint value is a sharper specification for a future certificate
+that must cover every positive odd orbit. Neither half of the Collatz
+conjecture is settled here.
+
+\begingroup\small
+\begin{thebibliography}{99}
+\bibitem{borgatta_v4}
+P.~Borgatta, \emph{Phantom Orbit Shadowing for the Collatz Conjecture:
+Verified Core, Two Barriers, and a Repositioning} (v4), Zenodo,
+\href{https://doi.org/10.5281/zenodo.20544464}{10.5281/zenodo.20544464},
+2026.
+\bibitem{borgatta_v5}
+P.~Borgatta, \emph{Cross-AI, Lean-Verified Mathematics: A Case Study on
+the Collatz Conjecture} (v5), Zenodo, DOI
+\href{https://doi.org/10.5281/zenodo.20554750}{10.5281/zenodo.20554750},
+2026.
+\bibitem{tao2019}
+T.~Tao, \emph{Almost all orbits of the Collatz map attain almost bounded
+values}, Forum of Mathematics, Pi 10 (2022), e12;
+\url{https://arxiv.org/abs/1909.03562}.
+\bibitem{inselmann2024}
+M.~Inselmann, \emph{An approximation of the Collatz map and a lower bound
+for the average total stopping time}, arXiv:2402.03276v3, 2024;
+\url{https://arxiv.org/abs/2402.03276v3}.
+\bibitem{sharpe2026}
+M.~Sharpe, \emph{Collatz at the Critical Line}, Lean repository,
+\url{https://github.com/msharpe248/collatz}, accessed 24 September 2026.
+\bibitem{fernandez2026}
+Fern\'andez and Ib\'a\~nez, \emph{Christoffel words as extremal structures
+in Collatz dynamics}, arXiv:2607.24844, 2026;
+\url{https://arxiv.org/abs/2607.24844}.
+\bibitem{ross2026}
+M.~Ross, \emph{Spike Structures and 2-adic Transition Laws in the
+Accelerated Collatz Map}, Zenodo v3, 30 August 2026;
+\href{https://doi.org/10.5281/zenodo.22181823}{10.5281/zenodo.22181823}.
+\bibitem{mazur2026}
+L.~Mazur, \emph{Explicit Positive-Density Collatz Convergence in
+Logarithmic Time}, manuscript v2.1, 6 September 2026, ProofAtlas release;
+\href{https://www.proofatlas.ai/formalizations/positive-density-log-time-collatz/}{formalization page}
+(independent publication review pending).
+\bibitem{shaik2026}
+I.~A.~Shaik, \emph{Polylogarithmic Descent for Almost All Collatz Orbits in
+Natural Density}, Zenodo v3.2.4,
+\href{https://doi.org/10.5281/zenodo.22130385}{10.5281/zenodo.22130385},
+2026; selected-declaration replay described at
+\href{https://shaikidris.github.io/}{the author's evidence page}.
+\bibitem{lean4322}
+Lean Language Reference, \emph{Lean 4.32.2 release notes},
+\url{https://lean-lang.org/doc/reference/latest/releases/v4.32.2/}, 2026.
+\bibitem{lean4340}
+Lean Language Reference, \emph{Lean 4.34.0 release notes},
+\url{https://lean-lang.org/doc/reference/latest/releases/v4.34.0/}, 2026.
+\end{thebibliography}
+\endgroup
+
+\end{document}

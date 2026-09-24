@@ -9,6 +9,7 @@
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{booktabs}
+\usepackage{array}
 \usepackage{enumitem}
 \usepackage{microtype}
 \usepackage{seqsplit}
@@ -58,9 +59,10 @@ carry a non-standard attempt on an open mathematical problem. The
 mathematics is reported honestly as a closed (but not abandoned) chapter,
 and the methodology is brought to the foreground.
 
-We report, with reproducible figures, what an AI pair (Anthropic Claude and
-OpenAI Codex, with Google Gemini in the earliest phase) produced under the
-author's direction over a five-week span: a mechanically verified,
+We report, with reproducible figures, what a multi-AI workflow (Google
+Gemini, Anthropic Claude Code, OpenAI Codex, and an external DeepSeek check
+through \texttt{aider-desk}) produced under the author's direction over a
+five-week span: a mechanically verified,
 \texttt{sorry}-/\texttt{admit}-/\texttt{axiom}-free Lean~4 + Mathlib core
 (an exact congruential shadowing lemma, a no-infinite-shadowing corollary,
 an expanding-cycle exclusion, finite Collatz--Wielandt spectral-radius
@@ -72,9 +74,13 @@ documented barriers, including a cross-AI episode in which the assistants
 generated, and then demolished, four ``revolutionary'' proposals --- and
 we record the methodological observation we consider most interesting: a
 cross-AI loop, when one side is anchored to concrete obstructions, can
-\emph{recognize and prove the ceiling of its own approach}. We distill
-transferable lessons and failure modes for AI-assisted theorem proving.
-The mathematical frontier the program identified as the only productive one
+\emph{recognize and prove the ceiling of its own approach}. The closest
+external comparison is Chang's 2026 human--LLM Collatz program
+\cite{chang2026}, which is broader, not Lean-centered, and independently
+locates the same distributional-to-pointwise obstruction; we use it here as
+a methodological comparator rather than as a priority foil. We distill
+transferable lessons and failure modes for AI-assisted theorem proving. The
+mathematical frontier the program identified as the only productive one
 (cycle exclusion) is left explicitly open as future work, not closed. We do
 not claim a proof of the Collatz conjecture.
 \end{abstract}
@@ -154,7 +160,9 @@ full breakdown are in \texttt{notes/PROJECT\_STATISTICS.md}.
 prose --- was produced by the AI assistants under the author's direction.
 \textbf{The author typed none of it by hand}; his contribution is direction,
 conceptual framing, decisions, editing-by-instruction, and all external
-actions (publication, compilation, version control operations).
+actions (publication, compilation, version control operations). This should
+be read operationally: the repository is an AI-authored artifact under human
+experimental control, not an autonomous AI theorem.
 
 \begin{center}
 \begin{tabular}{lrl}
@@ -163,9 +171,9 @@ category & lines & content \\
 \midrule
 AI-authored source & $\approx 61{,}800$ & Lean proofs $7{,}805$ + Python $54{,}009$ \\
 generator-emitted & $43{,}513$ & Lean finite certificates (script output) \\
-prose & $34{,}899$ & working notes $28{,}716$ + LaTeX $6{,}183$ \\
+prose & $35{,}673$ & working notes $28{,}907$ + LaTeX $6{,}766$ \\
 \midrule
-total (AI-produced) & $\approx 140{,}200$ & human-typed: $0$ \\
+total (AI-produced) & $\approx 141{,}000$ & human-typed: $0$ \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -188,7 +196,24 @@ total (AI-produced) & $\approx 140{,}200$ & human-typed: $0$ \\
 volume are not cleanly measurable from the repository and are reported
 separately as labelled estimates; we deliberately do \emph{not} state an
 ``AI work hours'' figure, since LLM inference time is not comparable to human
-labour hours.
+labour hours. This missing instrumentation is a limitation of the case
+study. Future work should log, from the beginning, model identity, wall-clock
+session duration, turn counts, approximate token use, task category,
+verification result, and whether a model's output survived cross-AI or Lean
+review.
+
+\paragraph{Human control points.}
+The ``zero typed lines'' claim is therefore not a claim of zero intellectual
+contribution. It is a claim about the physical production channel of the
+artifact. The human contribution is visible in a different set of control
+variables: choosing the research target, deciding when to publish or retract
+claims, requiring \texttt{lake build} and a \texttt{sorry}-free state, asking
+for adversarial checks rather than agreement, redirecting the program after
+negative evidence, selecting the final framing, and performing all external
+actions. A reviewer may reasonably ask what the author contributed if no
+line was typed by hand; the answer is that the author controlled the
+experiment, the stop/go decisions, and the scientific claims, while the
+assistants produced the textual and code-level substrate.
 
 \section{Methodology: the cross-AI protocol}
 \label{sec:method}
@@ -208,6 +233,69 @@ The working configuration was:
         discipline of the project.
 \end{enumerate}
 
+\paragraph{Operational toolchain.}
+The actual workflow was not a symmetric two-model contest. It was an
+orchestrated toolchain with different roles:
+
+\begin{center}
+\small
+\begin{tabular}{p{0.28\linewidth}p{0.63\linewidth}}
+\toprule
+tool & role in this project \\
+\midrule
+Google Gemini & Early high-level, deliberately free-form speculative
+idea generation, always under the author's direction and starting from the
+author's conceptual prompts. \\
+Claude Code (Opus 4.7/4.8) & Validation, refinement, pruning of superficial
+Gemini ideas, later proof planning, manuscript drafting, and comparison
+against external critiques. \\
+OpenAI Codex & Repository-operational agent: continuation of selected ideas,
+implementation of Python scripts, Lean code, generated certificates, builds,
+TODO files, Markdown notes, patching, local checks, and compilation support. \\
+\texttt{aider-desk} + DeepSeek v4 Flash API & External-opinion channel. Its
+critique was not treated as authoritative; it was fed back to Claude Code for
+adversarial comparison before returning to Codex for implementation or
+rejection. \\
+Overleaf / Zenodo / GitHub & External publication layer. Once the author judged
+that a paper version was worth writing, Claude Code often drafted the
+\LaTeX{}, Overleaf was used for online compilation in some versions, and the
+author or an AI coding agent performed pushes. The author made all publication
+decisions and uploaded to Zenodo. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The resulting loop was roughly:
+\begin{quote}
+\small
+human idea/direction $\to$ Gemini exploration $\to$ Claude critique
+$\to$ Codex implementation\\
+$\to$ DeepSeek external opinion $\to$ Claude comparison
+$\to$ Codex revision/build.
+\end{quote}
+Not every cycle used every tool, but this was the characteristic pattern.
+
+\paragraph{Why Lean mattered.}
+For the author, Lean was not decorative. It was the only reliable way to know
+whether a plausible AI-produced mathematical statement had survived contact
+with a formal checker. Cross-AI criticism improved the search process, but it
+did not certify mathematics. The certification boundary in this project is
+therefore explicit: Lean-backed claims are machine-checked; the remaining
+analytic diagnoses and methodological conclusions are paper-level arguments,
+not formalized theorems.
+
+\paragraph{Subscription and cost disclosure.}
+During the project the author had active, general-purpose AI subscriptions or
+credits: Claude at roughly EUR~20/month; Gemini at roughly EUR~20/month;
+ChatGPT/OpenAI at roughly EUR~20/month initially and later roughly
+EUR~100/month as usage increased; and about EUR~50 of DeepSeek API credit
+through the \texttt{aider-desk} channel. These figures are \emph{not} the
+cost of this research project. The same subscriptions were used
+simultaneously for ordinary programming, Python scripts, websites, iOS and
+Android/React app work, image generation for the author's employer, generic
+tasks, VBA scripts, and other unrelated work. We therefore report them only
+as environment disclosure, not as an attributable project budget.
+
 The decisive methodological lesson (Section~\ref{sec:limits}) is that the
 generate/critique split is productive \emph{only when the critic is anchored
 to concrete objects and obstructions}, not to labels. The same kind of model,
@@ -215,6 +303,102 @@ in the generative role, repeatedly produced plausible but structurally empty
 proposals; in the critic role, with the problem's barriers loaded as context,
 it dismantled them. The asymmetry is one of \emph{role and discipline}, not of
 model capability.
+
+\section{External comparator: Chang's human--LLM Collatz program}
+\label{sec:chang}
+
+The nearest external comparator is Edward Y. Chang's \emph{Exploring
+Collatz Dynamics with Human--LLM Collaboration} \cite{chang2026}. The
+current arXiv v6 (updated 22 April 2026) is explicitly not a proof of the
+Collatz conjecture. It is instead a much broader human--LLM structural
+survey: a 233-page account reporting 630 formal results, roughly
+$10^{14}$ computational experiments, and 29 distinct paradigms. Its
+methodology section describes a three-party workflow in which Claude acted
+primarily as a theorem/construction generator, GPT as a validator and local
+framework checker, and the human as moderator and strategic relay.
+
+\begin{center}
+\small
+\begin{tabular}{p{0.23\linewidth}p{0.34\linewidth}p{0.34\linewidth}}
+\toprule
+dimension & Chang v6 & this project v5 \\
+\midrule
+scope & Broad structural survey: 29 paradigms, many aggregate routes &
+Narrow verified case study around shadowing, finite certificates, and the
+first-barrier stop rule \\
+verification surface & Paper-level proofs and exact computational evidence;
+not presented as a Lean/Coq/Isabelle formalization &
+Lean~4 + Mathlib core with \texttt{lake build} and no
+\texttt{sorry}/\texttt{admit}/\texttt{axiom} \\
+main obstruction & Distributional-to-pointwise gap for promoting aggregate
+control to individual orbits &
+Same gap localized in the phantom/$2$-adic objects via the
+non-transport/rigidity analysis \\
+methodology record & Rich transcript/attack-plan/error-correction accounting &
+Reproducible repository metrics plus binary proof-assistant verification \\
+best read as & A map of many AI-generated Collatz attack surfaces &
+A narrow machine-checked artifact plus a negative stopping rule \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Mathematical overlap.}
+The overlap is real and should be stated plainly. Both programs use the
+accelerated Syracuse map, $2$-adic coordinates, valuation words, and
+phantom cycles. Chang's phantom root attached to a finite parity block is
+the same mathematical object as this project's rational
+$q_w=-C_w/(3^L-2^A)$, viewed through the $2$-adic fixed-point equation for
+the block map. Chang's repulsion statements for finite integer orbits near
+phantom roots are mathematically adjacent to the Lean-checked exact
+shadowing and no-infinite-shadowing results reported here, though the
+formal surfaces are different.
+
+The more important agreement is negative. Chang isolates a
+distributional-to-pointwise gap: aggregate, density-one, cylinder-averaged,
+or transfer-operator contraction information does not automatically produce
+a theorem for each individual integer. v4 of this project reaches the same
+barrier inside its own objects: the aperiodic rigidity needed to turn the
+phantom/$2$-adic picture into a pointwise no-divergence theorem is
+essentially equivalent to the divergence half of Collatz itself (conditional
+on the standard Lagarias coding). In both projects, the obstruction is not a
+failed constant, a too-small computation, or a missing clever norm; it is a
+logical gap between averaged control and pointwise orbit control.
+
+\paragraph{Different output geometry.}
+Chang's project is broad by design. It maps many paradigms: spectral,
+martingale, discrete-log, formal-language, cascade, density, cylinder, and
+cycle-exclusion analyses. Its strength is coverage and error-correction
+documentation. It is the better source for seeing how many attractive AI
+generated routes to Collatz collapse into known structural barriers.
+
+This project is narrower and deeper at the level of machine verification.
+It does not survey 29 paradigms. Instead, it turns one small core into a
+reproducible Lean~4 artifact: exact shadowing, no infinite periodic
+shadowing, finite Collatz--Wielandt certificates, an expanding-cycle
+exclusion, and the descent bridge. The defensible novelty claim is therefore
+not ``first AI-assisted Collatz study''; Chang makes that framing untenable.
+The defensible claim is more precise: a case study in which a cross-AI loop
+produced a \texttt{sorry}-free Lean core and then localized the limits of
+the approach with enough precision to stop making stronger claims.
+
+\paragraph{Methodological comparison.}
+Chang is also useful because it records collaboration data that this project
+only partially records: attack-plan histories, transcript-based
+error-correction logs, and even approximate division-of-labour profiles for
+some windows. This paper should learn from that practice. The repository
+statistics here are reproducible, but the session-level variables remain
+soft metrics. We therefore report them only as labelled estimates and
+separate them sharply from the machine-checkable build facts.
+
+Conversely, this project's methodological discipline is stronger where a
+formal theorem is claimed: Lean is the arbiter. Cross-AI agreement is not
+treated as evidence. A statement enters the verified core only when
+\texttt{lake build} succeeds without \texttt{sorry}, \texttt{admit}, or
+\texttt{axiom}. The comparison with Chang therefore sharpens, rather than
+weakens, the message of v5: broad human--LLM exploration is valuable for
+mapping attack surfaces, while proof assistants are essential when the
+output is to be counted as mathematics rather than plausible research
+conversation.
 
 \section{What worked}
 \label{sec:worked}
@@ -331,6 +515,13 @@ for that continuation.
         separately; do not fabricate ``AI hours.''
 \end{enumerate}
 
+In this project, the negative result mattered more than another finite
+certificate would have mattered. It converted an attractive research
+narrative into a bounded one: the first-barrier branch can still be studied
+as operator approximation, but it cannot honestly be sold as a direct
+Collatz route without a new pointwise idea. For AI-assisted mathematics,
+that kind of stopping rule is a positive capability.
+
 \section{Reproducibility}
 \label{sec:repro}
 
@@ -348,13 +539,15 @@ indexing in the Lean package registry (Reservoir). This version (v5):
 \section{Conclusion}
 \label{sec:conclusion}
 
-Over five weeks, an AI pair under human direction produced a mechanically
+Over five weeks, a multi-AI workflow under human direction produced a mechanically
 verified mathematical core, a precise map of two barriers blocking the
 Collatz conjecture, an honest catalogue of failed routes, and --- the result
-we find most interesting --- a proof of its own approach's ceiling. We do not
-claim progress on the conjecture. We claim a verified artifact, a candid
-account of what cross-AI mathematical collaboration can and cannot do, and a
-clearly delimited open frontier for whoever continues.
+we find most interesting --- a proof-level diagnosis of its own approach's
+ceiling (Lean-checked for the formal core, paper-level for the
+non-transport/gap analysis). We do not claim progress on the conjecture. We
+claim a verified artifact, a candid account of what cross-AI mathematical
+collaboration can and cannot do, and a clearly delimited open frontier for
+whoever continues.
 
 \begin{thebibliography}{9}
 
@@ -364,8 +557,8 @@ Verified Core, Two Barriers, and a Repositioning} (v4), Zenodo, DOI
 \texttt{10.5281/zenodo.20544464}, 2026.
 
 \bibitem{chang2026}
-(Chang), \emph{Exploring Collatz Dynamics with Human--LLM Collaboration},
-2026 (concurrent, independent; cited as in v2--v4).
+E.~Y.~Chang, \emph{Exploring Collatz Dynamics with Human--LLM
+Collaboration}, arXiv:2603.11066v6, 2026.
 
 \bibitem{steiner1977}
 R.~P.~Steiner, \emph{A theorem on the Syracuse problem}, Proc. 7th Manitoba

@@ -1,0 +1,15 @@
+import CollatzShadowing.SectionReturn
+
+#print axioms CollatzShadowing.ShortcutCoverage.exists_iterate_target_linear_bound
+#print axioms CollatzShadowing.MarkedSection.section_iff_episodeHits20
+#print axioms CollatzShadowing.SectionCoverage.exists_accelerated_hit
+#print axioms CollatzShadowing.SectionReturn.recurrent_section_of_never_hits_one
+#print axioms CollatzShadowing.SectionReturn.descending_return_family
+#print axioms CollatzShadowing.SectionReturn.first_return_can_increase
+#print axioms CollatzShadowing.cancellationTower_run
+#print axioms CollatzShadowing.cancellationTower_exit_ternary
+#print axioms CollatzShadowing.cancellationTower_noDrop_of_even_ge_thirty
+#print axioms CollatzShadowing.cancellationTowerSource_mod_eighteen
+#print axioms CollatzShadowing.SectionReturn.marked_sources_noDrop_for_any_horizon
+#print axioms CollatzShadowing.SectionReturn.classicalCollatz_of_rankDescent
+#print axioms CollatzShadowing.SectionReturn.exists_rankDescent_iff_acceleratedCollatz

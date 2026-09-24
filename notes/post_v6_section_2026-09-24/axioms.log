@@ -1,0 +1,23 @@
+'CollatzShadowing.ShortcutCoverage.exists_iterate_target_linear_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CollatzShadowing.MarkedSection.section_iff_episodeHits20' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.SectionCoverage.exists_accelerated_hit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.SectionReturn.recurrent_section_of_never_hits_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CollatzShadowing.SectionReturn.descending_return_family' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.SectionReturn.first_return_can_increase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.cancellationTower_run' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.cancellationTower_exit_ternary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.cancellationTower_noDrop_of_even_ge_thirty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.cancellationTowerSource_mod_eighteen' depends on axioms: [propext, Quot.sound]
+'CollatzShadowing.SectionReturn.marked_sources_noDrop_for_any_horizon' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CollatzShadowing.SectionReturn.classicalCollatz_of_rankDescent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CollatzShadowing.SectionReturn.exists_rankDescent_iff_acceleratedCollatz' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

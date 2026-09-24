@@ -1,0 +1,53 @@
+{
+  "source": "Zenodo published records; MD5 and size verified against the records on 2026-09-24. SHA-256 computed from the matching local files.",
+  "files": [
+    {
+      "version": "v1",
+      "doi": "10.5281/zenodo.20021538",
+      "path": "paper/collatz_spectral_reduction.pdf",
+      "size_bytes": 499061,
+      "zenodo_md5": "65f9f66bb3d8ae0571c2978200a3552c",
+      "sha256": "f4813f4f838f97364c16a6aeab5ae515a8daede396efbb0d9ff144e7e9825ea7"
+    },
+    {
+      "version": "v2",
+      "doi": "10.5281/zenodo.20098868",
+      "path": "paper/A_Spectral_Reduction_of_the_Collatz_Conjecture_via_Phantom_Orbit_Shadowing_v2.pdf",
+      "size_bytes": 578498,
+      "zenodo_md5": "204567291209cf8cb3ce0c327e93bf13",
+      "sha256": "2d9e67b8f61c1983274e0a70d380c3d4a63b79fddbae3418cd7a962e8a4ef990"
+    },
+    {
+      "version": "v3",
+      "doi": "10.5281/zenodo.20160154",
+      "path": "paper/A_Spectral_Reduction_of_the_Collatz_Conjecture_via_Phantom_Orbit_Shadowing_v3.pdf",
+      "size_bytes": 623591,
+      "zenodo_md5": "d3a3a96912541da6425da0dae15f5a52",
+      "sha256": "46ed5e66e5ee8b10ca980566ed5a057a890a88ce863d99ef74d067eba3616b8d"
+    },
+    {
+      "version": "v4",
+      "doi": "10.5281/zenodo.20544464",
+      "path": "paper/A_Spectral_Reduction_of_the_Collatz_Conjecture_via_Phantom_Orbit_Shadowing.pdf",
+      "size_bytes": 427953,
+      "zenodo_md5": "c7453f8e87371effbce127903c47a204",
+      "sha256": "b79da4998d94c67d422405b357dc6c9d97f662b8b8d3364856d14a70dd4aae5d"
+    },
+    {
+      "version": "v5",
+      "doi": "10.5281/zenodo.20554750",
+      "path": "paper/collatz_spectral_reduction_v5.pdf",
+      "size_bytes": 90700,
+      "zenodo_md5": "73c44c64f1b822794c75364f0594c921",
+      "sha256": "d600ba384dec1e7db2a8677766c2f995ae7a44792fa81952be9d465262d66a82"
+    },
+    {
+      "version": "v6",
+      "doi": "10.5281/zenodo.22936057",
+      "path": "paper/collatz_spectral_reduction_v6.pdf",
+      "size_bytes": 104734,
+      "zenodo_md5": "0cfd141d9f4ff80954846075bf711975",
+      "sha256": "a959282145d5042550c3938b445a4964305299b4eca71bcc62539804c5b585f9"
+    }
+  ]
+}
