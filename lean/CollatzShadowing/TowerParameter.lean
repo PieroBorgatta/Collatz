@@ -82,7 +82,8 @@ theorem quotient_difference_valuation {v r q : ℕ} (hv : 1 ≤ v) (hrq : r < q)
   rw [padicValNat.mul (by positivity) hleft, padicValNat.prime_pow,
     padicValNat.mul (by positivity) hn,
     padicValNat.pow _ (by norm_num), numerator_valuation hv (by omega)] at h
-  rw [show padicValNat 2 9 = 0 from padicValNat.eq_zero_of_not_dvd (by decide), mul_zero, zero_add] at h
+  rw [show padicValNat 2 9 = 0 from padicValNat.eq_zero_of_not_dvd (by decide),
+    mul_zero, zero_add] at h
   omega
 
 /-- Exact preservation and reflection of every finite binary congruence. -/

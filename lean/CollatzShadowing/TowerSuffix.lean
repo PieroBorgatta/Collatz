@@ -67,8 +67,12 @@ theorem suffix_iff_affine_residue {v q a : ℕ} (hv : 1 ≤ v) (hq : 0 < q)
     rw [hM]
     have : 0 < 2 ^ A := by positivity
     omega
-  rw [syracuseWordMatches_iff_exactResidue _ _ (by simp)
-    (by intro b hb; rcases List.mem_cons.mp hb with rfl | hb; omega; exact hw b hb)]
+  have hpos : ∀ b ∈ a :: w, 0 < b := by
+    intro b hb
+    rcases List.mem_cons.mp hb with rfl | hb
+    · omega
+    · exact hw b hb
+  rw [syracuseWordMatches_iff_exactResidue _ _ (by simp) hpos]
   change syracuseWordAffineNumerator (a :: w) (burstEnd v s q) %
     syracuseWordExactResidueModulus (a :: w) = 2 ^ A ↔ _
   have hiff : (syracuseWordAffineNumerator (a :: w) (burstEnd v s q) %
@@ -247,7 +251,7 @@ theorem tower_finite_suffix_arbitrarily_large {v a : ℕ} (hv : 1 ≤ v) (ha : 2
 
 /-- A long run of further growth can follow exponent two after the actual tower.
 The positive parameter changes with the requested finite length. -/
-theorem tower_delayed_compensation {v : ℕ} (hv : 1 ≤ v) (l B : ℕ) :
+theorem tower_arbitrarily_long_one_suffix {v : ℕ} (hv : 1 ≤ v) (l B : ℕ) :
     ∃ q : ℕ, B < q ∧ Odd q ∧
       SyracuseWordMatchesFrom (2 :: List.replicate l 1)
         (S^[2 * (2 ^ v * q) + 1 + v] (cancellationTowerSource (3 * (2 ^ v * q)))) := by

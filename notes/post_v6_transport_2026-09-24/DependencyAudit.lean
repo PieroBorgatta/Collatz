@@ -24,7 +24,7 @@ private def roots : Array Name :=
     `CollatzShadowing.TowerParameter.phaseB_exit_burst,
     `CollatzShadowing.TowerParameter.phaseC_tower_burst,
     `CollatzShadowing.TowerParameter.tower_finite_suffix_arbitrarily_large,
-    `CollatzShadowing.TowerParameter.tower_delayed_compensation,
+    `CollatzShadowing.TowerParameter.tower_arbitrarily_long_one_suffix,
     `CollatzShadowing.TowerParameter.finite_suffix_bounded_iff]
 
 private def run : CommandElabM Unit := do
