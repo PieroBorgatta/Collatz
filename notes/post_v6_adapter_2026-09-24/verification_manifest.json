@@ -94,6 +94,18 @@
         "WeightedPredecessorDensity"
       ],
       "failure": "Three non-strict natural positivity goals; rewritten via strict positivity. All 388 baseline modules plus occupation, terminal adapter and weighted census passed."
+    },
+    {
+      "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36004436985",
+      "commit": "447fd84da05608beb8c8ad57611187ef365f627d",
+      "status": "failed",
+      "passed_modules": 394,
+      "target_closure_modules": 395,
+      "failed_modules": [
+        "TwoSeedDensity"
+      ],
+      "blocked_modules": [],
+      "failure": "Weighted final theorem passed; final positivity tactic in TwoSeedDensity tried to unfold enormous constants and exceeded recursion depth. Replaced by explicit div_pos/mul_pos using proved bounds."
     }
   ],
   "audit_api_smoke": {
@@ -126,7 +138,7 @@
     "notes/post_v6_adapter_2026-09-24/COEFFICIENT_COMPARISON_IT.md": "9f6c5a29b9523b7cbf782b382e24a79576ba396099fd91f1e8a3a0a216efd490",
     "notes/post_v6_adapter_2026-09-24/DEPENDENCY_AUDIT_REVIEW_IT.md": "dd197f70b9f15081996f1ec1f686217d09175e866ef1b8535732623e88f51b80",
     "notes/post_v6_adapter_2026-09-24/MIXING_AUDIT_IT.md": "df3b52c89e1e4985c5ef87dd47a333bb72bf72204a6ba78f1c6eced4152f46e9",
-    "notes/post_v6_adapter_2026-09-24/RESULTS_IT.md": "5366197bcf5e69753b953673075e1c29fc017636894e9d2c24b28be2ba599ea8",
+    "notes/post_v6_adapter_2026-09-24/RESULTS_IT.md": "1498bd04c04adb20f93a5864de95911e5058779dc951bc046924419c9b1fc1ed",
     "notes/post_v6_adapter_2026-09-24/SEED_AUDIT.md": "6a3bef43709086f91ef7de36bd27a85bef2d33f989baeabc3bb4978e4188e251",
     "notes/post_v6_adapter_2026-09-24/TWO_SEED_AUDIT.md": "9b25ccd92b4ee1f2ea5ed8f90455a0028a36bc8161cdf77bbec06fa51deb5d48",
     "notes/post_v6_adapter_2026-09-24/TWO_SEED_EFFECTIVITY_AUDIT_IT.md": "f174e6eeeb8059c8e23b7f3672273a3b16b14f93963f8292dd504014411a184c",
@@ -144,7 +156,7 @@
     "notes/post_v6_adapter_2026-09-24/two_seed_axioms.log": "4fb43819a0276c750a3ac935a3f38eb739ba9de6b2fd368e9c4b5b6cd31066bb",
     "notes/post_v6_adapter_2026-09-24/two_seed_build.log": "6be67aa4c98bb6e17284ffa6bd1d18ea6212b0c427fbfd14acfee8f8922865a0",
     "research/weighted_predecessors_adapter/BundleDependencyAudit.lean": "d4b154c13023d6dcb9c9341ef78e06574f09157a4811331a0475930ec0e08c7f",
-    "research/weighted_predecessors_adapter/TwoSeedDensity.lean": "d909864d4d7360f7aea62709d037ac2402ce7cc86b3753ae0c8b6ec3d55660cf",
+    "research/weighted_predecessors_adapter/TwoSeedDensity.lean": "d8e9fb900a155ec076b65ffe70f724329175168e30e510cf98cf0fcc929e234d",
     "research/weighted_predecessors_adapter/TwoSeedDependencyAudit.lean": "5c6e1523a78ad82ba8c0e6f45d31fde56d54dea5d1d06c29ed3903704449d990",
     "research/weighted_predecessors_adapter/TwoSeedNonreturn.lean": "a76dde8c64d252cb640bdcbab395000169b3914a22b9e93a7e95dfbf128659c1",
     "research/weighted_predecessors_adapter/WeightedCensus.lean": "4ab05941d31794864702717bea8405abb126f67a4c99d52092e77eafae19f01e",

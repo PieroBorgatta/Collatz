@@ -245,7 +245,9 @@ theorem predecessor_count_of_mixing
     dsimp [eta]
     field_simp
     ring
-  have hcoefpos : 0 < coefficient a C := by rw [hcoef]; positivity
+  have hcoefpos : 0 < coefficient a C := by
+    rw [hcoef]
+    exact div_pos heta (mul_pos (by norm_num) hTpos)
   refine ⟨hcoefpos, ?_⟩
   intro Y hY
   have hcoefle : coefficient a C ≤ eta / (32 * U.parentSourcePotential) := by

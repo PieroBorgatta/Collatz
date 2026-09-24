@@ -10,7 +10,8 @@ numero positivo di passi. Infatti una funzione è iniettiva sui propri punti
 periodici. Questo fatto elementare è già disponibile in Mathlib; il contributo
 qui cercato è la sua applicazione alla scelta quantitativa dei semi.
 
-Per Syracuse, ponendo `L(n)=4n+1`, si ha esattamente
+Per un inizio dispari positivo `n` della mappa Syracuse, ponendo
+`L(n)=4n+1`, si ha esattamente
 
 \[
 3L(n)+1=4(3n+1),\qquad S(L(n))=S(n).
@@ -23,9 +24,8 @@ Quindi uno fra `n` e `4n+1` non ha ritorni positivi. Più in generale,
 \]
 
 fornisce due candidati espliciti sopra ogni quota `X`: `L^(X+1)(n)` e
-`L^(X+2)(n)`. Almeno uno è dispari, maggiore di `X`, limitato superiormente
-dal secondo, ha successore `S(n)` e non ha ritorni positivi. In realtà entrambi
-sono dispari e sopra la quota; la disgiunzione riguarda solo i ritorni.
+`L^(X+2)(n)`. Entrambi sono dispari, maggiori di `X`, limitati superiormente
+dal secondo e hanno successore `S(n)`. Almeno uno non ha ritorni positivi.
 
 **Non ritorno non significa divergenza.** Ad esempio 5 non ritorna a 5 e
 raggiunge 1. Non stiamo escludendo cicli del successore, né decidendo quale
@@ -184,3 +184,9 @@ ha verificato 391 moduli su 395, inclusi tutti i 388 moduli baseline e
 obiettivi naturali `1 ≤ 3^q` richiedevano di passare dalla positività stretta
 alla disuguaglianza non stretta; le correzioni sbloccano i due moduli dei semi
 e la successiva compilazione dei due teoremi finali.
+
+Il quarto replay [CI 36004436985](https://github.com/PieroBorgatta/Collatz/actions/runs/36004436985)
+ha verificato 394 moduli su 395, compreso il teorema finale pesato. In
+`TwoSeedDensity` resta una tattica di positività che tenta di espandere
+costanti enormi: la correzione usa direttamente le disuguaglianze positive
+già dimostrate, senza modificarne i valori o aumentare i limiti di Lean.
