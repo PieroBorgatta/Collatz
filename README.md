@@ -259,6 +259,18 @@ The full experiment and separate arithmetic replay passed in
 [CI 36019056755](https://github.com/PieroBorgatta/Collatz/actions/runs/36019056755)
 with byte-identical results; the existing Lean build and audits also passed.
 
+The subsequent [level study](notes/post_v6_levels_2026-09-24/RESULTS_IT.md)
+examines q=2^(v−1)−1 and Q_v=(9^(2^v)−1)/2^(v+3). It proves at paper
+level that two levels share exactly those initial exponent words whose
+sum is at most v+1; these shared prefixes cannot reach below the original
+source. Using Mahler's classical transcendence theorem, it also shows that
+the residual stopping times tend to infinity as v increases, allowing
+infinite values: this does not prove that any individual orbit diverges.
+The exact experiment checks 512 modular pairs and 14 full integer orbits
+(213,894 residual steps), all of which descend after their shared prefixes.
+Thirteen cases overlap the previous experiment. No infinite-family descent,
+new Lean declaration, or mathematical priority is claimed.
+
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch
 identities, counterexamples to
