@@ -10,6 +10,14 @@ residuo della sua classe. Non abbiamo dimostrato la discesa di una famiglia
 infinita, né stabilito l'originalità di questa deduzione. Nessun nuovo modulo
 Lean è aggiunto: le prove di questa nota sono matematiche informali.
 
+Riproduzione completa e secondo controllo superati nella
+[CI 36019056755](https://github.com/PieroBorgatta/Collatz/actions/runs/36019056755),
+commit `e7b6b411ecf5c12dff205486fc67f4200ebbad49`. I quattro file di risultati
+coincidono byte per byte. È passata anche la
+[CI Lean 36019056870](https://github.com/PieroBorgatta/Collatz/actions/runs/36019056870).
+[Manifest di verifica](verification_manifest.json) e
+[log completo della CI sperimentale](ci_36019056755.log.gz).
+
 ## 1. Oggetto e tempo misurato
 
 Per q positivo dispari poniamo
@@ -51,6 +59,9 @@ esaustiva. Il massimo q è 65537: non abbiamo verificato tutti i q fino a
 Il limite operativo è 16q+256; una mancata discesa entro il limite sarebbe
 registrata come censura, senza dedurre divergenza. Non ci sono casi censurati.
 Non si tratta di una preregistrazione o di un test statistico di indipendenza.
+Le parole di crescita prescritte hanno al massimo 17 passi: sono controlli
+mirati di prefissi, non una ricerca esaustiva di continuazioni avverse di
+lunghezza proporzionale a q.
 
 | Limite candidato su τ/q | Violazioni osservate |
 |---|---:|
@@ -224,6 +235,8 @@ campo CSV vuoto e differenza fra primo tempo globale e tempo residuo.
 Non è estrazione da Lean,
 né revisione matematica umana indipendente. La CI dedicata ripete il probe
 completo e confronta i file byte per byte.
+Le modifiche documentali successive al commit verificato non cambiano
+sorgenti Python, workflow o dati. Il manifest registra i loro hash.
 
 La domanda sperimentale `τ(q)≤(5/2)q` sopravvive; non la promuoviamo a teorema.
 Non è emersa una ricorrenza dimostrata sulle parole discendenti. Il criterio

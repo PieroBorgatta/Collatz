@@ -255,6 +255,9 @@ a uniform descent theorem; no new Lean declaration or mathematical priority
 is claimed. The report also identifies Andrei–Kudlek–Niculescu (2000) as prior
 art for the repeated [1,2] compression and distinguishes the existing
 literature from this family's specific experiment.
+The full experiment and separate arithmetic replay passed in
+[CI 36019056755](https://github.com/PieroBorgatta/Collatz/actions/runs/36019056755)
+with byte-identical results; the existing Lean build and audits also passed.
 
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch

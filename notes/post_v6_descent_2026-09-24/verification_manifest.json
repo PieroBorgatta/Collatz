@@ -1,0 +1,66 @@
+{
+  "date": "2026-09-24",
+  "verified_code_commit": "e7b6b411ecf5c12dff205486fc67f4200ebbad49",
+  "experiment_ci": {
+    "conclusion": "success",
+    "headSha": "e7b6b411ecf5c12dff205486fc67f4200ebbad49",
+    "status": "completed",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36019056755"
+  },
+  "existing_lean_ci": {
+    "conclusion": "success",
+    "headSha": "e7b6b411ecf5c12dff205486fc67f4200ebbad49",
+    "status": "completed",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36019056870"
+  },
+  "results": {
+    "parameters": 4130,
+    "exhaustive_odd_q_max": 8191,
+    "exhaustive_parameters": 4096,
+    "additional_parameters": 34,
+    "max_sampled_q": 65537,
+    "suffix_steps": 14846206,
+    "censored": 0,
+    "maximum_tau_over_q": "24/11",
+    "maximum_at_q": 11
+  },
+  "separate_replay": {
+    "parameters": 84,
+    "suffix_steps": 235770,
+    "source_bridges": 64,
+    "word_and_lift_checks": 765,
+    "regression_tests": 5
+  },
+  "artifact_byte_comparison": "All four downloaded result files match local files exactly.",
+  "mathematical_status": {
+    "height_residue_lemma": "Informal mathematical proof with internal agent review; not formalized in Lean.",
+    "uniform_descent": "Not proved.",
+    "novelty": "Not established.",
+    "new_lean_declarations": 0
+  },
+  "scope_notes": [
+    "Full experiment replay uses the same Python implementation on Linux.",
+    "The separate arithmetic implementation replays 84 selected parameters, not all 4130.",
+    "Documentation after the verified commit does not change experiment code, workflow, or result data.",
+    "Archived earlier verification manifests remain historical snapshots."
+  ],
+  "frozen_v6_sha256": {
+    "paper/collatz_spectral_reduction_v6.pdf": "a959282145d5042550c3938b445a4964305299b4eca71bcc62539804c5b585f9",
+    "collatz_spectral_reduction_v6_supplementary.zip": "20f9195443dd058aeae16b9316ed0f6beafb6d360182ba93b875107a0ee9da60"
+  },
+  "files_sha256": {
+    ".github/workflows/tower-descent.yml": "c4fbff3e6dcac26f436509af2925aa559b03fc47633038891965dcc2c628ba2f",
+    "README.md": "0ca8b567042107e1b91516afbac3240a6f1cdf5798ad0b753c320d785b0aaedb",
+    "notes/post_v6_descent_2026-09-24/RESULTS_IT.md": "da6eb2f028299a773299990134b0e6511689c1ecee10f242d47440d1f75f63dd",
+    "notes/post_v6_descent_2026-09-24/REVIEW_IT.md": "f0b43c5a42a3e719ff9b476351410a34bc590f0d5afb82eec75b4e78bdad2022",
+    "notes/post_v6_descent_2026-09-24/ci_36019056755.log.gz": "3ac09ba9e31165050be2ba0b9867513a057cbae141d73c8d51cbea9d19a20b63",
+    "notes/post_v6_descent_2026-09-24/descent_cases.csv": "66ebf21295bb353bafa80b00e9021b77a4834e585a1f17a62a731ecde021f9bf",
+    "notes/post_v6_descent_2026-09-24/descent_probe.py": "7a161b54da6efc39de9fcc5ad60bc2590ac0a8baebef23d304eb64473181bc99",
+    "notes/post_v6_descent_2026-09-24/descent_summary.json": "49bf721da8219c574c4ffb1f1be74d8227db8adfc46522d3faa04ac38822e3a9",
+    "notes/post_v6_descent_2026-09-24/descent_witnesses.json": "415285aad07261ee3c98d1db09bfb009dbae00be2a11e0dfe2af3b08706d23e6",
+    "notes/post_v6_descent_2026-09-24/test_descent.py": "fb1fc9be7da0f3e669b466e9508a8d3fe810765e0187caabefc9964dfb797e84",
+    "notes/post_v6_descent_2026-09-24/verification_results.json": "22c838f959d790f18d2b0b6c1f77c86c9312d89c833fc8e2bf963f881dbe82b1",
+    "notes/post_v6_descent_2026-09-24/verify_descent.py": "7a2b2b90aba17dd823c43e06f358b2e9d24c98057c6d27c74c15fedd234bcabf",
+    "notes/post_v6_transport_2026-09-24/transport_probe.py": "7dded75e347c8e1a0d212446c7d35029e8abc180be2c513495144b676bd07b96"
+  }
+}
