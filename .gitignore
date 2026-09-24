@@ -64,3 +64,6 @@ lean/lake-packages/
 lean/lakefile.olean
 **/*.olean
 .aider*
+
+# Independent post-v6 adapter verification evidence
+!notes/post_v6_adapter_2026-09-24/*.log

@@ -1,0 +1,7 @@
+import CollatzShadowing.TwoSeed
+#print axioms CollatzShadowing.TwoSeed.noReturn_or_noReturn_of_same_image
+#print axioms CollatzShadowing.TwoSeed.lift_exponent_and_step
+#print axioms CollatzShadowing.TwoSeed.two_seed_noReturn
+#print axioms CollatzShadowing.TwoSeed.exists_nonreturn_seed
+#print axioms CollatzShadowing.TwoSeed.lift_iterate_formula
+#print axioms CollatzShadowing.TwoSeed.exists_nonreturn_seed_above

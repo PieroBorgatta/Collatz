@@ -203,7 +203,9 @@ theorem path_fiber_bound {ι : Type*} (F : Finset ι) (source : ι → ℕ)
     rw [Finset.sum_image hdepth]
     apply Finset.sum_congr rfl
     intro i hi
-    rw [path_atom_eq_weight, (Finset.mem_filter.mp hi).2]
+    rw [path_atom_eq_weight]
+    exact congrArg (fun n : ℕ => weight n (p i).depth)
+      (Finset.mem_filter.mp hi).2
   change (∑ i ∈ G, ndRootUniformWordAtom (p i).word) ≤ _
   rw [hsum]
   apply sum_weight_visits_le hx
@@ -232,7 +234,8 @@ theorem finite_weighted_source_bound {ι : Type*}
     rw [Finset.sum_mul]
     apply Finset.sum_congr rfl
     intro i hi
-    rw [(Finset.mem_filter.mp hi).2]
+    exact congrArg (fun n : ℕ => ndRootUniformWordAtom (p i).word * ψ n)
+      (Finset.mem_filter.mp hi).2
   rw [hgroup, Finset.mul_sum]
   apply Finset.sum_le_sum
   intro x hx

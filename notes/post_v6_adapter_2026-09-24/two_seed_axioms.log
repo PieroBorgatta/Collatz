@@ -1,0 +1,6 @@
+'CollatzShadowing.TwoSeed.noReturn_or_noReturn_of_same_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.TwoSeed.lift_exponent_and_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.TwoSeed.two_seed_noReturn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.TwoSeed.exists_nonreturn_seed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.TwoSeed.lift_iterate_formula' depends on axioms: [propext, Quot.sound]
+'CollatzShadowing.TwoSeed.exists_nonreturn_seed_above' depends on axioms: [propext, Classical.choice, Quot.sound]

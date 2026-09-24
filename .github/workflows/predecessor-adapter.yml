@@ -66,6 +66,17 @@ jobs:
           lean --version 2>&1 | tee "$ADAPTER_EVIDENCE/lean-version.log"
           lake exe cache get 2>&1 | tee "$ADAPTER_EVIDENCE/mathlib-cache.log"
 
+      - name: Restore checked local module receipts and objects
+        id: module-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            ${{ env.ADAPTER_ASSEMBLY }}/.lake/build/lib/lean/
+            ${{ env.ADAPTER_ASSEMBLY }}/build/weighted-replay/
+          key: ${{ runner.os }}-predecessor-modules-v1-${{ github.sha }}-${{ github.run_attempt }}
+          restore-keys: |
+            ${{ runner.os }}-predecessor-modules-v1-
+
       - name: Compile the local module closures
         id: compile
         working-directory: ${{ env.ADAPTER_ASSEMBLY }}
@@ -93,6 +104,15 @@ jobs:
           adapter_package="$GITHUB_WORKSPACE/research/weighted_predecessors_adapter"
           lake env lean --threads=1 -M4096 "$adapter_package/TwoSeedDependencyAudit.lean" \
             2>&1 | tee "$ADAPTER_EVIDENCE/two-seed-dependency-audit.log"
+
+      - name: Save checked local module receipts and objects
+        if: ${{ !cancelled() && (steps.compile.outcome == 'success' || steps.compile.outcome == 'failure') && steps.module-cache.outputs.cache-hit != 'true' }}
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            ${{ env.ADAPTER_ASSEMBLY }}/.lake/build/lib/lean/
+            ${{ env.ADAPTER_ASSEMBLY }}/build/weighted-replay/
+          key: ${{ steps.module-cache.outputs.cache-primary-key }}
 
       - name: Preserve build and audit evidence
         if: ${{ always() }}

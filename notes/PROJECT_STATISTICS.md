@@ -6,7 +6,7 @@ inspection of the repository (git, `wc`, `grep`); they are historical
 counts, not a claim about the present working tree. The later additions
 are counted separately in Section 0 below.
 
-> **Honesty note.** **Every file in this repository — all code and all prose —
+> **Honesty note for the June 2026 snapshot.** **Every file in this repository — all code and all prose —
 > was produced by AI assistants (Claude, Codex, Gemini) under the author's
 > direction. The author typed none of it by hand**; his contribution is
 > direction, decisions, editing-by-instruction, and all external actions
@@ -31,7 +31,9 @@ constraints, exact first-barrier tests, and exact finite/repeated-word
 cylinders. Post-v6 work adds five modules for marked-section coverage,
 cancellation towers, and the remaining return-rank interface, followed by
 `WeightedVisits` for a universal weighted occupation bound, and three
-modules transferring it to exact words and distinct predecessor counts. The June
+modules transferring it to exact words and distinct predecessor counts.
+Two further modules formalize bounded pairs of non-returning seeds and the
+sharper non-returning count. The June
 v5 line and declaration totals below remain frozen.
 The first integrated post-v6 build passed on 24 September 2026 (3365 jobs);
 the subsequent weighted-visit verification is recorded in
@@ -44,13 +46,19 @@ or not it was tracked by Git at the time of counting; generated Lean files
 are reported separately.
 
 Source scan of the 24 September 2026 working tree (including the
-nine post-v6 entrypoint imports):
+eleven post-v6 entrypoint imports):
 
 | Lean source class | files | lines | `theorem`/`lemma` declarations |
 |---|---:|---:|---:|
-| AI-authored modules and entrypoint | 33 | 11,516 | 462 |
+| AI-authored modules and entrypoint | 35 | 11,866 | 485 |
 | Generator-emitted certificates | 26 | 43,513 | 966 |
-| **Total** | **59** | **55,029** | **1,428** |
+| **Total** | **61** | **55,379** | **1,451** |
+
+The independent `research/weighted_predecessors_adapter/` package is excluded
+from these main-library totals. It contains new proofs and attributed
+Apache-2.0 derivatives of Lech Mazur's external sources, with a separate
+Lean 4.30.0-rc2 toolchain and verification boundary. Its provenance and status
+are recorded in `post_v6_adapter_2026-09-24/RESULTS_IT.md`.
 
 These are textual source counts, not counts of independent mathematical
 results. The table can be regenerated with the command below after any

@@ -1,0 +1,64 @@
+{
+  "audit_date": "2026-09-24",
+  "status": "PASS: finite exact-integer consistency checks",
+  "checked_tuples": 113498,
+  "grid": {
+    "a_inclusive": [
+      1,
+      200
+    ],
+    "exclude_a_divisible_by_3": true,
+    "q_inclusive": [
+      0,
+      4
+    ],
+    "X_inclusive": [
+      2,
+      8
+    ],
+    "p": "every integer 0 <= p < 3^q"
+  },
+  "arithmetic": "Python integers and fractions.Fraction; no floating point",
+  "checked_per_tuple": [
+    "2*k >= n+1",
+    "R >= 85 and R < T",
+    "b0*(3*T+1) <= (3*R+1)^2",
+    "4*(3*T+1) <= (3*R+1)^2",
+    "4*T <= 3*R^2+2*R-1",
+    "T < R^2 < P",
+    "P > 3*T"
+  ],
+  "largest_T_over_R_squared_in_finite_grid": {
+    "numerator": 261,
+    "denominator": 425,
+    "example": {
+      "a": 2,
+      "q": 0,
+      "X": 2,
+      "p": 0,
+      "R": 85,
+      "T": 4437,
+      "P": 21760
+    },
+    "global_extremality_proved": false
+  },
+  "excluded_X_one_example": {
+    "a": 2,
+    "q": 0,
+    "X": 1,
+    "p": 0,
+    "R": 21,
+    "T": 1109,
+    "R_squared": 441
+  },
+  "interpretation": {
+    "general_comparison": "paper-level proof in the companion Markdown report",
+    "comparison_formalized_in_Lean": false,
+    "Lean_compiler_invoked": false,
+    "actual_weighted_chooser_alignment_established": false,
+    "coefficient_comparison_condition": "same C in Nat and same candidate R; m(Z)=132*Z*C+1",
+    "enormous_coefficient_denominators_evaluated": false,
+    "cutoff_dominance_established": false,
+    "finite_checks_replace_general_proof": false
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "date": "2026-09-24",
+  "status": "main modules passed; external adapter verification in progress",
+  "main_toolchain": "Lean 4.29.1",
+  "main_module_builds": {
+    "TwoSeed": {
+      "passed": true,
+      "jobs": 3292,
+      "seconds": 218
+    },
+    "NonreturnCounting": {
+      "passed": true,
+      "jobs": 3297,
+      "seconds": 241
+    }
+  },
+  "main_axiom_audits": {
+    "TwoSeed": {
+      "passed": true,
+      "headlines": 6,
+      "allowed": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "NonreturnCounting": {
+      "passed": false,
+      "status": "running"
+    }
+  },
+  "main_integrated_build": {
+    "passed": false,
+    "status": "pending for new entrypoint imports"
+  },
+  "external_toolchain": "Lean 4.30.0-rc2",
+  "external_mathlib": "5450b53e5ddc75d46418fabb605edbf36bd0beb6",
+  "external_source_preparation": {
+    "passed": true,
+    "source_files_authenticated": 389,
+    "manifest_files_authenticated": 404,
+    "overlay_modules": 7
+  },
+  "external_local_modular_attempt": {
+    "complete": false,
+    "passed_modules": 37,
+    "target_closure_modules": 393,
+    "stopped": "resource pressure; resumable receipt retained; not a completed proof check"
+  },
+  "external_aggregate_attempt": {
+    "complete": false,
+    "stopped": "resource pressure",
+    "equivalent_to_modular_build": false,
+    "success_claimed": false
+  },
+  "external_ci_attempts": [
+    {
+      "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/35999431065",
+      "commit": "b5d886f8e5e6f0a3da5f3f13e3ccf9563ea4521f",
+      "status": "failed",
+      "passed_modules": 333,
+      "target_closure_modules": 395,
+      "failure": "two dependent rewrites in WeightedPathOccupation; source correction committed in next revision"
+    }
+  ],
+  "audit_api_smoke": {
+    "passed": true,
+    "audits": 3,
+    "root_dependency_checks_executed": false
+  },
+  "runner_tests": {
+    "passed": true,
+    "tests": 11,
+    "compiler": "fake stub; this tests receipt handling, not Lean proofs"
+  },
+  "coefficient_comparison": {
+    "paper_proof": true,
+    "exact_finite_checks": 113498,
+    "lean_formalized": false,
+    "current_weighted_chooser_aligned": false,
+    "cutoffs_compared": false
+  },
+  "published_v6": {
+    "pdf_sha256": "a959282145d5042550c3938b445a4964305299b4eca71bcc62539804c5b585f9",
+    "archive_sha256": "20f9195443dd058aeae16b9316ed0f6beafb6d360182ba93b875107a0ee9da60",
+    "modified": false
+  },
+  "files_sha256": {
+    "lean/CollatzShadowing/TwoSeed.lean": "c2c9f7bb3216a0d9e4762aacb17cc1dae0e9b76e1ac5af04846441039a4864ef",
+    "lean/CollatzShadowing/NonreturnCounting.lean": "dbaa61d80d30377bb55d410a90308ebaf13fda6719b7f5cdd8edbd0667845c7c",
+    "lean/CollatzShadowing.lean": "5cf1ca1c4e627d52a518d07889dc6c6258e0cf276d90d53a138567e7a35cc837",
+    "research/weighted_predecessors_adapter/BundleDependencyAudit.lean": "d4b154c13023d6dcb9c9341ef78e06574f09157a4811331a0475930ec0e08c7f",
+    "research/weighted_predecessors_adapter/TwoSeedDensity.lean": "d909864d4d7360f7aea62709d037ac2402ce7cc86b3753ae0c8b6ec3d55660cf",
+    "research/weighted_predecessors_adapter/TwoSeedDependencyAudit.lean": "5c6e1523a78ad82ba8c0e6f45d31fde56d54dea5d1d06c29ed3903704449d990",
+    "research/weighted_predecessors_adapter/TwoSeedNonreturn.lean": "b4df83559169ae5d3def5d5d538fab60085e7333495fb54f17e7927e644b6a0e",
+    "research/weighted_predecessors_adapter/WeightedCensus.lean": "4ab05941d31794864702717bea8405abb126f67a4c99d52092e77eafae19f01e",
+    "research/weighted_predecessors_adapter/WeightedDependencyAudit.lean": "d990af92dab669b9f07d7727fddd3dad1496f8a31e8f248d6af3d13603040437",
+    "research/weighted_predecessors_adapter/WeightedFrozenSeed.lean": "d49c21f2435f2a66aefc14d1bdfac53cc0de8659e8bfb596596c98315b2008e6",
+    "research/weighted_predecessors_adapter/WeightedPathOccupation.lean": "1e533fef669af0e6ebf5d3eedc2838e59c6ce8c25d32e2ce92e2453dbe590c72",
+    "research/weighted_predecessors_adapter/WeightedPredecessorDensity.lean": "6816c011b93bf76ff29c52832feac590e2d9edc324057c42048ce74de06fc49c",
+    "research/weighted_predecessors_adapter/WeightedTerminalAdapter.lean": "7bfe76f52753831297a86f37c4e35019fe308bf634303774f5a3363b9830b422",
+    "research/weighted_predecessors_adapter/build_bundle.py": "721a8c46c92be39b8f200843630c76f3e6db2c549140a88592a99d5a59ce6cd5",
+    "research/weighted_predecessors_adapter/build_closure.py": "e18f3d824aff05fa2b218d1c2703bbada48952f6159583d1285cd43c47db462e",
+    "research/weighted_predecessors_adapter/prepare.py": "5a75048b2680d0ac6095e275db95924f70da6816466b16ee389c234840847a65",
+    "research/weighted_predecessors_adapter/test_build_closure.py": "2ef9d3a8debe92709102e5d2a15d7623e69e4bba21e67f6bfae7fb03328caea9",
+    "notes/post_v6_adapter_2026-09-24/COEFFICIENT_COMPARISON_IT.md": "9f6c5a29b9523b7cbf782b382e24a79576ba396099fd91f1e8a3a0a216efd490",
+    "notes/post_v6_adapter_2026-09-24/MIXING_AUDIT_IT.md": "df3b52c89e1e4985c5ef87dd47a333bb72bf72204a6ba78f1c6eced4152f46e9",
+    "notes/post_v6_adapter_2026-09-24/RESULTS_IT.md": "c3382caf7d4190042bf6d1f524a699135800d292c3ff324aff51f09dbc282a5b",
+    "notes/post_v6_adapter_2026-09-24/SEED_AUDIT.md": "6a3bef43709086f91ef7de36bd27a85bef2d33f989baeabc3bb4978e4188e251",
+    "notes/post_v6_adapter_2026-09-24/TWO_SEED_AUDIT.md": "9b25ccd92b4ee1f2ea5ed8f90455a0028a36bc8161cdf77bbec06fa51deb5d48",
+    "notes/post_v6_adapter_2026-09-24/TWO_SEED_EFFECTIVITY_AUDIT_IT.md": "f174e6eeeb8059c8e23b7f3672273a3b16b14f93963f8292dd504014411a184c",
+    "notes/post_v6_adapter_2026-09-24/audit_api_smoke.log": "bc94a2c98162cc62bcf1d3b1d6882a69f3dee7f4991789177ad38feed12fc227",
+    "notes/post_v6_adapter_2026-09-24/coefficient_comparison.json": "63c95aad5d837228355c172e00c6f8181c16dc7afeb0e064fedd590b0e034542",
+    "notes/post_v6_adapter_2026-09-24/coefficient_comparison.py": "09c7c870ff085f3027d2a6d2a5dc12a7feccca219b94cd4f96d8d88333a203aa",
+    "notes/post_v6_adapter_2026-09-24/local_partial_build.log": "e82f635e3658df4a50830877eed6fded791404d15d8fa3713e9521edacee11b9",
+    "notes/post_v6_adapter_2026-09-24/local_partial_receipt.json": "956bb23fbc28e8ce77ad7bbf08b17122aa821e37f9298360a68d670a8dd8796c",
+    "notes/post_v6_adapter_2026-09-24/nonreturn_counting_build.log": "2f303b50f95fa05b6046480048a15e506efa31948ddfda61236fc7fe6efa9de8",
+    "notes/post_v6_adapter_2026-09-24/two_seed_axioms.lean": "ec1212348e27babaa4afd82f6d7fcbf172a1ab3de7c6c90aae31dfeac3c7a6cd",
+    "notes/post_v6_adapter_2026-09-24/two_seed_axioms.log": "4fb43819a0276c750a3ac935a3f38eb739ba9de6b2fd368e9c4b5b6cd31066bb",
+    "notes/post_v6_adapter_2026-09-24/two_seed_build.log": "6be67aa4c98bb6e17284ffa6bd1d18ea6212b0c427fbfd14acfee8f8922865a0"
+  },
+  "limitations": [
+    "No proof of the Collatz conjecture.",
+    "Main counting results retain explicit analytic hypotheses.",
+    "The external analytic library has only a bounded semantic review here.",
+    "Import objects from the pinned Mathlib cache are reused; no independent LeanChecker run."
+  ]
+}

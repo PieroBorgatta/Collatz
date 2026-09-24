@@ -270,6 +270,30 @@ not supply a global Collatz termination rank.
   interval, and an analytic mass/error estimate. No no-return assumption
   is used; no unconditional positive-density conclusion is claimed.
 
+### `TwoSeed.lean`
+- `TwoSeed.noReturn_or_noReturn_of_same_image` — distinct points with the
+  same image cannot both have positive returns (generic deterministic map).
+- `TwoSeed.lift_exponent_and_step` — the lift `L(n)=4*n+1` adds two to
+  the Syracuse exponent and preserves the next state.
+- `TwoSeed.exists_nonreturn_seed` — one of `n` and `4*n+1` is a positive
+  odd non-returning seed when n is positive and odd.
+- `TwoSeed.lift_iterate_formula` — exact identity
+  `3*L^[k](n)+1=4^k*(3*n+1)`.
+- `TwoSeed.exists_nonreturn_seed_above` — one of two explicit adjacent
+  lifts lies above any supplied height and has no positive return. Its
+  upper bound is explicit; the proof does not decide which candidate works.
+
+### `NonreturnCounting.lean`
+- `NonreturnCounting.visit_time_eq_of_noReturn`, `matches_eq_of_target_eq`
+  — uniqueness of visiting time and exact word at a non-returning target.
+- `NonreturnCounting.wordWeight_le_target_div` — the individual affine
+  weight is at most R/x, independently of non-return.
+- `NonreturnCounting.sum_wordWeight_fiber_le`, `word_fiber_bound`
+  — the finite word fiber has weight at most R/x under non-return.
+- `NonreturnCounting.conditional_predecessor_count` — finite count at
+  least 3*N/(256*R*3^m), assuming non-return, exact paths, and the stated
+  analytic mass/error estimate. The analytic hypotheses remain open here.
+
 ## `Generated/` — machine-generated finite certificates
 
 Verified by Lean; emitted by `../../scripts/phantom_taxonomy/` generators.

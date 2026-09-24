@@ -24,6 +24,8 @@ import CollatzShadowing.WeightedVisits
 import CollatzShadowing.WeightedWords
 import CollatzShadowing.WeightedCounting
 import CollatzShadowing.WeightedPredecessors
+import CollatzShadowing.TwoSeed
+import CollatzShadowing.NonreturnCounting
 import CollatzShadowing.EpisodeInventory
 import CollatzShadowing.EpisodeGraph
 import CollatzShadowing.Operator

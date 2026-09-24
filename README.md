@@ -213,6 +213,13 @@ it is not an unconditional density theorem. An audit identifies where
 this bound could replace the no-return assumption in external counting
 code; the external adapter and full analytic verification remain open.
 See [the counting report](notes/post_v6_counting_2026-09-24/RESULTS_IT.md).
+
+A separate [predecessor adapter](research/weighted_predecessors_adapter/README.md)
+ports the weighted argument to the exact external path types and explores a
+second route using two bounded candidate seeds. Its full external compilation
+is tracked separately from the main library; the
+[continuation report](notes/post_v6_adapter_2026-09-24/RESULTS_IT.md) records
+the precise verification boundary.
 Separately, exact parameter
 formulas describe a second growth burst after the cancellation towers
 and classify the following valuation by lifted residue roots; those
@@ -303,6 +310,9 @@ scrutiny is explicitly invited. See [`METHODOLOGY.md`](METHODOLOGY.md).
 ## License
 
 [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/).
+The separate `research/weighted_predecessors_adapter/` package is Apache-2.0;
+its license and `UPSTREAM_NOTICE` preserve attribution to Lech Mazur and the
+external baseline authors.
 
 ## Contact
 

@@ -1,0 +1,77 @@
+START FormalConjectures.Wikipedia.CollatzConjecture
+START Erdos1135.Tao.Probability.Finite
+START Erdos1135.Tao.Fourier.Section7ProductPenalty
+[1/393] reuse FormalConjectures.Wikipedia.CollatzConjecture: exit=0 seconds=7.084
+START Erdos1135.Basic
+[2/393] reuse Erdos1135.Tao.Probability.Finite: exit=0 seconds=31.765
+START Erdos1135.Tao.Probability.Geom
+[3/393] reuse Erdos1135.Basic: exit=0 seconds=56.565
+START Erdos1135.CollatzStep
+[4/393] reuse Erdos1135.Tao.Probability.Geom: exit=0 seconds=65.315
+START Erdos1135.Tao.Probability.Pascal
+[5/393] reuse Erdos1135.CollatzStep: exit=0 seconds=57.21
+START Erdos1135.Terras.Core.Defs
+[6/393] reuse Erdos1135.Terras.Core.Defs: exit=0 seconds=51.158
+START Erdos1135.Tao.Syracuse.Defs
+[7/393] reuse Erdos1135.Tao.Syracuse.Defs: exit=0 seconds=47.971
+START Erdos1135.Tao.Syracuse.Basic
+[8/393] compiled Erdos1135.Tao.Probability.Pascal: exit=0 seconds=45.471
+START Erdos1135.Tao.Probability.PascalPrime
+[9/393] compiled Erdos1135.Tao.Syracuse.Basic: exit=0 seconds=45.674
+START Erdos1135.Tao.Syracuse.Affine
+[10/393] compiled Erdos1135.Tao.Fourier.Section7ProductPenalty: exit=0 seconds=45.733
+START Erdos1135.Tao.Fourier.Section7Geometry
+[11/393] compiled Erdos1135.Tao.Syracuse.Affine: exit=0 seconds=82.94
+START Erdos1135.Tao.Probability.Truncation
+[12/393] compiled Erdos1135.Tao.Probability.PascalPrime: exit=0 seconds=83.225
+START Erdos1135.Tao.Syracuse.ParityBridge
+[13/393] compiled Erdos1135.Tao.Fourier.Section7Geometry: exit=0 seconds=97.532
+START Erdos1135.Tao.Fourier.Section7WhiteHitSplit
+[14/393] compiled Erdos1135.Tao.Probability.Truncation: exit=0 seconds=88.188
+START Erdos1135.Tao.Renewal.HoldPoint
+[15/393] compiled Erdos1135.Tao.Syracuse.ParityBridge: exit=0 seconds=88.123
+START Erdos1135.Tao.Syracuse.ValuationDistribution
+[16/393] compiled Erdos1135.Tao.Fourier.Section7WhiteHitSplit: exit=0 seconds=89.566
+START Erdos1135.Tao.Probability.PascalPrimeList
+[17/393] compiled Erdos1135.Tao.Renewal.HoldPoint: exit=0 seconds=100.788
+START Erdos1135.Tao.Renewal.QFinite
+[18/393] compiled Erdos1135.Tao.Syracuse.ValuationDistribution: exit=0 seconds=100.856
+START Erdos1135.Tao.Syracuse.Syrac
+[19/393] compiled Erdos1135.Tao.Probability.PascalPrimeList: exit=0 seconds=114.336
+START Erdos1135.Tao.Renewal.HoldPMF
+[20/393] compiled Erdos1135.Tao.Renewal.QFinite: exit=0 seconds=88.396
+START Erdos1135.Tao.Renewal.SourceListBridge
+[21/393] compiled Erdos1135.Tao.Syracuse.Syrac: exit=0 seconds=88.365
+START Erdos1135.Tao.Fourier.Basic
+[22/393] compiled Erdos1135.Tao.Renewal.HoldPMF: exit=0 seconds=89.36
+START Erdos1135.Tao.Renewal.HoldExpectation
+[23/393] compiled Erdos1135.Tao.Fourier.Basic: exit=0 seconds=86.983
+START Erdos1135.Tao.Fourier.DecayStatement
+[24/393] compiled Erdos1135.Tao.Renewal.SourceListBridge: exit=0 seconds=86.995
+START Erdos1135.Tao.Renewal.HoldIID
+[25/393] compiled Erdos1135.Tao.Renewal.HoldExpectation: exit=0 seconds=116.454
+START Erdos1135.Tao.Probability.FullL1
+[26/393] compiled Erdos1135.Tao.Fourier.DecayStatement: exit=0 seconds=88.33
+START Erdos1135.Tao.Fourier.Section7Character
+[27/393] compiled Erdos1135.Tao.Renewal.HoldIID: exit=0 seconds=88.371
+START Erdos1135.Tao.Renewal.QExpectation
+[28/393] compiled Erdos1135.Tao.Probability.FullL1: exit=0 seconds=63.331
+START Erdos1135.Tao.Renewal.QFiniteApprox
+[29/393] compiled Erdos1135.Tao.Renewal.QExpectation: exit=0 seconds=89.741
+START Erdos1135.Tao.Probability.Geom2ListProjectivity
+[30/393] compiled Erdos1135.Tao.Fourier.Section7Character: exit=0 seconds=97.692
+START Erdos1135.Tao.Fourier.Section7Cancellation
+[31/393] compiled Erdos1135.Tao.Renewal.QFiniteApprox: exit=0 seconds=98.503
+START Erdos1135.Tao.Fourier.Section7SourceLaw
+[32/393] compiled Erdos1135.Tao.Probability.Geom2ListProjectivity: exit=0 seconds=105.389
+START Erdos1135.Tao.Fourier.Section7SourcePairing
+[33/393] compiled Erdos1135.Tao.Fourier.Section7Cancellation: exit=0 seconds=100.506
+START Erdos1135.Tao.Fourier.Section7SourceFThreeQFinite
+[34/393] compiled Erdos1135.Tao.Fourier.Section7SourceLaw: exit=0 seconds=107.632
+START Erdos1135.Tao.Fourier.Section7SourcePredicates
+[35/393] compiled Erdos1135.Tao.Fourier.Section7SourcePairing: exit=0 seconds=141.072
+START Erdos1135.Tao.Renewal.QActualRecursion
+[36/393] compiled Erdos1135.Tao.Fourier.Section7SourceFThreeQFinite: exit=0 seconds=138.063
+START Erdos1135.Tao.Fourier.Section7PairFiber
+[37/393] compiled Erdos1135.Tao.Fourier.Section7SourcePredicates: exit=0 seconds=189.546
+START Erdos1135.Tao.Fourier.Section7SourceDomain

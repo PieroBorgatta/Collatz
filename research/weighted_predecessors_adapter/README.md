@@ -70,6 +70,11 @@ route, or independent reproof of the external analytic inputs is claimed.
 The underlying fact about periodic points is elementary; no priority claim is
 made for that fact. See the [two-seed audit](../../notes/post_v6_adapter_2026-09-24/TWO_SEED_AUDIT.md)
 for the parameter order and remaining verification limits.
+A separate [algebraic comparison](../../notes/post_v6_adapter_2026-09-24/COEFFICIENT_COMPARISON_IT.md)
+proves `T<R^2` for aligned explicit candidates and a factor greater than three
+in the associated coefficient formulas. That comparison is paper-level,
+not Lean-verified; it neither identifies the current weighted chooser with
+those candidates nor compares the cutoffs.
 
 ## Reproduce in a separate directory
 

@@ -62,6 +62,16 @@ v4.29.1; portability to later toolchains has not been checked.
   assumed analytic mass estimate and error budget; it does not prove
   those assumptions or a positive-density theorem.
 
+- A bounded pair of Syracuse seeds: `L(n)=4*n+1` preserves the next state,
+  and one of n and L(n) has no positive return. Above each height X, one of
+  `L^[X+1](n)` and `L^[X+2](n)` works, with an explicit common upper bound.
+  This uses the standard injectivity of a map on its periodic points;
+  it does not decide which candidate works or exclude cycles of the successor.
+- At a target R with no positive return, visiting time and exact word are
+  unique for each source. The word fiber bound sharpens to R/x, giving a
+  conditional predecessor count at least 3*N/(256*R*3^m). The analytic
+  mass inequality and error budget remain explicit assumptions.
+
 ## Still open in this development
 
 The main missing statement is `UniformStrictDescentHypothesis`: every
@@ -77,17 +87,28 @@ marked state with smaller R. Its existence is formally equivalent to
 accelerated Collatz (`exists_rankDescent_iff_acceleratedCollatz`). This is
 an exact interface for the open obligation, not a weakening of it.
 
-The weighted counting direction now has a formal local bridge from
-exact words to distinct ordinary predecessors. A targeted external source
-audit identifies the no-return uses, word/label uniqueness, and matching
-weight identities in the singleton-seed case. The adapter to those
-external types has not been compiled, and their full analytic dependency
-chain has not been independently verified. Uniform families across all
-sufficiently large cutoffs are still required for a density conclusion.
-See [the counting report](../notes/post_v6_counting_2026-09-24/RESULTS_IT.md)
-and its external audit for the precise boundary. The later
-post-tower parameter formulas and resonance distributions are paper-level
-deductions with exact finite checks, not Lean theorems. Details are in
+The weighted counting direction has a formal local bridge from exact words
+to distinct ordinary predecessors. A separate hash-pinned Lean 4.30.0-rc2
+[overlay](../research/weighted_predecessors_adapter/README.md) now contains
+both the external path adapter and a two-seed route to uniform constants.
+The full external build and the final theorem dependency audits are tracked
+separately; this snapshot does not yet claim they passed. A local partial
+replay checked 37 of 393 modules before it was interrupted under resource
+pressure; the complete modular job runs in CI. Targeted semantic audits of
+the seed and mixing wrappers do not replace full analytical review.
+
+The main-library `TwoSeed` and `NonreturnCounting` modules have each passed
+their official target build. The new proof and comparison report is
+[here](../notes/post_v6_adapter_2026-09-24/RESULTS_IT.md). It distinguishes
+these results from the paper-level comparison of coefficients and from the
+external analytical chain. For aligned explicit candidates, the comparison
+proves T<R² and a coefficient improvement by more than a factor of three;
+this comparison has not been formalized in Lean and does not compare cutoffs.
+
+The earlier conditional counting boundary is recorded in
+[the counting report](../notes/post_v6_counting_2026-09-24/RESULTS_IT.md).
+Post-tower parameter formulas and resonance distributions are paper-level
+deductions with exact finite checks, not Lean theorems; see
 [the further research note](../notes/post_v6_parameter_2026-09-24/IDEAS_IT.md).
 
 The integrated build including all three new counting modules passed

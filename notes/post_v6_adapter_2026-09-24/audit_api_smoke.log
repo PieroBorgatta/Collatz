@@ -1,0 +1,26 @@
+API ELABORATION SMOKE ONLY — NOT A DEPENDENCY-AUDIT PASS
+2026-09-24
+Runtime: /tmp/collatz-lean-4.30.0-rc2/bin/lean
+CWD: /Volumes/AFUOCO/SVILUPPO/TEORIE/.codex-collatz-predecessor-adapter/2026-09-24
+Invocation through that runtime lake env; --threads=1 -DautoImplicit=false -DrelaxedAutoImplicit=false.
+Each scratch imports only Lean; final run_cmd and #print axioms removed; declaration definitions and closing namespace preserved.
+No external theorem root or dependency guard was executed.
+
+TwoSeedDependencyAudit: API ELABORATION PASS, exit 0, -M1024
+source sha256: 5c6e1523a78ad82ba8c0e6f45d31fde56d54dea5d1d06c29ed3903704449d990
+scratch sha256: c588e84d5d79f97f2808cd826fdc54cae07af53d7e9db1805a752f9dc0a43f0e
+scratch: /tmp/TwoSeedDependencyAuditAPISmoke.lean
+
+BundleDependencyAudit: API ELABORATION PASS, exit 0, -M1024
+source sha256: d4b154c13023d6dcb9c9341ef78e06574f09157a4811331a0475930ec0e08c7f
+scratch sha256: 3bea61eb2807f1df947e771bd25f9906903c72e3bc7b819442d8c5aec95e1998
+scratch: /tmp/BundleDependencyAuditAPISmoke.lean
+
+WeightedDependencyAudit: API ELABORATION PASS, exit 0, -M1536
+source sha256: d990af92dab669b9f07d7727fddd3dad1496f8a31e8f248d6af3d13603040437
+scratch sha256: e58f94fd56b2b00d4bf70b9f4f7f6971e743733f9cb1ef5bae07de270408390d
+scratch: /tmp/WeightedDependencyAuditAPISmoke.lean
+
+Earlier attempts: Weighted at -M512 and -M1024 exceeded the memory limit and do not certify API validity.
+The initial Weighted source also used reserved keyword matches; root renamed its three occurrences to candidates. The final successful Weighted scratch includes this fix.
+TwoSeedDependencyAudit and BundleDependencyAudit required no API edits.
