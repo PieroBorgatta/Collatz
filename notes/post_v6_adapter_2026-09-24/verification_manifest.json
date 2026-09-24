@@ -78,6 +78,22 @@
       "passed_modules": 340,
       "target_closure_modules": 395,
       "failure": "WeightedPathOccupation passed; two missing Subsingleton Unit instances in WeightedTerminalAdapter; corrected in next revision"
+    },
+    {
+      "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36003767135",
+      "commit": "5b3a6915a3b36e63a2fa4b35b8fa331928dfbed6",
+      "status": "failed",
+      "passed_modules": 391,
+      "target_closure_modules": 395,
+      "failed_modules": [
+        "TwoSeedNonreturn",
+        "WeightedFrozenSeed"
+      ],
+      "blocked_modules": [
+        "TwoSeedDensity",
+        "WeightedPredecessorDensity"
+      ],
+      "failure": "Three non-strict natural positivity goals; rewritten via strict positivity. All 388 baseline modules plus occupation, terminal adapter and weighted census passed."
     }
   ],
   "audit_api_smoke": {
@@ -110,7 +126,7 @@
     "notes/post_v6_adapter_2026-09-24/COEFFICIENT_COMPARISON_IT.md": "9f6c5a29b9523b7cbf782b382e24a79576ba396099fd91f1e8a3a0a216efd490",
     "notes/post_v6_adapter_2026-09-24/DEPENDENCY_AUDIT_REVIEW_IT.md": "dd197f70b9f15081996f1ec1f686217d09175e866ef1b8535732623e88f51b80",
     "notes/post_v6_adapter_2026-09-24/MIXING_AUDIT_IT.md": "df3b52c89e1e4985c5ef87dd47a333bb72bf72204a6ba78f1c6eced4152f46e9",
-    "notes/post_v6_adapter_2026-09-24/RESULTS_IT.md": "bc73fcf599d2354cbb0bbf5c127dadcfe075450c47cff73a5e16d7b89990ab7b",
+    "notes/post_v6_adapter_2026-09-24/RESULTS_IT.md": "5366197bcf5e69753b953673075e1c29fc017636894e9d2c24b28be2ba599ea8",
     "notes/post_v6_adapter_2026-09-24/SEED_AUDIT.md": "6a3bef43709086f91ef7de36bd27a85bef2d33f989baeabc3bb4978e4188e251",
     "notes/post_v6_adapter_2026-09-24/TWO_SEED_AUDIT.md": "9b25ccd92b4ee1f2ea5ed8f90455a0028a36bc8161cdf77bbec06fa51deb5d48",
     "notes/post_v6_adapter_2026-09-24/TWO_SEED_EFFECTIVITY_AUDIT_IT.md": "f174e6eeeb8059c8e23b7f3672273a3b16b14f93963f8292dd504014411a184c",
@@ -130,10 +146,10 @@
     "research/weighted_predecessors_adapter/BundleDependencyAudit.lean": "d4b154c13023d6dcb9c9341ef78e06574f09157a4811331a0475930ec0e08c7f",
     "research/weighted_predecessors_adapter/TwoSeedDensity.lean": "d909864d4d7360f7aea62709d037ac2402ce7cc86b3753ae0c8b6ec3d55660cf",
     "research/weighted_predecessors_adapter/TwoSeedDependencyAudit.lean": "5c6e1523a78ad82ba8c0e6f45d31fde56d54dea5d1d06c29ed3903704449d990",
-    "research/weighted_predecessors_adapter/TwoSeedNonreturn.lean": "b4df83559169ae5d3def5d5d538fab60085e7333495fb54f17e7927e644b6a0e",
+    "research/weighted_predecessors_adapter/TwoSeedNonreturn.lean": "a76dde8c64d252cb640bdcbab395000169b3914a22b9e93a7e95dfbf128659c1",
     "research/weighted_predecessors_adapter/WeightedCensus.lean": "4ab05941d31794864702717bea8405abb126f67a4c99d52092e77eafae19f01e",
     "research/weighted_predecessors_adapter/WeightedDependencyAudit.lean": "d990af92dab669b9f07d7727fddd3dad1496f8a31e8f248d6af3d13603040437",
-    "research/weighted_predecessors_adapter/WeightedFrozenSeed.lean": "d49c21f2435f2a66aefc14d1bdfac53cc0de8659e8bfb596596c98315b2008e6",
+    "research/weighted_predecessors_adapter/WeightedFrozenSeed.lean": "22e420c74f000253827cf8894d27f5b9bb57f1cc0534dda53859705a781af05b",
     "research/weighted_predecessors_adapter/WeightedPathOccupation.lean": "1e533fef669af0e6ebf5d3eedc2838e59c6ce8c25d32e2ce92e2453dbe590c72",
     "research/weighted_predecessors_adapter/WeightedPredecessorDensity.lean": "6816c011b93bf76ff29c52832feac590e2d9edc324057c42048ce74de06fc49c",
     "research/weighted_predecessors_adapter/WeightedTerminalAdapter.lean": "52977aa13df6d9302e108194b8bff2af54904c137a9111492e07e066e875d7c3",

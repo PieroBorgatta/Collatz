@@ -63,7 +63,9 @@ theorem twoCandidate_bounds_and_noReturn
        (∀ t : ℕ, 0 < t → (Tao.syracuse^[t]) (ndGeneralTargetRoot r (k + 3 ^ q)) ≠
           ndGeneralTargetRoot r (k + 3 ^ q))) := by
   let k := (p : ℕ) + (X + 1) * 3 ^ q
-  have hq : 1 ≤ 3 ^ q := by positivity
+  have hq : 1 ≤ 3 ^ q := by
+    have hpos : 0 < 3 ^ q := by positivity
+    omega
   have hk : X < k := by
     have h := Nat.mul_le_mul_left (X + 1) hq
     dsimp only [k]
@@ -99,7 +101,9 @@ theorem exists_bounded_nonreturning_predecessor_of_start
   have hpair := twoCandidate_bounds_and_noReturn r q X p
   change X < ndGeneralTargetRoot r k ∧ _ at hpair
   obtain ⟨hlo, hlt, htop, hchoice⟩ := hpair
-  have hq : 1 ≤ 3 ^ q := by positivity
+  have hq : 1 ≤ 3 ^ q := by
+    have hpos : 0 < 3 ^ q := by positivity
+    omega
   have hk : 0 < k := by
     have h := Nat.mul_le_mul_left (X + 1) hq
     dsimp only [k]

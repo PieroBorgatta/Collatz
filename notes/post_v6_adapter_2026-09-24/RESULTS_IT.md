@@ -141,6 +141,15 @@ analitiche né una compilazione completa. Dettagli:
 - [ordine dei parametri della coppia di semi](TWO_SEED_AUDIT.md);
 - [definizioni numeriche delle costanti](TWO_SEED_EFFECTIVITY_AUDIT_IT.md).
 
+La lettura degli enunciati pubblici conferma che le sole ipotesi sul bersaglio
+sono `a>0` e `3∤a`. `ordinaryPredecessorSet` esclude zero; `natCount` conta
+interi distinti strettamente sotto la soglia. Il vincolo sugli intervalli nei
+lemmi intermedi viene costruito internamente per ogni soglia sufficientemente
+grande: non è lasciato al chiamante e non limita il risultato a una sottosequenza.
+Questa lettura dei quantificatori resta distinta dal controllo Lean. La
+[revisione degli script di audit](DEPENDENCY_AUDIT_REVIEW_IT.md) precisa inoltre
+i diversi perimetri di traversata delle dipendenze.
+
 Il teorema esterno di densità positiva dei predecessori resta attribuito al
 suo autore. Il lavoro qui riguarda modifiche della dimostrazione e il
 controllo delle costanti. Densità positiva dei predecessori non implica che
@@ -168,3 +177,10 @@ istanze `Subsingleton Unit` mancanti in `WeightedTerminalAdapter`. Le istanze
 sono ora esplicite; il controllo dei moduli rimanenti e delle dipendenze finali
 è ancora in corso. Questo record non attribuisce ancora al replay esterno un
 esito positivo.
+
+Il terzo replay [CI 36003767135](https://github.com/PieroBorgatta/Collatz/actions/runs/36003767135)
+ha verificato 391 moduli su 395, inclusi tutti i 388 moduli baseline e
+`WeightedPathOccupation`, `WeightedTerminalAdapter`, `WeightedCensus`. Tre
+obiettivi naturali `1 ≤ 3^q` richiedevano di passare dalla positività stretta
+alla disuguaglianza non stretta; le correzioni sbloccano i due moduli dei semi
+e la successiva compilazione dei due teoremi finali.

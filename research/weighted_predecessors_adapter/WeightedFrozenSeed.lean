@@ -21,7 +21,9 @@ theorem weighted_exists_large_predecessor_in_residue
   obtain ⟨p, hp⟩ := generalTargetRoot_residue_surjective r q y
   let k := (p : ℕ) + (X + 1) * 3 ^ q
   have hk : X < k := by
-    have hq : 1 ≤ 3 ^ q := by positivity
+    have hq : 1 ≤ 3 ^ q := by
+      have hpos : 0 < 3 ^ q := by positivity
+      omega
     have h := Nat.mul_le_mul_left (X + 1) hq
     dsimp only [k]
     omega
