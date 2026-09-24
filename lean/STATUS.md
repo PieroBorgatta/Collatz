@@ -48,6 +48,12 @@ v4.29.1; portability to later toolchains has not been checked.
   marked sources defeat every fixed finite accelerated descent horizon.
 - Exact descending marked returns `661+1152*t → 31+54*t` for every t,
   and an increasing first marked return `31 → 121`.
+- A telescoping identity for affine orbit weights and the bound
+  `sum_{k in H} 3^k/2^(A_k) ≤ R*(3*R+1)/x` for every finite set H of
+  visits from x>0 to R>0 (`WeightedVisits.sum_weight_visits_le`).
+  No assumption about periodicity or convergence is used. The formal
+  theorem is indexed by distinct times; the equivalent formulation for
+  distinct exact words is explained on paper in the research note.
 
 ## Still open in this development
 
@@ -63,6 +69,14 @@ rank. `SectionReturn.RankDescent R` requires a hit of 1 or an actual later
 marked state with smaller R. Its existence is formally equivalent to
 accelerated Collatz (`exists_rankDescent_iff_acceleratedCollatz`). This is
 an exact interface for the open obligation, not a weakening of it.
+
+The weighted-visit theorem opens a separate counting direction: it can
+replace source injectivity with a quantitative bound on repeated
+representations. Its proposed application to external predecessor-density
+estimates still requires an audit of their analytic inputs. The later
+post-tower parameter formulas and resonance distributions are paper-level
+deductions with exact finite checks, not Lean theorems. Details are in
+[the further research note](../notes/post_v6_parameter_2026-09-24/IDEAS_IT.md).
 
 The general v6 defect/cancellation ledger remains a paper-level proposal.
 Its concrete cancellation-tower family is now treated in

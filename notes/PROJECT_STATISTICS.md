@@ -29,22 +29,25 @@ infinite A0 residue subfamilies, a matched-word precision tax, compatible
 affine trace switching, explicit trace obstructions, positive-cycle
 constraints, exact first-barrier tests, and exact finite/repeated-word
 cylinders. Post-v6 work adds five modules for marked-section coverage,
-cancellation towers, and the remaining return-rank interface. The June
+cancellation towers, and the remaining return-rank interface, followed by
+`WeightedVisits` for a universal weighted occupation bound. The June
 v5 line and declaration totals below remain frozen.
-The integrated build passed on 24 September 2026 (3365 jobs).
+The first integrated post-v6 build passed on 24 September 2026 (3365 jobs);
+the subsequent weighted-visit verification is recorded in
+`post_v6_parameter_2026-09-24/IDEAS_IT.md`.
 Current counts include every
 `lean/CollatzShadowing/*.lean` file visible in the working tree, whether
 or not it was tracked by Git at the time of counting; generated Lean files
 are reported separately.
 
 Source scan of the 24 September 2026 working tree (including the
-five post-v6 entrypoint imports):
+six post-v6 entrypoint imports):
 
 | Lean source class | files | lines | `theorem`/`lemma` declarations |
 |---|---:|---:|---:|
-| AI-authored modules and entrypoint | 29 | 10,942 | 425 |
+| AI-authored modules and entrypoint | 30 | 11,079 | 438 |
 | Generator-emitted certificates | 26 | 43,513 | 966 |
-| **Total** | **55** | **54,455** | **1,391** |
+| **Total** | **56** | **54,592** | **1,404** |
 
 These are textual source counts, not counts of independent mathematical
 results. The table can be regenerated with the command below after any

@@ -1,0 +1,494 @@
+{
+  "date": "2026-09-24",
+  "baseline_commit": "d5a50dafd12879cc29a98a8d2e3cfefcac410fe2",
+  "scope": "Weighted-visit bound formalized on S; post-tower parameter formulas proved on paper with finite exact checks; external density application conditional on unaudited analytic inputs",
+  "lean_toolchain": "leanprover/lean4:v4.29.1",
+  "mathlib_revision": "5e932f97dd25535344f80f9dd8da3aab83df0fe6",
+  "integrated_build": {
+    "passed": true,
+    "jobs": 3366,
+    "dependency_mode": "pinned cached dependencies; new WeightedVisits module and aggregate target compiled"
+  },
+  "headline_axiom_audit": [
+    {
+      "declaration": "CollatzShadowing.WeightedVisits.orbit_step",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.WeightedVisits.potential_sub_succ",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.WeightedVisits.sum_loss_range",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.WeightedVisits.sum_loss_finset_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.WeightedVisits.sum_weight_visits_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "parameter_probe": {
+    "scope": "Finite exact validation; universal proofs on paper, not yet Lean",
+    "max_r": 2048,
+    "post_tower_bursts_checked": {
+      "C": 1024,
+      "B": 1024
+    },
+    "phase_A_exact_steps_checked": 1024,
+    "q1_subfamilies_checked": 24,
+    "residue_bits": 12,
+    "root_bits": 96,
+    "theta_root": "10661547540141821154454304621",
+    "residue_distributions": [
+      {
+        "phase": "B",
+        "v": 1,
+        "counts": {
+          "2": 1024,
+          "3": 512,
+          "4": 256,
+          "5": 128,
+          "6": 64,
+          "7": 32,
+          "8": 16,
+          "9": 8,
+          "10": 4,
+          "11": 2,
+          "12": 1,
+          ">=13": 1
+        }
+      },
+      {
+        "phase": "C",
+        "v": 1,
+        "counts": {
+          "2": 1024,
+          "3": 512,
+          "4": 256,
+          "5": 128,
+          "6": 64,
+          "7": 32,
+          "8": 16,
+          "9": 8,
+          "10": 4,
+          "11": 2,
+          "12": 1,
+          ">=13": 1
+        }
+      },
+      {
+        "phase": "B",
+        "v": 2,
+        "counts": {
+          "2": 1024,
+          "3": 512,
+          "4": 256,
+          "5": 128,
+          "6": 64,
+          "7": 32,
+          "8": 16,
+          "9": 8,
+          "10": 4,
+          "11": 2,
+          "12": 1,
+          ">=13": 1
+        }
+      },
+      {
+        "phase": "C",
+        "v": 2,
+        "counts": {
+          "2": 1024,
+          "3": 512,
+          "4": 256,
+          "5": 128,
+          "6": 64,
+          "7": 32,
+          "8": 16,
+          "9": 8,
+          "10": 4,
+          "11": 2,
+          "12": 1,
+          ">=13": 1
+        }
+      },
+      {
+        "phase": "B",
+        "v": 3,
+        "counts": {
+          "2": 1024,
+          "3": 512,
+          "4": 256,
+          "5": 128,
+          "6": 64,
+          "7": 32,
+          "8": 16,
+          "9": 8,
+          "10": 4,
+          "11": 2,
+          "12": 1,
+          ">=13": 1
+        }
+      },
+      {
+        "phase": "C",
+        "v": 3,
+        "counts": {
+          "2": 1024,
+          "3": 512,
+          "4": 256,
+          "5": 128,
+          "6": 64,
+          "7": 32,
+          "8": 16,
+          "9": 8,
+          "10": 4,
+          "11": 2,
+          "12": 1,
+          ">=13": 1
+        }
+      },
+      {
+        "phase": "B",
+        "v": 4,
+        "counts": {
+          "2": 1024,
+          "3": 512,
+          "4": 256,
+          "5": 128,
+          "6": 64,
+          "7": 32,
+          "8": 16,
+          "9": 8,
+          "10": 4,
+          "11": 2,
+          "12": 1,
+          ">=13": 1
+        }
+      },
+      {
+        "phase": "C",
+        "v": 4,
+        "counts": {
+          "2": 1024,
+          "3": 512,
+          "4": 256,
+          "5": 128,
+          "6": 64,
+          "7": 32,
+          "8": 16,
+          "9": 8,
+          "10": 4,
+          "11": 2,
+          "12": 1,
+          ">=13": 1
+        }
+      },
+      {
+        "phase": "B",
+        "v": 7,
+        "counts": {
+          "2": 1024,
+          "3": 512,
+          "4": 256,
+          "5": 128,
+          "6": 64,
+          "7": 32,
+          "8": 16,
+          "9": 8,
+          "10": 4,
+          "11": 2,
+          "12": 1,
+          ">=13": 1
+        }
+      },
+      {
+        "phase": "C",
+        "v": 7,
+        "counts": {
+          "2": 1024,
+          "3": 512,
+          "4": 256,
+          "5": 128,
+          "6": 64,
+          "7": 32,
+          "8": 16,
+          "9": 8,
+          "10": 4,
+          "11": 2,
+          "12": 1,
+          ">=13": 1
+        }
+      },
+      {
+        "phase": "B",
+        "v": 16,
+        "counts": {
+          "2": 1024,
+          "3": 512,
+          "4": 256,
+          "5": 128,
+          "6": 64,
+          "7": 32,
+          "8": 16,
+          "9": 8,
+          "10": 4,
+          "11": 2,
+          "12": 1,
+          ">=13": 1
+        }
+      },
+      {
+        "phase": "C",
+        "v": 16,
+        "counts": {
+          "2": 1024,
+          "3": 512,
+          "4": 256,
+          "5": 128,
+          "6": 64,
+          "7": 32,
+          "8": 16,
+          "9": 8,
+          "10": 4,
+          "11": 2,
+          "12": 1,
+          ">=13": 1
+        }
+      },
+      {
+        "phase": "B",
+        "v": 64,
+        "counts": {
+          "2": 1024,
+          "3": 512,
+          "4": 256,
+          "5": 128,
+          "6": 64,
+          "7": 32,
+          "8": 16,
+          "9": 8,
+          "10": 4,
+          "11": 2,
+          "12": 1,
+          ">=13": 1
+        }
+      },
+      {
+        "phase": "C",
+        "v": 64,
+        "counts": {
+          "2": 1024,
+          "3": 512,
+          "4": 256,
+          "5": 128,
+          "6": 64,
+          "7": 32,
+          "8": 16,
+          "9": 8,
+          "10": 4,
+          "11": 2,
+          "12": 1,
+          ">=13": 1
+        }
+      },
+      {
+        "phase": "B",
+        "v": 128,
+        "counts": {
+          "2": 1024,
+          "3": 512,
+          "4": 256,
+          "5": 128,
+          "6": 64,
+          "7": 32,
+          "8": 16,
+          "9": 8,
+          "10": 4,
+          "11": 2,
+          "12": 1,
+          ">=13": 1
+        }
+      },
+      {
+        "phase": "C",
+        "v": 128,
+        "counts": {
+          "2": 1024,
+          "3": 512,
+          "4": 256,
+          "5": 128,
+          "6": 64,
+          "7": 32,
+          "8": 16,
+          "9": 8,
+          "10": 4,
+          "11": 2,
+          "12": 1,
+          ">=13": 1
+        }
+      }
+    ],
+    "root_certificates": [
+      {
+        "phase": "B",
+        "v": 1,
+        "bits": 96,
+        "root": "4400222639695344649775373941"
+      },
+      {
+        "phase": "C",
+        "v": 1,
+        "bits": 96,
+        "root": "79005572563110845691176689285"
+      },
+      {
+        "phase": "B",
+        "v": 2,
+        "bits": 96,
+        "root": "1288523935286853453351407887"
+      },
+      {
+        "phase": "C",
+        "v": 2,
+        "bits": 96,
+        "root": "13160923524965488633789932735"
+      },
+      {
+        "phase": "B",
+        "v": 3,
+        "bits": 96,
+        "root": "56962024314717166763532401749"
+      },
+      {
+        "phase": "C",
+        "v": 3,
+        "bits": 96,
+        "root": "78652337961327042311385752805"
+      },
+      {
+        "phase": "B",
+        "v": 4,
+        "bits": 96,
+        "root": "69820154470166632105133792359"
+      },
+      {
+        "phase": "C",
+        "v": 4,
+        "bits": 96,
+        "root": "30977495686245712677766428823"
+      },
+      {
+        "phase": "B",
+        "v": 7,
+        "bits": 96,
+        "root": "26588215075322436677258259813"
+      },
+      {
+        "phase": "C",
+        "v": 7,
+        "bits": 96,
+        "root": "12663652211900068476383411445"
+      },
+      {
+        "phase": "B",
+        "v": 16,
+        "bits": 96,
+        "root": "27667475665982128853943305495"
+      },
+      {
+        "phase": "C",
+        "v": 16,
+        "bits": 96,
+        "root": "906593395595279368555158599"
+      },
+      {
+        "phase": "B",
+        "v": 64,
+        "bits": 96,
+        "root": "42650423074439914245108965591"
+      },
+      {
+        "phase": "C",
+        "v": 64,
+        "bits": 96,
+        "root": "30426345648985560543378334727"
+      },
+      {
+        "phase": "B",
+        "v": 128,
+        "bits": 96,
+        "root": "31904680060334242076012111319"
+      },
+      {
+        "phase": "C",
+        "v": 128,
+        "bits": 96,
+        "root": "48977884430614805163574606087"
+      }
+    ],
+    "all_checks_passed": true,
+    "not_claimed": [
+      "descent below original seed",
+      "independence along orbits",
+      "Collatz convergence",
+      "absolute mathematical priority"
+    ]
+  },
+  "weighted_visits_probe": {
+    "scope": "Finite exact rational checks; proof is the telescoping identity",
+    "seeds": 1000,
+    "max_seed": 1999,
+    "last_visit_time": 80,
+    "one_step_identities_checked": 81000,
+    "distinct_source_target_bounds_checked": 25688,
+    "sharp_target_one_geometric_sum_checked": true,
+    "all_checks_passed": true
+  },
+  "published_v6_sha256_preserved": {
+    "paper/collatz_spectral_reduction_v6.pdf": "a959282145d5042550c3938b445a4964305299b4eca71bcc62539804c5b585f9",
+    "collatz_spectral_reduction_v6_supplementary.zip": "20f9195443dd058aeae16b9316ed0f6beafb6d360182ba93b875107a0ee9da60"
+  },
+  "sha256": {
+    "README.md": "6854f7f1e66543605c86f0fb11a49b0c6967a77eb1772515a3e2bee9cd9b3ebb",
+    "lean/README.md": "f1c5765c4429dc86e8ed818675e96151df4c8dd40e625763d5f3ffd89c44e48c",
+    "lean/STATUS.md": "0b2d15642debecb6cfba9cedf97012d58cb8ca987010e0657be23a4b1d67ef8e",
+    "lean/CollatzShadowing.lean": "c74144aabc75a4b1be3355aa7e8afe87c73d9e0c310159484bbcd2115efa75f5",
+    "lean/CollatzShadowing/THEOREM_INDEX.md": "77c985d78dd71c7cf2f08ed2bb2c6eaccaf97a73f517ec839f722b187b841cfc",
+    "lean/CollatzShadowing/WeightedVisits.lean": "f9a45d7c4c950b7d1028df8ae1146aab1b4625c1b0056d18402838e05dd47605",
+    "notes/PROJECT_STATISTICS.md": "0657af72a7ae3231addb1506606b0d3e64300d19ed92e309d85d756c235b00ec",
+    "notes/post_v6_parameter_2026-09-24/IDEAS_IT.md": "c686e0563be86ce856f1c177edb98e4104154c651f84989d59b38722dd628b8a",
+    "notes/post_v6_parameter_2026-09-24/axioms.lean": "1d7ea0d4eca4810fc72e4d83749b651601a765a0fd5440fb4c7ff3052bb3830b",
+    "notes/post_v6_parameter_2026-09-24/axioms.txt": "dafa9290aa2b000d220558e6443ed4c83cc9793b4bf3bed65e84b65bf4e23f70",
+    "notes/post_v6_parameter_2026-09-24/lean_build.txt": "079f22d028a09e047fe4115926506b7ece1bfcbc03395d270cfed3751e66e297",
+    "notes/post_v6_parameter_2026-09-24/parameter_probe.py": "ef7496ecfb4065717d83af96e11de6983266c92d1f5c23171cc308e04fa67f2e",
+    "notes/post_v6_parameter_2026-09-24/parameter_results.json": "f7318b7f40357474e5981089f1c644ad8dec8d28d8686da36b6126fc617bd3e0",
+    "notes/post_v6_parameter_2026-09-24/weighted_visits_probe.py": "a0f180a0aa3eba5d031712c0dacc9235449dfed542caed9b7e8831bf15192efa",
+    "notes/post_v6_parameter_2026-09-24/weighted_visits_results.json": "f040db015aad8ebc393bca640d36ad4aa9e749f1caa7958bb5a96c822987b232",
+    ".gitignore": "cb86ad6bc9ddadd2a072ee68440a0055ddf02ab3cfbd1160cd872a473e65fad3"
+  }
+}

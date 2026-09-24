@@ -1,0 +1,10 @@
+{
+  "scope": "Finite exact rational checks; proof is the telescoping identity",
+  "seeds": 1000,
+  "max_seed": 1999,
+  "last_visit_time": 80,
+  "one_step_identities_checked": 81000,
+  "distinct_source_target_bounds_checked": 25688,
+  "sharp_target_one_geometric_sum_checked": true,
+  "all_checks_passed": true
+}

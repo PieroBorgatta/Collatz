@@ -70,6 +70,7 @@ their precise trusted base. See [`STATUS.md`](STATUS.md).
 | Finite bound on consecutive repetitions of that word | `syracuseWord_matched_block_precision_budget`, `no_infinite_matched_expansive_word` | `PrecisionTax` |
 | Necessary equation and contractivity for a positive cycle | `syracuseWordCycleEquationNat`, `syracuseWordCycleContracting` | `CycleConstraints` |
 | Exact first-barrier test for a matched finite word | `evalSyracuseWord_lt_iff_source_above_barrier` | `FirstBarrier` |
+| Total affine weight of any finite set of visits x→R is at most `R*(3*R+1)/x`, including periodic targets | `WeightedVisits.sum_weight_visits_le` | `WeightedVisits` |
 
 ## Modules
 

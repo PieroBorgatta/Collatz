@@ -1,0 +1,5 @@
+'CollatzShadowing.WeightedVisits.orbit_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.WeightedVisits.potential_sub_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.WeightedVisits.sum_loss_range' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.WeightedVisits.sum_loss_finset_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.WeightedVisits.sum_weight_visits_le' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,7 @@
+import CollatzShadowing.WeightedVisits
+
+#print axioms CollatzShadowing.WeightedVisits.orbit_step
+#print axioms CollatzShadowing.WeightedVisits.potential_sub_succ
+#print axioms CollatzShadowing.WeightedVisits.sum_loss_range
+#print axioms CollatzShadowing.WeightedVisits.sum_loss_finset_le
+#print axioms CollatzShadowing.WeightedVisits.sum_weight_visits_le

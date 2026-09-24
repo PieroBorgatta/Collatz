@@ -20,6 +20,7 @@ import CollatzShadowing.MarkedSection
 import CollatzShadowing.SectionCoverage
 import CollatzShadowing.CancellationTower
 import CollatzShadowing.SectionReturn
+import CollatzShadowing.WeightedVisits
 import CollatzShadowing.EpisodeInventory
 import CollatzShadowing.EpisodeGraph
 import CollatzShadowing.Operator

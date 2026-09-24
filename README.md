@@ -197,10 +197,21 @@ an explicit shortcut stopping rank for the classical sufficient residue
 `20 mod 27`, and universal formulas for cancellation towers. It includes
 an infinite family of descending section returns, an increasing first
 return, and marked sources with arbitrarily long no-descent prefixes.
-The remaining objective is a single rank controlling eventual returns
+Within that approach, the remaining objective is a rank controlling eventual returns
 to the section; coverage itself does not provide descent. The detailed
 development and verification record are in
 [`notes/post_v6_section_2026-09-24/RESULTS_IT.md`](notes/post_v6_section_2026-09-24/RESULTS_IT.md).
+
+A further direction controls repeated visits by their affine weights:
+`WeightedVisits.sum_weight_visits_le` bounds the total weight of any
+finite set of visits from x to R by `R*(3*R+1)/x`, without excluding
+periodic targets. This offers a candidate replacement for source
+injectivity in inverse-orbit counting. Separately, exact parameter
+formulas describe a second growth burst after the cancellation towers
+and classify the following valuation by lifted residue roots; those
+formulas remain paper-level results with exact finite checks.
+See [the research note](notes/post_v6_parameter_2026-09-24/IDEAS_IT.md)
+for proofs, experiments, and the open conditions on both applications.
 
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch

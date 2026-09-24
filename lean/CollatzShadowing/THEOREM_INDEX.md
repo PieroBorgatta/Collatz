@@ -228,6 +228,17 @@ not supply a global Collatz termination rank.
   of such a rank is equivalent to accelerated Collatz, making the
   boundary of the reduction explicit in the formal statement.
 
+### `WeightedVisits.lean`
+- `WeightedVisits.potential_sub_succ` — exact one-step loss of
+  `weight/iterate` along the positive Syracuse orbit.
+- `WeightedVisits.sum_loss_range` — telescoping identity over every
+  finite initial segment.
+- `WeightedVisits.sum_loss_finset_le` — the loss over any finite set
+  of distinct times is at most `1/x`.
+- `WeightedVisits.sum_weight_visits_le` — the sum of affine weights
+  of visits from x>0 to R>0 is at most `R*(3*R+1)/x`, even if R is
+  periodic. This is a weighted occupation bound, not orbit descent.
+
 ## `Generated/` — machine-generated finite certificates
 
 Verified by Lean; emitted by `../../scripts/phantom_taxonomy/` generators.
