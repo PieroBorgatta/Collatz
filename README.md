@@ -209,17 +209,21 @@ periodic targets. Three subsequent Lean modules transfer the bound to
 exact exponent words, group repeated sources, and prove a lower bound
 on the number of distinct ordinary Collatz predecessors. The resulting
 finite counting theorem explicitly assumes the analytic mass estimate;
-it is not an unconditional density theorem. An audit identifies where
-this bound could replace the no-return assumption in external counting
-code; the external adapter and full analytic verification remain open.
+it is not an unconditional density theorem. The separate overlay below
+connects this bound to the pinned external analytic library. Independent
+mathematical review of that full analytic argument remains open.
 See [the counting report](notes/post_v6_counting_2026-09-24/RESULTS_IT.md).
 
 A separate [predecessor adapter](research/weighted_predecessors_adapter/README.md)
-ports the weighted argument to the exact external path types and explores a
-second route using two bounded candidate seeds. Its full external compilation
-is tracked separately from the main library; the
+ports the weighted argument to the exact external path types and proves a
+second route using two bounded candidate seeds, giving constants uniform in
+the target without an unknown cycle-height bound. All 395 local modules and
+both final dependency audits passed in
+[CI 36005012141](https://github.com/PieroBorgatta/Collatz/actions/runs/36005012141).
+This replay is separate from the main-library build and reuses authenticated
+compiled receipts and pinned external package objects; the
 [continuation report](notes/post_v6_adapter_2026-09-24/RESULTS_IT.md) records
-the precise verification boundary.
+the exact verification boundary and preserved evidence.
 Separately, exact parameter
 formulas describe a second growth burst after the cancellation towers
 and classify the following valuation by lifted residue roots; those

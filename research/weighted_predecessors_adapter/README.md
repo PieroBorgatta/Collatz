@@ -5,11 +5,20 @@ source release. It replaces the non-returning-seed counting argument with a
 weighted occupation bound. The main `lean/` project and the published Zenodo v6
 artifacts are not modified by this overlay.
 
-**Verification status:** the full pinned import closure and the
-new routes have not yet passed a complete build. A dedicated modular CI job
-compiles and audits both routes. The two-seed modules are source drafts pending
-compilation and dependency audit; their stated conclusions are not yet reported
-as verified results.
+**Verification status: PASS** on [CI 36005012141](https://github.com/PieroBorgatta/Collatz/actions/runs/36005012141),
+commit `171150edde2dcf0329e8c82b18c02bbc3cdc40ec`. The modular replay checked
+all **395 local modules**, including both final theorems. This final run
+validated and reused 394 previously compiled source/dependency/object receipts
+and compiled the remaining module. Both dependency audits passed, with only
+`propext`, `Classical.choice`, and `Quot.sound`.
+
+The weighted audit inspected 4,672 local declarations; the two-seed audit
+traversed 43,248 reachable declarations without a module boundary. The required
+new lemmas were reached and the respective forbidden old seed dependencies
+were absent within each audit's declared scope. The
+[verification manifest and preserved evidence](../../notes/post_v6_adapter_2026-09-24/verification_manifest.json)
+record the exact inputs and checks. This is a pinned Lean replay, with cached
+external package objects, not an independent kernel or mathematical review.
 
 The target statement is the existing positive-lower-density theorem: for each
 positive ordinary Collatz target `a` not divisible by 3, there are `c>0` and

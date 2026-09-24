@@ -3,6 +3,14 @@
 Data: 24 settembre 2026. Sviluppo successivo alla v6 pubblicata; nessuna modifica
 al PDF o all'archivio Zenodo congelati.
 
+**Esito finale: entrambe le vie sono compilate e gli audit delle dipendenze
+sono passati.** La [CI 36005012141](https://github.com/PieroBorgatta/Collatz/actions/runs/36005012141)
+ha completato il replay dei 395 moduli locali sul commit `171150e`.
+Il risultato più utile della continuazione è una stima di densità con
+costanti uniformi nel bersaglio, senza un'altezza ignota dei cicli nella
+scelta del seme. È una modifica verificata della catena di prova esterna;
+non una nuova dimostrazione della congettura di Collatz.
+
 ## Il risultato matematico alla base della nuova via
 
 Se `f(x)=f(y)` e `x≠y`, almeno uno dei due punti non ritorna a sé stesso in un
@@ -157,36 +165,47 @@ tutte le orbite convergano a 1; non è una soluzione della congettura.
 
 ## Registro della verifica
 
-Lo stato definitivo, i log e gli hash sono registrati nel manifest di questa
-cartella. La compilazione principale Lean 4.29, i controlli isolati Lean 4.30,
-la compilazione modulare upstream e l'esperimento di sorgente aggregato sono
-verifiche distinte: il successo di una non viene attribuito alle altre.
-
-
-Stato della libreria principale: **PASS**, build completo di 3371 job e
+La libreria principale è **PASS**: build completo di 3371 job e
 [CI 36001432687](https://github.com/PieroBorgatta/Collatz/actions/runs/36001432687).
-I due moduli contengono complessivamente 23 teoremi. L'audit di 16 enunciati
-principali riporta solo `propext`, `Classical.choice` e `Quot.sound`.
+I due nuovi moduli contengono 23 teoremi; i 16 enunciati principali auditati
+usano soltanto `propext`, `Classical.choice` e `Quot.sound`.
 
-Il primo replay esterno CI ha verificato 333 moduli prima di segnalare due
-riscritture dipendenti non elaborate in `WeightedPathOccupation`. Le correzioni
-sono nel commit `8ce1849`. Il secondo replay
-[CI 36001432847](https://github.com/PieroBorgatta/Collatz/actions/runs/36001432847)
-ha verificato 340 moduli, incluso `WeightedPathOccupation`, e ha segnalato due
-istanze `Subsingleton Unit` mancanti in `WeightedTerminalAdapter`. Le istanze
-sono ora esplicite; il controllo dei moduli rimanenti e delle dipendenze finali
-è ancora in corso. Questo record non attribuisce ancora al replay esterno un
-esito positivo.
+Anche il replay esterno è **PASS**, su Lean 4.30.0-rc2 e Mathlib fissata dal
+lock upstream. La [CI finale 36005012141](https://github.com/PieroBorgatta/Collatz/actions/runs/36005012141)
+ha ricontrollato le ricevute di 394 moduli già compilati e compilato l'ultimo:
+**395 moduli locali verificati**, di cui 388 della catena originale e sette
+dell'overlay. Non è una ricompilazione da zero in una sola esecuzione; il riuso
+richiede corrispondenza di sorgenti, dipendenze, configurazione e hash degli
+oggetti. Gli oggetti delle librerie esterne provengono dalla cache fissata.
 
-Il terzo replay [CI 36003767135](https://github.com/PieroBorgatta/Collatz/actions/runs/36003767135)
-ha verificato 391 moduli su 395, inclusi tutti i 388 moduli baseline e
-`WeightedPathOccupation`, `WeightedTerminalAdapter`, `WeightedCensus`. Tre
-obiettivi naturali `1 ≤ 3^q` richiedevano di passare dalla positività stretta
-alla disuguaglianza non stretta; le correzioni sbloccano i due moduli dei semi
-e la successiva compilazione dei due teoremi finali.
+| Audit finale | Perimetro effettivamente percorso | Esito |
+|---|---|---|
+| Via pesata | 4.672 dichiarazioni locali, inclusi 339 helper privati; 298.851 archi tipo/corpo | Nuovi lemmi raggiunti; vecchia via vietata assente dalla chiusura locale |
+| Due semi | 43.248 dichiarazioni raggiungibili, inclusi 5.035 privati; 1.094.025 archi tipo/corpo, senza filtro di modulo | Coppia limitata raggiunta; vecchi selettori con limite ignoto assenti |
 
-Il quarto replay [CI 36004436985](https://github.com/PieroBorgatta/Collatz/actions/runs/36004436985)
-ha verificato 394 moduli su 395, compreso il teorema finale pesato. In
-`TwoSeedDensity` resta una tattica di positività che tenta di espandere
-costanti enormi: la correzione usa direttamente le disuguaglianze positive
-già dimostrate, senza modificarne i valori o aumentare i limiti di Lean.
+Entrambe le radici riportano solo i tre assiomi standard. Il secondo audit
+controlla gli assiomi anche durante la traversata diretta. Questi script non
+sono checker indipendenti del kernel e non dimostrano l'indispensabilità
+logica di ogni lemma raggiunto. La [revisione degli audit](DEPENDENCY_AUDIT_REVIEW_IT.md)
+precisa limiti e API utilizzate.
+
+Le evidenze permanenti comprendono:
+
+- [ricevuta completa dei 395 moduli](external_modular_receipt.json);
+- [log della compilazione e del riuso](external_modular_build.log);
+- [audit pesato](weighted_dependency_audit.log) e [audit dei due semi](two_seed_dependency_audit.log);
+- [archivio completo dell'artefatto CI](external_ci_evidence_36005012141.tar.gz),
+  inclusi tutti i log dei moduli, autenticazione dei sorgenti, toolchain e lock;
+- [manifest SHA-256](verification_manifest.json), con cronologia degli esiti.
+
+Tutti i 395 hash dei log e i sette hash dei sorgenti overlay sono stati
+ricontrollati dopo il download dell'artefatto CI. Il campo `compiled: false`
+in `weighted-overlay.json`, conservato nell'archivio, descrive esclusivamente
+la fase iniziale di preparazione; l'esito successivo è nella ricevuta completa.
+
+I primi quattro replay CI si erano fermati rispettivamente a 333, 340, 391 e
+394 moduli: riscritture dipendenti, istanze singleton implicite, positività
+non stretta sui naturali e una tattica che espandeva costanti enormi. Tutti
+questi errori sono corretti nella revisione verificata. Gli esperimenti locali
+interrotti per risorse, incluso il sorgente aggregato, restano verifiche
+incomplete distinte: nessun successo viene loro attribuito.

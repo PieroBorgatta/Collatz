@@ -91,15 +91,21 @@ The weighted counting direction has a formal local bridge from exact words
 to distinct ordinary predecessors. A separate hash-pinned Lean 4.30.0-rc2
 [overlay](../research/weighted_predecessors_adapter/README.md) now contains
 both the external path adapter and a two-seed route to uniform constants.
-The full external build and the final theorem dependency audits are tracked
-separately; this snapshot does not yet claim they passed. A local partial
-replay checked 37 of 393 modules before it was interrupted under resource
-pressure; the complete modular job runs in CI. Targeted semantic audits of
-the seed and mixing wrappers do not replace full analytical review.
+The external modular replay and both final theorem dependency audits passed
+in [CI 36005012141](https://github.com/PieroBorgatta/Collatz/actions/runs/36005012141):
+395 local modules, with 394 matching compiled receipts reused and one module
+compiled in the final run. Both roots use only the three standard axioms. The
+two-seed audit traversed 43,248 reachable declarations and excluded the old
+unbounded seed choosers; the weighted audit excluded its forbidden route in
+the local module closure. Targeted semantic audits of the seed and mixing
+wrappers do not replace independent review of the full analytical argument.
+The earlier interrupted local and aggregate attempts remain historical
+failures to complete those separate checks, not additional successful replays.
 
 The integrated main-library build with `TwoSeed` and `NonreturnCounting`
 passed (3371 jobs), as did CI run 36001432687. Sixteen headline declarations
-were audited and use only `propext`, `Classical.choice`, and `Quot.sound`. The new proof and comparison report is
+were audited and use only `propext`, `Classical.choice`, and `Quot.sound`.
+The new proof and comparison report is
 [here](../notes/post_v6_adapter_2026-09-24/RESULTS_IT.md). It distinguishes
 these results from the paper-level comparison of coefficients and from the
 external analytical chain. For aligned explicit candidates, the comparison

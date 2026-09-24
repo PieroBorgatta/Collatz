@@ -1,5 +1,10 @@
 # Revisione indipendente degli audit delle dipendenze
 
+**Aggiornamento successivo:** compilazione dei 395 moduli e audit delle due radici
+PASS nella [CI 36005012141](https://github.com/PieroBorgatta/Collatz/actions/runs/36005012141).
+Il testo sotto conserva il perimetro e lo stato della revisione statica iniziale;
+il [resoconto finale](RESULTS_IT.md) contiene le evidenze del replay successivo.
+
 24 settembre 2026. Revisione in sola lettura dei due script e delle API Lean chiamate. **Gli audit delle radici non sono stati eseguiti in questa revisione: qui non si attesta alcun PASS.** Nessuna modifica ai sorgenti Lean, nessuna compilazione.
 
 Il controllo del codice non ha individuato una lacuna concreta che permetta a un corpo `opaque` o a un helper privato raggiunto di nascondere assiomi negli ambiti dichiarati. I due script hanno però perimetri diversi, da conservare nelle descrizioni dei risultati.

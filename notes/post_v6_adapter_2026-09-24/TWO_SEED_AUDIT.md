@@ -1,5 +1,10 @@
 # Two explicit seeds eliminate the unknown cycle-height bound
 
+**Aggiornamento successivo:** compilazione dei 395 moduli e audit delle due radici
+PASS nella [CI 36005012141](https://github.com/PieroBorgatta/Collatz/actions/runs/36005012141).
+Il testo sotto conserva il perimetro e lo stato della revisione statica iniziale;
+il [resoconto finale](RESULTS_IT.md) contiene le evidenze del replay successivo.
+
 Independent mathematical analysis, 2026-09-24. This supplements the active weighted occupation adapter; it does not replace that work.
 
 ## Main fact

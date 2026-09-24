@@ -1,6 +1,6 @@
 {
   "date": "2026-09-24",
-  "status": "main integration and axiom audits passed; external adapter verification in progress",
+  "status": "main integration, external modular replay, and both root dependency audits passed",
   "main_toolchain": "Lean 4.29.1",
   "main_module_builds": {
     "TwoSeed": {
@@ -38,8 +38,8 @@
     "passed": true,
     "jobs": 3371,
     "log": "main_integrated_build.log",
-    "ci_url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36001432687",
-    "ci_commit": "8ce184925b4143ed573495f5d5e6ce5edbdb7053",
+    "ci_url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36005012126",
+    "ci_commit": "171150edde2dcf0329e8c82b18c02bbc3cdc40ec",
     "ci_status": "success"
   },
   "external_toolchain": "Lean 4.30.0-rc2",
@@ -106,12 +106,24 @@
       ],
       "blocked_modules": [],
       "failure": "Weighted final theorem passed; final positivity tactic in TwoSeedDensity tried to unfold enormous constants and exceeded recursion depth. Replaced by explicit div_pos/mul_pos using proved bounds."
+    },
+    {
+      "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36005012141",
+      "commit": "171150edde2dcf0329e8c82b18c02bbc3cdc40ec",
+      "status": "success",
+      "passed_modules": 395,
+      "target_closure_modules": 395,
+      "compiled_this_run": 1,
+      "reused_checked_modules": 394,
+      "weighted_dependency_audit": "PASS",
+      "two_seed_dependency_audit": "PASS"
     }
   ],
   "audit_api_smoke": {
     "passed": true,
     "audits": 3,
-    "root_dependency_checks_executed": false
+    "root_dependency_checks_executed": false,
+    "scope": "historical isolated API check; later root audits are recorded separately"
   },
   "runner_tests": {
     "passed": true,
@@ -132,19 +144,24 @@
   },
   "files_sha256": {
     ".github/workflows/predecessor-adapter.yml": "1dcb26f53414f2ce4e78f6b50c94c32223e28ad46142d0e345f5921726e8a4db",
+    "README.md": "7ce2e57cef95aac224d5c238fe585fa419dc92ad443bb9c8b2466e2ffdc39cd0",
     "lean/CollatzShadowing.lean": "5cf1ca1c4e627d52a518d07889dc6c6258e0cf276d90d53a138567e7a35cc837",
     "lean/CollatzShadowing/NonreturnCounting.lean": "dbaa61d80d30377bb55d410a90308ebaf13fda6719b7f5cdd8edbd0667845c7c",
     "lean/CollatzShadowing/TwoSeed.lean": "c2c9f7bb3216a0d9e4762aacb17cc1dae0e9b76e1ac5af04846441039a4864ef",
+    "lean/STATUS.md": "ca4b3d1921206fe1d4e868b90834cc2a4ba33825e9fceb0c624b14849d0d04ab",
     "notes/post_v6_adapter_2026-09-24/COEFFICIENT_COMPARISON_IT.md": "9f6c5a29b9523b7cbf782b382e24a79576ba396099fd91f1e8a3a0a216efd490",
-    "notes/post_v6_adapter_2026-09-24/DEPENDENCY_AUDIT_REVIEW_IT.md": "dd197f70b9f15081996f1ec1f686217d09175e866ef1b8535732623e88f51b80",
+    "notes/post_v6_adapter_2026-09-24/DEPENDENCY_AUDIT_REVIEW_IT.md": "c436ec77048643f69342673b3bd95f7c5763820dc2394ff8bdacf3241457cd40",
     "notes/post_v6_adapter_2026-09-24/MIXING_AUDIT_IT.md": "df3b52c89e1e4985c5ef87dd47a333bb72bf72204a6ba78f1c6eced4152f46e9",
-    "notes/post_v6_adapter_2026-09-24/RESULTS_IT.md": "1498bd04c04adb20f93a5864de95911e5058779dc951bc046924419c9b1fc1ed",
+    "notes/post_v6_adapter_2026-09-24/RESULTS_IT.md": "fb1770cd4874de1b4f344f7bcd4407a4585fb54472775105480b417978bf742d",
     "notes/post_v6_adapter_2026-09-24/SEED_AUDIT.md": "6a3bef43709086f91ef7de36bd27a85bef2d33f989baeabc3bb4978e4188e251",
-    "notes/post_v6_adapter_2026-09-24/TWO_SEED_AUDIT.md": "9b25ccd92b4ee1f2ea5ed8f90455a0028a36bc8161cdf77bbec06fa51deb5d48",
+    "notes/post_v6_adapter_2026-09-24/TWO_SEED_AUDIT.md": "61699d84269362e2c75717c3809e03b9a660feb4a6b258eeefa77ea430738441",
     "notes/post_v6_adapter_2026-09-24/TWO_SEED_EFFECTIVITY_AUDIT_IT.md": "f174e6eeeb8059c8e23b7f3672273a3b16b14f93963f8292dd504014411a184c",
     "notes/post_v6_adapter_2026-09-24/audit_api_smoke.log": "bc94a2c98162cc62bcf1d3b1d6882a69f3dee7f4991789177ad38feed12fc227",
     "notes/post_v6_adapter_2026-09-24/coefficient_comparison.json": "63c95aad5d837228355c172e00c6f8181c16dc7afeb0e064fedd590b0e034542",
     "notes/post_v6_adapter_2026-09-24/coefficient_comparison.py": "09c7c870ff085f3027d2a6d2a5dc12a7feccca219b94cd4f96d8d88333a203aa",
+    "notes/post_v6_adapter_2026-09-24/external_ci_evidence_36005012141.tar.gz": "53f7c7769af93012dd354c7b4518729164f8bda74fae8281b9a1875c644992a3",
+    "notes/post_v6_adapter_2026-09-24/external_modular_build.log": "66cd88f9cd8378742e6a9bb875315d8adcaf0614ed837cef207d91b5a820a757",
+    "notes/post_v6_adapter_2026-09-24/external_modular_receipt.json": "8ca3624d1c54cda7a4639ba805c8a3fcbd557a325227af096b4a0d4eeb48307a",
     "notes/post_v6_adapter_2026-09-24/local_partial_build.log": "e82f635e3658df4a50830877eed6fded791404d15d8fa3713e9521edacee11b9",
     "notes/post_v6_adapter_2026-09-24/local_partial_receipt.json": "956bb23fbc28e8ce77ad7bbf08b17122aa821e37f9298360a68d670a8dd8796c",
     "notes/post_v6_adapter_2026-09-24/main_integrated_build.log": "fb14a89202f4e9eaadadb3a5138e5e6b314ccd2e16b999ce23b48b854a859847",
@@ -155,7 +172,10 @@
     "notes/post_v6_adapter_2026-09-24/two_seed_axioms.lean": "ec1212348e27babaa4afd82f6d7fcbf172a1ab3de7c6c90aae31dfeac3c7a6cd",
     "notes/post_v6_adapter_2026-09-24/two_seed_axioms.log": "4fb43819a0276c750a3ac935a3f38eb739ba9de6b2fd368e9c4b5b6cd31066bb",
     "notes/post_v6_adapter_2026-09-24/two_seed_build.log": "6be67aa4c98bb6e17284ffa6bd1d18ea6212b0c427fbfd14acfee8f8922865a0",
+    "notes/post_v6_adapter_2026-09-24/two_seed_dependency_audit.log": "fb0ad032e27d11e2e494d19144bf8ed669dd05ac3ec9db85a9a898c07d53c012",
+    "notes/post_v6_adapter_2026-09-24/weighted_dependency_audit.log": "809a8a9b6655310a551b2bd4f9559f0a690f4f4753594260c48c4a9535817c2e",
     "research/weighted_predecessors_adapter/BundleDependencyAudit.lean": "d4b154c13023d6dcb9c9341ef78e06574f09157a4811331a0475930ec0e08c7f",
+    "research/weighted_predecessors_adapter/README.md": "0bec774b5f1b8543558029e15a4b391e2c4eca7f1120f40fc165b7df81b1058a",
     "research/weighted_predecessors_adapter/TwoSeedDensity.lean": "d8e9fb900a155ec076b65ffe70f724329175168e30e510cf98cf0fcc929e234d",
     "research/weighted_predecessors_adapter/TwoSeedDependencyAudit.lean": "5c6e1523a78ad82ba8c0e6f45d31fde56d54dea5d1d06c29ed3903704449d990",
     "research/weighted_predecessors_adapter/TwoSeedNonreturn.lean": "a76dde8c64d252cb640bdcbab395000169b3914a22b9e93a7e95dfbf128659c1",
@@ -175,5 +195,56 @@
     "Main counting results retain explicit analytic hypotheses.",
     "The external analytic library has only a bounded semantic review here.",
     "Import objects from the pinned Mathlib cache are reused; no independent LeanChecker run."
-  ]
+  ],
+  "external_modular_verification": {
+    "passed": true,
+    "commit": "171150edde2dcf0329e8c82b18c02bbc3cdc40ec",
+    "ci_url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36005012141",
+    "local_modules": 395,
+    "baseline_modules": 388,
+    "overlay_modules": 7,
+    "compiled_this_run": 1,
+    "reused_checked_modules": 394,
+    "receipt": "external_modular_receipt.json",
+    "build_log": "external_modular_build.log",
+    "complete_ci_artifact": "external_ci_evidence_36005012141.tar.gz",
+    "all_module_log_hashes_checked_after_download": 395,
+    "overlay_source_hashes_match_repository": 7,
+    "independent_leanchecker": false,
+    "external_packages_rebuilt": false
+  },
+  "external_root_audits": {
+    "weighted": {
+      "passed": true,
+      "scope": "transitive type/body closure within specified local module owners; third-party frontier not expanded",
+      "local_declarations": 4672,
+      "private_local_declarations": 339,
+      "local_modules": 359,
+      "dependency_edges": 298851,
+      "required_new_dependencies_reached": true,
+      "forbidden_old_dependencies_absent_within_scope": true,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "log": "weighted_dependency_audit.log"
+    },
+    "two_seed": {
+      "passed": true,
+      "scope": "all reachable named declarations; no module filter",
+      "reachable_declarations": 43248,
+      "private_declarations": 5035,
+      "bodies_inspected": 41292,
+      "dependency_edges": 1094025,
+      "required_new_dependencies_reached": true,
+      "forbidden_unbounded_seed_dependencies_absent": true,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "log": "two_seed_dependency_audit.log"
+    }
+  }
 }
