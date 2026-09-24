@@ -245,6 +245,17 @@ prove a descending return to the marked section. The earlier
 [parameter note](notes/post_v6_parameter_2026-09-24/IDEAS_IT.md) remains a dated
 snapshot; its phase-A formulas have not been formalized by this continuation.
 
+The next [descent study](notes/post_v6_descent_2026-09-24/RESULTS_IT.md) checks
+all 4,096 odd parameters q≤8191 in the v=1 family and 34 additional parameters.
+All return from the burst endpoint below their original source; the largest
+observed extra-step ratio is 24/11, which disproves the proposed bound 2q.
+A paper proof shows that a fixed descending suffix can work for at most one
+parameter, its least positive residue. This is a necessary condition, not
+a uniform descent theorem; no new Lean declaration or mathematical priority
+is claimed. The report also identifies Andrei–Kudlek–Niculescu (2000) as prior
+art for the repeated [1,2] compression and distinguishes the existing
+literature from this family's specific experiment.
+
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch
 identities, counterexamples to

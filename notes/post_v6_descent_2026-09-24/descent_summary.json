@@ -1,0 +1,312 @@
+{
+  "scope": "Bounded exact experiment; no universal descent or novelty claim",
+  "grid_max": 8191,
+  "exhaustive_odd_parameters": 4096,
+  "extended_enabled": true,
+  "seed": 20260924,
+  "total_distinct_parameters": 4130,
+  "max_parameter": 65537,
+  "total_syracuse_steps": 14846206,
+  "descended": 4130,
+  "censored_parameters": [],
+  "record_ratios": [
+    {
+      "q": 1,
+      "tau": 0,
+      "ratio": "0"
+    },
+    {
+      "q": 3,
+      "tau": 1,
+      "ratio": "1/3"
+    },
+    {
+      "q": 11,
+      "tau": 24,
+      "ratio": "24/11"
+    }
+  ],
+  "largest_ratios": [
+    {
+      "q": 11,
+      "tau": 24,
+      "exponent_sum": 41,
+      "cohorts": "exhaustive"
+    },
+    {
+      "q": 17,
+      "tau": 34,
+      "exponent_sum": 62,
+      "cohorts": "exhaustive"
+    },
+    {
+      "q": 49,
+      "tau": 85,
+      "exponent_sum": 151,
+      "cohorts": "exhaustive"
+    },
+    {
+      "q": 41,
+      "tau": 69,
+      "exponent_sum": 123,
+      "cohorts": "exhaustive"
+    },
+    {
+      "q": 91,
+      "tau": 142,
+      "exponent_sum": 256,
+      "cohorts": "exhaustive"
+    },
+    {
+      "q": 45,
+      "tau": 67,
+      "exponent_sum": 122,
+      "cohorts": "exhaustive"
+    },
+    {
+      "q": 51,
+      "tau": 72,
+      "exponent_sum": 132,
+      "cohorts": "exhaustive"
+    },
+    {
+      "q": 191,
+      "tau": 268,
+      "exponent_sum": 489,
+      "cohorts": "exhaustive"
+    },
+    {
+      "q": 131,
+      "tau": 180,
+      "exponent_sum": 329,
+      "cohorts": "exhaustive"
+    },
+    {
+      "q": 181,
+      "tau": 244,
+      "exponent_sum": 448,
+      "cohorts": "exhaustive"
+    },
+    {
+      "q": 73,
+      "tau": 97,
+      "exponent_sum": 178,
+      "cohorts": "exhaustive"
+    },
+    {
+      "q": 43,
+      "tau": 56,
+      "exponent_sum": 104,
+      "cohorts": "exhaustive|prescribed_growth_prefix"
+    },
+    {
+      "q": 205,
+      "tau": 256,
+      "exponent_sum": 476,
+      "cohorts": "exhaustive"
+    },
+    {
+      "q": 255,
+      "tau": 315,
+      "exponent_sum": 590,
+      "cohorts": "exhaustive"
+    },
+    {
+      "q": 259,
+      "tau": 311,
+      "exponent_sum": 581,
+      "cohorts": "exhaustive"
+    },
+    {
+      "q": 147,
+      "tau": 175,
+      "exponent_sum": 328,
+      "cohorts": "exhaustive"
+    }
+  ],
+  "bound_tests": [
+    {
+      "tau_over_q_bound": "1",
+      "violations": 62,
+      "first_violations": [
+        11,
+        17,
+        41,
+        43,
+        45,
+        49,
+        51,
+        73,
+        75,
+        89,
+        91,
+        125,
+        131,
+        143,
+        147,
+        181,
+        183,
+        191,
+        193,
+        205
+      ],
+      "unknown_due_to_censoring": 0
+    },
+    {
+      "tau_over_q_bound": "3/2",
+      "violations": 5,
+      "first_violations": [
+        11,
+        17,
+        41,
+        49,
+        91
+      ],
+      "unknown_due_to_censoring": 0
+    },
+    {
+      "tau_over_q_bound": "2",
+      "violations": 1,
+      "first_violations": [
+        11
+      ],
+      "unknown_due_to_censoring": 0
+    },
+    {
+      "tau_over_q_bound": "5/2",
+      "violations": 0,
+      "first_violations": [],
+      "unknown_due_to_censoring": 0
+    },
+    {
+      "tau_over_q_bound": "3",
+      "violations": 0,
+      "first_violations": [],
+      "unknown_due_to_censoring": 0
+    },
+    {
+      "tau_over_q_bound": "4",
+      "violations": 0,
+      "first_violations": [],
+      "unknown_due_to_censoring": 0
+    }
+  ],
+  "dyadic_bins": [
+    {
+      "q_min": 1,
+      "q_max": 1,
+      "count": 1,
+      "sum_tau_over_sum_q": "0",
+      "max_ratio": "0",
+      "worst_q": 1
+    },
+    {
+      "q_min": 3,
+      "q_max": 3,
+      "count": 1,
+      "sum_tau_over_sum_q": "1/3",
+      "max_ratio": "1/3",
+      "worst_q": 3
+    },
+    {
+      "q_min": 5,
+      "q_max": 7,
+      "count": 2,
+      "sum_tau_over_sum_q": "1/4",
+      "max_ratio": "2/7",
+      "worst_q": 7
+    },
+    {
+      "q_min": 9,
+      "q_max": 15,
+      "count": 4,
+      "sum_tau_over_sum_q": "3/4",
+      "max_ratio": "24/11",
+      "worst_q": 11
+    },
+    {
+      "q_min": 17,
+      "q_max": 31,
+      "count": 8,
+      "sum_tau_over_sum_q": "23/32",
+      "max_ratio": "2",
+      "worst_q": 17
+    },
+    {
+      "q_min": 33,
+      "q_max": 63,
+      "count": 16,
+      "sum_tau_over_sum_q": "709/768",
+      "max_ratio": "85/49",
+      "worst_q": 49
+    },
+    {
+      "q_min": 65,
+      "q_max": 127,
+      "count": 32,
+      "sum_tau_over_sum_q": "2353/3072",
+      "max_ratio": "142/91",
+      "worst_q": 91
+    },
+    {
+      "q_min": 129,
+      "q_max": 255,
+      "count": 64,
+      "sum_tau_over_sum_q": "9995/12288",
+      "max_ratio": "268/191",
+      "worst_q": 191
+    },
+    {
+      "q_min": 257,
+      "q_max": 511,
+      "count": 128,
+      "sum_tau_over_sum_q": "13115/16384",
+      "max_ratio": "311/259",
+      "worst_q": 259
+    },
+    {
+      "q_min": 513,
+      "q_max": 1023,
+      "count": 256,
+      "sum_tau_over_sum_q": "159593/196608",
+      "max_ratio": "859/753",
+      "worst_q": 753
+    },
+    {
+      "q_min": 1025,
+      "q_max": 2047,
+      "count": 512,
+      "sum_tau_over_sum_q": "641945/786432",
+      "max_ratio": "1750/1723",
+      "worst_q": 1723
+    },
+    {
+      "q_min": 2049,
+      "q_max": 4095,
+      "count": 1024,
+      "sum_tau_over_sum_q": "643001/786432",
+      "max_ratio": "2557/2507",
+      "worst_q": 2507
+    },
+    {
+      "q_min": 4097,
+      "q_max": 8191,
+      "count": 2048,
+      "sum_tau_over_sum_q": "10334969/12582912",
+      "max_ratio": "4556/4779",
+      "worst_q": 4779
+    }
+  ],
+  "coefficient_delay_cases": [],
+  "prefix_certificate_failures": [],
+  "rational_certificate_failures": [],
+  "csv_sha256": "66ebf21295bb353bafa80b00e9021b77a4834e585a1f17a62a731ecde021f9bf",
+  "limitations": [
+    "The cap 16*q+256 censors unresolved cases; none is inferred to diverge.",
+    "The time is counted from z(q), against n(q), not from z(q) against itself.",
+    "The q=1 case already lies below the threshold, so tau=0.",
+    "A finite maximum does not establish a uniform linear bound.",
+    "No independence or natural-density assertion for the sparse source family.",
+    "The Python implementation is not extracted from Lean or formally verified."
+  ]
+}

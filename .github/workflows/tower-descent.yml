@@ -1,0 +1,48 @@
+name: Tower descent experiment
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'notes/post_v6_descent_2026-09-24/*.py'
+      - 'notes/post_v6_descent_2026-09-24/*.csv'
+      - 'notes/post_v6_descent_2026-09-24/descent_*.json'
+      - 'notes/post_v6_descent_2026-09-24/verification_results.json'
+      - 'notes/post_v6_transport_2026-09-24/transport_probe.py'
+      - '.github/workflows/tower-descent.yml'
+  pull_request:
+    paths:
+      - 'notes/post_v6_descent_2026-09-24/**'
+      - 'notes/post_v6_transport_2026-09-24/transport_probe.py'
+      - '.github/workflows/tower-descent.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Repeat exact experiment
+        run: |
+          python3 notes/post_v6_descent_2026-09-24/test_descent.py
+          python3 notes/post_v6_descent_2026-09-24/descent_probe.py --output-dir /tmp/tower-descent
+          cmp notes/post_v6_descent_2026-09-24/descent_cases.csv /tmp/tower-descent/descent_cases.csv
+          cmp notes/post_v6_descent_2026-09-24/descent_summary.json /tmp/tower-descent/descent_summary.json
+          cmp notes/post_v6_descent_2026-09-24/descent_witnesses.json /tmp/tower-descent/descent_witnesses.json
+      - name: Replay with separate arithmetic implementation
+        run: |
+          python3 notes/post_v6_descent_2026-09-24/verify_descent.py --data-dir /tmp/tower-descent --output /tmp/tower-descent/verification_results.json
+          cmp notes/post_v6_descent_2026-09-24/verification_results.json /tmp/tower-descent/verification_results.json
+      - name: Preserve evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tower-descent-${{ github.run_id }}-${{ github.run_attempt }}
+          path: /tmp/tower-descent
+          if-no-files-found: ignore

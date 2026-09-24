@@ -1,0 +1,354 @@
+{
+  "words": {
+    "1": [],
+    "3": [
+      2
+    ],
+    "5": [
+      8
+    ],
+    "11": [
+      2,
+      1,
+      1,
+      1,
+      2,
+      2,
+      1,
+      2,
+      1,
+      1,
+      1,
+      3,
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      3,
+      2,
+      2,
+      1,
+      4,
+      4
+    ],
+    "31": [
+      2,
+      2,
+      2,
+      3,
+      1,
+      1,
+      3,
+      1,
+      1,
+      2,
+      2,
+      1,
+      4,
+      6,
+      1,
+      2,
+      1,
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      5,
+      1,
+      1,
+      1,
+      3,
+      5
+    ],
+    "127": [
+      2,
+      2,
+      4,
+      3,
+      1,
+      1,
+      4,
+      2,
+      1,
+      1,
+      1,
+      1,
+      2,
+      1,
+      10,
+      2,
+      5,
+      1,
+      2,
+      1,
+      2,
+      1,
+      1,
+      1,
+      3,
+      4,
+      1,
+      1,
+      3,
+      1,
+      2,
+      1,
+      2,
+      3,
+      1,
+      1,
+      5,
+      2,
+      3,
+      1,
+      3,
+      2,
+      1,
+      5,
+      1,
+      1,
+      2,
+      3,
+      2,
+      1,
+      3,
+      2,
+      2,
+      2,
+      2,
+      7,
+      3,
+      1,
+      1,
+      1,
+      2,
+      1,
+      2,
+      1,
+      2,
+      2,
+      1,
+      5,
+      1,
+      6
+    ]
+  },
+  "prescribed_prefix_parameters": [
+    {
+      "q": 43,
+      "ones": 4,
+      "root": 43,
+      "modulus_exponent": 6,
+      "lift": 0
+    },
+    {
+      "q": 107,
+      "ones": 4,
+      "root": 43,
+      "modulus_exponent": 6,
+      "lift": 1
+    },
+    {
+      "q": 171,
+      "ones": 4,
+      "root": 43,
+      "modulus_exponent": 6,
+      "lift": 2
+    },
+    {
+      "q": 43,
+      "ones": 5,
+      "root": 43,
+      "modulus_exponent": 7,
+      "lift": 0
+    },
+    {
+      "q": 171,
+      "ones": 5,
+      "root": 43,
+      "modulus_exponent": 7,
+      "lift": 1
+    },
+    {
+      "q": 299,
+      "ones": 5,
+      "root": 43,
+      "modulus_exponent": 7,
+      "lift": 2
+    },
+    {
+      "q": 43,
+      "ones": 6,
+      "root": 43,
+      "modulus_exponent": 8,
+      "lift": 0
+    },
+    {
+      "q": 299,
+      "ones": 6,
+      "root": 43,
+      "modulus_exponent": 8,
+      "lift": 1
+    },
+    {
+      "q": 555,
+      "ones": 6,
+      "root": 43,
+      "modulus_exponent": 8,
+      "lift": 2
+    },
+    {
+      "q": 299,
+      "ones": 7,
+      "root": 299,
+      "modulus_exponent": 9,
+      "lift": 0
+    },
+    {
+      "q": 811,
+      "ones": 7,
+      "root": 299,
+      "modulus_exponent": 9,
+      "lift": 1
+    },
+    {
+      "q": 1323,
+      "ones": 7,
+      "root": 299,
+      "modulus_exponent": 9,
+      "lift": 2
+    },
+    {
+      "q": 299,
+      "ones": 8,
+      "root": 299,
+      "modulus_exponent": 10,
+      "lift": 0
+    },
+    {
+      "q": 1323,
+      "ones": 8,
+      "root": 299,
+      "modulus_exponent": 10,
+      "lift": 1
+    },
+    {
+      "q": 2347,
+      "ones": 8,
+      "root": 299,
+      "modulus_exponent": 10,
+      "lift": 2
+    },
+    {
+      "q": 299,
+      "ones": 9,
+      "root": 299,
+      "modulus_exponent": 11,
+      "lift": 0
+    },
+    {
+      "q": 2347,
+      "ones": 9,
+      "root": 299,
+      "modulus_exponent": 11,
+      "lift": 1
+    },
+    {
+      "q": 4395,
+      "ones": 9,
+      "root": 299,
+      "modulus_exponent": 11,
+      "lift": 2
+    },
+    {
+      "q": 299,
+      "ones": 10,
+      "root": 299,
+      "modulus_exponent": 12,
+      "lift": 0
+    },
+    {
+      "q": 4395,
+      "ones": 10,
+      "root": 299,
+      "modulus_exponent": 12,
+      "lift": 1
+    },
+    {
+      "q": 8491,
+      "ones": 10,
+      "root": 299,
+      "modulus_exponent": 12,
+      "lift": 2
+    },
+    {
+      "q": 299,
+      "ones": 11,
+      "root": 299,
+      "modulus_exponent": 13,
+      "lift": 0
+    },
+    {
+      "q": 8491,
+      "ones": 11,
+      "root": 299,
+      "modulus_exponent": 13,
+      "lift": 1
+    },
+    {
+      "q": 16683,
+      "ones": 11,
+      "root": 299,
+      "modulus_exponent": 13,
+      "lift": 2
+    },
+    {
+      "q": 299,
+      "ones": 12,
+      "root": 299,
+      "modulus_exponent": 14,
+      "lift": 0
+    },
+    {
+      "q": 16683,
+      "ones": 12,
+      "root": 299,
+      "modulus_exponent": 14,
+      "lift": 1
+    },
+    {
+      "q": 33067,
+      "ones": 12,
+      "root": 299,
+      "modulus_exponent": 14,
+      "lift": 2
+    },
+    {
+      "q": 299,
+      "ones": 13,
+      "root": 299,
+      "modulus_exponent": 15,
+      "lift": 0
+    },
+    {
+      "q": 33067,
+      "ones": 13,
+      "root": 299,
+      "modulus_exponent": 15,
+      "lift": 1
+    },
+    {
+      "q": 299,
+      "ones": 14,
+      "root": 299,
+      "modulus_exponent": 16,
+      "lift": 0
+    }
+  ]
+}
