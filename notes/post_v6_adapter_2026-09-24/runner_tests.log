@@ -1,0 +1,24 @@
+test_already_compiled_dependency_mutation (__main__.ReceiptTests.test_already_compiled_dependency_mutation) ... ok
+test_blocked_cached_rows_are_not_current_completions (__main__.ReceiptTests.test_blocked_cached_rows_are_not_current_completions) ... ok
+test_configuration_mutation (__main__.ReceiptTests.test_configuration_mutation) ... ok
+test_current_source_mutation (__main__.ReceiptTests.test_current_source_mutation) ... ok
+test_fail_fast_remains_default (__main__.ReceiptTests.test_fail_fast_remains_default) ... ok
+test_final_mutation_check_overrides_failed_build (__main__.ReceiptTests.test_final_mutation_check_overrides_failed_build) ... ok
+test_keep_going_completes_independent_branch (__main__.ReceiptTests.test_keep_going_completes_independent_branch) ... ok
+test_keep_going_flag_does_not_invalidate_successful_receipts (__main__.ReceiptTests.test_keep_going_flag_does_not_invalidate_successful_receipts) ... ok
+test_keep_going_mutation_stops_globally_after_lean_failure (__main__.ReceiptTests.test_keep_going_mutation_stops_globally_after_lean_failure) ... ok
+test_keep_going_parallel_branches (__main__.ReceiptTests.test_keep_going_parallel_branches) ... ok
+test_lakefile_change_invalidates_resume (__main__.ReceiptTests.test_lakefile_change_invalidates_resume) ... ok
+test_lakefile_mutation (__main__.ReceiptTests.test_lakefile_mutation) ... ok
+test_missing_dependency_during_compile (__main__.ReceiptTests.test_missing_dependency_during_compile) ... ok
+test_mutation_after_last_module_check (__main__.ReceiptTests.test_mutation_after_last_module_check) ... ok
+test_mutation_while_reusing_object (__main__.ReceiptTests.test_mutation_while_reusing_object) ... ok
+test_new_source_inventory_change (__main__.ReceiptTests.test_new_source_inventory_change) ... ok
+test_not_yet_compiled_source_mutation (__main__.ReceiptTests.test_not_yet_compiled_source_mutation) ... ok
+test_parallel_mutation_wins_over_later_processed_lean_failure (__main__.ReceiptTests.test_parallel_mutation_wins_over_later_processed_lean_failure) ... ok
+test_stable_resume_and_transitive_invalidation (__main__.ReceiptTests.test_stable_resume_and_transitive_invalidation) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 9.642s
+
+OK

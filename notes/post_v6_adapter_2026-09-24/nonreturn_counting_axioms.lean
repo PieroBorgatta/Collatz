@@ -1,0 +1,11 @@
+import CollatzShadowing.NonreturnCounting
+#print axioms CollatzShadowing.NonreturnCounting.visit_time_eq_of_noReturn
+#print axioms CollatzShadowing.NonreturnCounting.matches_eq_of_target_eq
+#print axioms CollatzShadowing.NonreturnCounting.wordWeight_le_target_div
+#print axioms CollatzShadowing.NonreturnCounting.sum_wordWeight_fiber_le
+#print axioms CollatzShadowing.NonreturnCounting.source_injOn
+#print axioms CollatzShadowing.NonreturnCounting.word_fiber_bound
+#print axioms CollatzShadowing.NonreturnCounting.selected_fiber_bound
+#print axioms CollatzShadowing.NonreturnCounting.distinct_sources_lower_bound
+#print axioms CollatzShadowing.NonreturnCounting.ordinary_predecessor_count_of_mass
+#print axioms CollatzShadowing.NonreturnCounting.conditional_predecessor_count

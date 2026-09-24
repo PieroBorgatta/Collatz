@@ -4,6 +4,8 @@
 Run under `lake env python3` after fetching the pinned Mathlib cache. External
 package objects are reused; every local module is compiled on the first run.
 Resume only from this script's matching source/dependency/object receipts.
+With --keep-going, Lean failures block their descendants but independent
+branches continue. Input mutations always stop scheduling globally.
 """
 
 import argparse
@@ -51,6 +53,8 @@ def main():
     parser.add_argument("targets", nargs="+")
     parser.add_argument("--timeout", type=int, default=600)
     parser.add_argument("--jobs", type=int, default=1, choices=range(1, 5))
+    parser.add_argument("--keep-going", action="store_true",
+                        help="Continue independent branches after Lean errors; never after input mutations")
     args = parser.parse_args()
     root = Path.cwd()
     evidence = root / "build/weighted-replay"
@@ -124,6 +128,8 @@ def main():
     result = {"config": config, "targets": args.targets, "local_modules": len(order),
               "external_packages_rebuilt": False, "lake_build_performed": False,
               "independent_leanchecker": False, "complete": False,
+              "keep_going": args.keep_going, "completed_modules": [],
+              "failed_modules": [], "blocked_modules": [],
               "source_snapshot": source_hashes,
               "modules": dict(old.get("modules", {})) if can_resume else {}}
     fingerprints = {}
@@ -176,13 +182,34 @@ def main():
             row["olean_sha256"] = digest(olean)
         return row, "compiled"
 
-    pending, completed, active = list(order), set(), {}
+    pending, completed, active, failed = list(order), set(), {}, set()
     failure = 0
+
+    def save_progress():
+        # Historical rows in `modules` remain available for a later resume;
+        # only this list attests which modules were checked in this run.
+        result["completed_modules"] = sorted(completed)
+        result["failed_modules"] = sorted(failed)
+        # In fail-fast mode, or after an input mutation, every unstarted
+        # module is blocked by the global stop. With keep-going, only failed
+        # dependencies (transitively) block a pending module.
+        if failure and (failure == 125 or not args.keep_going):
+            blocked = set(pending)
+        else:
+            unavailable = set(failed)
+            pending_names = set(pending)
+            for name in order:
+                if name in pending_names and any(d in unavailable for d in imports[name]):
+                    unavailable.add(name)
+            blocked = unavailable - failed
+        result["blocked_modules"] = sorted(blocked)
+        save_receipt(receipt, result)
+
     # Retire a previous complete receipt before starting work on this snapshot.
-    save_receipt(receipt, result)
+    save_progress()
     with ThreadPoolExecutor(max_workers=args.jobs) as pool:
         while pending or active:
-            if not failure:
+            if failure != 125 and (not failure or args.keep_going):
                 for name in list(pending):
                     if len(active) >= args.jobs:
                         break
@@ -199,12 +226,15 @@ def main():
                 name = active.pop(future)
                 row, mode = future.result()
                 result["modules"][name] = row
-                save_receipt(receipt, result)
                 status = row["returncode"]
                 if status == 0:
                     completed.add(name)
                 else:
-                    failure = status
+                    failed.add(name)
+                    # Input invalidation must dominate any Lean error,
+                    # irrespective of concurrent completion order.
+                    failure = 125 if status == 125 or failure == 125 else failure or status
+                save_progress()
                 print(f"[{len(completed)}/{len(order)}] {mode} {name}: "
                       f"exit={status} seconds={row.get('elapsed_seconds')}", flush=True)
                 if status:
@@ -212,18 +242,19 @@ def main():
                         print(json.dumps({"source_mutations": row["source_mutations"]}), flush=True)
                     elif (evidence / (name + ".log")).exists():
                         print((evidence / (name + ".log")).read_text(errors="replace"), flush=True)
-    if failure:
-        return failure
     # Includes reused and already completed modules, and catches an edit made
-    # after its individual check. Adding/removing sources also changes the run.
+    # after its individual check, including in an already failed build.
+    # Adding/removing sources also changes the run.
     changes = changed_inputs(check_inventory=True)
     if changes:
+        failure = 125
         result["source_mutations"] = changes
-        save_receipt(receipt, result)
         print(json.dumps({"source_mutations": changes}), flush=True)
-        return 125
+    if failure:
+        save_progress()
+        return failure
     result["complete"] = True
-    save_receipt(receipt, result)
+    save_progress()
     print(f"SUCCESS: {len(order)} local modules checked; external packages cached.", flush=True)
     return 0
 

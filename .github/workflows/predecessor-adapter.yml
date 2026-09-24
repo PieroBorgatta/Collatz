@@ -83,7 +83,7 @@ jobs:
         run: |
           set -euo pipefail
           adapter_package="$GITHUB_WORKSPACE/research/weighted_predecessors_adapter"
-          lake env python3 "$adapter_package/build_closure.py" --jobs 2 \
+          lake env python3 "$adapter_package/build_closure.py" --jobs 2 --keep-going \
             WeightedPredecessorDensity TwoSeedDensity CollatzPredecessorDensity \
             2>&1 | tee "$ADAPTER_EVIDENCE/modular-build.log"
 

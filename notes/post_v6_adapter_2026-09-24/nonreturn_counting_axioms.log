@@ -1,0 +1,18 @@
+'CollatzShadowing.NonreturnCounting.visit_time_eq_of_noReturn' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CollatzShadowing.NonreturnCounting.matches_eq_of_target_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.NonreturnCounting.wordWeight_le_target_div' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.NonreturnCounting.sum_wordWeight_fiber_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.NonreturnCounting.source_injOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.NonreturnCounting.word_fiber_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.NonreturnCounting.selected_fiber_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.NonreturnCounting.distinct_sources_lower_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CollatzShadowing.NonreturnCounting.ordinary_predecessor_count_of_mass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CollatzShadowing.NonreturnCounting.conditional_predecessor_count' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

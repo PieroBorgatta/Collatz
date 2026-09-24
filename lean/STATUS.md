@@ -97,8 +97,9 @@ replay checked 37 of 393 modules before it was interrupted under resource
 pressure; the complete modular job runs in CI. Targeted semantic audits of
 the seed and mixing wrappers do not replace full analytical review.
 
-The main-library `TwoSeed` and `NonreturnCounting` modules have each passed
-their official target build. The new proof and comparison report is
+The integrated main-library build with `TwoSeed` and `NonreturnCounting`
+passed (3371 jobs), as did CI run 36001432687. Sixteen headline declarations
+were audited and use only `propext`, `Classical.choice`, and `Quot.sound`. The new proof and comparison report is
 [here](../notes/post_v6_adapter_2026-09-24/RESULTS_IT.md). It distinguishes
 these results from the paper-level comparison of coefficients and from the
 external analytical chain. For aligned explicit candidates, the comparison

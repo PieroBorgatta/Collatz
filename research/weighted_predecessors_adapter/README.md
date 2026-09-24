@@ -91,6 +91,7 @@ lake exe cache get
 lake env python3 /absolute/Collatz/research/weighted_predecessors_adapter/build_closure.py \
   WeightedPredecessorDensity TwoSeedDensity CollatzPredecessorDensity
 lake env lean /absolute/Collatz/research/weighted_predecessors_adapter/WeightedDependencyAudit.lean
+lake env lean /absolute/Collatz/research/weighted_predecessors_adapter/TwoSeedDependencyAudit.lean
 ```
 
 The preparation script authenticates both downloaded ZIPs before executing the
@@ -101,7 +102,11 @@ source verifier. `--archives /directory` instead reads `supplement.zip` and
 The compiler checks local modules in dependency order, using one worker by
 default. `--jobs 2` or `--jobs 3` allows bounded parallelism when memory permits.
 Each Lean process is limited to 4 GB and 600 seconds; a failure or timeout is
-recorded and is not successful verification. Outputs and a resumable receipt
+recorded and is not successful verification. `--keep-going` checks independent
+branches after a proof error and records blocked descendants, while any detected
+source or configuration mutation stops scheduling globally. CI uses this option
+to expose independent errors in the same run; success still requires every
+module in the requested closure. Outputs and a resumable receipt
 are written under `build/weighted-replay/`. A resumed module must match its
 source/dependency fingerprint and the hash of its compiled object.
 

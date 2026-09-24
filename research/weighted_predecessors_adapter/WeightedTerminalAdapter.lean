@@ -137,6 +137,9 @@ theorem singletonTerminal_pathWord_injective
     Function.Injective (fun z :
       (ndRootCoreSingletonState b R hb hR hl).FullTerminalAt cap n shift K =>
         (singletonTerminalPath b R hb hR hl cap n shift K z).word) := by
+  letI : Subsingleton (ndRootCoreSingletonState b R hb hR hl).state.Label := by
+    change Subsingleton Unit
+    infer_instance
   exact terminal_pathWord_injective (ndRootCoreSingletonState b R hb hR hl) cap n shift K
 
 theorem singletonTerminal_source_depth_injective
@@ -148,6 +151,9 @@ theorem singletonTerminal_source_depth_injective
       (ndRootCoreSingletonState b R hb hR hl).FullTerminalAt cap n shift K =>
         (ndGeom2PredictableRootSideBoundedOvershootIncidenceSource z,
           (singletonTerminalPath b R hb hR hl cap n shift K z).depth)) := by
+  letI : Subsingleton (ndRootCoreSingletonState b R hb hR hl).state.Label := by
+    change Subsingleton Unit
+    infer_instance
   exact terminal_source_depth_injective (ndRootCoreSingletonState b R hb hR hl) cap n shift K
 
 /-- Concrete replacement for the old non-returning-seed source charge.

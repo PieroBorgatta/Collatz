@@ -32,6 +32,12 @@ raggiunge 1. Non stiamo escludendo cicli del successore, né decidendo quale
 candidato soddisfa la proprietà. L'argomento è valido anche se quel successore
 appartiene a un ciclo.
 
+Il limite pesato generale non può essere ridotto a `R/x` su target arbitrari:
+per `x=R=1` i pesi delle visite sono `(3/4)^k` e la loro somma infinita è 4,
+proprio `R(3R+1)/x`. La selezione di un seme senza ritorni fornisce quindi
+l'ipotesi aggiuntiva che permette il coefficiente lineare; non è una semplice
+ottimizzazione algebrica del limite universale.
+
 ## Perché serve per i predecessori
 
 Nel sorgente esterno di Lech Mazur la scelta del seme nonperiodico passa per
@@ -72,8 +78,8 @@ non contengono il seme scelto esistenzialmente.
 
 `TwoSeed.lean` formalizza la coppia e il limite sopra ogni quota nella mappa
 Syracuse del progetto, su Lean 4.29.1. Contiene 13 teoremi e due definizioni.
-Il primo build del modulo è passato; i risultati e gli assiomi del build
-integrato finale sono riportati nel registro di verifica.
+Il build del modulo e quello integrato sono passati; i sei enunciati
+principali usano soltanto i tre assiomi standard.
 
 `NonreturnCounting.lean` collega l'assenza di ritorni all'unicità della parola
 esatta da ciascuna sorgente. La formula affine dà il limite individuale
@@ -146,3 +152,19 @@ Lo stato definitivo, i log e gli hash sono registrati nel manifest di questa
 cartella. La compilazione principale Lean 4.29, i controlli isolati Lean 4.30,
 la compilazione modulare upstream e l'esperimento di sorgente aggregato sono
 verifiche distinte: il successo di una non viene attribuito alle altre.
+
+
+Stato della libreria principale: **PASS**, build completo di 3371 job e
+[CI 36001432687](https://github.com/PieroBorgatta/Collatz/actions/runs/36001432687).
+I due moduli contengono complessivamente 23 teoremi. L'audit di 16 enunciati
+principali riporta solo `propext`, `Classical.choice` e `Quot.sound`.
+
+Il primo replay esterno CI ha verificato 333 moduli prima di segnalare due
+riscritture dipendenti non elaborate in `WeightedPathOccupation`. Le correzioni
+sono nel commit `8ce1849`. Il secondo replay
+[CI 36001432847](https://github.com/PieroBorgatta/Collatz/actions/runs/36001432847)
+ha verificato 340 moduli, incluso `WeightedPathOccupation`, e ha segnalato due
+istanze `Subsingleton Unit` mancanti in `WeightedTerminalAdapter`. Le istanze
+sono ora esplicite; il controllo dei moduli rimanenti e delle dipendenze finali
+è ancora in corso. Questo record non attribuisce ancora al replay esterno un
+esito positivo.

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Regression tests for receipt handling; the stub is NOT a Lean verifier."""
 from contextlib import redirect_stdout
+from concurrent.futures import ALL_COMPLETED
 import importlib.util
 import io
 import json
@@ -17,7 +18,7 @@ builder = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(builder)
 
 FAKE = '''#!/usr/bin/env python3
-import hashlib, json, os
+import hashlib, json, os, time
 from pathlib import Path
 import sys
 if '--version' in sys.argv:
@@ -29,10 +30,21 @@ plan=Path('stub-plan.json')
 if plan.exists():
     action=json.loads(plan.read_text())
     if action['on']==str(source):
+        if action.get('wait_for'):
+            deadline=time.monotonic()+10
+            while not Path(action['wait_for']).exists():
+                if time.monotonic()>deadline: raise RuntimeError('stub barrier timed out')
+                time.sleep(0.01)
         target=Path(action['target'])
         if action.get('delete'): target.unlink()
         else: target.write_text(action['text'])
         plan.unlink()
+failures=Path('stub-failures.json')
+if failures.exists():
+    status=json.loads(failures.read_text()).get(str(source),0)
+    if status:
+        print('FAKE TEST ONLY compilation failure:',source)
+        raise SystemExit(status)
 output=Path(sys.argv[sys.argv.index('-o')+1]); output.parent.mkdir(parents=True,exist_ok=True)
 output.write_bytes(b'FAKE TEST OBJECT: '+hashlib.sha256(data).hexdigest().encode())
 Path(sys.argv[sys.argv.index('-i')+1]).write_text('FAKE TEST INTERFACE')
@@ -54,13 +66,18 @@ class ReceiptTests(unittest.TestCase):
         self.environment.start()
     def tearDown(self):
         self.environment.stop(); os.chdir(self.oldcwd); self.temp.cleanup()
-    def run_builder(self):
-        with patch.object(sys,'argv',['build_closure.py','A']), redirect_stdout(io.StringIO()):
+    def run_builder(self,*arguments):
+        with patch.object(sys,'argv',['build_closure.py',*(arguments or ['A'])]), redirect_stdout(io.StringIO()):
             return builder.main()
     def receipt(self):
         return json.loads((self.root/'build/weighted-replay/receipt.json').read_text())
-    def plan(self,on,target,text='-- mutated\n',delete=False):
-        (self.root/'stub-plan.json').write_text(json.dumps(dict(on=on,target=target,text=text,delete=delete)))
+    def plan(self,on,target,text='-- mutated\n',delete=False,wait_for=None):
+        (self.root/'stub-plan.json').write_text(json.dumps(dict(on=on,target=target,text=text,delete=delete,wait_for=wait_for)))
+    def branching_failure(self):
+        (self.root/'C.lean').write_text('-- independent C\n')
+        (self.root/'D.lean').write_text('import C\n')
+        (self.root/'Root.lean').write_text('import A D\n')
+        (self.root/'stub-failures.json').write_text(json.dumps({'B.lean':1}))
     def invocations(self):
         return (self.root/'stub-invocations.txt').read_text().splitlines()
     def assert_rejected(self):
@@ -123,5 +140,96 @@ class ReceiptTests(unittest.TestCase):
         self.plan('A.lean','NewModule.lean')
         self.assert_rejected()
         self.assertEqual(self.receipt()['source_mutations']['source_inventory']['added'],['NewModule'])
+    def test_fail_fast_remains_default(self):
+        self.branching_failure()
+        self.assertEqual(self.run_builder('Root'),1)
+        receipt=self.receipt()
+        self.assertFalse(receipt['complete'])
+        self.assertFalse(receipt['keep_going'])
+        self.assertEqual(self.invocations(),['B.lean'])
+        self.assertEqual(receipt['failed_modules'],['B'])
+        self.assertEqual(receipt['blocked_modules'],['A','C','D','Root'])
+    def test_keep_going_completes_independent_branch(self):
+        self.branching_failure()
+        self.assertEqual(self.run_builder('--keep-going','Root'),1)
+        receipt=self.receipt()
+        self.assertFalse(receipt['complete'])
+        self.assertTrue(receipt['keep_going'])
+        self.assertEqual(self.invocations(),['B.lean','C.lean','D.lean'])
+        self.assertEqual(receipt['failed_modules'],['B'])
+        self.assertEqual(receipt['blocked_modules'],['A','Root'])
+        self.assertEqual(receipt['completed_modules'],['C','D'])
+        self.assertEqual(receipt['modules']['D']['returncode'],0)
+    def test_keep_going_parallel_branches(self):
+        self.branching_failure()
+        self.assertEqual(self.run_builder('--keep-going','--jobs','2','Root'),1)
+        self.assertCountEqual(self.invocations(),['B.lean','C.lean','D.lean'])
+        self.assertEqual(self.receipt()['blocked_modules'],['A','Root'])
+    def test_keep_going_mutation_stops_globally_after_lean_failure(self):
+        self.branching_failure()
+        self.plan('C.lean','D.lean','import C\n-- mutated\n')
+        self.assertEqual(self.run_builder('--keep-going','Root'),125)
+        receipt=self.receipt()
+        self.assertFalse(receipt['complete'])
+        self.assertEqual(self.invocations(),['B.lean','C.lean'])
+        self.assertEqual(receipt['failed_modules'],['B','C'])
+        self.assertEqual(receipt['blocked_modules'],['A','D','Root'])
+    def test_parallel_mutation_wins_over_later_processed_lean_failure(self):
+        self.branching_failure()
+        self.plan('C.lean','D.lean','import C\n-- mutated\n',wait_for='stub-b-finished')
+        original_wait=builder.wait
+        original_digest=builder.digest
+        def mark_failed_log_hashed(path):
+            value=original_digest(path)
+            # B's post-compilation input check has finished before its log
+            # is hashed. Only then may C mutate an input, independently of
+            # process start timing or the runner's speed.
+            if path.name=='B.log':
+                (self.root/'stub-b-finished').touch()
+            return value
+        def mutation_first(futures,return_when):
+            done,pending=original_wait(futures,return_when=ALL_COMPLETED)
+            return sorted(done,key=lambda future:future.result()[0]['returncode'] != 125),pending
+        with patch.object(builder,'wait',mutation_first), patch.object(builder,'digest',mark_failed_log_hashed):
+            self.assertEqual(self.run_builder('--keep-going','--jobs','2','Root'),125)
+        receipt=self.receipt()
+        self.assertEqual(receipt['modules']['B']['returncode'],1)
+        self.assertEqual(receipt['modules']['C']['returncode'],125)
+        self.assertEqual(receipt['blocked_modules'],['A','D','Root'])
+        self.assertCountEqual(self.invocations(),['B.lean','C.lean'])
+    def test_final_mutation_check_overrides_failed_build(self):
+        self.branching_failure()
+        original=builder.save_receipt; triggered=False
+        def save_and_mutate(path,data):
+            nonlocal triggered
+            original(path,data)
+            if not triggered and data['modules'].get('B',{}).get('returncode')==1:
+                triggered=True
+                (self.root/'C.lean').write_text('-- mutated after final failed module\n')
+        with patch.object(builder,'save_receipt',save_and_mutate):
+            self.assertEqual(self.run_builder('Root'),125)
+        self.assertIn('source:C',self.receipt()['source_mutations'])
+        self.assertFalse(self.receipt()['complete'])
+    def test_keep_going_flag_does_not_invalidate_successful_receipts(self):
+        self.assertEqual(self.run_builder(),0)
+        original_config=self.receipt()['config']
+        self.assertEqual(self.run_builder('--keep-going','A'),0)
+        self.assertEqual(self.receipt()['config'],original_config)
+        self.assertEqual(self.invocations(),['B.lean','A.lean'])
+    def test_blocked_cached_rows_are_not_current_completions(self):
+        self.branching_failure()
+        (self.root/'stub-failures.json').unlink()
+        self.assertEqual(self.run_builder('Root'),0)
+        self.assertEqual(self.receipt()['completed_modules'],['A','B','C','D','Root'])
+        (self.root/'B.lean').write_text('-- changed dependency\n')
+        (self.root/'stub-failures.json').write_text(json.dumps({'B.lean':1}))
+        self.assertEqual(self.run_builder('--keep-going','Root'),1)
+        receipt=self.receipt()
+        self.assertFalse(receipt['complete'])
+        self.assertEqual(receipt['completed_modules'],['C','D'])
+        self.assertEqual(receipt['blocked_modules'],['A','Root'])
+        self.assertEqual(receipt['failed_modules'],['B'])
+        self.assertEqual(receipt['modules']['A']['returncode'],0)
+        self.assertNotIn('A',receipt['completed_modules'])
 
 if __name__=='__main__': unittest.main(verbosity=2)
