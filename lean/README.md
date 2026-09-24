@@ -71,6 +71,9 @@ their precise trusted base. See [`STATUS.md`](STATUS.md).
 | Necessary equation and contractivity for a positive cycle | `syracuseWordCycleEquationNat`, `syracuseWordCycleContracting` | `CycleConstraints` |
 | Exact first-barrier test for a matched finite word | `evalSyracuseWord_lt_iff_source_above_barrier` | `FirstBarrier` |
 | Total affine weight of any finite set of visits x→R is at most `R*(3*R+1)/x`, including periodic targets | `WeightedVisits.sum_weight_visits_le` | `WeightedVisits` |
+| Same bound for a finite set of distinct exact exponent words | `WeightedVisits.sum_wordWeight_fiber_le` | `WeightedWords` |
+| Positive path mass forces distinct ordinary Collatz predecessors; repeated sources are allowed | `WeightedPredecessors.ordinary_predecessor_count_of_mass` | `WeightedPredecessors` |
+| Finite predecessor count from an explicitly assumed analytic estimate and error budget | `WeightedPredecessors.conditional_predecessor_count` | `WeightedPredecessors` |
 
 ## Modules
 
@@ -118,6 +121,17 @@ their precise trusted base. See [`STATUS.md`](STATUS.md).
   finite word. These do not establish a barrier for every infinite orbit.
 
 **Generated/** — finite certificates emitted by AI-written Python generators (CW row witnesses, residue-cell matrices, SCC walks). Verified by Lean; not reasoned line by line.
+
+**Post-v6 weighted counting**
+
+- `WeightedVisits` — telescoping potential and a universal weighted visit bound.
+- `WeightedWords` — exact words identify visit times without duplicating weights.
+- `WeightedCounting` — weighted sums grouped by source, with quantitative
+  control of repeated representations and bounds on distinct-source counts.
+- `WeightedPredecessors` — composition with actual Syracuse paths and the
+  ordinary Collatz map. The analytic estimate in the final conditional
+  theorem remains an explicit hypothesis; see
+  [the counting report](../notes/post_v6_counting_2026-09-24/RESULTS_IT.md).
 
 `Inventory` / `EpisodeInventory` are Mathlib-API scratch buffers, not proof content.
 

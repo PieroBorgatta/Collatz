@@ -239,6 +239,37 @@ not supply a global Collatz termination rank.
   of visits from x>0 to R>0 is at most `R*(3*R+1)/x`, even if R is
   periodic. This is a weighted occupation bound, not orbit descent.
 
+### `WeightedWords.lean`
+- `WeightedVisits.matches_eq_of_length_eq` — exact words of the same
+  length from the same source coincide.
+- `WeightedVisits.word_sum_eq_exponentSum`, `wordWeight_eq_weight_of_matches`
+  — word exponents and weights agree with the actual orbit data.
+- `WeightedVisits.sum_wordWeight_fiber_le` — total affine weight of a
+  finite set of distinct exact words from x to R is at most R*(3*R+1)/x.
+
+### `WeightedCounting.lean`
+- `WeightedCounting.sum_grouped_by_source` — group a finite weighted sum
+  by distinct sources, allowing multiple representations.
+- `WeightedCounting.weighted_sum_le_image_sum` — a fiber bound K/x gives
+  the bound K/X times the sum over distinct sources x≥X>0.
+- `WeightedCounting.card_image_lower_bound`, `card_image_selected_lower_bound`
+  — mass at least η forces at least η*X/K distinct sources.
+- `WeightedCounting.mazur_main_term_lower_bound` — the stated error
+  budget and main-term inequality imply mass at least 3/(8*3^m).
+  Both inequalities are hypotheses, not external analytic imports.
+
+### `WeightedPredecessors.lean`
+- `WeightedPredecessors.word_fiber_bound`, `selected_weighted_source_bound`
+  — apply the grouped bounds to exact words with common endpoint R.
+- `WeightedPredecessors.classical_hits_of_accelerated_hits` — expand a
+  finite odd-input Syracuse path to the ordinary map with arbitrary target.
+- `WeightedPredecessors.ordinary_predecessor_count_of_mass` — a path
+  mass lower bound counts distinct ordinary predecessors below N.
+- `WeightedPredecessors.conditional_predecessor_count` — a finite count
+  at least 3*N/(256*R*(3*R+1)*3^m), assuming the exact paths, their source
+  interval, and an analytic mass/error estimate. No no-return assumption
+  is used; no unconditional positive-density conclusion is claimed.
+
 ## `Generated/` — machine-generated finite certificates
 
 Verified by Lean; emitted by `../../scripts/phantom_taxonomy/` generators.

@@ -52,8 +52,15 @@ v4.29.1; portability to later toolchains has not been checked.
   `sum_{k in H} 3^k/2^(A_k) ≤ R*(3*R+1)/x` for every finite set H of
   visits from x>0 to R>0 (`WeightedVisits.sum_weight_visits_le`).
   No assumption about periodicity or convergence is used. The formal
-  theorem is indexed by distinct times; the equivalent formulation for
-  distinct exact words is explained on paper in the research note.
+  theorem is indexed by distinct times. `WeightedWords` now proves the
+  corresponding bound for distinct exact exponent words.
+- Finite weighted counting without source injectivity: grouping words
+  with the same source gives `sum selectedWeight ≤ K/X * card sources`
+  for sources at least X>0 and K=R*(3*R+1). Exact odd-source paths also
+  give ordinary Collatz predecessors. The final finite theorem yields
+  `card predecessors below N ≥ 3*N/(256*K*3^m)` from an explicitly
+  assumed analytic mass estimate and error budget; it does not prove
+  those assumptions or a positive-density theorem.
 
 ## Still open in this development
 
@@ -70,13 +77,24 @@ marked state with smaller R. Its existence is formally equivalent to
 accelerated Collatz (`exists_rankDescent_iff_acceleratedCollatz`). This is
 an exact interface for the open obligation, not a weakening of it.
 
-The weighted-visit theorem opens a separate counting direction: it can
-replace source injectivity with a quantitative bound on repeated
-representations. Its proposed application to external predecessor-density
-estimates still requires an audit of their analytic inputs. The later
+The weighted counting direction now has a formal local bridge from
+exact words to distinct ordinary predecessors. A targeted external source
+audit identifies the no-return uses, word/label uniqueness, and matching
+weight identities in the singleton-seed case. The adapter to those
+external types has not been compiled, and their full analytic dependency
+chain has not been independently verified. Uniform families across all
+sufficiently large cutoffs are still required for a density conclusion.
+See [the counting report](../notes/post_v6_counting_2026-09-24/RESULTS_IT.md)
+and its external audit for the precise boundary. The later
 post-tower parameter formulas and resonance distributions are paper-level
 deductions with exact finite checks, not Lean theorems. Details are in
 [the further research note](../notes/post_v6_parameter_2026-09-24/IDEAS_IT.md).
+
+The integrated build including all three new counting modules passed
+(3369 jobs). Fourteen headline declarations were audited and use only
+`propext`, `Classical.choice`, and `Quot.sound`; none of those modules
+uses `native_decide`. Build output and source hashes are recorded in the
+counting report's verification manifest.
 
 The general v6 defect/cancellation ledger remains a paper-level proposal.
 Its concrete cancellation-tower family is now treated in

@@ -1,0 +1,16 @@
+import CollatzShadowing.WeightedPredecessors
+
+#print axioms CollatzShadowing.WeightedVisits.matches_eq_of_length_eq
+#print axioms CollatzShadowing.WeightedVisits.word_sum_eq_exponentSum
+#print axioms CollatzShadowing.WeightedVisits.wordWeight_eq_weight_of_matches
+#print axioms CollatzShadowing.WeightedVisits.sum_wordWeight_fiber_le
+#print axioms CollatzShadowing.WeightedCounting.sum_grouped_by_source
+#print axioms CollatzShadowing.WeightedCounting.weighted_sum_le_image_sum
+#print axioms CollatzShadowing.WeightedCounting.card_image_lower_bound
+#print axioms CollatzShadowing.WeightedCounting.card_image_selected_lower_bound
+#print axioms CollatzShadowing.WeightedCounting.mazur_main_term_lower_bound
+#print axioms CollatzShadowing.WeightedPredecessors.word_fiber_bound
+#print axioms CollatzShadowing.WeightedPredecessors.selected_weighted_source_bound
+#print axioms CollatzShadowing.WeightedPredecessors.classical_hits_of_accelerated_hits
+#print axioms CollatzShadowing.WeightedPredecessors.ordinary_predecessor_count_of_mass
+#print axioms CollatzShadowing.WeightedPredecessors.conditional_predecessor_count

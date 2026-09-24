@@ -205,8 +205,15 @@ development and verification record are in
 A further direction controls repeated visits by their affine weights:
 `WeightedVisits.sum_weight_visits_le` bounds the total weight of any
 finite set of visits from x to R by `R*(3*R+1)/x`, without excluding
-periodic targets. This offers a candidate replacement for source
-injectivity in inverse-orbit counting. Separately, exact parameter
+periodic targets. Three subsequent Lean modules transfer the bound to
+exact exponent words, group repeated sources, and prove a lower bound
+on the number of distinct ordinary Collatz predecessors. The resulting
+finite counting theorem explicitly assumes the analytic mass estimate;
+it is not an unconditional density theorem. An audit identifies where
+this bound could replace the no-return assumption in external counting
+code; the external adapter and full analytic verification remain open.
+See [the counting report](notes/post_v6_counting_2026-09-24/RESULTS_IT.md).
+Separately, exact parameter
 formulas describe a second growth burst after the cancellation towers
 and classify the following valuation by lifted residue roots; those
 formulas remain paper-level results with exact finite checks.

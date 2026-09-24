@@ -1,0 +1,28 @@
+'CollatzShadowing.WeightedVisits.matches_eq_of_length_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.WeightedVisits.word_sum_eq_exponentSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.WeightedVisits.wordWeight_eq_weight_of_matches' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CollatzShadowing.WeightedVisits.sum_wordWeight_fiber_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.WeightedCounting.sum_grouped_by_source' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.WeightedCounting.weighted_sum_le_image_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.WeightedCounting.card_image_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.WeightedCounting.card_image_selected_lower_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CollatzShadowing.WeightedCounting.mazur_main_term_lower_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CollatzShadowing.WeightedPredecessors.word_fiber_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.WeightedPredecessors.selected_weighted_source_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CollatzShadowing.WeightedPredecessors.classical_hits_of_accelerated_hits' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CollatzShadowing.WeightedPredecessors.ordinary_predecessor_count_of_mass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CollatzShadowing.WeightedPredecessors.conditional_predecessor_count' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

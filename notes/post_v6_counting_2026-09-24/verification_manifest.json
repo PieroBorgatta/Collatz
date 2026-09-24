@@ -1,0 +1,186 @@
+{
+  "date": "2026-09-24",
+  "baseline_commit": "6db72a902d5b62963c3b374632b4e9ed938a2ddc",
+  "scope": "Exact-word weighted fibers and distinct ordinary Collatz predecessor counts; the analytic estimate in the final finite counting theorem remains an explicit hypothesis.",
+  "lean_toolchain": "leanprover/lean4:v4.29.1",
+  "mathlib_revision": "5e932f97dd25535344f80f9dd8da3aab83df0fe6",
+  "integrated_build": {
+    "passed": true,
+    "jobs": 3369,
+    "dependency_mode": "Pinned cached dependencies; three new modules compiled in targeted builds, then aggregate library target compiled."
+  },
+  "headline_axiom_audit": [
+    {
+      "declaration": "CollatzShadowing.WeightedVisits.matches_eq_of_length_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.WeightedVisits.word_sum_eq_exponentSum",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.WeightedVisits.wordWeight_eq_weight_of_matches",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.WeightedVisits.sum_wordWeight_fiber_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.WeightedCounting.sum_grouped_by_source",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.WeightedCounting.weighted_sum_le_image_sum",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.WeightedCounting.card_image_lower_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.WeightedCounting.card_image_selected_lower_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.WeightedCounting.mazur_main_term_lower_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.WeightedPredecessors.word_fiber_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.WeightedPredecessors.selected_weighted_source_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.WeightedPredecessors.classical_hits_of_accelerated_hits",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.WeightedPredecessors.ordinary_predecessor_count_of_mass",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CollatzShadowing.WeightedPredecessors.conditional_predecessor_count",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "source_scan": {
+    "no_sorry_admit_or_project_axiom": true,
+    "new_modules_use_native_decide": false
+  },
+  "new_source_counts": {
+    "files": 3,
+    "lines": 434,
+    "theorem_lemma_declarations": 24
+  },
+  "external_audit": {
+    "archives": [
+      {
+        "url": "https://www.proofatlas.ai/papers/positive-lower-density-collatz-predecessors/positive-lower-density-collatz-predecessors-v1.1-source.zip",
+        "bytes": 55103,
+        "sha256": "55ceb4df0cca17ae728dc65b30bf5077000e1b47f2dc322454eea9f637ac75b3"
+      },
+      {
+        "url": "https://www.proofatlas.ai/papers/positive-density-log-time-collatz/positive-density-log-time-collatz-v2.1-source.zip",
+        "bytes": 914975,
+        "sha256": "23f5cac4d66e696401144658752cf180a13ce70373a122f00693e1e1fe969c1f"
+      }
+    ],
+    "assembly_manifest_sha256": "9da50833f18f8427523da5cd89ff4a0dbf1198fe09a9a4acccf4583898ac2ec3",
+    "baseline_commit": "830b9d3f38f2a8da8cd921bf6a9310dd69336fd0",
+    "local_lean_source_files": 389,
+    "public_interface_import_closure_files": 388,
+    "reused_baseline_source_files": 377,
+    "narrowed_extension_files": 10,
+    "static_import_closure_complete": true,
+    "lean_replayed": false,
+    "adapter_compiled": false,
+    "full_analytic_dependency_audit": false,
+    "provider_rebuild_claim_independently_reproduced": false
+  },
+  "published_v1_v6_pdf_checksums_passed": true,
+  "published_v6_sha256_preserved": {
+    "paper/collatz_spectral_reduction_v6.pdf": "a959282145d5042550c3938b445a4964305299b4eca71bcc62539804c5b585f9",
+    "collatz_spectral_reduction_v6_supplementary.zip": "20f9195443dd058aeae16b9316ed0f6beafb6d360182ba93b875107a0ee9da60"
+  },
+  "sha256": {
+    ".gitignore": "6303d373d4a034e5e09457931762f140697da3219634aff1f799a8d10cd3e40d",
+    "README.md": "18c3e22f25dc3882d066d5d2a31c1b7c89be26d53bd39fd1884681ad83e43297",
+    "lean/README.md": "82ecf356be3523f2efd9f6cb42ac3872ffb904625e9f43a928be0b3fb1d60509",
+    "lean/STATUS.md": "8e710b75d714a54fc53cb5e1ac96ec0d9ed2179d9846f81878a1cd3ee6e7de06",
+    "lean/CollatzShadowing.lean": "370c61cf9dc93d8eb553255975e4f2115964f7325c1f6924aa1620fdc030a0b8",
+    "lean/CollatzShadowing/THEOREM_INDEX.md": "bc345b5874a96ea13656ba771d435d09084159774a741bbadf5d0002c0846cb2",
+    "lean/CollatzShadowing/WeightedVisits.lean": "f9a45d7c4c950b7d1028df8ae1146aab1b4625c1b0056d18402838e05dd47605",
+    "lean/lean-toolchain": "7dc000621e0046d1aada809e2b7177e64454645cf4c741e9daaf79c99ec2e7a2",
+    "lean/lakefile.toml": "1afedb74a3cf1e2bb139c954ff54bf474efdc204375401799eca58b98a56d80d",
+    "lean/lake-manifest.json": "83e5a26c8c107c4615a22196f6e911d51e2632d01d5a4138955b75a70a08fe74",
+    "notes/PROJECT_STATISTICS.md": "f9117eb87873f06493111c907658afa4e54ac80a098cb2d612a3e4531923de7f",
+    "lean/CollatzShadowing/WeightedWords.lean": "8867082623502544909da42330cd520220ac177dc56a220c1ee59a7ff84e8571",
+    "lean/CollatzShadowing/WeightedCounting.lean": "4eca3aec19993c35592be082ee04f666984c25a2c103d8402ba6065e4ba3b05d",
+    "lean/CollatzShadowing/WeightedPredecessors.lean": "fea5787db21be701fbee0587ce173694e78b61c8aa48dd359b0a8bf5cffd1c5e",
+    "notes/post_v6_counting_2026-09-24/EXTERNAL_AUDIT_IT.md": "5832ff786da45d41dda7ba7c294137e78492bd4dbbdcf903710f10abbe806d73",
+    "notes/post_v6_counting_2026-09-24/RESULTS_IT.md": "4818c2c19ab4bbb6a85d1e2370727a23a6f97130f4adda11d047f05b011fa478",
+    "notes/post_v6_counting_2026-09-24/axioms.lean": "56750aec60b73bdff80762685b2b8665589170c9e1263469b78587cab7fb47bc",
+    "notes/post_v6_counting_2026-09-24/axioms.txt": "8b974c58e1e3ba7fc7b9336d05efad303e6dbe269668843ccef189cb41b0d419",
+    "notes/post_v6_counting_2026-09-24/lean_build.txt": "507f5dfdc79dde6868162b2bc833a8b86f317805e37b77260bc1bc7c720ced28"
+  }
+}

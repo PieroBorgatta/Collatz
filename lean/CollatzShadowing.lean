@@ -21,6 +21,9 @@ import CollatzShadowing.SectionCoverage
 import CollatzShadowing.CancellationTower
 import CollatzShadowing.SectionReturn
 import CollatzShadowing.WeightedVisits
+import CollatzShadowing.WeightedWords
+import CollatzShadowing.WeightedCounting
+import CollatzShadowing.WeightedPredecessors
 import CollatzShadowing.EpisodeInventory
 import CollatzShadowing.EpisodeGraph
 import CollatzShadowing.Operator
