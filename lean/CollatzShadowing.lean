@@ -19,6 +19,8 @@ import CollatzShadowing.ShortcutCoverage
 import CollatzShadowing.MarkedSection
 import CollatzShadowing.SectionCoverage
 import CollatzShadowing.CancellationTower
+import CollatzShadowing.TowerParameter
+import CollatzShadowing.TowerSuffix
 import CollatzShadowing.SectionReturn
 import CollatzShadowing.WeightedVisits
 import CollatzShadowing.WeightedWords

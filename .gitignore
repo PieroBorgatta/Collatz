@@ -70,3 +70,6 @@ lean/lakefile.olean
 
 # Optimized post-v6 predecessor verification evidence
 !notes/post_v6_optimization_2026-09-24/*.log
+
+# Exact tower parameter verification evidence
+!notes/post_v6_transport_2026-09-24/*.log

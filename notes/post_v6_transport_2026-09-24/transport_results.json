@@ -1,0 +1,143 @@
+{
+  "scope": "Exact finite checks, not a universal proof or an infinite-orbit witness",
+  "all_checks_passed": true,
+  "words_per_phase_and_v": 255,
+  "unique_word_residue_cases": 3060,
+  "modular_membership_checks": 533460,
+  "actual_integer_trajectory_cases": 384,
+  "residue_certificate_sha256": "18275390cc203d652f903e060fafed4016a318d53db8f0157cfebcd58742aba8",
+  "delayed_compensation_witnesses": [
+    {
+      "v": 1,
+      "word": "[2] ++ [1]^1",
+      "q_residue": "3",
+      "modulus_exponent": 3
+    },
+    {
+      "v": 1,
+      "word": "[2] ++ [1]^2",
+      "q_residue": "11",
+      "modulus_exponent": 4
+    },
+    {
+      "v": 1,
+      "word": "[2] ++ [1]^4",
+      "q_residue": "43",
+      "modulus_exponent": 6
+    },
+    {
+      "v": 1,
+      "word": "[2] ++ [1]^8",
+      "q_residue": "299",
+      "modulus_exponent": 10
+    },
+    {
+      "v": 1,
+      "word": "[2] ++ [1]^16",
+      "q_residue": "196907",
+      "modulus_exponent": 18
+    },
+    {
+      "v": 1,
+      "word": "[2] ++ [1]^32",
+      "q_residue": "13828395",
+      "modulus_exponent": 34
+    },
+    {
+      "v": 1,
+      "word": "[2] ++ [1]^64",
+      "q_residue": "1686535852157763883",
+      "modulus_exponent": 66
+    },
+    {
+      "v": 2,
+      "word": "[2] ++ [1]^1",
+      "q_residue": "1",
+      "modulus_exponent": 3
+    },
+    {
+      "v": 2,
+      "word": "[2] ++ [1]^2",
+      "q_residue": "1",
+      "modulus_exponent": 4
+    },
+    {
+      "v": 2,
+      "word": "[2] ++ [1]^4",
+      "q_residue": "33",
+      "modulus_exponent": 6
+    },
+    {
+      "v": 2,
+      "word": "[2] ++ [1]^8",
+      "q_residue": "929",
+      "modulus_exponent": 10
+    },
+    {
+      "v": 2,
+      "word": "[2] ++ [1]^16",
+      "q_residue": "67489",
+      "modulus_exponent": 18
+    },
+    {
+      "v": 2,
+      "word": "[2] ++ [1]^32",
+      "q_residue": "8501397409",
+      "modulus_exponent": 34
+    },
+    {
+      "v": 2,
+      "word": "[2] ++ [1]^64",
+      "q_residue": "67189023680386107297",
+      "modulus_exponent": 66
+    },
+    {
+      "v": 7,
+      "word": "[2] ++ [1]^1",
+      "q_residue": "3",
+      "modulus_exponent": 3
+    },
+    {
+      "v": 7,
+      "word": "[2] ++ [1]^2",
+      "q_residue": "11",
+      "modulus_exponent": 4
+    },
+    {
+      "v": 7,
+      "word": "[2] ++ [1]^4",
+      "q_residue": "11",
+      "modulus_exponent": 6
+    },
+    {
+      "v": 7,
+      "word": "[2] ++ [1]^8",
+      "q_residue": "779",
+      "modulus_exponent": 10
+    },
+    {
+      "v": 7,
+      "word": "[2] ++ [1]^16",
+      "q_residue": "28427",
+      "modulus_exponent": 18
+    },
+    {
+      "v": 7,
+      "word": "[2] ++ [1]^32",
+      "q_residue": "828665611",
+      "modulus_exponent": 34
+    },
+    {
+      "v": 7,
+      "word": "[2] ++ [1]^64",
+      "q_residue": "23643820546133880587",
+      "modulus_exponent": 66
+    }
+  ],
+  "limitations": [
+    "Different finite suffixes may require different positive q.",
+    "A compatible infinite word may correspond only to a non-natural 2-adic parameter.",
+    "Parameter-residue frequencies are not natural densities of the exponentially sized starting integers.",
+    "No uniform descent or independence claim for a fixed positive orbit."
+  ]
+}

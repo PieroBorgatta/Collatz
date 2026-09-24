@@ -34,3 +34,21 @@ jobs:
             CollatzShadowing.Generated.a0SemanticSuffixPairCertificatesT14_allValidAtCutoff455._native.native_decide.ax_1_1,
             CollatzShadowing.Generated.a0SemanticSuffixPairCertificatesT14_matches_summary._native.native_decide.ax_1_1,
             CollatzShadowing.Generated.a0SemanticSuffixT14PairCoverageV2Lt8Cap100_summary._native.native_decide.ax_1_1
+      - name: Check exact tower parameter experiments
+        run: |
+          python3 notes/post_v6_transport_2026-09-24/transport_probe.py --output /tmp/tower-transport-results.json
+          cmp notes/post_v6_transport_2026-09-24/transport_results.json /tmp/tower-transport-results.json
+      - name: Audit tower theorem dependencies
+        working-directory: lean
+        run: |
+          set -o pipefail
+          lake env lean ../notes/post_v6_transport_2026-09-24/DependencyAudit.lean | tee /tmp/tower-dependency-audit.log
+      - name: Preserve tower verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tower-transport-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            /tmp/tower-transport-results.json
+            /tmp/tower-dependency-audit.log
+          if-no-files-found: ignore
