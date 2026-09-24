@@ -67,3 +67,6 @@ lean/lakefile.olean
 
 # Independent post-v6 adapter verification evidence
 !notes/post_v6_adapter_2026-09-24/*.log
+
+# Optimized post-v6 predecessor verification evidence
+!notes/post_v6_optimization_2026-09-24/*.log

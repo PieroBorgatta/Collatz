@@ -1,0 +1,47 @@
+{
+  "seed_cases": 42471,
+  "seed_range": {
+    "a": [
+      1,
+      40
+    ],
+    "exclude_multiples_of_3": true,
+    "b": [
+      0,
+      12
+    ],
+    "q": [
+      0,
+      4
+    ],
+    "p": "all residues"
+  },
+  "conductor_cases": 31031,
+  "conductor_range": {
+    "T": [
+      0,
+      1000
+    ],
+    "C": [
+      0,
+      30
+    ]
+  },
+  "all_checks_passed": true,
+  "floating_point_used": false,
+  "universal_proof": false,
+  "nonreturn_property_computationally_decided": false,
+  "illustrative_arithmetic_only": {
+    "a": 2,
+    "b": 1,
+    "q": 1,
+    "C": 1,
+    "new_T": 283989,
+    "old_T": 89999812214603678894528603039814997,
+    "new_m": 18,
+    "old_m": 11879975212327685614077775601255579605,
+    "new_coefficient": "1/9388642752052992",
+    "public_analytic_parameters": false,
+    "note": "b=1 and C=1 are arithmetic examples, not the public theorem parameters."
+  }
+}

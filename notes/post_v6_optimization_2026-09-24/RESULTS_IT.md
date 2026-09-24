@@ -44,3 +44,17 @@ La densità dei predecessori non risolve Collatz. Le costanti restano enormi;
 la ricerca naturale minima non è proposta come algoritmo pratico per calcolare
 il coefficiente pubblico. La revisione completa dell'argomento analitico resta
 distinta dalla compilazione del codice e dagli audit delle dipendenze.
+
+## Controlli e primo replay
+
+Lo [script aritmetico](exact_checks.py) ha superato 42.471 controlli dei semi
+e 31.031 controlli del conduttore, tutti esatti. Non decide la nonperiodicità
+né sostituisce le prove generali. L'esempio numerico incluso usa parametri
+piccoli illustrativi, non quelli pubblici del teorema analitico.
+
+Il [primo replay CI](https://github.com/PieroBorgatta/Collatz/actions/runs/36008455603)
+ha verificato 396 moduli su 399, incluso `OptimizedConductor`. Un obiettivo
+nella scelta dell'esponente richiedeva di fornire esplicitamente
+`0 ≤ B % Q` alla tattica aritmetica; la correzione è in verifica.
+La [lettura semantica](SEMANTIC_AUDIT_IT.md) conferma l'ordine dei parametri
+e il mantenimento della costante globale C nella costruzione del seme.

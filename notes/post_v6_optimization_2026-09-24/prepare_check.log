@@ -1,0 +1,3 @@
+{"local_lean_source_files": 389, "public_interface_import_closure_files": 388, "reused_baseline_source_files": 377, "narrowed_extension_files": 10, "static_import_closure_complete": true, "lean_replayed": false}
+{"status": "PASS_SOURCE_IDENTITIES_AND_RECORDED_IMPORT_CLOSURE", "source_files": 389, "manifest_files": 404, "lean_check": false}
+Prepared /tmp/collatz-optimized-prepare-check

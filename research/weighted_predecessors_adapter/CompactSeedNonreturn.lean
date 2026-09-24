@@ -39,7 +39,7 @@ theorem firstExponent_bounds (B Q p : ℕ) (hQ : 0 < Q) (hp : p < Q) :
   unfold firstExponent residueShift
   split_ifs with h
   · constructor <;> nlinarith
-  · constructor <;> nlinarith
+  · constructor <;> nlinarith [Nat.zero_le (B % Q)]
 
 theorem seedBase_pos {a : ℕ} (_ha : 0 < a) (hthree : ¬ 3 ∣ a) :
     0 < TwoSeedNonreturn.seedBase a := by
