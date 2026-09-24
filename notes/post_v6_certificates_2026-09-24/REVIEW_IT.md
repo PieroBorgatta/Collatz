@@ -53,3 +53,13 @@ La parte finita e gli arrotondamenti sono riproducibili in Python;
 il teorema esterno e il ragionamento per tutti i v≥37 restano prove
 informali. Il successo di una build Lean esistente non li formalizza.
 Nessuna conclusione di discesa per tutti i livelli segue da questa nota.
+
+## Evidenze CI
+
+La [CI 36027655913](https://github.com/PieroBorgatta/Collatz/actions/runs/36027655913)
+ha ripetuto tutti i certificati, il replay indipendente completo fino a 21
+e i confronti finiti della prima separazione. I tre JSON scaricati sono
+identici ai file locali. Build e audit Lean esistenti sono passati nella
+[CI 36027655780](https://github.com/PieroBorgatta/Collatz/actions/runs/36027655780).
+Entrambe le corse verificano il commit `4d82ffc31bb569741d2354cc668ec3eab3bec077`.
+Le successive modifiche documentali non cambiano codice, workflow o dati.

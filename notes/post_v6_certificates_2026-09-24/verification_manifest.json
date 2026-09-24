@@ -1,0 +1,137 @@
+{
+  "date": "2026-09-24",
+  "verified_code_commit": "4d82ffc31bb569741d2354cc668ec3eab3bec077",
+  "certificate_ci": {
+    "conclusion": "success",
+    "status": "completed",
+    "headSha": "4d82ffc31bb569741d2354cc668ec3eab3bec077",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36027655913"
+  },
+  "existing_lean_ci": {
+    "conclusion": "success",
+    "status": "completed",
+    "headSha": "4d82ffc31bb569741d2354cc668ec3eab3bec077",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36027655780"
+  },
+  "certificates": {
+    "minimum_v": 5,
+    "maximum_v": 21,
+    "levels": 17,
+    "certified_levels": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ],
+    "inconclusive_levels": [],
+    "first_budget_failures": [
+      6,
+      7,
+      9
+    ],
+    "previous_full_orbit_overlap": 14,
+    "total_modular_binary_steps": 4037892,
+    "total_counted_odd_steps": 2018020
+  },
+  "new_finite_upper_bounds": {
+    "19": 251632,
+    "20": 504483,
+    "21": 1008989
+  },
+  "independent_replay": {
+    "status": "verified",
+    "replayed_levels": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ],
+    "not_replayed_levels": [],
+    "replayed_attempts": 20,
+    "replayed_binary_steps": 4037892,
+    "replayed_odd_steps": 2018020,
+    "input_sha256": "6b338f7c2b190fb0b960c790d180ddf4a1f2e46d9252b30385241c70329e58eb"
+  },
+  "separation_finite_check": {
+    "pair_range": [
+      5,
+      36
+    ],
+    "pairs": 32,
+    "branches": 64,
+    "all_branches_above_own_source": true,
+    "external_theorem_tail_starts_at_v": 37
+  },
+  "regression_tests": 10,
+  "artifact_byte_comparison": "All three downloaded result files match local files exactly.",
+  "mathematical_status": {
+    "parity_count_sufficiency": "Informal proof with internal review; no random-parity assumption.",
+    "first_separation_obstruction": "Informal application of Chim 2025 Theorem 2.1 for v>=37, plus finite arithmetic checks for 5<=v<=36.",
+    "uniform_parity_count_bound": "Open; not inferred from finite checks.",
+    "uniform_descent": "Not proved.",
+    "novelty": "Not established.",
+    "new_lean_declarations": 0
+  },
+  "scope_notes": [
+    "Certificates give upper bounds on residual descent time, not exact stopping times.",
+    "A failed certificate is inconclusive; all first-budget failures remain in the data.",
+    "The producer and independent verifier use different arithmetic methods.",
+    "Work totals include overlapping prefixes from repeated budgets for the same level.",
+    "Chim and the infinite-tail deduction are not machine-proved in this repository.",
+    "The existing Lean build does not verify the new informal proofs.",
+    "Documentation after the verified commit does not change experiment code, workflow, or data.",
+    "Earlier verification manifests remain historical snapshots."
+  ],
+  "external_dependency": {
+    "author": "Kwok Chi Chim",
+    "year": 2025,
+    "theorem": "2.1",
+    "doi": "10.1016/j.jnt.2024.07.012"
+  },
+  "frozen_v6_sha256": {
+    "paper/collatz_spectral_reduction_v6.pdf": "a959282145d5042550c3938b445a4964305299b4eca71bcc62539804c5b585f9",
+    "collatz_spectral_reduction_v6_supplementary.zip": "20f9195443dd058aeae16b9316ed0f6beafb6d360182ba93b875107a0ee9da60"
+  },
+  "files_sha256": {
+    ".github/workflows/tower-certificates.yml": "cc4d03d34ea0cff622b3ace22cfc20053ae1453d512fbe64a0152ac1626aed55",
+    "README.md": "66bfdb204fe70e198df8fed5ee9798205ebcfa7305d3b18817971a01fcaa6efa",
+    "notes/post_v6_certificates_2026-09-24/CHIM_OBSTRUCTION_IT.md": "cffd7df87181ea51f43b74204c3dac3a662b50ee4904597f15113e6951f990bb",
+    "notes/post_v6_certificates_2026-09-24/RESULTS_IT.md": "c43ed7cf1a9085a901f2b0aff877f813c8fa2176f584af50c39313a97ba2b9ba",
+    "notes/post_v6_certificates_2026-09-24/REVIEW_IT.md": "460f1f1a4c04fafb886e2779e0a40c33f3d34a697583224307416a708f32680a",
+    "notes/post_v6_certificates_2026-09-24/certificate_results.json": "6b338f7c2b190fb0b960c790d180ddf4a1f2e46d9252b30385241c70329e58eb",
+    "notes/post_v6_certificates_2026-09-24/ci_36027655913.log.gz": "b8a479e04ac82d6d93dec3f494a9fc851a44009760adfc9f983ab0ef6921f657",
+    "notes/post_v6_certificates_2026-09-24/modular_certificate.py": "e16309479d4a4caf884be6b5d506a8fe92fc4fb96ef2c362ae0b3b03e8170e3e",
+    "notes/post_v6_certificates_2026-09-24/separation_probe.py": "78f779b7d217d162945452ff82e59d251b04340d92234cc4b876a2a276dd71e0",
+    "notes/post_v6_certificates_2026-09-24/separation_results.json": "10a327ef5e78184f9c90df65bfbdb624a802a832dfc8c108e25ed6a46491e38d",
+    "notes/post_v6_certificates_2026-09-24/test_certificates.py": "1401bf89175528adabf6abe90ee98add72d81b843cc6a3ce9e319eb1e70c2b3c",
+    "notes/post_v6_certificates_2026-09-24/verification_results.json": "efbaf5e3368b7485021ddf87fa389cf47e31ec5971cb36d2a3bddfec4158f021",
+    "notes/post_v6_certificates_2026-09-24/verify_certificates.py": "43de8b21661d0e7b6b48dfa1ea7ea204a3d4a5ec36556df57313d907baf79739",
+    "notes/post_v6_levels_2026-09-24/levels_results.json": "0f4b2028c492930c16c67b87f128ec1a5b16f6bff0fe86d61630ce14a07387ae"
+  }
+}

@@ -20,6 +20,14 @@ interna tramite agenti e controlli aritmetici. Non sono nuove dichiarazioni
 Lean. Non è stabilita l'originalità nella letteratura e non è provata la
 discesa della famiglia infinita.
 
+Riproduzione e replay indipendente completi superati nella
+[CI 36027655913](https://github.com/PieroBorgatta/Collatz/actions/runs/36027655913),
+commit `4d82ffc31bb569741d2354cc668ec3eab3bec077`. I tre file di risultati
+scaricati coincidono byte per byte con quelli locali. Sono passati anche
+build e audit esistenti nella
+[CI Lean 36027655780](https://github.com/PieroBorgatta/Collatz/actions/runs/36027655780).
+[Manifest](verification_manifest.json) e [log sperimentale](ci_36027655913.log.gz).
+
 ## 1. Definizioni e obiettivo
 
 Per v≥5 poniamo M=2^v e

@@ -284,6 +284,10 @@ logarithms, together with 32 finite modular checks, proves at paper level
 that the first differing step of adjacent levels also stays above their
 respective sources. The uniform parity-count bound remains open. These
 proofs are not Lean declarations, and no mathematical priority is claimed.
+The full experiment and independent replay passed in
+[CI 36027655913](https://github.com/PieroBorgatta/Collatz/actions/runs/36027655913),
+with three byte-identical result files; the existing Lean build and audits
+also passed on the same code commit.
 
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch
