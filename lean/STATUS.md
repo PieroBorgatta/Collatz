@@ -174,3 +174,27 @@ Nothing here shows that this project uses those defects. For a new
 publication-grade verification, recheck the development with Lean 4.34.0
 and a matching Mathlib revision, then repeat the axioms audit. That
 portability recheck has not yet been done.
+
+
+## Post-v6 tower parameter transport (24 September 2026)
+
+`TowerParameter.lean` proves the exact dyadic isometry of
+`Q_v(q)=(9^(2^v*q)-1)/2^(v+3)`, including residue bijectivity at every
+finite precision. `TowerSuffix.lean` transports exact finite words through
+this map, connects phase C to the original cancellation source, and proves
+that every admissible finite suffix occurs for arbitrarily large odd
+parameters. It also supplies a least-residue criterion for bounded parameters.
+The two modules add 19 public theorems and three private lemmas and are
+imported by the main entrypoint. The aggregate build passed (3,374 jobs) in
+[CI 36015103652](https://github.com/PieroBorgatta/Collatz/actions/runs/36015103652),
+commit `e713dfdf64403a15e451ec11d3cf642ef2b11615`, on Lean 4.29.1. The strict
+eleven-root audit traversed 13,782 declarations and 229,886 type/body edges,
+including private helpers, and found only `propext`, `Classical.choice`,
+`Quot.sound`. Pinned supporting compiled dependencies were reused; this
+was not a cold rebuild of Mathlib or a replay with an independent kernel.
+
+The obstruction is precise: no admissible finite suffix can be forbidden
+uniformly over all odd parameters at fixed v. This does not rule out
+height-dependent constraints or prove failure of a global rank. No new
+return-descent theorem or infinite divergent orbit is claimed. See the
+[transport report](../notes/post_v6_transport_2026-09-24/RESULTS_IT.md).

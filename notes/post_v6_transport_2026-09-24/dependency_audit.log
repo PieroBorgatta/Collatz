@@ -1,0 +1,40 @@
+TOWER_ROOT_AUDIT: PASS CollatzShadowing.TowerParameter.quotient_difference_valuation; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+TOWER_ROOT_AUDIT: PASS CollatzShadowing.TowerParameter.quotient_modEq_iff; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+TOWER_ROOT_AUDIT: PASS CollatzShadowing.TowerParameter.quotient_residue_bijective; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+TOWER_ROOT_AUDIT: PASS CollatzShadowing.TowerParameter.suffix_iff_affine_residue; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+TOWER_ROOT_AUDIT: PASS CollatzShadowing.TowerParameter.finite_suffix_residue; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+TOWER_ROOT_AUDIT: PASS CollatzShadowing.TowerParameter.finite_suffix_arbitrarily_large; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+TOWER_ROOT_AUDIT: PASS CollatzShadowing.TowerParameter.phaseB_exit_burst; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+TOWER_ROOT_AUDIT: PASS CollatzShadowing.TowerParameter.phaseC_tower_burst; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+TOWER_ROOT_AUDIT: PASS CollatzShadowing.TowerParameter.tower_finite_suffix_arbitrarily_large; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+TOWER_ROOT_AUDIT: PASS CollatzShadowing.TowerParameter.tower_arbitrarily_long_one_suffix; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+TOWER_ROOT_AUDIT: PASS CollatzShadowing.TowerParameter.finite_suffix_bounded_iff; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+TOWER_DEPENDENCY_AUDIT: PASS
+roots: 11
+reachable declarations: 13782
+private declarations: 1671
+declaration bodies: 12718
+type/body edges: 229886
+axioms: [Quot.sound, Classical.choice, propext]

@@ -1,0 +1,102 @@
+{
+  "date": "2026-09-24",
+  "status": "aggregate library build, exact experiment reproduction and eleven-root complete dependency audit passed",
+  "verified_code_commit": "e713dfdf64403a15e451ec11d3cf642ef2b11615",
+  "candidate_code_commit": "e713dfdf64403a15e451ec11d3cf642ef2b11615",
+  "toolchain": "Lean 4.29.1",
+  "main_mathlib_revision": "5e932f97dd25535344f80f9dd8da3aab83df0fe6",
+  "new_public_theorems": 19,
+  "new_private_lemmas": 3,
+  "finite_checks": {
+    "unique_residue_cases": 3060,
+    "modular_membership_checks": 533460,
+    "actual_integer_orbit_cases": 384,
+    "all_passed": true
+  },
+  "ci_attempts": [
+    {
+      "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36014535726",
+      "commit": "a8cf6ba94a12c6601198b500de53c4b46bebb95d",
+      "status": "success",
+      "build_jobs": 3374,
+      "lean_style_warnings": 2,
+      "note": "Both modules, aggregate build, full-library axiom audit and dedicated transport audit passed."
+    },
+    {
+      "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36015103652",
+      "commit": "e713dfdf64403a15e451ec11d3cf642ef2b11615",
+      "status": "success",
+      "build_jobs": 3374,
+      "lean_warnings": 0,
+      "note": "Clarified the finite-growth corollary name and removed both style warnings; full build and audits passed again."
+    }
+  ],
+  "files_sha256": {
+    ".github/workflows/lean.yml": "54c87fb22869ff75d8667c8a6ec5f88fe7232a4653dfd01c94be46b31fe9cd98",
+    ".gitignore": "dc37e0bf36d8e1b73f5acbfe2a9adc7d6e7ea87dd0b478e0afd0e43be01dbed4",
+    "README.md": "237e91b84648464f848df23c92014c323f732ed27ae2a50a2a72f70d1e19bd4b",
+    "lean/CollatzShadowing.lean": "e36aa853ef75965ed8eed9cabe52a0d265d733ccbddcd1607e089e44ce918b65",
+    "lean/CollatzShadowing/THEOREM_INDEX.md": "0e820ce27bfc6366f6a618ab0515052d26e4213a1c14ae3be6c63386555bc928",
+    "lean/CollatzShadowing/TowerParameter.lean": "962944127fe3b29978cb36fb4c49ca155d756c56b631d1567c6dbe9aabfac94a",
+    "lean/CollatzShadowing/TowerSuffix.lean": "6ff3d74c7f678943eef03a1ba2103ef73e91eb1c0261824ea3e69e2052738064",
+    "lean/STATUS.md": "a45069f9ece0abfc27f71509a6cf2ef9e0114dee2aba26cf3f932281ff425e42",
+    "lean/lake-manifest.json": "83e5a26c8c107c4615a22196f6e911d51e2632d01d5a4138955b75a70a08fe74",
+    "lean/lean-toolchain": "7dc000621e0046d1aada809e2b7177e64454645cf4c741e9daaf79c99ec2e7a2",
+    "notes/PROJECT_STATISTICS.md": "c35de26662fd16920df1b309f43f3aa9cb23959f0af66805ca2d3a3ad403e504",
+    "notes/compact_seeds_sixth_power_note_2026-09-24.md": "ce5e671c5cdfdb06149af6cfee8a25ef1248c86592ea7385d3938186077329a6",
+    "notes/post_v6_transport_2026-09-24/DependencyAudit.lean": "e548aec11c178bdc8f348231a7957833012ebad94b5944c4608e7dc8a99b1a9e",
+    "notes/post_v6_transport_2026-09-24/REPLAY_PROTOCOL.md": "fed94434990fc9b85e595b1203e3f2138fbc1af3b108a84250e05b9e61766830",
+    "notes/post_v6_transport_2026-09-24/RESULTS_IT.md": "d1524f37e08aa44780104b94652f8a170fd1c9e6bf0d578a7a6ca3cf7b1c7c92",
+    "notes/post_v6_transport_2026-09-24/REVIEW_IT.md": "62a6abb85017cb2412ae70f267364dfc9536cb94baf6b92958da05f8d048f1c2",
+    "notes/post_v6_transport_2026-09-24/ci_36014535726.log.gz": "3ee0fa33ff5c65e9e4fd190f3b082f3b60e282921c26a5ac14642c9844402107",
+    "notes/post_v6_transport_2026-09-24/ci_36015103652.log.gz": "dfb7de5508153b2d007a9c2742e1ae87acc07db8b3842531f52c4576396dfdb5",
+    "notes/post_v6_transport_2026-09-24/dependency_audit.log": "7e66183911cdde2d80f2314874d98406d45ba84ed1d96ba4d0e52c9f588bed54",
+    "notes/post_v6_transport_2026-09-24/transport_probe.py": "7dded75e347c8e1a0d212446c7d35029e8abc180be2c513495144b676bd07b96",
+    "notes/post_v6_transport_2026-09-24/transport_results.json": "0c54911ade4fc60e6591a7b4dcd3bf00773331c2167669d513d63fd368bef732"
+  },
+  "independent_kernel_replay": false,
+  "independent_human_review": false,
+  "build": {
+    "passed": true,
+    "jobs": 3374,
+    "new_module_sources_compiled": 2,
+    "aggregate_entrypoint_compiled": true,
+    "pinned_dependencies_reused": true,
+    "full_mathlib_rebuild": false,
+    "main_library_axiom_audit_passed": true,
+    "main_library_native_axiom_allowlist": "nine pre-existing generated native checks; none reached by new roots"
+  },
+  "dependency_audit": {
+    "passed": true,
+    "roots": 11,
+    "reachable_declarations": 13782,
+    "private_declarations": 1671,
+    "bodies": 12718,
+    "type_body_edges": 229886,
+    "traversal_boundary": "none; union of all named type/body dependencies of the eleven roots",
+    "required_dependencies_reached": [
+      "TowerParameter.numerator_valuation",
+      "syracuseWordMatches_iff_exactResidue",
+      "cancellationTower_iterate"
+    ],
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "log": "dependency_audit.log"
+  },
+  "ci_experiment_json_matches_repository": true,
+  "published_v6": {
+    "modified": false,
+    "pdf_sha256": "a959282145d5042550c3938b445a4964305299b4eca71bcc62539804c5b585f9",
+    "archive_sha256": "20f9195443dd058aeae16b9316ed0f6beafb6d360182ba93b875107a0ee9da60"
+  },
+  "limitations": [
+    "No global or family-wide return-descent theorem is proved.",
+    "Finite words may require different natural parameters; no infinite divergent orbit is constructed.",
+    "Finite parameter residue counts are not natural densities of original starting integers.",
+    "No independent kernel replay or independent human mathematical review.",
+    "Python modular lifting implementation is tested finitely, not universally verified in Lean."
+  ]
+}

@@ -1,8 +1,10 @@
 # Dopo le torri: libertà dei suffissi finiti e limite della strategia locale
 
 24 settembre 2026. Continuazione del risultato sui predecessori, commit
-`f198185`. **Stato iniziale: aritmetica del parametro compilata; collegamento
-alle orbite e audit in verifica.**
+`f198185`. **Risultato verificato:** 19 nuovi teoremi pubblici e tre lemmi
+privati; build aggregata riuscita (3.374 job) e audit delle undici radici
+superato nella [CI 36015103652](https://github.com/PieroBorgatta/Collatz/actions/runs/36015103652),
+commit `e713dfdf64403a15e451ec11d3cf642ef2b11615`.
 
 La ricerca richiesta era un vincolo tra episodi consecutivi che obbligasse
 una compensazione della crescita. Il trasporto esatto del parametro produce
@@ -158,7 +160,8 @@ esponenzialmente in q.
 
 L'algoritmo inverte Q_v bit per bit, usando potenze modulari: non costruisce
 le sorgenti astronomiche degli ultimi testimoni. La prova Lean e i test finiti
-hanno ruoli distinti. I risultati riproducibili sono in
+hanno ruoli distinti. L’implementazione Python non è estratta da Lean e
+non è oggetto di una prova universale di correttezza del programma. I risultati riproducibili sono in
 [transport_results.json](transport_results.json).
 
 La libertà generale dei prefissi e la codifica 2-adica sono classiche:
@@ -177,8 +180,34 @@ DEVELOPER_DIR=/Library/Developer/CommandLineTools lake env lean ../notes/post_v6
 python3 ../notes/post_v6_transport_2026-09-24/transport_probe.py
 ```
 
-Il pin resta Lean/Mathlib 4.29.1. Il controllo completo delle dipendenze dei
-nuovi teoremi è predisposto in [DependencyAudit.lean](DependencyAudit.lean).
-Non è un replay con un kernel indipendente né una revisione matematica umana.
+Il pin resta Lean 4.29.1, Mathlib
+`5e932f97dd25535344f80f9dd8da3aab83df0fe6`. La CI ha compilato i due nuovi
+moduli e l'entrypoint aggregato, riusando le dipendenze fissate e la cache
+Mathlib; 3.374 è il numero di job della build, non di nuovi moduli o teoremi.
+La verifica finale non produce avvisi Lean nei nuovi moduli.
+
+[DependencyAudit.lean](DependencyAudit.lean) ha controllato undici radici e
+percorso l'intera unione delle loro dipendenze nominate, senza filtro:
+**13.782 dichiarazioni**, 1.671 privati, 12.718 corpi e 229.886 archi tipo/corpo.
+Sono raggiunti il lemma LTE, il cilindro esatto e l'iterazione della torre.
+Gli unici assiomi sono `propext`, `Classical.choice`, `Quot.sound`.
+Anche l'audit generale della biblioteca è passato con la sua allowlist
+storica: i nuovi teoremi non dipendono dagli assiomi di `native_decide`
+consentiti per alcune vecchie certificazioni finite.
+
+Evidenze: [audit integrale](dependency_audit.log),
+[log CI completo compresso](ci_36015103652.log.gz),
+[prima CI riuscita](ci_36014535726.log.gz) e
+[manifest degli hash](verification_manifest.json).
+Il JSON prodotto in CI coincide byte per byte con quello archiviato.
+La [revisione semantica interna](REVIEW_IT.md) distingue i quantificatori e
+l'effettivo limite della strategia. Il
+[protocollo di riproduzione](REPLAY_PROTOCOL.md) separa replay su nuova macchina,
+controllo del kernel indipendente e revisione umana: questi ultimi due non
+sono stati effettuati.
+
+È stata inoltre preparata una
+[nota matematica breve sui predecessori](../compact_seeds_sixth_power_note_2026-09-24.md),
+che isola il precedente contributo quantitativo e l'input analitico esterno.
 La v6 pubblicata e le sue evidenze rimangono immutate; questa è una nuova
 continuazione del working tree. La congettura di Collatz resta aperta.

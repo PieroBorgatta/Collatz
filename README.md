@@ -225,13 +225,25 @@ two-seed formulas. All 399 local modules and three dependency audits passed in
 This replay is separate from the main-library build and reuses checked compiled
 receipts and pinned external package objects; the
 [optimization report](notes/post_v6_optimization_2026-09-24/RESULTS_IT.md) records
-the theorem statements, comparisons, and preserved evidence.
-Separately, exact parameter
-formulas describe a second growth burst after the cancellation towers
-and classify the following valuation by lifted residue roots; those
-formulas remain paper-level results with exact finite checks.
-See [the research note](notes/post_v6_parameter_2026-09-24/IDEAS_IT.md)
-for proofs, experiments, and the open conditions on both applications.
+the theorem statements, comparisons, and preserved evidence. A
+[short mathematical note](notes/compact_seeds_sixth_power_note_2026-09-24.md)
+isolates the two quantitative improvements and their external assumptions.
+A further main-library development transports the cancellation-tower parameter
+through its exit and following growth burst. For each fixed v≥1, every finite
+suffix with first exponent at least two and remaining exponents positive is
+realized by exactly one odd parameter class modulo `2^(sum exponents)`.
+The phase-C theorem connects this to actual orbits from the original tower
+sources and provides arbitrarily large positive parameters. A separate
+bounded-parameter criterion retains the least residue and the real parameter
+limit. The aggregate build (3,374 jobs) and the strict eleven-root dependency audit
+passed in [CI 36015103652](https://github.com/PieroBorgatta/Collatz/actions/runs/36015103652).
+Only the three standard axioms occur in the new roots. See the
+[transport report](notes/post_v6_transport_2026-09-24/RESULTS_IT.md) for exact
+quantifiers, the obstruction to finite-pattern exclusions, and reproduction.
+This finite-suffix theorem does not construct an infinite positive orbit or
+prove a descending return to the marked section. The earlier
+[parameter note](notes/post_v6_parameter_2026-09-24/IDEAS_IT.md) remains a dated
+snapshot; its phase-A formulas have not been formalized by this continuation.
 
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch

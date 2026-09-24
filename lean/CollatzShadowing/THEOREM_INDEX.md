@@ -294,6 +294,36 @@ not supply a global Collatz termination rank.
   least 3*N/(256*R*3^m), assuming non-return, exact paths, and the stated
   analytic mass/error estimate. The analytic hypotheses remain open here.
 
+## Post-v6 tower parameter transport
+
+The declarations below share the namespace `CollatzShadowing.TowerParameter`.
+They concern finite words with a variable positive parameter, not one infinite
+positive orbit. See the [transport report](../../notes/post_v6_transport_2026-09-24/RESULTS_IT.md).
+
+### `TowerParameter.lean`
+
+- `numerator_valuation`, `quotient_factorization` — exact division and LTE
+  for `Q_v(q)=(9^(2^v*q)-1)/2^(v+3)`, with v≥1.
+- `quotient_difference_valuation`, `quotient_modEq_iff` — preservation and
+  reflection of all finite dyadic congruences.
+- `quotient_residue_bijective`, `affine_residue_bijective` — residue
+  permutations at every finite precision.
+
+### `TowerSuffix.lean`
+
+- `suffix_iff_affine_residue`, `finite_suffix_residue` — every nonempty
+  exponent word with first exponent at least two and remaining exponents
+  positive corresponds to one odd parameter class modulo `2^(sum word)`.
+- `phaseC_tower_burst` — exact orbit from the original phase-C cancellation
+  source to the endpoint after its following burst; `phaseB_exit_burst`
+  gives the corresponding phase-B transport from its known exit.
+- `tower_finite_suffix_arbitrarily_large` — every such word occurs after
+  the phase-C tower for arbitrarily large positive odd parameters.
+- `tower_arbitrarily_long_one_suffix` — the specific words `[2] ++ [1]^l`
+  occur for every finite l. This does not assert no descent below the source.
+- `finite_suffix_bounded_iff` — realization below a parameter bound is
+  equivalent to the least positive residue fitting below that bound.
+
 ## `Generated/` — machine-generated finite certificates
 
 Verified by Lean; emitted by `../../scripts/phantom_taxonomy/` generators.

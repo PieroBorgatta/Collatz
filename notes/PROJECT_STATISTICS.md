@@ -33,7 +33,8 @@ cancellation towers, and the remaining return-rank interface, followed by
 `WeightedVisits` for a universal weighted occupation bound, and three
 modules transferring it to exact words and distinct predecessor counts.
 Two further modules formalize bounded pairs of non-returning seeds and the
-sharper non-returning count. The June
+sharper non-returning count. `TowerParameter` and `TowerSuffix` add exact
+parameter transport and finite-word realization after cancellation towers. The June
 v5 line and declaration totals below remain frozen.
 The first integrated post-v6 build passed on 24 September 2026 (3365 jobs);
 the subsequent weighted-visit verification is recorded in
@@ -46,13 +47,13 @@ or not it was tracked by Git at the time of counting; generated Lean files
 are reported separately.
 
 Source scan of the 24 September 2026 working tree (including the
-eleven post-v6 entrypoint imports):
+thirteen post-v6 entrypoint imports):
 
 | Lean source class | files | lines | `theorem`/`lemma` declarations |
 |---|---:|---:|---:|
-| AI-authored modules and entrypoint | 35 | 11,866 | 485 |
+| AI-authored modules and entrypoint | 37 | 12,296 | 504 |
 | Generator-emitted certificates | 26 | 43,513 | 966 |
-| **Total** | **61** | **55,379** | **1,451** |
+| **Total** | **63** | **55,809** | **1,470** |
 
 The independent `research/weighted_predecessors_adapter/` package is excluded
 from these main-library totals. It contains new proofs and attributed
@@ -60,8 +61,12 @@ Apache-2.0 derivatives of Lech Mazur's external sources, with a separate
 Lean 4.30.0-rc2 toolchain and verification boundary. Its provenance and status
 are recorded in `post_v6_adapter_2026-09-24/RESULTS_IT.md` and the subsequent
 `post_v6_optimization_2026-09-24/RESULTS_IT.md`. The latter adds four external
-modules with 40 public theorems and two private lemmas; the main-library table
-above is unchanged.
+modules with 40 public theorems and two private lemmas, excluded from the
+main-library table. The current table includes the subsequent two main-library
+transport modules with 19 public theorems and three private lemmas. Its
+declaration-count command counts public `theorem`/`lemma` lines; private
+lemmas are included in line counts, not that declaration column. See
+`post_v6_transport_2026-09-24/RESULTS_IT.md`.
 
 These are textual source counts, not counts of independent mathematical
 results. The table can be regenerated with the command below after any
