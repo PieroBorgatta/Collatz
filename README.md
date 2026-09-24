@@ -274,6 +274,17 @@ The full level experiment passed in
 [CI 36023967396](https://github.com/PieroBorgatta/Collatz/actions/runs/36023967396)
 with both result files byte-identical.
 
+The [modular certificate study](notes/post_v6_certificates_2026-09-24/RESULTS_IT.md)
+then gives a sufficient parity-count criterion for descent below the original
+source. It certifies every level v=5,…,21 using residues only; a separate
+recurrence/Syracuse implementation replays all 20 attempts. The cases
+v=19,20,21 extend the previous range with certified upper bounds, not exact
+stopping times. A separate application of Chim's 2025 theorem on two p-adic
+logarithms, together with 32 finite modular checks, proves at paper level
+that the first differing step of adjacent levels also stays above their
+respective sources. The uniform parity-count bound remains open. These
+proofs are not Lean declarations, and no mathematical priority is claimed.
+
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch
 identities, counterexamples to

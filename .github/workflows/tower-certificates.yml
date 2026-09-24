@@ -1,0 +1,47 @@
+name: Tower modular certificates
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'notes/post_v6_certificates_2026-09-24/*.py'
+      - 'notes/post_v6_certificates_2026-09-24/*_results.json'
+      - 'notes/post_v6_levels_2026-09-24/levels_results.json'
+      - '.github/workflows/tower-certificates.yml'
+  pull_request:
+    paths:
+      - 'notes/post_v6_certificates_2026-09-24/**'
+      - 'notes/post_v6_levels_2026-09-24/levels_results.json'
+      - '.github/workflows/tower-certificates.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test boundaries, sufficiency, and rejection of altered data
+        run: python3 notes/post_v6_certificates_2026-09-24/test_certificates.py
+      - name: Repeat modular certificates and finite separation checks
+        run: |
+          python3 notes/post_v6_certificates_2026-09-24/modular_certificate.py --max-v 21 --output-dir /tmp/tower-certificates
+          python3 notes/post_v6_certificates_2026-09-24/separation_probe.py --output /tmp/tower-certificates/separation_results.json
+          cmp notes/post_v6_certificates_2026-09-24/certificate_results.json /tmp/tower-certificates/certificate_results.json
+          cmp notes/post_v6_certificates_2026-09-24/separation_results.json /tmp/tower-certificates/separation_results.json
+      - name: Independently replay every modular certificate
+        run: |
+          python3 notes/post_v6_certificates_2026-09-24/verify_certificates.py --max-v 21 --input /tmp/tower-certificates/certificate_results.json --output /tmp/tower-certificates/verification_results.json
+          cmp notes/post_v6_certificates_2026-09-24/verification_results.json /tmp/tower-certificates/verification_results.json
+      - name: Preserve evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tower-certificates-${{ github.run_id }}-${{ github.run_attempt }}
+          path: /tmp/tower-certificates
+          if-no-files-found: ignore

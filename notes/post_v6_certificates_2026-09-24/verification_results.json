@@ -1,0 +1,406 @@
+{
+  "status": "verified",
+  "rational_bound_integer_check": true,
+  "input_level_range": [
+    5,
+    21
+  ],
+  "replayed_levels": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "not_replayed_levels": [],
+  "replayed_attempts": 20,
+  "replayed_binary_steps": 4037892,
+  "replayed_odd_steps": 2018020,
+  "rows": [
+    {
+      "v": 5,
+      "attempts": [
+        {
+          "v": 5,
+          "budget": 16,
+          "precision_bits": 31,
+          "initial_residue_sha256": "8ca0de026e858bffdc5cf4785fc2f9e172c0b6623ebe6af1aee7bfcf8adf6be6",
+          "certified": true,
+          "descent_time_upper_bound": 14,
+          "odd_steps": 14,
+          "exact_exponent_steps": 13,
+          "exact_exponent_sum": 30,
+          "final_exponent_lower_bound": 1,
+          "final_exponent_is_exact": false,
+          "exact_exponent_prefix_sha256": "2feac00836eadae04aaa67d044c78b4a47bff3de146f903662249f64b944e985"
+        }
+      ]
+    },
+    {
+      "v": 6,
+      "attempts": [
+        {
+          "v": 6,
+          "budget": 32,
+          "precision_bits": 62,
+          "initial_residue_sha256": "984fa0339165de2f394ec916351334c5bef0eeba9b835b56e0087607e5d80c20",
+          "certified": false,
+          "descent_time_upper_bound": null,
+          "odd_steps": 34,
+          "exact_exponent_steps": 33,
+          "exact_exponent_sum": 61,
+          "final_exponent_lower_bound": 1,
+          "final_exponent_is_exact": false,
+          "exact_exponent_prefix_sha256": "d82a26d1ba3f0924f17572a629827e7cfeb9fab6abc4c2741b7941aaaead8d58"
+        },
+        {
+          "v": 6,
+          "budget": 64,
+          "precision_bits": 113,
+          "initial_residue_sha256": "9db5c8adfa9dc7c410e52b76273635b526e46a893943ee5003f458255c19de05",
+          "certified": true,
+          "descent_time_upper_bound": 58,
+          "odd_steps": 58,
+          "exact_exponent_steps": 57,
+          "exact_exponent_sum": 109,
+          "final_exponent_lower_bound": 4,
+          "final_exponent_is_exact": false,
+          "exact_exponent_prefix_sha256": "b756e707c1cbfc3d08972c9fc223d14b779efa0acc99da4a9a2af841cb6ed394"
+        }
+      ]
+    },
+    {
+      "v": 7,
+      "attempts": [
+        {
+          "v": 7,
+          "budget": 64,
+          "precision_bits": 124,
+          "initial_residue_sha256": "c435a0b60968a9a6c63a7b878fb0b88a9bb83025952910dbc424f5fd234fc48a",
+          "certified": false,
+          "descent_time_upper_bound": null,
+          "odd_steps": 66,
+          "exact_exponent_steps": 65,
+          "exact_exponent_sum": 123,
+          "final_exponent_lower_bound": 1,
+          "final_exponent_is_exact": false,
+          "exact_exponent_prefix_sha256": "ed40eb894d5297325477ae01c28b90245a9d3f8a5171adb2095368f9d029a9ca"
+        },
+        {
+          "v": 7,
+          "budget": 128,
+          "precision_bits": 225,
+          "initial_residue_sha256": "378cb3661c99d0b8e8146f5e44245e9acf13e6fa0308f74e9203b9f668bf7938",
+          "certified": true,
+          "descent_time_upper_bound": 112,
+          "odd_steps": 112,
+          "exact_exponent_steps": 111,
+          "exact_exponent_sum": 220,
+          "final_exponent_lower_bound": 5,
+          "final_exponent_is_exact": false,
+          "exact_exponent_prefix_sha256": "b75b706c1b61a5cbfcb9c8dab3fc390e08f9f9f49f54cdae7bfef3cfa75426c1"
+        }
+      ]
+    },
+    {
+      "v": 8,
+      "attempts": [
+        {
+          "v": 8,
+          "budget": 128,
+          "precision_bits": 247,
+          "initial_residue_sha256": "6f3bf452838e67c7fa42008cd3d317c7b36908c21aef095bd8d2a1fa0059d8e9",
+          "certified": true,
+          "descent_time_upper_bound": 120,
+          "odd_steps": 120,
+          "exact_exponent_steps": 119,
+          "exact_exponent_sum": 244,
+          "final_exponent_lower_bound": 3,
+          "final_exponent_is_exact": false,
+          "exact_exponent_prefix_sha256": "287b0ee79c187a7311c14304c4ae326f11dcf0ea1f1b70313a5e8326851ee062"
+        }
+      ]
+    },
+    {
+      "v": 9,
+      "attempts": [
+        {
+          "v": 9,
+          "budget": 256,
+          "precision_bits": 493,
+          "initial_residue_sha256": "748dcadccc9215de28de1f1447b13065e7079b82775e85bc84d3351b56f36465",
+          "certified": false,
+          "descent_time_upper_bound": null,
+          "odd_steps": 268,
+          "exact_exponent_steps": 267,
+          "exact_exponent_sum": 492,
+          "final_exponent_lower_bound": 1,
+          "final_exponent_is_exact": false,
+          "exact_exponent_prefix_sha256": "bda07b984e994dcd22ae4689b96d4fe60b2ac51ea5b77bc517d328af433a45e3"
+        },
+        {
+          "v": 9,
+          "budget": 512,
+          "precision_bits": 899,
+          "initial_residue_sha256": "d789b305d6110080aae42b299adbe3249de6328bbfb2bd1fa1939eca72e9f114",
+          "certified": true,
+          "descent_time_upper_bound": 480,
+          "odd_steps": 480,
+          "exact_exponent_steps": 479,
+          "exact_exponent_sum": 897,
+          "final_exponent_lower_bound": 2,
+          "final_exponent_is_exact": false,
+          "exact_exponent_prefix_sha256": "58f035cecd388ee69b2c9d60aa128650f8416d1f63aacfb493651acba83271d9"
+        }
+      ]
+    },
+    {
+      "v": 10,
+      "attempts": [
+        {
+          "v": 10,
+          "budget": 512,
+          "precision_bits": 986,
+          "initial_residue_sha256": "358a12a3a733426ea67ad2f077c33d38ba5d1b26c7306911a51771a003c6f482",
+          "certified": true,
+          "descent_time_upper_bound": 483,
+          "odd_steps": 483,
+          "exact_exponent_steps": 482,
+          "exact_exponent_sum": 983,
+          "final_exponent_lower_bound": 3,
+          "final_exponent_is_exact": false,
+          "exact_exponent_prefix_sha256": "fd1c835430beb18ca4eccdee431288b54978ac0206e38e88631de09ccfe127d6"
+        }
+      ]
+    },
+    {
+      "v": 11,
+      "attempts": [
+        {
+          "v": 11,
+          "budget": 1024,
+          "precision_bits": 1972,
+          "initial_residue_sha256": "108c56c5fb88921dc1761eab52c90b70565572d0eb3e81a59a84274513c22ef3",
+          "certified": true,
+          "descent_time_upper_bound": 951,
+          "odd_steps": 951,
+          "exact_exponent_steps": 950,
+          "exact_exponent_sum": 1971,
+          "final_exponent_lower_bound": 1,
+          "final_exponent_is_exact": false,
+          "exact_exponent_prefix_sha256": "097dc92c3d61457e71f1c2307ae9ce36aa480a8f1a89b915724ce5a5d910cff7"
+        }
+      ]
+    },
+    {
+      "v": 12,
+      "attempts": [
+        {
+          "v": 12,
+          "budget": 2048,
+          "precision_bits": 3943,
+          "initial_residue_sha256": "a135d9da2ab7d85d481981ba31f3d31fbe147fd80f0d5d65f4be6e4e387433fb",
+          "certified": true,
+          "descent_time_upper_bound": 1955,
+          "odd_steps": 1955,
+          "exact_exponent_steps": 1954,
+          "exact_exponent_sum": 3941,
+          "final_exponent_lower_bound": 2,
+          "final_exponent_is_exact": false,
+          "exact_exponent_prefix_sha256": "bd388f6c2409a09d8f4fec041bc8163684a9950dad2458e54c88449825163375"
+        }
+      ]
+    },
+    {
+      "v": 13,
+      "attempts": [
+        {
+          "v": 13,
+          "budget": 4096,
+          "precision_bits": 7885,
+          "initial_residue_sha256": "0d61b87088e5c34c1f90e1622b048f32624ad1ee2840fa2830ab9b8fc68d1d0e",
+          "certified": true,
+          "descent_time_upper_bound": 4009,
+          "odd_steps": 4009,
+          "exact_exponent_steps": 4008,
+          "exact_exponent_sum": 7884,
+          "final_exponent_lower_bound": 1,
+          "final_exponent_is_exact": false,
+          "exact_exponent_prefix_sha256": "77f7e65113a000ab52b3a903df13de239c2dc744baa5dbad4df288783b08f69e"
+        }
+      ]
+    },
+    {
+      "v": 14,
+      "attempts": [
+        {
+          "v": 14,
+          "budget": 8192,
+          "precision_bits": 15769,
+          "initial_residue_sha256": "084b80d6dfa07b68e63058bff4bf6af60ff140dcd388f26e1a6aecc703af5485",
+          "certified": true,
+          "descent_time_upper_bound": 7854,
+          "odd_steps": 7854,
+          "exact_exponent_steps": 7853,
+          "exact_exponent_sum": 15768,
+          "final_exponent_lower_bound": 1,
+          "final_exponent_is_exact": false,
+          "exact_exponent_prefix_sha256": "21745375af4a6eaa8becceef1eaeaf243a4ccf0194845f39525573a4bcad21c7"
+        }
+      ]
+    },
+    {
+      "v": 15,
+      "attempts": [
+        {
+          "v": 15,
+          "budget": 16384,
+          "precision_bits": 31537,
+          "initial_residue_sha256": "b8717b348d2cb6e29e0bd27b66966a22b1b0201f5960220e3b8095f519167122",
+          "certified": true,
+          "descent_time_upper_bound": 15783,
+          "odd_steps": 15783,
+          "exact_exponent_steps": 15782,
+          "exact_exponent_sum": 31535,
+          "final_exponent_lower_bound": 2,
+          "final_exponent_is_exact": false,
+          "exact_exponent_prefix_sha256": "2c5aa89d68c1d427b13623e97a9b54c95295fbe69d2f8cc104b3869555341982"
+        }
+      ]
+    },
+    {
+      "v": 16,
+      "attempts": [
+        {
+          "v": 16,
+          "budget": 32768,
+          "precision_bits": 63074,
+          "initial_residue_sha256": "595321be613c9aef267448d96e5b3ccb984560c498804cc5a1a9c169ad169108",
+          "certified": true,
+          "descent_time_upper_bound": 31613,
+          "odd_steps": 31613,
+          "exact_exponent_steps": 31612,
+          "exact_exponent_sum": 63073,
+          "final_exponent_lower_bound": 1,
+          "final_exponent_is_exact": false,
+          "exact_exponent_prefix_sha256": "9bcf9ddb0df7b8a2a1d56a2af4902bef4d789e082c39e3c214bb78c25c61d35d"
+        }
+      ]
+    },
+    {
+      "v": 17,
+      "attempts": [
+        {
+          "v": 17,
+          "budget": 65536,
+          "precision_bits": 126147,
+          "initial_residue_sha256": "fb674a3d97eb18b5e359658a9495171697b0ae123a374f0fe180da3acc8cb9ba",
+          "certified": true,
+          "descent_time_upper_bound": 62747,
+          "odd_steps": 62747,
+          "exact_exponent_steps": 62746,
+          "exact_exponent_sum": 126146,
+          "final_exponent_lower_bound": 1,
+          "final_exponent_is_exact": false,
+          "exact_exponent_prefix_sha256": "3b4d6069f6d40acfc1990eecaf6b2abe3651a90e451dea18f786000991834b88"
+        }
+      ]
+    },
+    {
+      "v": 18,
+      "attempts": [
+        {
+          "v": 18,
+          "budget": 131072,
+          "precision_bits": 252293,
+          "initial_residue_sha256": "76b7438dbd3035d81da0ad30b36402eb50abb383ef49289846c487d6f761f6c0",
+          "certified": true,
+          "descent_time_upper_bound": 126369,
+          "odd_steps": 126369,
+          "exact_exponent_steps": 126368,
+          "exact_exponent_sum": 252292,
+          "final_exponent_lower_bound": 1,
+          "final_exponent_is_exact": false,
+          "exact_exponent_prefix_sha256": "b02280e5307ffa8cdfdeaf4f54331cb7236ff13478a489f021a0261bc4448240"
+        }
+      ]
+    },
+    {
+      "v": 19,
+      "attempts": [
+        {
+          "v": 19,
+          "budget": 262144,
+          "precision_bits": 504585,
+          "initial_residue_sha256": "db0ff3617870dd02d66d7df2a61831ac956ab25240176b3eac03e58b68208923",
+          "certified": true,
+          "descent_time_upper_bound": 251632,
+          "odd_steps": 251632,
+          "exact_exponent_steps": 251631,
+          "exact_exponent_sum": 504584,
+          "final_exponent_lower_bound": 1,
+          "final_exponent_is_exact": false,
+          "exact_exponent_prefix_sha256": "22299f55759d98b378c74ebf52631c6b26c9b3f1eafa66cfe1a457af11621c8a"
+        }
+      ]
+    },
+    {
+      "v": 20,
+      "attempts": [
+        {
+          "v": 20,
+          "budget": 524288,
+          "precision_bits": 1009169,
+          "initial_residue_sha256": "a98d4ff16148f33b665b69a4ff8f6b98de840ac86b39ab8a541eef4c8f882be1",
+          "certified": true,
+          "descent_time_upper_bound": 504483,
+          "odd_steps": 504483,
+          "exact_exponent_steps": 504482,
+          "exact_exponent_sum": 1009164,
+          "final_exponent_lower_bound": 5,
+          "final_exponent_is_exact": false,
+          "exact_exponent_prefix_sha256": "913ac36fa29c3566c1430a364bf8baf032b6672e34788c6022cd4eb6d4178d2c"
+        }
+      ]
+    },
+    {
+      "v": 21,
+      "attempts": [
+        {
+          "v": 21,
+          "budget": 1048576,
+          "precision_bits": 2018338,
+          "initial_residue_sha256": "a09a6e3aafa1473fce04721d53ede67718b542ab1c482f2b875d688e159d6742",
+          "certified": true,
+          "descent_time_upper_bound": 1008989,
+          "odd_steps": 1008989,
+          "exact_exponent_steps": 1008988,
+          "exact_exponent_sum": 2018337,
+          "final_exponent_lower_bound": 1,
+          "final_exponent_is_exact": false,
+          "exact_exponent_prefix_sha256": "689dd9ba205cf5f81ac85fc2fdb5b739480e433b232a2c64ed085ba0746700dd"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Only replayed_levels received independent arithmetic replay.",
+    "The final exponent in each attempt is only a lower bound.",
+    "Block traces and comparisons to earlier full orbits are not replayed.",
+    "This verifies finite certificate arithmetic, not the sufficiency theorem.",
+    "No uniform all-level theorem or Lean verification is asserted."
+  ],
+  "input_sha256": "6b338f7c2b190fb0b960c790d180ddf4a1f2e46d9252b30385241c70329e58eb"
+}

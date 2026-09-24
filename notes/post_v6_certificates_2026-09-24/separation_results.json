@@ -1,0 +1,1132 @@
+{
+  "scope": "Finite part plus arithmetic threshold; the infinite tail depends on Chim 2025.",
+  "finite_pair_range": [
+    5,
+    36
+  ],
+  "pairs": 32,
+  "branches": 64,
+  "all_endpoints_strictly_above_own_source": true,
+  "tail_threshold": {
+    "v": 37,
+    "valuation_upper_bound": 14742000000,
+    "six_times_bound": 88452000000,
+    "power_of_two": 137438953472,
+    "base_inequality_passed": true,
+    "induction_identity": "2*(v+2)*(v+803)-(v+3)*(v+804)=v^2+803v+800>0"
+  },
+  "rounding_checks": {
+    "coefficient_upper_bound": "58437500000/328509",
+    "cutoff_upper_bound": "1575/2",
+    "passed": true
+  },
+  "rows": [
+    {
+      "lower_level": 5,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1
+      ],
+      "common_sum": 5,
+      "branches": [
+        {
+          "level": 5,
+          "exponent": 2,
+          "total_divisions": 7,
+          "power_of_three": 5,
+          "power_of_two_deficit": 5,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 6,
+          "exponent": 3,
+          "total_divisions": 8,
+          "power_of_three": 5,
+          "power_of_two_deficit": 2,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 6,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1
+      ],
+      "common_sum": 5,
+      "branches": [
+        {
+          "level": 6,
+          "exponent": 3,
+          "total_divisions": 8,
+          "power_of_three": 5,
+          "power_of_two_deficit": 2,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 7,
+          "exponent": 8,
+          "total_divisions": 13,
+          "power_of_three": 5,
+          "power_of_two_deficit": -3,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 7,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1
+      ],
+      "common_sum": 5,
+      "branches": [
+        {
+          "level": 7,
+          "exponent": 8,
+          "total_divisions": 13,
+          "power_of_three": 5,
+          "power_of_two_deficit": -3,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 8,
+          "exponent": 4,
+          "total_divisions": 9,
+          "power_of_three": 5,
+          "power_of_two_deficit": -27,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 8,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4
+      ],
+      "common_sum": 9,
+      "branches": [
+        {
+          "level": 8,
+          "exponent": 2,
+          "total_divisions": 11,
+          "power_of_three": 6,
+          "power_of_two_deficit": -25,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 9,
+          "exponent": 1,
+          "total_divisions": 10,
+          "power_of_three": 6,
+          "power_of_two_deficit": -68,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 9,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1
+      ],
+      "common_sum": 10,
+      "branches": [
+        {
+          "level": 9,
+          "exponent": 2,
+          "total_divisions": 12,
+          "power_of_three": 7,
+          "power_of_two_deficit": -66,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 10,
+          "exponent": 1,
+          "total_divisions": 11,
+          "power_of_three": 7,
+          "power_of_two_deficit": -151,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 10,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1
+      ],
+      "common_sum": 11,
+      "branches": [
+        {
+          "level": 10,
+          "exponent": 1,
+          "total_divisions": 12,
+          "power_of_three": 8,
+          "power_of_two_deficit": -150,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 11,
+          "exponent": 2,
+          "total_divisions": 13,
+          "power_of_three": 8,
+          "power_of_two_deficit": -319,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 11,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1
+      ],
+      "common_sum": 11,
+      "branches": [
+        {
+          "level": 11,
+          "exponent": 2,
+          "total_divisions": 13,
+          "power_of_three": 8,
+          "power_of_two_deficit": -319,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 12,
+          "exponent": 7,
+          "total_divisions": 18,
+          "power_of_three": 8,
+          "power_of_two_deficit": -654,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 12,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1
+      ],
+      "common_sum": 11,
+      "branches": [
+        {
+          "level": 12,
+          "exponent": 7,
+          "total_divisions": 18,
+          "power_of_three": 8,
+          "power_of_two_deficit": -654,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 13,
+          "exponent": 3,
+          "total_divisions": 14,
+          "power_of_three": 8,
+          "power_of_two_deficit": -1340,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 13,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1,
+        3
+      ],
+      "common_sum": 14,
+      "branches": [
+        {
+          "level": 13,
+          "exponent": 1,
+          "total_divisions": 15,
+          "power_of_three": 9,
+          "power_of_two_deficit": -1339,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 14,
+          "exponent": 2,
+          "total_divisions": 16,
+          "power_of_three": 9,
+          "power_of_two_deficit": -2702,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 14,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1,
+        3
+      ],
+      "common_sum": 14,
+      "branches": [
+        {
+          "level": 14,
+          "exponent": 2,
+          "total_divisions": 16,
+          "power_of_three": 9,
+          "power_of_two_deficit": -2702,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 15,
+          "exponent": 4,
+          "total_divisions": 18,
+          "power_of_three": 9,
+          "power_of_two_deficit": -5430,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 15,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1,
+        3
+      ],
+      "common_sum": 14,
+      "branches": [
+        {
+          "level": 15,
+          "exponent": 4,
+          "total_divisions": 18,
+          "power_of_three": 9,
+          "power_of_two_deficit": -5430,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 16,
+          "exponent": 3,
+          "total_divisions": 17,
+          "power_of_three": 9,
+          "power_of_two_deficit": -10891,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 16,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1,
+        3,
+        3
+      ],
+      "common_sum": 17,
+      "branches": [
+        {
+          "level": 16,
+          "exponent": 1,
+          "total_divisions": 18,
+          "power_of_three": 10,
+          "power_of_two_deficit": -10890,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 17,
+          "exponent": 2,
+          "total_divisions": 19,
+          "power_of_three": 10,
+          "power_of_two_deficit": -21811,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 17,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1,
+        3,
+        3
+      ],
+      "common_sum": 17,
+      "branches": [
+        {
+          "level": 17,
+          "exponent": 2,
+          "total_divisions": 19,
+          "power_of_three": 10,
+          "power_of_two_deficit": -21811,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 18,
+          "exponent": 3,
+          "total_divisions": 20,
+          "power_of_three": 10,
+          "power_of_two_deficit": -43654,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 18,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1,
+        3,
+        3
+      ],
+      "common_sum": 17,
+      "branches": [
+        {
+          "level": 18,
+          "exponent": 3,
+          "total_divisions": 20,
+          "power_of_three": 10,
+          "power_of_two_deficit": -43654,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 19,
+          "exponent": 5,
+          "total_divisions": 22,
+          "power_of_three": 10,
+          "power_of_two_deficit": -87342,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 19,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1,
+        3,
+        3
+      ],
+      "common_sum": 17,
+      "branches": [
+        {
+          "level": 19,
+          "exponent": 5,
+          "total_divisions": 22,
+          "power_of_three": 10,
+          "power_of_two_deficit": -87342,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 20,
+          "exponent": 4,
+          "total_divisions": 21,
+          "power_of_three": 10,
+          "power_of_two_deficit": -174723,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 20,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1,
+        3,
+        3,
+        4
+      ],
+      "common_sum": 21,
+      "branches": [
+        {
+          "level": 20,
+          "exponent": 2,
+          "total_divisions": 23,
+          "power_of_three": 11,
+          "power_of_two_deficit": -174721,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 21,
+          "exponent": 1,
+          "total_divisions": 22,
+          "power_of_three": 11,
+          "power_of_two_deficit": -349484,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 21,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1,
+        3,
+        3,
+        4,
+        1
+      ],
+      "common_sum": 22,
+      "branches": [
+        {
+          "level": 21,
+          "exponent": 1,
+          "total_divisions": 23,
+          "power_of_three": 12,
+          "power_of_two_deficit": -349483,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 22,
+          "exponent": 6,
+          "total_divisions": 28,
+          "power_of_three": 12,
+          "power_of_two_deficit": -699002,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 22,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1,
+        3,
+        3,
+        4,
+        1
+      ],
+      "common_sum": 22,
+      "branches": [
+        {
+          "level": 22,
+          "exponent": 6,
+          "total_divisions": 28,
+          "power_of_three": 12,
+          "power_of_two_deficit": -699002,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 23,
+          "exponent": 2,
+          "total_divisions": 24,
+          "power_of_three": 12,
+          "power_of_two_deficit": -1398056,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 23,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1,
+        3,
+        3,
+        4,
+        1,
+        2
+      ],
+      "common_sum": 24,
+      "branches": [
+        {
+          "level": 23,
+          "exponent": 1,
+          "total_divisions": 25,
+          "power_of_three": 13,
+          "power_of_two_deficit": -1398055,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 24,
+          "exponent": 2,
+          "total_divisions": 26,
+          "power_of_three": 13,
+          "power_of_two_deficit": -2796154,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 24,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1,
+        3,
+        3,
+        4,
+        1,
+        2
+      ],
+      "common_sum": 24,
+      "branches": [
+        {
+          "level": 24,
+          "exponent": 2,
+          "total_divisions": 26,
+          "power_of_three": 13,
+          "power_of_two_deficit": -2796154,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 25,
+          "exponent": 5,
+          "total_divisions": 29,
+          "power_of_three": 13,
+          "power_of_two_deficit": -5592353,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 25,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1,
+        3,
+        3,
+        4,
+        1,
+        2
+      ],
+      "common_sum": 24,
+      "branches": [
+        {
+          "level": 25,
+          "exponent": 5,
+          "total_divisions": 29,
+          "power_of_three": 13,
+          "power_of_two_deficit": -5592353,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 26,
+          "exponent": 3,
+          "total_divisions": 27,
+          "power_of_three": 13,
+          "power_of_two_deficit": -11184759,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 26,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1,
+        3,
+        3,
+        4,
+        1,
+        2,
+        3
+      ],
+      "common_sum": 27,
+      "branches": [
+        {
+          "level": 26,
+          "exponent": 5,
+          "total_divisions": 32,
+          "power_of_three": 14,
+          "power_of_two_deficit": -11184754,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 27,
+          "exponent": 1,
+          "total_divisions": 28,
+          "power_of_three": 14,
+          "power_of_two_deficit": -22369568,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 27,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1,
+        3,
+        3,
+        4,
+        1,
+        2,
+        3,
+        1
+      ],
+      "common_sum": 28,
+      "branches": [
+        {
+          "level": 27,
+          "exponent": 1,
+          "total_divisions": 29,
+          "power_of_three": 15,
+          "power_of_two_deficit": -22369567,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 28,
+          "exponent": 2,
+          "total_divisions": 30,
+          "power_of_three": 15,
+          "power_of_two_deficit": -44739186,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 28,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1,
+        3,
+        3,
+        4,
+        1,
+        2,
+        3,
+        1
+      ],
+      "common_sum": 28,
+      "branches": [
+        {
+          "level": 28,
+          "exponent": 2,
+          "total_divisions": 30,
+          "power_of_three": 15,
+          "power_of_two_deficit": -44739186,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 29,
+          "exponent": 3,
+          "total_divisions": 31,
+          "power_of_three": 15,
+          "power_of_two_deficit": -89478427,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 29,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1,
+        3,
+        3,
+        4,
+        1,
+        2,
+        3,
+        1
+      ],
+      "common_sum": 28,
+      "branches": [
+        {
+          "level": 29,
+          "exponent": 3,
+          "total_divisions": 31,
+          "power_of_three": 15,
+          "power_of_two_deficit": -89478427,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 30,
+          "exponent": 5,
+          "total_divisions": 33,
+          "power_of_three": 15,
+          "power_of_two_deficit": -178956909,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 30,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1,
+        3,
+        3,
+        4,
+        1,
+        2,
+        3,
+        1
+      ],
+      "common_sum": 28,
+      "branches": [
+        {
+          "level": 30,
+          "exponent": 5,
+          "total_divisions": 33,
+          "power_of_three": 15,
+          "power_of_two_deficit": -178956909,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 31,
+          "exponent": 4,
+          "total_divisions": 32,
+          "power_of_three": 15,
+          "power_of_two_deficit": -357913880,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 31,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1,
+        3,
+        3,
+        4,
+        1,
+        2,
+        3,
+        1,
+        4
+      ],
+      "common_sum": 32,
+      "branches": [
+        {
+          "level": 31,
+          "exponent": 1,
+          "total_divisions": 33,
+          "power_of_three": 16,
+          "power_of_two_deficit": -357913879,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 32,
+          "exponent": 2,
+          "total_divisions": 34,
+          "power_of_three": 16,
+          "power_of_two_deficit": -715827818,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 32,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1,
+        3,
+        3,
+        4,
+        1,
+        2,
+        3,
+        1,
+        4
+      ],
+      "common_sum": 32,
+      "branches": [
+        {
+          "level": 32,
+          "exponent": 2,
+          "total_divisions": 34,
+          "power_of_three": 16,
+          "power_of_two_deficit": -715827818,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 33,
+          "exponent": 3,
+          "total_divisions": 35,
+          "power_of_three": 16,
+          "power_of_two_deficit": -1431655699,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 33,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1,
+        3,
+        3,
+        4,
+        1,
+        2,
+        3,
+        1,
+        4
+      ],
+      "common_sum": 32,
+      "branches": [
+        {
+          "level": 33,
+          "exponent": 3,
+          "total_divisions": 35,
+          "power_of_three": 16,
+          "power_of_two_deficit": -1431655699,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 34,
+          "exponent": 5,
+          "total_divisions": 37,
+          "power_of_three": 16,
+          "power_of_two_deficit": -2863311461,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 34,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1,
+        3,
+        3,
+        4,
+        1,
+        2,
+        3,
+        1,
+        4
+      ],
+      "common_sum": 32,
+      "branches": [
+        {
+          "level": 34,
+          "exponent": 5,
+          "total_divisions": 37,
+          "power_of_three": 16,
+          "power_of_two_deficit": -2863311461,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 35,
+          "exponent": 4,
+          "total_divisions": 36,
+          "power_of_three": 16,
+          "power_of_two_deficit": -5726622992,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 35,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1,
+        3,
+        3,
+        4,
+        1,
+        2,
+        3,
+        1,
+        4,
+        4
+      ],
+      "common_sum": 36,
+      "branches": [
+        {
+          "level": 35,
+          "exponent": 2,
+          "total_divisions": 38,
+          "power_of_three": 17,
+          "power_of_two_deficit": -5726622990,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 36,
+          "exponent": 1,
+          "total_divisions": 37,
+          "power_of_three": 17,
+          "power_of_two_deficit": -11453246051,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    },
+    {
+      "lower_level": 36,
+      "precision_bits": 256,
+      "common_word": [
+        3,
+        1,
+        1,
+        4,
+        1,
+        1,
+        3,
+        3,
+        4,
+        1,
+        2,
+        3,
+        1,
+        4,
+        4,
+        1
+      ],
+      "common_sum": 37,
+      "branches": [
+        {
+          "level": 36,
+          "exponent": 1,
+          "total_divisions": 38,
+          "power_of_three": 18,
+          "power_of_two_deficit": -11453246050,
+          "endpoint_strictly_above_source": true
+        },
+        {
+          "level": 37,
+          "exponent": 2,
+          "total_divisions": 39,
+          "power_of_three": 18,
+          "power_of_two_deficit": -22906492171,
+          "endpoint_strictly_above_source": true
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "The external logarithmic-form theorem is not machine-proved here.",
+    "The finite modular calculations do not prove the infinite tail by themselves.",
+    "Later steps are not controlled by this obstruction."
+  ]
+}

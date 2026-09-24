@@ -1,0 +1,430 @@
+{
+  "scope": "Finite modular certificates, not a uniform theorem for all levels.",
+  "rational_upper_bound": {
+    "numerator": 485,
+    "denominator": 306,
+    "verified_integer_inequality": "3^306<2^485"
+  },
+  "minimum_v": 5,
+  "maximum_v": 21,
+  "levels": 17,
+  "certified_levels": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "inconclusive_levels": [],
+  "first_budget_failures": [
+    6,
+    7,
+    9
+  ],
+  "previous_full_orbit_overlap": 14,
+  "total_modular_binary_steps": 4037892,
+  "total_counted_odd_steps": 2018020,
+  "rows": [
+    {
+      "v": 5,
+      "attempts": [
+        {
+          "v": 5,
+          "M": 32,
+          "budget": 16,
+          "precision_bits": 31,
+          "odd_steps": 14,
+          "certified": true,
+          "descent_time_upper_bound": 14,
+          "block_width": 16,
+          "blocks": 2,
+          "initial_residue_sha256": "8ca0de026e858bffdc5cf4785fc2f9e172c0b6623ebe6af1aee7bfcf8adf6be6",
+          "block_trace_sha256": "2d2930a66f8c75a9227d39124bb9d7cace4e9e17236eb8937ba6548646758c12",
+          "scope": "Sufficient certificate only; failure is inconclusive."
+        }
+      ],
+      "certified": true
+    },
+    {
+      "v": 6,
+      "attempts": [
+        {
+          "v": 6,
+          "M": 64,
+          "budget": 32,
+          "precision_bits": 62,
+          "odd_steps": 34,
+          "certified": false,
+          "descent_time_upper_bound": null,
+          "block_width": 16,
+          "blocks": 4,
+          "initial_residue_sha256": "984fa0339165de2f394ec916351334c5bef0eeba9b835b56e0087607e5d80c20",
+          "block_trace_sha256": "c89eeb6506512bfed18c24990ec4e79b7837042a48b87057d0bf8dabb586ae49",
+          "scope": "Sufficient certificate only; failure is inconclusive."
+        },
+        {
+          "v": 6,
+          "M": 64,
+          "budget": 64,
+          "precision_bits": 113,
+          "odd_steps": 58,
+          "certified": true,
+          "descent_time_upper_bound": 58,
+          "block_width": 16,
+          "blocks": 8,
+          "initial_residue_sha256": "9db5c8adfa9dc7c410e52b76273635b526e46a893943ee5003f458255c19de05",
+          "block_trace_sha256": "42538f04ee97cd6a89ec191b3dc476f94661eac7e4f7006a737cb18e84912341",
+          "scope": "Sufficient certificate only; failure is inconclusive."
+        }
+      ],
+      "certified": true
+    },
+    {
+      "v": 7,
+      "attempts": [
+        {
+          "v": 7,
+          "M": 128,
+          "budget": 64,
+          "precision_bits": 124,
+          "odd_steps": 66,
+          "certified": false,
+          "descent_time_upper_bound": null,
+          "block_width": 16,
+          "blocks": 8,
+          "initial_residue_sha256": "c435a0b60968a9a6c63a7b878fb0b88a9bb83025952910dbc424f5fd234fc48a",
+          "block_trace_sha256": "b4322ce0069e63fdca15d4c51f0cba28638a54dbf06f2123dbd9f3e4075dda34",
+          "scope": "Sufficient certificate only; failure is inconclusive."
+        },
+        {
+          "v": 7,
+          "M": 128,
+          "budget": 128,
+          "precision_bits": 225,
+          "odd_steps": 112,
+          "certified": true,
+          "descent_time_upper_bound": 112,
+          "block_width": 16,
+          "blocks": 15,
+          "initial_residue_sha256": "378cb3661c99d0b8e8146f5e44245e9acf13e6fa0308f74e9203b9f668bf7938",
+          "block_trace_sha256": "b5c3521d22e4671819fc80cdcb6bbea815b9bc53e633cd99ab0d1a2a5f71c792",
+          "scope": "Sufficient certificate only; failure is inconclusive."
+        }
+      ],
+      "certified": true
+    },
+    {
+      "v": 8,
+      "attempts": [
+        {
+          "v": 8,
+          "M": 256,
+          "budget": 128,
+          "precision_bits": 247,
+          "odd_steps": 120,
+          "certified": true,
+          "descent_time_upper_bound": 120,
+          "block_width": 16,
+          "blocks": 16,
+          "initial_residue_sha256": "6f3bf452838e67c7fa42008cd3d317c7b36908c21aef095bd8d2a1fa0059d8e9",
+          "block_trace_sha256": "bc33d506fdb1660f3cae08064e4dc0a7e69458c1302904be7bbe99e2e2b6bd7f",
+          "scope": "Sufficient certificate only; failure is inconclusive."
+        }
+      ],
+      "certified": true
+    },
+    {
+      "v": 9,
+      "attempts": [
+        {
+          "v": 9,
+          "M": 512,
+          "budget": 256,
+          "precision_bits": 493,
+          "odd_steps": 268,
+          "certified": false,
+          "descent_time_upper_bound": null,
+          "block_width": 16,
+          "blocks": 31,
+          "initial_residue_sha256": "748dcadccc9215de28de1f1447b13065e7079b82775e85bc84d3351b56f36465",
+          "block_trace_sha256": "971d88449e7d7b341daec6af7df366c7067fb4e29aee75334c9b35c62043f5ac",
+          "scope": "Sufficient certificate only; failure is inconclusive."
+        },
+        {
+          "v": 9,
+          "M": 512,
+          "budget": 512,
+          "precision_bits": 899,
+          "odd_steps": 480,
+          "certified": true,
+          "descent_time_upper_bound": 480,
+          "block_width": 16,
+          "blocks": 57,
+          "initial_residue_sha256": "d789b305d6110080aae42b299adbe3249de6328bbfb2bd1fa1939eca72e9f114",
+          "block_trace_sha256": "e4dcef4c402949eb76a3542be52a35eeb40b733cc49c92181fe8ab61def9519d",
+          "scope": "Sufficient certificate only; failure is inconclusive."
+        }
+      ],
+      "certified": true
+    },
+    {
+      "v": 10,
+      "attempts": [
+        {
+          "v": 10,
+          "M": 1024,
+          "budget": 512,
+          "precision_bits": 986,
+          "odd_steps": 483,
+          "certified": true,
+          "descent_time_upper_bound": 483,
+          "block_width": 16,
+          "blocks": 62,
+          "initial_residue_sha256": "358a12a3a733426ea67ad2f077c33d38ba5d1b26c7306911a51771a003c6f482",
+          "block_trace_sha256": "fbdc835a80bc957091a9cbc821ece71050cf37b09606b4e49f76b5f750874e7e",
+          "scope": "Sufficient certificate only; failure is inconclusive."
+        }
+      ],
+      "certified": true
+    },
+    {
+      "v": 11,
+      "attempts": [
+        {
+          "v": 11,
+          "M": 2048,
+          "budget": 1024,
+          "precision_bits": 1972,
+          "odd_steps": 951,
+          "certified": true,
+          "descent_time_upper_bound": 951,
+          "block_width": 16,
+          "blocks": 124,
+          "initial_residue_sha256": "108c56c5fb88921dc1761eab52c90b70565572d0eb3e81a59a84274513c22ef3",
+          "block_trace_sha256": "2a4c977fba34b151d5cd9a6a86708205132fb54d4218ca9a38634656a0af0605",
+          "scope": "Sufficient certificate only; failure is inconclusive."
+        }
+      ],
+      "certified": true
+    },
+    {
+      "v": 12,
+      "attempts": [
+        {
+          "v": 12,
+          "M": 4096,
+          "budget": 2048,
+          "precision_bits": 3943,
+          "odd_steps": 1955,
+          "certified": true,
+          "descent_time_upper_bound": 1955,
+          "block_width": 16,
+          "blocks": 247,
+          "initial_residue_sha256": "a135d9da2ab7d85d481981ba31f3d31fbe147fd80f0d5d65f4be6e4e387433fb",
+          "block_trace_sha256": "1ec3f9bb4c328bd054d916d4d86ced29bbf358c3700600cff29cdd4dfd7045c2",
+          "scope": "Sufficient certificate only; failure is inconclusive."
+        }
+      ],
+      "certified": true
+    },
+    {
+      "v": 13,
+      "attempts": [
+        {
+          "v": 13,
+          "M": 8192,
+          "budget": 4096,
+          "precision_bits": 7885,
+          "odd_steps": 4009,
+          "certified": true,
+          "descent_time_upper_bound": 4009,
+          "block_width": 16,
+          "blocks": 493,
+          "initial_residue_sha256": "0d61b87088e5c34c1f90e1622b048f32624ad1ee2840fa2830ab9b8fc68d1d0e",
+          "block_trace_sha256": "3592d2bb5c2d0cfe9c389f73e5e1ddba321b31f6914c1cd3e528b3a7b32166dd",
+          "scope": "Sufficient certificate only; failure is inconclusive."
+        }
+      ],
+      "certified": true
+    },
+    {
+      "v": 14,
+      "attempts": [
+        {
+          "v": 14,
+          "M": 16384,
+          "budget": 8192,
+          "precision_bits": 15769,
+          "odd_steps": 7854,
+          "certified": true,
+          "descent_time_upper_bound": 7854,
+          "block_width": 16,
+          "blocks": 986,
+          "initial_residue_sha256": "084b80d6dfa07b68e63058bff4bf6af60ff140dcd388f26e1a6aecc703af5485",
+          "block_trace_sha256": "4b9d6e7cdfeff5f53b02b3f2e2fd4f34d25631183e3e0d0e2334973118336d16",
+          "scope": "Sufficient certificate only; failure is inconclusive."
+        }
+      ],
+      "certified": true
+    },
+    {
+      "v": 15,
+      "attempts": [
+        {
+          "v": 15,
+          "M": 32768,
+          "budget": 16384,
+          "precision_bits": 31537,
+          "odd_steps": 15783,
+          "certified": true,
+          "descent_time_upper_bound": 15783,
+          "block_width": 16,
+          "blocks": 1972,
+          "initial_residue_sha256": "b8717b348d2cb6e29e0bd27b66966a22b1b0201f5960220e3b8095f519167122",
+          "block_trace_sha256": "f480878bbe1828a3db0da60f87a2ebfa5cbcccd0bb186bcf31fc519785a1c738",
+          "scope": "Sufficient certificate only; failure is inconclusive."
+        }
+      ],
+      "certified": true
+    },
+    {
+      "v": 16,
+      "attempts": [
+        {
+          "v": 16,
+          "M": 65536,
+          "budget": 32768,
+          "precision_bits": 63074,
+          "odd_steps": 31613,
+          "certified": true,
+          "descent_time_upper_bound": 31613,
+          "block_width": 16,
+          "blocks": 3943,
+          "initial_residue_sha256": "595321be613c9aef267448d96e5b3ccb984560c498804cc5a1a9c169ad169108",
+          "block_trace_sha256": "bad555697b69122168e7f148cafa9a17e26f52f9381a69531d53b5b1bd9e98e8",
+          "scope": "Sufficient certificate only; failure is inconclusive."
+        }
+      ],
+      "certified": true
+    },
+    {
+      "v": 17,
+      "attempts": [
+        {
+          "v": 17,
+          "M": 131072,
+          "budget": 65536,
+          "precision_bits": 126147,
+          "odd_steps": 62747,
+          "certified": true,
+          "descent_time_upper_bound": 62747,
+          "block_width": 16,
+          "blocks": 7885,
+          "initial_residue_sha256": "fb674a3d97eb18b5e359658a9495171697b0ae123a374f0fe180da3acc8cb9ba",
+          "block_trace_sha256": "e30272f62970f13d67c1d7b885063e7e29f62ba2318c8513223386e876037f06",
+          "scope": "Sufficient certificate only; failure is inconclusive."
+        }
+      ],
+      "certified": true
+    },
+    {
+      "v": 18,
+      "attempts": [
+        {
+          "v": 18,
+          "M": 262144,
+          "budget": 131072,
+          "precision_bits": 252293,
+          "odd_steps": 126369,
+          "certified": true,
+          "descent_time_upper_bound": 126369,
+          "block_width": 16,
+          "blocks": 15769,
+          "initial_residue_sha256": "76b7438dbd3035d81da0ad30b36402eb50abb383ef49289846c487d6f761f6c0",
+          "block_trace_sha256": "f76d5d371791fa56121d59913178329c9ce1e656960596b8fcacf5f80b4d9ee0",
+          "scope": "Sufficient certificate only; failure is inconclusive."
+        }
+      ],
+      "certified": true
+    },
+    {
+      "v": 19,
+      "attempts": [
+        {
+          "v": 19,
+          "M": 524288,
+          "budget": 262144,
+          "precision_bits": 504585,
+          "odd_steps": 251632,
+          "certified": true,
+          "descent_time_upper_bound": 251632,
+          "block_width": 16,
+          "blocks": 31537,
+          "initial_residue_sha256": "db0ff3617870dd02d66d7df2a61831ac956ab25240176b3eac03e58b68208923",
+          "block_trace_sha256": "a9b225f650cb7e84151d9a9d6a6b6254e1d2a7aec17c03a467a67b12836622d7",
+          "scope": "Sufficient certificate only; failure is inconclusive."
+        }
+      ],
+      "certified": true
+    },
+    {
+      "v": 20,
+      "attempts": [
+        {
+          "v": 20,
+          "M": 1048576,
+          "budget": 524288,
+          "precision_bits": 1009169,
+          "odd_steps": 504483,
+          "certified": true,
+          "descent_time_upper_bound": 504483,
+          "block_width": 16,
+          "blocks": 63074,
+          "initial_residue_sha256": "a98d4ff16148f33b665b69a4ff8f6b98de840ac86b39ab8a541eef4c8f882be1",
+          "block_trace_sha256": "340065b60b833ac1e517b88d39b9499d4eec5774ef0be345dee09f74604eee06",
+          "scope": "Sufficient certificate only; failure is inconclusive."
+        }
+      ],
+      "certified": true
+    },
+    {
+      "v": 21,
+      "attempts": [
+        {
+          "v": 21,
+          "M": 2097152,
+          "budget": 1048576,
+          "precision_bits": 2018338,
+          "odd_steps": 1008989,
+          "certified": true,
+          "descent_time_upper_bound": 1008989,
+          "block_width": 16,
+          "blocks": 126147,
+          "initial_residue_sha256": "a09a6e3aafa1473fce04721d53ede67718b542ab1c482f2b875d688e159d6742",
+          "block_trace_sha256": "08737f11f10e6e5101fb4c8fb7bc3693cb93197c31e19f8aeb6ce54ea58fb4b8",
+          "scope": "Sufficient certificate only; failure is inconclusive."
+        }
+      ],
+      "certified": true
+    }
+  ],
+  "limitations": [
+    "Only the listed finite levels are certified.",
+    "A certificate gives an upper bound, not the exact first descent time.",
+    "A failed budget is inconclusive, not a failure of descent.",
+    "These are modular computations, not complete natural-number orbits.",
+    "No claim of novelty or Lean formalization is made."
+  ]
+}
