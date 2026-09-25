@@ -350,6 +350,20 @@ The [global margin replay](https://github.com/PieroBorgatta/Collatz/actions/runs
 and [existing Lean build and audits](https://github.com/PieroBorgatta/Collatz/actions/runs/36137449166)
 passed on commit `b03b2a1`; the downloaded result is byte-identical.
 
+The [mixed-prime study](notes/post_v6_mixed_2026-09-25/RESULTS_IT.md)
+shows that transporting a ternary constraint through a fixed parity word
+preserves its exact candidate set after accounting for the endpoint interval.
+For every v≥6, generic bad transfers still exist at the tower's height even
+with one quarter of its full ternary precision. Twelve explicit examples
+also preserve high binary digits; three lower prefixes are those of Q_v.
+These are local pairs, not points on the actual tower or a single alternative
+tower. The exact height threshold that isolates Q_v is distinguished from
+a bound on its orbit. No new uniform descent, Lean declaration, tower level,
+or mathematical priority is claimed. A short
+[scientific review brief](notes/post_v6_mixed_2026-09-25/SCIENTIFIC_BRIEF_IT.md)
+states the surviving pointwise problem and separates formal proofs from
+paper arguments and finite evidence.
+
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch
 identities, counterexamples to

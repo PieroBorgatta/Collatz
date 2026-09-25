@@ -1,0 +1,47 @@
+name: Tower mixed-prime constraints
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'notes/post_v6_mixed_2026-09-25/*.py'
+      - 'notes/post_v6_mixed_2026-09-25/*_results.json'
+      - 'notes/post_v6_margin_2026-09-25/margin_probe.py'
+      - 'notes/post_v6_margin_2026-09-25/margin_results.json'
+      - 'notes/post_v6_arithmetic_2026-09-25/arithmetic_probe.py'
+      - 'notes/post_v6_compensation_2026-09-25/block_engine.py'
+      - '.github/workflows/tower-mixed.yml'
+  pull_request:
+    paths:
+      - 'notes/post_v6_mixed_2026-09-25/**'
+      - 'notes/post_v6_margin_2026-09-25/margin_probe.py'
+      - 'notes/post_v6_margin_2026-09-25/margin_results.json'
+      - 'notes/post_v6_arithmetic_2026-09-25/arithmetic_probe.py'
+      - 'notes/post_v6_compensation_2026-09-25/block_engine.py'
+      - '.github/workflows/tower-mixed.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test CRT, transport, height thresholds and independent integer orbits
+        run: python3 notes/post_v6_mixed_2026-09-25/test_mixed.py
+      - name: Reproduce mixed-prime adversaries and exact thresholds
+        run: |
+          python3 notes/post_v6_mixed_2026-09-25/mixed_probe.py --output /tmp/mixed/mixed_results.json
+          cmp notes/post_v6_mixed_2026-09-25/mixed_results.json /tmp/mixed/mixed_results.json
+      - name: Preserve evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tower-mixed-${{ github.run_id }}-${{ github.run_attempt }}
+          path: /tmp/mixed
+          if-no-files-found: ignore
