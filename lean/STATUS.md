@@ -198,3 +198,28 @@ uniformly over all odd parameters at fixed v. This does not rule out
 height-dependent constraints or prove failure of a global rank. No new
 return-descent theorem or infinite divergent orbit is claimed. See the
 [transport report](../notes/post_v6_transport_2026-09-24/RESULTS_IT.md).
+
+## Post-v6 descent and conditional transfer (25 September 2026)
+
+`DescentCertificate.lean` formalizes a sufficient finite certificate:
+for positive x,N and k<3N, the inequality
+`3^(k+1)*x < 2^(exponentSum x k)*(3*N-k)` implies a visit below N
+at some time j≤k. A budget version permits an upper horizon and a lower
+bound on the actual exponent sum. The proof uses the exact dissipation
+identity in `WeightedVisits`, including the effect of the affine correction.
+
+`QuadraticTransfer.lean` supplies a rational version and a conditional
+transfer from X to `X+c*X²`. For X≥N>0, c≥1, a positive lower weight w
+with wX<N, an upper horizon ell≤N, and upper weight u satisfying
+`c*u ≤ 96*w²`, it gives a visit below `96*N²+704*N+1287` by ell.
+A corollary obtains the lower weight premise from an actual lower endpoint
+below N. The upper relative-weight inequality remains an explicit hypothesis.
+
+The two modules are imported by the main entrypoint. A dedicated
+[nine-root dependency audit](../notes/post_v6_induction_2026-09-25/DependencyAudit.lean)
+allows only `propext`, `Classical.choice`, and `Quot.sound`; no native axiom
+is allowed for these roots. The final verification evidence is recorded in
+the [transfer report](../notes/post_v6_induction_2026-09-25/RESULTS_IT.md).
+This is not a complete formalization of the earlier shortcut parity-count
+certificate producer, its Q_v specialization, or the application of Chim's
+theorem. No uniform family descent or mathematical priority is claimed.

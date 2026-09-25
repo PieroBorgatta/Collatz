@@ -1,0 +1,826 @@
+{
+  "scope": "Finite tests of fixed timing rules, not uniform induction or a novelty claim",
+  "baseline_sha256": "0f4b2028c492930c16c67b87f128ec1a5b16f6bff0fe86d61630ce14a07387ae",
+  "max_lower_v": 17,
+  "pair_count": 13,
+  "all_consistency_checks_passed": true,
+  "summary": {
+    "double": {
+      "certified_pairs": [
+        6,
+        9,
+        10,
+        13,
+        16
+      ],
+      "inconclusive_pairs": [
+        5,
+        7,
+        8,
+        11,
+        12,
+        14,
+        15,
+        17
+      ],
+      "upper_descent_not_yet_occurred": [
+        5,
+        7,
+        8,
+        11,
+        12,
+        14,
+        15,
+        17
+      ]
+    },
+    "linear_3v": {
+      "certified_pairs": [
+        7,
+        9,
+        10,
+        13,
+        16
+      ],
+      "inconclusive_pairs": [
+        5,
+        6,
+        8,
+        11,
+        12,
+        14,
+        15,
+        17
+      ],
+      "upper_descent_not_yet_occurred": [
+        5,
+        8,
+        11,
+        12,
+        14,
+        15,
+        17
+      ]
+    },
+    "quadratic_v2": {
+      "certified_pairs": [
+        6,
+        7,
+        9,
+        10,
+        13,
+        16
+      ],
+      "inconclusive_pairs": [
+        5,
+        8,
+        11,
+        12,
+        14,
+        15,
+        17
+      ],
+      "upper_descent_not_yet_occurred": [
+        8,
+        11,
+        12,
+        14,
+        15,
+        17
+      ]
+    },
+    "quarter_level": {
+      "certified_pairs": [
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "inconclusive_pairs": [
+        5,
+        6,
+        8
+      ],
+      "upper_descent_not_yet_occurred": [
+        5,
+        8
+      ]
+    }
+  },
+  "cone_counterexample": {
+    "a": 4,
+    "b": 3,
+    "x": 5,
+    "y": 2397,
+    "next_x": 1,
+    "next_y": 899,
+    "coefficients_before": [
+      96,
+      -1,
+      2
+    ],
+    "coefficients_after": [
+      1024,
+      -130,
+      5
+    ],
+    "scope": "Generic compatible pair; reachability from Q_v not established"
+  },
+  "pairs": [
+    {
+      "v": 5,
+      "lower_tau": 5,
+      "lower_A": 12,
+      "upper_tau": 28,
+      "lag_over_double": 18,
+      "attempts": [
+        {
+          "rule": "double",
+          "ell": 10,
+          "B": 19,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": false,
+          "upper_descent_by_horizon": false,
+          "upper_endpoint_below_source": false
+        },
+        {
+          "rule": "linear_3v",
+          "ell": 25,
+          "B": 45,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": false,
+          "upper_descent_by_horizon": false,
+          "upper_endpoint_below_source": false
+        },
+        {
+          "rule": "quadratic_v2",
+          "ell": 35,
+          "B": 64,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        },
+        {
+          "rule": "quarter_level",
+          "ell": 18,
+          "B": 34,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": false,
+          "upper_descent_by_horizon": false,
+          "upper_endpoint_below_source": false
+        }
+      ]
+    },
+    {
+      "v": 6,
+      "lower_tau": 28,
+      "lower_A": 54,
+      "upper_tau": 31,
+      "lag_over_double": -25,
+      "attempts": [
+        {
+          "rule": "double",
+          "ell": 56,
+          "B": 112,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        },
+        {
+          "rule": "linear_3v",
+          "ell": 74,
+          "B": 136,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        },
+        {
+          "rule": "quadratic_v2",
+          "ell": 92,
+          "B": 183,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        },
+        {
+          "rule": "quarter_level",
+          "ell": 72,
+          "B": 133,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        }
+      ]
+    },
+    {
+      "v": 7,
+      "lower_tau": 31,
+      "lower_A": 70,
+      "upper_tau": 67,
+      "lag_over_double": 5,
+      "attempts": [
+        {
+          "rule": "double",
+          "ell": 62,
+          "B": 131,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": false,
+          "upper_descent_by_horizon": false,
+          "upper_endpoint_below_source": false
+        },
+        {
+          "rule": "linear_3v",
+          "ell": 83,
+          "B": 178,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        },
+        {
+          "rule": "quadratic_v2",
+          "ell": 111,
+          "B": 226,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        },
+        {
+          "rule": "quarter_level",
+          "ell": 94,
+          "B": 201,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        }
+      ]
+    },
+    {
+      "v": 8,
+      "lower_tau": 67,
+      "lower_A": 146,
+      "upper_tau": 312,
+      "lag_over_double": 178,
+      "attempts": [
+        {
+          "rule": "double",
+          "ell": 134,
+          "B": 254,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": false,
+          "upper_descent_by_horizon": false,
+          "upper_endpoint_below_source": false
+        },
+        {
+          "rule": "linear_3v",
+          "ell": 158,
+          "B": 292,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": false,
+          "upper_descent_by_horizon": false,
+          "upper_endpoint_below_source": false
+        },
+        {
+          "rule": "quadratic_v2",
+          "ell": 198,
+          "B": 383,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": false,
+          "upper_descent_by_horizon": false,
+          "upper_endpoint_below_source": false
+        },
+        {
+          "rule": "quarter_level",
+          "ell": 198,
+          "B": 383,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": false,
+          "upper_descent_by_horizon": false,
+          "upper_endpoint_below_source": false
+        }
+      ]
+    },
+    {
+      "v": 9,
+      "lower_tau": 312,
+      "lower_A": 581,
+      "upper_tau": 392,
+      "lag_over_double": -232,
+      "attempts": [
+        {
+          "rule": "double",
+          "ell": 624,
+          "B": 1268,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        },
+        {
+          "rule": "linear_3v",
+          "ell": 651,
+          "B": 1324,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        },
+        {
+          "rule": "quadratic_v2",
+          "ell": 705,
+          "B": 1420,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        },
+        {
+          "rule": "quarter_level",
+          "ell": 752,
+          "B": 1507,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        }
+      ]
+    },
+    {
+      "v": 10,
+      "lower_tau": 392,
+      "lower_A": 790,
+      "upper_tau": 650,
+      "lag_over_double": -134,
+      "attempts": [
+        {
+          "rule": "double",
+          "ell": 784,
+          "B": 1628,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        },
+        {
+          "rule": "linear_3v",
+          "ell": 814,
+          "B": 1687,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        },
+        {
+          "rule": "quadratic_v2",
+          "ell": 884,
+          "B": 1833,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        },
+        {
+          "rule": "quarter_level",
+          "ell": 1040,
+          "B": 2147,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        }
+      ]
+    },
+    {
+      "v": 11,
+      "lower_tau": 650,
+      "lower_A": 1373,
+      "upper_tau": 1584,
+      "lag_over_double": 284,
+      "attempts": [
+        {
+          "rule": "double",
+          "ell": 1300,
+          "B": 2642,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": false,
+          "upper_descent_by_horizon": false,
+          "upper_endpoint_below_source": false
+        },
+        {
+          "rule": "linear_3v",
+          "ell": 1333,
+          "B": 2708,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": false,
+          "upper_descent_by_horizon": false,
+          "upper_endpoint_below_source": false
+        },
+        {
+          "rule": "quadratic_v2",
+          "ell": 1421,
+          "B": 2887,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": false,
+          "upper_descent_by_horizon": false,
+          "upper_endpoint_below_source": false
+        },
+        {
+          "rule": "quarter_level",
+          "ell": 1812,
+          "B": 3654,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        }
+      ]
+    },
+    {
+      "v": 12,
+      "lower_tau": 1584,
+      "lower_A": 3200,
+      "upper_tau": 3650,
+      "lag_over_double": 482,
+      "attempts": [
+        {
+          "rule": "double",
+          "ell": 3168,
+          "B": 6202,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": false,
+          "upper_descent_by_horizon": false,
+          "upper_endpoint_below_source": false
+        },
+        {
+          "rule": "linear_3v",
+          "ell": 3204,
+          "B": 6282,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": false,
+          "upper_descent_by_horizon": false,
+          "upper_endpoint_below_source": false
+        },
+        {
+          "rule": "quadratic_v2",
+          "ell": 3312,
+          "B": 6480,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": false,
+          "upper_descent_by_horizon": false,
+          "upper_endpoint_below_source": false
+        },
+        {
+          "rule": "quarter_level",
+          "ell": 4192,
+          "B": 8285,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        }
+      ]
+    },
+    {
+      "v": 13,
+      "lower_tau": 3650,
+      "lower_A": 7169,
+      "upper_tau": 6444,
+      "lag_over_double": -856,
+      "attempts": [
+        {
+          "rule": "double",
+          "ell": 7300,
+          "B": 14692,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        },
+        {
+          "rule": "linear_3v",
+          "ell": 7339,
+          "B": 14754,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        },
+        {
+          "rule": "quadratic_v2",
+          "ell": 7469,
+          "B": 15020,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        },
+        {
+          "rule": "quarter_level",
+          "ell": 9348,
+          "B": 18686,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        }
+      ]
+    },
+    {
+      "v": 14,
+      "lower_tau": 6444,
+      "lower_A": 12988,
+      "upper_tau": 13247,
+      "lag_over_double": 359,
+      "attempts": [
+        {
+          "rule": "double",
+          "ell": 12888,
+          "B": 25781,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": false,
+          "upper_descent_by_horizon": false,
+          "upper_endpoint_below_source": false
+        },
+        {
+          "rule": "linear_3v",
+          "ell": 12930,
+          "B": 25874,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": false,
+          "upper_descent_by_horizon": false,
+          "upper_endpoint_below_source": false
+        },
+        {
+          "rule": "quadratic_v2",
+          "ell": 13084,
+          "B": 26213,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": false,
+          "upper_descent_by_horizon": false,
+          "upper_endpoint_below_source": false
+        },
+        {
+          "rule": "quarter_level",
+          "ell": 16984,
+          "B": 33939,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        }
+      ]
+    },
+    {
+      "v": 15,
+      "lower_tau": 13247,
+      "lower_A": 26553,
+      "upper_tau": 27279,
+      "lag_over_double": 785,
+      "attempts": [
+        {
+          "rule": "double",
+          "ell": 26494,
+          "B": 52772,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": false,
+          "upper_descent_by_horizon": false,
+          "upper_endpoint_below_source": false
+        },
+        {
+          "rule": "linear_3v",
+          "ell": 26539,
+          "B": 52868,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": false,
+          "upper_descent_by_horizon": false,
+          "upper_endpoint_below_source": false
+        },
+        {
+          "rule": "quadratic_v2",
+          "ell": 26719,
+          "B": 53243,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": false,
+          "upper_descent_by_horizon": false,
+          "upper_endpoint_below_source": false
+        },
+        {
+          "rule": "quarter_level",
+          "ell": 34686,
+          "B": 69435,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        }
+      ]
+    },
+    {
+      "v": 16,
+      "lower_tau": 27279,
+      "lower_A": 54366,
+      "upper_tau": 52527,
+      "lag_over_double": -2031,
+      "attempts": [
+        {
+          "rule": "double",
+          "ell": 54558,
+          "B": 109632,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        },
+        {
+          "rule": "linear_3v",
+          "ell": 54606,
+          "B": 109723,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        },
+        {
+          "rule": "quadratic_v2",
+          "ell": 54814,
+          "B": 110147,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        },
+        {
+          "rule": "quarter_level",
+          "ell": 70942,
+          "B": 142586,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        }
+      ]
+    },
+    {
+      "v": 17,
+      "lower_tau": 52527,
+      "lower_A": 105513,
+      "upper_tau": 107678,
+      "lag_over_double": 2624,
+      "attempts": [
+        {
+          "rule": "double",
+          "ell": 105054,
+          "B": 209950,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": false,
+          "upper_descent_by_horizon": false,
+          "upper_endpoint_below_source": false
+        },
+        {
+          "rule": "linear_3v",
+          "ell": 105105,
+          "B": 210077,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": false,
+          "upper_descent_by_horizon": false,
+          "upper_endpoint_below_source": false
+        },
+        {
+          "rule": "quadratic_v2",
+          "ell": 105343,
+          "B": 210574,
+          "alpha_le_96": false,
+          "ell_le_lower_source": true,
+          "transfer_certified": false,
+          "generic_certificate_passed": false,
+          "upper_descent_by_horizon": false,
+          "upper_endpoint_below_source": false
+        },
+        {
+          "rule": "quarter_level",
+          "ell": 137822,
+          "B": 274978,
+          "alpha_le_96": true,
+          "ell_le_lower_source": true,
+          "transfer_certified": true,
+          "generic_certificate_passed": true,
+          "upper_descent_by_horizon": true,
+          "upper_endpoint_below_source": true
+        }
+      ]
+    }
+  ]
+}

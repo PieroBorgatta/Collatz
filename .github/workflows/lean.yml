@@ -52,3 +52,15 @@ jobs:
             /tmp/tower-transport-results.json
             /tmp/tower-dependency-audit.log
           if-no-files-found: ignore
+      - name: Audit descent and quadratic transfer without native axioms
+        working-directory: lean
+        run: |
+          set -o pipefail
+          lake env lean ../notes/post_v6_induction_2026-09-25/DependencyAudit.lean | tee /tmp/descent-transfer-audit.log
+      - name: Preserve descent and transfer audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: descent-transfer-${{ github.run_id }}-${{ github.run_attempt }}
+          path: /tmp/descent-transfer-audit.log
+          if-no-files-found: ignore

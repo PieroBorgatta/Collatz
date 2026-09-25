@@ -23,6 +23,8 @@ import CollatzShadowing.TowerParameter
 import CollatzShadowing.TowerSuffix
 import CollatzShadowing.SectionReturn
 import CollatzShadowing.WeightedVisits
+import CollatzShadowing.DescentCertificate
+import CollatzShadowing.QuadraticTransfer
 import CollatzShadowing.WeightedWords
 import CollatzShadowing.WeightedCounting
 import CollatzShadowing.WeightedPredecessors

@@ -289,6 +289,17 @@ The full experiment and independent replay passed in
 with three byte-identical result files; the existing Lean build and audits
 also passed on the same code commit.
 
+The [conditional transfer study](notes/post_v6_induction_2026-09-25/RESULTS_IT.md)
+formalizes the general sufficient descent certificate and a quadratic
+transfer criterion in `DescentCertificate.lean` and `QuadraticTransfer.lean`.
+The transfer requires an explicit relative-weight bound on the upper orbit;
+that bound is not proved uniformly. A retrospective exact experiment retains
+all 52 attempts on 13 adjacent pairs: the simple timing rules `2t_v`,
+`2t_v+3v`, and `2t_v+v²` fail to cover the observed family. A compatible
+counterexample also rules out invariance of the proposed coefficient cone
+under its generic hypotheses. These results do not close the induction,
+and the Lean declarations are not claims of new mathematical discoveries.
+
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch
 identities, counterexamples to

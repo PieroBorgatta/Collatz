@@ -1,0 +1,41 @@
+name: Tower induction tests
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'notes/post_v6_induction_2026-09-25/*.py'
+      - 'notes/post_v6_induction_2026-09-25/induction_results.json'
+      - 'notes/post_v6_levels_2026-09-24/levels_results.json'
+      - '.github/workflows/tower-induction.yml'
+  pull_request:
+    paths:
+      - 'notes/post_v6_induction_2026-09-25/**'
+      - 'notes/post_v6_levels_2026-09-24/levels_results.json'
+      - '.github/workflows/tower-induction.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test independent arithmetic and rejection of altered baselines
+        run: python3 notes/post_v6_induction_2026-09-25/test_induction.py
+      - name: Replay all fixed timing rules, retaining failures
+        run: |
+          python3 notes/post_v6_induction_2026-09-25/induction_probe.py --output /tmp/tower-induction/induction_results.json
+          cmp notes/post_v6_induction_2026-09-25/induction_results.json /tmp/tower-induction/induction_results.json
+      - name: Preserve experiment evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tower-induction-${{ github.run_id }}-${{ github.run_attempt }}
+          path: /tmp/tower-induction
+          if-no-files-found: ignore
