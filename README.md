@@ -410,9 +410,9 @@ controls the original seam for a quantified short window, and a verified
 application of existing discrepancy literature extends the asymptotic
 range. The study checks 208 states and gives an exact identity for the
 carry difference between the two orbits, isolating their appended tails.
-Controlling those tails and comparing the different time horizons remain
-open; no new tower level, Lean declaration or mathematical priority is
-claimed.
+That short-window bound does not control the tails at the full descent
+horizons; no new tower level, Lean declaration or mathematical priority
+is claimed.
 The [propagation CI](https://github.com/PieroBorgatta/Collatz/actions/runs/36155684360)
 and [existing Lean checks](https://github.com/PieroBorgatta/Collatz/actions/runs/36155684119)
 passed on `a65d2e2`: all 11 tests pass and the downloaded JSON is
@@ -427,6 +427,9 @@ The implementation checks 1,487 finite-precision blocks. A complementary
 memory lower bound rules out a fixed finite exact transducer for arbitrary
 inputs. The cumulative cancellation still has no uniform bound for the
 tower; these results add no new Lean declarations or certified levels.
+The [tail CI](https://github.com/PieroBorgatta/Collatz/actions/runs/36159965523)
+and [existing Lean checks](https://github.com/PieroBorgatta/Collatz/actions/runs/36159965455)
+passed on `2d55b15`: 14 tests pass and the downloaded JSON is byte-identical.
 
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch

@@ -145,10 +145,15 @@ python3 notes/post_v6_tail_2026-09-25/tail_probe.py --output /tmp/tail_results.j
 cmp notes/post_v6_tail_2026-09-25/tail_results.json /tmp/tail_results.json
 ```
 
-Il [workflow dedicato](../../.github/workflows/tower-tail.yml) ripete
-test e generazione del JSON. L'evidenza della CI verrà archiviata dopo
-il push del codice. La build Lean esistente riguarda i moduli già
-formalizzati, non queste prove su carta.
+La [CI delle code](https://github.com/PieroBorgatta/Collatz/actions/runs/36159965523)
+e la [build Lean con gli audit esistenti](https://github.com/PieroBorgatta/Collatz/actions/runs/36159965455)
+sono passate sul commit `2d55b15`. Tutti i 14 test passano anche in
+Linux; il JSON scaricato è identico byte per byte a quello locale.
+La CI ripete i programmi archiviati: non è un nuovo oracolo indipendente.
+La build Lean riguarda i moduli già formalizzati, non queste prove
+su carta. Log e SHA-256 sono nel [manifesto](verification_manifest.json).
+Gli input delle sette fasi precedenti e gli artifact pubblicati v6
+sono invariati; i vecchi SHA del README restano fotografie storiche.
 
 ## Conseguenza per il progetto
 

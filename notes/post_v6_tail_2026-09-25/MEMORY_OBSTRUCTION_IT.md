@@ -191,7 +191,7 @@ un bit di precisione binaria, e l'induzione copre i `k` passi.
 Per la necessità basta scegliere tutti gli ingressi futuri nulli e
 applicare il lemma delle parole di parità.
 
-Il numero minimo di classi distinguibili a quell'orizzonte è dunque
+Per `j≥1`, il numero minimo di classi distinguibili a quell'orizzonte è dunque
 
 \[
  N_{j,k}=\#\{z\bmod2^k:1\le z<3^j,\ 3\nmid z\}.

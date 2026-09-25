@@ -1,0 +1,92 @@
+{
+  "date": "2026-09-25",
+  "verified_code_commit": "2d55b157427108a1a58fa4798933d36185a4e3e4",
+  "tail_ci": {
+    "conclusion": "success",
+    "headSha": "2d55b157427108a1a58fa4798933d36185a4e3e4",
+    "status": "completed",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36159965523"
+  },
+  "existing_lean_ci": {
+    "conclusion": "success",
+    "headSha": "2d55b157427108a1a58fa4798933d36185a4e3e4",
+    "status": "completed",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36159965455"
+  },
+  "verification": {
+    "tests": 14,
+    "generic_integer_oracle_replays": 1649,
+    "finite_precision_exhaustive_cases": 1701,
+    "base_indices": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "paired_full_horizons": 8,
+    "steps": 23666,
+    "tail_digit_cells": 25980961,
+    "finite_precision_blocks": 1487,
+    "all_local_and_cumulative_identities_verified": true,
+    "direct_integer_parities_checked_at_every_step": true,
+    "full_ternary_tail_value_checked_at_end_of_each_run": true,
+    "frozen_margin_complete_parity_hashes_match": true,
+    "previous_C_ternary_pair_results_match": true,
+    "reachable_unit_examples_through_j": 7,
+    "downloaded_result_byte_identical": true,
+    "previous_non_README_hashes_verified": {
+      "compensation": 18,
+      "arithmetic": 13,
+      "margin": 13,
+      "mixed": 12,
+      "ancestry": 14,
+      "ternary": 11,
+      "propagation": 13
+    },
+    "CI_rerun_itself_is_not_a_new_independent_implementation": true
+  },
+  "mathematical_status": {
+    "tail_accounting": "Exact local, unweighted and weighted identities; unequal-horizon E=Delta+K includes the additional upper steps.",
+    "finite_precision": "For fixed initial j, two tails give the same k outputs for every common input iff congruent modulo 2^k; precision decreases by one bit per step.",
+    "generic_memory_obstruction": "At fixed j>=1, all 2*3^(j-1) unit tails are synchronously reachable and distinguishable. This concerns arbitrary inputs, not specifically the tower.",
+    "normalization": "Sharp real bounds and contraction; these do not determine parity at the finer arithmetic scale.",
+    "uniform_doubling_error_bound": "Open",
+    "uniform_family_descent": "Not proved",
+    "new_tower_levels": [],
+    "new_lean_declarations": 0,
+    "novelty": "Not established",
+    "review": "Internal agent cross-review; not external human peer review."
+  },
+  "scope_notes": [
+    "Only already studied tower levels and horizons are replayed.",
+    "Block prediction obtains refreshed residues from the exact state; no bounded-memory precision replenishment is claimed.",
+    "The large cumulative cancellation is an identity, not a uniform bound.",
+    "Paper proofs are not formalized by the existing Lean CI.",
+    "Subsequent changes are documentation and archived evidence only.",
+    "Earlier manifests remain historical snapshots, including their README hashes."
+  ],
+  "frozen_v6_sha256": {
+    "paper/collatz_spectral_reduction_v6.pdf": "a959282145d5042550c3938b445a4964305299b4eca71bcc62539804c5b585f9",
+    "collatz_spectral_reduction_v6_supplementary.zip": "20f9195443dd058aeae16b9316ed0f6beafb6d360182ba93b875107a0ee9da60"
+  },
+  "sha256": {
+    ".github/workflows/tower-tail.yml": "b29541b5e0e7e86c16488a6b54b909ef2c1e4f3c02142e99cffa53e86b9e0265",
+    "README.md": "9459ec1bfa272fb4033c3eac2de9cd61b9cc140f51024ac29fe52c577a06e5c2",
+    "notes/post_v6_margin_2026-09-25/margin_results.json": "837937cb8387577e53f0547a6991e1b606828b82366a94190835c8fbd246ccf5",
+    "notes/post_v6_propagation_2026-09-25/PREFIX_PROPAGATION_IT.md": "5a2f6c29471168417fa8822fa52a0e2cd3b93c32a2d5a759a3c968fa9ec18f8e",
+    "notes/post_v6_tail_2026-09-25/MEMORY_OBSTRUCTION_IT.md": "e609e0532e1168908d989f4574194606ba38eec15acdf312f21c117637565835",
+    "notes/post_v6_tail_2026-09-25/NEXT_RESEARCH_IT.md": "ef93ed91c27a7d5dca39da1fdd1671259ab53aa190c1589aba9a4db276856184",
+    "notes/post_v6_tail_2026-09-25/RESULTS_IT.md": "f2ef2116f4da7a5c585c8cf13e52cecf772476753d0b36ba37d8f95a49c45932",
+    "notes/post_v6_tail_2026-09-25/TAIL_IDENTITIES_IT.md": "4159fada55e986ea68c674620021ae6c490ddc6b04b7158f7d19f01e947e78d1",
+    "notes/post_v6_tail_2026-09-25/ci_36159965455.log.gz": "1be6a2b96887a642c57c99c0bd7110aad2493ea3688a3c71f0eb4406640fea47",
+    "notes/post_v6_tail_2026-09-25/ci_36159965523.log.gz": "f60721eb4b36450125e15519ca7b70b06508ba680c273a17f76bc1809ac4413d",
+    "notes/post_v6_tail_2026-09-25/tail_probe.py": "1ab9efeca6b46f3a86f4ce5afe65c9b6cf49b7d5e9d7cdd2227e933f09665097",
+    "notes/post_v6_tail_2026-09-25/tail_results.json": "9b33c521d3ad0f55e6a5b93066d7e51914494db2557005f546dce9c7aeb56e68",
+    "notes/post_v6_tail_2026-09-25/test_tail.py": "052dec1160c8a1d3db83e40ae74976e948034e5d2e42929bf35529a5c0d01435",
+    "notes/post_v6_ternary_2026-09-25/ternary_results.json": "8723fb24fb14121ae3e784cf8fb200d7761d3a3f9c7ac77481b88ba6e93089e4"
+  }
+}
