@@ -1,0 +1,41 @@
+name: Tower arithmetic word conditions
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'notes/post_v6_arithmetic_2026-09-25/*.py'
+      - 'notes/post_v6_arithmetic_2026-09-25/*_results.json'
+      - 'notes/post_v6_compensation_2026-09-25/block_engine.py'
+      - 'notes/post_v6_compensation_2026-09-25/holdout_results.json'
+      - '.github/workflows/tower-arithmetic.yml'
+  pull_request:
+    paths:
+      - 'notes/post_v6_arithmetic_2026-09-25/**'
+      - '.github/workflows/tower-arithmetic.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test against elementary iteration and exact small cylinders
+        run: python3 notes/post_v6_arithmetic_2026-09-25/test_arithmetic.py
+      - name: Reproduce the prefix-preserving arithmetic checks
+        run: |
+          python3 notes/post_v6_arithmetic_2026-09-25/arithmetic_probe.py --output /tmp/arithmetic/arithmetic_results.json
+          cmp notes/post_v6_arithmetic_2026-09-25/arithmetic_results.json /tmp/arithmetic/arithmetic_results.json
+      - name: Preserve evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tower-arithmetic-${{ github.run_id }}-${{ github.run_attempt }}
+          path: /tmp/arithmetic
+          if-no-files-found: ignore

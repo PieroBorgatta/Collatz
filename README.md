@@ -317,6 +317,21 @@ The [full experiment and independent replay](https://github.com/PieroBorgatta/Co
 passed on commit `df44e7f`, with four byte-identical downloaded result files;
 the existing Lean build and audits also passed.
 
+The [arithmetic word study](notes/post_v6_arithmetic_2026-09-25/RESULTS_IT.md)
+preserves the complete prefix when translating a bad block into a tower
+congruence. It proves at paper level that the existing explicit Chim
+specialization cannot exclude positive-loss blocks in this full-word
+encoding: its upper bound always exceeds the required modulus exponent
+by a factor greater than 36 million. A signed alternative leaves possible
+cancellations open. Exact checks reproduce the three previously held-out
+levels. High-complexity admissible words show that parity density alone
+does not force low complexity of the parity word. A bridge to recent
+digital-complexity results for powers of 3 remains unproved. These words
+are not counterexamples from the distinguished tower.
+The compensation hypothesis remains open; no Lean declaration or claim
+of mathematical priority is added. A targeted literature review and an
+unsent specialist-review note accompany the results.
+
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch
 identities, counterexamples to
