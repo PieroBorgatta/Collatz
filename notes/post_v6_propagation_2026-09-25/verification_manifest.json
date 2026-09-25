@@ -1,0 +1,96 @@
+{
+  "date": "2026-09-25",
+  "verified_code_commit": "a65d2e27cce893e8db640b6e0e859d8b3a1981cb",
+  "propagation_ci": {
+    "conclusion": "success",
+    "headSha": "a65d2e27cce893e8db640b6e0e859d8b3a1981cb",
+    "status": "completed",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36155684360"
+  },
+  "existing_lean_ci": {
+    "conclusion": "success",
+    "headSha": "a65d2e27cce893e8db640b6e0e859d8b3a1981cb",
+    "status": "completed",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36155684119"
+  },
+  "verification": {
+    "tests": 11,
+    "generic_quotient_identity_test_cases": 8188,
+    "finite_affine_words_through_length_nine": 1023,
+    "base_indices": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "paired_state_checkpoints": 104,
+    "state_checkpoints": 208,
+    "maximum_depth_checked": 38,
+    "all_original_digits_and_carries_match_model": true,
+    "all_104_observed_seam_errors_are_zero": true,
+    "all_104_paired_total_carry_identities_verified": true,
+    "independent_integer_endpoint_and_residual_orbit_checks": true,
+    "previous_first_seam_values_match": true,
+    "downloaded_result_byte_identical": true,
+    "all_previous_frozen_inputs_unchanged": true,
+    "previous_non_README_hashes_verified": {
+      "compensation": 18,
+      "arithmetic": 13,
+      "margin": 13,
+      "mixed": 12,
+      "ancestry": 14,
+      "ternary": 11
+    },
+    "CI_rerun_itself_is_not_a_new_independent_implementation": true
+  },
+  "mathematical_status": {
+    "quotient_identity": "Paper proof for every n,t>=0: floor(T^t(n)/3^J_n(t))=floor(n/2^t).",
+    "prefix_propagation": "All original columns and carries are exact at every time, with no boundary error.",
+    "explicit_seam_bound": "Paper Fourier proof: 2*D_(r,t)^2 <= m*2^t*(r-1)^2*(r+t+1)^2.",
+    "paired_carry_identity": "At the same time t: C_U-2*C_L=D_model+A_U-2*A_L; tail error at most max(j_U,2*j_L)<=2*t.",
+    "literature_application": "Merai-Shparlinski Theorem 1.2 gives asymptotic cancellation for r+t+1=o(r^(3/2)); r>=99 is applicability only, not a certified numerical saving threshold.",
+    "uniform_doubling_error_bound": "Open",
+    "uniform_family_descent": "Not proved",
+    "new_tower_levels": [],
+    "new_lean_declarations": 0,
+    "novelty": "Not established",
+    "review": "Internal agent cross-review; not external human peer review."
+  },
+  "scope_notes": [
+    "Only short prefixes of already studied orbits are replayed, not new full descent horizons.",
+    "Threshold tables evaluate proved parameter inequalities, not new tower orbits.",
+    "The obstruction at t=m concerns a single uncentred window, not the two-window seam or Delta.",
+    "The appended tails and different time horizons remain uncontrolled for E and Delta.",
+    "Existing Lean CI does not formalize these paper arguments.",
+    "Subsequent changes are documentation and archived evidence only.",
+    "Earlier manifests remain historical snapshots, including their README hashes."
+  ],
+  "frozen_v6_sha256": {
+    "paper/collatz_spectral_reduction_v6.pdf": "a959282145d5042550c3938b445a4964305299b4eca71bcc62539804c5b585f9",
+    "collatz_spectral_reduction_v6_supplementary.zip": "20f9195443dd058aeae16b9316ed0f6beafb6d360182ba93b875107a0ee9da60"
+  },
+  "sha256": {
+    ".github/workflows/tower-propagation.yml": "ae038e986ad0220d123168337836f1836a7638d3e106a3d305c6d7d745f787fa",
+    "README.md": "0f5dbd0c8b6b30b6810314ec57fec55134a88d9d131faeb882323e432295313e",
+    "notes/post_v6_propagation_2026-09-25/FOURIER_PROPAGATION_IT.md": "dae138c980267625f00080e0b5ed946bad3b8d9f8c4114f3b3e4ee26d5fa26de",
+    "notes/post_v6_propagation_2026-09-25/LITERATURE_IT.md": "6a7b00b459b2f032a49698429268f9692e54d2d79c4941933f450c57c75010d3",
+    "notes/post_v6_propagation_2026-09-25/NEXT_RESEARCH_IT.md": "67102a0740908bf580673b8d6fe605f5a178a4d47bc6db27173d8adbafad6ce6",
+    "notes/post_v6_propagation_2026-09-25/PREFIX_PROPAGATION_IT.md": "5a2f6c29471168417fa8822fa52a0e2cd3b93c32a2d5a759a3c968fa9ec18f8e",
+    "notes/post_v6_propagation_2026-09-25/RESULTS_IT.md": "b59ab94f0806fc0403c443144e36d5050fc40b8589c3e4f2bcdb6b3196466d6e",
+    "notes/post_v6_propagation_2026-09-25/ci_36155684119.log.gz": "2811a26d8221a6448eb0e828c68b69a57336a0293c6f86f929bfb2959054e8e6",
+    "notes/post_v6_propagation_2026-09-25/ci_36155684360.log.gz": "c78f9385de40a45c6ef26d5e01859f5c9ef7e4305dbb3a8743da907a99d8541f",
+    "notes/post_v6_propagation_2026-09-25/propagation_probe.py": "8d7b7c3aa35af4643afb8890cea85966c22b72f7a980e34f9fcb321ed38e1701",
+    "notes/post_v6_propagation_2026-09-25/propagation_results.json": "814e172713adb2a505355e6fd85f6fa8a754589f4fe95f87ab514514eff6c876",
+    "notes/post_v6_propagation_2026-09-25/test_propagation.py": "9c3c514e4b19b976d8bfcdf7407e511afb62fd3a2a09aa9f61bb60f1c673c271",
+    "notes/post_v6_ternary_2026-09-25/ternary_probe.py": "ad748dbc93cb7c818a1e210fc1087d15346298cb041de6bf81f33691b45b9082",
+    "notes/post_v6_ternary_2026-09-25/ternary_results.json": "8723fb24fb14121ae3e784cf8fb200d7761d3a3f9c7ac77481b88ba6e93089e4"
+  }
+}

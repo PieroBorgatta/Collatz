@@ -413,6 +413,10 @@ carry difference between the two orbits, isolating their appended tails.
 Controlling those tails and comparing the different time horizons remain
 open; no new tower level, Lean declaration or mathematical priority is
 claimed.
+The [propagation CI](https://github.com/PieroBorgatta/Collatz/actions/runs/36155684360)
+and [existing Lean checks](https://github.com/PieroBorgatta/Collatz/actions/runs/36155684119)
+passed on `a65d2e2`: all 11 tests pass and the downloaded JSON is
+byte-identical. The new arguments remain paper proofs.
 
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch

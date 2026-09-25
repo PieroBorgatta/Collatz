@@ -170,7 +170,17 @@ python3 notes/post_v6_propagation_2026-09-25/propagation_probe.py --output /tmp/
 cmp notes/post_v6_propagation_2026-09-25/propagation_results.json /tmp/propagation_results.json
 ```
 
-<!-- CI_EVIDENCE_PENDING -->
+La [CI di propagazione](https://github.com/PieroBorgatta/Collatz/actions/runs/36155684360)
+e la [build Lean con gli audit esistenti](https://github.com/PieroBorgatta/Collatz/actions/runs/36155684119)
+sono passate sul commit `a65d2e2`. Tutti gli undici test passano anche
+nella CI Linux; il JSON scaricato è identico byte per byte a quello locale.
+La CI ripete le implementazioni archiviate: l'indipendenza deriva dagli
+oracoli aritmetici distinti, non dal cambio di macchina. La build Lean
+verifica le dichiarazioni esistenti e non formalizza queste nuove note.
+Log e SHA-256 sono archiviati nel [manifesto](verification_manifest.json).
+Gli input delle sei fasi precedenti e i due artifact pubblicati v6 sono
+invariati; i manifesti precedenti restano riferimenti storici, compresi
+i loro SHA del README.
 
 ## 6. Il prossimo problema concreto
 
