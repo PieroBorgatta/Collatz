@@ -350,6 +350,15 @@ controesempio. La revisione ha corretto «subesponenziale» in
 \(o(2^v)\): il limite (5) è esponenziale nel parametro \(v\), sebbene
 di ordine inferiore a \(2^v\). Non è una revisione umana esterna.
 
+Il [replay completo in CI](https://github.com/PieroBorgatta/Collatz/actions/runs/36137449224)
+e la [build Lean con gli audit esistenti](https://github.com/PieroBorgatta/Collatz/actions/runs/36137449166)
+sono passati sul commit `b03b2a10795e7dac4b22f418fe60cc4403616aa8`.
+Il risultato scaricato dalla CI coincide byte per byte con il JSON locale.
+Il [manifest di verifica](verification_manifest.json) archivia gli hash,
+i collegamenti e i log compressi. La build Lean controlla il progetto
+esistente, non formalizza gli argomenti di questa nota. Le modifiche
+successive al commit verificato riguardano documentazione ed evidenze.
+
 ## 7. Fonti e decisione di ricerca
 
 La biezione fra parole finite e classi residue è classica: si veda

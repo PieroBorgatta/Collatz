@@ -346,6 +346,9 @@ that certificate and the high bits while violating the upper budget.
 These are not counterexamples from Q_v. All existing levels 5–24 are
 replayed, with six explicit quadratic adversaries; no new tower level,
 Lean declaration, or mathematical priority is claimed.
+The [global margin replay](https://github.com/PieroBorgatta/Collatz/actions/runs/36137449224)
+and [existing Lean build and audits](https://github.com/PieroBorgatta/Collatz/actions/runs/36137449166)
+passed on commit `b03b2a1`; the downloaded result is byte-identical.
 
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch
