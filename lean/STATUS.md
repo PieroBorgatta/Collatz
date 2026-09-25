@@ -220,6 +220,10 @@ The two modules are imported by the main entrypoint. A dedicated
 allows only `propext`, `Classical.choice`, and `Quot.sound`; no native axiom
 is allowed for these roots. The final verification evidence is recorded in
 the [transfer report](../notes/post_v6_induction_2026-09-25/RESULTS_IT.md).
+The full build and this strict audit passed in
+[CI 36118390826](https://github.com/PieroBorgatta/Collatz/actions/runs/36118390826)
+on code commit `8be311667d6d20a729a39ba6dd711e122da74649`, with the three
+standard axioms only for every new audited root.
 This is not a complete formalization of the earlier shortcut parity-count
 certificate producer, its Q_v specialization, or the application of Chim's
 theorem. No uniform family descent or mathematical priority is claimed.

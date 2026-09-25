@@ -1,0 +1,28 @@
+DESCENT_TRANSFER_ROOT_AUDIT: PASS CollatzShadowing.DescentCertificate.potential_le_initial; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+DESCENT_TRANSFER_ROOT_AUDIT: PASS CollatzShadowing.DescentCertificate.loss_le_budget; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+DESCENT_TRANSFER_ROOT_AUDIT: PASS CollatzShadowing.DescentCertificate.potential_lower_bound; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+DESCENT_TRANSFER_ROOT_AUDIT: PASS CollatzShadowing.DescentCertificate.exists_descent_of_certificate; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+DESCENT_TRANSFER_ROOT_AUDIT: PASS CollatzShadowing.DescentCertificate.exists_descent_of_budget; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+DESCENT_TRANSFER_ROOT_AUDIT: PASS CollatzShadowing.QuadraticTransfer.homogeneous_upper_bound; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+DESCENT_TRANSFER_ROOT_AUDIT: PASS CollatzShadowing.QuadraticTransfer.exists_descent_of_weight; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+DESCENT_TRANSFER_ROOT_AUDIT: PASS CollatzShadowing.QuadraticTransfer.exists_descent_of_relative_weight; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+DESCENT_TRANSFER_ROOT_AUDIT: PASS CollatzShadowing.QuadraticTransfer.exists_descent_of_lower_descent; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+DESCENT_TRANSFER_AUDIT: PASS; roots: 9

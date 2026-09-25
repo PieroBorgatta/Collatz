@@ -299,6 +299,9 @@ all 52 attempts on 13 adjacent pairs: the simple timing rules `2t_v`,
 counterexample also rules out invariance of the proposed coefficient cone
 under its generic hypotheses. These results do not close the induction,
 and the Lean declarations are not claims of new mathematical discoveries.
+The [full Lean build and strict audit](https://github.com/PieroBorgatta/Collatz/actions/runs/36118390826)
+and the [exact experimental replay](https://github.com/PieroBorgatta/Collatz/actions/runs/36118390748)
+passed on commit `8be3116`; the downloaded result file is byte-identical.
 
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch

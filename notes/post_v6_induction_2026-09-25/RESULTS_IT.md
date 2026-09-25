@@ -10,9 +10,16 @@ temporali più semplici falliscono sui dati disponibili e il cono proposto
 non è invariante in generale. L'induzione sulla famiglia infinita resta
 aperta. Non viene rivendicata priorità matematica per questi lemmi.
 
-Entrambi i moduli hanno superato la compilazione locale. Le verifiche CI
-sono in corso; lo stato conclusivo sarà registrato nel manifest di questa
-cartella.
+Entrambi i moduli hanno superato la compilazione locale e il build completo
+nella [CI Lean 36118390826](https://github.com/PieroBorgatta/Collatz/actions/runs/36118390826).
+L'audit delle nove radici ammette soltanto `propext`, `Classical.choice`,
+`Quot.sound`. La [CI sperimentale 36118390748](https://github.com/PieroBorgatta/Collatz/actions/runs/36118390748)
+ha superato gli otto test e riprodotto il JSON byte per byte, verificato
+anche scaricando l'artefatto. Entrambe le CI riguardano il commit di codice
+`8be311667d6d20a729a39ba6dd711e122da74649`.
+Il [manifest](verification_manifest.json) e i log archiviati documentano
+il controllo, sul toolchain Lean 4.29.1 fissato nel progetto. Le modifiche
+successive a quel commit riguardano documentazione ed evidenza.
 
 ## 1. Criterio generale: la parte ora verificata da Lean
 
@@ -83,6 +90,9 @@ Se S^k(X)<N, si può prendere w=w_k(X): il termine additivo dell'iterata
 «esiste j≤k con S^j(X)<N» non giustifica questa premessa al tempo k.
 Si deve scegliere un tempo con endpoint inferiore effettivamente sotto
 soglia, come il primo tempo di discesa.
+
+Il lemma astratto e questo corollario sono formalizzati in
+[`QuadraticTransfer.lean`](../../lean/CollatzShadowing/QuadraticTransfer.lean).
 
 Per la famiglia in studio, con v≥5,
 

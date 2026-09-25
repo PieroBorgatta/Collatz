@@ -1,0 +1,192 @@
+{
+  "date": "2026-09-25",
+  "verified_code_commit": "8be311667d6d20a729a39ba6dd711e122da74649",
+  "experiment_ci": {
+    "conclusion": "success",
+    "headSha": "8be311667d6d20a729a39ba6dd711e122da74649",
+    "status": "completed",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36118390748"
+  },
+  "lean_ci": {
+    "conclusion": "success",
+    "headSha": "8be311667d6d20a729a39ba6dd711e122da74649",
+    "status": "completed",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36118390826"
+  },
+  "toolchain": "Lean 4.29.1; pinned Mathlib; existing compiled dependencies reused",
+  "local_compilation": "Both new modules passed; strict nine-root audit passed",
+  "strict_audit": {
+    "roots": 9,
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "native_axioms": false,
+    "local_and_ci_passed": true
+  },
+  "experiment": {
+    "pairs": 13,
+    "lower_v_range": [
+      5,
+      17
+    ],
+    "fixed_rules": 4,
+    "attempts": 52,
+    "tests": 8,
+    "summary": {
+      "double": {
+        "certified_pairs": [
+          6,
+          9,
+          10,
+          13,
+          16
+        ],
+        "inconclusive_pairs": [
+          5,
+          7,
+          8,
+          11,
+          12,
+          14,
+          15,
+          17
+        ],
+        "upper_descent_not_yet_occurred": [
+          5,
+          7,
+          8,
+          11,
+          12,
+          14,
+          15,
+          17
+        ]
+      },
+      "linear_3v": {
+        "certified_pairs": [
+          7,
+          9,
+          10,
+          13,
+          16
+        ],
+        "inconclusive_pairs": [
+          5,
+          6,
+          8,
+          11,
+          12,
+          14,
+          15,
+          17
+        ],
+        "upper_descent_not_yet_occurred": [
+          5,
+          8,
+          11,
+          12,
+          14,
+          15,
+          17
+        ]
+      },
+      "quadratic_v2": {
+        "certified_pairs": [
+          6,
+          7,
+          9,
+          10,
+          13,
+          16
+        ],
+        "inconclusive_pairs": [
+          5,
+          8,
+          11,
+          12,
+          14,
+          15,
+          17
+        ],
+        "upper_descent_not_yet_occurred": [
+          8,
+          11,
+          12,
+          14,
+          15,
+          17
+        ]
+      },
+      "quarter_level": {
+        "certified_pairs": [
+          7,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "inconclusive_pairs": [
+          5,
+          6,
+          8
+        ],
+        "upper_descent_not_yet_occurred": [
+          5,
+          8
+        ]
+      }
+    },
+    "baseline_sha256": "0f4b2028c492930c16c67b87f128ec1a5b16f6bff0fe86d61630ce14a07387ae",
+    "artifact_byte_comparison": "Downloaded CI JSON equals local JSON exactly"
+  },
+  "mathematical_status": {
+    "general_descent_certificate": "Formalized",
+    "budget_certificate": "Formalized",
+    "abstract_quadratic_transfer": "Formalized, conditional on the upper relative-weight bound",
+    "full_modular_T_producer_and_Q_v_specialization": "Not fully formalized here",
+    "uniform_relative_weight_bound": "Open",
+    "uniform_family_descent": "Not proved",
+    "mathematical_priority": "Not established"
+  },
+  "scope_notes": [
+    "The experiment is retrospective, not preregistered and not a new level-range extension.",
+    "All failed timing tests are retained; a failed sufficient test is inconclusive.",
+    "The generic cone counterexample is not shown reachable from Q_v.",
+    "The transfer criterion implies the direct generic certificate; it is not a stronger certificate.",
+    "The nine declarations are proof organization, not nine claims of mathematical discoveries.",
+    "This is not an independent kernel replay or a port to a newer toolchain.",
+    "Subsequent changes are documentation and archived evidence only.",
+    "Earlier manifests remain historical snapshots."
+  ],
+  "frozen_v6_sha256": {
+    "paper/collatz_spectral_reduction_v6.pdf": "a959282145d5042550c3938b445a4964305299b4eca71bcc62539804c5b585f9",
+    "collatz_spectral_reduction_v6_supplementary.zip": "20f9195443dd058aeae16b9316ed0f6beafb6d360182ba93b875107a0ee9da60"
+  },
+  "sha256": {
+    ".github/workflows/lean.yml": "0779552469491ab9b464779324e7040346931419cbcc43cda6a5b21ceb483c97",
+    ".github/workflows/tower-induction.yml": "34f198c96afe175f948577255e765871554ca32048a17b23f5f4a7d52b7d3544",
+    "README.md": "57364b31cf5b476ce085b7a9fd6b168ea2154d7961cd89b81cf50334b23d13a4",
+    "lean/CollatzShadowing/DescentCertificate.lean": "9f2f26951a763c3f3217f2060bc7b51eb70ece005b8ed1a730bb56eed967744d",
+    "lean/CollatzShadowing/QuadraticTransfer.lean": "37e97b51e52a2ab172bee9f854f8e26ad128cdd9d5df1ab06517efbeb3256911",
+    "lean/CollatzShadowing.lean": "8cb74d91766da62bf2668a138532ab989bc5bbbcfe1bbc13d9c053593a33827a",
+    "lean/STATUS.md": "61c96fbd6121495ffa8b967f0791ea1fb5f93de660833b721ae234680484fa02",
+    "notes/post_v6_induction_2026-09-25/DependencyAudit.lean": "e68dda90b8f693c145ffb6de9db0c1f615e9e7ffeef0f4037bfb9e8ed0b0c080",
+    "notes/post_v6_induction_2026-09-25/RESULTS_IT.md": "9e70c6a26ded5c2623f46cf63168357205b0e3bc568446229f1f1c19c4931bfc",
+    "notes/post_v6_induction_2026-09-25/REVIEW_IT.md": "46a3c817b8f6314edb478dcfbf02b945ae9a7dd0c9f093a73b9cb276efe81c4e",
+    "notes/post_v6_induction_2026-09-25/ci_36118390748.log.gz": "0c1854c345adba460589da7b14aa23a176bc25ab61df5f4fa5dcec13e53ea989",
+    "notes/post_v6_induction_2026-09-25/ci_36118390826.log.gz": "1c4a97494aef4ceec82365df7048ec2b2c7f1e2f4853c36a8e8e3b63bee9d5c7",
+    "notes/post_v6_induction_2026-09-25/ci_dependency_audit.txt": "588b452a3a9aa53266774828baad3548b7111bd151a0be586ad630ba77c82db4",
+    "notes/post_v6_induction_2026-09-25/induction_probe.py": "ce8dd51c33b764010973e545a6cb666dcc8c3fc8c46e5031294854abc3c153db",
+    "notes/post_v6_induction_2026-09-25/induction_results.json": "6025c6fd181879dace20782dbcc906718f0bd29df78b3f47afb8253febeadc3d",
+    "notes/post_v6_induction_2026-09-25/local_dependency_audit.txt": "588b452a3a9aa53266774828baad3548b7111bd151a0be586ad630ba77c82db4",
+    "notes/post_v6_induction_2026-09-25/test_induction.py": "ef1b0dada9f015efac7adf5e0b8c1df9433e424f237456b4155894ef359ec87a",
+    "notes/post_v6_levels_2026-09-24/levels_results.json": "0f4b2028c492930c16c67b87f128ec1a5b16f6bff0fe86d61630ce14a07387ae"
+  }
+}
