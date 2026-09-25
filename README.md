@@ -368,6 +368,18 @@ and [existing Lean build and audits](https://github.com/PieroBorgatta/Collatz/ac
 passed on commit `9f866ba`; all 14 tests pass and the downloaded result is
 byte-identical. This Lean run does not formalize the new paper arguments.
 
+The [integer ancestry study](notes/post_v6_ancestry_2026-09-25/RESULTS_IT.md)
+adds a stronger reachability filter: two positive integer predecessors,
+the tower's binade and its complete current parity word identify Q_v.
+One predecessor still admits explicit alternatives with that full word;
+retaining only a positive margin allows counterexamples with up to five
+predecessors, including oddness and truncated ternary constraints. A finite
+exhaustive case checks 911 odd anchors: adding the specified ternary
+constraint retains 12, all passing the upper parity budget. This finite
+success is not a uniform bound; identifying Q_v still leaves its parity
+weight uncontrolled. The study adds no Lean declaration or new tower level,
+and makes no mathematical priority claim.
+
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch
 identities, counterexamples to

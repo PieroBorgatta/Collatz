@@ -1,0 +1,51 @@
+name: Tower integer ancestry
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'notes/post_v6_ancestry_2026-09-25/*.py'
+      - 'notes/post_v6_ancestry_2026-09-25/*_results.json'
+      - 'notes/post_v6_mixed_2026-09-25/mixed_probe.py'
+      - 'notes/post_v6_mixed_2026-09-25/mixed_results.json'
+      - 'notes/post_v6_margin_2026-09-25/margin_probe.py'
+      - 'notes/post_v6_margin_2026-09-25/margin_results.json'
+      - 'notes/post_v6_arithmetic_2026-09-25/arithmetic_probe.py'
+      - 'notes/post_v6_compensation_2026-09-25/block_engine.py'
+      - '.github/workflows/tower-ancestry.yml'
+  pull_request:
+    paths:
+      - 'notes/post_v6_ancestry_2026-09-25/**'
+      - 'notes/post_v6_mixed_2026-09-25/mixed_probe.py'
+      - 'notes/post_v6_mixed_2026-09-25/mixed_results.json'
+      - 'notes/post_v6_margin_2026-09-25/margin_probe.py'
+      - 'notes/post_v6_margin_2026-09-25/margin_results.json'
+      - 'notes/post_v6_arithmetic_2026-09-25/arithmetic_probe.py'
+      - 'notes/post_v6_compensation_2026-09-25/block_engine.py'
+      - '.github/workflows/tower-ancestry.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test integer ancestry, parity filters and independent enumeration
+        run: python3 notes/post_v6_ancestry_2026-09-25/test_ancestry.py
+      - name: Reproduce exact ancestry filters and coherent examples
+        run: |
+          python3 notes/post_v6_ancestry_2026-09-25/ancestry_probe.py --output /tmp/ancestry/ancestry_results.json
+          cmp notes/post_v6_ancestry_2026-09-25/ancestry_results.json /tmp/ancestry/ancestry_results.json
+      - name: Preserve evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tower-ancestry-${{ github.run_id }}-${{ github.run_attempt }}
+          path: /tmp/ancestry
+          if-no-files-found: ignore
