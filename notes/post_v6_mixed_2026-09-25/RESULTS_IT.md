@@ -310,6 +310,19 @@ della torre è stato calcolato e le verifiche finite non sostituiscono le
 prove su carta dei risultati uniformi. Il nucleo Lean preesistente non
 formalizza questa fase.
 
+Verifica completata sul commit `9f866ba94d3071783ec40f136ba80a580c700294`:
+**14 test superati**, revisione matematica interna di due agenti e controllo
+indipendente degli esempi con iterazione elementare. Il
+[replay CI 36145117577](https://github.com/PieroBorgatta/Collatz/actions/runs/36145117577)
+è riuscito; il risultato scaricato coincide byte per byte con quello locale.
+Anche la
+[build Lean e gli audit preesistenti](https://github.com/PieroBorgatta/Collatz/actions/runs/36145117197)
+sono riusciti sul medesimo commit. I PDF pubblicati v1–v6, l'archivio v6 e
+gli artefatti storici verificati sono invariati. I log compressi e il
+[manifest delle verifiche](verification_manifest.json) archiviano l'evidenza;
+il successivo commit modifica soltanto documentazione e materiale di verifica.
+Questa revisione interna non è una peer review umana esterna.
+
 Il prossimo obiettivo matematico resta una stima puntuale che usi il
 cofattore esatto u=1 in (7), o controlli direttamente la somma pesata degli
 errori Δ_v. Una proposta utile deve distinguere Q dagli esempi (12) e

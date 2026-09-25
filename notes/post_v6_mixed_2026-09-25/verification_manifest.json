@@ -1,0 +1,71 @@
+{
+  "date": "2026-09-25",
+  "verified_code_commit": "9f866ba94d3071783ec40f136ba80a580c700294",
+  "mixed_ci": {
+    "conclusion": "success",
+    "headSha": "9f866ba94d3071783ec40f136ba80a580c700294",
+    "status": "completed",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36145117577"
+  },
+  "existing_lean_ci": {
+    "conclusion": "success",
+    "headSha": "9f866ba94d3071783ec40f136ba80a580c700294",
+    "status": "completed",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36145117197"
+  },
+  "verification": {
+    "tests": 14,
+    "mixed_adversaries": 12,
+    "exact_isolation_thresholds": 4,
+    "new_tower_levels": [],
+    "downloaded_result_byte_identical": true,
+    "all_twelve_examples_independently_replayed_with_elementary_T": true,
+    "complete_small_word_endpoint_bijections_exhaustively_checked": true,
+    "all_previous_frozen_inputs_unchanged": true,
+    "historical_manifest_entries_checked_excluding_README": {
+      "compensation": 18,
+      "arithmetic": 13,
+      "margin": 13
+    },
+    "ci_replay_is_not_an_independent_implementation": true
+  },
+  "mathematical_status": {
+    "transport_and_height_bijection": "Paper proof for each fixed parity word; finite tests verify exact endpoints.",
+    "uniform_quarter_precision_obstruction": "Paper proof for local generic quadratic pairs, every v>=6; not the distinguished tower.",
+    "full_actual_lower_prefix_examples": "Finite examples at v=8,10,12 only.",
+    "uniform_error_bound": "Open",
+    "uniform_family_descent": "Not proved",
+    "new_lean_declarations": 0,
+    "novelty": "Not established",
+    "review": "Two internal agents; not external human peer review."
+  },
+  "scope_notes": [
+    "Generic adversaries are X != Q_v and do not disprove Collatz or descent of the actual tower.",
+    "They retain binary bits at positions >=R=ceil(log2(2^K*3^s)), not in general all positions >=K.",
+    "The uniform construction provides local pairs; it does not place them on one alternative tower with a fixed initial value.",
+    "The gap between the sufficient all-lift CRT threshold and exact isolation threshold has no universal existence or exclusion claim.",
+    "Full or nearly full ternary precision can isolate Q_v; isolation does not itself bound its parity counts.",
+    "Signature valuation doubles for all positive X; exact difference valuation doubling requires nu_3(X-Q_v)<e.",
+    "The existing Lean CI does not formally verify the new paper arguments or integer examples.",
+    "Subsequent changes are documentation and archived evidence only; earlier manifests remain historical snapshots."
+  ],
+  "frozen_v6_sha256": {
+    "paper/collatz_spectral_reduction_v6.pdf": "a959282145d5042550c3938b445a4964305299b4eca71bcc62539804c5b585f9",
+    "collatz_spectral_reduction_v6_supplementary.zip": "20f9195443dd058aeae16b9316ed0f6beafb6d360182ba93b875107a0ee9da60"
+  },
+  "sha256": {
+    "README.md": "c71bd76767f1de1d9e6dc6f06bd15330cfcfd9b2cba6dc27bd014dc2bad70e98",
+    ".github/workflows/tower-mixed.yml": "a98b8e7add70ec5b3863148d9d44cf273209de2da722962b09d9521ecb1b1426",
+    "notes/post_v6_mixed_2026-09-25/RESULTS_IT.md": "6dbae3f4f6966546d4154e711af478f5bd5a055c1c5c890a15876617834a5ed6",
+    "notes/post_v6_mixed_2026-09-25/SCIENTIFIC_BRIEF_IT.md": "0901cc227a064eee1b20037fb6f0c4e50660c79de90af78e1e722a6ad122d996",
+    "notes/post_v6_mixed_2026-09-25/mixed_probe.py": "c5d46d0bd0691a0b7ab4f310278259794be1d6b88d0439d236e3edb8c6c04a37",
+    "notes/post_v6_mixed_2026-09-25/mixed_results.json": "f31d0f3a829167695e32dd28f0a550a691d8b65925f3ea70f785b5d001015dd0",
+    "notes/post_v6_mixed_2026-09-25/test_mixed.py": "97cfa471e9b79226d1cb01f0a4aed0f1fda30c83b22f9cc97fa03ef589dee419",
+    "notes/post_v6_mixed_2026-09-25/ci_36145117577.log.gz": "6a8b2b1702b771dd7cb916ed17441841ef9a55db16e38a3f3414b5e88f0e1325",
+    "notes/post_v6_mixed_2026-09-25/ci_36145117197.log.gz": "b144d742a71c507e03b5db1574ba3955463bcfcfd72c936898d6582440bb42e8",
+    "notes/post_v6_margin_2026-09-25/margin_probe.py": "adf108d30ee5f84b3f7b9958aa314e867385d9461465bbbccf902a5b766d4ec2",
+    "notes/post_v6_margin_2026-09-25/margin_results.json": "837937cb8387577e53f0547a6991e1b606828b82366a94190835c8fbd246ccf5",
+    "notes/post_v6_arithmetic_2026-09-25/arithmetic_probe.py": "02d51066d68c7cf6cc28f4127399ca4d95554ee86792f894f9c2e1d7a33d01b5",
+    "notes/post_v6_compensation_2026-09-25/block_engine.py": "f5deaad568c9af6c26fa04706b510cf073a2ee50821436a7920f675d47c515ce"
+  }
+}

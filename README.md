@@ -363,6 +363,10 @@ or mathematical priority is claimed. A short
 [scientific review brief](notes/post_v6_mixed_2026-09-25/SCIENTIFIC_BRIEF_IT.md)
 states the surviving pointwise problem and separates formal proofs from
 paper arguments and finite evidence.
+The [mixed-prime replay](https://github.com/PieroBorgatta/Collatz/actions/runs/36145117577)
+and [existing Lean build and audits](https://github.com/PieroBorgatta/Collatz/actions/runs/36145117197)
+passed on commit `9f866ba`; all 14 tests pass and the downloaded result is
+byte-identical. This Lean run does not formalize the new paper arguments.
 
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch
