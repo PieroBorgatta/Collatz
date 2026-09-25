@@ -290,6 +290,16 @@ cmp notes/post_v6_arithmetic_2026-09-25/arithmetic_results.json /tmp/arithmetic_
 Nessun test finito verifica il teorema esterno di Chim o la prova generale
 della sezione 3. Nessun file del protocollo precedente viene modificato.
 
+Il [replay completo in CI](https://github.com/PieroBorgatta/Collatz/actions/runs/36125838578)
+e la [build Lean con gli audit esistenti](https://github.com/PieroBorgatta/Collatz/actions/runs/36125838530)
+sono passati sul commit `5f452f27c0e62c0934353abf21b1acf149acb319`.
+Il JSON scaricato dalla CI è identico byte per byte al risultato locale.
+I log compressi e gli hash sono archiviati nel
+[manifest di verifica](verification_manifest.json). La build Lean verifica
+il progetto preesistente, non formalizza gli argomenti di questa nota.
+Le modifiche successive al commit verificato riguardano soltanto
+documentazione ed evidenze archiviate.
+
 ## 7. Decisione di ricerca
 
 Non investire altri calcoli nel tentativo di ricavare (1) dalla sola

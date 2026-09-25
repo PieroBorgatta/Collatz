@@ -331,6 +331,9 @@ are not counterexamples from the distinguished tower.
 The compensation hypothesis remains open; no Lean declaration or claim
 of mathematical priority is added. A targeted literature review and an
 unsent specialist-review note accompany the results.
+The [arithmetic replay](https://github.com/PieroBorgatta/Collatz/actions/runs/36125838578)
+and [existing Lean build and audits](https://github.com/PieroBorgatta/Collatz/actions/runs/36125838530)
+passed on commit `5f452f2`; the downloaded arithmetic result is byte-identical.
 
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch

@@ -1,0 +1,76 @@
+{
+  "date": "2026-09-25",
+  "verified_code_commit": "5f452f27c0e62c0934353abf21b1acf149acb319",
+  "arithmetic_ci": {
+    "conclusion": "success",
+    "headSha": "5f452f27c0e62c0934353abf21b1acf149acb319",
+    "status": "completed",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36125838578"
+  },
+  "existing_lean_ci": {
+    "conclusion": "success",
+    "headSha": "5f452f27c0e62c0934353abf21b1acf149acb319",
+    "status": "completed",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36125838530"
+  },
+  "verification": {
+    "tests": 10,
+    "finite_levels_reanalyzed": [
+      22,
+      23,
+      24
+    ],
+    "new_holdout_levels": [],
+    "actual_trace_hashes_equal_previous_independent_python_and_gmp_replays": true,
+    "downloaded_arithmetic_json_byte_identical": true,
+    "new_arithmetic_check_implementation": "Python; small-case tests use elementary T iteration and explicit affine sums.",
+    "ci_replay_is_not_an_independent_implementation": true,
+    "constructed_generic_words_t": [
+      8,
+      10
+    ],
+    "constructed_words_are_not_prefixes_of_Q_v": true,
+    "all_six_previous_frozen_inputs_unchanged": true
+  },
+  "mathematical_status": {
+    "full_and_signed_congruences": "Exact paper-level equivalences; finite cases checked computationally.",
+    "height_obstruction": "For positive-loss blocks, the adopted explicit Chim bound in the full-word encoding exceeds 36000000 times L.",
+    "height_obstruction_scope": "Only formula (5) with encoding (3); not all uses of Chim or all 2-adic methods.",
+    "signed_cancellation_estimate": "No useful uniform bound proved.",
+    "complexity_obstruction": "Parity bias alone does not imply uniformly low factor complexity of the parity word.",
+    "bridge_to_ordinary_binary_digits": "Not proved.",
+    "uniform_compensation": "Open",
+    "uniform_family_descent": "Not proved",
+    "new_lean_declarations": 0,
+    "novelty": "Not established",
+    "review": "Internal agent review; no external human review."
+  },
+  "scope_notes": [
+    "This phase reuses existing held-out traces and does not extend the empirical level range.",
+    "The C/GMP independence concerns the previous complete traces, not a second implementation of the new affine-constant checks.",
+    "The existing Lean CI does not formally verify this phase.",
+    "The specialist-review note was prepared but not sent externally.",
+    "Subsequent changes are documentation and archived evidence only.",
+    "Earlier verification manifests remain historical snapshots."
+  ],
+  "frozen_v6_sha256": {
+    "paper/collatz_spectral_reduction_v6.pdf": "a959282145d5042550c3938b445a4964305299b4eca71bcc62539804c5b585f9",
+    "collatz_spectral_reduction_v6_supplementary.zip": "20f9195443dd058aeae16b9316ed0f6beafb6d360182ba93b875107a0ee9da60"
+  },
+  "sha256": {
+    ".github/workflows/tower-arithmetic.yml": "7231a9dbd8c04e8f4cf4a89036cb82de24d41407a93d8e8b51d191f88b625921",
+    "README.md": "5e676e65eb850443fa8871c540df3b1b06f93ac12a0427b4367485bd083bf983",
+    "notes/post_v6_arithmetic_2026-09-25/EXPERT_REVIEW.md": "9417b311ce18417692d9ab1876b2c68e28b8216580ddc0a07ea393cf6fbab73f",
+    "notes/post_v6_arithmetic_2026-09-25/LITERATURE_IT.md": "5a44d8dcd4f1772fffaa9c276167d4b1f279c3e0216fccdd5ffac09c0a2c7ce3",
+    "notes/post_v6_arithmetic_2026-09-25/RESULTS_IT.md": "70d14252df79a4c9cad54543c56a4e96121cc1a65ea896d58e1f1f4884ee5b96",
+    "notes/post_v6_arithmetic_2026-09-25/REVIEW_IT.md": "0ad3b6c6d155c0c3fccb57240c04589b916f45e0697b38ba90bb4cfe233baafc",
+    "notes/post_v6_arithmetic_2026-09-25/arithmetic_probe.py": "02d51066d68c7cf6cc28f4127399ca4d95554ee86792f894f9c2e1d7a33d01b5",
+    "notes/post_v6_arithmetic_2026-09-25/arithmetic_results.json": "6058ec7ef21628d7df7d2b201dd54e4ed39e0f404926047ffe252b4bebee2e37",
+    "notes/post_v6_arithmetic_2026-09-25/ci_36125838530.log.gz": "d9492f607a50bdd1aa4a897171849587d28e7427890e86f008f025f5b6b17fa3",
+    "notes/post_v6_arithmetic_2026-09-25/ci_36125838578.log.gz": "629692dd6139bfe236c8c5db9a70c6b53502b0eddf30723f43671f9eecabba26",
+    "notes/post_v6_arithmetic_2026-09-25/test_arithmetic.py": "01bb5b1d20203704c0b99d45af3990369c968c3d1b39a2db1e82d6de9b7c9083",
+    "notes/post_v6_compensation_2026-09-25/block_engine.py": "f5deaad568c9af6c26fa04706b510cf073a2ee50821436a7920f675d47c515ce",
+    "notes/post_v6_compensation_2026-09-25/frozen_protocol.json": "3db8a292c6eb3aaaaa702cf90676fdf8a2d78ca2e12779e9480ca0735354813a",
+    "notes/post_v6_compensation_2026-09-25/holdout_results.json": "4e099839d94e30be1c3e05b441f677df8dd3a21a7cd1a28c488273addfa3d83d"
+  }
+}
