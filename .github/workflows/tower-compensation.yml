@@ -1,0 +1,57 @@
+name: Tower compensation holdout
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'notes/post_v6_compensation_2026-09-25/*.py'
+      - 'notes/post_v6_compensation_2026-09-25/*.c'
+      - 'notes/post_v6_compensation_2026-09-25/*_results.json'
+      - 'notes/post_v6_compensation_2026-09-25/frozen_protocol.json'
+      - 'notes/post_v6_compensation_2026-09-25/PROTOCOL_IT.md'
+      - '.github/workflows/tower-compensation.yml'
+  pull_request:
+    paths:
+      - 'notes/post_v6_compensation_2026-09-25/**'
+      - '.github/workflows/tower-compensation.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build the independent GMP verifier
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y libgmp-dev
+          cc -O3 -std=c11 -Wall -Wextra -Werror notes/post_v6_compensation_2026-09-25/verify_blocks.c -lgmp -o /tmp/verify_blocks
+      - name: Test arithmetic, boundaries, and rejection of altered evidence
+        run: |
+          python3 notes/post_v6_compensation_2026-09-25/test_compensation.py
+          python3 notes/post_v6_compensation_2026-09-25/test_verifier.py /tmp/verify_blocks
+      - name: Reproduce calibration and frozen holdout
+        run: |
+          python3 notes/post_v6_compensation_2026-09-25/compensation_probe.py calibration --output /tmp/compensation/calibration_results.json
+          cmp notes/post_v6_compensation_2026-09-25/calibration_results.json /tmp/compensation/calibration_results.json
+          python3 notes/post_v6_compensation_2026-09-25/compensation_probe.py holdout --output /tmp/compensation/holdout_results.json
+          cmp notes/post_v6_compensation_2026-09-25/holdout_results.json /tmp/compensation/holdout_results.json
+      - name: Independently replay every parity bit and every extremum
+        run: |
+          python3 notes/post_v6_compensation_2026-09-25/verify_holdout.py --input /tmp/compensation/calibration_results.json --verifier /tmp/verify_blocks --output /tmp/compensation/calibration_verification_results.json
+          cmp notes/post_v6_compensation_2026-09-25/calibration_verification_results.json /tmp/compensation/calibration_verification_results.json
+          python3 notes/post_v6_compensation_2026-09-25/verify_holdout.py --input /tmp/compensation/holdout_results.json --verifier /tmp/verify_blocks --output /tmp/compensation/verification_results.json
+          cmp notes/post_v6_compensation_2026-09-25/verification_results.json /tmp/compensation/verification_results.json
+      - name: Preserve evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tower-compensation-${{ github.run_id }}-${{ github.run_attempt }}
+          path: /tmp/compensation
+          if-no-files-found: ignore

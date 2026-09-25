@@ -1,0 +1,36 @@
+{
+  "status": "verified",
+  "levels": [
+    22,
+    23,
+    24
+  ],
+  "rows": [
+    {
+      "v": 22,
+      "precision_bits": 4036675,
+      "odd_steps": 2019635,
+      "parity_trace_sha256": "f1cc2898ef46a5f2f2ca8c3262f6de6bf15dbc8e84fa66cd88f25e3b41932389",
+      "profiles_and_witnesses_match": true,
+      "candidate_passed": true
+    },
+    {
+      "v": 23,
+      "precision_bits": 8073350,
+      "odd_steps": 4037425,
+      "parity_trace_sha256": "137b1aae325f0614cb61b5d845bcec8a1a4771c8a389acf0405742d71da94a30",
+      "profiles_and_witnesses_match": true,
+      "candidate_passed": true
+    },
+    {
+      "v": 24,
+      "precision_bits": 16146700,
+      "odd_steps": 8075572,
+      "parity_trace_sha256": "bbc24cea7922b7df0413e3c3db0476fa2e2bed9d54a7b3dbfa55840bd5826311",
+      "profiles_and_witnesses_match": true,
+      "candidate_passed": true
+    }
+  ],
+  "scope": "Different initialization and execution algorithms; all parity bits compared by SHA-256.",
+  "input_sha256": "4e099839d94e30be1c3e05b441f677df8dd3a21a7cd1a28c488273addfa3d83d"
+}

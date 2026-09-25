@@ -1,0 +1,117 @@
+{
+  "status": "verified",
+  "levels": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "rows": [
+    {
+      "v": 10,
+      "precision_bits": 986,
+      "odd_steps": 483,
+      "parity_trace_sha256": "8ac991cfc5d7c05a575471769719eaedce54f1a53571e9c5024123e9d8f4fa5a",
+      "profiles_and_witnesses_match": true,
+      "candidate_passed": null
+    },
+    {
+      "v": 11,
+      "precision_bits": 1972,
+      "odd_steps": 951,
+      "parity_trace_sha256": "9bc1a938337b9ebe7c91fce66f1e02646aeaaaf7b216f3d28a1fbc4acce79259",
+      "profiles_and_witnesses_match": true,
+      "candidate_passed": null
+    },
+    {
+      "v": 12,
+      "precision_bits": 3943,
+      "odd_steps": 1955,
+      "parity_trace_sha256": "4b8e1064bf399a0f65cdcaee4c6b80c187991f4edf89d21b3540277ea8f1e3ed",
+      "profiles_and_witnesses_match": true,
+      "candidate_passed": null
+    },
+    {
+      "v": 13,
+      "precision_bits": 7885,
+      "odd_steps": 4009,
+      "parity_trace_sha256": "8c50f46ce165f8856b7c25b11843960a05e7a57baf940ae82e6d7ef17c0bd7b3",
+      "profiles_and_witnesses_match": true,
+      "candidate_passed": null
+    },
+    {
+      "v": 14,
+      "precision_bits": 15769,
+      "odd_steps": 7854,
+      "parity_trace_sha256": "38bc901ebe5e7ae6d1a8f900f1814b280eb06ee0ef01610b6a87e0281e649c83",
+      "profiles_and_witnesses_match": true,
+      "candidate_passed": null
+    },
+    {
+      "v": 15,
+      "precision_bits": 31537,
+      "odd_steps": 15783,
+      "parity_trace_sha256": "a62b757a04951636a4728a14fde724878f6e9b3db253c1c49a62fea74857e421",
+      "profiles_and_witnesses_match": true,
+      "candidate_passed": null
+    },
+    {
+      "v": 16,
+      "precision_bits": 63074,
+      "odd_steps": 31613,
+      "parity_trace_sha256": "86cb17b586a676c6c1529c082ca99d6d0bab52faaea7126fda430469e1870e03",
+      "profiles_and_witnesses_match": true,
+      "candidate_passed": null
+    },
+    {
+      "v": 17,
+      "precision_bits": 126147,
+      "odd_steps": 62747,
+      "parity_trace_sha256": "ced421fbd64ab410b4a1500e65c2c17d259b6b27215bf68d217c8f2f90e1e6c4",
+      "profiles_and_witnesses_match": true,
+      "candidate_passed": null
+    },
+    {
+      "v": 18,
+      "precision_bits": 252293,
+      "odd_steps": 126369,
+      "parity_trace_sha256": "a9f0b028808b28fe9fc990fb3076018054c6cf23716b6d42c3a39e7b4c567ccb",
+      "profiles_and_witnesses_match": true,
+      "candidate_passed": null
+    },
+    {
+      "v": 19,
+      "precision_bits": 504585,
+      "odd_steps": 251632,
+      "parity_trace_sha256": "c58d7f201fd022d4d957cbd6234d754a3611f4ee4564ecdc6c02cc5001901683",
+      "profiles_and_witnesses_match": true,
+      "candidate_passed": null
+    },
+    {
+      "v": 20,
+      "precision_bits": 1009169,
+      "odd_steps": 504483,
+      "parity_trace_sha256": "3ef090e35e66d1eb98be6825ea530502edf128d7814fb24c7cb27e39413d4aed",
+      "profiles_and_witnesses_match": true,
+      "candidate_passed": null
+    },
+    {
+      "v": 21,
+      "precision_bits": 2018338,
+      "odd_steps": 1008989,
+      "parity_trace_sha256": "e63a7dc741b073dbddc55916356881a74b5581ffa38cf9bd1204289942520b78",
+      "profiles_and_witnesses_match": true,
+      "candidate_passed": null
+    }
+  ],
+  "scope": "Different initialization and execution algorithms; all parity bits compared by SHA-256.",
+  "input_sha256": "7bfc53eee0411b9b6cfef20cdc79cb6fe1ec9affcb62ee2975a7f1881bcbc766"
+}

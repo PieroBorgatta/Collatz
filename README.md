@@ -303,6 +303,17 @@ The [full Lean build and strict audit](https://github.com/PieroBorgatta/Collatz/
 and the [exact experimental replay](https://github.com/PieroBorgatta/Collatz/actions/runs/36118390748)
 passed on commit `8be3116`; the downloaded result file is byte-identical.
 
+The [bounded-loss compensation study](notes/post_v6_compensation_2026-09-25/RESULTS_IT.md)
+then freezes a stronger working hypothesis before evaluating levels 22–24:
+every downward excursion of `305r−589J(r)` is at most `128v²` for v≥15.
+All three held-out levels pass. Independent Python and C/GMP implementations
+agree on the full parity trace hashes and every extremum, extending the
+finite descent certificates through v24. The hypothesis remains unproved.
+A separate argument shows why a proof retaining only an initial residue
+and a coarse height interval must preserve almost all available bits;
+this limits that abstraction, not proofs using the exact tower arithmetic.
+The published freeze, complete data, and verification procedure are in the report.
+
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch
 identities, counterexamples to

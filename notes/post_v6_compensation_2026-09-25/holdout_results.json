@@ -1,0 +1,147 @@
+{
+  "stage": "holdout",
+  "protocol_sha256": "3db8a292c6eb3aaaaa702cf90676fdf8a2d78ca2e12779e9480ca0735354813a",
+  "levels": [
+    22,
+    23,
+    24
+  ],
+  "coefficient": 128,
+  "all_passed": true,
+  "failed_levels": [],
+  "rows": [
+    {
+      "v": 22,
+      "horizon": 4036675,
+      "budget": 2097152,
+      "odd_steps": 2019635,
+      "budget_passed": true,
+      "initial_residue_sha256": "3e683c8b69d8e078e7f48728c80abfd3dfeb2acd639ee99bed60ff999d304d99",
+      "parity_trace_sha256": "f1cc2898ef46a5f2f2ca8c3262f6de6bf15dbc8e84fa66cd88f25e3b41932389",
+      "B": {
+        "balance_end": 45657535,
+        "minimum_balance": -5877,
+        "minimum_at_step": 206,
+        "maximum_balance": 45658631,
+        "maximum_at_step": 4036463,
+        "maximum_drawdown": 44740,
+        "drawdown_from_step": 2354901,
+        "drawdown_to_step": 2358770
+      },
+      "C": {
+        "balance_end": 41620860,
+        "minimum_balance": -6083,
+        "minimum_at_step": 206,
+        "maximum_balance": 41622168,
+        "maximum_at_step": 4036463,
+        "maximum_drawdown": 51047,
+        "drawdown_from_step": 2354901,
+        "drawdown_to_step": 2362773
+      },
+      "diagnostic_blocks": {
+        "width": 256,
+        "count": 15769,
+        "last_length": 67,
+        "negative_C_blocks": 4592,
+        "negative_B_blocks": 4592,
+        "scope": "Diagnostic grouping; the hypothesis checks every binary prefix."
+      },
+      "candidate": {
+        "capacity": 61952,
+        "minimum_credit": 10905,
+        "passed": true,
+        "terminal_guarantee_if_passed": 3974723,
+        "first_violation": null
+      }
+    },
+    {
+      "v": 23,
+      "horizon": 8073350,
+      "budget": 4194304,
+      "odd_steps": 4037425,
+      "budget_passed": true,
+      "initial_residue_sha256": "ed414bc9aef77eb81a2f8ada2b767bfd6634ca99ae620ad8c7d0b94ae4b185b0",
+      "parity_trace_sha256": "137b1aae325f0614cb61b5d845bcec8a1a4771c8a389acf0405742d71da94a30",
+      "B": {
+        "balance_end": 92401775,
+        "minimum_balance": -520,
+        "minimum_at_step": 6,
+        "maximum_balance": 92406278,
+        "maximum_at_step": 8073255,
+        "maximum_drawdown": 43567,
+        "drawdown_from_step": 7081505,
+        "drawdown_to_step": 7084887
+      },
+      "C": {
+        "balance_end": 84328425,
+        "minimum_balance": -526,
+        "minimum_at_step": 6,
+        "maximum_balance": 84333023,
+        "maximum_at_step": 8073255,
+        "maximum_drawdown": 46949,
+        "drawdown_from_step": 7081505,
+        "drawdown_to_step": 7084887
+      },
+      "diagnostic_blocks": {
+        "width": 256,
+        "count": 31537,
+        "last_length": 134,
+        "negative_C_blocks": 9081,
+        "negative_B_blocks": 9081,
+        "scope": "Diagnostic grouping; the hypothesis checks every binary prefix."
+      },
+      "candidate": {
+        "capacity": 67712,
+        "minimum_credit": 20763,
+        "passed": true,
+        "terminal_guarantee_if_passed": 8005638,
+        "first_violation": null
+      }
+    },
+    {
+      "v": 24,
+      "horizon": 16146700,
+      "budget": 8388608,
+      "odd_steps": 8075572,
+      "budget_passed": true,
+      "initial_residue_sha256": "8a811672002ad8cd02e5a73559542e71a45b9c605b7b6bb45c33b646080e29c1",
+      "parity_trace_sha256": "bbc24cea7922b7df0413e3c3db0476fa2e2bed9d54a7b3dbfa55840bd5826311",
+      "B": {
+        "balance_end": 184378292,
+        "minimum_balance": -6912,
+        "minimum_at_step": 116,
+        "maximum_balance": 184380135,
+        "maximum_at_step": 16146681,
+        "maximum_drawdown": 46693,
+        "drawdown_from_step": 9716549,
+        "drawdown_to_step": 9721503
+      },
+      "C": {
+        "balance_end": 168231592,
+        "minimum_balance": -7028,
+        "minimum_at_step": 116,
+        "maximum_balance": 168233468,
+        "maximum_at_step": 16146486,
+        "maximum_drawdown": 51647,
+        "drawdown_from_step": 9716549,
+        "drawdown_to_step": 9721503
+      },
+      "diagnostic_blocks": {
+        "width": 256,
+        "count": 63074,
+        "last_length": 12,
+        "negative_C_blocks": 18184,
+        "negative_B_blocks": 18184,
+        "scope": "Diagnostic grouping; the hypothesis checks every binary prefix."
+      },
+      "candidate": {
+        "capacity": 73728,
+        "minimum_credit": 22081,
+        "passed": true,
+        "terminal_guarantee_if_passed": 16072972,
+        "first_violation": null
+      }
+    }
+  ],
+  "scope": "New finite tests of the frozen hypothesis; not a uniform proof."
+}
