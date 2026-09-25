@@ -418,6 +418,16 @@ and [existing Lean checks](https://github.com/PieroBorgatta/Collatz/actions/runs
 passed on `a65d2e2`: all 11 tests pass and the downloaded JSON is
 byte-identical. The new arguments remain paper proofs.
 
+The [tail-transducer follow-up](notes/post_v6_tail_2026-09-25/RESULTS_IT.md)
+now checks the exact carry budget at the unequal full horizons on eight
+previously studied pairs: 23,666 steps and 25,980,961 tail digit cells.
+It proves at paper level that, for known odd-step count `j`, exactly the
+residue `z mod 2^k` determines the next `k` outputs for all common inputs.
+The implementation checks 1,487 finite-precision blocks. A complementary
+memory lower bound rules out a fixed finite exact transducer for arbitrary
+inputs. The cumulative cancellation still has no uniform bound for the
+tower; these results add no new Lean declarations or certified levels.
+
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch
 identities, counterexamples to

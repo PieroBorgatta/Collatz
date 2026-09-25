@@ -1,0 +1,43 @@
+name: Tower exact tail transducer
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'notes/post_v6_tail_2026-09-25/*.py'
+      - 'notes/post_v6_tail_2026-09-25/*_results.json'
+      - 'notes/post_v6_margin_2026-09-25/margin_results.json'
+      - 'notes/post_v6_ternary_2026-09-25/ternary_results.json'
+      - '.github/workflows/tower-tail.yml'
+  pull_request:
+    paths:
+      - 'notes/post_v6_tail_2026-09-25/**'
+      - 'notes/post_v6_margin_2026-09-25/margin_results.json'
+      - 'notes/post_v6_ternary_2026-09-25/ternary_results.json'
+      - '.github/workflows/tower-tail.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test exact tail dynamics and memory obstructions
+        run: python3 notes/post_v6_tail_2026-09-25/test_tail.py
+      - name: Reproduce unequal-horizon carry accounting
+        run: |
+          python3 notes/post_v6_tail_2026-09-25/tail_probe.py --output /tmp/tail/tail_results.json
+          cmp notes/post_v6_tail_2026-09-25/tail_results.json /tmp/tail/tail_results.json
+      - name: Preserve evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tower-tail-${{ github.run_id }}-${{ github.run_attempt }}
+          path: /tmp/tail
+          if-no-files-found: ignore
