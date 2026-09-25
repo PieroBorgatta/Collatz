@@ -335,6 +335,18 @@ The [arithmetic replay](https://github.com/PieroBorgatta/Collatz/actions/runs/36
 and [existing Lean build and audits](https://github.com/PieroBorgatta/Collatz/actions/runs/36125838530)
 passed on commit `5f452f2`; the downloaded arithmetic result is byte-identical.
 
+The [global margin study](notes/post_v6_margin_2026-09-25/RESULTS_IT.md)
+then reduces the terminal parity-count target to an exact weighted budget
+of errors between consecutive levels. A specified square-root-scale error
+bound would propagate the verified positive margin from level 16, but that
+bound remains unproved and was selected retrospectively. The study also
+proves why the quadratic relation and a complete lower parity certificate
+alone cannot imply such a bound: generic positive integer lifts can keep
+that certificate and the high bits while violating the upper budget.
+These are not counterexamples from Q_v. All existing levels 5–24 are
+replayed, with six explicit quadratic adversaries; no new tower level,
+Lean declaration, or mathematical priority is claimed.
+
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch
 identities, counterexamples to
