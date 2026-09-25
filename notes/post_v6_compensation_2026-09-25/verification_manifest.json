@@ -1,0 +1,133 @@
+{
+  "date": "2026-09-25",
+  "frozen_protocol_commit": "24e35698a6cc104ac686b84a3f791e1f0341c617",
+  "verified_code_commit": "df44e7f4daf79af2d56c3d8a35be2a3d3d8384fe",
+  "experiment_ci": {
+    "conclusion": "success",
+    "headSha": "df44e7f4daf79af2d56c3d8a35be2a3d3d8384fe",
+    "status": "completed",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36122256203"
+  },
+  "existing_lean_ci": {
+    "conclusion": "success",
+    "headSha": "df44e7f4daf79af2d56c3d8a35be2a3d3d8384fe",
+    "status": "completed",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36122256120"
+  },
+  "freeze_verified_against_git_objects": {
+    "protocol_unchanged": true,
+    "all_six_frozen_inputs_unchanged": true,
+    "protocol_sha256": "3db8a292c6eb3aaaaa702cf90676fdf8a2d78ca2e12779e9480ca0735354813a",
+    "holdout_calculated_after_freeze_push": true
+  },
+  "candidate": {
+    "formula": "max_{0<=s<=t<=H_v}(C_v(s)-C_v(t))<=128*v^2",
+    "C": "305*r-589*J_v(r)",
+    "domain": "v>=15",
+    "status": "Unproved working hypothesis",
+    "calibration_levels": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ],
+    "held_out_levels": [
+      22,
+      23,
+      24
+    ],
+    "held_out_results": [
+      {
+        "v": 22,
+        "drawdown": 51047,
+        "capacity": 61952,
+        "minimum_credit": 10905,
+        "passed": true,
+        "terminal_guarantee_if_passed": 3974723,
+        "first_violation": null
+      },
+      {
+        "v": 23,
+        "drawdown": 46949,
+        "capacity": 67712,
+        "minimum_credit": 20763,
+        "passed": true,
+        "terminal_guarantee_if_passed": 8005638,
+        "first_violation": null
+      },
+      {
+        "v": 24,
+        "drawdown": 51647,
+        "capacity": 73728,
+        "minimum_credit": 22081,
+        "passed": true,
+        "terminal_guarantee_if_passed": 16072972,
+        "first_violation": null
+      }
+    ]
+  },
+  "verification": {
+    "tests": 15,
+    "independent_algorithms": "Python modular squaring and recursive affine composition; C/GMP quadratic recurrence and linear 32-step replay",
+    "full_parity_hashes_match": true,
+    "all_extrema_and_witnesses_match": true,
+    "training_binary_steps": 4035698,
+    "new_binary_steps": 28256725,
+    "artifact_byte_comparison": "All four downloaded JSON files equal local files exactly."
+  },
+  "new_descent_upper_bounds": {
+    "22": 2019635,
+    "23": 4037425,
+    "24": 8075572
+  },
+  "mathematical_status": {
+    "compensation_implies_sufficient_certificate": "Paper proof with internal review",
+    "residue_and_height_abstraction_obstruction": "Paper proof with explicit quantifiers; not a counterexample in Q_v",
+    "uniform_compensation": "Open",
+    "uniform_family_descent": "Not proved",
+    "novelty": "Not established",
+    "new_lean_declarations": 0
+  },
+  "scope_notes": [
+    "Frozen constants were not altered after observing levels 22\u201324.",
+    "Calibration is exploratory; held-out results are finite evidence, not independent statistical trials.",
+    "Descent bounds count Syracuse steps from Q_v to a visit below N_v; they are not first times or times to 1.",
+    "The abstraction obstruction does not rule out symbolic proofs exploiting exact tower arithmetic.",
+    "The existing Lean CI does not formally verify this phase.",
+    "Subsequent changes are documentation and archived evidence only.",
+    "Earlier manifests remain historical snapshots."
+  ],
+  "frozen_v6_sha256": {
+    "paper/collatz_spectral_reduction_v6.pdf": "a959282145d5042550c3938b445a4964305299b4eca71bcc62539804c5b585f9",
+    "collatz_spectral_reduction_v6_supplementary.zip": "20f9195443dd058aeae16b9316ed0f6beafb6d360182ba93b875107a0ee9da60"
+  },
+  "sha256": {
+    ".github/workflows/tower-compensation.yml": "298e196856620bd012ff36226181f7eb5bfa0e11b99865bba3faea74a56833a0",
+    "README.md": "c71c7837743927d5b6f54d57977dae215355ef724a3786a2f2b37d116f023778",
+    "notes/post_v6_compensation_2026-09-25/PROTOCOL_IT.md": "999e38260e3961a6564d107d3c03002d24a54fea15e67d239e5f6bca867d2416",
+    "notes/post_v6_compensation_2026-09-25/RESIDUE_OBSTRUCTION_IT.md": "e7d996e3d1c2cd454fc473e1fca79e28f8163feac8a188f612a788413f396f7f",
+    "notes/post_v6_compensation_2026-09-25/RESULTS_IT.md": "45975a84806390b319e8ddc2944c3cbde904ea725a9bac5719d75194cc07f73c",
+    "notes/post_v6_compensation_2026-09-25/REVIEW_IT.md": "50c950d9766cd7e17a05798ae231734e37c528c2dba9ccf4b662864ca3948c2b",
+    "notes/post_v6_compensation_2026-09-25/block_engine.py": "f5deaad568c9af6c26fa04706b510cf073a2ee50821436a7920f675d47c515ce",
+    "notes/post_v6_compensation_2026-09-25/calibration_results.json": "7bfc53eee0411b9b6cfef20cdc79cb6fe1ec9affcb62ee2975a7f1881bcbc766",
+    "notes/post_v6_compensation_2026-09-25/calibration_verification_results.json": "b7648752dc1a07eaa0d329afb1ec845389d630624369076de9691b435a8b370d",
+    "notes/post_v6_compensation_2026-09-25/ci_36122256120.log.gz": "ed1f358b20ddd28c3a0bc053aad415792e7c6df6d47cc7ed496118387bd7d8ae",
+    "notes/post_v6_compensation_2026-09-25/ci_36122256203.log.gz": "730b5b4c45d879c0181704fec6d5aca26ce6b83436753f609108918ba7fc8d9b",
+    "notes/post_v6_compensation_2026-09-25/compensation_probe.py": "5ab377c5b6b2f37a50da805539710aa82508ec3de5f75df96c18a43d4c473965",
+    "notes/post_v6_compensation_2026-09-25/frozen_protocol.json": "3db8a292c6eb3aaaaa702cf90676fdf8a2d78ca2e12779e9480ca0735354813a",
+    "notes/post_v6_compensation_2026-09-25/holdout_results.json": "4e099839d94e30be1c3e05b441f677df8dd3a21a7cd1a28c488273addfa3d83d",
+    "notes/post_v6_compensation_2026-09-25/test_compensation.py": "b65ff65784b9fc8ac72dbd7cc8458fc4d89eb5136e624963cfbd2f70878a8b8e",
+    "notes/post_v6_compensation_2026-09-25/test_verifier.py": "8982301b4d789693a8de493e112a9da2f357d22f7f9dc50859045ce5bf88dba6",
+    "notes/post_v6_compensation_2026-09-25/verification_results.json": "2de8a205829c46a60e36d0c8cd08642c1caaec9889b04613b4749dc72d0e689b",
+    "notes/post_v6_compensation_2026-09-25/verify_blocks.c": "310053c15bf8687488c67815875b396210c54073460eb00b88d58964ef6de1d5",
+    "notes/post_v6_compensation_2026-09-25/verify_holdout.py": "620f773703aecf406d4e68cd8e65dcfda5bf8fe4dd8704e7ab9b2cbc110a9c6f"
+  }
+}

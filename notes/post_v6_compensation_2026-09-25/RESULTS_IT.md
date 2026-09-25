@@ -14,8 +14,18 @@ Il [protocollo](PROTOCOL_IT.md) e i relativi
 [hash](frozen_protocol.json) sono stati pubblicati nel commit
 [`24e3569`](https://github.com/PieroBorgatta/Collatz/commit/24e35698a6cc104ac686b84a3f791e1f0341c617)
 prima di calcolare i livelli 22–24. Formula, coefficiente, dominio e
-verificatore sono rimasti invariati. Le verifiche CI della fase completa
-saranno registrate nel manifest finale.
+verificatore sono rimasti invariati.
+
+La [CI sperimentale 36122256203](https://github.com/PieroBorgatta/Collatz/actions/runs/36122256203)
+ha superato tutti i quindici test e riprodotto calibrazione, nuovi livelli
+e replay indipendenti. I quattro JSON scaricati coincidono byte per byte
+con quelli locali. Sono passati anche build e audit Lean esistenti nella
+[CI 36122256120](https://github.com/PieroBorgatta/Collatz/actions/runs/36122256120).
+Entrambe riguardano il commit di codice
+`df44e7f4daf79af2d56c3d8a35be2a3d3d8384fe`.
+Il [manifest](verification_manifest.json) e i log archiviati conservano
+l'evidenza. Le modifiche successive riguardano soltanto documentazione
+ed evidenza, e il controllo Lean esistente non dimostra la nuova candidata.
 
 ## 1. La condizione messa alla prova
 

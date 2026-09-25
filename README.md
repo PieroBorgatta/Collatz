@@ -313,6 +313,9 @@ A separate argument shows why a proof retaining only an initial residue
 and a coarse height interval must preserve almost all available bits;
 this limits that abstraction, not proofs using the exact tower arithmetic.
 The published freeze, complete data, and verification procedure are in the report.
+The [full experiment and independent replay](https://github.com/PieroBorgatta/Collatz/actions/runs/36122256203)
+passed on commit `df44e7f`, with four byte-identical downloaded result files;
+the existing Lean build and audits also passed.
 
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch
