@@ -384,6 +384,19 @@ and [existing Lean build and audits](https://github.com/PieroBorgatta/Collatz/ac
 passed on commit `77fe96a`; all 13 tests pass and the downloaded result is
 byte-identical. The new mathematical arguments remain paper proofs.
 
+The [ternary carry study](notes/post_v6_ternary_2026-09-25/RESULTS_IT.md)
+independently reproduces every archived parity bit at levels 5–16 using
+ordinary base-three digit arrays. A self-contained
+[Fourier/Gauss argument](notes/post_v6_ternary_2026-09-25/FIRST_SEAM_BOUND_IT.md)
+bounds the first internal carry discrepancy by
+`sqrt(8m)*(r²−1)/4`, where `m=2^(v+1)` and `r=v+3`.
+This controls one halving only; the full doubling error remains open.
+An exact length clock shows why leading-digit loss supplies no independent
+parity budget. Two explicit transitions also rule out a universal one-step
+budget based on the six additive incoming-carry/digit counts. These are
+paper arguments with finite independent tests, not new Lean declarations;
+no mathematical priority or new tower level is claimed.
+
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch
 identities, counterexamples to

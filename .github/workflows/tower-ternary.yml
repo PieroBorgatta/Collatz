@@ -1,0 +1,46 @@
+name: Tower ternary carry analysis
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'notes/post_v6_ternary_2026-09-25/*.py'
+      - 'notes/post_v6_ternary_2026-09-25/*.c'
+      - 'notes/post_v6_ternary_2026-09-25/*_results.json'
+      - 'notes/post_v6_margin_2026-09-25/margin_results.json'
+      - '.github/workflows/tower-ternary.yml'
+  pull_request:
+    paths:
+      - 'notes/post_v6_ternary_2026-09-25/**'
+      - 'notes/post_v6_margin_2026-09-25/margin_results.json'
+      - '.github/workflows/tower-ternary.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile ordinary ternary engine
+        run: cc -std=c11 -O3 -Wall -Wextra -Werror -Wpedantic notes/post_v6_ternary_2026-09-25/ternary_engine.c -o /tmp/ternary-engine
+      - name: Test against elementary integer dynamics
+        env:
+          TERNARY_ENGINE: /tmp/ternary-engine
+        run: python3 notes/post_v6_ternary_2026-09-25/test_ternary.py
+      - name: Replay archived tower words and first-seam certificates
+        run: |
+          python3 notes/post_v6_ternary_2026-09-25/ternary_probe.py --engine /tmp/ternary-engine --output /tmp/ternary/ternary_results.json
+          cmp notes/post_v6_ternary_2026-09-25/ternary_results.json /tmp/ternary/ternary_results.json
+      - name: Preserve evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tower-ternary-${{ github.run_id }}-${{ github.run_attempt }}
+          path: /tmp/ternary
+          if-no-files-found: ignore
