@@ -401,6 +401,19 @@ and [existing Lean checks](https://github.com/PieroBorgatta/Collatz/actions/runs
 passed on `3c1cd2d`: all 12 tests pass and the downloaded result is
 byte-identical. The new arguments are not formalized by that Lean run.
 
+The [prefix propagation study](notes/post_v6_propagation_2026-09-25/RESULTS_IT.md)
+proves the exact quotient identity
+`floor(T^t(n)/3^J_n(t)) = floor(n/2^t)` with two elementary arguments.
+Every original ternary column therefore follows the modular model at
+all times; the appended tail is separated exactly. A Fourier bound
+controls the original seam for a quantified short window, and a verified
+application of existing discrepancy literature extends the asymptotic
+range. The study checks 208 states and gives an exact identity for the
+carry difference between the two orbits, isolating their appended tails.
+Controlling those tails and comparing the different time horizons remain
+open; no new tower level, Lean declaration or mathematical priority is
+claimed.
+
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch
 identities, counterexamples to
