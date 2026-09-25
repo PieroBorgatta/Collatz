@@ -373,7 +373,19 @@ Su un ambiente con compilatore C già configurato si può omettere
 `DEVELOPER_DIR`. I dati non contengono tempi di esecuzione, così il replay
 può essere confrontato byte per byte.
 
-<!-- INTEGRARE DAL COORDINATORE SOLO DOPO ESITO: evidenza finale CI. -->
+La [verifica ternaria su GitHub](https://github.com/PieroBorgatta/Collatz/actions/runs/36153219416)
+e la [build Lean con audit esistenti](https://github.com/PieroBorgatta/Collatz/actions/runs/36153219178)
+sono passate sul commit `3c1cd2d`. Il risultato scaricato dalla CI è
+identico byte per byte al JSON locale; tutti i dodici test passano anche
+nell'ambiente Linux della CI. Il replay CI ripete le implementazioni
+archiviate: l'indipendenza aritmetica deriva dal confronto fra il C
+ternario e il replay sugli interi, non dal solo cambio di macchina.
+La build Lean verifica le dichiarazioni già presenti nel progetto;
+non formalizza le dimostrazioni di questa nota. I log compressi e gli
+SHA-256 sono elencati nel [manifesto](verification_manifest.json).
+Gli input delle cinque fasi precedenti e gli artifact pubblicati v6
+sono rimasti invariati. Gli SHA storici del README restano riferiti alle
+rispettive versioni storiche, poiché il README continua a essere aggiornato.
 
 ## 7. Il passaggio ancora necessario
 
@@ -387,3 +399,6 @@ senza esaurire le possibilità di un modello più informativo.
 Non è stata dimostrata una stima uniforme per `E` o `Δ_v`, né una nuova
 discesa della famiglia. Rimane aperto il collegamento fra la cancellazione
 aritmetica del primo confronto e l'intera storia Collatz.
+
+Il [piano successivo](NEXT_RESEARCH_IT.md) delimita la derivazione da tentare
+per pochi passi oltre la prima giunzione.

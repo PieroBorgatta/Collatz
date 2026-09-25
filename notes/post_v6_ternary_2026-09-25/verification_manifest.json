@@ -1,0 +1,117 @@
+{
+  "date": "2026-09-25",
+  "verified_code_commit": "3c1cd2dd4bfd2e4d57f3d207616b664befaf91e5",
+  "ternary_ci": {
+    "conclusion": "success",
+    "headSha": "3c1cd2dd4bfd2e4d57f3d207616b664befaf91e5",
+    "status": "completed",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36153219416"
+  },
+  "existing_lean_ci": {
+    "conclusion": "success",
+    "headSha": "3c1cd2dd4bfd2e4d57f3d207616b664befaf91e5",
+    "status": "completed",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36153219178"
+  },
+  "verification": {
+    "tests": 12,
+    "replayed_existing_levels": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "adjacent_pairs": 11,
+    "new_tower_levels": [],
+    "C_shortcut_steps": 126423,
+    "C_scanned_digit_cells": 10686998090,
+    "all_12_full_traces_and_endpoints_verified_with_independent_integer_T": true,
+    "all_12_Q_traces_match_archived_SHA256": true,
+    "C_small_cases_with_independent_full_ledger_comparison": 42,
+    "first_seam_levels": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "first_seam_direct_padded_word_checks": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "downloaded_result_byte_identical": true,
+    "all_previous_frozen_inputs_unchanged": true,
+    "previous_non_README_hashes_verified": {
+      "compensation": 18,
+      "arithmetic": 13,
+      "margin": 13,
+      "mixed": 12,
+      "ancestry": 14
+    },
+    "CI_rerun_itself_is_not_a_new_independent_implementation": true
+  },
+  "mathematical_status": {
+    "first_seam_bound": "Paper proof for every r>=3: 2*D_r^2 <= m*(r^2-1)^2, m=2^(r-2).",
+    "first_seam_scope": "One raw internal halving of the initial concatenated padded word; no bound on E or Delta follows.",
+    "length_clock": "Paper proof under 4^t < 3^m; holds throughout the chosen windows.",
+    "six_type_potential_obstruction": "Universal one-step additive potentials on (incoming carry, ternary digit) require rho>=1; does not exclude richer memory or family-restricted bounds.",
+    "uniform_doubling_error_bound": "Open",
+    "uniform_family_descent": "Not proved",
+    "new_lean_declarations": 0,
+    "novelty": "Not established",
+    "review": "Internal agent cross-review; not external human peer review."
+  },
+  "scope_notes": [
+    "No new tower orbit levels were added. First-seam sums are separate observables.",
+    "Finite calculations are not the proof of the uniform first-seam bound.",
+    "The ordinary base-three simulator is not the full Sterin-Woods CQCA.",
+    "Existing Lean CI does not formalize these new paper arguments.",
+    "Subsequent changes are documentation and archived evidence only.",
+    "Earlier manifests remain historical snapshots, including their README hashes."
+  ],
+  "frozen_v6_sha256": {
+    "paper/collatz_spectral_reduction_v6.pdf": "a959282145d5042550c3938b445a4964305299b4eca71bcc62539804c5b585f9",
+    "collatz_spectral_reduction_v6_supplementary.zip": "20f9195443dd058aeae16b9316ed0f6beafb6d360182ba93b875107a0ee9da60"
+  },
+  "sha256": {
+    ".github/workflows/tower-ternary.yml": "027fc98e643ac46edacc33216bef6cbbffaa2abc95ff910d3c3aab78c2ec2db5",
+    "README.md": "9c4ad135ac746423565002599ec56dd05a9aca598dbd8f68c3018e9b187b3ff4",
+    "notes/post_v6_margin_2026-09-25/margin_results.json": "837937cb8387577e53f0547a6991e1b606828b82366a94190835c8fbd246ccf5",
+    "notes/post_v6_ternary_2026-09-25/FIRST_SEAM_BOUND_IT.md": "9e0358394ed00b0ba0b98bb737d74dc34d58083b65bedfb6e585fc11b41871bf",
+    "notes/post_v6_ternary_2026-09-25/NEXT_RESEARCH_IT.md": "7963bf03667189f2dcfb5618cd2f04855477c8d9398849a6383d08373384a032",
+    "notes/post_v6_ternary_2026-09-25/RESULTS_IT.md": "0265468d8b6e342fca1dd514bdaf137f29be51435de367323f0d54b493db7237",
+    "notes/post_v6_ternary_2026-09-25/ci_36153219178.log.gz": "d134528d6f8584e22954fa349e4c9647c4d5275448ae0166f84e1117cea3e2c9",
+    "notes/post_v6_ternary_2026-09-25/ci_36153219416.log.gz": "fa0c1443bbe4b0bea81ba07875b66d09fb89103cef48aebec123034de576dbb0",
+    "notes/post_v6_ternary_2026-09-25/ternary_engine.c": "b5de4386e01e18e34fad1f158c9c29c144568e9b9386c60ae1d5dde1508e9b2a",
+    "notes/post_v6_ternary_2026-09-25/ternary_probe.py": "ad748dbc93cb7c818a1e210fc1087d15346298cb041de6bf81f33691b45b9082",
+    "notes/post_v6_ternary_2026-09-25/ternary_results.json": "8723fb24fb14121ae3e784cf8fb200d7761d3a3f9c7ac77481b88ba6e93089e4",
+    "notes/post_v6_ternary_2026-09-25/test_ternary.py": "f0e4f64efc8b74314b3331713baf1f5a0b52f5eff565be8dff6aed41b7a4af6a"
+  }
+}

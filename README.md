@@ -396,6 +396,10 @@ parity budget. Two explicit transitions also rule out a universal one-step
 budget based on the six additive incoming-carry/digit counts. These are
 paper arguments with finite independent tests, not new Lean declarations;
 no mathematical priority or new tower level is claimed.
+The [ternary CI](https://github.com/PieroBorgatta/Collatz/actions/runs/36153219416)
+and [existing Lean checks](https://github.com/PieroBorgatta/Collatz/actions/runs/36153219178)
+passed on `3c1cd2d`: all 12 tests pass and the downloaded result is
+byte-identical. The new arguments are not formalized by that Lean run.
 
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch
