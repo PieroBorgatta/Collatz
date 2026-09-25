@@ -1,0 +1,42 @@
+{
+  "created_at_utc": "2026-09-25T10:00:29.567246+00:00",
+  "status_at_freeze": "No level 22, 23 or 24 has been computed in this study.",
+  "training_levels": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "holdout_levels": [
+    22,
+    23,
+    24
+  ],
+  "drift": 1,
+  "coefficient": 128,
+  "capacity_formula": "128*v^2",
+  "walk_formula": "C_v(r)=305*r-589*J_v(r)",
+  "hypothesis": "For every v>=15, max_{0<=s<=t<=H_v}(C_v(s)-C_v(t)) <= 128*v^2.",
+  "horizon_formula": "H_v=ceil(589*2^v/612)",
+  "sufficient_tail_starts_at_v": 15,
+  "diagnostic_block_width": 256,
+  "check_resolution": "Every binary step; diagnostic blocks do not skip interior prefixes.",
+  "selection_rule": "Smallest positive power of two bounding drawdown/v^2 on v=10..21.",
+  "outcomes": "Any held-out violation rejects this fixed hypothesis; all passes remain finite evidence only.",
+  "frozen_inputs_sha256": {
+    "PROTOCOL_IT.md": "999e38260e3961a6564d107d3c03002d24a54fea15e67d239e5f6bca867d2416",
+    "block_engine.py": "f5deaad568c9af6c26fa04706b510cf073a2ee50821436a7920f675d47c515ce",
+    "compensation_probe.py": "5ab377c5b6b2f37a50da805539710aa82508ec3de5f75df96c18a43d4c473965",
+    "test_compensation.py": "b65ff65784b9fc8ac72dbd7cc8458fc4d89eb5136e624963cfbd2f70878a8b8e",
+    "calibration_results.json": "7bfc53eee0411b9b6cfef20cdc79cb6fe1ec9affcb62ee2975a7f1881bcbc766",
+    "verify_blocks.c": "310053c15bf8687488c67815875b396210c54073460eb00b88d58964ef6de1d5"
+  }
+}
