@@ -1,0 +1,79 @@
+{
+  "date": "2026-09-25",
+  "verified_code_commit": "77fe96a194ba931a8528f85cb67e68af2df0c6a7",
+  "ancestry_ci": {
+    "conclusion": "success",
+    "headSha": "77fe96a194ba931a8528f85cb67e68af2df0c6a7",
+    "status": "completed",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36147736152"
+  },
+  "existing_lean_ci": {
+    "conclusion": "success",
+    "headSha": "77fe96a194ba931a8528f85cb67e68af2df0c6a7",
+    "status": "completed",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36147736081"
+  },
+  "verification": {
+    "tests": 13,
+    "ancestry_intervals": 12,
+    "coherent_odd_counterexamples": 6,
+    "pure_power_parameter_certificates": 2,
+    "exhaustively_enumerated_odd_anchors": 911,
+    "retained_after_ternary_filter": 12,
+    "retained_upper_margin_minimum": 6,
+    "new_tower_levels": [],
+    "downloaded_result_byte_identical": true,
+    "independent_closed_formula_and_elementary_T_replay": true,
+    "all_previous_frozen_inputs_unchanged": true,
+    "historical_manifest_entries_checked_excluding_README": {
+      "compensation": 18,
+      "arithmetic": 13,
+      "margin": 13,
+      "mixed": 12
+    },
+    "ci_replay_is_not_an_independent_implementation": true
+  },
+  "mathematical_status": {
+    "pure_power_parameter_isometry": "Paper proof; varying exponent realizes every finite parity word, but violates the prescribed height unless k=1.",
+    "two_ancestor_rigidity": "Paper proof for every v>=5, with height and the complete current parity word.",
+    "count_only_counterexamples": "Finite odd coherent chains with one to five predecessors, under explicitly stated word constraints.",
+    "finite_filter_success": "All 911 odd anchors enumerated in one exploratory interval; no extrapolation.",
+    "uniform_error_bound": "Open",
+    "uniform_family_descent": "Not proved",
+    "new_lean_declarations": 0,
+    "novelty": "Not established",
+    "review": "Internal agents; not external human peer review."
+  },
+  "scope_notes": [
+    "Two ancestors identify at most one point for each full word; many distinct words can still be admissible.",
+    "The one-ancestor examples preserve the actual lower word; the deeper counterexamples preserve only a positive lower margin.",
+    "Every one of the six explicit chains is odd and preserves all prescribed binades and at least one quarter of the ternary precision at every level.",
+    "In the exhaustive interval, 33 of 911 anchors have nonnegative lower and negative upper margin; none of the 12 ternary-filtered anchors has negative upper margin.",
+    "One of the 12 retained anchors has negative lower margin; the result is not described as 12 positive-to-positive transfers.",
+    "The pure-power parameter certificates use k>1, hence are outside the actual tower height; their enormous full integer values are not constructed.",
+    "The next-research note is an exact reformulation and a carry-memory obstruction, not a new bound on parity weights.",
+    "The existing Lean CI does not formally verify the new paper arguments or finite integer examples.",
+    "Subsequent changes are documentation and archived evidence only; earlier manifests remain historical snapshots."
+  ],
+  "frozen_v6_sha256": {
+    "paper/collatz_spectral_reduction_v6.pdf": "a959282145d5042550c3938b445a4964305299b4eca71bcc62539804c5b585f9",
+    "collatz_spectral_reduction_v6_supplementary.zip": "20f9195443dd058aeae16b9316ed0f6beafb6d360182ba93b875107a0ee9da60"
+  },
+  "sha256": {
+    "README.md": "97f22b68ee5bfc83f722e9d82d6617545d92b944a3a111ac10ba5e4726b1d594",
+    ".github/workflows/tower-ancestry.yml": "ae08c6b07bd09639c403eceed673180ceb00922d3137579c0296913dc12e34eb",
+    "notes/post_v6_ancestry_2026-09-25/RESULTS_IT.md": "e50e8aa223946220ba35001e50a98fdf269e5648d07b91188244e13dee08d2d3",
+    "notes/post_v6_ancestry_2026-09-25/NEXT_RESEARCH_IT.md": "d29dcc64e0a578ea3bd35fc60e77c4cef596368ca911f2a52446ec493e9d18a2",
+    "notes/post_v6_ancestry_2026-09-25/ancestry_probe.py": "8436d7b9ed330095b306fe7be42872bb5cbcce6956b198a66616bc42c9d2c232",
+    "notes/post_v6_ancestry_2026-09-25/ancestry_results.json": "5821d963eb84f9bc4f61a468307e5c911ad7933093fe0923fafe67f0f5a9be35",
+    "notes/post_v6_ancestry_2026-09-25/test_ancestry.py": "e6fa4224355a8802bd28fa4aa89e4c1efd7c8d07e2172490e181a67503974fed",
+    "notes/post_v6_ancestry_2026-09-25/ci_36147736152.log.gz": "51de1893eb130d10d02fd9191b82add1dcd79cf188fbd47f7d03336fedb0a1af",
+    "notes/post_v6_ancestry_2026-09-25/ci_36147736081.log.gz": "38a29d5d1d80627a71f2ed0726bd8bc91e942158886ddaa918e09cd02a0c09bc",
+    "notes/post_v6_mixed_2026-09-25/mixed_probe.py": "c5d46d0bd0691a0b7ab4f310278259794be1d6b88d0439d236e3edb8c6c04a37",
+    "notes/post_v6_mixed_2026-09-25/mixed_results.json": "f31d0f3a829167695e32dd28f0a550a691d8b65925f3ea70f785b5d001015dd0",
+    "notes/post_v6_margin_2026-09-25/margin_probe.py": "adf108d30ee5f84b3f7b9958aa314e867385d9461465bbbccf902a5b766d4ec2",
+    "notes/post_v6_margin_2026-09-25/margin_results.json": "837937cb8387577e53f0547a6991e1b606828b82366a94190835c8fbd246ccf5",
+    "notes/post_v6_arithmetic_2026-09-25/arithmetic_probe.py": "02d51066d68c7cf6cc28f4127399ca4d95554ee86792f894f9c2e1d7a33d01b5",
+    "notes/post_v6_compensation_2026-09-25/block_engine.py": "f5deaad568c9af6c26fa04706b510cf073a2ee50821436a7920f675d47c515ce"
+  }
+}

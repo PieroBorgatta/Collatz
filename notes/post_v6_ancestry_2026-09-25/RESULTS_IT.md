@@ -345,6 +345,20 @@ I test confrontano radici, estremi, inverse, conteggi e parole con
 enumerazioni piccole indipendenti. La verifica computazionale è distinta
 dalle prove uniformi delle Proposizioni 1 e 2.
 
+Sul commit `77fe96a194ba931a8528f85cb67e68af2df0c6a7` sono passati tutti
+i **13 test**, compresi i replay indipendenti delle sei catene e di tutte
+le 911 righe. Il
+[replay CI 36147736152](https://github.com/PieroBorgatta/Collatz/actions/runs/36147736152)
+è riuscito e il file scaricato coincide byte per byte con quello locale.
+Anche la
+[build Lean e gli audit preesistenti](https://github.com/PieroBorgatta/Collatz/actions/runs/36147736081)
+sono passati sullo stesso commit; non formalizzano questa nuova fase.
+Le prove e i dati sono stati sottoposti a revisione interna degli agenti,
+non a peer review umana esterna. I log compressi e il
+[manifest delle verifiche](verification_manifest.json) archiviano l'evidenza.
+Il successivo commit aggiunge soltanto documentazione e materiale di verifica;
+la nota sulla pista ternaria non introduce una nuova stima dimostrata.
+
 ## 8. Il problema sul peso della parola resta aperto
 
 Ponendo `j_v=J_(Q_v)(H_v)`, `m_v=2^(v−1)−j_v` e
@@ -382,3 +396,9 @@ L'unicità dell'antenato per ciascuna parola non significa che sia ammessa
 una sola parola: il loro numero resta quello di (5).
 Identificare il punto è un progresso nella selezione dei candidati;
 stimare la sua orbita è ancora il passaggio mancante.
+
+La [pista ternaria successiva](NEXT_RESEARCH_IT.md) formula questo problema
+come controllo del difetto prodotto dal raddoppio della parola ternaria
+di `3^m−1`. La nota distingue l'identità esatta da una stima ancora assente
+e mostra perché non è giustificato supporre che i riporti perdano memoria
+entro un numero costante di cifre.

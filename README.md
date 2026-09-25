@@ -379,6 +379,10 @@ constraint retains 12, all passing the upper parity budget. This finite
 success is not a uniform bound; identifying Q_v still leaves its parity
 weight uncontrolled. The study adds no Lean declaration or new tower level,
 and makes no mathematical priority claim.
+The [ancestry replay](https://github.com/PieroBorgatta/Collatz/actions/runs/36147736152)
+and [existing Lean build and audits](https://github.com/PieroBorgatta/Collatz/actions/runs/36147736081)
+passed on commit `77fe96a`; all 13 tests pass and the downloaded result is
+byte-identical. The new mathematical arguments remain paper proofs.
 
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch
