@@ -1,0 +1,45 @@
+name: Tower precision renewal budget
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'notes/post_v6_renewal_2026-09-26/*.py'
+      - 'notes/post_v6_renewal_2026-09-26/*_results.json'
+      - 'notes/post_v6_compensation_2026-09-25/block_engine.py'
+      - 'notes/post_v6_arithmetic_2026-09-25/arithmetic_probe.py'
+      - 'notes/post_v6_margin_2026-09-25/margin_results.json'
+      - '.github/workflows/tower-renewal.yml'
+  pull_request:
+    paths:
+      - 'notes/post_v6_renewal_2026-09-26/**'
+      - 'notes/post_v6_compensation_2026-09-25/block_engine.py'
+      - 'notes/post_v6_arithmetic_2026-09-25/arithmetic_probe.py'
+      - 'notes/post_v6_margin_2026-09-25/margin_results.json'
+      - '.github/workflows/tower-renewal.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test sharp envelopes and independent exhaustive completions
+        run: python3 notes/post_v6_renewal_2026-09-26/test_renewal.py
+      - name: Reproduce precision thresholds on historical traces
+        run: |
+          python3 notes/post_v6_renewal_2026-09-26/renewal_probe.py --output /tmp/renewal/renewal_results.json
+          cmp notes/post_v6_renewal_2026-09-26/renewal_results.json /tmp/renewal/renewal_results.json
+      - name: Preserve evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tower-renewal-${{ github.run_id }}-${{ github.run_attempt }}
+          path: /tmp/renewal
+          if-no-files-found: ignore

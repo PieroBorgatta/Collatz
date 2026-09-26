@@ -1,0 +1,1000 @@
+{
+  "schema": 1,
+  "scope": "Sharp prefix-cylinder certificates with exact quadratic pairing; not a bound on the singleton tower.",
+  "baseline_sha256": "837937cb8387577e53f0547a6991e1b606828b82366a94190835c8fbd246ccf5",
+  "levels": [
+    {
+      "v": 5,
+      "H": 31,
+      "K": 62,
+      "lower_odd": 14,
+      "upper_odd": 34,
+      "delta_actual": 6,
+      "target_g": 16,
+      "target_is_uniform_candidate_only_from_v16": false,
+      "required_observed_upper_zeroes": 18,
+      "minimum_source_precision": 41,
+      "unexposed_bits_at_certificate": 21,
+      "lower_parity_sha256": "70d8ff6e827a5e59709c4efcb2b0aa8a0c63ae149209cd77bc091118ff90cabc",
+      "upper_parity_sha256": "719fe59ef0592f92bf550e63251b8c88eee05e4fe53a9d391216eede45d2b505",
+      "old_complete_parity_hashes_match": true,
+      "envelope_at_H": {
+        "minimum": -13,
+        "maximum": 18,
+        "free_bits": 31,
+        "upper_prefix_odd": 15
+      },
+      "envelope_at_minimum": {
+        "minimum": -5,
+        "maximum": 16,
+        "free_bits": 21,
+        "upper_prefix_odd": 23
+      },
+      "envelope_one_bit_before": {
+        "minimum": -5,
+        "maximum": 17,
+        "free_bits": 22,
+        "upper_prefix_odd": 23
+      },
+      "actual_suffix_zeroes": 10,
+      "minimality_verified": true
+    },
+    {
+      "v": 6,
+      "H": 62,
+      "K": 124,
+      "lower_odd": 34,
+      "upper_odd": 66,
+      "delta_actual": -2,
+      "target_g": 16,
+      "target_is_uniform_candidate_only_from_v16": false,
+      "required_observed_upper_zeroes": 40,
+      "minimum_source_precision": 73,
+      "unexposed_bits_at_certificate": 51,
+      "lower_parity_sha256": "719fe59ef0592f92bf550e63251b8c88eee05e4fe53a9d391216eede45d2b505",
+      "upper_parity_sha256": "ae23125809d9854dad10beb77a1225555de3b17dfad64b68c1a8e397acc00879",
+      "old_complete_parity_hashes_match": true,
+      "envelope_at_H": {
+        "minimum": -37,
+        "maximum": 25,
+        "free_bits": 62,
+        "upper_prefix_odd": 31
+      },
+      "envelope_at_minimum": {
+        "minimum": -35,
+        "maximum": 16,
+        "free_bits": 51,
+        "upper_prefix_odd": 33
+      },
+      "envelope_one_bit_before": {
+        "minimum": -35,
+        "maximum": 17,
+        "free_bits": 52,
+        "upper_prefix_odd": 33
+      },
+      "actual_suffix_zeroes": 18,
+      "minimality_verified": true
+    },
+    {
+      "v": 7,
+      "H": 124,
+      "K": 247,
+      "lower_odd": 66,
+      "upper_odd": 120,
+      "delta_actual": -12,
+      "target_g": 32,
+      "target_is_uniform_candidate_only_from_v16": false,
+      "required_observed_upper_zeroes": 83,
+      "minimum_source_precision": 151,
+      "unexposed_bits_at_certificate": 96,
+      "lower_parity_sha256": "ae23125809d9854dad10beb77a1225555de3b17dfad64b68c1a8e397acc00879",
+      "upper_parity_sha256": "8b8bfec2acac93f28ea46d5b4eb39903407603d682634f2e26df1b4834ebac48",
+      "old_complete_parity_hashes_match": true,
+      "envelope_at_H": {
+        "minimum": -74,
+        "maximum": 49,
+        "free_bits": 123,
+        "upper_prefix_odd": 58
+      },
+      "envelope_at_minimum": {
+        "minimum": -64,
+        "maximum": 32,
+        "free_bits": 96,
+        "upper_prefix_odd": 68
+      },
+      "envelope_one_bit_before": {
+        "minimum": -64,
+        "maximum": 33,
+        "free_bits": 97,
+        "upper_prefix_odd": 68
+      },
+      "actual_suffix_zeroes": 44,
+      "minimality_verified": true
+    },
+    {
+      "v": 8,
+      "H": 247,
+      "K": 493,
+      "lower_odd": 120,
+      "upper_odd": 268,
+      "delta_actual": 28,
+      "target_g": 32,
+      "target_is_uniform_candidate_only_from_v16": false,
+      "required_observed_upper_zeroes": 221,
+      "minimum_source_precision": 487,
+      "unexposed_bits_at_certificate": 6,
+      "lower_parity_sha256": "8b8bfec2acac93f28ea46d5b4eb39903407603d682634f2e26df1b4834ebac48",
+      "upper_parity_sha256": "234441e2f31818c94784a3574f2e9a9ef778fbfe1a5763a5b0d23e852dc80206",
+      "old_complete_parity_hashes_match": true,
+      "envelope_at_H": {
+        "minimum": -110,
+        "maximum": 136,
+        "free_bits": 246,
+        "upper_prefix_odd": 130
+      },
+      "envelope_at_minimum": {
+        "minimum": 26,
+        "maximum": 32,
+        "free_bits": 6,
+        "upper_prefix_odd": 266
+      },
+      "envelope_one_bit_before": {
+        "minimum": 26,
+        "maximum": 33,
+        "free_bits": 7,
+        "upper_prefix_odd": 266
+      },
+      "actual_suffix_zeroes": 4,
+      "minimality_verified": true
+    },
+    {
+      "v": 9,
+      "H": 493,
+      "K": 986,
+      "lower_odd": 268,
+      "upper_odd": 483,
+      "delta_actual": -53,
+      "target_g": 64,
+      "target_is_uniform_candidate_only_from_v16": false,
+      "required_observed_upper_zeroes": 386,
+      "minimum_source_precision": 764,
+      "unexposed_bits_at_certificate": 222,
+      "lower_parity_sha256": "234441e2f31818c94784a3574f2e9a9ef778fbfe1a5763a5b0d23e852dc80206",
+      "upper_parity_sha256": "8ac991cfc5d7c05a575471769719eaedce54f1a53571e9c5024123e9d8f4fa5a",
+      "old_complete_parity_hashes_match": true,
+      "envelope_at_H": {
+        "minimum": -285,
+        "maximum": 208,
+        "free_bits": 493,
+        "upper_prefix_odd": 251
+      },
+      "envelope_at_minimum": {
+        "minimum": -158,
+        "maximum": 64,
+        "free_bits": 222,
+        "upper_prefix_odd": 378
+      },
+      "envelope_one_bit_before": {
+        "minimum": -158,
+        "maximum": 65,
+        "free_bits": 223,
+        "upper_prefix_odd": 378
+      },
+      "actual_suffix_zeroes": 117,
+      "minimality_verified": true
+    },
+    {
+      "v": 10,
+      "H": 986,
+      "K": 1972,
+      "lower_odd": 483,
+      "upper_odd": 951,
+      "delta_actual": -15,
+      "target_g": 64,
+      "target_is_uniform_candidate_only_from_v16": false,
+      "required_observed_upper_zeroes": 942,
+      "minimum_source_precision": 1821,
+      "unexposed_bits_at_certificate": 151,
+      "lower_parity_sha256": "8ac991cfc5d7c05a575471769719eaedce54f1a53571e9c5024123e9d8f4fa5a",
+      "upper_parity_sha256": "9bc1a938337b9ebe7c91fce66f1e02646aeaaaf7b216f3d28a1fbc4acce79259",
+      "old_complete_parity_hashes_match": true,
+      "envelope_at_H": {
+        "minimum": -502,
+        "maximum": 484,
+        "free_bits": 986,
+        "upper_prefix_odd": 464
+      },
+      "envelope_at_minimum": {
+        "minimum": -87,
+        "maximum": 64,
+        "free_bits": 151,
+        "upper_prefix_odd": 879
+      },
+      "envelope_one_bit_before": {
+        "minimum": -87,
+        "maximum": 65,
+        "free_bits": 152,
+        "upper_prefix_odd": 879
+      },
+      "actual_suffix_zeroes": 79,
+      "minimality_verified": true
+    },
+    {
+      "v": 11,
+      "H": 1972,
+      "K": 3943,
+      "lower_odd": 951,
+      "upper_odd": 1955,
+      "delta_actual": 53,
+      "target_g": 128,
+      "target_is_uniform_candidate_only_from_v16": false,
+      "required_observed_upper_zeroes": 1913,
+      "minimum_source_precision": 3800,
+      "unexposed_bits_at_certificate": 143,
+      "lower_parity_sha256": "9bc1a938337b9ebe7c91fce66f1e02646aeaaaf7b216f3d28a1fbc4acce79259",
+      "upper_parity_sha256": "4b8e1064bf399a0f65cdcaee4c6b80c187991f4edf89d21b3540277ea8f1e3ed",
+      "old_complete_parity_hashes_match": true,
+      "envelope_at_H": {
+        "minimum": -937,
+        "maximum": 1034,
+        "free_bits": 1971,
+        "upper_prefix_odd": 965
+      },
+      "envelope_at_minimum": {
+        "minimum": -15,
+        "maximum": 128,
+        "free_bits": 143,
+        "upper_prefix_odd": 1887
+      },
+      "envelope_one_bit_before": {
+        "minimum": -15,
+        "maximum": 129,
+        "free_bits": 144,
+        "upper_prefix_odd": 1887
+      },
+      "actual_suffix_zeroes": 75,
+      "minimality_verified": true
+    },
+    {
+      "v": 12,
+      "H": 3943,
+      "K": 7885,
+      "lower_odd": 1955,
+      "upper_odd": 4009,
+      "delta_actual": 99,
+      "target_g": 128,
+      "target_is_uniform_candidate_only_from_v16": false,
+      "required_observed_upper_zeroes": 3847,
+      "minimum_source_precision": 7822,
+      "unexposed_bits_at_certificate": 63,
+      "lower_parity_sha256": "4b8e1064bf399a0f65cdcaee4c6b80c187991f4edf89d21b3540277ea8f1e3ed",
+      "upper_parity_sha256": "8c50f46ce165f8856b7c25b11843960a05e7a57baf940ae82e6d7ef17c0bd7b3",
+      "old_complete_parity_hashes_match": true,
+      "envelope_at_H": {
+        "minimum": -1915,
+        "maximum": 2027,
+        "free_bits": 3942,
+        "upper_prefix_odd": 1995
+      },
+      "envelope_at_minimum": {
+        "minimum": 65,
+        "maximum": 128,
+        "free_bits": 63,
+        "upper_prefix_odd": 3975
+      },
+      "envelope_one_bit_before": {
+        "minimum": 65,
+        "maximum": 129,
+        "free_bits": 64,
+        "upper_prefix_odd": 3975
+      },
+      "actual_suffix_zeroes": 29,
+      "minimality_verified": true
+    },
+    {
+      "v": 13,
+      "H": 7885,
+      "K": 15769,
+      "lower_odd": 4009,
+      "upper_odd": 7854,
+      "delta_actual": -164,
+      "target_g": 256,
+      "target_is_uniform_candidate_only_from_v16": false,
+      "required_observed_upper_zeroes": 7495,
+      "minimum_source_precision": 14909,
+      "unexposed_bits_at_certificate": 860,
+      "lower_parity_sha256": "8c50f46ce165f8856b7c25b11843960a05e7a57baf940ae82e6d7ef17c0bd7b3",
+      "upper_parity_sha256": "38bc901ebe5e7ae6d1a8f900f1814b280eb06ee0ef01610b6a87e0281e649c83",
+      "old_complete_parity_hashes_match": true,
+      "envelope_at_H": {
+        "minimum": -4077,
+        "maximum": 3807,
+        "free_bits": 7884,
+        "upper_prefix_odd": 3941
+      },
+      "envelope_at_minimum": {
+        "minimum": -604,
+        "maximum": 256,
+        "free_bits": 860,
+        "upper_prefix_odd": 7414
+      },
+      "envelope_one_bit_before": {
+        "minimum": -604,
+        "maximum": 257,
+        "free_bits": 861,
+        "upper_prefix_odd": 7414
+      },
+      "actual_suffix_zeroes": 420,
+      "minimality_verified": true
+    },
+    {
+      "v": 14,
+      "H": 15769,
+      "K": 31537,
+      "lower_odd": 7854,
+      "upper_odd": 15783,
+      "delta_actual": 75,
+      "target_g": 256,
+      "target_is_uniform_candidate_only_from_v16": false,
+      "required_observed_upper_zeroes": 15573,
+      "minimum_source_precision": 31160,
+      "unexposed_bits_at_certificate": 377,
+      "lower_parity_sha256": "38bc901ebe5e7ae6d1a8f900f1814b280eb06ee0ef01610b6a87e0281e649c83",
+      "upper_parity_sha256": "a62b757a04951636a4728a14fde724878f6e9b3db253c1c49a62fea74857e421",
+      "old_complete_parity_hashes_match": true,
+      "envelope_at_H": {
+        "minimum": -7791,
+        "maximum": 7977,
+        "free_bits": 15768,
+        "upper_prefix_odd": 7917
+      },
+      "envelope_at_minimum": {
+        "minimum": -121,
+        "maximum": 256,
+        "free_bits": 377,
+        "upper_prefix_odd": 15587
+      },
+      "envelope_one_bit_before": {
+        "minimum": -121,
+        "maximum": 257,
+        "free_bits": 378,
+        "upper_prefix_odd": 15587
+      },
+      "actual_suffix_zeroes": 181,
+      "minimality_verified": true
+    },
+    {
+      "v": 15,
+      "H": 31537,
+      "K": 63074,
+      "lower_odd": 15783,
+      "upper_odd": 31613,
+      "delta_actual": 47,
+      "target_g": 512,
+      "target_is_uniform_candidate_only_from_v16": false,
+      "required_observed_upper_zeroes": 30996,
+      "minimum_source_precision": 62147,
+      "unexposed_bits_at_certificate": 927,
+      "lower_parity_sha256": "a62b757a04951636a4728a14fde724878f6e9b3db253c1c49a62fea74857e421",
+      "upper_parity_sha256": "86cb17b586a676c6c1529c082ca99d6d0bab52faaea7126fda430469e1870e03",
+      "old_complete_parity_hashes_match": true,
+      "envelope_at_H": {
+        "minimum": -15736,
+        "maximum": 15801,
+        "free_bits": 31537,
+        "upper_prefix_odd": 15830
+      },
+      "envelope_at_minimum": {
+        "minimum": -415,
+        "maximum": 512,
+        "free_bits": 927,
+        "upper_prefix_odd": 31151
+      },
+      "envelope_one_bit_before": {
+        "minimum": -415,
+        "maximum": 513,
+        "free_bits": 928,
+        "upper_prefix_odd": 31151
+      },
+      "actual_suffix_zeroes": 465,
+      "minimality_verified": true
+    },
+    {
+      "v": 16,
+      "H": 63074,
+      "K": 126147,
+      "lower_odd": 31613,
+      "upper_odd": 62747,
+      "delta_actual": -479,
+      "target_g": 512,
+      "target_is_uniform_candidate_only_from_v16": true,
+      "required_observed_upper_zeroes": 62409,
+      "minimum_source_precision": 124179,
+      "unexposed_bits_at_certificate": 1968,
+      "lower_parity_sha256": "86cb17b586a676c6c1529c082ca99d6d0bab52faaea7126fda430469e1870e03",
+      "upper_parity_sha256": "ced421fbd64ab410b4a1500e65c2c17d259b6b27215bf68d217c8f2f90e1e6c4",
+      "old_complete_parity_hashes_match": true,
+      "envelope_at_H": {
+        "minimum": -31904,
+        "maximum": 31169,
+        "free_bits": 63073,
+        "upper_prefix_odd": 31322
+      },
+      "envelope_at_minimum": {
+        "minimum": -1456,
+        "maximum": 512,
+        "free_bits": 1968,
+        "upper_prefix_odd": 61770
+      },
+      "envelope_one_bit_before": {
+        "minimum": -1456,
+        "maximum": 513,
+        "free_bits": 1969,
+        "upper_prefix_odd": 61770
+      },
+      "actual_suffix_zeroes": 991,
+      "minimality_verified": true
+    },
+    {
+      "v": 17,
+      "H": 126147,
+      "K": 252293,
+      "lower_odd": 62747,
+      "upper_odd": 126369,
+      "delta_actual": 875,
+      "target_g": 1024,
+      "target_is_uniform_candidate_only_from_v16": true,
+      "required_observed_upper_zeroes": 125775,
+      "minimum_source_precision": 251946,
+      "unexposed_bits_at_certificate": 347,
+      "lower_parity_sha256": "ced421fbd64ab410b4a1500e65c2c17d259b6b27215bf68d217c8f2f90e1e6c4",
+      "upper_parity_sha256": "a9f0b028808b28fe9fc990fb3076018054c6cf23716b6d42c3a39e7b4c567ccb",
+      "old_complete_parity_hashes_match": true,
+      "envelope_at_H": {
+        "minimum": -62317,
+        "maximum": 63829,
+        "free_bits": 126146,
+        "upper_prefix_odd": 63177
+      },
+      "envelope_at_minimum": {
+        "minimum": 677,
+        "maximum": 1024,
+        "free_bits": 347,
+        "upper_prefix_odd": 126171
+      },
+      "envelope_one_bit_before": {
+        "minimum": 677,
+        "maximum": 1025,
+        "free_bits": 348,
+        "upper_prefix_odd": 126171
+      },
+      "actual_suffix_zeroes": 149,
+      "minimality_verified": true
+    },
+    {
+      "v": 18,
+      "H": 252293,
+      "K": 504585,
+      "lower_odd": 126369,
+      "upper_odd": 251632,
+      "delta_actual": -1106,
+      "target_g": 1024,
+      "target_is_uniform_candidate_only_from_v16": true,
+      "required_observed_upper_zeroes": 250823,
+      "minimum_source_precision": 500225,
+      "unexposed_bits_at_certificate": 4360,
+      "lower_parity_sha256": "a9f0b028808b28fe9fc990fb3076018054c6cf23716b6d42c3a39e7b4c567ccb",
+      "upper_parity_sha256": "c58d7f201fd022d4d957cbd6234d754a3611f4ee4564ecdc6c02cc5001901683",
+      "old_complete_parity_hashes_match": true,
+      "envelope_at_H": {
+        "minimum": -126865,
+        "maximum": 125427,
+        "free_bits": 252292,
+        "upper_prefix_odd": 125873
+      },
+      "envelope_at_minimum": {
+        "minimum": -3336,
+        "maximum": 1024,
+        "free_bits": 4360,
+        "upper_prefix_odd": 249402
+      },
+      "envelope_one_bit_before": {
+        "minimum": -3336,
+        "maximum": 1025,
+        "free_bits": 4361,
+        "upper_prefix_odd": 249402
+      },
+      "actual_suffix_zeroes": 2130,
+      "minimality_verified": true
+    },
+    {
+      "v": 19,
+      "H": 504585,
+      "K": 1009169,
+      "lower_odd": 251632,
+      "upper_odd": 504483,
+      "delta_actual": 1219,
+      "target_g": 2048,
+      "target_is_uniform_candidate_only_from_v16": true,
+      "required_observed_upper_zeroes": 503857,
+      "minimum_source_precision": 1007489,
+      "unexposed_bits_at_certificate": 1680,
+      "lower_parity_sha256": "c58d7f201fd022d4d957cbd6234d754a3611f4ee4564ecdc6c02cc5001901683",
+      "upper_parity_sha256": "3ef090e35e66d1eb98be6825ea530502edf128d7814fb24c7cb27e39413d4aed",
+      "old_complete_parity_hashes_match": true,
+      "envelope_at_H": {
+        "minimum": -251195,
+        "maximum": 253389,
+        "free_bits": 504584,
+        "upper_prefix_odd": 252069
+      },
+      "envelope_at_minimum": {
+        "minimum": 368,
+        "maximum": 2048,
+        "free_bits": 1680,
+        "upper_prefix_odd": 503632
+      },
+      "envelope_one_bit_before": {
+        "minimum": 368,
+        "maximum": 2049,
+        "free_bits": 1681,
+        "upper_prefix_odd": 503632
+      },
+      "actual_suffix_zeroes": 829,
+      "minimality_verified": true
+    },
+    {
+      "v": 20,
+      "H": 1009169,
+      "K": 2018338,
+      "lower_odd": 504483,
+      "upper_odd": 1008989,
+      "delta_actual": 23,
+      "target_g": 2048,
+      "target_is_uniform_candidate_only_from_v16": true,
+      "required_observed_upper_zeroes": 1007324,
+      "minimum_source_precision": 2014173,
+      "unexposed_bits_at_certificate": 4165,
+      "lower_parity_sha256": "3ef090e35e66d1eb98be6825ea530502edf128d7814fb24c7cb27e39413d4aed",
+      "upper_parity_sha256": "e63a7dc741b073dbddc55916356881a74b5581ffa38cf9bd1204289942520b78",
+      "old_complete_parity_hashes_match": true,
+      "envelope_at_H": {
+        "minimum": -505281,
+        "maximum": 503888,
+        "free_bits": 1009169,
+        "upper_prefix_odd": 503685
+      },
+      "envelope_at_minimum": {
+        "minimum": -2117,
+        "maximum": 2048,
+        "free_bits": 4165,
+        "upper_prefix_odd": 1006849
+      },
+      "envelope_one_bit_before": {
+        "minimum": -2117,
+        "maximum": 2049,
+        "free_bits": 4166,
+        "upper_prefix_odd": 1006849
+      },
+      "actual_suffix_zeroes": 2025,
+      "minimality_verified": true
+    },
+    {
+      "v": 21,
+      "H": 2018338,
+      "K": 4036675,
+      "lower_odd": 1008989,
+      "upper_odd": 2019635,
+      "delta_actual": 1657,
+      "target_g": 4096,
+      "target_is_uniform_candidate_only_from_v16": true,
+      "required_observed_upper_zeroes": 2014601,
+      "minimum_source_precision": 4031733,
+      "unexposed_bits_at_certificate": 4942,
+      "lower_parity_sha256": "e63a7dc741b073dbddc55916356881a74b5581ffa38cf9bd1204289942520b78",
+      "upper_parity_sha256": "f1cc2898ef46a5f2f2ca8c3262f6de6bf15dbc8e84fa66cd88f25e3b41932389",
+      "old_complete_parity_hashes_match": true,
+      "envelope_at_H": {
+        "minimum": -1007857,
+        "maximum": 1010480,
+        "free_bits": 2018337,
+        "upper_prefix_odd": 1010121
+      },
+      "envelope_at_minimum": {
+        "minimum": -846,
+        "maximum": 4096,
+        "free_bits": 4942,
+        "upper_prefix_odd": 2017132
+      },
+      "envelope_one_bit_before": {
+        "minimum": -846,
+        "maximum": 4097,
+        "free_bits": 4943,
+        "upper_prefix_odd": 2017132
+      },
+      "actual_suffix_zeroes": 2439,
+      "minimality_verified": true
+    },
+    {
+      "v": 22,
+      "H": 4036675,
+      "K": 8073350,
+      "lower_odd": 2019635,
+      "upper_odd": 4037425,
+      "delta_actual": -1845,
+      "target_g": 4096,
+      "target_is_uniform_candidate_only_from_v16": true,
+      "required_observed_upper_zeroes": 4029984,
+      "minimum_source_precision": 8061409,
+      "unexposed_bits_at_certificate": 11941,
+      "lower_parity_sha256": "f1cc2898ef46a5f2f2ca8c3262f6de6bf15dbc8e84fa66cd88f25e3b41932389",
+      "upper_parity_sha256": "137b1aae325f0614cb61b5d845bcec8a1a4771c8a389acf0405742d71da94a30",
+      "old_complete_parity_hashes_match": true,
+      "envelope_at_H": {
+        "minimum": -2019632,
+        "maximum": 2017043,
+        "free_bits": 4036675,
+        "upper_prefix_odd": 2019638
+      },
+      "envelope_at_minimum": {
+        "minimum": -7845,
+        "maximum": 4096,
+        "free_bits": 11941,
+        "upper_prefix_odd": 4031425
+      },
+      "envelope_one_bit_before": {
+        "minimum": -7845,
+        "maximum": 4097,
+        "free_bits": 11942,
+        "upper_prefix_odd": 4031425
+      },
+      "actual_suffix_zeroes": 5941,
+      "minimality_verified": true
+    },
+    {
+      "v": 23,
+      "H": 8073350,
+      "K": 16146700,
+      "lower_odd": 4037425,
+      "upper_odd": 8075572,
+      "delta_actual": 722,
+      "target_g": 8192,
+      "target_is_uniform_candidate_only_from_v16": true,
+      "required_observed_upper_zeroes": 8063658,
+      "minimum_source_precision": 16131588,
+      "unexposed_bits_at_certificate": 15112,
+      "lower_parity_sha256": "137b1aae325f0614cb61b5d845bcec8a1a4771c8a389acf0405742d71da94a30",
+      "upper_parity_sha256": "bbc24cea7922b7df0413e3c3db0476fa2e2bed9d54a7b3dbfa55840bd5826311",
+      "old_complete_parity_hashes_match": true,
+      "envelope_at_H": {
+        "minimum": -4035142,
+        "maximum": 4038208,
+        "free_bits": 8073350,
+        "upper_prefix_odd": 4039708
+      },
+      "envelope_at_minimum": {
+        "minimum": -6920,
+        "maximum": 8192,
+        "free_bits": 15112,
+        "upper_prefix_odd": 8067930
+      },
+      "envelope_one_bit_before": {
+        "minimum": -6920,
+        "maximum": 8193,
+        "free_bits": 15113,
+        "upper_prefix_odd": 8067930
+      },
+      "actual_suffix_zeroes": 7470,
+      "minimality_verified": true
+    }
+  ],
+  "threshold_failure_witnesses": [
+    {
+      "v": 5,
+      "precision_M": 40,
+      "horizon_K": 62,
+      "target_g": 16,
+      "witness_delta": 17,
+      "X_hex": "0x2b56d4af8cea67278c797ebd",
+      "Y_hex": "0x3ab247347fe52f564537931f66cc2f7d359d2560a40c5433d",
+      "preserves_low_M_and_high_from_K": true,
+      "same_lower_full_parity_word": true,
+      "same_source_binade": true,
+      "exact_quadratic_relation": true,
+      "is_actual_tower_source": false,
+      "has_one_positive_integer_ancestor": false,
+      "has_two_positive_integer_ancestors": false
+    },
+    {
+      "v": 6,
+      "precision_M": 72,
+      "horizon_K": 124,
+      "target_g": 16,
+      "witness_delta": 17,
+      "X_hex": "0x3ab2473486d2d269778ffb177ed8efaf1b240210a40c5433d",
+      "Y_hex": "0xd75446ae5f132146234df0e8d0fd2e0941f77d43e96628c34b169571c8928e8e2b60e6f8f07cba5135f54748417cbc1cc3d",
+      "preserves_low_M_and_high_from_K": true,
+      "same_lower_full_parity_word": true,
+      "same_source_binade": true,
+      "exact_quadratic_relation": true,
+      "is_actual_tower_source": false,
+      "has_one_positive_integer_ancestor": false,
+      "has_two_positive_integer_ancestors": false
+    },
+    {
+      "v": 7,
+      "precision_M": 150,
+      "horizon_K": 247,
+      "target_g": 32,
+      "witness_delta": 33,
+      "X_hex": "0xd75446ae5f13214622d2592bd62d3165be377743d51531c079a1e2bf1c49b97956f20dd68817781d65f54748417cbc1cc3d",
+      "Y_hex": "0x16a3d54eeb348b26af80deca90f9c31e479e57849994c66ad6c30de19260cae66aca869a5df1d5f7f7f9ef33b2e6a88c5e02c60b028b9c009179e3b05a7c2d96edfa5acf2972458b84aca5c71f8c65c4de729a27d77aecf3de36860d12183acc1a24ede3d",
+      "preserves_low_M_and_high_from_K": true,
+      "same_lower_full_parity_word": true,
+      "same_source_binade": true,
+      "exact_quadratic_relation": true,
+      "is_actual_tower_source": false,
+      "has_one_positive_integer_ancestor": false,
+      "has_two_positive_integer_ancestors": false
+    },
+    {
+      "v": 8,
+      "precision_M": 486,
+      "horizon_K": 493,
+      "target_g": 32,
+      "witness_delta": 33,
+      "X_hex": "0x16a3d54eeb348b26af80deca90f9c31e479e56a5775669307c45654b95bbc67f961e34b57f952085f026500a5a623fceef2682fbaee0b906131d818e65c1f390ffc754cb58512906ec1f7a54fca66b7a0ebe9a27d77aecf3de36860d12183acc1a24ede3d",
+      "Y_hex": "0x802460b92a3e235d469491f16d5486242ead38e1987dfcf344fdc2fb62811ec36ce37202f3af10013e95ed5a771f6a1b2de5722664f8054dd791c805f7423d54266037503c35cec2e55199a577f118922e66a9b81253e221933ec09f3013f15057e6e0fc57eaf7496b77a06cf2a240016cd0e6c1d0e25b1945cb57c6fa085f01b8fbf76ec16a1977e3803aa4582fa05a7850b007e91a5815ab0ce416e166e1198c2c62324d0c216329e982009ca50ad62b958e700e71b9f9a5d9af493a45ac115f4ad69da4a09b9023d",
+      "preserves_low_M_and_high_from_K": true,
+      "same_lower_full_parity_word": true,
+      "same_source_binade": true,
+      "exact_quadratic_relation": true,
+      "is_actual_tower_source": false,
+      "has_one_positive_integer_ancestor": false,
+      "has_two_positive_integer_ancestors": false
+    },
+    {
+      "v": 9,
+      "precision_M": 763,
+      "horizon_K": 986,
+      "target_g": 64,
+      "witness_delta": 65,
+      "X_hex": "0x802460b92a3e235d469491f16d5486242ead38e1987dfcf344fdc2fb62811ec36ce37202f3af1b8070e800cb25c90f3a9f084fc53a0d65ac3f91ce9fd8acdc6f63d09959970298fe3c15c46f32b706594bc797325105f1123cebfd6e58deb68074a00232d6a5e6d0b74c63462977c3e968f00f0e5376569610139333665c35d9690e9a9f0f45bebea44dea455c2fa05a7850b007e91a5815ab0ce416e166e1198c2c62324d0c216329e982009ca50ad62b958e700e71b9f9a5d9af493a45ac115f4ad69da4a09b9023d",
+      "Y_hex": "0x201232f2416eb539f40ef814d5526cfe1adfd899bc048d86e98b61ee1bfe093282621aaf0dc61e07267643cd4c2eeaf110ae97c9b15ede4c7a477fe02dee41d0a303dd9f87e1bbfc5c8bd61ed4ae41b83581622957ac179426903a4ddcf0580278ef3a0f8efc28b128224160a19a7e7256adca88c20db5e0452a5ab5f6f62869aab74d8bb410e2cec6dba5c5c89a311d873e5de176c95a3c8d3148799b3c9d4f5603c3e68c458088f0f761601a75e25f223cc656d881341b1f4a896cafb90c199cb32554ca1f8930645071b57c2f2e5bd8c35584d2289700d3a486410997c0e58f819b7b36a41e692ea1fdc604a8decb02e8f7eeddc160b9ade2ae737895bbf70c5b4c5471a946d117409b68123608ca6ad0d3859f606b07a306078a1249a9c0e94f5ebe717b683bfca57a162bd8f337f6a9ba18c8477fd80d477779029f2e86c58f4d81e83c5f714d5b216665c92fdcf70767e93b484d1dab3dbfe56ef8e45165ba9f5b26271aacfb711a947373c06dd50a174791649c42841f862f43a86f40d52187bc90c4653bc8e996dee1b22de7b81cd4a3d",
+      "preserves_low_M_and_high_from_K": true,
+      "same_lower_full_parity_word": true,
+      "same_source_binade": true,
+      "exact_quadratic_relation": true,
+      "is_actual_tower_source": false,
+      "has_one_positive_integer_ancestor": false,
+      "has_two_positive_integer_ancestors": false
+    },
+    {
+      "v": 10,
+      "precision_M": 1820,
+      "horizon_K": 1972,
+      "target_g": 64,
+      "witness_delta": 65,
+      "X_hex": "0x201232f2416eb539f40ef814d5526cfe1adfd899bc048d86e98b61ee1bfe093282621aaf0dc61e07267643cd4c2eeaf110ae97c9b15ede4c7a477fe02dee41d0a303dd9f87e1bbfc5c8bd61ed4ae4ed2194361115a5f39df9c67e10afeb4151db62231f1492363728fe19a6d1b9ebc83dcf4c9f938e509e225bfdee2504f03b04eb151c5038d3983f843f9aad04a0944d65c0c4ae61559a0a9bd95af3689d9e320538e574e8aab37e03d50c468bb2c7cab0c38f91bd0670180a40e4e8354955308b2aabbdb92df0436d9e902c1ca5cbb3445215445fb5cb39ced157e2cc5831c1fe7571cf52fbbe6cacdc44bd2ccf7e425c1f23ae034b03418fbacbff810b0a974e444efc584a08400540447e00128ae7dad389bbd65bc9ffa6012fe3d4817509824caf37d1c7c8e62f2484d71b23f5243e3d50e02c77fd80d477779029f2e86c58f4d81e83c5f714d5b216665c92fdcf70767e93b484d1dab3dbfe56ef8e45165ba9f5b26271aacfb711a947373c06dd50a174791649c42841f862f43a86f40d52187bc90c4653bc8e996dee1b22de7b81cd4a3d",
+      "Y_hex": "0x4048e07c49067aefdfcbcef09801ca1e53cb76f2e9e976d9fa4f78d16b8ee4be4f7e2d9256e247dda85955e9dd4b62970c09db19fa23548ba4dfa614f994afb8f4a328f368758fe27abb0d9e393d132acb53e5e4bd7c642eac68b53336a9c95b37fadbda2a16a3c26ed7c4081e2b1cd5e4900e50599c69560f0c32b968c99bcef19ca7706f8fce506e81b71b114d190bec257bc119c60d2f4a32e07f1f02c8dd21bc959e567460dc9305a8cf17ec748b8a6fe198bbc7231a5953101cd0a3c46b8e6a14e80cc4a4c6486ce49c2705438d237b9fca37bc358347b2abeb80fdf0dd77c83eed2933a34039ae02464bc0b5189665a946de8c7ab7a85c2519b328d388adf3131b8b9a610128186a7c646ee93a29bea3372a0acb10fa26f5d8671f8c8e5e607a95148fc3d9d252b44094728f8bad3c63a0674acc74e182677ee9b1a24452ead2119ebd8cd3a222a5a3596d03c50f11ef3bf3b6abd0c0b87090f10ff081939c58201f05c2d275fc204dc2d870b961e7b46d27a36614fad30b2728e2ce6beb876036cf02add90ac2f40acc3dc8500895bef96f90273b2f33abea5e3b4bd8faf23827e7cf954074ab4bcdbaf60a781ec419009a9197afca4ef8ff794570e816bd189681c0ca58b3200db2e07670e7b5469c6771b1342a927ae3dfd28244e0afa70e6794ea83ef5203f3ded51945e110eff4205473faacfbf73312703bf1451d0e59acae4c89e1785a7cb8f697619257ae6143d3e5c339c695f108637500eaa9ebe605cefffb4b3abee4bc48c4608e650cb384f75e8926822de8e53ab3196426fdb7b0e8e68b986be728f27fab52eba7b536c294f81fe1249851d1858dabd6b3d08155260798f2d693a9ee35bdeeb39e71e51824a5e05f1df0cb078f2c49f1a521573cbb7c2e943fdef7ad2b7e0cce2ff4df2469190045574d64427aac0ff9996adb4ae1e3d094cda96125123a6545966ad8cfb40519a59f862bc91db3c22921a00600fc0f1802cb1be7e8ff379ef8a0b373bfec601acb5fd36ae955897f7cad1d77debc582d7a1a521969b08b2d7fee99219ef381a6ff3fb9a5eecdda62cfec37f24e484298215811a0ca5df1c50f0b32bea81cd17292eee617b97b72b1de97eed5e3d5cf16f5da3d",
+      "preserves_low_M_and_high_from_K": true,
+      "same_lower_full_parity_word": true,
+      "same_source_binade": true,
+      "exact_quadratic_relation": true,
+      "is_actual_tower_source": false,
+      "has_one_positive_integer_ancestor": false,
+      "has_two_positive_integer_ancestors": false
+    },
+    {
+      "v": 11,
+      "precision_M": 3799,
+      "horizon_K": 3943,
+      "target_g": 128,
+      "witness_delta": 129,
+      "X_hex": "0x4048e07c49067aefdfcbcef09801ca1e53cb76f2e9e976d9fa4f78d16b8ee4be4f7e2d9256e247dda85955e9dd4b62970c09db19fa23548ba4dfa614f994afb8f4a328f368758fe27abb0d9e393d132acb53e5e4bd7c642eac68b53336a9c95b37fadbda2a16a3c26ed7c4081e2b1cd5e4900e50599c69560f0c32b968c99bcef19ca7706f8fce506e81b71b114d190bec257bc119c60d2f4a32e07f1f03018b773779b04a3e21792f75b85a8f1e31059ea90a94adbd3b1bcc11a8a3b7685abf144e7e76d8ea571d3952824c6339e552aa972d3130e4aef7ad64a959384493b68925b46b735a34a53b1ba604291995b341aee0c02202ad37515b080ce14cb30cda83074db7703a73028f0f3d5e9b3bda87c8600d7b60a00131aaa3026c967388be5dfab6ed341005cb4711555574e6ba70c1aba630b12e2765be4de1b0576e48721a42e39661537e0f36feaedb8669cb36a1638ca1380414a1bf72491143956aaa80c04d10a6a4ff66fad0d6a6c14a87cb5b27755f8f5cc440f9d7be3be126d6fe6aa2625810c4ac6a45f9e6b41083053fd451d2ee12b4c6bad4daaaac589441160dd0f87af627775ea6dc346754df227533185ba9caaa3a87de7849d72491800642f2932bb204ad74e17fa6c9d90d9248c997218c10b03eab40def82ffb28ab7681c974a333e7fba73742e52afbc12f080df7eccc30bd1ccb0644625439616d62e74dd62ba10472d3d19e3ffc259d281436fc73e4b8de61b68e2a6ae20b14766cd482d9ec8cb1e5d4069318954809b27f71705ad52c2db287b98f4ff2793feb0e4f1d17d78c7b986be728f27fab52eba7b536c294f81fe1249851d1858dabd6b3d08155260798f2d693a9ee35bdeeb39e71e51824a5e05f1df0cb078f2c49f1a521573cbb7c2e943fdef7ad2b7e0cce2ff4df2469190045574d64427aac0ff9996adb4ae1e3d094cda96125123a6545966ad8cfb40519a59f862bc91db3c22921a00600fc0f1802cb1be7e8ff379ef8a0b373bfec601acb5fd36ae955897f7cad1d77debc582d7a1a521969b08b2d7fee99219ef381a6ff3fb9a5eecdda62cfec37f24e484298215811a0ca5df1c50f0b32bea81cd17292eee617b97b72b1de97eed5e3d5cf16f5da3d",
+      "Y_hex": "0x204909fa5e8c1a7e8226b8d1edac499817989c65d3765e0245f44a720e600ff233123bc6066dd13709ffe918eeb212ee82787cad966b9c5f69b18d8bd5b4703e980280490ca2ea1fb1fc59bf1fb2c8addaa66cb8231c1ce143a8f90c6082409e240cad7dd023e053eee2380979a69940c99e68733c916d846a95cf904bc77237b8a0f36b7c65eff33c553bb1b956741e4527bf9e495d9affd11cd58a38c6e5625ec448a35b72feed2aa0f29af5bdd3d4835eef19c85fdd9d9de42663daa949c2e62930a6c3272039f78bffaff93b0ba4a8bbb7544809e3b810ce08cf737af36fedb33b30f98fe94f01a254d36795e3af9c8d00ed89287e5bc27925181e9f5cb83296038a149b1eecb40df16e4291ab31587f3194afea8ff3e33add497441f6959521ed3bbd38ead8ade89ea7811fbdc484822af80572ea648ab7c0272c78a8d15a15dd1f2ec77cfecae26c8edc83f8df042ab202788c34d89c2dca508605fb5af26dda35a4ff703b58d3b7263cd9b35637dc5be897284b6d22b7db8d6dbe6ba88635a88b163c7ef54caa06e14d9b09b5ab2b7bcdcd54e4368644914d1d0d30a1e4ce8ac6b70d85b871830abf586854b00d29b23f6f62aa681b38dc624528e7b0e37d9f6d3b38ad71f896fb4bcb66a48855d385dbe5684b9186d69a0eafba2e679f0d4fc06e794544ca6fda4bb7f92abe1bf2682b3f8e04f97c6f287e0e34b3486ed44ae4ac6179eb0793fb9587952a7a6d0caf7af0187422294c9104b87df50baa20e3ae251c14c87b3a90f84ac2478b43df3e25d13edbcb4ec098a724156e57e2516ceeba8b528edf7f08c25172acefe111f610437f69acc7b9f71cbd7a82a561ecd72afcd5bde781015a13c607153f93b81dbca2745b786a0d41e3efd580902d972b02264ca324b8877bf28e903a6dcdfea4eb529b4c8ee68d62bdaebc66ce56ee43c22caec0ad910c40d446a632853c96f1f80ed62db5db53bda35d928429477dda5f75fe892127a6a968e6a3a7bcbecb78510439eeb015a4e54d45a699a25b266411e01287f54bf37cb144ae46067ac508236c54048145805d0eb95cb4f66419a7e3df174c4d84ee8c72b767be15362a486f57fa0921a15d742e907ea8daa4cb449cbd0cce6ef0a45eea147d78e3e48a6a6362bbd3ecc570600ae3a7d7c2bb10ba83d191f3d7ad854de7303543cc3666671a197a7258d86e2af58df3d7c100b3750ad0c847c757aaa78d21d1dc9393cee9ada3325014538ebc86e94561e2d119d8bca06b97cf2bd739f3aedc7fc18bd6b061a41a2b14a5e89408e7ea807f07d8192b313458c2ad399d9d709293964c78e9b9d88f8fc93304fe92392d253731ccd8fe54026187e56a858cf45e1539271ed817b56af0793c07ed919f2b9d77a81eb40dc048e0a9bf21579968c57b1357c6048d23430bbfaa6d36823dbb4d164b8e93e502859936f246e5bd8f78ee4f20ead70fac81364360541a7f89e556210264a96ca11978593f066eeb4a2475e5a6580c88206be574f394104d087e7df2038d1151cdf3cd34e8d1853bd0b5d9369c2b170f85e69eb1611641919fbacd4979f5401d717f809baa2210e0d78eb294925f8530b0d14d086fa6ef159d80c88094236dd2bfe0d97ef4997f32c2b7cb6ced8ebd2a46e354d2c0b12fb41c417f9ebab0a74880c2aebcaaf8dfcc8ea122235048e2acb1a3317d88c6de5bfb37fc17859b1e8038a10ef3fa27ea1afd5f850fd9995b117df22ca3ff260e818a075725de80709ecb2ac3b09ed855d03c5c370e75201e5dd8825be12d380da9f7a908eb6513cf60321733d9dcd8c35942ee3f187d60a990f77763c85af05d14b30d12390fe70d4352e75cf8b4f3e12042e8220157883b075e3effe4be467be2f81f5078c893eae746888b87bed17ebef144c4aad25e3501c00b4e4b87775548ae694102ecd8954a8630180bf5f926018720a2d3adc887cd879aa74ce9c7f0a6b7631e14cd0a80557a59289db788cbef187a75a50b9e74775edcd52b6d206091a9fafd569373d33edcefe66f5e0194d629481d060ce8213a3e209be72b68786af665d6c220081646d9c6a4d2de7e7ea8a73e0a957463b002868cbdba6f0e6ad67efb6423a46fa8542d7a3ced63349a9a0a4191e4eb8cb330d07d4b8a035cb61a6959727e0ba10d06725b1ef7cace272f46b687b719542a24aa41cf016bf4dfc764649816899a4a53410bccd9949bec4d22151ca2e0ea84836a55e502b9a131245fc1001cab4f2669d3089605d802ce8d14e89ac53a8d546fa3d",
+      "preserves_low_M_and_high_from_K": true,
+      "same_lower_full_parity_word": true,
+      "same_source_binade": true,
+      "exact_quadratic_relation": true,
+      "is_actual_tower_source": false,
+      "has_one_positive_integer_ancestor": false,
+      "has_two_positive_integer_ancestors": false
+    },
+    {
+      "v": 12,
+      "precision_M": 7821,
+      "horizon_K": 7885,
+      "target_g": 128,
+      "witness_delta": 129,
+      "X_hex": "0x204909fa5e8c1a7e8226b8d1edac499817989c65d3765e0245f44a720e600ff233123bc6066dd13709ffe918eeb212ee82787cad966b9c5f69b18d8bd5b4703e980280490ca2ea1fb1fc59bf1fb2c8addaa66cb8231c1ce143a8f90c6082409e240cad7dd023e053eee2380979a69940c99e68733c916d846a95cf904bc77237b8a0f36b7c65eff33c553bb1b956741e4527bf9e495d9affd11cd58a38c6e5625ec448a35b72feed2aa0f29af5bdd3d4835eef19c85fdd9d9de42663daa949c2e62930a6c3272039f78bffaff93b0ba4a8bbb7544809e3b810ce08cf737af36fedb33b30f98fe94f01a254d36795e3af9c8d00ed89287e5bc27925181e9f5cb83296038a149b1eecb40df16e4291ab31587f3194afea8ff3e33add497441f6959521ed3bbd38ead8ade89ea7811fbdc484822af80572ea648ab7c0272c821aa87ebc39a4efac2cb8700300a21009e905d4e7ac052d3d51d1c1e5f7af3d4cb9c8bf070a08ba0c2b06c48e59da55b737299ec92a1d7d20d444fcf091e74ed35f59c9d7d30c3d943efb15fbbbf1aa38617282aa7dc5efba8ba2d226a51d5901f117476e137bb1ce8a0c5b909552ab4af1f0ca1b77a24cabee626ee14fec28c72e0fc57af382611f5afae3cfc6bb9d36463b6e1f2c8c186013a03bef7a009a9905d493dd0b2e40750103b3c40216ad20b580426a0e35bac20197d60725f11da952705738eda50f376cc007a09a015bc8ba4276b63541e23c384f7b092f92a0e820ae2bf636608d4ae2c9739e4a742b5a1e7721f2783dd99252146cfd6763032636ca297024bd65727878149f2e219a270ccd6ed8f6490d881cb867bdf74380351b6e83e03d011952d8e83b36ab50d0222f8d65c88f9c0cbafe10fedfe096ed868a8bc94e3bec5742b1a226cb760b2ee81c0c4ac18f9c2ac7c6226dd7c51c7e33bcf8177a30777fbda7b535ea2a88f23befc8bb151ce203ed0bec975a60ea24757a01426ad0d77615f4dffb87c79174ad5e561fc9716a70676273cc8f97ae867d9cb4caf7cee7b5ffd2122402e4e50abccf0107b114c9b6e7401385c3567e2154b29d382308307a57e57a472cd070cf9fcc55d7e4e889f7f867ff64bb468fa0e752f6a29479f779e08c05bbcbe432e6a1a040723926cbbebf19d3e905e64f085c2c2c6bbd0b4791868eda636decb1975a6c6f67eaef824cfe1d5546304cfabbffe691002f9a3ed72d69516644659c2cd14752d6d7dd2a89afdb01fe436e641dfbd9a86a471818a80feb8d0cd0d48487e8ea25558fcb4035a05b98efa0263642fa3529a3d67a7d3c4b1af4176c7dde56aeea85e2022068689d4ede3cb78ca54cfcc7826f7e115c02c4bc5f52c24e7b7cb8bb909dfad1c3ab8086413d1fa4f78319c08c2a9bb841e22f298c249cbcb58e6f20f06f71b67c16d726f010e6b252490a93cbce6053a6542cefaeb135dc5800097b96d9d94f53dd5afa7402195fe219cf199fe20c2e89d6a45dcb413109303ed5ab27cfaba6850eafd93b275fbc7f0512914307d7d508fc18b94f4be048b8b55168167edb7a6a8f42996c07d5c947ae35726724c296dcb29372fb0234999822f766517287c7169a551d080764a7159d80c88094236dd2bfe0d97ef4997f32c2b7cb6ced8ebd2a46e354d2c0b12fb41c417f9ebab0a74880c2aebcaaf8dfcc8ea122235048e2acb1a3317d88c6de5bfb37fc17859b1e8038a10ef3fa27ea1afd5f850fd9995b117df22ca3ff260e818a075725de80709ecb2ac3b09ed855d03c5c370e75201e5dd8825be12d380da9f7a908eb6513cf60321733d9dcd8c35942ee3f187d60a990f77763c85af05d14b30d12390fe70d4352e75cf8b4f3e12042e8220157883b075e3effe4be467be2f81f5078c893eae746888b87bed17ebef144c4aad25e3501c00b4e4b87775548ae694102ecd8954a8630180bf5f926018720a2d3adc887cd879aa74ce9c7f0a6b7631e14cd0a80557a59289db788cbef187a75a50b9e74775edcd52b6d206091a9fafd569373d33edcefe66f5e0194d629481d060ce8213a3e209be72b68786af665d6c220081646d9c6a4d2de7e7ea8a73e0a957463b002868cbdba6f0e6ad67efb6423a46fa8542d7a3ced63349a9a0a4191e4eb8cb330d07d4b8a035cb61a6959727e0ba10d06725b1ef7cace272f46b687b719542a24aa41cf016bf4dfc764649816899a4a53410bccd9949bec4d22151ca2e0ea84836a55e502b9a131245fc1001cab4f2669d3089605d802ce8d14e89ac53a8d546fa3d",
+      "Y_hex": "0x10495d55234208258c6ef2a2d1d459ab7929c74cd57812ee007b5e673acea0be36887049e094ab137986b78c979709aad96fcdf8721192f0d3204cc74cfb4b4d25972443fe8bbe4683adfb8266c754b191dacc64706a5bb998c72950423e990564ca49853be28c0393d0e1e952089e2eb00da08cb55455046c117d0116e3c4d165835c9f3a25129afd991a6c1692156a30e2d8f85daa11affc86f678d242ce73f494a57b8b0e67bfdfb75ce7600da67485e7f3356eb83192dd4d29c6e86d13db1e201349d227a7b0f2645b60227c934c96be363464674cda694b7c1da818c79df7a5e7bbae0965e2eea39446f1edbe1376a77581aa62ec263d106455b237147397b3c2f494693187dc621350f9042e93b16e0867902b58eb03a8d7457f436f9e7870ec8dfae04bdd8efad8e8d8ad70bec3f2f21374800e3c63f415ce7822c697fce145186c9bdd8f78bcf9eb2da2ec97771934b955a26dc7991aea76e1551264cc68fa8cde92141e78274826cbe5a5751dc98f0b5c0a82bd07177e155b6b45b511f743bfedfeda073834ef8d8c608ced1c53f071b595c4e5fa1b2bcc08b2d034b8a07ed8abafe0bd4b36c7c00cb8e0982c49d23efa4d74258ac848fc592863c8c18d45d6a35396f48c458b0e77960bda6c090b9cc06bac59c20c9792ade52a1b63feb17ee043a75f5b828ccbbb1461f71026bdc6d468e53fc8fc9e53a3bda093bc99c92180de501d2181b4accc26cfa26fc01e7318b290500b5c322cff3426a02347e4e4e8797d92df34836fbcffafae6bc06aae578a7fc05609601b7c7c785f772b2a73660c500c17e32ef547dabca96eabb8b290dc38792781333fe55e2eef9f8f757244095c1cda7204bc1e262c85da765665625218151481a9857fd8ea88654e63f5a221e055da502bb87d5f21c3b4f6d8b04b1882619c2ce0df84ca18d41a8afcf404ba4e17152dd2dce96eb7fc0346931ade6646398085f8c5cb96c8e9105ba74f4bf6895d58264925d8a80c294cbd9568fdb9c9f9d1ff5f6e3d4b4bc4854732c9f00c6f5c64a99100eb69a785c963b66a236ef582faa28c0c747311a930a20e0b92f0cc60a4e5fb5e403e36d53ea468f1600c6231cc2b9a5d38422c9f7b681da498fd4a70e4ff2e525fcdf2f52d64fdc878066e6c4389f2f4b5204b77692dc4c22a9dcd1a7bf0beaf740a909a0510c2da765390b6111d9d92d9a3657c889f70b254da24f648b697b978e8e0f3e32c99a7a646d26cd93e4bf09f84e1bf7e1f783085f053046ee4c9488ae9f993356a170d7847ccfa2fe4071b484cf52f4332f3b7e3a29b7c83024f0a88b5c6fade83cb1f902fdf7a9b936089ba09104ff99cde226bcca5a70bc0b4c7a7f882fb809d221705554def4d7a3056472cdc17f01ef575bdce9ba1a27ca1548da0eea8b51524363b27e5c4426f2a23ffaeeb29590bba64138be9844d29743028f16852c8ff43de1a4e5218626ba62e499f13ab4b9deba11200868edb85e51ca38ba9085f16c9bf5a1c01ba37327468b56ef2bcc649819c5d6441a03c2d86717a6d95d018ee4dfcd305721406d819957dddb6e753d47693882beafe7260d19ba51d7d4234dc11491d7ead0df94e79d0eed8de5d22cc73c32b81035976212996ee23de21a9e28f97a073c0c6c46271156d6d8269445f4a55389eca6ab9bdcf1e9526803e963e17fa98f1547248b7c4723f4a916894ecd98e14ea6d7c53c2bd16363e49bd04ce76d20b7507975dc9223392bd1151cbc79cc5c782e6487d5d5f6d7a191bd342789ded0b77ed76de1cd9134cf417b580055b377dfdeb1f1c276c1e4efe2e709e7499c4cbfbb3691ec180e7da37e66bd53d91b78d0943ff565684a0794b4cf4fa9ab74b424933fbf05d536c2b8aed3a741755e1a9417a46a98395a79073a3f6c542c3283cf6c907dd0589537a0dad106f474d6ad56f5ed2c7052bb6ed19f03fed44192f44a0334b8a8ad81a8024e474b46c8d2896b76147027d41796cbf6d8c19cde8839692cd52390f680e276ebc2556576408a6d036c3c0e69ab12c1c440fa5b8861e399487fa40b48c566ff21ec83b710f868bf38cd086b000704943cefacd26003a12970989f2db044233624831fcfa15434660e530c04014bc8d9f63c1472ee1b02288e79fc03be311ec4ed9180582f32588ea8cc04278d90a37caf6a6d7aa68f2e310e0cc8044938833caf10343b899de7b5a6a2d7c55d7215ae2cda8327dde1e525285d3df0c5f892ab6a659a8a8b1df4c75cf1e90c96b58feeb9e118fc14be3c459a1ece38dc228b2c55702db89245bb9a38aef5de2b59d84c7d8e04fe2412aa597a487fa60210abe00a2b9fc056420dc2265f23cc0e2da13647616ade8444e12f9e99b59ba0bc4642db210c3fbfaac17126e0096ec08cba7c86583786af9b7670624997a9a8a2fcb7a879861a818cbd9e59fb7c0172ccc11165a2b001d714a135e382c128a6cc40447f49f0fd7747a672589e1e970eb84ffcf8fc10482c70b2494a07bf4039dbc95e0ae04f08828705ae2b9b948ce63dfb7d1f5ab18dfe175738f873b0e46ee614cf54ab1c02db4a4cee1d5b07b0b78eee24b24473b679885c4780c9b0c7190702335ae090ad7164de81db48d345644edcf61d99f97a7edc557aa9bb47b97097dc61f8bee0f71326f2a92e5c18dbfa6f342d844b7cd5b977d55c93e8ea6deb18bba531581a9f0671fae72f3dc51f13b561f55b388cfbcf8e283c211634e5a3d8f7a1252c15fc379f4b79965ea0314d7fb3887150e0e01cdb5bade25398e7b07fe3444415c01f8425d015610544d2e5cb19ce26d38ad07b307e4a7675c34852db5ae8eac104f35fcc6134c09235dc9595541fe67534dfffca4edbb93ebe6e889de521e9257ad7b2f66c1de7be51c6b368dc0b9903c1d521d518859a547dd98a6ca2b1f44d70eba8ebd0115ba82025383f1251a4297b55bd7f7c96aa0dab357ec8334f17c73359ebb7562f40cdd9e211a1a25d86dbb8b1c782a7698b29d50a73ac2daddbfedcf194bbeb206835966fe04b2d0beee8d7a18d08fd27ba3a5a0ae4b68cb2d1e55813ab75f62e10d0bfea12bb9e7a8ec881dfd4e052de36a0f3db449330589616c7799cdc1aff150a86a943e5616168c356982686f2360c8854a442cee69a9c2ff42123eefcb3f418e3e8375ab7c8fe71ceca3e25ab2746b15b4074ccf304bd98e06056495c0743adaaed23becff8f34c75fafcff7dd5fc1b5fac29434653ab64ee414c3a6ae5fed9ee4675ecefaf4167709a5dc9f4b947dfd11d1dffbccb52a6e2d9942b01feb3898778e6112e6e5440e8e763042b4cc50ddfb3686bf142def6d1b77e98e199edbad1b8c18e836556e8860aff19cc60f619347410d868a2a0c4507294b5dfff65fe708108fca6ccc58eb4ef49e48cba4dd76714a8b4047823fc7bb1c09a0d5345a5f50087ef63ad3aedc852e314f09951c46694cd9c944ac474e69722b710a43b2aeee9bcb00865c8f622c827af0fc52487a9e0b193af49f6be29eb8a1b674ad53921dacea8860803270bc5bd30f759f89b056e8f056deacf45a1359f0c6cef7d7f2cba2025c19fe7c0cd21aa4279a58235c454329431aa3f0f9c5abd4999ff5ab7e8a63ae6699fda1f4660186f09bfe908f00812486d8feaa64536e176b1b51a90ec4f4da100be9bed2815a8d8e29c3ad382e79b9e22f41af37d3b925061c33541a95ae1e310654d9bc9d0c33308faae260f1c407f5e7355513ec11c3c709f3885e28d387d69eacb34b2a2cdce390aecf7d1b5f9425c9791364f69bfdc6298ab7f1c3e0df4c2b9d6e4737c11cdeb4ae8b8cab946e548576c6021f3cfc3a5c2602ddccddd9b164415f468645fafe474be030041a7c195de6053c6eb6cda88c876ba24c21ead3f99ee252d0629dddd387967fdcc72afcf05ddd1d3cc5e1f14929aeb885c0668807dc7cb398e25bedd829fbcd134e8cd0a8eb6d7d25f16975b2fff7882cf5924097323226141538c577a15db76111e113ffcd91d7c1e9660846f8776859e85b9bf75a02235f3d71e098b16573b06fe2eaed74a6771df2abfc62ad3d0989e2154c3046e51559babae4de8e82d470e950dfb3295d76842cd4b6291ee4606afe52b937b676b35b9b64bebcc32c91ce0f1b3a3cd1bcd4fd87e870d47b47da9fe6424c72079402044e06ca029a850918385062ae8fbd8b41718b866281a4b68c24e48851295542747f82f8f5940a0ea616d38b701eb562318afa4046c7686bb10c4b51fdf0dc462cee3fc56987a877be3076076d7ef446e2e93db5c728ca3f271274cb446d3473541120490222505b9e4357f29f7a7575017b58de3affc0d30ba9a84b95c0ffbe808745afa0a5be1b0d612063663ada045f31d2cfb3d82973ae1c1091ef3b793de5e2ad6e87ab38416d4b95d8b111cd293c8bf7f698218a7b1d1a84dfc4aa1011592e952fcccb1f644554fdc9cc46e88792233a88e2d35d8d5debe06f42a171b8f8f82cfa0552dfab8290965e08a758ee98532316b22f7291da1a187c3ac58e14d82dda6ca7c5b13733354e0118df5c4b910ea5d93553627a6a1e93a3d",
+      "preserves_low_M_and_high_from_K": true,
+      "same_lower_full_parity_word": true,
+      "same_source_binade": true,
+      "exact_quadratic_relation": true,
+      "is_actual_tower_source": false,
+      "has_one_positive_integer_ancestor": false,
+      "has_two_positive_integer_ancestors": false
+    }
+  ],
+  "local_renewal_witnesses": [
+    {
+      "v": 5,
+      "t": 5,
+      "lower_block_length": 2,
+      "source_precision_before": 9,
+      "source_precision_needed": 13,
+      "fresh_bits_for_exact_prediction": 4,
+      "minimum": -2,
+      "maximum": 2,
+      "fixed_upper_steps": 0,
+      "free_upper_steps": 4,
+      "lower_block_odd": 1,
+      "maximum_reward_attained": 2,
+      "witness_X_hex": "0x2b56d4af8f7932278c7976bd",
+      "same_past_pair_verified": true,
+      "next_lower_block_preserved": true,
+      "is_actual_tower_source": false
+    },
+    {
+      "v": 8,
+      "t": 9,
+      "lower_block_length": 4,
+      "source_precision_before": 17,
+      "source_precision_needed": 25,
+      "fresh_bits_for_exact_prediction": 8,
+      "minimum": -6,
+      "maximum": 2,
+      "fixed_upper_steps": 0,
+      "free_upper_steps": 8,
+      "lower_block_odd": 3,
+      "maximum_reward_attained": 2,
+      "witness_X_hex": "0x16a3d54eeb348b26af80deca90f9c31e479e56a5775669307c45654b95bbc67f961e34b57f952189f026500a5a623fceef2682fbaee0b906131d818e65c1f390ffc754cb58512906ec1f7a54fca66b7a0ebe9a27d77aecf3de36860d12183acc1a23ade3d",
+      "same_past_pair_verified": true,
+      "next_lower_block_preserved": true,
+      "is_actual_tower_source": false
+    },
+    {
+      "v": 12,
+      "t": 17,
+      "lower_block_length": 8,
+      "source_precision_before": 33,
+      "source_precision_needed": 49,
+      "fresh_bits_for_exact_prediction": 16,
+      "minimum": -8,
+      "maximum": 8,
+      "fixed_upper_steps": 0,
+      "free_upper_steps": 16,
+      "lower_block_odd": 4,
+      "maximum_reward_attained": 8,
+      "witness_X_hex": "0x204909fa5e8c1a7e8226b8d1edac499817989c65d3765e0245f44a720e600ff233123bc6066dd13709ffe918eeb212ee82787cad966b9c5f69b18d8bd5b4703e980280490ca2ea1fb1fc59bf1fb2c8addaa66cb8231c1ce143a8f90c6082409e240cad7dd023e053eee2380979a69940c99e68733c916d846a95cf904bc77237b8a0f36b7c65eff33c553bb1b956741e4527bf9e495d9affd11cd58a38c6e5625ec448a35b72feed2aa0f29af5bdd3d4835eef19c85fdd9d9de42663daa949c2e62930a6c3272039f78bffaff93b0ba4a8bbb7544809e3b810ce08cf737af36fedb33b30f98fe94f01a254d36795e3af9c8d00ed89287e5bc27925181e9f5cb83296038a149b1eecb40df16e4291ab31587f3194afea8ff3e33add497441f6959521ed3bbd38ead8ade89ea7811fbdc484822af80572ea648ab7c0272c821aa87ebc39a4efac2cb8700300a21009e905d4e7ac052d3d51d1c1e5f7af3d4cb9c8bf070a08ba0c2b06c48e59da55b737299ec92a1d7d20d444fcf091e74ed35f59c9d7d30c3d943efb15fbbbf1aa38617282aa7dc5efba8ba2d226a51d5901f117476e137bb1ce8a0c5b909552ab4af1f0ca1b77a24cabee626ee14fec28c72e0fc57af382611f5afae3cfc6bb9d36463b6e1f2c8c186013a03bef7a009a9905d493dd0b2e40750103b3c40216ad20b580426a0e35bac20197d60725f11da952705738eda50f376cc007a09a015bc8ba4276b63541e23c384f7b092f92a0e820ae2bf636608d4ae2c9739e4a742b5a1e7721f2783dd99252146cfd6763032636ca297024bd65727878149f2e219a270ccd6ed8f6490d881cb867bdf74380351b6e83e03d011952d8e83b36ab50d0222f8d65c88f9c0cbafe10fedfe097887a0f38675b7dba5742b1a226cb760b2ee81c0c4ac18f9c2ac7c6226dd7c51c7e33bcf8177a30777fbda7b535ea2a88f23befc8bb151ce203ed0bec975a60ea24757a01426ad0d77615f4dffb87c79174ad5e561fc9716a70676273cc8f97ae867d9cb4caf7cee7b5ffd2122402e4e50abccf0107b114c9b6e7401385c3567e2154b29d382308307a57e57a472cd070cf9fcc55d7e4e889f7f867ff64bb468fa0e752f6a29479f779e08c05bbcbe432e6a1a040723926cbbebf19d3e905e64f085c2c2c6bbd0b4791868eda636decb1975a6c6f67eaef824cfe1d5546304cfabbffe691002f9a3ed72d69516644659c2cd14752d6d7dd2a89afdb01fe436e641dfbd9a86a471818a80feb8d0cd0d48487e8ea25558fcb4035a05b98efa0263642fa3529a3d67a7d3c4b1af4176c7dde56aeea85e2022068689d4ede3cb78ca54cfcc7826f7e115c02c4bc5f52c24e7b7cb8bb909dfad1c3ab8086413d1fa4f78319c08c2a9bb841e22f298c249cbcb58e6f20f06f71b67c16d726f010e6b252490a93cbce6053a6542cefaeb135dc5800097b96d9d94f53dd5afa7402195fe219cf199fe20c2e89d6a45dcb413109303ed5ab27cfaba6850eafd93b275fbc7f0512914307d7d508fc18b94f4be048b8b55168167edb7a6a8f42996c07d5c947ae35726724c296dcb29372fb0234999822f766517287c7169a551d080764a7159d80c88094236dd2bfe0d97ef4997f32c2b7cb6ced8ebd2a46e354d2c0b12fb41c417f9ebab0a74880c2aebcaaf8dfcc8ea122235048e2acb1a3317d88c6de5bfb37fc17859b1e8038a10ef3fa27ea1afd5f850fd9995b117df22ca3ff260e818a075725de80709ecb2ac3b09ed855d03c5c370e75201e5dd8825be12d380da9f7a908eb6513cf60321733d9dcd8c35942ee3f187d60a990f77763c85af05d14b30d12390fe70d4352e75cf8b4f3e12042e8220157883b075e3effe4be467be2f81f5078c893eae746888b87bed17ebef144c4aad25e3501c00b4e4b87775548ae694102ecd8954a8630180bf5f926018720a2d3adc887cd879aa74ce9c7f0a6b7631e14cd0a80557a59289db788cbef187a75a50b9e74775edcd52b6d206091a9fafd569373d33edcefe66f5e0194d629481d060ce8213a3e209be72b68786af665d6c220081646d9c6a4d2de7e7ea8a73e0a957463b002868cbdba6f0e6ad67efb6423a46fa8542d7a3ced63349a9a0a4191e4eb8cb330d07d4b8a035cb61a6959727e0ba10d06725b1ef7cace272f46b687b719542a24aa41cf016bf4dfc764649816899a4a53410bccd9949bec4d22151ca2e0ea84836a55e502b9a131245fc1001cab4f2669d3089605d802ce8d14e89adb950d546fa3d",
+      "same_past_pair_verified": true,
+      "next_lower_block_preserved": true,
+      "is_actual_tower_source": false
+    }
+  ],
+  "positive_residue_loops": [
+    {
+      "v": 5,
+      "residue_bits": 3,
+      "loop_steps": 8,
+      "preserved_actual_lower_prefix_length": 8,
+      "full_lower_horizon": 31,
+      "paired_start_time": 12,
+      "source_precision": 42,
+      "loop_lies_within_lower_target_horizon": true,
+      "projected_state": [
+        0,
+        7
+      ],
+      "per_step_reward": 2,
+      "total_reward": 16,
+      "states_checked": 9,
+      "X_hex": "0x2b56d4af8f7931414b460ebd",
+      "U_hex": "0x75648e690da59ff38d6365ce2cf58389522e82b50cbc3a67a",
+      "same_Q_binade_and_high_bits_from_K": true,
+      "exact_quadratic_pair": true,
+      "is_actual_tower_source": false,
+      "scope": "Finite loop of the residue projection; not a numerical or infinite Collatz cycle."
+    },
+    {
+      "v": 8,
+      "residue_bits": 4,
+      "loop_steps": 16,
+      "preserved_actual_lower_prefix_length": 11,
+      "full_lower_horizon": 247,
+      "paired_start_time": 21,
+      "source_precision": 77,
+      "loop_lies_within_lower_target_horizon": true,
+      "projected_state": [
+        0,
+        15
+      ],
+      "per_step_reward": 2,
+      "total_reward": 32,
+      "states_checked": 17,
+      "X_hex": "0x16a3d54eeb348b26af80deca90f9c31e479e56a5775669307c45654b95bbc67f961e34b57f952189f026500a5a623fceef2682fbaee0b906131d818e65c1f390ffc754cb58512906ec1f7a54fca66b7a0ebe9a27d77aecf3de368659a524fe2f8a021b63d",
+      "U_hex": "0x10048c172547c46ba8d2923e2daa90c485d5a71c330fbf9e689fb85f6c5023d86d9c6e405e75e3700e1d001964b921e753e109f8a741acb587f239d3fb159b8dec7a132b32e0531fc782b88de656e410b4617d73bed75ef26438525a04099edc5be17db9f5b3672ebf16953396ae913985c39d7ef6a2ddc61d3290306714ff4e1b4afe3d172aa0cd749fd528b2159ba6036980a400fd3746388fe6735b7d13203fa7666a9e744cc734c6644076119f8eb6ebae22e953f8c0ab35deb953b544b9e8fbcc332bdce697b47a",
+      "same_Q_binade_and_high_bits_from_K": true,
+      "exact_quadratic_pair": true,
+      "is_actual_tower_source": false,
+      "scope": "Finite loop of the residue projection; not a numerical or infinite Collatz cycle."
+    },
+    {
+      "v": 12,
+      "residue_bits": 8,
+      "loop_steps": 64,
+      "preserved_actual_lower_prefix_length": 15,
+      "full_lower_horizon": 3943,
+      "paired_start_time": 73,
+      "source_precision": 281,
+      "loop_lies_within_lower_target_horizon": true,
+      "projected_state": [
+        0,
+        255
+      ],
+      "per_step_reward": 2,
+      "total_reward": 128,
+      "states_checked": 65,
+      "X_hex": "0x204909fa5e8c1a7e8226b8d1edac499817989c65d3765e0245f44a720e600ff233123bc6066dd13709ffe918eeb212ee82787cad966b9c5f69b18d8bd5b4703e980280490ca2ea1fb1fc59bf1fb2c8addaa66cb8231c1ce143a8f90c6082409e240cad7dd023e053eee2380979a69940c99e68733c916d846a95cf904bc77237b8a0f36b7c65eff33c553bb1b956741e4527bf9e495d9affd11cd58a38c6e5625ec448a35b72feed2aa0f29af5bdd3d4835eef19c85fdd9d9de42663daa949c2e62930a6c3272039f78bffaff93b0ba4a8bbb7544809e3b810ce08cf737af36fedb33b30f98fe94f01a254d36795e3af9c8d00ed89287e5bc27925181e9f5cb83296038a149b1eecb40df16e4291ab31587f3194afea8ff3e33add497441f6959521ed3bbd38ead8ade89ea7811fbdc484822af80572ea648ab7c0272c821aa87ebc39a4efac2cb8700300a21009e905d4e7ac052d3d51d1c1e5f7af3d4cb9c8bf070a08ba0c2b06c48e59da55b737299ec92a1d7d20d444fcf091e74ed35f59c9d7d30c3d943efb15fbbbf1aa38617282aa7dc5efba8ba2d226a51d5901f117476e137bb1ce8a0c5b909552ab4af1f0ca1b77a24cabee626ee14fec28c72e0fc57af382611f5afae3cfc6bb9d36463b6e1f2c8c186013a03bef7a009a9905d493dd0b2e40750103b3c40216ad20b580426a0e35bac20197d60725f11da952705738eda50f376cc007a09a015bc8ba4276b63541e23c384f7b092f92a0e820ae2bf636608d4ae2c9739e4a742b5a1e7721f2783dd99252146cfd6763032636ca297024bd65727878149f2e219a270ccd6ed8f6490d881cb867bdf74380351b6e83e03d011952d8e83b36ab50d0222f8d65c88f9c0cbafe10fedfe097887a0f38675b7dba5742b1a226cb760b2ee81c0c4ac18f9c2ac7c6226dd7c51c7e33bcf8177a30777fbda7b535ea2a88f23befc8bb151ce203ed0bec975a60ea24757a01426ad0d77615f4dffb87c79174ad5e561fc9716a70676273cc8f97ae867d9cb4caf7cee7b5ffd2122402e4e50abccf0107b114c9b6e7401385c3567e2154b29d382308307a57e57a472cd070cf9fcc55d7e4e889f7f867ff64bb468fa0e752f6a29479f779e08c05bbcbe432e6a1a040723926cbbebf19d3e905e64f085c2c2c6bbd0b4791868eda636decb1975a6c6f67eaef824cfe1d5546304cfabbffe691002f9a3ed72d69516644659c2cd14752d6d7dd2a89afdb01fe436e641dfbd9a86a471818a80feb8d0cd0d48487e8ea25558fcb4035a05b98efa0263642fa3529a3d67a7d3c4b1af4176c7dde56aeea85e2022068689d4ede3cb78ca54cfcc7826f7e115c02c4bc5f52c24e7b7cb8bb909dfad1c3ab8086413d1fa4f78319c08c2a9bb841e22f298c249cbcb58e6f20f06f71b67c16d726f010e6b252490a93cbce6053a6542cefaeb135dc5800097b96d9d94f53dd5afa7402195fe219cf199fe20c2e89d6a45dcb413109303ed5ab27cfaba6850eafd93b275fbc7f0512914307d7d508fc18b94f4be048b8b55168167edb7a6a8f42996c07d5c947ae35726724c296dcb29372fb0234999822f766517287c7169a551d080764a7159d80c88094236dd2bfe0d97ef4997f32c2b7cb6ced8ebd2a46e354d2c0b12fb41c417f9ebab0a74880c2aebcaaf8dfcc8ea122235048e2acb1a3317d88c6de5bfb37fc17859b1e8038a10ef3fa27ea1afd5f850fd9995b117df22ca3ff260e818a075725de80709ecb2ac3b09ed855d03c5c370e75201e5dd8825be12d380da9f7a908eb6513cf60321733d9dcd8c35942ee3f187d60a990f77763c85af05d14b30d12390fe70d4352e75cf8b4f3e12042e8220157883b075e3effe4be467be2f81f5078c893eae746888b87bed17ebef144c4aad25e3501c00b4e4b87775548ae694102ecd8954a8630180bf5f926018720a2d3adc887cd879aa74ce9c7f0a6b7631e14cd0a80557a59289db788cbef187a75a50b9e74775edcd52b6d206091a9fafd569373d33edcefe66f5e0194d629481d060ce8213a3e209be72b68786af665d6c220081646d9c6a4d2de7e7ea8a73e0a957463b002868cbdba6f0e6ad67efb6423a46fa8542d7a3ced63349a9a0a4191e4eb8cb330d07d4b8a035cb61a6959727e0ba10d06725b1ef7cace272f46b687b719542a24aa41cf016bf4dfc764649816899a4a53410bccd9949bec4d22151ca2e0ea80524d5b5b84ac505a10849d7c2a1ef86d50418d0d3a2d2ef06e800efbab407f5b2fa3d",
+      "U_hex": "0x2092baaa4684104b18dde545a3a8b356f2538e99aaf025dc00f6bcce759d417c6d10e093c1295626f30d6f192f2e1355b2df9bf0e42325e1a640998e99f6969a4b2e4887fd177c8d075bf704cd8ea96323b598c8e0d4b773318e52a0847d320ac994930a77c5180727a1c3d2a4113c5d601b41196aa8aa08d822fa022dc789a2cb06b93e744a2535fb3234d82d242ad461c5b1f0bb54235ff90decf1a4859ce7e9294af7161ccf7fbf6eb9cec01b4ce90bcfe66add706325ba9a538dd0da27b63c402693a44f4f61e4c8b6c044f926992d7c6c68c8ce99b4d296f83b50318f3bef4bcf775c12cbc5dd47288de3db7c26ed4eeb0354c5d84c7a20c8ab646e28e72f6785e928d2630fb8c426a1f2085d2762dc10cf2056b1d60751ae8afe86df3cf0e1d91bf5c097bb1df5b1d1b15ae17d87e5e426e9001c78c7e82b9cf0458d2ff9c28a30d937bb1ef179f3d65b45d92eee326972ab44db8f3235d4edc2aa24c998d1f519bd24283cf04e904d97cb4aea3b931e16b815057a0e2efc2ab6d68b6a23ee877fdbfdb40e7069df1b18c119da38a7e0e36b2b89cbf43657981165a0697140fdb1575fc17a966d8f801971c1305893a47df49ae84b159091f8b250c791831a8bad46a72de9188b161cef2c17b4d812173980d758b384192f255bca5436c7fd62fdc0874ebeb70519977628c3ee204d7b8da8d1ca7f91f93ca7477b41277933924301bca03a43036959984d9f44df803ce6316520a016b86459fe684d40468fc9c9d0f2fb25be6906df79ff5f5cd780d55caf14ff80ac12c036f8f8f0beee5654e6cc18a0182fc65dea8fb57952dd57716521b870f24f02667fcabc5ddf3f1eeae48812b839b4e409783c4c590bb4ecaccac4a4302a2903530c385c3619058608e46cff906f110a2c0725f63f65245981945d34139d55c6bdf752130945764fac2206227b7777dac4b812acb4983a564e9c924a2eb6c025b072b39f4516181ca4242ec2e868454803a195ad7393df85f85809106088c26c140e2b00dab4dc44b54b341a74a602affd08dfdc02f4afad03772a429c401e6b5e2a6c28907b6dd6658cf50ad3e6e63f087397ae2fa63fe0796e9655037ff16d46e02ceb5dc959b8c2491ba0f325a641bce5323a84e312a1c6e2a5b620ae0b619789c3c2c6a4680202e1595028bc3c0570b4550a93ee497a8867505ee7416fe290e1168a7eeebc569ae2c5785bd3ef0633f25ebc3c8818f02c48ea58d8c2758b3cba91f07163232eb22d63fdc07d83f36b9d3c9c939a7789bf8f91de6b67b39b8a5f23cb91fdd6154d8456fa7e316ea4f893b2efaf2619e32d4c496457cc0a5d4ec15b394d2555d4c6602108e8875b19ebc7e1fae433165812cd0161033e090438bcb61c5bde2208b804e3badf575774930a79f8bc23252d7baf4d6fbcb8b13d152c2d13f591e0e2f98a3f7211e3e147935252952896b3198c27ebb0fd368576881db54ed3fcae01cd2538eaac68e7b79e1cfdda34df4e928b56ddfb166167fcf26a4c7a3e3b5cb0ebd372c98544eed8ca02bd9d8d12b2a534ecbc1647152a86ab1796930956d1b16887da6db04304911cd9b29062e63722fe5c1acf41aa091c123f72b3946d9af8b5a868a2e147a40f7af643a022c683549a66d20d68bdcf4a8a4867d3e36ebb81be7e523baa6c1bd389db55705eed6891f034fc48e4ee06ba1b91fcb3f265636d7731bd3f22c675c32e24ef3a190195dabdd9a522f429b432aa16b9a847645919bf7e11eb8b105bad404743f4db03e79b7ed6c294d3dd02d8b12e0fc32f38a3ed844e359ddb7e3ddcfedc722d1bd0f89525c1d32158ae6052852d61ad9f68db7e0fee48232a4f170384798d6981aca130ee5c78c51da9a20eba9542814b3ff156bbb32e4f2040c091213df620be39c9609d4267f10289934744d8e17ad21a4d64eb39ecbcc5c5c0e91cb3e8a19aa4524bba44de393ff35d5f6c2f926a2cfbc1031606158081c69030f078888a795542264034ca83e316ae7831b1b4195bebfbd848e9190bb40be430bc4368f40ec18c798a69c2681b327c4812615128b2370dfaa62631b38de5d5cf51fd811cb3e0e139fea0358cc3dce2d67f1062ade4f972b9aa22fdd17a0bd1e10d75564348d497e7021763d8019617882d348a7cb5ed7748f6a452b1bbd11723eb753b7f8497a2852bd5558db5ff616dd8a77be730a81f1679146d38c9532a942a4c3e6dc423f13c651e6248745c1452bc9438e80716763843c6184eb261446e27ba0c95dd017a963cdbcf065ff4b77cf8a3ae88d49e50cf7378ad5d232756c33ca40bea1d0a5d92a2f1b293d9778abc9af4ea242ba128b129ba1aac030bfc60c3b86355796d4a4ec05f00aefd3ceb2ed3e843f2342b24f65568496fdc73b116c65f3212f29e0d6451ba16c602bb6a2c6cbc12f1b728259b0989d3f64177b0de511bc3bcd3587a9a04a2b22c2dd261136260f888ad88529d46b627e02004ec17fd6332f40b86aeaefee42547b6ec936ee967b342bbba05c424e946414533e9f29a7a71309e1a2645581e3e611b697cf1d4b254bd7fb8a5617d13312c1e733dbcc61009e3ffe2c8c691a9e447b614fb1cf80204f8901f4db627d24381a2d71df1fc46ae5ec5c441b2605bfd133c576363a5abe91371b74023b1a1657c00ed4126e934401ea0d7f87229e45947c85b04071d39f58f86eb5661c3f129d9914bc72d3f6bded85b72dcdced16c276c8e79132f79f84348554816b04e8000c17033cc3d04c5d59642c517fef6a77248ea7f6dcb3176966fa89453d29bba1bca9dd36985ca91586ad70d32e0f1b82dae5561c8700becbb491aa79470d87073ecdc25f7e2d361f49a93f73ee27ade3117cd33979f1d336634d790c7e6d0bfce26f3a9b5e0805c3547a7afe8a1474140c38df72a6adebdb10f3fcffc1619a009593765d41d1b2b971f1bf0c6b70cbd845e0fd06e17448e87f02010c7ab91984241a1a2f1720d0cf8c93e6f39825585542098ca2558cc8ba9a35afb9161e509940d61c59dcd9268fcf682e46b1b5f1cee340da4b8f9b33cc246366ce6eeb04421a9100378faa16e731df5566022bc3f5cdc2ad85b307a99371722a26e4454f100c068406d7635c26a1fc62a3bf2d459cf8bd3b12c50298de31de967935aeae9cb9cb64a069f5f54cd95e681513992c930cdb9ffe2920981b8658cd098f7c528a27721c263a312787da7875fee06d80adfd6df5a1c3867ac3b4a953cc4c867a985ac57ae6bf7e453c0af2cebf49bdc7a33c5f61d6c765f3027d698b2cec69ef237a143fd76715e830d83883d6d6c326f564449655994a76c8fc4e03bb072470e7c9d71ca6d6a96a5152d8c9cff9a0ce89c1483814222b1ae45b2ad8d7a01b876eb26bdc30527d68c5312b77c42a3b4c3ddf49f8fc5fc1b9d4a866b1e2b5a9688f0d33f480349a35437ddb783cef978f5939bd326056c2069d2e6dd1bf05793759cc8ddbc225bbc578f8f6a0fcb24d4fabd6e2f9923c154c98fecfc84c3d4ed0357a6731f35daf3df83d56ec9895a67ade325243e57cd5a36c7c226b4d1faa8c1fd4b2744db61c280c576d32b37722e7faf568cd56ac54426c705701dd0132077b7931177e36f22d16b9cd9ad877b29ee7bb9c51cc7d6c6c0bfa9d3b7c1b3f3cb236c5db8de2a5c949da1dfefae88e248441e74a132f67bdb49c50b1c0184e8db1ac004b8c444a4d006561b76a9337dde8d679fbe7f249dd172025d2485c327b329ac18d6afc9512dc9e02dc49be640c75e1745ac3bc57c4c3be34b6471e1c670e27fe2525180b3e4f318d91da5e7784ea980b938d4018fda81b75e2cc7c393644f9abf5b03bfdef7c603d7e35866ac2832c2957a1f194c2f79da988fb8b0917154d2a4077cffaca777676cfec60b500994c344d27342c15e422220d039df5c10b99e483ec25b2eb4f6f00a0e28d40d9d6f94cc4e4864b45743eaddc3c6e2bdbd90a6a0899940bac4676fc3d088080da5575b093e7e96cc6e878a1b9d25727ca5b8fbf5b35c3c9a342ece6a9bc847321392577d77d0eb41147b99e9060e4a786ab8dad3703a68f58d18723dd71a43f972b8237e8cb7ff28c53b0ffcdda49de8437c17475c1e99b44e2102118604ae6063e9af49d3b7a48cce06d99127ee6032417e692fb12ff5e09d972ca68e2b528c4348e6fd8c3b658ce330ff227df947eed0d02431fa69637361871ce989abf2ef90a33fc4651c82e515447903afb64a906022eaebedafd5e7b1f196969ca4c99308d7bccc83de34f232cc8d2331c420595e8ae46397330c9ee97a13d44b17ad13fa2b808767640166675b608f02eeeaeeecdf9559785961048bf88504f19058f3e4526a1418dae83417197aedafde156be33491275bc3a489680223431affb597d3c254fb4a4e2f40486e5483b62e49f00562b62316a33223236a5578e7725d6da80e8b134637c676eea7de80db36e3440623ba57e516d3fb65ff1d7e5f831708c6456e0421103f04bd537e10faf4aee9a75131269e3450dbd33a927b0c4b2a1670ed469b8be2eff19ca454c4535a981913a32d41c784aa747a",
+      "same_Q_binade_and_high_bits_from_K": true,
+      "exact_quadratic_pair": true,
+      "is_actual_tower_source": false,
+      "scope": "Finite loop of the residue projection; not a numerical or infinite Collatz cycle."
+    }
+  ],
+  "actual_short_projection_loop": {
+    "v": 5,
+    "paired_start_time": 18,
+    "residue_bits": 1,
+    "loop_steps": 1,
+    "projected_state": [
+      0,
+      1
+    ],
+    "per_step_reward": 2,
+    "total_reward": 2,
+    "integer_state_pairs_hex": [
+      [
+        "0x5c8fb2bdf3ac17ddf7447c",
+        "0x1fc4865afe00a9216b0b5fd32c6300c4bed0707ae4072a0f"
+      ],
+      [
+        "0x2e47d95ef9d60beefba23e",
+        "0x477a2e4cbb817c8b30d9979b23dec1baad54fd1481101ea3"
+      ]
+    ],
+    "is_actual_tower_source": true,
+    "loop_lies_within_lower_target_horizon": true,
+    "scope": "A finite repeated residue pair on the actual orbit, not an integer cycle or a bound on the total defect."
+  },
+  "unique_historical_levels_replayed": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24
+  ],
+  "unique_historical_steps_replayed": 32293380,
+  "new_tower_levels": [],
+  "new_lean_declarations": 0,
+  "uniform_near_full_precision_claim": false,
+  "uniform_delta_bound_proved": false
+}

@@ -431,6 +431,18 @@ The [tail CI](https://github.com/PieroBorgatta/Collatz/actions/runs/36159965523)
 and [existing Lean checks](https://github.com/PieroBorgatta/Collatz/actions/runs/36159965455)
 passed on `2d55b15`: 14 tests pass and the downloaded JSON is byte-identical.
 
+The [precision-renewal analysis](notes/post_v6_renewal_2026-09-26/RESULTS_IT.md)
+gives the sharp maximum doubling defect among inputs with a fixed binary
+prefix and the exact quadratic pairing. Its optimal stopping rule counts
+observed upper even steps. Across 19 historical pairs, it often requires
+almost the full upper horizon's precision (99.9064% at v=23); this is a
+finite measurement, not an asymptotic or general computational lower bound.
+Explicit extremizers preserve the exposed bits and source binade, but fail
+the integer-ancestry constraint. Finite positive self-loops also delimit
+potentials of only the paired residues. The exact tower's cumulative
+cancellation remains unbounded by these arguments; no new Lean declaration
+or tower level is certified.
+
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch
 identities, counterexamples to
