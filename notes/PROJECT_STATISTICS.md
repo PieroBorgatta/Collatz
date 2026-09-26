@@ -43,6 +43,8 @@ their density application remains conditional and outside these statements.
 The subsequent `LastExponentTransport` module proves exact transport by a
 final-exponent increase and its unavoidable height cost. Its asymptotic
 application and a separate equal-depth obstruction remain paper arguments.
+`SignedTransport` adds six arithmetic lemmas supporting the paper-only
+density-zero theorem for all signed final-exponent corrections.
 The first integrated post-v6 build passed on 24 September 2026 (3365 jobs);
 the subsequent weighted-visit verification is recorded in
 `post_v6_parameter_2026-09-24/IDEAS_IT.md`.
@@ -58,9 +60,9 @@ new entrypoint imports):
 
 | Lean source class | files | lines | `theorem`/`lemma` declarations |
 |---|---:|---:|---:|
-| AI-authored modules and entrypoint | 42 | 13,109 | 551 |
+| AI-authored modules and entrypoint | 43 | 13,199 | 557 |
 | Generator-emitted certificates | 26 | 43,513 | 966 |
-| **Total** | **68** | **56,622** | **1,517** |
+| **Total** | **69** | **56,712** | **1,523** |
 
 The independent `research/weighted_predecessors_adapter/` package is excluded
 from these main-library totals. It contains new proofs and attributed

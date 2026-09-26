@@ -1,5 +1,7 @@
 # CollatzShadowing — a Lean 4 + Mathlib formalization
 
+**26 September, H.2:** [signed-transport follow-up](../notes/post_v6_signed_mass_2026-09-26/RESULTS_IT.md) proves on paper that all final-exponent corrections have only o(X) distinct images within a fixed dilation, even with arbitrary dyadic lifts. Six arithmetic lemmas are formalized; H remains open.
+
 A self-contained Lean 4 (Lake) library formalizing the verified core of the
 *Phantom Orbit Shadowing* program on the Collatz conjecture. The
 `CollatzShadowing` sources have **no `sorry`, `admit`, or project-declared

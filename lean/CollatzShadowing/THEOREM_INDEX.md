@@ -383,3 +383,14 @@ Verified by Lean; emitted by `../../scripts/phantom_taxonomy/` generators.
 These contribute the bulk of the line/declaration count but are **generated**,
 not hand-authored. See [`../../notes/PROJECT_STATISTICS.md`](../../notes/PROJECT_STATISTICS.md)
 for the hand-written vs generated split.
+
+### `SignedTransport.lean`
+
+Paper reference: `notes/post_v6_signed_mass_2026-09-26/PROOF_IT.md`, §§2–4.
+- `SignedTransport.affine_comparison`: cross-multiplied expansion for a common affine offset.
+- `SignedTransport.odd_ne_two_pow_mul`: distinct odd targets cannot coincide under a nonnegative binary lift.
+- `SignedTransport.congruent_shift_requires_large`: a congruent binary lift must reach the ternary modulus in at least one representative.
+- `SignedTransport.positive_shift_expands`: expansion bound for actual words differing at their final exponent.
+- `SignedTransport.negative_shift_compresses`: corresponding compression bound.
+- `SignedTransport.lift_comparison`: preservation under a common dyadic factor.
+The distinct-image o(X) theorem and arbitrary output-lift counting remain paper arguments.

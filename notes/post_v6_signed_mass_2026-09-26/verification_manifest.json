@@ -1,0 +1,103 @@
+{
+  "date": "2026-09-26",
+  "timezone": "Europe/Rome",
+  "base_commit": "e9e99fb4471bb43b56b05fa5e55f97921093e616",
+  "task": "H.2 signed final-exponent image sparsity",
+  "scope": "Six Lean arithmetic lemmas; asymptotic distinct-image theorem is paper-only. H remains open.",
+  "toolchain": "leanprover/lean4:v4.29.1",
+  "mathlib_revision": "5e932f97dd25535344f80f9dd8da3aab83df0fe6",
+  "dependency_pins_changed": false,
+  "published_pdfs_changed": false,
+  "checks": [
+    {
+      "name": "integrated_library",
+      "cwd": "lean",
+      "command": "DEVELOPER_DIR=/Library/Developer/CommandLineTools lake build",
+      "exit_code": 0,
+      "jobs": 3380,
+      "log": "integrated_build.log",
+      "warning": "Unused oddness hypothesis hy in odd_ne_two_pow_mul; nonblocking."
+    },
+    {
+      "name": "strict_new_root_dependency_audit",
+      "cwd": "lean",
+      "command": "DEVELOPER_DIR=/Library/Developer/CommandLineTools lake env lean ../notes/post_v6_signed_mass_2026-09-26/DependencyAudit.lean",
+      "exit_code": 0,
+      "roots": 6,
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "log": "dependency_audit.log"
+    },
+    {
+      "name": "exact_arithmetic_replay",
+      "command": "python3 [-O] notes/post_v6_signed_mass_2026-09-26/check_signed_transport.py --output /tmp/collatz-signed-replay.json",
+      "exit_code": 0,
+      "normal_and_optimized": true,
+      "byte_exact_comparison": true,
+      "signed_transports": 690,
+      "fiber_representatives": 5,
+      "dyadic_counting_cases": 80,
+      "log": "arithmetic_checks.log"
+    },
+    {
+      "name": "published_pdf_checksums",
+      "command": "python3 scripts/check_published_pdfs.py",
+      "exit_code": 0,
+      "versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4",
+        "v5",
+        "v6"
+      ]
+    },
+    {
+      "name": "diff_whitespace",
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  ],
+  "limitations": [
+    "Asymptotic image counting is not formalized in Lean.",
+    "No independent human review or independent-kernel replay.",
+    "Pinned Mathlib compiled artifacts reused.",
+    "External analytic adapter not rebuilt.",
+    "CI workflow updated but not remotely executed.",
+    "No literature-priority claim for this deduction."
+  ],
+  "source_counts": {
+    "authored": {
+      "files": 43,
+      "lines": 13199,
+      "public_theorem_lemma": 557
+    },
+    "generated": {
+      "files": 26,
+      "lines": 43513,
+      "public_theorem_lemma": 966
+    }
+  },
+  "sha256": {
+    ".github/workflows/lean.yml": "beaaf74f7829245c1dffd391a8485edc72f2eb96b88619519403b26c98c9f816",
+    "README.md": "cd9cd975b7d71d05b6b3799faba0f65b9a28046d7b373942ce03484e48fd9941",
+    "lean/CollatzShadowing/SignedTransport.lean": "b5dd9912e48acdcf34b84209e50fa0dc6e8389db4baea4976f11ed86a76e3018",
+    "lean/CollatzShadowing/THEOREM_INDEX.md": "b7afa76831146b73d6af00b2b0919d26d57d6c05f01a7f1d286a380e9ff1266d",
+    "lean/CollatzShadowing.lean": "cea63b7a00ca4e07da0d123f672343106f1cb5ba9833e657507577794890ba9b",
+    "lean/README.md": "6220438cf24f9b364cfa15d0cf56df9f6665aca234eaba0a305664806491d44e",
+    "lean/STATUS.md": "0c1bb35c38ee79beb717f0902e9859b7b66ab1315aaa1eb8cce5e9e145965571",
+    "lean/TODO.md": "dbc40bcd9964e8831433cb2c69d9c5a18fbde5e0a468d6162fdf4e4a8da3a12e",
+    "notes/PROJECT_STATISTICS.md": "1e6e750df2f101c6cdca303bfe0c1d1b19cc9b0e94dacb0747fe51c2a3483971",
+    "notes/post_v6_signed_mass_2026-09-26/DependencyAudit.lean": "4688356f4a9c8541d14cba6fe331227f2c4ffe1b7bd86c9c2038b50d71e3c649",
+    "notes/post_v6_signed_mass_2026-09-26/PROOF_IT.md": "f7981cf45d7642a06e995f6296fb2783b182284dfebe160182f0fd1a9aee3028",
+    "notes/post_v6_signed_mass_2026-09-26/RESULTS_IT.md": "6c3b1d8b54976451f306d3b1514584156dba1385a459c72505b00008c384d1cc",
+    "notes/post_v6_signed_mass_2026-09-26/arithmetic_checks.log": "4ceb904f58d9f1883ae584afbfabc892ee12609f3c3ec46b4a4be5b93fdcd8f3",
+    "notes/post_v6_signed_mass_2026-09-26/check_signed_transport.py": "70a29a16f045dcd712940537a84b2b82a4d9049f51563b081be6dfded8fbf737",
+    "notes/post_v6_signed_mass_2026-09-26/dependency_audit.log": "95f9f3fcc3facdb0b84c6d95bba073fddf1329ad494c3691c85ccf8256ce1deb",
+    "notes/post_v6_signed_mass_2026-09-26/integrated_build.log": "4a708b65f26379028d82fa1b1b2901d9cb16e1016d772e53134821382ae0041e",
+    "notes/post_v6_signed_mass_2026-09-26/signed_results.json": "ad98baadbb9c212e8be7d873fd92e9282a4e05f6e0a164347f564f752694643b"
+  }
+}

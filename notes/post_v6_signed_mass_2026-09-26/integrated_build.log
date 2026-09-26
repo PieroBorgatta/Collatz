@@ -1,0 +1,6 @@
+⚠ [3378/3380] Built CollatzShadowing.SignedTransport (240s)
+warning: CollatzShadowing/SignedTransport.lean:25:51: unused variable `hy`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3379/3380] Built CollatzShadowing (228s)
+Build completed successfully (3380 jobs).

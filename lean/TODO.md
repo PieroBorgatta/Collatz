@@ -76,6 +76,13 @@ When you complete or partially advance a task:
 
 ## Current status (most recent first)
 
+**2026-09-26, H.2 signed mass.** [x] Paper proof of density-zero distinct
+images for all signed final-exponent edits and arbitrary output dyadic
+lifts; six arithmetic Lean lemmas. [~] Full asymptotic formalization remains
+open. [ ] Construct a different mass comparison changing the affine
+constant or word depth. H remains open; close the last-exponent approach.
+See `notes/post_v6_signed_mass_2026-09-26/RESULTS_IT.md`.
+
 **2026-09-26, H.1 basin transport.** Exact final-exponent transport and
 strict height loss are formalized. Paper proofs now exclude positive-density
 retention at fixed cutoff dilation for nonnegative final-exponent changes
@@ -744,6 +751,18 @@ finite phantom-shadowing/CW layer
 ---
 
 ## Session log
+
+### 2026-09-26 (H.2: signed transport image sparsity) — Codex + Piero Borgatta
+
+- Proved on paper an o(X) distinct-image bound for all signed final-exponent
+  edits, with arbitrary output dyadic lifts and fixed dilation.
+- Added six supporting arithmetic declarations in `SignedTransport.lean`,
+  strict dependency audit, exact finite replay and CI steps.
+- Evidence and verification scope: `notes/post_v6_signed_mass_2026-09-26/`.
+- No human or independent-kernel review; no proof of H or Collatz.
+- Next research question: alter C or depth while controlling relative mass,
+  source height and fibers. Such a construction is not yet available.
+
 
 > Append-only. Newest entries on top.
 >

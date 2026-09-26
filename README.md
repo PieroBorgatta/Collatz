@@ -1,5 +1,7 @@
 # Phantom Orbit Shadowing for the Collatz Conjecture
 
+**26 September, H.2:** [signed-transport follow-up](notes/post_v6_signed_mass_2026-09-26/RESULTS_IT.md) proves on paper that all final-exponent corrections have only o(X) distinct images within a fixed dilation, even with arbitrary dyadic lifts. Six arithmetic lemmas are formalized; H remains open.
+
 [![DOI (latest)](https://img.shields.io/badge/DOI%20(latest)-10.5281%2Fzenodo.20021537-1682d4?logo=doi&logoColor=white)](https://doi.org/10.5281/zenodo.20021537)
 [![DOI (v6)](https://img.shields.io/badge/DOI%20(v6)-10.5281%2Fzenodo.22936057-1682d4?logo=doi&logoColor=white)](https://doi.org/10.5281/zenodo.22936057)
 [![DOI (v5)](https://img.shields.io/badge/DOI%20(v5)-10.5281%2Fzenodo.20554750-1682d4?logo=doi&logoColor=white)](https://doi.org/10.5281/zenodo.20554750)

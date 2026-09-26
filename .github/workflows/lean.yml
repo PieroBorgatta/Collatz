@@ -104,3 +104,18 @@ jobs:
             /tmp/last-exponent-results.json
             /tmp/local-coupling-results.json
           if-no-files-found: ignore
+      - name: Audit signed transport and replay exact arithmetic
+        run: |
+          set -o pipefail
+          (cd lean && lake env lean ../notes/post_v6_signed_mass_2026-09-26/DependencyAudit.lean) | tee /tmp/signed-transport-audit.log
+          python3 -O notes/post_v6_signed_mass_2026-09-26/check_signed_transport.py --output /tmp/signed-results.json
+          cmp notes/post_v6_signed_mass_2026-09-26/signed_results.json /tmp/signed-results.json
+      - name: Preserve signed transport evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: signed-transport-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            /tmp/signed-transport-audit.log
+            /tmp/signed-results.json
+          if-no-files-found: ignore

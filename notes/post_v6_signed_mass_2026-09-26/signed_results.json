@@ -1,0 +1,510 @@
+{
+  "scope": "finite exact arithmetic, not asymptotic evidence",
+  "word_checks": [
+    {
+      "n": 5,
+      "y": 85,
+      "depth": 1,
+      "inverse_words": 3,
+      "valid_shifts": 39,
+      "positive_shifts": 36,
+      "negative_shifts": 3,
+      "zero_shifts": 0,
+      "expanding": 39,
+      "compressing": 0
+    },
+    {
+      "n": 5,
+      "y": 85,
+      "depth": 2,
+      "inverse_words": 6,
+      "valid_shifts": 27,
+      "positive_shifts": 24,
+      "negative_shifts": 3,
+      "zero_shifts": 0,
+      "expanding": 27,
+      "compressing": 0
+    },
+    {
+      "n": 5,
+      "y": 85,
+      "depth": 3,
+      "inverse_words": 12,
+      "valid_shifts": 24,
+      "positive_shifts": 24,
+      "negative_shifts": 0,
+      "zero_shifts": 0,
+      "expanding": 24,
+      "compressing": 0
+    },
+    {
+      "n": 5,
+      "y": 85,
+      "depth": 4,
+      "inverse_words": 24,
+      "valid_shifts": 24,
+      "positive_shifts": 24,
+      "negative_shifts": 0,
+      "zero_shifts": 0,
+      "expanding": 24,
+      "compressing": 0
+    },
+    {
+      "n": 5,
+      "y": 85,
+      "depth": 5,
+      "inverse_words": 48,
+      "valid_shifts": 0,
+      "positive_shifts": 0,
+      "negative_shifts": 0,
+      "zero_shifts": 0,
+      "expanding": 0,
+      "compressing": 0
+    },
+    {
+      "n": 7,
+      "y": 29,
+      "depth": 1,
+      "inverse_words": 3,
+      "valid_shifts": 42,
+      "positive_shifts": 36,
+      "negative_shifts": 6,
+      "zero_shifts": 0,
+      "expanding": 39,
+      "compressing": 3
+    },
+    {
+      "n": 7,
+      "y": 29,
+      "depth": 2,
+      "inverse_words": 6,
+      "valid_shifts": 30,
+      "positive_shifts": 24,
+      "negative_shifts": 6,
+      "zero_shifts": 0,
+      "expanding": 24,
+      "compressing": 6
+    },
+    {
+      "n": 7,
+      "y": 29,
+      "depth": 3,
+      "inverse_words": 12,
+      "valid_shifts": 24,
+      "positive_shifts": 12,
+      "negative_shifts": 12,
+      "zero_shifts": 0,
+      "expanding": 12,
+      "compressing": 12
+    },
+    {
+      "n": 7,
+      "y": 29,
+      "depth": 4,
+      "inverse_words": 24,
+      "valid_shifts": 0,
+      "positive_shifts": 0,
+      "negative_shifts": 0,
+      "zero_shifts": 0,
+      "expanding": 0,
+      "compressing": 0
+    },
+    {
+      "n": 7,
+      "y": 29,
+      "depth": 5,
+      "inverse_words": 48,
+      "valid_shifts": 0,
+      "positive_shifts": 0,
+      "negative_shifts": 0,
+      "zero_shifts": 0,
+      "expanding": 0,
+      "compressing": 0
+    },
+    {
+      "n": 11,
+      "y": 181,
+      "depth": 1,
+      "inverse_words": 3,
+      "valid_shifts": 39,
+      "positive_shifts": 36,
+      "negative_shifts": 3,
+      "zero_shifts": 0,
+      "expanding": 39,
+      "compressing": 0
+    },
+    {
+      "n": 11,
+      "y": 181,
+      "depth": 2,
+      "inverse_words": 6,
+      "valid_shifts": 24,
+      "positive_shifts": 24,
+      "negative_shifts": 0,
+      "zero_shifts": 0,
+      "expanding": 24,
+      "compressing": 0
+    },
+    {
+      "n": 11,
+      "y": 181,
+      "depth": 3,
+      "inverse_words": 12,
+      "valid_shifts": 24,
+      "positive_shifts": 24,
+      "negative_shifts": 0,
+      "zero_shifts": 0,
+      "expanding": 24,
+      "compressing": 0
+    },
+    {
+      "n": 11,
+      "y": 181,
+      "depth": 4,
+      "inverse_words": 24,
+      "valid_shifts": 24,
+      "positive_shifts": 24,
+      "negative_shifts": 0,
+      "zero_shifts": 0,
+      "expanding": 24,
+      "compressing": 0
+    },
+    {
+      "n": 11,
+      "y": 181,
+      "depth": 5,
+      "inverse_words": 48,
+      "valid_shifts": 48,
+      "positive_shifts": 48,
+      "negative_shifts": 0,
+      "zero_shifts": 0,
+      "expanding": 48,
+      "compressing": 0
+    },
+    {
+      "n": 13,
+      "y": 53,
+      "depth": 1,
+      "inverse_words": 3,
+      "valid_shifts": 42,
+      "positive_shifts": 36,
+      "negative_shifts": 6,
+      "zero_shifts": 0,
+      "expanding": 39,
+      "compressing": 3
+    },
+    {
+      "n": 13,
+      "y": 53,
+      "depth": 2,
+      "inverse_words": 6,
+      "valid_shifts": 30,
+      "positive_shifts": 24,
+      "negative_shifts": 6,
+      "zero_shifts": 0,
+      "expanding": 30,
+      "compressing": 0
+    },
+    {
+      "n": 13,
+      "y": 53,
+      "depth": 3,
+      "inverse_words": 12,
+      "valid_shifts": 24,
+      "positive_shifts": 12,
+      "negative_shifts": 12,
+      "zero_shifts": 0,
+      "expanding": 24,
+      "compressing": 0
+    },
+    {
+      "n": 13,
+      "y": 53,
+      "depth": 4,
+      "inverse_words": 24,
+      "valid_shifts": 24,
+      "positive_shifts": 24,
+      "negative_shifts": 0,
+      "zero_shifts": 0,
+      "expanding": 24,
+      "compressing": 0
+    },
+    {
+      "n": 13,
+      "y": 53,
+      "depth": 5,
+      "inverse_words": 48,
+      "valid_shifts": 0,
+      "positive_shifts": 0,
+      "negative_shifts": 0,
+      "zero_shifts": 0,
+      "expanding": 0,
+      "compressing": 0
+    },
+    {
+      "n": 17,
+      "y": 277,
+      "depth": 1,
+      "inverse_words": 3,
+      "valid_shifts": 39,
+      "positive_shifts": 36,
+      "negative_shifts": 3,
+      "zero_shifts": 0,
+      "expanding": 39,
+      "compressing": 0
+    },
+    {
+      "n": 17,
+      "y": 277,
+      "depth": 2,
+      "inverse_words": 6,
+      "valid_shifts": 27,
+      "positive_shifts": 24,
+      "negative_shifts": 3,
+      "zero_shifts": 0,
+      "expanding": 27,
+      "compressing": 0
+    },
+    {
+      "n": 17,
+      "y": 277,
+      "depth": 3,
+      "inverse_words": 12,
+      "valid_shifts": 18,
+      "positive_shifts": 12,
+      "negative_shifts": 6,
+      "zero_shifts": 0,
+      "expanding": 18,
+      "compressing": 0
+    },
+    {
+      "n": 17,
+      "y": 277,
+      "depth": 4,
+      "inverse_words": 24,
+      "valid_shifts": 12,
+      "positive_shifts": 0,
+      "negative_shifts": 12,
+      "zero_shifts": 0,
+      "expanding": 12,
+      "compressing": 0
+    },
+    {
+      "n": 17,
+      "y": 277,
+      "depth": 5,
+      "inverse_words": 48,
+      "valid_shifts": 24,
+      "positive_shifts": 0,
+      "negative_shifts": 24,
+      "zero_shifts": 0,
+      "expanding": 24,
+      "compressing": 0
+    },
+    {
+      "n": 5,
+      "y": 17,
+      "depth": 1,
+      "inverse_words": 3,
+      "valid_shifts": 42,
+      "positive_shifts": 36,
+      "negative_shifts": 3,
+      "zero_shifts": 3,
+      "expanding": 39,
+      "compressing": 3
+    },
+    {
+      "n": 5,
+      "y": 17,
+      "depth": 2,
+      "inverse_words": 6,
+      "valid_shifts": 27,
+      "positive_shifts": 24,
+      "negative_shifts": 3,
+      "zero_shifts": 0,
+      "expanding": 24,
+      "compressing": 3
+    },
+    {
+      "n": 5,
+      "y": 17,
+      "depth": 3,
+      "inverse_words": 12,
+      "valid_shifts": 12,
+      "positive_shifts": 12,
+      "negative_shifts": 0,
+      "zero_shifts": 0,
+      "expanding": 12,
+      "compressing": 0
+    },
+    {
+      "n": 5,
+      "y": 17,
+      "depth": 4,
+      "inverse_words": 24,
+      "valid_shifts": 0,
+      "positive_shifts": 0,
+      "negative_shifts": 0,
+      "zero_shifts": 0,
+      "expanding": 0,
+      "compressing": 0
+    },
+    {
+      "n": 5,
+      "y": 17,
+      "depth": 5,
+      "inverse_words": 48,
+      "valid_shifts": 0,
+      "positive_shifts": 0,
+      "negative_shifts": 0,
+      "zero_shifts": 0,
+      "expanding": 0,
+      "compressing": 0
+    }
+  ],
+  "negative_examples": [
+    {
+      "n": 5,
+      "y": 85,
+      "word": [
+        3
+      ],
+      "delta": -1,
+      "source": 13,
+      "image_odd_part": 113
+    },
+    {
+      "n": 5,
+      "y": 85,
+      "word": [
+        5
+      ],
+      "delta": -3,
+      "source": 53,
+      "image_odd_part": 113
+    },
+    {
+      "n": 5,
+      "y": 85,
+      "word": [
+        5
+      ],
+      "delta": -1,
+      "source": 53,
+      "image_odd_part": 453
+    },
+    {
+      "n": 5,
+      "y": 85,
+      "word": [
+        1,
+        5
+      ],
+      "delta": -3,
+      "source": 35,
+      "image_odd_part": 75
+    },
+    {
+      "n": 5,
+      "y": 85,
+      "word": [
+        3,
+        5
+      ],
+      "delta": -3,
+      "source": 141,
+      "image_odd_part": 301
+    },
+    {
+      "n": 5,
+      "y": 85,
+      "word": [
+        5,
+        5
+      ],
+      "delta": -3,
+      "source": 565,
+      "image_odd_part": 1205
+    },
+    {
+      "n": 7,
+      "y": 29,
+      "word": [
+        2
+      ],
+      "delta": -1,
+      "source": 9,
+      "image_odd_part": 19
+    },
+    {
+      "n": 7,
+      "y": 29,
+      "word": [
+        4
+      ],
+      "delta": -3,
+      "source": 37,
+      "image_odd_part": 19
+    }
+  ],
+  "colliding_fiber": [
+    {
+      "word": [
+        1,
+        1
+      ],
+      "delta": 5,
+      "source": 7,
+      "image_odd_part": 3939,
+      "scale_numerator": 8864,
+      "scale_denominator": 17
+    },
+    {
+      "word": [
+        1,
+        7
+      ],
+      "delta": -1,
+      "source": 483,
+      "image_odd_part": 3939,
+      "scale_numerator": 277,
+      "scale_denominator": 34
+    },
+    {
+      "word": [
+        1,
+        13
+      ],
+      "delta": -7,
+      "source": 30947,
+      "image_odd_part": 3939,
+      "scale_numerator": 277,
+      "scale_denominator": 2176
+    },
+    {
+      "word": [
+        1,
+        19
+      ],
+      "delta": -13,
+      "source": 1980643,
+      "image_odd_part": 3939,
+      "scale_numerator": 277,
+      "scale_denominator": 139264
+    },
+    {
+      "word": [
+        1,
+        25
+      ],
+      "delta": -19,
+      "source": 126761187,
+      "image_odd_part": 3939,
+      "scale_numerator": 277,
+      "scale_denominator": 8912896
+    }
+  ],
+  "dyadic_counting_cases": 80,
+  "total_valid_shifts": 690,
+  "source_census_expanded": false
+}

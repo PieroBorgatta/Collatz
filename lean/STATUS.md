@@ -6,6 +6,19 @@ to v4; subsequent working-tree developments are separate from its frozen
 supplementary archive. This working tree targets pinned Lean v4.29.1 and Mathlib
 v4.29.1; portability to later toolchains has not been checked.
 
+**Signed-transport follow-up, 26 September (H.2):** the full multivalued
+relation changing only the final exponent has o(X) distinct output images
+within DX from odd sources within X, even with arbitrary output dyadic
+lifts. Targets are distinct positive odd integers, D is fixed, and source
+words use first arrival (automatic for non-returning targets). This is a
+paper theorem, with six supporting arithmetic lemmas in `SignedTransport`.
+The integrated build passes (3380 jobs, exit 0). A nonblocking linter
+warning notes an unused oddness hypothesis; there are no compilation errors.
+All six roots pass the strict dependency audit using only the standard
+axioms; exact Python output matches with and without optimization.
+It closes this particular mass-transfer method, not H. See the
+[signed-mass report](../notes/post_v6_signed_mass_2026-09-26/RESULTS_IT.md).
+
 **Basin-transport follow-up, 26 September:** an exact last-exponent
 transport and its strict height cost are now formalized. A separate paper
 argument shows that its nonnegative-shift version retains density zero
