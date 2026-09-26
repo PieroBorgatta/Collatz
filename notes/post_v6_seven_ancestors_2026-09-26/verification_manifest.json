@@ -1,0 +1,98 @@
+{
+  "date": "2026-09-26",
+  "verified_code_commit": "d4b35bcd701134cda4ff65c522603de9d7d28fef",
+  "seven_ancestors_ci": {
+    "conclusion": "success",
+    "headSha": "d4b35bcd701134cda4ff65c522603de9d7d28fef",
+    "status": "completed",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36234177020"
+  },
+  "existing_lean_ci": {
+    "conclusion": "success",
+    "headSha": "d4b35bcd701134cda4ff65c522603de9d7d28fef",
+    "status": "completed",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36234177017"
+  },
+  "verification": {
+    "tests": 11,
+    "protocol_sha256": "86f7882d65d1cd478fcf2b2429ad50484451ff03ee2e63903f021514f7a3b46e",
+    "protocol_is_local_plan_not_external_timestamped_registration": true,
+    "total_admissible_candidates": 2991085,
+    "visited_candidates": 60,
+    "interval_exhausted": false,
+    "status": "counterexample",
+    "independent_full_integer_search_orbit_steps": 354900,
+    "independent_actual_tower_comparison_steps": 5915,
+    "historical_v10_filtered_roots_replayed": 12,
+    "historical_v10_filtered_orbit_steps": 35496,
+    "first_counterexample": {
+      "t": -38193,
+      "ancestor": 14476219056859,
+      "lower_margin": 34,
+      "upper_margin": -18
+    },
+    "all_sixty_complete_parity_traces_match_independent_integer_oracle": true,
+    "separate_internal_reviewer_replayed_all_sixty_candidates": true,
+    "independent_interval_binary_search_and_four_boundaries_verified": true,
+    "all_nine_witness_levels_pass_binade_oddness_and_ternary_filters": true,
+    "downloaded_result_byte_identical": true,
+    "previous_non_README_hashes_verified": {
+      "compensation": 18,
+      "arithmetic": 13,
+      "margin": 13,
+      "mixed": 12,
+      "ancestry": 14,
+      "ternary": 11,
+      "propagation": 13,
+      "tail": 13,
+      "renewal": 14
+    },
+    "CI_rerun_itself_is_not_a_new_independent_implementation": true
+  },
+  "mathematical_status": {
+    "frozen_implication": "False: at v=11, seven ancestors, prescribed height and ternary congruence admit margins +34 to -18.",
+    "exact_Q11_Q12_margins": [
+      73,
+      93
+    ],
+    "not_a_counterexample_to_Collatz_or_exact_tower": true,
+    "different_weighted_budget_from_v16": "Not tested by this finite v11 witness.",
+    "uniform_family_descent": "Not proved",
+    "new_tower_levels": [],
+    "new_lean_declarations": 0,
+    "novelty": "Not established",
+    "review": "Internal agent cross-review, not external human peer review."
+  },
+  "scope_notes": [
+    "One exact witness refutes the universal filter implication without interval exhaustion.",
+    "The first sixty ascending candidates are not a random sample and do not estimate a failure rate.",
+    "The original depth, height, congruence, sign thresholds and scan order were not changed after the scan.",
+    "The witness does not retain the full lower parity word of Q11; the earlier two-ancestor rigidity result is compatible.",
+    "No additional theorem was formalized by existing Lean CI.",
+    "Subsequent changes are documentation and archived evidence only.",
+    "Earlier manifests remain historical snapshots, including their README hashes."
+  ],
+  "frozen_v6_sha256": {
+    "paper/collatz_spectral_reduction_v6.pdf": "a959282145d5042550c3938b445a4964305299b4eca71bcc62539804c5b585f9",
+    "collatz_spectral_reduction_v6_supplementary.zip": "20f9195443dd058aeae16b9316ed0f6beafb6d360182ba93b875107a0ee9da60"
+  },
+  "sha256": {
+    ".github/workflows/tower-seven-ancestors.yml": "a478670e7dd76093cc52b762c6826afc8336e23c3e1031c3c5f930df1afc1e0b",
+    "README.md": "79efc074289e6be977fc79f957dab011d788e171778e54227837e8f17782f69f",
+    "notes/post_v6_ancestry_2026-09-25/ancestry_probe.py": "8436d7b9ed330095b306fe7be42872bb5cbcce6956b198a66616bc42c9d2c232",
+    "notes/post_v6_ancestry_2026-09-25/ancestry_results.json": "5821d963eb84f9bc4f61a468307e5c911ad7933093fe0923fafe67f0f5a9be35",
+    "notes/post_v6_arithmetic_2026-09-25/arithmetic_probe.py": "02d51066d68c7cf6cc28f4127399ca4d95554ee86792f894f9c2e1d7a33d01b5",
+    "notes/post_v6_compensation_2026-09-25/block_engine.py": "f5deaad568c9af6c26fa04706b510cf073a2ee50821436a7920f675d47c515ce",
+    "notes/post_v6_margin_2026-09-25/margin_probe.py": "adf108d30ee5f84b3f7b9958aa314e867385d9461465bbbccf902a5b766d4ec2",
+    "notes/post_v6_margin_2026-09-25/margin_results.json": "837937cb8387577e53f0547a6991e1b606828b82366a94190835c8fbd246ccf5",
+    "notes/post_v6_mixed_2026-09-25/mixed_probe.py": "c5d46d0bd0691a0b7ab4f310278259794be1d6b88d0439d236e3edb8c6c04a37",
+    "notes/post_v6_seven_ancestors_2026-09-26/PROTOCOL_IT.md": "86f7882d65d1cd478fcf2b2429ad50484451ff03ee2e63903f021514f7a3b46e",
+    "notes/post_v6_seven_ancestors_2026-09-26/RESULTS_IT.md": "2dbc8e181bea2db7d321c16ed74d833b3e515d7213a71533af660c4b4133653b",
+    "notes/post_v6_seven_ancestors_2026-09-26/ci_36234177017.log.gz": "43a7745e67d073d0cfaff1c462add084a76a80c46c24435529fb3f72cf561a7d",
+    "notes/post_v6_seven_ancestors_2026-09-26/ci_36234177020.log.gz": "7eada2ccd68723d160ae2fc52abafb1bd48a4cfa43481658140c98299bd19709",
+    "notes/post_v6_seven_ancestors_2026-09-26/presearch_interval.json": "081001f3d44a9f068f779101beffde11f880265710bb4d4646afb7a48b8074a8",
+    "notes/post_v6_seven_ancestors_2026-09-26/seven_probe.py": "dae495bdb330c3b875ffcdfa566d6ee23f94a822a26867420abb590f28f369a1",
+    "notes/post_v6_seven_ancestors_2026-09-26/seven_results.json": "06806b7617a969ed798b7de1216eebc5adb018bfc6d7ac72c3491c3510bb5e45",
+    "notes/post_v6_seven_ancestors_2026-09-26/test_seven.py": "230de21bb96b67ffe7de8dd15803877d74a0b58596a220cbaafa5192b005048b"
+  }
+}

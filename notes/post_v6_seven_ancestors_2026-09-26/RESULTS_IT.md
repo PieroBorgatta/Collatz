@@ -155,8 +155,15 @@ separatamente anche tutti i 60 candidati e i quantificatori; non è una
 revisione esterna. Gli **11 test** passano localmente e il JSON viene
 riprodotto identico byte per byte.
 
-La CI dedicata e la build Lean esistente verranno archiviate dopo il push.
+La [CI del filtro](https://github.com/PieroBorgatta/Collatz/actions/runs/36234177020)
+e la [build Lean con gli audit esistenti](https://github.com/PieroBorgatta/Collatz/actions/runs/36234177017)
+sono passate sul commit `d4b35bc`. Gli 11 test passano anche in Linux e
+il JSON scaricato coincide byte per byte con quello locale. La CI
+riesegue il codice archiviato: non è un ulteriore metodo indipendente.
 I nuovi argomenti su carta non sono formalizzati dalla build Lean.
+Log e SHA-256 sono nel [manifesto](verification_manifest.json).
+Verificati e invariati i 121 hash degli input delle nove fasi
+precedenti, esclusi i loro README storici; invariati gli artifact v6.
 
 La conclusione è circoscritta e definitiva: **questa formula universale
 per il trasferimento del margine è falsa**. Non segue che ogni criterio

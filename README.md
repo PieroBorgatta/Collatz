@@ -454,6 +454,9 @@ ternary congruences. Direct integer replay checks the finite witness.
 This refutes that filter implication, not Collatz or the exact tower;
 the actual Q_11 and Q_12 retain margins +73 and +93. No new tower level
 or Lean declaration is added.
+The [filter CI](https://github.com/PieroBorgatta/Collatz/actions/runs/36234177020)
+and [existing Lean checks](https://github.com/PieroBorgatta/Collatz/actions/runs/36234177017)
+passed on `d4b35bc`: all 11 tests pass and the downloaded JSON is byte-identical.
 
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch
