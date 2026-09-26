@@ -1,0 +1,55 @@
+name: Tower seven-ancestor filter
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'notes/post_v6_seven_ancestors_2026-09-26/*.py'
+      - 'notes/post_v6_seven_ancestors_2026-09-26/*_results.json'
+      - 'notes/post_v6_seven_ancestors_2026-09-26/presearch_interval.json'
+      - 'notes/post_v6_seven_ancestors_2026-09-26/PROTOCOL_IT.md'
+      - 'notes/post_v6_ancestry_2026-09-25/ancestry_probe.py'
+      - 'notes/post_v6_ancestry_2026-09-25/ancestry_results.json'
+      - 'notes/post_v6_mixed_2026-09-25/mixed_probe.py'
+      - 'notes/post_v6_margin_2026-09-25/margin_probe.py'
+      - 'notes/post_v6_margin_2026-09-25/margin_results.json'
+      - 'notes/post_v6_arithmetic_2026-09-25/arithmetic_probe.py'
+      - 'notes/post_v6_compensation_2026-09-25/block_engine.py'
+      - '.github/workflows/tower-seven-ancestors.yml'
+  pull_request:
+    paths:
+      - 'notes/post_v6_seven_ancestors_2026-09-26/**'
+      - 'notes/post_v6_ancestry_2026-09-25/ancestry_probe.py'
+      - 'notes/post_v6_ancestry_2026-09-25/ancestry_results.json'
+      - 'notes/post_v6_mixed_2026-09-25/mixed_probe.py'
+      - 'notes/post_v6_margin_2026-09-25/margin_probe.py'
+      - 'notes/post_v6_margin_2026-09-25/margin_results.json'
+      - 'notes/post_v6_arithmetic_2026-09-25/arithmetic_probe.py'
+      - 'notes/post_v6_compensation_2026-09-25/block_engine.py'
+      - '.github/workflows/tower-seven-ancestors.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently check interval, ancestry and full integer orbits
+        run: python3 notes/post_v6_seven_ancestors_2026-09-26/test_seven.py
+      - name: Reproduce frozen falsification search
+        run: |
+          python3 notes/post_v6_seven_ancestors_2026-09-26/seven_probe.py --output /tmp/seven-ancestors/seven_results.json
+          cmp notes/post_v6_seven_ancestors_2026-09-26/seven_results.json /tmp/seven-ancestors/seven_results.json
+      - name: Preserve evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tower-seven-ancestors-${{ github.run_id }}-${{ github.run_attempt }}
+          path: /tmp/seven-ancestors
+          if-no-files-found: ignore

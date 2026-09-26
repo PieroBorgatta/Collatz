@@ -446,6 +446,15 @@ The [renewal CI](https://github.com/PieroBorgatta/Collatz/actions/runs/362320707
 and [existing Lean checks](https://github.com/PieroBorgatta/Collatz/actions/runs/36232070692)
 passed on `e9c8dca`: all 14 tests pass and the downloaded JSON is byte-identical.
 
+The [seven-ancestor filter test](notes/post_v6_seven_ancestors_2026-09-26/RESULTS_IT.md)
+falsifies the proposed margin transfer at v=11. Of 2,991,085 admissible
+roots, the 60th in the frozen ascending order has margins +34 and -18,
+despite seven integer ancestors, the correct binades and the prescribed
+ternary congruences. Direct integer replay checks the finite witness.
+This refutes that filter implication, not Collatz or the exact tower;
+the actual Q_11 and Q_12 retain margins +73 and +93. No new tower level
+or Lean declaration is added.
+
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch
 identities, counterexamples to
