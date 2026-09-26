@@ -741,6 +741,25 @@ finite phantom-shadowing/CW layer
 > - Next recommended task: X.Y
 > ```
 
+### 2026-09-26 (Post-v6 binary carries; research B.C) — Codex + Piero Borgatta
+
+- [x] Define and verify a column-wise tower generator from the exact seed 3,
+  coupled to shortcut parity at the correct lower and upper horizons.
+- [x] Prove exposed carry redundancy and falsify a current-carry/window
+  compression on general anchored odd roots, with a uniform collision family.
+- [x] Check nine archived adversaries and enumerate all 33,046 completions
+  in five small future-carry fibers. The future carry is selective but its
+  cumulative effect remains unbounded.
+- [ ] Derive an independent arithmetic estimate on signed weighted defects
+  of the exact tower. The retrospective telescoping identity is not that estimate.
+- Artifacts: `../notes/post_v6_binary_carries_2026-09-26/` and the associated
+  local-replay CI workflow. No new Lean declaration or tower level.
+- Verification: local independent arithmetic tests and byte-identical JSON
+  replay; see the report and verification manifest. No new CI run claimed.
+- Next research target: quantitatively bound parity weight in a class
+  selected by a future carry, while deriving that carry condition and its
+  cost from exact source generation. Do not treat selection alone as descent.
+
 ### 2026-09-24 (Post-v6 marked section and parameterized towers) — Codex + Piero Borgatta
 
 - [x] Explicit rank certificate for hitting 1 or `20 mod27`, including a

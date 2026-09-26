@@ -458,6 +458,18 @@ The [filter CI](https://github.com/PieroBorgatta/Collatz/actions/runs/3623417702
 and [existing Lean checks](https://github.com/PieroBorgatta/Collatz/actions/runs/36234177017)
 passed on `d4b35bc`: all 11 tests pass and the downloaded JSON is byte-identical.
 
+The [binary-carry experiment](notes/post_v6_binary_carries_2026-09-26/RESULTS_IT.md)
+generates exact tower prefixes from successive squares of the seed 3 and
+reproduces five historical parity pairs. Exposed squaring carries are
+functions of the exposed prefix; they do not exclude any of the nine
+archived adversaries. Current carry plus fixed input/output windows fails
+to predict the next square bit on general anchored odd roots, with an
+explicit collision for every window length. A future carry selects some
+completions in small exhaustive tests and rejects the nine archived
+witnesses, but no uniform parity or cumulative-cost estimate follows.
+The new verification is local, with a CI workflow prepared for replay;
+it adds no Lean declaration or certified tower level.
+
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch
 identities, counterexamples to

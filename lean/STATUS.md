@@ -1,6 +1,6 @@
 # Current mathematical status
 
-Updated 2026-09-24. The published v1–v6 Zenodo PDFs are frozen snapshots.
+Updated 2026-09-26. The published v1–v6 Zenodo PDFs are frozen snapshots.
 Published [v6](https://doi.org/10.5281/zenodo.22936057) includes the erratum
 to v4; subsequent working-tree developments are separate from its frozen
 supplementary archive. This working tree targets pinned Lean v4.29.1 and Mathlib
@@ -227,3 +227,29 @@ standard axioms only for every new audited root.
 This is not a complete formalization of the earlier shortcut parity-count
 certificate producer, its Q_v specialization, or the application of Chim's
 theorem. No uniform family descent or mathematical priority is claimed.
+
+## Post-v6 binary carry experiment (26 September 2026)
+
+The latest research remains outside the Lean declarations. The
+[seven-ancestor filter](../notes/post_v6_seven_ancestors_2026-09-26/RESULTS_IT.md)
+is false at level 11, and the
+[prefix-renewal analysis](../notes/post_v6_renewal_2026-09-26/RESULTS_IT.md)
+requires nearly the full upper precision in the observed large cases.
+
+The [new carry experiment](../notes/post_v6_binary_carries_2026-09-26/RESULTS_IT.md)
+reconstructs exact tower prefixes by column-wise squaring from seed 3,
+with five historical pairs checked against modular powers and direct
+shortcut orbits. Squaring carries within an exposed prefix are redundant
+with that prefix. All nine archived adversaries retain those exposed
+carries. Current carry and fixed input/output windows do not close a
+deterministic generator on general anchored odd roots; the paper proof
+provides a collision for every finite window. This is not a memory
+impossibility theorem for the exact tower alone.
+
+A future boundary carry selects some completions in exhaustive diagnostic
+levels 0 through 4 and rejects the nine archived witnesses. No uniform
+estimate on parity weight or signed cumulative defects has been obtained.
+The exact seed constraint selects the source, but a quantitative bound on
+its orbit remains open. The new Python verification is local; a workflow
+is prepared for replay. No new Lean declaration, aggregate build, CI run
+or certified tower level is claimed for this phase.

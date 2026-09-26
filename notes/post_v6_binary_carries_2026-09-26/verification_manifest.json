@@ -1,0 +1,40 @@
+{
+  "schema": "tower-binary-carries-local-verification-v1",
+  "verified_at_local_system_utc": "2026-09-26T10:28:09.815328+00:00",
+  "base_commit": "fa34800d436f122b5e95d5385f1190282487360a",
+  "python": "3.14.4 (main, Apr  7 2026, 13:13:20) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "tests": {
+    "passed": 15,
+    "exit_code": 0,
+    "log": "tests.log.gz"
+  },
+  "replay": {
+    "exit_code": 0,
+    "byte_identical": true,
+    "log": "replay.log.gz"
+  },
+  "sha256": {
+    "PROTOCOL_IT.md": "c823e03882eb2f1ad2510881844b3c44991024048f32f1319d1affdb74cb3096",
+    "PROOF_IT.md": "5a35df9a7be10f90af4e2d725e30370c9c874dfcd95355386a3e699b2cbfd784",
+    "RESULTS_IT.md": "668b75539dc9cd09bd17548624953a806391eb112bb3faf62d71fc3dd9ffc677",
+    "REVIEW_IT.md": "a18cc2c4d95e452d1f9a5e3953cb6276262e0ceac9d11440cb68bf931720f242",
+    "binary_carry_probe.py": "f3daf7e3de0f30e1b73c669a1499e672d58ea38c94ef14fa43d9bb66c0351dba",
+    "test_binary_carries.py": "7ddcad24c51407b747e80253c690e7f16414278927184d1318dca5d09bd2095a",
+    "binary_carry_results.json": "4ba6d3b2b02ee1fab2345a3735d0b3eba17a0b02fd8965614de40ac2bed292f1",
+    "tests.log.gz": "2dcde3fcb6749c334e6fe639d3fa44529f8650992accd3e50a65dd725ab33391",
+    "replay.log.gz": "38fcb1b1f4deb2cb0356f3636473646d0f45102c92cd7be9ced61c868770b171"
+  },
+  "pinned_inputs_sha256": {
+    "post_v6_margin_2026-09-25/margin_results.json": "837937cb8387577e53f0547a6991e1b606828b82366a94190835c8fbd246ccf5",
+    "post_v6_renewal_2026-09-26/renewal_results.json": "19802878c6e652d2b8ed7f6eb96cdc1fb14893f8e3be245e6c14835576a09f06",
+    "post_v6_seven_ancestors_2026-09-26/seven_results.json": "06806b7617a969ed798b7de1216eebc5adb018bfc6d7ac72c3491c3510bb5e45"
+  },
+  "workflow": ".github/workflows/tower-binary-carries.yml",
+  "workflow_sha256": "cf9dee7f7e394e791ff663cecf58eb0540f98199905e298fece78edad8010d01",
+  "new_ci_run_claimed": false,
+  "new_lean_build_claimed": false,
+  "new_lean_declarations": 0,
+  "uniform_bound_proved": false,
+  "published_v6_artifacts_modified": false
+}
