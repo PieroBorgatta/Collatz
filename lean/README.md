@@ -68,6 +68,7 @@ their precise trusted base. See [`STATUS.md`](STATUS.md).
 | Descent ⇒ Collatz (elementary) | `classicalCollatz_of_uniformStrictDescent_provedBridge` | `CollatzBridge` |
 | Attainable maximum defect over a dyadic input class, and exact observed-zero certificate | `PrefixOptimality.prefixMaximum_exact`, `PrefixOptimality.certificate_iff_zeros` | `PrefixOptimality` |
 | Disjoint sibling basins on an injective orbit and finite weighted source budget | `SiblingBasins.basins_pairwise_disjoint`, `SiblingBasins.canonical_sum_weight_predecessors_le` | `SiblingBasins` |
+| Exact final-exponent transport and unavoidable source-height expansion | `LastExponentTransport.last_exponent_transport`, `LastExponentTransport.last_exponent_height_cost` | `LastExponentTransport` |
 | Exact precision loss for a matched expansive word | `syracuseWordPhantomPrecision_after_eval_add_sum` | `PrecisionTax` |
 | Finite bound on consecutive repetitions of that word | `syracuseWord_matched_block_precision_budget`, `no_infinite_matched_expansive_word` | `PrecisionTax` |
 | Necessary equation and contractivity for a positive cycle | `syracuseWordCycleEquationNat`, `syracuseWordCycleContracting` | `CycleConstraints` |

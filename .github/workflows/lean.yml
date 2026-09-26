@@ -86,3 +86,21 @@ jobs:
             /tmp/sibling-basin-audit.log
             /tmp/basin-results.json
           if-no-files-found: ignore
+      - name: Audit last-exponent transport and replay inverse-word checks
+        run: |
+          set -o pipefail
+          (cd lean && lake env lean ../notes/post_v6_basin_transport_2026-09-26/DependencyAudit.lean) | tee /tmp/last-exponent-audit.log
+          python3 -O notes/post_v6_basin_transport_2026-09-26/transport_probe.py --output /tmp/last-exponent-results.json
+          cmp notes/post_v6_basin_transport_2026-09-26/transport_results.json /tmp/last-exponent-results.json
+          python3 -O notes/post_v6_basin_transport_2026-09-26/local_coupling_probe.py --output /tmp/local-coupling-results.json
+          cmp notes/post_v6_basin_transport_2026-09-26/local_coupling_results.json /tmp/local-coupling-results.json
+      - name: Preserve inverse-word transport evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inverse-word-transport-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            /tmp/last-exponent-audit.log
+            /tmp/last-exponent-results.json
+            /tmp/local-coupling-results.json
+          if-no-files-found: ignore

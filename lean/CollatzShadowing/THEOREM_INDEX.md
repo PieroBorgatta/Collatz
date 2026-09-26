@@ -353,6 +353,21 @@ positive orbit. See the [transport report](../../notes/post_v6_transport_2026-09
   weighted budget to the selected siblings. Neither a density comparison nor
   its proposed no-divergence consequence is formalized by this statement.
 
+### `LastExponentTransport.lean`
+
+- `matches_and_endpoint_of_affine` — an odd exact affine endpoint certifies
+  the actual valuation word and its endpoint.
+- `last_constant_unchanged`, `last_exponent_transport` — changing only the
+  final exponent preserves the affine constant and constructs a new source
+  from an explicitly supplied nonnegative congruence correction.
+- `correction_positive`, `transport_height_cost`, `last_exponent_height_cost`
+  — increasing the target forces the cross-multiplied strict bound
+  `n*u' > (n+3^k)*u`.
+- `not_bounded_height` — the arithmetic cost excludes any proposed source
+  dilation factor once the stated depth inequality holds. The asymptotic
+  density-zero consequence and the separate equal-depth obstruction are
+  paper-level arguments, not claims of this module.
+
 ## `Generated/` — machine-generated finite certificates
 
 Verified by Lean; emitted by `../../scripts/phantom_taxonomy/` generators.

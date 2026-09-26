@@ -31,6 +31,7 @@ import CollatzShadowing.WeightedCounting
 import CollatzShadowing.WeightedPredecessors
 import CollatzShadowing.TwoSeed
 import CollatzShadowing.SiblingBasins
+import CollatzShadowing.LastExponentTransport
 import CollatzShadowing.NonreturnCounting
 import CollatzShadowing.EpisodeInventory
 import CollatzShadowing.EpisodeGraph

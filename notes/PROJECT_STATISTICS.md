@@ -40,6 +40,9 @@ v5 line and declaration totals below remain frozen.
 certificates on 25 September. `PrefixOptimality` and `SiblingBasins` add
 the exact prefix maximum and finite disjoint-basin budgets on 26 September;
 their density application remains conditional and outside these statements.
+The subsequent `LastExponentTransport` module proves exact transport by a
+final-exponent increase and its unavoidable height cost. Its asymptotic
+application and a separate equal-depth obstruction remain paper arguments.
 The first integrated post-v6 build passed on 24 September 2026 (3365 jobs);
 the subsequent weighted-visit verification is recorded in
 `post_v6_parameter_2026-09-24/IDEAS_IT.md`.
@@ -55,9 +58,9 @@ new entrypoint imports):
 
 | Lean source class | files | lines | `theorem`/`lemma` declarations |
 |---|---:|---:|---:|
-| AI-authored modules and entrypoint | 41 | 12,992 | 544 |
+| AI-authored modules and entrypoint | 42 | 13,109 | 551 |
 | Generator-emitted certificates | 26 | 43,513 | 966 |
-| **Total** | **67** | **56,505** | **1,510** |
+| **Total** | **68** | **56,622** | **1,517** |
 
 The independent `research/weighted_predecessors_adapter/` package is excluded
 from these main-library totals. It contains new proofs and attributed
@@ -69,7 +72,8 @@ modules with 40 public theorems and two private lemmas, excluded from the
 main-library table. The current table includes the two main-library
 transport modules with 19 public theorems and three private lemmas, the
 two descent/transfer modules, and the two consolidation modules with
-31 public theorems and one private lemma. Its
+31 public theorems and one private lemma, followed by the seven public
+theorems in `LastExponentTransport`. Its
 declaration-count command counts public `theorem`/`lemma` lines; private
 lemmas are included in line counts, not that declaration column. See
 `post_v6_transport_2026-09-24/RESULTS_IT.md`.

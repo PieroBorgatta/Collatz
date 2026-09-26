@@ -1,0 +1,187 @@
+{
+  "scope": "finite exact arithmetic checks, not basin-density evidence",
+  "bad_family": [
+    {
+      "k": 1,
+      "n": 5,
+      "y": 85,
+      "word": [
+        1
+      ],
+      "source": 3,
+      "period": 2,
+      "minimum_delta": 1,
+      "transported_source_bits": 7,
+      "transported_source_sha256": "6c658ee83fb7e812482494f3e416a876f63f418a0b8a1f5e76d47ee4177035cb"
+    },
+    {
+      "k": 2,
+      "n": 17,
+      "y": 277,
+      "word": [
+        1,
+        1
+      ],
+      "source": 7,
+      "period": 6,
+      "minimum_delta": 5,
+      "transported_source_bits": 12,
+      "transported_source_sha256": "bc7d252a3b416a053fc485b7593a2526b02a5f8d2b31bd67c7c9adc45ed8127c"
+    },
+    {
+      "k": 3,
+      "n": 17,
+      "y": 277,
+      "word": [
+        4,
+        1,
+        1
+      ],
+      "source": 37,
+      "period": 18,
+      "minimum_delta": 17,
+      "transported_source_bits": 27,
+      "transported_source_sha256": "278a38a3157e6536c0f6b5decc4cfd1f90aadc07be77955bd52fae7b951e5010"
+    },
+    {
+      "k": 4,
+      "n": 17,
+      "y": 277,
+      "word": [
+        2,
+        4,
+        1,
+        1
+      ],
+      "source": 49,
+      "period": 54,
+      "minimum_delta": 53,
+      "transported_source_bits": 63,
+      "transported_source_sha256": "6f94b0e6e00b87651d26b5ab4230cd5fede448f520b70f9949b2cade1fe2273d"
+    },
+    {
+      "k": 5,
+      "n": 17,
+      "y": 277,
+      "word": [
+        2,
+        2,
+        4,
+        1,
+        1
+      ],
+      "source": 65,
+      "period": 162,
+      "minimum_delta": 161,
+      "transported_source_bits": 172,
+      "transported_source_sha256": "5df9089f797ab6c7bbf7e00727777dcd40edd4d3d58258e2a009704219134167"
+    },
+    {
+      "k": 6,
+      "n": 989,
+      "y": 15829,
+      "word": [
+        2,
+        4,
+        2,
+        4,
+        1,
+        1
+      ],
+      "source": 22193,
+      "period": 486,
+      "minimum_delta": 485,
+      "transported_source_bits": 504,
+      "transported_source_sha256": "26aba21a952f9dbc50ccc5a966023349782547e83b96da819bfe0b691d837399"
+    },
+    {
+      "k": 7,
+      "n": 3905,
+      "y": 62485,
+      "word": [
+        4,
+        4,
+        4,
+        2,
+        4,
+        1,
+        1
+      ],
+      "source": 1871557,
+      "period": 1458,
+      "minimum_delta": 1457,
+      "transported_source_bits": 1482,
+      "transported_source_sha256": "035d89c34c96d14bdbe2d9584619ffa2062f04a2fb095f32a061c6826f38791e"
+    }
+  ],
+  "signed_fiber": [
+    {
+      "last_exponent": 1,
+      "source": 7,
+      "delta": 5,
+      "image": 3939
+    },
+    {
+      "last_exponent": 7,
+      "source": 483,
+      "delta": -1,
+      "image": 3939
+    },
+    {
+      "last_exponent": 13,
+      "source": 30947,
+      "delta": -7,
+      "image": 3939
+    },
+    {
+      "last_exponent": 19,
+      "source": 1980643,
+      "delta": -13,
+      "image": 3939
+    },
+    {
+      "last_exponent": 25,
+      "source": 126761187,
+      "delta": -19,
+      "image": 3939
+    }
+  ],
+  "residue_permutations": [
+    {
+      "k": 1,
+      "modulus": 3,
+      "residues_per_class": 1,
+      "passed": true
+    },
+    {
+      "k": 2,
+      "modulus": 9,
+      "residues_per_class": 3,
+      "passed": true
+    },
+    {
+      "k": 3,
+      "modulus": 27,
+      "residues_per_class": 9,
+      "passed": true
+    },
+    {
+      "k": 4,
+      "modulus": 81,
+      "residues_per_class": 27,
+      "passed": true
+    },
+    {
+      "k": 5,
+      "modulus": 243,
+      "residues_per_class": 81,
+      "passed": true
+    },
+    {
+      "k": 6,
+      "modulus": 729,
+      "residues_per_class": 243,
+      "passed": true
+    }
+  ]
+}

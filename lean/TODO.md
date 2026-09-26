@@ -76,6 +76,13 @@ When you complete or partially advance a task:
 
 ## Current status (most recent first)
 
+**2026-09-26, H.1 basin transport.** Exact final-exponent transport and
+strict height loss are formalized. Paper proofs now exclude positive-density
+retention at fixed cutoff dilation for nonnegative final-exponent changes
+and establish an obstruction to universal pointwise equal-depth coupling.
+H itself remains open. See the
+[new report](../notes/post_v6_basin_transport_2026-09-26/RESULTS_IT.md).
+
 **2026-09-26, consolidation and review.** The latest finite-filter campaign
 is closed; its failed hypotheses will not be repaired by adding constraints
 after observing counterexamples. See the
@@ -748,6 +755,25 @@ finite phantom-shadowing/CW layer
 > - Notes: any blockers, open questions, things the next session should know
 > - Next recommended task: X.Y
 > ```
+
+### 2026-09-26 (H.1: inverse-basin transport and obstructions) — Codex + Piero Borgatta
+
+- [x] Construct an exact final-exponent transport; formalize the actual
+  valuation match and strict height loss in seven public Lean declarations.
+- [x] Prove on paper that nonnegative final-exponent shifts retain density
+  zero within every fixed source-cutoff dilation; verify the ordinary-source
+  dyadic factors and finite-depth counting argument independently.
+- [x] Prove an equal-depth obstruction for arbitrary upper words, including
+  a certified terminating target subfamily; preserve its quantifier limits.
+- [x] Check signed corrections, colliding fibers and geometric weight sums;
+  review the pertinent predecessor-counting and operator literature.
+- [x] Verification: integrated build passed with 3379 jobs; all seven
+  declarations pass the standard-axiom audit; both exact Python probes
+  replay identically under `-O`.
+- [ ] Establish or refute H itself. The excluded transports do not refute
+  a comparison of full basin masses with controlled exceptional sources.
+- Evidence and next-step boundary:
+  `../notes/post_v6_basin_transport_2026-09-26/RESULTS_IT.md`.
 
 ### 2026-09-26 (Consolidation, review and sibling-basin proposal) — Codex + Piero Borgatta
 

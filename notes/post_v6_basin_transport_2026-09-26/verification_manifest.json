@@ -1,0 +1,125 @@
+{
+  "date": "2026-09-26",
+  "timezone": "Europe/Rome",
+  "base_commit": "1f5d481b635dcb9714849e7e522dbbf97a32b48d",
+  "task": "H.1 inverse-basin transport",
+  "scope": "Exact last-exponent transport and limitations of specified methods; H remains open.",
+  "toolchain": "leanprover/lean4:v4.29.1",
+  "mathlib_revision": "5e932f97dd25535344f80f9dd8da3aab83df0fe6",
+  "dependency_pins_changed": false,
+  "published_pdfs_changed": false,
+  "checks": [
+    {
+      "name": "integrated_library",
+      "cwd": "lean",
+      "command": "DEVELOPER_DIR=/Library/Developer/CommandLineTools lake build",
+      "exit_code": 0,
+      "jobs": 3379,
+      "log": "integrated_build.log"
+    },
+    {
+      "name": "all_new_public_declarations",
+      "cwd": "lean",
+      "command": "DEVELOPER_DIR=/Library/Developer/CommandLineTools lake env lean ../notes/post_v6_basin_transport_2026-09-26/DependencyAudit.lean",
+      "exit_code": 0,
+      "roots": 7,
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "log": "dependency_audit.log"
+    },
+    {
+      "name": "last_exponent_arithmetic",
+      "command": "python3 -O notes/post_v6_basin_transport_2026-09-26/transport_probe.py --output /tmp/collatz-last-exponent-results.json",
+      "exit_code": 0,
+      "byte_exact_comparison": true,
+      "bad_family_depths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "signed_fiber_cases": 5,
+      "residue_permutations": 12,
+      "log": "transport_probe.log"
+    },
+    {
+      "name": "local_coupling_arithmetic",
+      "command": "python3 -O notes/post_v6_basin_transport_2026-09-26/local_coupling_probe.py --output /tmp/collatz-local-coupling-results.json",
+      "exit_code": 0,
+      "byte_exact_comparison": true,
+      "restricted_binary_tree_depth": 14,
+      "obstruction_witness_depths": [
+        0,
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "terminating_family_depths": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "log": "local_coupling_probe.log"
+    }
+  ],
+  "log_paths_relative_to": "notes/post_v6_basin_transport_2026-09-26",
+  "limitations": [
+    "The congruence correction is an explicit Lean hypothesis; discrete-logarithm existence is paper-level.",
+    "The asymptotic density-zero proof, equal-depth obstruction, finite affine-state obstruction and other analytic arguments are paper-level, not formalized in this module.",
+    "H is neither proved nor refuted; the results exclude specified transports rather than all mass comparisons.",
+    "No source census was expanded; finite word counts retain multiplicities and are not basin-density estimates.",
+    "Pinned dependency artifacts were reused; no cold Mathlib build, independent kernel replay, external analytic rebuild or new remote CI run.",
+    "Internal agent review does not replace independent human review."
+  ],
+  "source_statistics": {
+    "ai_authored": {
+      "files": 42,
+      "lines": 13109,
+      "public_theorem_lemma_lines": 551
+    },
+    "generator_emitted": {
+      "files": 26,
+      "lines": 43513,
+      "public_theorem_lemma_lines": 966
+    }
+  },
+  "sha256": {
+    ".github/workflows/lean.yml": "2a5d90f1136e1504cca174defe9cf78234d8f318c958335b55aebeacbcf0610d",
+    "README.md": "c75b92a06860657916314a8165fb45f113d79b2ac86677defa8aa33413d23c72",
+    "lean/CollatzShadowing/LastExponentTransport.lean": "fb8d7098b576f653f0989efbdb9264f951ffd7a9eb16a0b406bd3433f9e165f0",
+    "lean/CollatzShadowing/THEOREM_INDEX.md": "552ba0a8c9b24d1560298e77df69ce2ba82bd7bc0be008a08ec112644ec715d9",
+    "lean/CollatzShadowing.lean": "f56e47900aeb57b8e79edda2156198df86b4cf5c6837034fae94048288b7aa3a",
+    "lean/README.md": "c046163ed5434fe3c60e04645b4caf119a58afaf9ca5a5257e41ae1ec84ea5a6",
+    "lean/STATUS.md": "b3aa14f0762b98b3b6df6a8f0845e35d48e9b9e13bc978e83c3441ed2a5cd9d5",
+    "lean/TODO.md": "16ea69bfcd917704054e49893812d7390eaf19c982f67413e97b220ece04d282",
+    "lean/lake-manifest.json": "83e5a26c8c107c4615a22196f6e911d51e2632d01d5a4138955b75a70a08fe74",
+    "lean/lakefile.toml": "1afedb74a3cf1e2bb139c954ff54bf474efdc204375401799eca58b98a56d80d",
+    "lean/lean-toolchain": "7dc000621e0046d1aada809e2b7177e64454645cf4c741e9daaf79c99ec2e7a2",
+    "notes/PROJECT_STATISTICS.md": "b5efed0813ab75380c354d48191548955e9fb694afcc9e43d3fff560c0f9c9c2",
+    "notes/post_v6_basin_transport_2026-09-26/DependencyAudit.lean": "2100f1e276ab8b6cc9f836a464809e64ddbfc262574d291d0a5b91cab0b43fca",
+    "notes/post_v6_basin_transport_2026-09-26/OBSTRUCTIONS_IT.md": "c83c5449e406533e64b4b3fc525654e5933404620d62e884913290f54016c612",
+    "notes/post_v6_basin_transport_2026-09-26/RESULTS_IT.md": "c1440e3160771c7ba06482bda13c1b2af1a221436a4cc3b1600a18e9b71d5273",
+    "notes/post_v6_basin_transport_2026-09-26/SOURCES_IT.md": "9f4a0960ec0b5b9f0414b6f519985e676390f98678ecb061541cc09faa72479a",
+    "notes/post_v6_basin_transport_2026-09-26/dependency_audit.log": "9d095a229ae889e7bb69d1b056fb16035073b1b41c172c03a619e55ec62af083",
+    "notes/post_v6_basin_transport_2026-09-26/integrated_build.log": "bb5bb80c75d965568102e94bc2b7369adea54b9f7daf2e2dadfa1a349c38d7da",
+    "notes/post_v6_basin_transport_2026-09-26/local_coupling_IT.md": "538fcaf1329cc5083140e3e20630c123faa5f84a38ad15e927b682866e959f12",
+    "notes/post_v6_basin_transport_2026-09-26/local_coupling_probe.log": "4fd25578e2ad8fb5c9019aaae938e6b7f54fe2327890831d4fecb440eece1d18",
+    "notes/post_v6_basin_transport_2026-09-26/local_coupling_probe.py": "27d6bdc1959575bb9e7f7733d30b3fbe214d8b5a45142abab36ee56191029b80",
+    "notes/post_v6_basin_transport_2026-09-26/local_coupling_results.json": "dbe48d86bc4816ec838234c69a5e84beda86d50576e79fde504ecdbb13758169",
+    "notes/post_v6_basin_transport_2026-09-26/transport_probe.log": "30f7f5d61cfdf4d8e70e95a013b8172fdc9cbd0794e4db85d0956205743a1745",
+    "notes/post_v6_basin_transport_2026-09-26/transport_probe.py": "294f9f9605969c39e9838ccda935658fe657a936ed63eed0352f438de3f39830",
+    "notes/post_v6_basin_transport_2026-09-26/transport_results.json": "2462aae91750ba85a7ddf6690b5a96403c6fa2be6c2effaeb0c00cd4db3bcadd"
+  }
+}

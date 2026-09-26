@@ -192,6 +192,15 @@ the same obstruction, not as competing proof claims.
 
 ## Current direction
 
+**Basin-transport follow-up, 26 September.** The
+[new transport report](notes/post_v6_basin_transport_2026-09-26/RESULTS_IT.md)
+constructs an exact last-exponent transport and proves its height cost in
+Lean. A paper argument excludes retaining positive source density at any
+fixed cutoff dilation for nonnegative last-exponent shifts. A separate
+equal-depth obstruction rules out another pointwise strategy. The relative
+density hypothesis remains open; these are limitations of specified
+transport methods, not counterexamples to it or a proof of Collatz.
+
 **26 September 2026: consolidation and review.** The campaign of adding
 finite filters to the exact tower is closed after the documented failures.
 The new [review package](notes/post_v6_reset_2026-09-26/RESULTS_IT.md)

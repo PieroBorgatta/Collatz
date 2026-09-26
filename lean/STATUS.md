@@ -6,6 +6,17 @@ to v4; subsequent working-tree developments are separate from its frozen
 supplementary archive. This working tree targets pinned Lean v4.29.1 and Mathlib
 v4.29.1; portability to later toolchains has not been checked.
 
+**Basin-transport follow-up, 26 September:** an exact last-exponent
+transport and its strict height cost are now formalized. A separate paper
+argument shows that its nonnegative-shift version retains density zero
+inside every fixed dilation of the source cutoff. Another paper theorem
+obstructs pointwise transport at equal depth. Neither result refutes H:
+mass comparisons may change depth or discard controlled source sets.
+See the [transport report](../notes/post_v6_basin_transport_2026-09-26/RESULTS_IT.md).
+The integrated build passed (3379 jobs, exit 0); all seven new declarations
+passed the strict standard-axiom audit. Both exact Python replays match
+their saved JSON byte for byte, including under Python optimization.
+
 **Research decision, 26 September:** the finite-filter campaign on the exact
 tower is closed. The [new review package](../notes/post_v6_reset_2026-09-26/RESULTS_IT.md)
 separates the formal prefix-optimality result, a finite sibling-basin budget,
@@ -25,6 +36,11 @@ in the review package.
 
 ## Proved in Lean
 
+- Increasing the final exponent of an exact Syracuse word gives an actual
+  transported source when its explicit congruence quotient exists; for an
+  increased target, `n*u' > (n+3^k)*u` (`LastExponentTransport`). No
+  density estimate or discrete-logarithm existence theorem is imported into
+  this statement.
 - An exact attainable maximum for the shortcut parity defect over a dyadic
   source class, with positive integer witnesses and a necessary-and-sufficient
   observed-zero criterion (`PrefixOptimality`). This does not estimate the

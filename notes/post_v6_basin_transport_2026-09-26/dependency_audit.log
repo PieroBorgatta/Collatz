@@ -1,0 +1,20 @@
+LAST_EXPONENT_ROOT_AUDIT: PASS CollatzShadowing.LastExponentTransport.matches_and_endpoint_of_affine; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+LAST_EXPONENT_ROOT_AUDIT: PASS CollatzShadowing.LastExponentTransport.last_constant_unchanged; axioms: [propext]
+LAST_EXPONENT_ROOT_AUDIT: PASS CollatzShadowing.LastExponentTransport.last_exponent_transport; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+LAST_EXPONENT_ROOT_AUDIT: PASS CollatzShadowing.LastExponentTransport.correction_positive; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+LAST_EXPONENT_ROOT_AUDIT: PASS CollatzShadowing.LastExponentTransport.transport_height_cost; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+LAST_EXPONENT_ROOT_AUDIT: PASS CollatzShadowing.LastExponentTransport.last_exponent_height_cost; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+LAST_EXPONENT_ROOT_AUDIT: PASS CollatzShadowing.LastExponentTransport.not_bounded_height; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+LAST_EXPONENT_AUDIT: PASS; roots: 7
