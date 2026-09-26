@@ -1,0 +1,46 @@
+name: Tower future carry constraint
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'notes/post_v6_carry_constraint_2026-09-26/**'
+      - 'notes/post_v6_binary_carries_2026-09-26/binary_carry_results.json'
+      - 'notes/post_v6_margin_2026-09-25/margin_results.json'
+      - 'notes/post_v6_compensation_2026-09-25/block_engine.py'
+      - 'notes/post_v6_arithmetic_2026-09-25/arithmetic_probe.py'
+      - '.github/workflows/tower-carry-constraint.yml'
+  pull_request:
+    paths:
+      - 'notes/post_v6_carry_constraint_2026-09-26/**'
+      - 'notes/post_v6_binary_carries_2026-09-26/binary_carry_results.json'
+      - 'notes/post_v6_margin_2026-09-25/margin_results.json'
+      - 'notes/post_v6_compensation_2026-09-25/block_engine.py'
+      - 'notes/post_v6_arithmetic_2026-09-25/arithmetic_probe.py'
+      - '.github/workflows/tower-carry-constraint.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently check carry slab and complete witness
+        run: python3 notes/post_v6_carry_constraint_2026-09-26/test_carry_constraint.py
+      - name: Reproduce frozen level-16 class test
+        run: |
+          python3 notes/post_v6_carry_constraint_2026-09-26/carry_constraint_probe.py --output /tmp/carry-constraint/carry_constraint_results.json
+          cmp notes/post_v6_carry_constraint_2026-09-26/carry_constraint_results.json /tmp/carry-constraint/carry_constraint_results.json
+      - name: Preserve evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tower-carry-constraint-${{ github.run_id }}-${{ github.run_attempt }}
+          path: /tmp/carry-constraint
+          if-no-files-found: ignore

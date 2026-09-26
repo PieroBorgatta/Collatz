@@ -1,0 +1,46 @@
+{
+  "schema": "future-carry-class-local-verification-v1",
+  "verified_at_local_system_utc": "2026-09-26T12:28:36.880271+00:00",
+  "base_commit": "9f5408fa0be76e91e7e9c8bd7740adda693e92a3",
+  "python": "3.14.4 (main, Apr  7 2026, 13:13:20) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "tests": {
+    "passed": 9,
+    "exit_code": 0,
+    "log": "tests.log.gz"
+  },
+  "replay": {
+    "exit_code": 0,
+    "byte_identical": true,
+    "log": "replay.log.gz"
+  },
+  "sha256": {
+    "PROTOCOL_IT.md": "9584df9345d36a838661fc1acfbfe5b238c58a86e1bd20a1488c1c4e2d7d5d9a",
+    "presearch.json": "831c761a18ea3371942fa326538b15fd5b2e1a8cd6198480ecbb4f166569d842",
+    "PROOF_IT.md": "7c04744fd6e704a96c6d82b87170fbed2f0860de8204e8cc806c9880eb66b2d8",
+    "RESULTS_IT.md": "9b6e5e3b9f52e2c4fe5e1b2c6bed4fbc18bb9f75f7aad56cc7db2f81f0dc22d1",
+    "REVIEW_IT.md": "dca6ae833c74034d86a2bdde08c642463d9b20af55239e35f90e0ffd9fa91da7",
+    "carry_constraint_probe.py": "7612781c38c7e6d565b7e76c4906635d1e54a3ba013fc08db1ff690b0450feae",
+    "test_carry_constraint.py": "0dc5d45237da59ab436f7c29d9395ebd6c7d944bc051d8a6b13a025dc54d79fb",
+    "carry_constraint_results.json": "dc330d628edc1a89d924319f243a09faad6fc2ed31ef70e61e611eee0de32244",
+    "tests.log.gz": "0c6c65682bb3916d5dd7f7606cce262532bad719db07df6d261e9889b76d2b56",
+    "replay.log.gz": "57e43e3d7b0c0f039fb5b3736298260b62e0e6b4abbcd4ffd01b9c46a4937d16"
+  },
+  "pinned_inputs_sha256": {
+    "post_v6_binary_carries_2026-09-26/binary_carry_results.json": "4ba6d3b2b02ee1fab2345a3735d0b3eba17a0b02fd8965614de40ac2bed292f1",
+    "post_v6_margin_2026-09-25/margin_results.json": "837937cb8387577e53f0547a6991e1b606828b82366a94190835c8fbd246ccf5",
+    "post_v6_compensation_2026-09-25/block_engine.py": "f5deaad568c9af6c26fa04706b510cf073a2ee50821436a7920f675d47c515ce",
+    "post_v6_arithmetic_2026-09-25/arithmetic_probe.py": "02d51066d68c7cf6cc28f4127399ca4d95554ee86792f894f9c2e1d7a33d01b5"
+  },
+  "workflow": ".github/workflows/tower-carry-constraint.yml",
+  "workflow_sha256": "94f772d33bc99584c24e2a98678b50e5fb92435d28ef1c7743de755956807bd3",
+  "class_certificate_refuted": true,
+  "search_visited": 281,
+  "frozen_family_size": 988,
+  "new_tower_levels": [],
+  "new_lean_declarations": 0,
+  "new_ci_run_claimed": false,
+  "new_lean_build_claimed": false,
+  "uniform_exact_tower_bound_proved": false,
+  "collatz_counterexample_claimed": false
+}

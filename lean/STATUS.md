@@ -253,3 +253,17 @@ The exact seed constraint selects the source, but a quantitative bound on
 its orbit remains open. The new Python verification is local; a workflow
 is prepared for replay. No new Lean declaration, aggregate build, CI run
 or certified tower level is claimed for this phase.
+
+## Post-v6 future carry constraint (26 September 2026)
+
+The [continuation](../notes/post_v6_carry_constraint_2026-09-26/RESULTS_IT.md)
+expresses the future squaring carry as an exact linear slab on the free
+source bits when `K≤2H`. A fixed level-16 search then falsifies the proposed
+extension of `Delta≤512` to sources with the complete actual lower word,
+all actual high source bits and the actual future carry. The 281st of 988
+fixed candidates has the required carry 31655 but `Delta=31168`, with
+margins `1155→-28858`. The actual tower retains `Delta=-479` and upper
+margin 2789. Neither Collatz nor a bound restricted to the exact tower
+is refuted. The new arithmetic proofs are on paper, independently checked
+on small domains and with complete finite witness replay. No new Lean
+declaration, tower level, CI run or aggregate build is claimed.

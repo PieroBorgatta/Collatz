@@ -741,6 +741,23 @@ finite phantom-shadowing/CW layer
 > - Next recommended task: X.Y
 > ```
 
+### 2026-09-26 (Post-v6 future carry constraint; research C.C) — Codex + Piero Borgatta
+
+- [x] Derive the exact linear constraint on free source bits selected by
+  the future carry when the upper horizon is at most twice the lower one.
+- [x] Verify sparse-zero parity inversion and simultaneous Newton inversion
+  independently on finite domains; certify carries using rigorous bounds.
+- [x] Test the selected-class implication at level 16 with a fixed list.
+  Candidate 281 of 988 preserves all filters but has `Delta=31168>512`
+  and margins `1155→-28858`. Actual tower margin remains 2789.
+- [ ] Bound parity weight for the exact tower using an independently
+  justified arithmetic restriction. A single future carry does not suffice.
+- Artifacts: `../notes/post_v6_carry_constraint_2026-09-26/` and replay
+  workflow; local verification evidence is in its manifest.
+- No new Lean declaration, certified tower level or successful CI claimed.
+- Next decision: close this single-carry certificate; require a quantitative
+  source-generation argument before increasing the number of arithmetic filters.
+
 ### 2026-09-26 (Post-v6 binary carries; research B.C) — Codex + Piero Borgatta
 
 - [x] Define and verify a column-wise tower generator from the exact seed 3,

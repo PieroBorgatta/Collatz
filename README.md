@@ -470,6 +470,17 @@ witnesses, but no uniform parity or cumulative-cost estimate follows.
 The new verification is local, with a CI workflow prepared for replay;
 it adds no Lean declaration or certified tower level.
 
+The [future-carry constraint test](notes/post_v6_carry_constraint_2026-09-26/RESULTS_IT.md)
+derives an exact linear slab on the free source bits, then falsifies its
+use as a parity certificate at level 16. The 281st candidate preserves
+the complete lower word, all high source bits and the actual future carry
+31655, but has doubling defect 31168 instead of the proposed bound 512.
+Its margins are +1155 and -28858; the actual tower has defect -479 and
+upper margin +2789. This refutes the selected-class implication, not the
+bound on the exact tower. Proofs are on paper with local arithmetic
+verification and a prepared replay workflow; no new Lean result or level
+is certified.
+
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch
 identities, counterexamples to
