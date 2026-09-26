@@ -164,8 +164,15 @@ python3 notes/post_v6_renewal_2026-09-26/renewal_probe.py --output /tmp/renewal_
 cmp notes/post_v6_renewal_2026-09-26/renewal_results.json /tmp/renewal_results.json
 ```
 
-La CI dedicata ripete test e produzione del JSON; l'evidenza verrà
-archiviata dopo il push. Nessuna dichiarazione Lean viene aggiunta.
+La [CI del rinnovo di precisione](https://github.com/PieroBorgatta/Collatz/actions/runs/36232070732)
+e la [build Lean con gli audit esistenti](https://github.com/PieroBorgatta/Collatz/actions/runs/36232070692)
+sono passate sul commit `e9c8dca`. Tutti i 14 test passano anche in
+Linux; il JSON scaricato coincide byte per byte con quello locale.
+La CI ripete il codice archiviato, non costituisce un nuovo oracolo
+indipendente. La build Lean verifica i moduli esistenti e non formalizza
+queste prove su carta. Log e SHA-256 sono nel [manifesto](verification_manifest.json).
+Gli input delle otto fasi precedenti e gli artifact v6 pubblicati sono
+invariati. Nessuna nuova dichiarazione Lean viene aggiunta.
 
 ## Decisione per il tentativo successivo
 

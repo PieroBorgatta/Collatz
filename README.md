@@ -442,6 +442,9 @@ the integer-ancestry constraint. Finite positive self-loops also delimit
 potentials of only the paired residues. The exact tower's cumulative
 cancellation remains unbounded by these arguments; no new Lean declaration
 or tower level is certified.
+The [renewal CI](https://github.com/PieroBorgatta/Collatz/actions/runs/36232070732)
+and [existing Lean checks](https://github.com/PieroBorgatta/Collatz/actions/runs/36232070692)
+passed on `e9c8dca`: all 14 tests pass and the downloaded JSON is byte-identical.
 
 The earlier Lean modules add exact finite exponent cylinders and a local
 precision budget for repeated expansive words, compatible label-switch

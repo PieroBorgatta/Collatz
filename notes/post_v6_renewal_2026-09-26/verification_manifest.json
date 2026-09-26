@@ -1,0 +1,145 @@
+{
+  "date": "2026-09-26",
+  "verified_code_commit": "e9c8dca0fd576176162ef6d0dadf94e0ba9b852b",
+  "renewal_ci": {
+    "conclusion": "success",
+    "headSha": "e9c8dca0fd576176162ef6d0dadf94e0ba9b852b",
+    "status": "completed",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36232070732"
+  },
+  "existing_lean_ci": {
+    "conclusion": "success",
+    "headSha": "e9c8dca0fd576176162ef6d0dadf94e0ba9b852b",
+    "status": "completed",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/36232070692"
+  },
+  "verification": {
+    "tests": 14,
+    "historical_pair_indices": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "historical_levels_replayed": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "historical_steps_replayed": 32293380,
+    "all_frozen_complete_parity_hashes_match": true,
+    "all_19_minimum_precision_thresholds_verified": true,
+    "separate_review_checked_thresholds_without_future_suffix": true,
+    "last_precision_ratio": {
+      "numerator": 16131588,
+      "denominator": 16146700
+    },
+    "threshold_failure_witnesses": 8,
+    "all_threshold_witnesses_fail_first_positive_integer_ancestor": true,
+    "local_extremal_witnesses": 3,
+    "generic_positive_projected_loops": 3,
+    "generic_loop_durations": [
+      8,
+      16,
+      64
+    ],
+    "generic_loops_preserve_only_short_actual_prefix": true,
+    "actual_short_projected_loop": {
+      "v": 5,
+      "lower_start": 18,
+      "upper_start": 36,
+      "residue_bits": 1,
+      "reward": 2
+    },
+    "projected_loops_are_not_integer_Collatz_cycles": true,
+    "downloaded_result_byte_identical": true,
+    "previous_non_README_hashes_verified": {
+      "compensation": 18,
+      "arithmetic": 13,
+      "margin": 13,
+      "mixed": 12,
+      "ancestry": 14,
+      "ternary": 11,
+      "propagation": 13,
+      "tail": 13
+    },
+    "CI_rerun_itself_is_not_a_new_independent_implementation": true
+  },
+  "mathematical_status": {
+    "sharp_cylinder_bound": "For H<=M<=K, max Delta over x congruent to Q mod 2^M with y=f_v(x) is K-2*J_Q(H)-Z_upper(M).",
+    "optimal_stopping": "The observed upper zero count must reach K-2*J_Q(H)-g; this is necessary and sufficient in the prefix information model.",
+    "local_renewal": "For paired times (t,2t), t>=1, exact next b/2b blocks need 2b new source bits in the generic prefix model.",
+    "residue_potential_obstruction": "Repeated projected residue pairs with reward 2 force local cost at least 2 for potentials depending only on that pair, when valid on the demonstrated sources.",
+    "ancestry_scope": "The generic extremizers do not satisfy the exact tower source. Two integer ancestors plus correct binade and full lower word isolate Q by the previous lemma.",
+    "uniform_near_full_precision_bound": "Not proved; the percentages are finite measurements.",
+    "uniform_doubling_error_bound": "Open",
+    "uniform_family_descent": "Not proved",
+    "new_tower_levels": [],
+    "new_lean_declarations": 0,
+    "novelty": "Not established",
+    "review": "Internal agent cross-review, not external human peer review."
+  },
+  "scope_notes": [
+    "The information lower bound is not a universal computational lower bound and does not apply when additional exact-source constraints exclude the completions.",
+    "The main probe locates thresholds retrospectively on full historical traces; the mathematical stopping rule itself needs only the exposed prefix.",
+    "Trace generation and affine word inversion reuse frozen implementations.",
+    "The small actual projected loop is verified directly on Q_5, separately from generic source construction.",
+    "Positive local rewards do not by themselves imply a violation of the total budget; other blocks can compensate.",
+    "Paper proofs are not formalized by existing Lean CI.",
+    "Subsequent changes are documentation and archived evidence only.",
+    "Earlier manifests remain historical snapshots, including their README hashes."
+  ],
+  "frozen_v6_sha256": {
+    "paper/collatz_spectral_reduction_v6.pdf": "a959282145d5042550c3938b445a4964305299b4eca71bcc62539804c5b585f9",
+    "collatz_spectral_reduction_v6_supplementary.zip": "20f9195443dd058aeae16b9316ed0f6beafb6d360182ba93b875107a0ee9da60"
+  },
+  "sha256": {
+    ".github/workflows/tower-renewal.yml": "19667fd12641c13f4dfcc1adb8bb01f7ad54ab89612b99fb8dfd8eeb25300352",
+    "README.md": "7856be8504e7481359ead4e2cc38ad2a4ce238a12eef08250da7d4ab46f10f7a",
+    "notes/post_v6_ancestry_2026-09-25/RESULTS_IT.md": "e50e8aa223946220ba35001e50a98fdf269e5648d07b91188244e13dee08d2d3",
+    "notes/post_v6_arithmetic_2026-09-25/arithmetic_probe.py": "02d51066d68c7cf6cc28f4127399ca4d95554ee86792f894f9c2e1d7a33d01b5",
+    "notes/post_v6_compensation_2026-09-25/block_engine.py": "f5deaad568c9af6c26fa04706b510cf073a2ee50821436a7920f675d47c515ce",
+    "notes/post_v6_margin_2026-09-25/margin_results.json": "837937cb8387577e53f0547a6991e1b606828b82366a94190835c8fbd246ccf5",
+    "notes/post_v6_renewal_2026-09-26/PROOF_IT.md": "e95bcbbf9a4c22da417354037b9f8904e1fccf47622ae740711c301c4d4ea468",
+    "notes/post_v6_renewal_2026-09-26/RESULTS_IT.md": "6936698a1834631b3bf034808a6b84e5a2d3c374efb2df34f107a313e472c9e9",
+    "notes/post_v6_renewal_2026-09-26/REVIEW_IT.md": "4921c1227516330eba54ad8aaa8f2cc13cdc6337aa6d938790d0cd235f031f15",
+    "notes/post_v6_renewal_2026-09-26/ci_36232070692.log.gz": "0335d71cd4873329be76951099c4af7c27f36980f2ae6bbe50062a5e9a19eed9",
+    "notes/post_v6_renewal_2026-09-26/ci_36232070732.log.gz": "fe2ea186b1b05b3673cc3da59383fa12bc5e04037d1fbbebe29d553df542a2f3",
+    "notes/post_v6_renewal_2026-09-26/renewal_probe.py": "b8c2c251efa0910d746a2f2d3f1ead87c32f3c9c8dcb903985fd0417d2bb3d92",
+    "notes/post_v6_renewal_2026-09-26/renewal_results.json": "19802878c6e652d2b8ed7f6eb96cdc1fb14893f8e3be245e6c14835576a09f06",
+    "notes/post_v6_renewal_2026-09-26/test_renewal.py": "59ef7dc0d75ef379d32d0e38bc3914cfd163af98e70ed41b7adf489a26aeff27",
+    "notes/post_v6_tail_2026-09-25/NEXT_RESEARCH_IT.md": "ef93ed91c27a7d5dca39da1fdd1671259ab53aa190c1589aba9a4db276856184"
+  }
+}
