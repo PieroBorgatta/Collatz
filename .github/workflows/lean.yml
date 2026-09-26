@@ -64,3 +64,25 @@ jobs:
           name: descent-transfer-${{ github.run_id }}-${{ github.run_attempt }}
           path: /tmp/descent-transfer-audit.log
           if-no-files-found: ignore
+      - name: Audit prefix optimality and sibling packing without native axioms
+        working-directory: lean
+        run: |
+          set -o pipefail
+          lake env lean ../notes/post_v6_reset_2026-09-26/PrefixDependencyAudit.lean | tee /tmp/prefix-optimality-audit.log
+          lake env lean ../notes/post_v6_reset_2026-09-26/SiblingDependencyAudit.lean | tee /tmp/sibling-basin-audit.log
+      - name: Replay finite sibling-basin diagnostic
+        run: |
+          python3 notes/post_v6_reset_2026-09-26/paper_checks.py
+          python3 notes/post_v6_reset_2026-09-26/test_basin_probe.py
+          python3 notes/post_v6_reset_2026-09-26/basin_probe.py --output /tmp/basin-results.json
+          python3 notes/post_v6_reset_2026-09-26/verify_basin_results.py notes/post_v6_reset_2026-09-26/basin_results.json /tmp/basin-results.json
+      - name: Preserve consolidation verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: prefix-and-basins-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            /tmp/prefix-optimality-audit.log
+            /tmp/sibling-basin-audit.log
+            /tmp/basin-results.json
+          if-no-files-found: ignore

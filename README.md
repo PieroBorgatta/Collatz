@@ -192,6 +192,17 @@ the same obstruction, not as competing proof claims.
 
 ## Current direction
 
+**26 September 2026: consolidation and review.** The campaign of adding
+finite filters to the exact tower is closed after the documented failures.
+The new [review package](notes/post_v6_reset_2026-09-26/RESULTS_IT.md)
+consolidates prefix-certificate optimality, maps the outstanding obligations,
+and updates the primary-source literature review. A proposed relative
+comparison of selected sibling predecessor basins has a finite disjointness
+budget, but its central density inequality is unproved. Even with the external
+positive-density input, that proposed inequality would exclude divergent
+orbits only; nontrivial cycles would remain a separate obligation. The package
+is prepared for human review and has not been sent to anyone.
+
 The post-v6 continuation develops a six-progression arithmetic section,
 an explicit shortcut stopping rank for the classical sufficient residue
 `20 mod 27`, and universal formulas for cancellation towers. It includes

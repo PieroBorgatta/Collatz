@@ -1,0 +1,8 @@
+Evidence captured from the successful exec tool result; no additional build was run.
+Date: 2026-09-26
+Working directory: /Volumes/AFUOCO/SVILUPPO/TEORIE/Collatz/lean
+Command: DEVELOPER_DIR=/Library/Developer/CommandLineTools lake env lean -o .lake/build/lib/lean/CollatzShadowing/SiblingBasins.olean CollatzShadowing/SiblingBasins.lean
+Exec session: 16696
+Final tool-output chunk: 47b3cb
+Exit code: 0
+Combined command output: empty (no errors or warnings).

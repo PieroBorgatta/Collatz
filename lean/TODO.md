@@ -76,6 +76,14 @@ When you complete or partially advance a task:
 
 ## Current status (most recent first)
 
+**2026-09-26, consolidation and review.** The latest finite-filter campaign
+is closed; its failed hypotheses will not be repaired by adding constraints
+after observing counterexamples. See the
+[review package](../notes/post_v6_reset_2026-09-26/RESULTS_IT.md) for formal
+prefix optimality, the finite sibling-basin budget, literature audit and
+the remaining relative-density hypothesis. The latter is not established,
+and even its proposed application leaves nontrivial cycles open.
+
 **2026-09-24, post-v6 continuation.** The published v6 snapshot is
 [doi:10.5281/zenodo.22936057](https://doi.org/10.5281/zenodo.22936057).
 The current branch adds an explicit shortcut coverage rank, an exact
@@ -740,6 +748,28 @@ finite phantom-shadowing/CW layer
 > - Notes: any blockers, open questions, things the next session should know
 > - Next recommended task: X.Y
 > ```
+
+### 2026-09-26 (Consolidation, review and sibling-basin proposal) — Codex + Piero Borgatta
+
+- [x] Close the finite-filter campaign and prepare a human-review brief;
+  no message has been sent to external researchers.
+- [x] Formalize the attained prefix maximum and exact observed-zero
+  criterion for the actual shortcut dynamics, with positive witnesses.
+- [x] Review primary literature and distinguish published results,
+  preprints, formalization claims and remaining hypotheses.
+- [x] Derive a finite sibling-basin packing theorem and the conditional
+  harmonic-density argument on paper; the finite Lean module is included.
+- [x] Run the fixed four-cutoff diagnostic through 2^20 ordinary sources,
+  with 340 target pairs and independent small-domain replay.
+- [x] Integrated build: 3378 jobs, exit 0; strict standard-axiom audits:
+  10 prefix and 14 sibling roots. Seven Python tests pass normally and
+  under `-O`; optimized full replay matches the recorded integer census.
+- [ ] Prove or refute the proposed relative basin comparison. Absolute
+  positive-density bounds do not establish it; nontrivial cycles remain
+  open even under its proposed application.
+- Verification and hashes: `../notes/post_v6_reset_2026-09-26/`.
+- Next decision: review a quantitative transport between different inverse
+  word families before any larger census or new finite tower filters.
 
 ### 2026-09-26 (Post-v6 future carry constraint; research C.C) — Codex + Piero Borgatta
 

@@ -1,0 +1,28 @@
+Verification record, 2026-09-26 (Europe/Rome)
+Working directory: /Volumes/AFUOCO/SVILUPPO/TEORIE/Collatz/lean
+
+Command executed:
+env DEVELOPER_DIR=/Library/Developer/CommandLineTools lake env lean -o .lake/build/lib/lean/CollatzShadowing/PrefixOptimality.olean CollatzShadowing/PrefixOptimality.lean
+
+Observed tool result:
+exit_code: 0
+stdout/stderr: empty (no errors or warnings)
+
+Dependency restoration before checking:
+mathlib revision: 5e932f97dd25535344f80f9dd8da3aab83df0fe6
+env DEVELOPER_DIR=/Library/Developer/CommandLineTools lake exe cache get
+exit_code: 0
+No files to download
+Decompressing 7872 file(s) (360 already decompressed)
+Decompressed in 9010 ms
+Completed successfully!
+
+Project lakefile.toml, lake-manifest.json and lean-toolchain were unchanged.
+This records the successful check; two earlier local tactic errors were
+corrected before the command above. The strict axiom audit has its own log.
+
+Strict audit command executed:
+env DEVELOPER_DIR=/Library/Developer/CommandLineTools lake env lean ../notes/post_v6_reset_2026-09-26/PrefixDependencyAudit.lean
+exit_code: 0
+Result: PREFIX_AUDIT: PASS; roots: 10
+Complete audit output: prefix_dependency_audit.log

@@ -6,8 +6,34 @@ to v4; subsequent working-tree developments are separate from its frozen
 supplementary archive. This working tree targets pinned Lean v4.29.1 and Mathlib
 v4.29.1; portability to later toolchains has not been checked.
 
+**Research decision, 26 September:** the finite-filter campaign on the exact
+tower is closed. The [new review package](../notes/post_v6_reset_2026-09-26/RESULTS_IT.md)
+separates the formal prefix-optimality result, a finite sibling-basin budget,
+and an unproved relative density comparison proposed for further review.
+That comparison is not supplied by the existing predecessor-density theorem;
+if established together with positive basin density, it would exclude
+nonperiodic orbits, not nontrivial cycles. No Collatz proof is claimed.
+
+**Verification, 26 September:** the integrated main-library build passed
+(3378 jobs, exit 0). Strict dependency audits passed for 10 prefix and 14
+sibling-basin declarations, using only `propext`, `Classical.choice` and
+`Quot.sound`. Seven Python tests pass with and without optimization; the
+four-cutoff census was reproduced exactly for integer fields. These checks
+reuse pinned Mathlib artifacts and are not an independent-kernel replay or
+a rebuild of the separate external analytic package. Logs and hashes are
+in the review package.
+
 ## Proved in Lean
 
+- An exact attainable maximum for the shortcut parity defect over a dyadic
+  source class, with positive integer witnesses and a necessary-and-sufficient
+  observed-zero criterion (`PrefixOptimality`). This does not estimate the
+  actual exact-tower word or preserve additional ancestry constraints.
+- Pairwise disjoint predecessor basins for selected siblings of an injective
+  orbit, a finite budget for natural source weights, and an explicit Syracuse
+  sibling at height at most `16*n+5` (`SiblingBasins`). The finite source sets
+  use noncomputable membership with unbounded visiting time; no general
+  basin-decision algorithm or asymptotic density comparison is proved.
 - Exact congruential shadowing and exclusion of positive integer orbits
   that remain forever on one expanding periodic phantom word.
 - Finite Collatz–Wielandt bounds for explicitly generated matrices,

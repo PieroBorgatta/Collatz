@@ -1,0 +1,171 @@
+{
+  "date": "2026-09-26",
+  "timezone": "Europe/Rome",
+  "base_commit": "3972ab1675c0424180fc69c0cf65d841a7419d88",
+  "scope": "Local consolidation and research review; no Collatz proof.",
+  "toolchain": "leanprover/lean4:v4.29.1",
+  "mathlib_revision": "5e932f97dd25535344f80f9dd8da3aab83df0fe6",
+  "dependency_pins_changed": false,
+  "allowed_axioms_for_new_root_audits": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "checks": [
+    {
+      "name": "integrated_main_library",
+      "cwd": "lean",
+      "command": "DEVELOPER_DIR=/Library/Developer/CommandLineTools lake build",
+      "exit_code": 0,
+      "jobs": 3378,
+      "log": "integrated_build.log"
+    },
+    {
+      "name": "prefix_module",
+      "exit_code": 0,
+      "public_declarations": 17,
+      "log": "prefix_module_build.log"
+    },
+    {
+      "name": "sibling_module",
+      "exit_code": 0,
+      "public_declarations": 14,
+      "log": "sibling_module_build.log"
+    },
+    {
+      "name": "prefix_dependencies",
+      "cwd": "lean",
+      "command": "DEVELOPER_DIR=/Library/Developer/CommandLineTools lake env lean ../notes/post_v6_reset_2026-09-26/PrefixDependencyAudit.lean",
+      "exit_code": 0,
+      "audited_roots": 10,
+      "log": "prefix_dependency_audit.log"
+    },
+    {
+      "name": "sibling_dependencies",
+      "cwd": "lean",
+      "command": "DEVELOPER_DIR=/Library/Developer/CommandLineTools lake env lean ../notes/post_v6_reset_2026-09-26/SiblingDependencyAudit.lean",
+      "exit_code": 0,
+      "audited_roots": 14,
+      "log": "sibling_dependency_audit.log"
+    },
+    {
+      "name": "python_tests",
+      "command": "python3 notes/post_v6_reset_2026-09-26/test_basin_probe.py",
+      "exit_code": 0,
+      "tests": 7,
+      "log": "basin_tests.log"
+    },
+    {
+      "name": "python_tests_optimized",
+      "command": "python3 -O notes/post_v6_reset_2026-09-26/test_basin_probe.py",
+      "exit_code": 0,
+      "tests": 7,
+      "log": "basin_tests_optimized.log"
+    },
+    {
+      "name": "finite_census_replay",
+      "command": "python3 -O notes/post_v6_reset_2026-09-26/basin_probe.py --output /tmp/collatz-basin-replay-20260926.json",
+      "exit_code": 0,
+      "inclusive_cutoffs": [
+        16384,
+        65536,
+        262144,
+        1048576
+      ],
+      "target_pairs_per_cutoff": 340,
+      "independent_ordinary_replay_bound": 2048,
+      "log": "basin_replay.log"
+    },
+    {
+      "name": "census_comparison",
+      "command": "python3 -O notes/post_v6_reset_2026-09-26/verify_basin_results.py notes/post_v6_reset_2026-09-26/basin_results.json /tmp/collatz-basin-replay-20260926.json",
+      "exit_code": 0,
+      "exact_integer_comparison": true,
+      "display_log_relative_tolerance": 1e-12,
+      "display_log_absolute_tolerance": 1e-15,
+      "log": "basin_replay.log"
+    },
+    {
+      "name": "paper_finite_arithmetic",
+      "command": "python3 -O notes/post_v6_reset_2026-09-26/paper_checks.py",
+      "exit_code": 0,
+      "log": "paper_checks.log"
+    },
+    {
+      "name": "frozen_published_pdfs",
+      "command": "python3 scripts/check_published_pdfs.py",
+      "exit_code": 0,
+      "versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4",
+        "v5",
+        "v6"
+      ],
+      "log": "published_pdf_checks.log"
+    }
+  ],
+  "log_paths_relative_to": "notes/post_v6_reset_2026-09-26",
+  "limitations": [
+    "Mathlib cache reused at the original pinned revision; not a cold dependency rebuild.",
+    "No independent kernel replay or new remote CI run in this phase.",
+    "Separate external analytic package was not rebuilt in this phase.",
+    "Named-root audits cover 24 declarations and their transitive axiom dependencies, not every declaration in the existing library.",
+    "SiblingBasins formalizes unbounded-time basin membership and finite source packing noncomputably; no general basin decision algorithm.",
+    "Relative density hypothesis H is unproved. The conditional asymptotic argument and ordinary/Syracuse bridge are paper-level arguments, not Lean formalizations here.",
+    "The conditional density argument excludes divergent orbits only; nontrivial cycles remain open.",
+    "Internal agent review is not independent human peer review.",
+    "Workflow YAML inspected as text; no YAML parser available locally."
+  ],
+  "source_statistics": {
+    "ai_authored": {
+      "files": 41,
+      "lines": 12992,
+      "public_theorem_lemma_lines": 544
+    },
+    "generator_emitted": {
+      "files": 26,
+      "lines": 43513,
+      "public_theorem_lemma_lines": 966
+    }
+  },
+  "sha256": {
+    ".github/workflows/lean.yml": "be48b309b42e491a70b1321a99f5f50b18d2bbc394b4401c213ba71e3b5d06cb",
+    "README.md": "5a7f295d8cb0aaa2bc6f1755cb4fb431ebe9a3791f508fd2ff1c6e1daaa1de84",
+    "lean/CollatzShadowing/PrefixOptimality.lean": "3502bb39d0e384b607c3be72d8b33cbcfe58b0eb33cd0a589267bc2b23b0b61d",
+    "lean/CollatzShadowing/SiblingBasins.lean": "be52e08bc88fa9551e3485042aacb9f2b2c22e9d67dc67df15aac0fca2165ad0",
+    "lean/CollatzShadowing/THEOREM_INDEX.md": "41dce80fb634d21cfddebe4c566631cbeca0ae8caa248c032c346bc488388aac",
+    "lean/CollatzShadowing.lean": "94f8494098ff2fe5dce3c2370b3d41236459403da2bbfe2076ee29b6e6206b51",
+    "lean/README.md": "ccb1cf6b45dd1a59c38fca0bdb212dcc5c3961eafe7902642954eb7cdf8b6794",
+    "lean/STATUS.md": "fad2ff69d294f7bf75bf135dc221d266d5a50dc1f8972f3886a76b2fb79f2948",
+    "lean/TODO.md": "45f69944a9e0e06b828485fadf74410ea63eec93131e019b2e46375afa3a250a",
+    "lean/lake-manifest.json": "83e5a26c8c107c4615a22196f6e911d51e2632d01d5a4138955b75a70a08fe74",
+    "lean/lakefile.toml": "1afedb74a3cf1e2bb139c954ff54bf474efdc204375401799eca58b98a56d80d",
+    "lean/lean-toolchain": "7dc000621e0046d1aada809e2b7177e64454645cf4c741e9daaf79c99ec2e7a2",
+    "notes/PROJECT_STATISTICS.md": "20177135f1c50d0086cd3cb3e444ff16969dc52dec07605b67dbf6065ff45b22",
+    "notes/post_v6_reset_2026-09-26/CRITICAL_MAP_IT.md": "a32e717ca724a53ab9f4605fbf9dd80befb65068d8f045fe9a91b2e53da47e4e",
+    "notes/post_v6_reset_2026-09-26/EXTERNAL_REVIEW_BRIEF_IT.md": "e8b6b24b0607a0cf1ad0e92f309e8297a6dd487479ad60108391650170e23a71",
+    "notes/post_v6_reset_2026-09-26/LITERATURE_IT.md": "04e570cc6d594824a7ffe7109bb0b172ec8d5deb5262f123886bfa66d5a49d0d",
+    "notes/post_v6_reset_2026-09-26/NEW_DIRECTION_IT.md": "0335039f5bd96bcf504b9024b56ac9cab9c2b800dfb044f8e0c925984915d461",
+    "notes/post_v6_reset_2026-09-26/PROTOCOL_IT.md": "07e55326ce64b46a45d08c44a22f4490ae61706c878061bf0061a0c19a6d0113",
+    "notes/post_v6_reset_2026-09-26/PrefixDependencyAudit.lean": "86b1e46505148ff669aa5ca0c14d131311143f6912948feb197f54fb73ad8c5a",
+    "notes/post_v6_reset_2026-09-26/RESULTS_IT.md": "03bdfdd88322c96f4a6b6b5da951e71f6e0b7196ae7b320e17111857c07b8194",
+    "notes/post_v6_reset_2026-09-26/SiblingDependencyAudit.lean": "9069af3fe7d60e574aaaf41f87f3daacdc3c966bbd0d136af1a000db3def3ec2",
+    "notes/post_v6_reset_2026-09-26/basin_probe.py": "0e11be026fa527daa976dd0f0c7a3ccb3a4675881c3449c4c5ad4d462ad7359c",
+    "notes/post_v6_reset_2026-09-26/basin_replay.log": "4e7e40f1ac9da7b6fcd2a7b21296ee25c1e7fb7f8d416e2c55de0f3ba7e24145",
+    "notes/post_v6_reset_2026-09-26/basin_results.json": "862e69ea712d194742f9164e54d5eec34050f17c63c4c190cb2b120d7f467118",
+    "notes/post_v6_reset_2026-09-26/basin_tests.log": "bee1deaeee8a500be7b285bf332ca87c31cd4a45337eff4bd8ff3032b84d90a2",
+    "notes/post_v6_reset_2026-09-26/basin_tests_optimized.log": "90e01f19a641ee129f67d2048724400e42e6eb671a8f528320cf3f6eeedba223",
+    "notes/post_v6_reset_2026-09-26/integrated_build.log": "f011afbc4706c7d113c4101344bb2ed7853e2411c919d1a6c06143cb5ad2944c",
+    "notes/post_v6_reset_2026-09-26/paper_checks.log": "07f91d22016d9c0d3011aaca3f686188d65ec1f8887ef8f4d62fe884a17bbefa",
+    "notes/post_v6_reset_2026-09-26/paper_checks.py": "63d1561ccf21bff631dfcee4569c0094635a1d3f8d318cdb61beef1d5c9ded53",
+    "notes/post_v6_reset_2026-09-26/prefix_dependency_audit.log": "2b72bcce1e5e5a61d41e82c801a24ea7bd508eead4a1df188070a51729404706",
+    "notes/post_v6_reset_2026-09-26/prefix_module_build.log": "02f6cafd640937c104922e0dd48d2145fd1525cf3f86b23d013dc8b76f273003",
+    "notes/post_v6_reset_2026-09-26/published_pdf_checks.log": "d7140fc810bfad2bdb0da43b2336ff5d1e71c466e16ba503b6f13330bb27ba25",
+    "notes/post_v6_reset_2026-09-26/sibling_dependency_audit.log": "0bd1ead5c51201d090d77477909c665b042b62658fb2ee24f99680050c2aef9d",
+    "notes/post_v6_reset_2026-09-26/sibling_module_build.log": "645875d7e57c9f953dd8779a21a7d730a24584a7cdb82fae5367d6d3eda760af",
+    "notes/post_v6_reset_2026-09-26/test_basin_probe.py": "10ca5d468fd74cb5ae013eaf8c9aed497d34e0ff24962c94e84f8311db390a08",
+    "notes/post_v6_reset_2026-09-26/verify_basin_results.py": "b32412f49f885073b1e5dc7bd2af47d2d45a2c11b2e90dc6513e7e421a5af62a"
+  }
+}

@@ -36,6 +36,10 @@ Two further modules formalize bounded pairs of non-returning seeds and the
 sharper non-returning count. `TowerParameter` and `TowerSuffix` add exact
 parameter transport and finite-word realization after cancellation towers. The June
 v5 line and declaration totals below remain frozen.
+`DescentCertificate` and `QuadraticTransfer` add conditional descent
+certificates on 25 September. `PrefixOptimality` and `SiblingBasins` add
+the exact prefix maximum and finite disjoint-basin budgets on 26 September;
+their density application remains conditional and outside these statements.
 The first integrated post-v6 build passed on 24 September 2026 (3365 jobs);
 the subsequent weighted-visit verification is recorded in
 `post_v6_parameter_2026-09-24/IDEAS_IT.md`.
@@ -46,14 +50,14 @@ Current counts include every
 or not it was tracked by Git at the time of counting; generated Lean files
 are reported separately.
 
-Source scan of the 24 September 2026 working tree (including the
-thirteen post-v6 entrypoint imports):
+Source scan of the 26 September 2026 working tree (including the
+new entrypoint imports):
 
 | Lean source class | files | lines | `theorem`/`lemma` declarations |
 |---|---:|---:|---:|
-| AI-authored modules and entrypoint | 37 | 12,296 | 504 |
+| AI-authored modules and entrypoint | 41 | 12,992 | 544 |
 | Generator-emitted certificates | 26 | 43,513 | 966 |
-| **Total** | **63** | **55,809** | **1,470** |
+| **Total** | **67** | **56,505** | **1,510** |
 
 The independent `research/weighted_predecessors_adapter/` package is excluded
 from these main-library totals. It contains new proofs and attributed
@@ -62,8 +66,10 @@ Lean 4.30.0-rc2 toolchain and verification boundary. Its provenance and status
 are recorded in `post_v6_adapter_2026-09-24/RESULTS_IT.md` and the subsequent
 `post_v6_optimization_2026-09-24/RESULTS_IT.md`. The latter adds four external
 modules with 40 public theorems and two private lemmas, excluded from the
-main-library table. The current table includes the subsequent two main-library
-transport modules with 19 public theorems and three private lemmas. Its
+main-library table. The current table includes the two main-library
+transport modules with 19 public theorems and three private lemmas, the
+two descent/transfer modules, and the two consolidation modules with
+31 public theorems and one private lemma. Its
 declaration-count command counts public `theorem`/`lemma` lines; private
 lemmas are included in line counts, not that declaration column. See
 `post_v6_transport_2026-09-24/RESULTS_IT.md`.

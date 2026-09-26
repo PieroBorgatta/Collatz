@@ -1,0 +1,35 @@
+Evidence captured from the successful exec tool result; no additional audit was run.
+Date: 2026-09-26
+Working directory: /Volumes/AFUOCO/SVILUPPO/TEORIE/Collatz/lean
+Command: DEVELOPER_DIR=/Library/Developer/CommandLineTools lake env lean ../notes/post_v6_reset_2026-09-26/SiblingDependencyAudit.lean
+Exec session: 62654
+Final tool-output chunk: 33d6b8
+Exit code: 0
+Combined command output follows verbatim:
+SIBLING_ROOT_AUDIT: PASS CollatzShadowing.SiblingBasins.sibling_ne_orbit; axioms: [Quot.sound, propext]
+SIBLING_ROOT_AUDIT: PASS CollatzShadowing.SiblingBasins.iterate_sibling_succ; axioms: [propext]
+SIBLING_ROOT_AUDIT: PASS CollatzShadowing.SiblingBasins.sibling_no_positive_return; axioms: [propext, Quot.sound]
+SIBLING_ROOT_AUDIT: PASS CollatzShadowing.SiblingBasins.sibling_index_eq_of_reaches; axioms: [propext, Quot.sound]
+SIBLING_ROOT_AUDIT: PASS CollatzShadowing.SiblingBasins.basins_pairwise_disjoint; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+SIBLING_ROOT_AUDIT: PASS CollatzShadowing.SiblingBasins.sum_weight_predecessors_le; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+SIBLING_ROOT_AUDIT: PASS CollatzShadowing.SiblingBasins.sum_card_predecessors_le; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+SIBLING_ROOT_AUDIT: PASS CollatzShadowing.SiblingBasins.canonicalSibling_step; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SIBLING_ROOT_AUDIT: PASS CollatzShadowing.SiblingBasins.lt_canonicalSibling; axioms: [propext, Quot.sound]
+SIBLING_ROOT_AUDIT: PASS CollatzShadowing.SiblingBasins.canonicalSibling_le; axioms: [propext, Quot.sound]
+SIBLING_ROOT_AUDIT: PASS CollatzShadowing.SiblingBasins.canonicalSibling_odd; axioms: [propext, Quot.sound]
+SIBLING_ROOT_AUDIT: PASS CollatzShadowing.SiblingBasins.canonicalSibling_not_dvd_three; axioms: [propext, Quot.sound]
+SIBLING_ROOT_AUDIT: PASS CollatzShadowing.SiblingBasins.canonicalSibling_spec; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SIBLING_ROOT_AUDIT: PASS CollatzShadowing.SiblingBasins.canonical_sum_weight_predecessors_le; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SIBLING_DEPENDENCY_AUDIT: PASS; roots: 14

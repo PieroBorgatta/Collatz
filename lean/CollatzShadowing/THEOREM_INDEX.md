@@ -324,6 +324,35 @@ positive orbit. See the [transport report](../../notes/post_v6_transport_2026-09
 - `finite_suffix_bounded_iff` — realization below a parameter bound is
   equivalent to the least positive residue fitting below that bound.
 
+## Post-v6 prefix optimality and sibling basins (26 September 2026)
+
+### `PrefixOptimality.lean`
+
+- `iterate_lift` — exact shortcut arithmetic under an input lift by `2^k*t`,
+  preserving the first k parity count and shifting the endpoint by `3^J*t`.
+- `all_one_suffix_attained` — a positive actual input in the exposed class
+  realizes the maximal upper suffix under the exact quadratic map.
+- `prefixMaximum_exact`, `certificate_iff_zeros` — the attainable maximum is
+  `K−2*J_Q(H)−Z_(f(Q))(M)`; the observed-zero threshold is necessary and sufficient.
+- `counterexample_before_threshold` — an actual positive source violates
+  every proposed bound below that maximum. No condition on additional
+  tower ancestry or preserved high bits is imposed by this theorem.
+- `exists_certifying_precision_iff` — existence of a certifying precision
+  is equivalent to the bound at the actual source, not a new bound on it.
+
+### `SiblingBasins.lean`
+
+- `basins_pairwise_disjoint` — for an injective forward orbit of an arbitrary
+  map, distinct side branches with the same next orbit states have disjoint
+  predecessor basins.
+- `sum_weight_predecessors_le`, `sum_card_predecessors_le` — a finite source
+  set supplies at most its total natural weight/cardinality across these basins.
+- `canonicalSibling_spec` — the selected Syracuse sibling shares the next
+  state, is larger but at most `16*n+5`, odd and not divisible by three.
+- `canonical_sum_weight_predecessors_le` — specialization of the finite
+  weighted budget to the selected siblings. Neither a density comparison nor
+  its proposed no-divergence consequence is formalized by this statement.
+
 ## `Generated/` — machine-generated finite certificates
 
 Verified by Lean; emitted by `../../scripts/phantom_taxonomy/` generators.

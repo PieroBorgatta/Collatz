@@ -1,0 +1,52 @@
+PREFIX_ROOT_AUDIT: PASS CollatzShadowing.PrefixOptimality.iterate_lift; axioms: [propext, Quot.sound]
+PREFIX_ROOT_AUDIT: PASS CollatzShadowing.PrefixOptimality.J_eq_of_modEq; axioms: [propext, Quot.sound]
+PREFIX_ROOT_AUDIT: PASS CollatzShadowing.PrefixOptimality.f_lift_flips_parity; axioms: [propext, Quot.sound]
+PREFIX_ROOT_AUDIT: PASS CollatzShadowing.PrefixOptimality.all_one_suffix_attained; axioms: [propext, Quot.sound]
+PREFIX_ROOT_AUDIT: PASS CollatzShadowing.PrefixOptimality.prefixMaximum_exact; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+PREFIX_ROOT_AUDIT: PASS CollatzShadowing.PrefixOptimality.certificate_iff_maximum_le; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+PREFIX_ROOT_AUDIT: PASS CollatzShadowing.PrefixOptimality.certificate_iff_zeros; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+PREFIX_ROOT_AUDIT: PASS CollatzShadowing.PrefixOptimality.counterexample_before_threshold; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+PREFIX_ROOT_AUDIT: PASS CollatzShadowing.PrefixOptimality.prefixMaximum_eq_actual_add_remaining_zeros; axioms: [propext,
+ Quot.sound]
+PREFIX_ROOT_AUDIT: PASS CollatzShadowing.PrefixOptimality.exists_certifying_precision_iff; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+PREFIX_AUDIT: PASS; roots: 10
+'CollatzShadowing.PrefixOptimality.iterate_lift' depends on axioms: [propext, Quot.sound]
+'CollatzShadowing.PrefixOptimality.J_eq_of_modEq' depends on axioms: [propext, Quot.sound]
+'CollatzShadowing.PrefixOptimality.f_lift_flips_parity' depends on axioms: [propext, Quot.sound]
+'CollatzShadowing.PrefixOptimality.all_one_suffix_attained' depends on axioms: [propext, Quot.sound]
+'CollatzShadowing.PrefixOptimality.prefixMaximum_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.PrefixOptimality.certificate_iff_maximum_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CollatzShadowing.PrefixOptimality.certificate_iff_zeros' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzShadowing.PrefixOptimality.counterexample_before_threshold' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CollatzShadowing.PrefixOptimality.prefixMaximum_eq_actual_add_remaining_zeros' depends on axioms: [propext, Quot.sound]
+'CollatzShadowing.PrefixOptimality.exists_certifying_precision_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+CollatzShadowing.PrefixOptimality.prefixMaximum_exact (v Q H M K : ℕ) (hQ : 0 < Q) (hHM : H ≤ M) (hMK : M ≤ K) :
+  (∀ (x : ℕ),
+      0 < x →
+        x ≡ Q [MOD 2 ^ M] →
+          CollatzShadowing.PrefixOptimality.defect v H K x ≤
+            CollatzShadowing.PrefixOptimality.prefixMaximum v Q H M K) ∧
+    ∃ x,
+      0 < x ∧
+        x ≡ Q [MOD 2 ^ M] ∧
+          CollatzShadowing.PrefixOptimality.defect v H K x = CollatzShadowing.PrefixOptimality.prefixMaximum v Q H M K
+CollatzShadowing.PrefixOptimality.certificate_iff_zeros (v Q H M K : ℕ) (g : ℤ) (hQ : 0 < Q) (hHM : H ≤ M)
+  (hMK : M ≤ K) :
+  (∀ (x : ℕ), 0 < x → x ≡ Q [MOD 2 ^ M] → CollatzShadowing.PrefixOptimality.defect v H K x ≤ g) ↔
+    ↑K - 2 * ↑(CollatzShadowing.PrefixOptimality.J Q H) - g ≤ ↑(CollatzShadowing.PrefixOptimality.observedZeros v Q M)

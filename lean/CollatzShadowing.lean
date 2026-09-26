@@ -25,10 +25,12 @@ import CollatzShadowing.SectionReturn
 import CollatzShadowing.WeightedVisits
 import CollatzShadowing.DescentCertificate
 import CollatzShadowing.QuadraticTransfer
+import CollatzShadowing.PrefixOptimality
 import CollatzShadowing.WeightedWords
 import CollatzShadowing.WeightedCounting
 import CollatzShadowing.WeightedPredecessors
 import CollatzShadowing.TwoSeed
+import CollatzShadowing.SiblingBasins
 import CollatzShadowing.NonreturnCounting
 import CollatzShadowing.EpisodeInventory
 import CollatzShadowing.EpisodeGraph

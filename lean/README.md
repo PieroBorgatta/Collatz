@@ -66,6 +66,8 @@ their precise trusted base. See [`STATUS.md`](STATUS.md).
 | Finite weak row-`L¹` bridge | `WeakBridge.weighted_action_diff_le` | `WeakBridge` |
 | High-`ν₂` source-tail mass `≤ 2⁻ᴿ` | `WeakBridge.TailCount.dyadic_tail_count_mul_le` | `WeakBridge` |
 | Descent ⇒ Collatz (elementary) | `classicalCollatz_of_uniformStrictDescent_provedBridge` | `CollatzBridge` |
+| Attainable maximum defect over a dyadic input class, and exact observed-zero certificate | `PrefixOptimality.prefixMaximum_exact`, `PrefixOptimality.certificate_iff_zeros` | `PrefixOptimality` |
+| Disjoint sibling basins on an injective orbit and finite weighted source budget | `SiblingBasins.basins_pairwise_disjoint`, `SiblingBasins.canonical_sum_weight_predecessors_le` | `SiblingBasins` |
 | Exact precision loss for a matched expansive word | `syracuseWordPhantomPrecision_after_eval_add_sum` | `PrecisionTax` |
 | Finite bound on consecutive repetitions of that word | `syracuseWord_matched_block_precision_budget`, `no_infinite_matched_expansive_word` | `PrecisionTax` |
 | Necessary equation and contractivity for a positive cycle | `syracuseWordCycleEquationNat`, `syracuseWordCycleContracting` | `CycleConstraints` |
