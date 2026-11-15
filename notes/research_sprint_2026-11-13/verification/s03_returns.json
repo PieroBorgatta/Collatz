@@ -1,0 +1,11 @@
+{
+  "agent": "/root/s03_blocchi_ritorno",
+  "module": "CollatzShadowing.ReturnBlocks",
+  "command": "DEVELOPER_DIR=/Library/Developer/CommandLineTools lake env lean CollatzShadowing/ReturnBlocks.lean",
+  "exit_code": 0,
+  "toolchain": "leanprover/lean4:v4.29.1",
+  "source_sha256": "5dfefe3d662a33faf118b96316e340724b48578bfdda5ed4f8d11e99d9c98bfd",
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "log_bytes": 0,
+  "scope": "Fresh elaboration of new source using installed pinned compiled dependencies. No integrated build or independent-kernel audit claimed."
+}

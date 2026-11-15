@@ -1,0 +1,23 @@
+⚠ [3326/3393] Replayed CollatzShadowing.SignedTransport
+warning: CollatzShadowing/SignedTransport.lean:25:51: unused variable `hy`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3333/3393] Replayed CollatzShadowing.RelativeMassFlow
+warning: CollatzShadowing/RelativeMassFlow.lean:64:0: `sum_card_disjoint_le` does not use the following hypothesis in its type:
+  • [DecidableEq β] (#3)
+
+Consider removing this hypothesis and using `classical` in the proof instead. For terms, consider using `open scoped Classical in` at the term level (not the command level).
+
+Note: This linter can be disabled with `set_option linter.unusedDecidableInType false`
+warning: CollatzShadowing/RelativeMassFlow.lean:79:0: `disjoint_block_flow_budget` does not use the following hypothesis in its type:
+  • [DecidableEq β] (#4)
+
+Consider removing this hypothesis and using `classical` in the proof instead. For terms, consider using `open scoped Classical in` at the term level (not the command level).
+
+Note: This linter can be disabled with `set_option linter.unusedDecidableInType false`
+⚠ [3335/3393] Replayed CollatzShadowing.WordSurgery
+warning: CollatzShadowing/WordSurgery.lean:54:4: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [3392/3393] Built CollatzShadowing (117s)
+Build completed successfully (3393 jobs).

@@ -1,0 +1,22 @@
+{
+  "odd_target_cases": 480,
+  "status": "PASS",
+  "domain": {
+    "k": [
+      1,
+      4
+    ],
+    "A": "k..k+5",
+    "positive_odd_targets": [
+      1,
+      39
+    ]
+  },
+  "printed_even_target_counterexample": {
+    "k": 1,
+    "A": 1,
+    "target": 2,
+    "residue_word_count": 1,
+    "actual_Syracuse_sources": 0
+  }
+}

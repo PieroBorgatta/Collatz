@@ -10,6 +10,199 @@ the axioms audit and pinned-toolchain caveat.
 
 ---
 
+## 15 November 2026 integration
+
+The 56 public theorem declarations below include the universal finite-injective
+reciprocal budget and its first-arrival height application. The seven modules
+have passed the full build and a strict transitive audit of all 136 compiled
+declarations, including encoded-private helpers. Relative mass, Evertse's
+asymptotic application and external density identities are not imported. See
+the [integration receipt](../../notes/research_sprint_2026-11-15/verification/integration_receipt.json).
+
+### `OrbitReciprocal.lean`
+
+- `iterate_affine_lt` — [OrbitReciprocal.lean:21](OrbitReciprocal.lean#L21).
+- `iterate_lt_two_mul_three_pow` — [OrbitReciprocal.lean:42](OrbitReciprocal.lean#L42).
+- `last_bit_complement` — [OrbitReciprocal.lean:50](OrbitReciprocal.lean#L50).
+- `parity_moment_pair` — [OrbitReciprocal.lean:61](OrbitReciprocal.lean#L61).
+- `parity_moment` — [OrbitReciprocal.lean:81](OrbitReciprocal.lean#L81).
+- `dyadic_fiber_card_le` — [OrbitReciprocal.lean:100](OrbitReciprocal.lean#L100).
+- `dyadic_light_card_le` — [OrbitReciprocal.lean:141](OrbitReciprocal.lean#L141).
+- `heavy_residue_card_bound` — [OrbitReciprocal.lean:155](OrbitReciprocal.lean#L155).
+- `dyadic_heavy_card_bound` — [OrbitReciprocal.lean:182](OrbitReciprocal.lean#L182).
+- `dyadic_card_bound` — [OrbitReciprocal.lean:208](OrbitReciprocal.lean#L208).
+- `finite_orbit_dyadic_card_bound` — [OrbitReciprocal.lean:245](OrbitReciprocal.lean#L245).
+- `heavyEnvelope_sum_le` — [OrbitReciprocal.lean:311](OrbitReciprocal.lean#L311).
+- `lightEnvelope_sum_le` — [OrbitReciprocal.lean:322](OrbitReciprocal.lean#L322).
+- `terminal_budget_sum_le` — [OrbitReciprocal.lean:344](OrbitReciprocal.lean#L344).
+- `reciprocal_sum_le_band_sum` — [OrbitReciprocal.lean:352](OrbitReciprocal.lean#L352).
+- `segment_pos` — [OrbitReciprocal.lean:392](OrbitReciprocal.lean#L392).
+- `finite_orbit_reciprocal_sum_le` — [OrbitReciprocal.lean:420](OrbitReciprocal.lean#L420).
+- `finite_orbit_reciprocal_sum_lt_eighty_one` — [OrbitReciprocal.lean:469](OrbitReciprocal.lean#L469).
+- `finite_orbit_reciprocal_sum_real_lt_eighty_one` — [OrbitReciprocal.lean:475](OrbitReciprocal.lean#L475).
+
+### `WordProductEnvelope.lean`
+
+- `inflation_succ` — [WordProductEnvelope.lean:25](WordProductEnvelope.lean#L25).
+- `inflation_eq_product` — [WordProductEnvelope.lean:39](WordProductEnvelope.lean#L39).
+- `inflation_le_exp_of_reciprocal_budget` — [WordProductEnvelope.lean:47](WordProductEnvelope.lean#L47).
+- `exact_word_inflation` — [WordProductEnvelope.lean:74](WordProductEnvelope.lean#L74).
+- `same_profile_height` — [WordProductEnvelope.lean:82](WordProductEnvelope.lean#L82).
+- `same_profile_height_81` — [WordProductEnvelope.lean:113](WordProductEnvelope.lean#L113).
+- `comparable_slope_height` — [WordProductEnvelope.lean:133](WordProductEnvelope.lean#L133).
+
+### `FirstArrivalBudget.lean`
+
+- `first_arrival_injective` — [FirstArrivalBudget.lean:24](FirstArrivalBudget.lean#L24).
+- `exponent_pos_of_odd` — [FirstArrivalBudget.lean:42](FirstArrivalBudget.lean#L42).
+- `orbit_odd` — [FirstArrivalBudget.lean:53](FirstArrivalBudget.lean#L53).
+- `shortcut_clock` — [FirstArrivalBudget.lean:59](FirstArrivalBudget.lean#L59).
+- `clock_strictMono` — [FirstArrivalBudget.lean:69](FirstArrivalBudget.lean#L69).
+- `episode_internal_even` — [FirstArrivalBudget.lean:76](FirstArrivalBudget.lean#L76).
+- `odd_shortcut_hit` — [FirstArrivalBudget.lean:96](FirstArrivalBudget.lean#L96).
+- `accelerated_first_is_shortcut_first` — [FirstArrivalBudget.lean:126](FirstArrivalBudget.lean#L126).
+- `accelerated_sum_le_shortcut_sum` — [FirstArrivalBudget.lean:141](FirstArrivalBudget.lean#L141).
+- `first_arrival_reciprocal_sum_lt_eighty_one` — [FirstArrivalBudget.lean:175](FirstArrivalBudget.lean#L175).
+- `first_arrival_same_profile_height` — [FirstArrivalBudget.lean:193](FirstArrivalBudget.lean#L193).
+- `canonical_first_arrival_profile_height` — [FirstArrivalBudget.lean:210](FirstArrivalBudget.lean#L210).
+- `first_arrival_comparable_slope_height` — [FirstArrivalBudget.lean:224](FirstArrivalBudget.lean#L224).
+
+### `TwoEditSparsity.lean`
+
+- `positive_residual_identity` — [TwoEditSparsity.lean:18](TwoEditSparsity.lean#L18).
+- `positive_residual_dvd` — [TwoEditSparsity.lean:30](TwoEditSparsity.lean#L30).
+- `negative_residual_identity` — [TwoEditSparsity.lean:43](TwoEditSparsity.lean#L43).
+- `negative_residual_dvd` — [TwoEditSparsity.lean:53](TwoEditSparsity.lean#L53).
+- `exact_word_exponent_budget` — [TwoEditSparsity.lean:66](TwoEditSparsity.lean#L66).
+
+### `TraceDensityBridge.lean`
+
+- `density_of_trace_comparison` — [TraceDensityBridge.lean:21](TraceDensityBridge.lean#L21).
+- `trace_of_density_comparison` — [TraceDensityBridge.lean:62](TraceDensityBridge.lean#L62).
+- `density_of_trace_floor_and_upper` — [TraceDensityBridge.lean:102](TraceDensityBridge.lean#L102).
+- `summed_density_of_normalized_trace_comparison` — [TraceDensityBridge.lean:123](TraceDensityBridge.lean#L123).
+
+### `CycleMinimumProduct.lean`
+
+- `path_minimum_product_bound` — [CycleMinimumProduct.lean:19](CycleMinimumProduct.lean#L19).
+- `cycle_minimum_product_bound` — [CycleMinimumProduct.lean:58](CycleMinimumProduct.lean#L58).
+- `cycle_log_gap_le` — [CycleMinimumProduct.lean:68](CycleMinimumProduct.lean#L68).
+
+### `IntegerAtomTilt.lean`
+
+- `sum_reciprocal_sq_finset_le_two` — [IntegerAtomTilt.lean:42](IntegerAtomTilt.lean#L42).
+- `wordWeight_le_target` — [IntegerAtomTilt.lean:58](IntegerAtomTilt.lean#L58).
+- `tilted_catalogue_le_of_source_injective` — [IntegerAtomTilt.lean:73](IntegerAtomTilt.lean#L73).
+- `tilted_integer_atom_le` — [IntegerAtomTilt.lean:110](IntegerAtomTilt.lean#L110).
+- `tilted_nonreturn_catalogue_le` — [IntegerAtomTilt.lean:126](IntegerAtomTilt.lean#L126).
+
+---
+
+## 13 November 2026 integration
+
+These 69 public declarations were integrated on 13 November. At that date the numerical finite-orbit sparsity and height bounds were paper deductions; the 15 November modules above now supply the explicit universal result. `FiniteOrbitTransfer` itself still supplies only the finite adapter. See the [sprint report](../../notes/research_sprint_2026-11-13/REPORT_IT.md).
+
+### `RootPoolBudget.lean`
+
+- `normalizedWeight_nonneg` — [RootPoolBudget.lean:31](RootPoolBudget.lean#L31).
+- `normalizedWeight_eq_loss` — [RootPoolBudget.lean:37](RootPoolBudget.lean#L37).
+- `sum_normalizedWeight_le` — [RootPoolBudget.lean:46](RootPoolBudget.lean#L46).
+- `sum_selected_le` — [RootPoolBudget.lean:63](RootPoolBudget.lean#L63).
+- `sum_labeled_normalizedWeight_le` — [RootPoolBudget.lean:73](RootPoolBudget.lean#L73).
+- `normalized_source_fiber_bound` — [RootPoolBudget.lean:109](RootPoolBudget.lean#L109).
+- `distinct_sources_of_normalized_mass` — [RootPoolBudget.lean:136](RootPoolBudget.lean#L136).
+- `pool_visit_time_unique` — [RootPoolBudget.lean:164](RootPoolBudget.lean#L164).
+- `word_eq_of_pool` — [RootPoolBudget.lean:178](RootPoolBudget.lean#L178).
+- `reciprocalWeight_le_initial` — [RootPoolBudget.lean:194](RootPoolBudget.lean#L194).
+- `sum_reciprocalWeight_pool_le` — [RootPoolBudget.lean:208](RootPoolBudget.lean#L208).
+- `sum_labeled_reciprocalWeight_pool_le` — [RootPoolBudget.lean:231](RootPoolBudget.lean#L231).
+
+### `SiblingPool.lean`
+
+- `nonrecurrentPool_mono` — [SiblingPool.lean:23](SiblingPool.lean#L23).
+- `sibling_range_nonrecurrent` — [SiblingPool.lean:30](SiblingPool.lean#L30).
+- `sibling_subpool_nonrecurrent` — [SiblingPool.lean:43](SiblingPool.lean#L43).
+- `canonical_range_nonrecurrent` — [SiblingPool.lean:53](SiblingPool.lean#L53).
+- `canonical_finite_nonrecurrent` — [SiblingPool.lean:64](SiblingPool.lean#L64).
+- `canonical_word_charge_le` — [SiblingPool.lean:75](SiblingPool.lean#L75).
+- `canonical_finite_word_charge_le` — [SiblingPool.lean:88](SiblingPool.lean#L88).
+- `canonical_labeled_word_charge_le` — [SiblingPool.lean:99](SiblingPool.lean#L99).
+
+### `CapacityAllocation.lean`
+
+- `capped_cell_bound` — [CapacityAllocation.lean:26](CapacityAllocation.lean#L26).
+- `mass_le_threshold_cost` — [CapacityAllocation.lean:39](CapacityAllocation.lean#L39).
+- `threshold_lower_bound` — [CapacityAllocation.lean:52](CapacityAllocation.lean#L52).
+- `threshold_cell_identity` — [CapacityAllocation.lean:70](CapacityAllocation.lean#L70).
+- `threshold_allocation_exact` — [CapacityAllocation.lean:84](CapacityAllocation.lean#L84).
+- `threshold_certificate_le_competitor` — [CapacityAllocation.lean:108](CapacityAllocation.lean#L108).
+- `threshold_at_score_upper_bound` — [CapacityAllocation.lean:120](CapacityAllocation.lean#L120).
+
+### `JointAtomDictionary.lean`
+
+- `admissible_iff_residue` — [JointAtomDictionary.lean:34](JointAtomDictionary.lean#L34).
+- `inverseSource_affine` — [JointAtomDictionary.lean:43](JointAtomDictionary.lean#L43).
+- `inverseSource_pos` — [JointAtomDictionary.lean:50](JointAtomDictionary.lean#L50).
+- `source_odd_of_matches` — [JointAtomDictionary.lean:59](JointAtomDictionary.lean#L59).
+- `inverseSource_spec` — [JointAtomDictionary.lean:75](JointAtomDictionary.lean#L75).
+- `admissible_of_exact` — [JointAtomDictionary.lean:86](JointAtomDictionary.lean#L86).
+- `admissible_iff_exact` — [JointAtomDictionary.lean:102](JointAtomDictionary.lean#L102).
+- `inverseSource_le_iff` — [JointAtomDictionary.lean:114](JointAtomDictionary.lean#L114).
+- `inverseSource_injective_at_length` — [JointAtomDictionary.lean:122](JointAtomDictionary.lean#L122).
+- `card_admissible_image` — [JointAtomDictionary.lean:136](JointAtomDictionary.lean#L136).
+
+### `AffinePositivity.lean`
+
+- `integer_source_pos` — [AffinePositivity.lean:18](AffinePositivity.lean#L18).
+- `height_of_ternary_congruence` — [AffinePositivity.lean:67](AffinePositivity.lean#L67).
+- `admissible_iff_ternary_congruence` — [AffinePositivity.lean:83](AffinePositivity.lean#L83).
+- `exact_source_iff_ternary_congruence` — [AffinePositivity.lean:96](AffinePositivity.lean#L96).
+- `card_ternary_atom_image` — [AffinePositivity.lean:106](AffinePositivity.lean#L106).
+
+### `RelativeMassFlow.lean`
+
+- `total_flow_le_capacity` — [RelativeMassFlow.lean:21](RelativeMassFlow.lean#L21).
+- `relative_mass_le_image_capacity` — [RelativeMassFlow.lean:32](RelativeMassFlow.lean#L32).
+- `card_images_lower_bound` — [RelativeMassFlow.lean:40](RelativeMassFlow.lean#L40).
+- `scaled_card_images_lower_bound` — [RelativeMassFlow.lean:51](RelativeMassFlow.lean#L51).
+- `sum_card_disjoint_le` — [RelativeMassFlow.lean:65](RelativeMassFlow.lean#L65).
+- `disjoint_block_flow_budget` — [RelativeMassFlow.lean:81](RelativeMassFlow.lean#L81).
+
+### `ReturnBlocks.lean`
+
+- `point_mem_section` — [ReturnBlocks.lean:31](ReturnBlocks.lean#L31).
+- `middle_not_mem_section` — [ReturnBlocks.lean:37](ReturnBlocks.lean#L37).
+- `block_steps` — [ReturnBlocks.lean:63](ReturnBlocks.lean#L63).
+- `point_increment` — [ReturnBlocks.lean:76](ReturnBlocks.lean#L76).
+- `point_lt_next` — [ReturnBlocks.lean:82](ReturnBlocks.lean#L82).
+- `first_return` — [ReturnBlocks.lean:89](ReturnBlocks.lean#L89).
+- `iterate_point` — [ReturnBlocks.lean:105](ReturnBlocks.lean#L105).
+- `arbitrarily_many_increasing_first_returns` — [ReturnBlocks.lean:118](ReturnBlocks.lean#L118).
+
+### `WordSurgery.lean`
+
+- `constant_append` — [WordSurgery.lean:14](WordSurgery.lean#L14).
+- `interior_constant_shift` — [WordSurgery.lean:26](WordSurgery.lean#L26).
+- `balanced_shift_terminal_congruence` — [WordSurgery.lean:37](WordSurgery.lean#L37).
+- `terminal_depth_budget` — [WordSurgery.lean:75](WordSurgery.lean#L75).
+
+### `CycleRotation.lean`
+
+- `denominator_rotate` — [CycleRotation.lean:20](CycleRotation.lean#L20).
+- `constant_rotate` — [CycleRotation.lean:25](CycleRotation.lean#L25).
+- `dvd_constant_iff_dvd_rotated` — [CycleRotation.lean:36](CycleRotation.lean#L36).
+- `denominator_dvd_constant_iff` — [CycleRotation.lean:57](CycleRotation.lean#L57).
+- `denominator_mul_source` — [CycleRotation.lean:66](CycleRotation.lean#L66).
+- `cycle_divisor_passes_rotated` — [CycleRotation.lean:73](CycleRotation.lean#L73).
+
+### `FiniteOrbitTransfer.lean`
+
+- `iterate_injOn_prefix` — [FiniteOrbitTransfer.lean:27](FiniteOrbitTransfer.lean#L27).
+- `window_card_le_prefix_add` — [FiniteOrbitTransfer.lean:41](FiniteOrbitTransfer.lean#L41).
+- `window_bound_of_iterate_injective_estimate` — [FiniteOrbitTransfer.lean:68](FiniteOrbitTransfer.lean#L68).
+
+---
+
 ## Shadowing core
 
 ### `Basic.lean`

@@ -1,0 +1,269 @@
+ An Explicit Windowed Sparsity Bound for Divergent 3x + 1
+                           Orbits,
+with Logarithmic-Floor Exclusion beyond the Harmonic Barrier
+                                     Michael John Curry
+                                   London, Ontario, Canada
+                                      mike@intrudr.ca
+
+                                          24 August 2026
+
+
+                                              Abstract
+        Garcia and Tal proved in 1999 that every infinite orbit of the 3x + 1 map has Banach
+     density zero. We give a short self-contained proof of an explicit quantitative form: for
+     every infinite aperiodic orbit O,
+                         (             )
+                       # O ∩ [a, a + X) ≤ C X β log(2X)       uniformly in a,
+
+     for every β > β ∗ = rH log2 3 = 0.96538 . . ., where rH = 0.609089 . . . is Rozier’s critical
+     ones-ratio. Three consequences follow for the odd-only (Syracuse) map with∑valuation
+     drift gn = n log2 3 − An . First, every divergent orbit has summable reciprocals, n 1/yn <
+     ∞. Second, no divergent orbit satisfies gn ≤ B log    ( 2 n + )O(1) eventually for any B ≤ 1.
+     Third, the occupation bound #{n : gn ≤ G} = O 2βG G extends the exclusion to every
+     B < 1/β ∗ = 1.03585 . . .. This passes the threshold 8/9 recently proved by De Jesús via
+     congruence-packing and shown there to be terminal for that method, and it settles, in
+     a stronger form than requested, the graded harmonic-thinness requirement posed in his
+     Open Problem 12.8: the harmonic mass of a divergent orbit is not merely ( 31 − η) ln N but
+     bounded. The input overlooked by that line of work is the 1999 theorem of Garcia and
+     Tal. No claim is made on cycles, on the Effective Occupation Conjecture, or on the Collatz
+     conjecture itself.
+
+
+1 Introduction
+Let T (n) = n/2 for even n and T (n) = (3n + 1)/2 for odd n, acting on the positive integers,
+and for odd y let
+                                                 3y + 1
+                                        U (y) = v (3y+1)
+                                                22
+be the accelerated (Syracuse) map on odd integers. For an odd seed y0 write yn+1 = U (yn ),
+an = v2 (3yn + 1), An = a0 + · · · + an−1 , and
+
+                                  λ = log2 3,       gn = nλ − An .
+
+In the notation of De Jesús [5] and Rozier [4] the drift is Rn = An −nλ = −gn ; a divergent orbit
+must have gn → +∞, and the question of how slowly gn may grow measures how marginally
+
+                                                  1
+an orbit can diverge. Rozier’s framework, and the occupation program built on it in [5, 6],
+produce unconditional results of the following shape: no divergent orbit satisfies gn ≤ B log2 n
+eventually, for B below some threshold. The threshold reached in [5] is 5/6, improved to
+8/9 by a mod 3 refinement, and Appendices D and E of [5] prove that 8/9 is terminal for
+the congruence-packing method used there; Open Problem    ∑      12.8 of [5] states that any further
+progress requires a graded harmonic-thinness bound k<N 1/yk ≤ ( 13 −η) ln N along divergent
+orbits.
+    The purpose of this note is to point out that a stronger statement than the one requested has
+been available since 1999. Garcia and Tal [1] proved that every infinite orbit of T has Banach
+density zero, by a pigeonhole argument over parity classes. Their theorem, made quantitative,
+gives a power-saving count of orbit points in every window, uniformly in the window position
+(Theorem 2.3 below, for which we give a short self-contained proof with an explicit exponent).
+From it: the reciprocal sum of a divergent orbit converges (Proposition 3.1), which is the
+harmonic-thinness requirement of [5] in the strongest possible form; the floor exclusion then
+holds for every B ≤ 1 (Theorem 4.1); and a windowed occupation bound pushes it to every
+B < 1/β ∗ = 1.03585 . . . (Theorem 4.2, Corollary 4.3), past the harmonic barrier B = 1 that
+no packing argument over distinct states can cross.
+    Everything here is elementary. The only nonclassical ingredient is the observation of [1]
+that a windowed pigeonhole over parity classes applies to a single injective orbit; the counting
+that feeds it goes back to Terras [2] and Everett [3]. The exponent β ∗ = rH log2 3, where rH
+is the critical ones-ratio of Rozier [4], arises from the same entropy equation as his constant,
+which is reassuring rather than surprising: both express the tradeoff between the number of
+parity prefixes of a given tilt and the contraction they force.
+    Scope. Nothing below constrains hypothetical nontrivial cycles, proves any tier of the
+Effective Occupation Conjecture of [5], or approaches the Collatz conjecture. The contribution
+is the identification of [1] as the missing input to the occupation program, the explicit exponent,
+and the threshold 1/β ∗ .
+
+
+2    An explicit windowed sparsity bound
+Throughout, H(p) = −p log2 p − (1 − p) log2 (1 − p) is the binary entropy. For n ≥ 1 and N ≥ 0
+let mN (n) be the number of odd values among n, T (n), . . . , T N −1 (n). Two classical facts [2, 3]:
+                                   (            )
+Lemma 2.1. The parity prefix T j (n) mod 2 j<N depends only on n mod 2N , and n mod
+2N 7→ (prefix) is a bijection of Z/2N onto {0, 1}N . Consequently, for every r ≥ 0,
+
+                               T N (n + r 2N ) = T N (n) + r 3 mN (n) .
+
+Proof. Both statements follow by induction on N : an even step halves both the value and the
+offset, an odd step maps n + r2j to T (n) + 3r2j−1 , and in either case the step parity of n + r2N
+agrees with that of n.
+                                                      (         )
+Lemma 2.2. For all n, N ≥ 1, T N (n) < 3 mN (n) 2−N n + 1 .
+
+Proof. Writing εj ∈ {0,
+                     ∑1} for the  parity of T j (n) and unrolling, 2N T N (n) = 3m n + E with
+                                    j+1 (n) 2 j . Each exponent m − m
+                                                                      j+1 (n) is at most m − 1
+m = mN (n) and E = j<N εj 3    m−m
+                          ∑
+when εj = 1, so E ≤ 3 m−1        j     m   N
+                            j<N 2 < 3 2 , and the claim follows.
+
+
+                                                  2
+    Call a set A ⊂ N collision-free if distinct u1 , u2 ∈ A never satisfy T j (u1 ) = T j (u2 ) for any
+j ≥ 0. The value set of an infinite aperiodic orbit is collision-free: a collision between two of its
+points forces the orbit to become eventually periodic, hence bounded. This observation, and
+the window argument that follows, are due to Garcia and Tal [1]; we substitute explicit Terras–
+Everett counting for the theorem of Heppner used there, which is what makes the exponent
+effective.
+
+Theorem 2.3. Let A be collision-free and let γ ∈ ( 12 , 1/λ). Then for all integers a ≥ 1,
+X ≥ 2,
+                 (               )     (               )(            )
+               # A ∩ [a, a + X) ≤ 6 blog2 Xc + 1 X H(γ) + X γλ .
+
+In particular, with
+
+                 β ∗ = γ ∗ λ = H(γ ∗ ) = 0.9653844 . . . ,         γ ∗ = 0.6090897 . . .
+
+the( unique root of
+                  ) H(γ) = γλ on ( 12 , 1/λ), one has, for every β > β ∗ , a constant Cβ with
+# A ∩ [a, a + X) ≤ Cβ X log(2X) uniformly in a.
+                         β
+
+
+Proof. Put N = blog2 Xc, so 2N ≤ X < 2N +1 , and let W = A ∩ [a, a + X). Choose z ≥ 0
+with z2N < a ≤ (z + 1)2N ; every y ∈ [a, a + X) has y − z2N or y − (z + 1)2N in [1, X], so
+for one choice z ′ ∈ {z, z + 1} the set B = {s ∈ [1, X] : s + z ′ 2N ∈ W } has #B ≥ #W/2.
+Pigeonhole B on the value mN (s) ∈ {0, . . . , N }: some B1 ⊆ B has a common value m and
+#B1 ≥ #B/(N + 1).
+    If m ≥ γN : by Lemma 2.1 the elements of B1 ∑            occupy(residue
+                                                                         )    classes mod 2N whose parity
+                                                                       N
+prefix has at least γN ones; there are at most                 i≥γN i      ≤ 2N H(γ) such classes (entropy
+bound, valid for γ ≥ 12 ), and each class meets [1, X] in at most X/2N + 1 ≤ 3 points. Hence
+#B1 ≤ 3 · 2N H(γ) ≤ 3X H(γ) .
+    If m < γN : by Lemma 2.2, every s ∈ B1 has T N (s) < 3γN (2−N X + 1) ≤ 3 · 2γλN ≤
+3X , so T N maps B1 into a set of fewer than 3X γλ positive integers. If #B1 > 3X γλ , two
+    γλ
+
+distinct s1 , s2 ∈ B1 share T N (s1 ) = T N (s2 ); since they share m as well, Lemma 2.1 gives
+T N (s1 + z ′ 2N ) = T N (s1 ) + z ′ 3m = T N (s2 + z ′ 2N ), a collision between two distinct elements of
+A. Hence #B1 ≤ 3X γλ .
+    Combining, #W ≤ 2(N + 1) · 3 (X H(γ) + X γλ ). On ( 21 , 1/λ) the function H is strictly
+decreasing and γλ strictly increasing, so max(H(γ), γλ) is minimized at the crossing γ ∗ , com-
+puted numerically to the stated precision. The equation H(γ) = γλ is, after dividing by γ, the
+equation defining Rozier’s critical ones-ratio rH [4], whence γ ∗ = rH .
+
+Remark 2.4. Garcia and Tal [1] state Banach density zero; the power saving is implicit in
+their proof once Heppner’s exponents are made explicit, but we have not found the explicit
+exponent, or the identification β ∗ = rH λ, in the literature. No claim is made beyond “no exact
+match identified.”
+
+
+3    Reciprocal summability
+                                                                              ∑
+Proposition 3.1. Let O be the value set of a divergent orbit of T∑     . Then x∈O 1/x < ∞.
+Equivalently, since a∑divergent orbit visits pairwise distinct values, k≥0 1/T k (N0 ) < ∞ and,
+for the odd iterates, n≥0 1/yn < ∞.
+
+
+                                                    3
+Proof. A divergent orbit is aperiodic,∑so O is collision-free.
+                                                      ∑          Fix β ∈ (β ∗ , 1) and sum Theo-
+rem 2.3 over dyadic blocks [2 , 2 ): x∈O 1/x ≤ i≥0 Cβ 2 (i + 2) 2−i < ∞.
+                               i  i+1                          iβ
+
+                                                                                    ∑
+     This settles the requirement of [5, Open Problem 12.8], which asks for           k<N 1/yk ≤
+( 31 − η) ln N for some η > 0 along
+                              ∑      divergent orbits: the sum  is in fact bounded.  In the carry-
+                                               1
+budget notation of [5], EN = k<N log2 (1+ 3yk ) is bounded along every divergent orbit, rather
+than of size 16 log2 N .
+
+
+4   Floor exclusion and occupation
+The product form of the orbit identity (Eliahou; Rozier [4]; see also [5]) reads, for the odd
+iterates of any orbit,
+                                                  ∏(          1 )
+                   yn = y0 2 g n Q n ,     Qn =         1+        nondecreasing.              (1)
+                                                             3yj
+                                                  j<n
+
+For a divergent orbit, Proposition 3.1 gives Qn % Q∞ < ∞, so
+
+                             y 0 2g n ≤ y n ≤ y 0 Q ∞ 2g n     (n ≥ 0).                       (2)
+
+Theorem 4.1. No divergent orbit satisfies gn ≤ B log2 n + K for all large n with constants
+B ≤ 1, K ≥ 0.
+                                                                   ∑          ∑
+Proof. By (2) the hypothesis gives yn ≤ y0 Q∞ 2K nB for large n, so n 1/yn ≥ c n n−B = ∞
+for B ≤ 1, contradicting Proposition 3.1.
+
+Theorem 4.2. Let (yn ) be the odd iterates of a divergent orbit and fix β ∈ (β ∗ , 1). There are
+constants c1 , c2 depending on β and on the orbit (through y0 and Q∞ ) such that
+
+                   #{n ≥ 0 : gn ≤ G} ≤ c1 2βG (G + c2 )            for all G ≥ 1.
+
+Proof. If gn ≤ G then yn ≤ y0 Q∞ 2G by (2). The yn are pairwise distinct elements of the
+collision-free set O, so by Theorem 2.3 with a = 1, X = y0 Q∞ 2G , the number of such n is at
+most Cβ (y0 Q∞ )β 2βG log(2y0 Q∞ 2G ).
+
+Corollary 4.3. No divergent orbit satisfies gn ≤ B log2 n + K for all large n with B < 1/β ∗ =
+1.0358567 . . ..
+
+Proof. Suppose it did, with B > 0 (for B ≤ 0 apply Theorem 4.1). For large G, every
+n ≤ 2(G−K)/B beyond the threshold has gn ≤ G, so #{n : gn ≤ G} ≥ 12 2G/B 2−K/B . Against
+Theorem 4.2 this forces 1/B ≤ β for every β > β ∗ , i.e. B ≥ 1/β ∗ .
+
+    In the drift notation of [5] (Rk = −gk ): no injective accelerated orbit satisfies Rk ≥
+−B log2 k eventually, for any B < 1.0358 . . ., extending the thresholds 5/6 and 8/9 of [5,
+Theorem C, Appendix D] past the harmonic barrier B = 1, which no packing over distinct
+states can cross ([5, Appendix E] proves 8/9 terminal for fixed-modulus congruence packing;
+the present input is of a different, windowed, kind).
+
+
+
+
+                                                  4
+5 Limitations
+The exponent β ∗ is a genuine barrier for the argument of Theorem 2.3: it balances the entropy
+of heavy parity prefixes against the contraction of light ones, and both sides are sharp for the
+hypothesis class. Improving 1/β ∗ therefore requires either deeper iteration than N ≈ log2 X
+inside the window argument, which breaks Lemma 2.1’s modulus bookkeeping, or an input
+beyond parity counting. Nothing here constrains nontrivial cycles: a periodic orbit is not
+aperiodic, so it lies outside every hypothesis above, and the theorems concern divergence
+candidates only, exactly as in [5, Remark 7.4]. Nothing here bears on the sub-critical occupation
+of convergent orbits, which is the open core of the Effective Occupation Conjecture: in the
+language of [6], the anti-concentration problem for the residue classes of near-critical words is
+untouched.
+
+
+Acknowledgment
+This note exists because the occupation program of De Jesús [5, 6] states its open problems
+precisely enough to be answered by a literature search.
+
+
+References
+[1] M. V. P. Garcia and F. A. Tal, A note on the generalized 3n + 1 problem, Acta Arith. 90
+    (1999), no. 3, 245–250.
+
+[2] R. Terras, A stopping time problem on the positive integers, Acta Arith. 30 (1976), 241–252.
+
+[3] C. J. Everett, Iteration of the number-theoretic function f (2n) = n, f (2n + 1) = 3n + 2,
+    Adv. Math. 25 (1977), 42–45.
+
+[4] O. Rozier, The 3x + 1 problem: a lower bound hypothesis, Funct. Approx. Comment. Math.
+    56 (2017), no. 1, 7–23.
+
+[5] E. De Jesús, A global occupation conjecture for the accelerated 3x + 1 map
+    with an unconditional logarithmic-floor exclusion for injective orbits, Zenodo, 2026.
+    doi:10.5281/zenodo.21481692.
+
+[6] E. De Jesús, A word-level occupation–realizer reduction for the accelerated 3x + 1 map,
+    Zenodo, 2026. doi:10.5281/zenodo.20593925.
+
+[7] J. C. Lagarias, The 3x+1 problem and its generalizations, Amer. Math. Monthly 92 (1985),
+    1–23.
+
+[8] E. Heppner, Eine Bemerkung zum Hasse–Syracuse-Algorithmus, Arch. Math. (Basel) 31
+    (1978), 317–320.
+
+[9] G. J. Wirsching, The Dynamical System Generated by the 3n + 1 Function, Lecture Notes
+    in Math. 1681, Springer, Berlin, 1998.
+
+
+
+
+                                               5
+

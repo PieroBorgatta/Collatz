@@ -2,11 +2,12 @@
 
 Date: 2026-05-15
 
-Status: conditional positive solution for Gate 10.B in the weak
-`A0-averaged` sense.  This is not a spectral theorem and not an exact
-projection theorem.  It gives a mathematically natural infinite object
-whose finite cylinder conditional expectations match the shape of the
-current phase-prefix kernels, up to explicitly named finite residuals.
+Status: conditional candidate for Gate 10.B, corrected 2026-11-13. The
+historical claim of conditional closure below is superseded where it
+identifies point samples of merely measurable observables with Haar
+integrals. A genuine sampling/identification hypothesis is still open.
+This is not a spectral theorem or an exact projection theorem. See the
+[November correction and branch-clock lemma](research_sprint_2026-11-13/agents/S11_KERNEL_IT.md).
 
 ## 1. Verdict
 
@@ -138,9 +139,12 @@ Equivalently, the script samples
 t = r + j 2^T, 0 <= j < 2^m.
 ```
 
-This is not an arbitrary enumeration.  For prefix windows with
-`j_count = 2^m`, it is exactly the uniform finite quotient of Haar
-measure on the cylinder `x == r mod 2^T`.
+For prefix windows with `j_count = 2^m`, these residue labels represent
+the equal-mass finite quotient of Haar measure on the cylinder
+`x == r mod 2^T`. Evaluating a function at the natural representative
+of each residue is its Haar integral only when an appropriate
+cylindricity or quadrature statement has been proved. Bounded
+measurability alone does not supply that statement.
 
 The finite source-cell row is:
 
@@ -160,9 +164,11 @@ K_{T,m}^{A0}(a,q)
       k_{T,m}^{cell}(r,h;q).
 ```
 
-Because all retained low-bit cells have equal `mu`-mass, this uniform
-cell average is exactly the finite conditional expectation over the
-retained part of the phase atom.
+Because the retained low-bit cells have equal `mu`-mass, this is the
+finite conditional average of the sampled rows. To identify it with
+the killed observable's Haar conditional expectation, one must prove
+the additional sampling hypothesis in Section 8; finite regrouping
+alone does not do so.
 
 ## 5. Boundary and Mixed-Cell Residual
 
@@ -292,12 +298,14 @@ H2. For each phase q, the observable
 
     is bounded and mu-measurable.
 
-H3. The finite script/generator rows equal the finite high-bit cylinder
-    averages of g_q, up to the explicit boundary/mixed-cell residual.
+H3. The finite script/generator rows either are genuine integrals of g_q
+    on the fine cylinders, or are averages of a cylinder-step observable
+    g_{q,T,m} with a proved L1 approximation error
+    ||g_{q,T,m}-g_q||_1 <= epsilon_{T,m} -> 0 for fixed T.
+    Point values at natural representatives do not establish H3.
 
-H4. The finite high-bit prefix windows are powers of two,
-    N = 2^m, so that the average over j is Haar-uniform on the quotient
-    of each low-bit cylinder.
+H4. The finite high-bit prefix windows are powers of two, N = 2^m.
+    This makes the quotient cell weights equal; it does not replace H3.
 
 H5. Boundary/mixed source cells have mu-mass tending to zero in the
     declared order of limits.
@@ -311,14 +319,15 @@ conditional expectations converge to K_s^A0(a,q) in the declared weak
 finite-dimensional sense.
 ```
 
-This closes Gate 10.B only as an operator-existence and finite
-approximation statement.  It does not imply compactness, a
+This would close only an operator-existence and finite approximation
+statement after H3 and the other project-specific hypotheses are proved.
+They are not proved here. It does not imply compactness, a
 Lasota-Yorke inequality, Hennion, Keller-Liverani, or a spectral gap.
 
-## 8.1 Paper-Ready Proposition Form
+## 8.1 Corrected Conditional Proposition Form
 
-The following is the precise proposition that can be moved into a paper
-or companion note.  It is intentionally conditional.
+The following is a conditional target. In particular, condition B is a
+substantive sampling hypothesis, not a consequence of condition A.
 
 ```text
 Proposition (A0 Haar conditional closure).
@@ -345,13 +354,20 @@ Assume:
 
   (A) g_q is bounded and measurable for every q.
 
-  (B) For every finite low-bit depth T and high-bit prefix depth m, the
-      generated finite rows are the uniform cylinder averages of g_q on
-      the sampled residue set
+  (B) For every finite low-bit depth T and high-bit prefix depth m,
+      form the cylinder-step observable g_{q,T,m} whose values on the
+      fine cylinders are the generated sampled rows at
 
         t = r + j 2^T, 0 <= j < 2^m,
 
-      except for a declared exceptional set E_T.
+      outside a declared exceptional set E_T. Prove, independently,
+
+        ||g_{q,T,m}-g_q||_{L1(mu)} <= epsilon_{T,m},
+        epsilon_{T,m} -> 0 as m -> infinity for fixed T.
+
+      Alternatively, prove that the generated fine-cell values are the
+      genuine conditional integrals of g_q. Mere measurability and
+      uniform weights on residue labels imply neither alternative.
 
   (C) The exceptional cells satisfy mu(E_T) -> 0 as T -> infinity, and
       the finite retained/complete averaging error is bounded by
@@ -363,11 +379,11 @@ Assume:
 
 Then the finite A0 matrix K_{T,m}^{A0}, obtained by averaging retained
 source-cell rows over PhaseState fibers, is the conditional expectation
-of the finite cylinder kernel onto sigma(pi_V), up to the exceptional
-error in (C).  For fixed T and q, the martingale/cylinder averages
-converge in L1(mu) to E_mu[g_q | P_T] as m -> infinity.  If the
-T-level partitions refine to sigma(pi_V) with exceptional mass tending
-to zero, then the limiting A0 kernel is
+of the reconstructed finite cylinder kernel, up to the exceptional
+error in (C). Conditional expectation is an L1 contraction, so its
+sampling error is at most epsilon_{T,m}, in addition to that residual.
+After the phase-identification and exceptional-cell errors also tend
+to zero in the declared order, the limiting A0 kernel is
 
   K_s^{A0}(a,q)
     = E_mu[g_q | pi_V = a]
@@ -379,8 +395,9 @@ Proof sketch:
 
 ```text
 1. Haar/cylinder identity:
-   the points r + j 2^T, 0 <= j < 2^m, are the uniform quotient of the
-   2-adic cylinder r mod 2^T by the subpartition mod 2^{T+m}.
+   the residue labels have equal quotient masses. The average of a
+   fine-cylinder-step function is its Haar average; this says nothing
+   about point evaluation of an arbitrary measurable function.
 
 2. Finite conditional expectation:
    grouping equal-mass retained low-bit cells by pi_V is exactly
@@ -392,10 +409,10 @@ Proof sketch:
    cell set changes source averages by at most
    2 mu(E_T) ||g_q||_infty.
 
-4. Martingale convergence:
-   as m -> infinity, conditional expectations on the increasing
-   high-bit subpartitions converge in L1 to the conditional expectation
-   on the limiting cylinder sigma-algebra.
+4. Sampling convergence:
+   use the proved L1 error in B and contraction under conditional
+   expectation. For genuine conditional integrals the tower property
+   already gives the correct parent-cylinder average at every m.
 
 5. Phase quotient:
    conditioning further on sigma(pi_V) gives K_s^{A0}.  This is an
@@ -409,13 +426,13 @@ Proof obligations not yet discharged:
 |---|---|---|
 | P1 | define `D`, `tau`, and `delta` on `Z_2 x H` independently of finite scripts | open |
 | P2 | prove measurability and boundedness of `g_q` | open |
-| P3 | prove the Haar/cylinder identity for prefix windows `2^m` | proof sketch written in Section 8.2 |
+| P3 | identify point-sampled rows with Haar averages | open; Section 8.2 proves only the cylinder-step identity |
 | P4 | prove the exceptional mass bound for capped valuation/odd-part boundary cells | proof sketch written in Section 8.2; exact normalization fixed |
-| P5 | prove generated rows equal finite cylinder averages for each Lean artifact | checker added for `T10CriticalSymbolic` and `T10J32HighBitTail.full`; both pass |
-| P6 | prove martingale convergence in the exact weak norm chosen for the paper | proof target and weak norm written in Section 8.3; needs citation or short proof |
+| P5 | prove generated rows equal the declared finite samples and identify their reconstruction | finite provenance checks pass for two artifacts; the limiting observable and sampling error remain separate |
+| P6 | prove convergence in the declared weak norm | conditional-expectation contraction is available; the required sampling hypothesis B remains open |
 
-This proposition is enough to say that Gate 10.B has a credible
-conditional solution.  It is not enough to state a spectral theorem.
+This is a candidate with explicit open obligations. It does not establish
+the sampling premise, close Gate 10.B, or state a spectral theorem.
 
 ## 8.2 P3/P4 Local Proof Details
 
@@ -450,9 +467,12 @@ E[g | C_{T,r}]
   = 2^{-m} sum_{0 <= j < 2^m} g(r + j 2^T).
 ```
 
-This proves that prefix high-bit windows of length `2^m` are canonical
-Haar cylinder averages.  It also explains why arbitrary adjacent
-integer windows are not the right object for the infinite model.
+This proves the identity for functions constant on the fine cylinders.
+It does not prove it for arbitrary bounded measurable observables sampled
+at the representatives. The function `g=1_(Z_2\N)` is a counterexample:
+the embedded naturals form a countable Haar-null set, so g has Haar
+integral 1 while every sample at a natural representative is zero.
+The same discrepancy occurs in every positive-measure cylinder.
 
 ### P4: capped-valuation boundary mass
 
@@ -526,9 +546,10 @@ mean_A(F) - mean_{A union E}(F)
 
 and `|a| <= (1-e)M`, `|b| <= eM`.
 
-P3 is therefore essentially closed.  P4 is closed at the level of a
-paper proof sketch and still needs either a formal Lean lemma or a
-clean prose lemma with the exact normalization convention.
+P3 is closed only for cylinder-step functions; its application to the
+generated limiting observable remains open. P4 has a paper proof sketch
+and still needs either a formal Lean lemma or a clean prose lemma with
+the exact normalization convention.
 
 ## 8.3 P6 Martingale/Weak-Norm Closure
 
@@ -585,14 +606,18 @@ The script averages over prefix windows:
 t = r + j 2^T, 0 <= j < 2^m.
 ```
 
-By P3 these are exactly the finite conditional expectations of
-`E[g_q | F_{T,m}]` on the low-bit cylinder `r mod 2^T`.  Therefore,
-for fixed `T,V,q`, the finite prefix rows converge in the source
-`L1(mu)` norm to the `T`-cylinder conditional expectation.
+These point evaluations cannot be identified with conditional integrals
+using bounded measurability alone. If the fine-cell rows are genuine
+conditional integrals, the tower property gives
+`E[E[g_q|F_{T,m}]|F_T]=E[g_q|F_T]` already for every m. Otherwise define
+the sampled cylinder-step reconstruction g_{q,T,m} and prove the L1
+approximation in condition B. Its conditional average then differs from
+the true one by at most that L1 error. The martingale theorem for actual
+conditional integrals does not prove this sampling error bound.
 
-After grouping by `PhaseState`, conditional expectation is a contraction
-on `L1`.  Hence the A0 averaged phase kernels satisfy the same weak
-convergence bound:
+Under the added sampling hypothesis, grouping by `PhaseState` is an L1
+contraction. Hence the A0 averaged phase kernels satisfy the corresponding
+conditional convergence bound:
 
 ```text
 || K_{T,m}^{A0} - K_{T,infty}^{A0} ||_{w,T} -> 0
@@ -613,10 +638,11 @@ weak side: source-averaged L1(mu) error after conditional expectation.
 It is not a Lasota-Yorke inequality.  It gives only the weak
 finite-rank approximation layer needed to make Gate 10.B meaningful.
 
-P6 is therefore closed at the level of a standard theorem citation plus
-the project-specific identification of the weak norm.  To make it
-paper-ready, cite a standard martingale convergence theorem or include a
-short proof for bounded functions on the compact profinite space `Z_2`.
+P6 is therefore conditional on the project-specific sampling and phase
+identifications. A martingale citation alone does not close it. A
+cylinder approximation with controlled L1 error, a proved quadrature
+estimate, or genuine conditional-integral rows would supply the missing
+bridge. No such theorem for the full A0 kernel is proved here.
 
 ## 8.4 P1/P2 Intrinsic Dynamics Obstruction
 
@@ -694,9 +720,10 @@ finite-cylinder level:
 K_finite = K_return + K_loss,
 ```
 
-where `K_loss` is not represented by a destination phase.  Then Gate
-10.B closes for the retained return kernel, while terminal mass is a
-separate tail/killing residual.
+where `K_loss` is not represented by a destination phase. This separates
+the terminal tail/killing residual, but does not prove the retained
+kernel's sampling and limiting identification. Corrected H3 and the
+other open obligations still have to be established.
 
 Verdict: best current compromise.  It matches the existing
 substochastic matrix interpretation and avoids pretending that ordinary
@@ -707,10 +734,11 @@ integer order is 2-adic.
 The conditional A0 closure should therefore be narrowed:
 
 ```text
-Gate 10.B closes conditionally for the retained return kernel as a
-Haar/cylinder conditional expectation.  Terminal/drop-below killing is
-not intrinsically 2-adic and must be handled as substochastic loss or
-by an enlarged arithmetic lift space.
+The retained return kernel is a candidate for a Haar/cylinder
+conditional-expectation model, conditional on corrected H3 and the
+other open identifications. Gate 10.B remains open for the generated
+kernels. Terminal/drop-below killing is not intrinsically 2-adic and
+must be handled as substochastic loss or by an arithmetic lift space.
 ```
 
 Updated proof obligations:
@@ -723,12 +751,12 @@ Updated proof obligations:
 | P2a | measurability of tube-hitting return map | plausible but not written |
 | P2b | boundedness of `g_q` for `s >= 0` | immediate once `delta:N` and `D` are defined, since `0 <= 2^{-s delta} <= 1` |
 
-This is the sharpest current answer to 10.B:
+The corrected current status is:
 
 ```text
-positive for retained 2-adic return kernels;
+candidate for retained 2-adic return kernels, sampling still open;
 open/structurally non-2-adic for drop-below killing;
-safe only if terminal mass is a declared substochastic loss.
+terminal mass requires a declared substochastic loss or an arithmetic lift.
 ```
 
 ## 8.6 Final 10.B Verdict for Paper Use
@@ -736,13 +764,14 @@ safe only if terminal mass is a declared substochastic loss.
 Recommended wording:
 
 ```text
-Gate 10.B is conditionally positive for the retained return part of the
-phase operator.  The natural infinite object is a killed weighted
+Gate 10.B remains open for the retained return part of the phase
+operator. A candidate infinite object is a killed weighted
 forward kernel on X = Z_2 x H, observed through PhaseState and averaged
 by conditional expectation with respect to Haar x counting measure.
-Prefix high-bit matrices with j_count = 2^m are finite Haar-cylinder
-conditional expectations of this kernel, up to an explicit
-high-valuation boundary residual.
+Prefix high-bit samples with j_count = 2^m have equal quotient weights.
+Their identification with Haar-cylinder conditional expectations of
+this kernel still requires a sampling theorem, in addition to the
+explicit high-valuation boundary residual.
 
 The gate is not positive for the stronger claim that the finite FULL
 matrices are exact projections, nor for the claim that PhaseState is a
@@ -766,8 +795,8 @@ Terminal/drop-below/budget events:
 
 Consequences:
 
-- Gate 10.B can be reported as conditionally resolved for the retained
-  return kernel.
+- Gate 10.B cannot be reported as resolved for the generated retained
+  return kernel until the sampling/identification obligations are proved.
 - The finite-rank K16 note remains the only theorem-producing output.
 - 10.C-10.F may only resume as conditional analysis of the retained
   kernel plus substochastic loss.
@@ -775,8 +804,10 @@ Consequences:
 
 ## 9. Compatibility with Existing FULL Matrices
 
-The closure applies directly to prefix/Haar cylinder kernels whose
-provenance is the script-88/script-107 row-source construction.
+The candidate closure can apply to those row-source constructions only
+after the sampling hypothesis has been proved. A finite provenance check
+identifies the samples or finite quotient rows; it does not identify
+their limit with a measurable Haar observable.
 
 Initial provenance audit:
 

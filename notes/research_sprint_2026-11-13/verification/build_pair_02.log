@@ -1,0 +1,15 @@
+⚠ [3298/3299] Built CollatzShadowing.RelativeMassFlow (85s)
+warning: CollatzShadowing/RelativeMassFlow.lean:64:0: `sum_card_disjoint_le` does not use the following hypothesis in its type:
+  • [DecidableEq β] (#3)
+
+Consider removing this hypothesis and using `classical` in the proof instead. For terms, consider using `open scoped Classical in` at the term level (not the command level).
+
+Note: This linter can be disabled with `set_option linter.unusedDecidableInType false`
+warning: CollatzShadowing/RelativeMassFlow.lean:79:0: `disjoint_block_flow_budget` does not use the following hypothesis in its type:
+  • [DecidableEq β] (#4)
+
+Consider removing this hypothesis and using `classical` in the proof instead. For terms, consider using `open scoped Classical in` at the term level (not the command level).
+
+Note: This linter can be disabled with `set_option linter.unusedDecidableInType false`
+✔ [3299/3299] Built CollatzShadowing.ReturnBlocks (150s)
+Build completed successfully (3299 jobs).

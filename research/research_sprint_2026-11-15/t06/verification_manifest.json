@@ -1,0 +1,58 @@
+{
+  "recorded_utc": "2026-11-15T20:34:26.214736+00:00",
+  "status": "PASS",
+  "receipts": [
+    {
+      "artifact": "results",
+      "normal_optimized_equal": true,
+      "sha256": "ef1889cc63b03da07b269645a803f2b87fe85a07ff8ca20cb5bccca2989b7a34",
+      "bytes": 338355
+    },
+    {
+      "artifact": "pressure",
+      "normal_optimized_equal": true,
+      "sha256": "9e97bd7e6ef42c29ba2869bd0720d922fd99932587a683636d9e6dc47bc07e7c",
+      "bytes": 67126
+    },
+    {
+      "artifact": "harmonic",
+      "normal_optimized_equal": true,
+      "sha256": "2ecbc5f734f7310fbe812d54f895f8753194280957806dd6da7b0bda92c63f34",
+      "bytes": 235722
+    },
+    {
+      "artifact": "ordinal_adversary",
+      "normal_optimized_equal": true,
+      "sha256": "da0a62e097295642c8d5f4b31fac2c834643a7649ae61c5432a30e2e8bf55c2f",
+      "bytes": 48313
+    }
+  ],
+  "files": {
+    "adversary_protocol.json": "9f058c8d985d919b86b5a0f3bc74fe25ad02abcf7759a7d22a0638c59e89c833",
+    "coupling_harmonic.py": "6440cb6fee652e9850ba024d9d06e06b9ef321a291a0fbe80b181fad5f3d2617",
+    "coupling_policies.py": "01677de254f0953c51594a0d5a78acbc77848d9ebb94c9b5128266ab725d94c4",
+    "coupling_pressure.py": "445aa8bf947100f5d4fbd55f9e8b0ad96115c08b5697f31257cbd5047c21e825",
+    "harmonic.json": "2ecbc5f734f7310fbe812d54f895f8753194280957806dd6da7b0bda92c63f34",
+    "harmonic_optimized.json": "2ecbc5f734f7310fbe812d54f895f8753194280957806dd6da7b0bda92c63f34",
+    "harmonic_protocol.json": "5e7fb988c8a3ae59f7621a23d9e9e51f26b8efdac78446089c59a5b3ed998b02",
+    "harmonic_receipt.json": "ee33045126cfcdd8be86a2bf19d5ba5bfa26ea3dedbc2fe4870aac72b747c93e",
+    "ordinal_adversary.json": "da0a62e097295642c8d5f4b31fac2c834643a7649ae61c5432a30e2e8bf55c2f",
+    "ordinal_adversary.py": "84b8fdccfc8142a50693eb4fbd99386b7c52ed0d5233c7058da933a4264b33cd",
+    "ordinal_adversary_optimized.json": "da0a62e097295642c8d5f4b31fac2c834643a7649ae61c5432a30e2e8bf55c2f",
+    "ordinal_adversary_receipt.json": "0e660ee03f2d3d04396889c14e65ae9f4b4c000990773bfff1eacea94817deb4",
+    "pressure.json": "9e97bd7e6ef42c29ba2869bd0720d922fd99932587a683636d9e6dc47bc07e7c",
+    "pressure_optimized.json": "9e97bd7e6ef42c29ba2869bd0720d922fd99932587a683636d9e6dc47bc07e7c",
+    "pressure_protocol.json": "aef23875d0d9d019ad6e8db31ead5013bb9474ec880c5560dff06c9542cb6e9d",
+    "pressure_receipt.json": "d2b49eb67e9d5cb6ba14728cfc25b46bf00826dbcf25d74ffa7bbde3a771353c",
+    "protocol.json": "78c5110bca8f64ed0db375c1918b5e45fac42a53120c44447365ea9c8f711439",
+    "receipt.json": "2710227c2bf7b18d07bfa7bb1dfb6d62401da50dabb59cf95a0da62d5bffd604",
+    "results.json": "ef1889cc63b03da07b269645a803f2b87fe85a07ff8ca20cb5bccca2989b7a34",
+    "results_optimized.json": "ef1889cc63b03da07b269645a803f2b87fe85a07ff8ca20cb5bccca2989b7a34",
+    "results_receipt.json": "82b4dda564627554a09a6cbec040410d488d3c47a00cbf019176c851abe25f4b"
+  },
+  "exact_guards": [
+    "593 greedy depth18 goodcodefraction>77/100",
+    "goodharmonicfraction<231/1000000",
+    "capacity1 harmonicfraction<49/1000000"
+  ]
+}

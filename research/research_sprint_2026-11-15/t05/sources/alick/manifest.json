@@ -1,0 +1,104 @@
+{
+  "retrieved_at": "2026-11-15T20:09:49.010839+00:00",
+  "repo": "https://github.com/justinalick/collatz-m-cycles-101-lean",
+  "commit": "d18959450f9acb5c0fa8c54310bc799a636d7db4",
+  "committed_at": "2026-09-28T08:09:51Z",
+  "scope": "Selected source-only audit. No external compilation, generated code execution, or dependency change.",
+  "files": {
+    "README.md": {
+      "url": "https://raw.githubusercontent.com/justinalick/collatz-m-cycles-101-lean/d18959450f9acb5c0fa8c54310bc799a636d7db4/README.md",
+      "sha256": "e6aee357ddd0f1c1a5ca25dc65b7f9bf9cd3713cbaab3a7594bf691ddc2bf647",
+      "bytes": 8311
+    },
+    "LICENSE": {
+      "url": "https://raw.githubusercontent.com/justinalick/collatz-m-cycles-101-lean/d18959450f9acb5c0fa8c54310bc799a636d7db4/LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+      "bytes": 11357
+    },
+    "lean-toolchain": {
+      "url": "https://raw.githubusercontent.com/justinalick/collatz-m-cycles-101-lean/d18959450f9acb5c0fa8c54310bc799a636d7db4/lean-toolchain",
+      "sha256": "bc84812c94489d1e3e191baa1dc10d5eb684382d7fe9d2a5ab085e72c1c67e47",
+      "bytes": 29
+    },
+    "lakefile.toml": {
+      "url": "https://raw.githubusercontent.com/justinalick/collatz-m-cycles-101-lean/d18959450f9acb5c0fa8c54310bc799a636d7db4/lakefile.toml",
+      "sha256": "d7f0b538b2d4928ca043a6c246da82a3a6f07a4150defc8d8568bbe88a5ff5c0",
+      "bytes": 346
+    },
+    "lake-manifest.json": {
+      "url": "https://raw.githubusercontent.com/justinalick/collatz-m-cycles-101-lean/d18959450f9acb5c0fa8c54310bc799a636d7db4/lake-manifest.json",
+      "sha256": "e95b7a3366a8b6c58532759d386df156c5aa1fe14c5bcab72afebec3a9e3e275",
+      "bytes": 3149
+    },
+    "Collatz/Defs.lean": {
+      "url": "https://raw.githubusercontent.com/justinalick/collatz-m-cycles-101-lean/d18959450f9acb5c0fa8c54310bc799a636d7db4/Collatz/Defs.lean",
+      "sha256": "d899f99988b864662551a8a861ca5204fd585b905cf4fa0f0033d3e67b1760db",
+      "bytes": 4437
+    },
+    "Collatz/Statements.lean": {
+      "url": "https://raw.githubusercontent.com/justinalick/collatz-m-cycles-101-lean/d18959450f9acb5c0fa8c54310bc799a636d7db4/Collatz/Statements.lean",
+      "sha256": "bb95e4ba9d3dffaae021f311693601f1f148d96f886ff3ba55660d5f71f8bf01",
+      "bytes": 3692
+    },
+    "Collatz/HercherRhin.lean": {
+      "url": "https://raw.githubusercontent.com/justinalick/collatz-m-cycles-101-lean/d18959450f9acb5c0fa8c54310bc799a636d7db4/Collatz/HercherRhin.lean",
+      "sha256": "7aa90267164a36dec9d70fa5eac1ef59d9c299e5b27c818c06b1bb51e11a980d",
+      "bytes": 7525
+    },
+    "Collatz/MCycle101.lean": {
+      "url": "https://raw.githubusercontent.com/justinalick/collatz-m-cycles-101-lean/d18959450f9acb5c0fa8c54310bc799a636d7db4/Collatz/MCycle101.lean",
+      "sha256": "dc25cb2a463a904c77bd6933f4f96dc77473703079114cc48da5cc07e26f532d",
+      "bytes": 4352
+    },
+    "Collatz/MCycleChain.lean": {
+      "url": "https://raw.githubusercontent.com/justinalick/collatz-m-cycles-101-lean/d18959450f9acb5c0fa8c54310bc799a636d7db4/Collatz/MCycleChain.lean",
+      "sha256": "1aaa3cb8aa7c53398b9a55dc22993c7b5e663f44b60a2a6b54faa4660883f93e",
+      "bytes": 21015
+    },
+    "Collatz/MCycleWalk.lean": {
+      "url": "https://raw.githubusercontent.com/justinalick/collatz-m-cycles-101-lean/d18959450f9acb5c0fa8c54310bc799a636d7db4/Collatz/MCycleWalk.lean",
+      "sha256": "f5147f3a53aa7093381e1c9719ce2c87685df5e72b6b1deb1ab678340001066c",
+      "bytes": 17862
+    },
+    "Collatz/TwoRiseCheck.lean": {
+      "url": "https://raw.githubusercontent.com/justinalick/collatz-m-cycles-101-lean/d18959450f9acb5c0fa8c54310bc799a636d7db4/Collatz/TwoRiseCheck.lean",
+      "sha256": "3941dcc065dee3f85aa1be71c97181dcb64f19bc4e657cf7e0d03ae0a0ab017d",
+      "bytes": 37390
+    },
+    "scripts/Statement.lean": {
+      "url": "https://raw.githubusercontent.com/justinalick/collatz-m-cycles-101-lean/d18959450f9acb5c0fa8c54310bc799a636d7db4/scripts/Statement.lean",
+      "sha256": "180efa9e6f8713d3f6d543ceb3b26132e55ce90ec5ca5971af65e696e47395b1",
+      "bytes": 1604
+    },
+    "scripts/AxiomAudit.lean": {
+      "url": "https://raw.githubusercontent.com/justinalick/collatz-m-cycles-101-lean/d18959450f9acb5c0fa8c54310bc799a636d7db4/scripts/AxiomAudit.lean",
+      "sha256": "b0170a3ae3596adf15f35a809e75641ffbb34b9eb43a7140c315daacd3933417",
+      "bytes": 1032
+    },
+    ".github/workflows/lean.yml": {
+      "url": "https://raw.githubusercontent.com/justinalick/collatz-m-cycles-101-lean/d18959450f9acb5c0fa8c54310bc799a636d7db4/.github/workflows/lean.yml",
+      "sha256": "43cb68a862feceb59bd5e1581336b99dce2aeb2b08c1ced32393ecb03c14f88c",
+      "bytes": 779
+    },
+    "Collatz/HercherVertex.lean": {
+      "url": "https://raw.githubusercontent.com/justinalick/collatz-m-cycles-101-lean/d18959450f9acb5c0fa8c54310bc799a636d7db4/Collatz/HercherVertex.lean",
+      "sha256": "0bf60c4484d07551ee8171de1f3b391220356336311d9675b167d65f1e69c391",
+      "bytes": 20087
+    },
+    "Collatz/HercherWindow.lean": {
+      "url": "https://raw.githubusercontent.com/justinalick/collatz-m-cycles-101-lean/d18959450f9acb5c0fa8c54310bc799a636d7db4/Collatz/HercherWindow.lean",
+      "sha256": "6262cb2f94908cdc9f49bc6259f7d67207d8316704e81d2161fe18ec53716673",
+      "bytes": 20486
+    },
+    "Collatz/MCycleSteps.lean": {
+      "url": "https://raw.githubusercontent.com/justinalick/collatz-m-cycles-101-lean/d18959450f9acb5c0fa8c54310bc799a636d7db4/Collatz/MCycleSteps.lean",
+      "sha256": "447f1cff3cc224729333b448799e60cb46b4ef1f4bfbcd80a4911e9c36cdf839",
+      "bytes": 12066
+    },
+    "Collatz/MCycleTwoRiseLo.lean": {
+      "url": "https://raw.githubusercontent.com/justinalick/collatz-m-cycles-101-lean/d18959450f9acb5c0fa8c54310bc799a636d7db4/Collatz/MCycleTwoRiseLo.lean",
+      "sha256": "b7a50a0de29eefbb2496f97521efd6816b68b3d9f26bec8c55bd385e4899ce08",
+      "bytes": 10007
+    }
+  }
+}

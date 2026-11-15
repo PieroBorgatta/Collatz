@@ -1,0 +1,42 @@
+{
+  "agent": "S06",
+  "lean_elaboration": {
+    "result": "PASS",
+    "exit_code": 0,
+    "module": "CollatzShadowing/WordSurgery.lean",
+    "public_theorems": 4,
+    "warnings": "one unnecessarySimpa suggestion"
+  },
+  "finite_experiment": {
+    "result": "PASS",
+    "normal_equals_optimized": true,
+    "scope": "fixed-target odd-source first-arrival surgery, not asymptotic density"
+  },
+  "files": [
+    {
+      "path": "lean/CollatzShadowing/WordSurgery.lean",
+      "bytes": 3567,
+      "sha256": "1593c955d5b4b461bba98be1aae8352dd5caeae4b0ca8b19811d98ef6b375478"
+    },
+    {
+      "path": "notes/research_sprint_2026-11-13/experiments/s06_surgery.py",
+      "bytes": 8663,
+      "sha256": "7a58ec3bee09d30ca9c51e32e250b02b8de817da044e3337884dbbf9d4314215"
+    },
+    {
+      "path": "notes/research_sprint_2026-11-13/verification/s06_surgery.json",
+      "bytes": 60740,
+      "sha256": "9f172a1e976cda65e47419332debaf382b1ced1e6bd055ea5c6c8fcaffd64aeb"
+    },
+    {
+      "path": "notes/research_sprint_2026-11-13/verification/s06_surgery_optimized.json",
+      "bytes": 60740,
+      "sha256": "9f172a1e976cda65e47419332debaf382b1ced1e6bd055ea5c6c8fcaffd64aeb"
+    },
+    {
+      "path": "notes/research_sprint_2026-11-13/verification/s06_surgery_lean.log",
+      "bytes": 162,
+      "sha256": "a610c049f1976e6374c6da2558882eb620b557af346853fb4a2a681be4ce9d43"
+    }
+  ]
+}

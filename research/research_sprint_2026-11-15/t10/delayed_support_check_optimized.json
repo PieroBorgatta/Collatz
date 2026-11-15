@@ -1,0 +1,17 @@
+{
+  "complete_spacing_fiber_checks": 290,
+  "finite_only": true,
+  "inequalities_checked": 192,
+  "maximum_lhs_rhs_ratio": "1/8",
+  "maximum_ratio_fixture": [
+    "1",
+    4,
+    6,
+    1
+  ],
+  "maximum_stopped_length": 8,
+  "nonzero_left_sides": 71,
+  "physical_prefix_checks": 293,
+  "script_sha256": "1cbfab370d54fe56b18a7b272f74b6591026f7b83234d041e2d46687ae846241",
+  "status": "PASS"
+}

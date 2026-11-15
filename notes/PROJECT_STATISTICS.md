@@ -55,8 +55,39 @@ Current counts include every
 or not it was tracked by Git at the time of counting; generated Lean files
 are reported separately.
 
-Source scan of the 26 September 2026 working tree (including the
-new entrypoint imports):
+Current source scan after the 15 November 2026 integration (including the entrypoint):
+
+| Lean source class | files | lines | public `theorem`/`lemma` declarations |
+|---|---:|---:|---:|
+| AI-authored modules and entrypoint | 60 | 15,897 | 682 |
+| Generator-emitted certificates | 26 | 43,513 | 966 |
+| **Total** | **86** | **59,410** | **1,648** |
+
+The seven new modules add 1,402 lines and 56 public theorem declarations; seven
+entrypoint imports bring the line delta to 1,409. The transitive axiom audit
+covers all 136 compiled declarations in these modules, including 14
+encoded-private declarations. These are implementation counts, not 56
+independent mathematical discoveries. Generated certificates and the pinned
+toolchain are unchanged. [Machine-readable counts](research_sprint_2026-11-15/verification/source_statistics.json)
+and [integration evidence](research_sprint_2026-11-15/verification/integration_receipt.json)
+record the scan and verification scope.
+
+Historical source scan after the 13 November 2026 sprint (including the entrypoint):
+
+| Lean source class | files | lines | public `theorem`/`lemma` declarations |
+|---|---:|---:|---:|
+| AI-authored modules and entrypoint | 53 | 14,488 | 626 |
+| Generator-emitted certificates | 26 | 43,513 | 966 |
+| **Total** | **79** | **58,001** | **1,592** |
+
+The ten new modules add 1,279 lines and 69 public declarations; ten entrypoint
+imports bring the total line delta to 1,289. Five private helpers are excluded
+from the public declaration count. These are textual declarations, not 69
+independent discoveries. No generated certificate was changed. Verification
+and provenance are recorded in the [sprint dossier](research_sprint_2026-11-13/REPORT_IT.md).
+
+Historical source scan of the 26 September 2026 working tree (including the
+then-current entrypoint imports):
 
 | Lean source class | files | lines | `theorem`/`lemma` declarations |
 |---|---:|---:|---:|

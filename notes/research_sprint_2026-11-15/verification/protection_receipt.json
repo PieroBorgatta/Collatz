@@ -1,0 +1,22 @@
+{
+  "integration_status": "PASS",
+  "formal_source_snapshot_unchanged": true,
+  "public_theorems": 56,
+  "audit": {
+    "declarations": 136,
+    "encoded_private": 14,
+    "modules": 7
+  },
+  "finite_replay_status": "PASS",
+  "finite_replay_suites": 10,
+  "baseline_changed_paths": [
+    "lean/CollatzShadowing.lean",
+    ".github/workflows/lean.yml",
+    "lean/README.md",
+    "lean/STATUS.md",
+    "README.md"
+  ],
+  "baseline_changes_within_expected_paths": true,
+  "published_snapshot_or_toolchain_changed": false,
+  "meaning": "Historical baseline protected; current formal sources match their successful verification snapshot. No cold or external rebuild."
+}

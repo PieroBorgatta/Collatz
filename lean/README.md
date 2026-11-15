@@ -1,5 +1,22 @@
 # CollatzShadowing — a Lean 4 + Mathlib formalization
 
+**15 November 2026:** the universal reciprocal budget for finite injective
+shortcut trajectories is now formalized with constant `<81`, together with
+the first-arrival Syracuse bridge and universal height for existing
+same-profile images. Seven modules add 56 public theorems; the full build
+passes (3400 jobs), and all 136 new-module declarations pass the strict
+standard-axiom audit. See the [two-hour research report](../notes/research_sprint_2026-11-15/REPORT_IT.md),
+[current status](STATUS.md), and the
+[height derivation](../notes/research_sprint_2026-11-15/ROOT_HEIGHT_IT.md).
+No positive relative mass or Collatz proof is obtained.
+
+**13 November 2026:** [ten new modules](../notes/research_sprint_2026-11-13/REPORT_IT.md)
+integrate root-pool charges, capacity allocation, an exact ternary-atom
+dictionary, relative-flow accounting and parametrically many increasing
+first returns. The integrated build passes (3393 jobs). The uniform
+finite-orbit sparsity and height bounds were then paper results; they are
+superseded by the explicit formal results of 15 November. H and Collatz remain open.
+
 **26 September, H.2:** [signed-transport follow-up](../notes/post_v6_signed_mass_2026-09-26/RESULTS_IT.md) proves on paper that all final-exponent corrections have only o(X) distinct images within a fixed dilation, even with arbitrary dyadic lifts. Six arithmetic lemmas are formalized; H remains open.
 
 A self-contained Lean 4 (Lake) library formalizing the verified core of the

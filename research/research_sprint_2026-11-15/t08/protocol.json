@@ -1,0 +1,103 @@
+{
+  "frozen_utc": "2026-11-15T20:38:00.845245+00:00",
+  "scope": "Independent finite checks of capped predecessor cylinders and exact counting bounds; no asymptotic claim inferred from data.",
+  "cylinders": {
+    "caps": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "lengths": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "lifts": [
+      0,
+      1,
+      2
+    ],
+    "checks": [
+      "exact dyadic residue replay",
+      "pairwise disjoint cylinders via minimum modulus",
+      "exact Fraction total mass theta^r/2"
+    ]
+  },
+  "counting": {
+    "caps": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "targets": [
+      1,
+      5,
+      7,
+      31,
+      85,
+      593,
+      9493
+    ],
+    "odd_sources_max": 8192,
+    "cutoffs": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128,
+      256,
+      512,
+      1024,
+      2048,
+      4096,
+      8192
+    ],
+    "r_values": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "max_new_orbit_steps": 10000,
+    "checks": [
+      "first-arrival cap definition including empty word and periodic target",
+      "finite inequality early+X theta^r/2+M^r for every fixed r",
+      "optimized 3X^alpha bound diagnostic only"
+    ]
+  },
+  "abstract_model": {
+    "depths": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "checks": [
+      "exact mass and support",
+      "projective consistency",
+      "L1 refinement bound 3^-floor(m/2)",
+      "primitive Fourier bound analytic only",
+      "stationarity violation and word-atom integrality failure explicit"
+    ]
+  },
+  "normal_and_optimized_outputs_must_match": true
+}

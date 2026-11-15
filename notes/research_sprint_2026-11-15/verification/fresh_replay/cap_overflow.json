@@ -1,0 +1,1 @@
+{"binomial_checks":1026,"clock_checks":67584,"clock_overflow_events":15,"integer_certificates":4,"lift_checks":67080,"scope":"Exact finite checks of binomial, clock and lift bounds; no asymptotic result inferred from data.","status":"PASS"}

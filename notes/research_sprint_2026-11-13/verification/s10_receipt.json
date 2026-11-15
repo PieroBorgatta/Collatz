@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "normal_equals_optimized": true,
+  "sha256": "51e12422898ca9f9fb4ae0e26b48d4a0c1503e119fe7ce00c3645508c03d8624",
+  "integer_checks": {
+    "entropy_5pow50_lt_2pow69_3pow30": true,
+    "3pow30_lt_2pow49": true,
+    "2_99pow50_gt_100pow50": true
+  },
+  "primary_pdf_temp_path": "/tmp/collatz_s10_curry.pdf",
+  "primary_pdf_sha256": "67daa37d9b1b1b3e3f96af3448fd710c7a683e17a00dc6f314f45a6c36288a76",
+  "scope": "Finite experiments and exact integer comparisons; uniform statements are paper deductions, not Lean."
+}

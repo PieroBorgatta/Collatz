@@ -1,0 +1,25 @@
+{
+  "purpose": "Preserve successful six-module verification before adding the independently reviewed integer-atom tilt module. Original receipt paths remain literal historical paths.",
+  "files": [
+    {
+      "original_path": "notes/research_sprint_2026-11-15/verification/integration_receipt.json",
+      "snapshot_path": "notes/research_sprint_2026-11-15/verification/six_module_snapshot/integration_receipt.json",
+      "sha256": "1a0b679a5a854784ab96f32312dd5b36d8715319bef75f5e43fda31940cdb11c"
+    },
+    {
+      "original_path": "notes/research_sprint_2026-11-15/verification/integrated_build.log",
+      "snapshot_path": "notes/research_sprint_2026-11-15/verification/six_module_snapshot/integrated_build.log",
+      "sha256": "4b861c61ee55ddae244731e7f195c851135a30c2977060b89e12f154842a3a81"
+    },
+    {
+      "original_path": "notes/research_sprint_2026-11-15/verification/all_new_axioms.log",
+      "snapshot_path": "notes/research_sprint_2026-11-15/verification/six_module_snapshot/all_new_axioms.log",
+      "sha256": "2ead95effc58642154b31e3654175a2649522dfefa43ba4708953fa86aeacf40"
+    },
+    {
+      "original_path": "notes/research_sprint_2026-11-15/verification/AllNewDependencyAudit.lean",
+      "snapshot_path": "notes/research_sprint_2026-11-15/verification/six_module_snapshot/AllNewDependencyAudit.lean",
+      "sha256": "dc7a96b3af44272339bd0cb37a7db5f6ae9d622bb8ae87b905215288b70708e0"
+    }
+  ]
+}

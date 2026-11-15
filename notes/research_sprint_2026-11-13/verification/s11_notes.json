@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "scope": "Markdown consistency and local links; no Lean build or analytic verification claimed",
+  "files": [
+    {
+      "path": "notes/phase10_A0_weak_approximation_theorem_2026-05-25.md",
+      "sha256": "8d1d3a65397dd59dbc592c7dd7ec096f54cf0f263500a3d4ed4d2af4bfb51829"
+    },
+    {
+      "path": "notes/phase10_gate10B_conditional_closure.md",
+      "sha256": "b90166702ddf3bdc56a471433f58d89a21e3dd2a3c53ab53e3503cca1371898e"
+    },
+    {
+      "path": "notes/research_sprint_2026-11-13/agents/S11_KERNEL_IT.md",
+      "sha256": "0d829f629ada22fa7580e769bb28c0ecde583911e68255ec1abc1a1ceb08d0a0"
+    }
+  ]
+}

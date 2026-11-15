@@ -1,0 +1,62 @@
+{
+  "scope": "All public theorem declarations in ten new modules",
+  "public_theorem_roots": 69,
+  "sources": [
+    {
+      "module": "RootPoolBudget",
+      "public_theorems": 12,
+      "sha256": "708adbde011385e816eb556baf892d2fc1b8173e8be94441f041ffdcd786491d"
+    },
+    {
+      "module": "ReturnBlocks",
+      "public_theorems": 8,
+      "sha256": "5dfefe3d662a33faf118b96316e340724b48578bfdda5ed4f8d11e99d9c98bfd"
+    },
+    {
+      "module": "JointAtomDictionary",
+      "public_theorems": 10,
+      "sha256": "41ed60218c3467983efa7f41aefa862334fd76aa0137ebcf4cc4773a2f27bd71"
+    },
+    {
+      "module": "AffinePositivity",
+      "public_theorems": 5,
+      "sha256": "378f95a3c266d6eaa0621de49622e4ef69d04a5b9256bfec2b910d246d3fc40e"
+    },
+    {
+      "module": "CapacityAllocation",
+      "public_theorems": 7,
+      "sha256": "8217c43961c04c127cb01c37010a6d4be470491d834da3b2bb94f8719c553701"
+    },
+    {
+      "module": "RelativeMassFlow",
+      "public_theorems": 6,
+      "sha256": "b0ab4b4a61d1c083aa5b64c687d053d70ad07e845936d49d76a245920ac8a8fc"
+    },
+    {
+      "module": "WordSurgery",
+      "public_theorems": 4,
+      "sha256": "1593c955d5b4b461bba98be1aae8352dd5caeae4b0ca8b19811d98ef6b375478"
+    },
+    {
+      "module": "SiblingPool",
+      "public_theorems": 8,
+      "sha256": "851c32eb349dfdb668e2d9b6a2c1bf0891897cd989f022b344d83fa81fa536e9"
+    },
+    {
+      "module": "CycleRotation",
+      "public_theorems": 6,
+      "sha256": "18f19967fe87cc42ed43f649741b76e2e78f5046445831966500eccee7123017"
+    },
+    {
+      "module": "FiniteOrbitTransfer",
+      "public_theorems": 3,
+      "sha256": "c66576be359bd599eb56b46872b8d82adff9fa50c18ed15f777f069713660507"
+    }
+  ],
+  "audit_sha256": "bb38dc365ca7f5c2df3e4a066d8fbd27af6b90db787fbfe9c359662bd3ca6801",
+  "status": "AUDIT_PASSED",
+  "roots_passed": 69,
+  "finished_utc": "2026-11-13T16:23:35.285803+00:00",
+  "receipt": "s14_receipt.json",
+  "log": "s14_all_new_axioms.log"
+}

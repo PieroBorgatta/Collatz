@@ -1,0 +1,50 @@
+Unintegrated candidate proof, not a verified declaration of the library.
+
+/-- An exact path staying above M obeys the cross-multiplied product bound.
+This avoids logarithms and holds for any finite path, not only cycles. -/
+theorem path_minimum_product_bound (w : List ℕ) (n M : ℕ)
+    (hm : SyracuseWordMatchesFrom w n)
+    (hmin : ∀ j < w.length, M ≤ S^[j] n) :
+    2 ^ w.sum * M ^ w.length * evalSyracuseWord w n ≤
+      (3 * M + 1) ^ w.length * n := by
+  induction w generalizing n with
+  | nil => simp [evalSyracuseWord]
+  | cons a rest ih =>
+      rcases hm with ⟨ha, hrest⟩
+      have hstep : syracuseStepWithExponent a n = S n := by
+        simp [syracuseStepWithExponent, S, syracuseNumerator, ha]
+      have hmul := pow_mul_syracuseStepWithExponent_eq_of_exponent ha
+      rw [hstep] at hmul
+      have hzero : M ≤ n := by simpa using hmin 0 (by simp)
+      have hrestmin : ∀ j < rest.length, M ≤ S^[j] (S n) := by
+        intro j hj
+        simpa only [Function.iterate_succ_apply] using hmin (j + 1) (by simpa using hj)
+      have htail := ih (S n) hrest hrestmin
+      have hfirst : 2 ^ a * M * S n ≤ (3 * M + 1) * n := by
+        calc
+          _ = M * (2 ^ a * S n) := by ring
+          _ = M * (3 * n + 1) := by rw [hmul]
+          _ ≤ (3 * M + 1) * n := by nlinarith
+      calc
+        _ = (2 ^ a * M) *
+            (2 ^ rest.sum * M ^ rest.length * evalSyracuseWord rest (S n)) := by
+          simp only [List.sum_cons, List.length_cons, evalSyracuseWord, hstep,
+            pow_add, pow_succ]
+          ring
+        _ ≤ (2 ^ a * M) * ((3 * M + 1) ^ rest.length * S n) :=
+          Nat.mul_le_mul_left _ htail
+        _ = (3 * M + 1) ^ rest.length * (2 ^ a * M * S n) := by ring
+        _ ≤ (3 * M + 1) ^ rest.length * ((3 * M + 1) * n) :=
+          Nat.mul_le_mul_left _ hfirst
+        _ = _ := by rw [List.length_cons, pow_succ]; ring
+
+/-- An exact positive cycle with minimum at least M satisfies an integer
+gap constraint. A computational lower bound for its minimum remains an
+external premise until separately certified. -/
+theorem cycle_minimum_product_bound (w : List ℕ) (n M : ℕ) (hn : 0 < n)
+    (hm : SyracuseWordMatchesFrom w n) (hclosed : evalSyracuseWord w n = n)
+    (hmin : ∀ j < w.length, M ≤ S^[j] n) :
+    2 ^ w.sum * M ^ w.length ≤ (3 * M + 1) ^ w.length := by
+  have h := path_minimum_product_bound w n M hm hmin
+  rw [hclosed] at h
+  exact Nat.le_of_mul_le_mul_right h hn

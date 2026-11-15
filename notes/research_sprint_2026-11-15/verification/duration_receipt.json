@@ -1,0 +1,13 @@
+{
+  "research_start_utc": "2026-11-15T19:42:22+00:00",
+  "research_stop_utc": "2026-11-15T21:42:38+00:00",
+  "research_start_Europe_Rome": "2026-11-15T20:42:22+01:00",
+  "research_stop_Europe_Rome": "2026-11-15T22:42:38+01:00",
+  "research_elapsed_seconds": 7216,
+  "minimum_requested_seconds": 7200,
+  "minimum_satisfied": true,
+  "new_exploration_stopped": true,
+  "synthesis_after_research_stop": true,
+  "verification_before_synthesis": "PASS: seven modules, 56 public theorems, 136 declarations including14 encoded-private, ten finite replays",
+  "synthesis_started_utc": "2026-11-15T21:42:53.023854+00:00"
+}

@@ -1,0 +1,97 @@
+{
+  "started_utc": "2026-11-13T16:09:20.906869+00:00",
+  "scope": "Pinned incremental builds; at most two new independent modules per phase.",
+  "phases": [
+    {
+      "command": [
+        "lake",
+        "build",
+        "CollatzShadowing.RootPoolBudget",
+        "CollatzShadowing.CapacityAllocation"
+      ],
+      "exit_code": 0,
+      "source_unchanged": true,
+      "elapsed_seconds": 169.929,
+      "log": "verification/build_pair_01.log",
+      "log_sha256": "3ee0bf7e97d0596742b4cc97f8bee04c59ee61ae1eeb4f07a973facf4bdfad02"
+    },
+    {
+      "command": [
+        "lake",
+        "build",
+        "CollatzShadowing.ReturnBlocks",
+        "CollatzShadowing.RelativeMassFlow"
+      ],
+      "exit_code": 0,
+      "source_unchanged": true,
+      "elapsed_seconds": 160.523,
+      "log": "verification/build_pair_02.log",
+      "log_sha256": "45e05a7dded6d5f0d1db89a60701187e3e07e79876a03b70d103fc747326945d"
+    },
+    {
+      "command": [
+        "lake",
+        "build",
+        "CollatzShadowing.WordSurgery",
+        "CollatzShadowing.CycleRotation"
+      ],
+      "exit_code": 0,
+      "source_unchanged": true,
+      "elapsed_seconds": 147.492,
+      "log": "verification/build_pair_03.log",
+      "log_sha256": "3769899df9b1328da711ee8b07598342044891cde9e1a483be0f2ffb80dc9673"
+    },
+    {
+      "command": [
+        "lake",
+        "build",
+        "CollatzShadowing.SiblingPool",
+        "CollatzShadowing.FiniteOrbitTransfer"
+      ],
+      "exit_code": 0,
+      "source_unchanged": true,
+      "elapsed_seconds": 144.988,
+      "log": "verification/build_pair_04.log",
+      "log_sha256": "7b29f12d8719c9fe00a4ad88bcec73e10d8bdc7372d0a23947f8fe9cade969f2"
+    },
+    {
+      "command": [
+        "lake",
+        "build",
+        "CollatzShadowing.JointAtomDictionary",
+        "CollatzShadowing.AffinePositivity"
+      ],
+      "exit_code": 0,
+      "source_unchanged": true,
+      "elapsed_seconds": 7.634,
+      "log": "verification/build_pair_05.log",
+      "log_sha256": "f5381876be5d6eae870ab3047513d700a4faee7d91b418bc37d9953650af5698"
+    },
+    {
+      "command": [
+        "lake",
+        "build"
+      ],
+      "exit_code": 0,
+      "source_unchanged": true,
+      "elapsed_seconds": 119.476,
+      "log": "verification/integrated_build.log",
+      "log_sha256": "ac009215f6cc25a49dacd6d325c71d51a1c18165f632f6d1fcc638af5e48c945"
+    }
+  ],
+  "status": "PASS",
+  "finished_utc": "2026-11-13T16:21:50.972496+00:00",
+  "sources": {
+    "lean/CollatzShadowing/RootPoolBudget.lean": "708adbde011385e816eb556baf892d2fc1b8173e8be94441f041ffdcd786491d",
+    "lean/CollatzShadowing/CapacityAllocation.lean": "8217c43961c04c127cb01c37010a6d4be470491d834da3b2bb94f8719c553701",
+    "lean/CollatzShadowing/ReturnBlocks.lean": "5dfefe3d662a33faf118b96316e340724b48578bfdda5ed4f8d11e99d9c98bfd",
+    "lean/CollatzShadowing/RelativeMassFlow.lean": "b0ab4b4a61d1c083aa5b64c687d053d70ad07e845936d49d76a245920ac8a8fc",
+    "lean/CollatzShadowing/WordSurgery.lean": "1593c955d5b4b461bba98be1aae8352dd5caeae4b0ca8b19811d98ef6b375478",
+    "lean/CollatzShadowing/CycleRotation.lean": "18f19967fe87cc42ed43f649741b76e2e78f5046445831966500eccee7123017",
+    "lean/CollatzShadowing/SiblingPool.lean": "851c32eb349dfdb668e2d9b6a2c1bf0891897cd989f022b344d83fa81fa536e9",
+    "lean/CollatzShadowing/FiniteOrbitTransfer.lean": "c66576be359bd599eb56b46872b8d82adff9fa50c18ed15f777f069713660507",
+    "lean/CollatzShadowing/JointAtomDictionary.lean": "41ed60218c3467983efa7f41aefa862334fd76aa0137ebcf4cc4773a2f27bd71",
+    "lean/CollatzShadowing/AffinePositivity.lean": "378f95a3c266d6eaa0621de49622e4ef69d04a5b9256bfec2b910d246d3fc40e",
+    "lean/CollatzShadowing.lean": "59183414c92f9862a9ad6f6b6143245aa0812971546030cf670f09ca349ef6d0"
+  }
+}

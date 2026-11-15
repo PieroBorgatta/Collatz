@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "command": "lake env lean CollatzShadowing/TraceDensityBridge.lean",
+  "exit_code": 0,
+  "finished_utc": "2026-11-15T20:08:22.899807+00:00",
+  "source_sha256": "ecc3d5ec9398cfaa7b6c391810cb590c0adfcbd8a41137213d3729a185ce9a83",
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "log_bytes": 0,
+  "public_theorems": [
+    "CollatzShadowing.TraceDensityBridge.density_of_trace_comparison",
+    "CollatzShadowing.TraceDensityBridge.trace_of_density_comparison",
+    "CollatzShadowing.TraceDensityBridge.density_of_trace_floor_and_upper",
+    "CollatzShadowing.TraceDensityBridge.summed_density_of_normalized_trace_comparison"
+  ],
+  "forbidden_token_hits": [],
+  "dependency_axiom_audit": "deferred to root integration audit",
+  "external_source_imported": false,
+  "harnack_assumption_proved": false
+}

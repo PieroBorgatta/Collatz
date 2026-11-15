@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "finite_checks_only": true,
+  "profiles": 800,
+  "word_target_cases": 25720,
+  "admissible_words": 348,
+  "cutoff_checks": 1740,
+  "domain": {
+    "length": [
+      1,
+      5
+    ],
+    "total": "k..k+7",
+    "odd_target": [
+      1,
+      39
+    ]
+  },
+  "even_target_counterexample": {
+    "target": 2,
+    "word": [
+      1
+    ],
+    "affine_source": 1,
+    "actual_accelerated_target": 1
+  }
+}

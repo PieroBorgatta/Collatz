@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "scope": {
+    "length": [
+      1,
+      6
+    ],
+    "exponents": [
+      1,
+      4
+    ]
+  },
+  "words_checked": 5460,
+  "positive_closed_words": [
+    {
+      "word": [
+        2
+      ],
+      "source": 1
+    },
+    {
+      "word": [
+        2,
+        2
+      ],
+      "source": 1
+    },
+    {
+      "word": [
+        2,
+        2,
+        2
+      ],
+      "source": 1
+    },
+    {
+      "word": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "source": 1
+    },
+    {
+      "word": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "source": 1
+    },
+    {
+      "word": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "source": 1
+    }
+  ],
+  "finite_check_only": true
+}

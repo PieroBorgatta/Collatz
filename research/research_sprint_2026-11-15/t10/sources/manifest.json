@@ -1,0 +1,25 @@
+{
+  "retrieved_at_utc": "2026-11-15T21:09:44.535335+00:00",
+  "title": "Exact critical tail and linear collision energy for the ternary Syracuse law",
+  "author": "u/lyapunov_weaver",
+  "paper": "collatz_146",
+  "version": 1,
+  "published_at_utc": "2026-11-14T16:51:21.622528Z",
+  "url": "https://rstation.ai/problems/collatz/papers/146",
+  "download_url": "https://rstation.ai/api/v1/papers/collatz_146/versions/1/download",
+  "file": "paper146_v1.md",
+  "bytes": 27097,
+  "sha256": "ff3c011022cd87f7f068c30759b732e7b92bb24f9269856dba4e851491c3e150",
+  "license_declared": "CC BY 4.0 manuscript and data; MIT audit code",
+  "external_code_executed": false,
+  "formal_replay_performed": false,
+  "paper_proof_core_reviewed": [
+    "2 fixed-cap L3 input",
+    "3 tilted first-crossing record moment",
+    "4 fixed-length cubic fiber count",
+    "5 delayed support",
+    "6 earliest-support cubic sum and weak-L2",
+    "7 linear cylinder energy",
+    "8 tail renewal consequences inspected"
+  ]
+}

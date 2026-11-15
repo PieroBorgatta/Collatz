@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "scope": "Independent exact finite replay; not an asymptotic proof",
+  "normal_exit_code": 0,
+  "optimized_exit_code": 0,
+  "outputs_identical": true,
+  "script": "experiments/s13_independent.py",
+  "script_sha256": "dc7a812afadf62242f7e39fc2975e820e62aa88cb726bad2611b6503f0b37d0d",
+  "result": "verification/s13_independent.json",
+  "result_sha256": "ec661b454ad2d14083fd6897b9455f9b6d2ffce27006417851ad54cd86c685c1",
+  "primary_reference": "verification/s06_surgery.json",
+  "primary_reference_sha256": "9f172a1e976cda65e47419332debaf382b1ced1e6bd055ea5c6c8fcaffd64aeb",
+  "independent_method": "Physical inverse steps at every valuation, without terminal congruence prefilter or affine source formula; ordinary-step forward validation; separate shortcut finite segments"
+}

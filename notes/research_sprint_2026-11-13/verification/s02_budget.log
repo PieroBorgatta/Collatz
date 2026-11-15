@@ -1,0 +1,14 @@
+⚠ [3295/3295] Built CollatzShadowing.RootPoolBudget (138s)
+warning: CollatzShadowing/RootPoolBudget.lean:70:0: `sum_labeled_normalizedWeight_le` does not use the following hypothesis in its type:
+  • [DecidableEq ι] (#2)
+
+Consider removing this hypothesis and using `classical` in the proof instead. For terms, consider using `open scoped Classical in` at the term level (not the command level).
+
+Note: This linter can be disabled with `set_option linter.unusedDecidableInType false`
+warning: CollatzShadowing/RootPoolBudget.lean:229:0: `sum_labeled_reciprocalWeight_pool_le` does not use the following hypothesis in its type:
+  • [DecidableEq ι] (#2)
+
+Consider removing this hypothesis and using `classical` in the proof instead. For terms, consider using `open scoped Classical in` at the term level (not the command level).
+
+Note: This linter can be disabled with `set_option linter.unusedDecidableInType false`
+Build completed successfully (3295 jobs).

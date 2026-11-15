@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-11-15T20:56:35.270326+00:00",
+  "normal_optimized_identical": true,
+  "output_sha256": "16a31bdd22ae5ef3c67d4a027729c1b9c09f191e4a07cb0b96b76b9de41bd442",
+  "pointwise_checks": 364,
+  "levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "finite_only": true,
+  "script_sha256": "23f1d3d3173353b4dc9929920c72edefc91fcf5cfb63e7a220d14275db9b5fb0"
+}

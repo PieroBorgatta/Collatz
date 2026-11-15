@@ -1,0 +1,10 @@
+import CollatzShadowing.SiblingPool
+
+#print axioms CollatzShadowing.SiblingPool.nonrecurrentPool_mono
+#print axioms CollatzShadowing.SiblingPool.sibling_range_nonrecurrent
+#print axioms CollatzShadowing.SiblingPool.sibling_subpool_nonrecurrent
+#print axioms CollatzShadowing.SiblingPool.canonical_range_nonrecurrent
+#print axioms CollatzShadowing.SiblingPool.canonical_finite_nonrecurrent
+#print axioms CollatzShadowing.SiblingPool.canonical_word_charge_le
+#print axioms CollatzShadowing.SiblingPool.canonical_finite_word_charge_le
+#print axioms CollatzShadowing.SiblingPool.canonical_labeled_word_charge_le

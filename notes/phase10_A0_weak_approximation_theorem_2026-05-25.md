@@ -2,9 +2,12 @@
 
 Date: 2026-05-25
 
-Status: conditional theorem skeleton.  This is the current clean target for
-Gate 10.B.  It is not a proof of Collatz, not a spectral gap, and not a
-Lasota-Yorke theorem.
+Status: conditional theorem skeleton, corrected 2026-11-13. The finite
+action-error inequality remains valid. The original conclusion that
+successive drifts tending to zero imply Cauchy convergence is withdrawn;
+the additional compatibility and convergence hypotheses below are needed.
+This is not a proof of Collatz, a spectral gap, or a Lasota-Yorke theorem.
+See the [November correction and branch-clock lemma](research_sprint_2026-11-13/agents/S11_KERNEL_IT.md).
 
 ## Object
 
@@ -66,6 +69,11 @@ Current status:
 ```text
 finite evidence positive, theorem open.
 ```
+
+This is a necessary drift target, not a sufficient Cauchy criterion.
+For example, the one-state substochastic kernels
+`K_{2^m}=(1+sin(log(m+1)))/2` have successive differences tending to zero
+and do not converge.
 
 ### A0W3. Exceptional-Source Tail
 
@@ -145,17 +153,30 @@ with uniform constant `C_I`:
 ||I_N g||_{B_w} <= C_I ||g||_{L1(mu_N)}.
 ```
 
-### A0W7. Limit Operator Convention
+### A0W7. Common Space and Additional Convergence Hypothesis
 
-There is a declared killed weighted operator `U` such that the finite
-approximants are compared by:
+Declare `A_N=I_N K_N E_N` in one common space of bounded operators
+`B_s -> B_w`. A bound on `I_N(K_{2N}-K_N)E_N` does not by itself bound
+`A_{2N}-A_N` when the maps or finite alphabets vary: comparison maps and
+their compatibility errors must be supplied.
+
+A sufficient norm-convergence hypothesis is a nonnegative summable
+sequence `a_m` with
 
 ```text
-I_N K_N E_N -> U
+||A_{2^(m+1)}-A_{2^m}||_{B_s -> B_w} <= a_m,
+sum_m a_m < infinity.
 ```
 
-in `B_s -> B_w`, or else the statement is explicitly restricted to Cauchy
-convergence of the approximants `I_N K_N E_N`.
+The error `a_m` must include the drift, bookkeeping, truncation, exceptional
+tail and comparison-map errors at the declared cutoffs. In a complete
+operator-norm space this proves convergence along dyadic scales by the
+triangle inequality. Convergence on all scales requires an additional
+interpolation/comparison estimate. Alternatively, a direct Cauchy estimate
+between arbitrary sufficiently large scales, or an independently proved
+sampling/conditional-expectation convergence theorem, can be used.
+Identifying the resulting limit with a specified killed operator `U` is
+a separate obligation; assuming convergence to `U` is not a proof of it.
 
 ## Conclusion
 
@@ -166,7 +187,7 @@ Under A0W1-A0W7:
   <= C_E C_I (D_N + r_N + tau_{N,L} + exceptional_tail_N).
 ```
 
-If:
+The conditions:
 
 ```text
 D_N -> 0,
@@ -175,14 +196,13 @@ tau_{N,L} -> 0,
 lim_R limsup_N exceptional_tail_{N,R} -> 0,
 ```
 
-then the A0 finite-rank approximants are Cauchy in the declared weak operator
-topology:
-
-```text
-I_N K_N E_N
-```
-
-has a weak limit or approximates the declared `U`, depending on A0W7.
+give vanishing successive finite action errors only. They do not imply
+that the approximants are Cauchy. The original claim to that effect is
+superseded by the strengthened A0W7 above. A summable bound for the full
+dyadic increments gives norm convergence on dyadic scales; a weaker
+topology needs its own Cauchy/completeness argument. A rate such as
+`a_m <= C*2^(-alpha*m)`, `alpha>0`, would suffice, but is not proved for
+the full A0 kernel here.
 
 ## Lean-Formalized Part
 
@@ -202,10 +222,10 @@ finite weighted row-L1 drift controls finite ell_infty -> L1 action error.
 So Lean now covers the algebraic finite bridge.  The open work is analytic:
 
 ```text
-D_N -> 0,
+compatible, summably controlled full increments (or another Cauchy theorem),
 low-v2 decay after the exact high-v2 source-tail count,
 E_N/I_N Banach bounds,
-limit operator convention.
+identification of the limit operator.
 ```
 
 ## What This Still Does Not Prove
@@ -224,10 +244,11 @@ That second theorem is not currently established.
 
 ## Immediate Next Task
 
-The next proof-level task is A0W2:
+The next proof-level task is the strengthened A0W2/A0W7 combination:
 
 ```text
-prove or falsify the two-parameter Cauchy/tail statement.
+prove a summable dyadic error bound, or a direct arbitrary-scale Cauchy
+estimate, with the tail and comparison-map errors included.
 ```
 
 Computationally, the next useful support script should not add new features.

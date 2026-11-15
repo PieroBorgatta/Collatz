@@ -1,0 +1,19 @@
+{
+  "status": "COMPLETE_WITH_PAPER_HYPOTHESES_EXPLICIT",
+  "frozen_at_utc": "2026-11-15T20:46:49.108268+00:00",
+  "new_lean_modules": 0,
+  "independent_review": "T09 criterion/model; block escape appendix pending fresh reviewer",
+  "countermodel_output_sha256": "2f07bebc3e73d7890251bc1d32dc8674aac7b55e62f4579c1788823351f1933d",
+  "cross_energy_output_sha256": "cf5588e9ea7433e87e3fef269cd83b3f4c6347731514c16ea8936864c10dcf33",
+  "files": {
+    "/Volumes/AFUOCO/SVILUPPO/TEORIE/Collatz/notes/research_sprint_2026-11-15/agents/T07_ENERGY_OCCUPATION_IT.md": "b521a332ff120126d4c908719f204912fedcbb8543d758b89fbd4b7a5abc4d60",
+    "/Volumes/AFUOCO/SVILUPPO/TEORIE/Collatz/research/research_sprint_2026-11-15/t07/check_countermodel.py": "20fcac81251ac789c316a66ae1e2516ae754db0da919851ccde96b15bffd66a6",
+    "/Volumes/AFUOCO/SVILUPPO/TEORIE/Collatz/research/research_sprint_2026-11-15/t07/check_cross_energy.py": "6f3735cbbbdad4e358c81a9828ab03fc44989fa5431c21d60c23841100c533a7",
+    "/Volumes/AFUOCO/SVILUPPO/TEORIE/Collatz/research/research_sprint_2026-11-15/t07/countermodel_check.json": "2f07bebc3e73d7890251bc1d32dc8674aac7b55e62f4579c1788823351f1933d",
+    "/Volumes/AFUOCO/SVILUPPO/TEORIE/Collatz/research/research_sprint_2026-11-15/t07/countermodel_check_optimized.json": "2f07bebc3e73d7890251bc1d32dc8674aac7b55e62f4579c1788823351f1933d",
+    "/Volumes/AFUOCO/SVILUPPO/TEORIE/Collatz/research/research_sprint_2026-11-15/t07/cross_energy_check.json": "cf5588e9ea7433e87e3fef269cd83b3f4c6347731514c16ea8936864c10dcf33",
+    "/Volumes/AFUOCO/SVILUPPO/TEORIE/Collatz/research/research_sprint_2026-11-15/t07/cross_energy_check_optimized.json": "cf5588e9ea7433e87e3fef269cd83b3f4c6347731514c16ea8936864c10dcf33",
+    "/Volumes/AFUOCO/SVILUPPO/TEORIE/Collatz/research/research_sprint_2026-11-15/t07/cross_energy_protocol.json": "1f070647ac1a144bff0442b7a917297b7e4a26852ba419e06413203a01447668",
+    "/Volumes/AFUOCO/SVILUPPO/TEORIE/Collatz/research/research_sprint_2026-11-15/t07/protocol.json": "a1981694cfbeebd372894539ae330f4cbaec3c4f0409cacba8e669b3dfece01c"
+  }
+}

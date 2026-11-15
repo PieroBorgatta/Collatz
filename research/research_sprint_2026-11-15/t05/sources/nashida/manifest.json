@@ -1,0 +1,69 @@
+{
+  "retrieved_at": "2026-11-15T20:14:07.683075+00:00",
+  "repo": "https://github.com/harappa/collatz-fixed-barrier-power-saving",
+  "commit": "976fffb160744c56f1f26912f7bd23d195fe02d2",
+  "committed_at": "2026-09-27T09:00:24Z",
+  "scope": "Selected source-only audit; no external execution, replay or dependency change.",
+  "files": {
+    "README.md": {
+      "url": "https://raw.githubusercontent.com/harappa/collatz-fixed-barrier-power-saving/976fffb160744c56f1f26912f7bd23d195fe02d2/README.md",
+      "sha256": "dc193798c5498ebab968338c29b65540b927dcf2c00cf3880433eb0d40a92fa5",
+      "bytes": 23420
+    },
+    "LICENSE": {
+      "url": "https://raw.githubusercontent.com/harappa/collatz-fixed-barrier-power-saving/976fffb160744c56f1f26912f7bd23d195fe02d2/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "bytes": 11357
+    },
+    "NOTICE": {
+      "url": "https://raw.githubusercontent.com/harappa/collatz-fixed-barrier-power-saving/976fffb160744c56f1f26912f7bd23d195fe02d2/NOTICE",
+      "sha256": "3632df6d7b01ff13601b31f05cf4aa71aaa2936702c322f2c334c8be46bd5cc4",
+      "bytes": 3102
+    },
+    "lean-toolchain": {
+      "url": "https://raw.githubusercontent.com/harappa/collatz-fixed-barrier-power-saving/976fffb160744c56f1f26912f7bd23d195fe02d2/lean-toolchain",
+      "sha256": "ce4c4e3d87434b9663f46de25ce34b48a0cf0d392e0a320a0787b4674a2d7b61",
+      "bytes": 29
+    },
+    "lake-manifest.json": {
+      "url": "https://raw.githubusercontent.com/harappa/collatz-fixed-barrier-power-saving/976fffb160744c56f1f26912f7bd23d195fe02d2/lake-manifest.json",
+      "sha256": "88da254953f442532314a086e82ad6dd2fda8e6788bf94bd11af2e87db921d23",
+      "bytes": 3151
+    },
+    "CollatzND/Core/Main.lean": {
+      "url": "https://raw.githubusercontent.com/harappa/collatz-fixed-barrier-power-saving/976fffb160744c56f1f26912f7bd23d195fe02d2/CollatzND/Core/Main.lean",
+      "sha256": "745a1c9e117eaebb71d9a440a322c0fb42c3ba051e2e9e7d9ca2892e63c61b13",
+      "bytes": 2563
+    },
+    "CollatzND/Core/Uniform.lean": {
+      "url": "https://raw.githubusercontent.com/harappa/collatz-fixed-barrier-power-saving/976fffb160744c56f1f26912f7bd23d195fe02d2/CollatzND/Core/Uniform.lean",
+      "sha256": "bae8cbbce5e9de4513613f9314429a0a4ac01b5df1f18a2758778af9a5234136",
+      "bytes": 32284
+    },
+    "CollatzND/Core/Explicit.lean": {
+      "url": "https://raw.githubusercontent.com/harappa/collatz-fixed-barrier-power-saving/976fffb160744c56f1f26912f7bd23d195fe02d2/CollatzND/Core/Explicit.lean",
+      "sha256": "bd50f9ce15d53d61fff7fb19a6d9e64af1e7c8d9c936c047a33f93d3178aa897",
+      "bytes": 13507
+    },
+    "CollatzND/Core/Col.lean": {
+      "url": "https://raw.githubusercontent.com/harappa/collatz-fixed-barrier-power-saving/976fffb160744c56f1f26912f7bd23d195fe02d2/CollatzND/Core/Col.lean",
+      "sha256": "3724b4ad95b83f3cb4857f393d5e70704fd9629d21e09c37909a74827a56d00d",
+      "bytes": 4825
+    },
+    "CollatzND/Spec.lean": {
+      "url": "https://raw.githubusercontent.com/harappa/collatz-fixed-barrier-power-saving/976fffb160744c56f1f26912f7bd23d195fe02d2/CollatzND/Spec.lean",
+      "sha256": "5deef56a97c50409d9cec7bfdab146042785543e95f14a522f7e4ef0cb323f47",
+      "bytes": 3265
+    },
+    "verify/Stmt.lean": {
+      "url": "https://raw.githubusercontent.com/harappa/collatz-fixed-barrier-power-saving/976fffb160744c56f1f26912f7bd23d195fe02d2/verify/Stmt.lean",
+      "sha256": "104ee703d9fa7ac708cf41a8d60c5bbe6eeb227271dd05ed1a3216452bd9232f",
+      "bytes": 1733
+    },
+    "verify/Replay.lean": {
+      "url": "https://raw.githubusercontent.com/harappa/collatz-fixed-barrier-power-saving/976fffb160744c56f1f26912f7bd23d195fe02d2/verify/Replay.lean",
+      "sha256": "df868d3ac5da7d431205e590d6b5c1e19368e093961339ee7cd3e31d82f3e58f",
+      "bytes": 3503
+    }
+  }
+}

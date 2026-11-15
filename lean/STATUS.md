@@ -1,10 +1,76 @@
 # Current mathematical status
 
-Updated 2026-09-26. The published v1–v6 Zenodo PDFs are frozen snapshots.
+Updated 2026-11-15. The published v1–v6 Zenodo PDFs are frozen snapshots.
 Published [v6](https://doi.org/10.5281/zenodo.22936057) includes the erratum
 to v4; subsequent working-tree developments are separate from its frozen
 supplementary archive. This working tree targets pinned Lean v4.29.1 and Mathlib
 v4.29.1; portability to later toolchains has not been checked.
+
+**Research integration, 15 November:** seven new modules add 56 public theorem
+declarations. The integrated library build passes (3400 jobs). A transitive
+audit covers all 136 declarations in these modules, including 14 encoded-private
+helpers, using only `propext`, `Classical.choice`, and `Quot.sound`.
+The [integration receipt](../notes/research_sprint_2026-11-15/verification/integration_receipt.json)
+binds the checked sources and logs; ten finite replay suites also pass with
+identical normal and optimized output.
+
+- `OrbitReciprocal` proves the universal finite-injective-shortcut reciprocal
+  budget `133547/1655 < 81` by exact parity moments and finite geometric sums.
+  No external sparse-window or entropy theorem is assumed.
+- `FirstArrivalBudget` and `WordProductEnvelope` connect actual odd Syracuse
+  first arrivals to shortcut first arrivals and prove height `21*exp(27)*u`
+  for every existing same-profile image at the canonical sibling. Different
+  profiles are also allowed under an explicit bounded homogeneous-slope ratio.
+  Existence and a positive mass of images are not conclusions.
+- `IntegerAtomTilt` bounds tilted integer-atom mass by `2*n^2`, including
+  one shared budget across all depths at a nonreturning target. Its cutoff
+  and Cesaro applications are paper deductions, with no new analytic axiom.
+- `TwoEditSparsity` proves the full residual identities/divisibility and an
+  elementary exponent budget. The subpolynomial sparsity argument using
+  Evertse and its terminal-block extension remain paper proofs.
+- `TraceDensityBridge` is conditional algebra; no external density or trace
+  theorem has been imported. `CycleMinimumProduct` proves classical integer
+  minimum-product and logarithmic-gap constraints without a Rhin input or a
+  computational verification premise.
+
+See the [two-hour research report](../notes/research_sprint_2026-11-15/REPORT_IT.md),
+the [height derivation](../notes/research_sprint_2026-11-15/ROOT_HEIGHT_IT.md),
+and [research protocol](../notes/research_sprint_2026-11-15/PROTOCOL_IT.md).
+H, its outgoing-mass obligation, and the general cycle problem remain open.
+
+**Research sprint, 13 November:** ten new modules add 69 public theorem
+declarations, with no new proof placeholders, native decisions or declared
+axioms. The integrated main build passes (3393 jobs, exit 0), with only
+nonblocking linter notices. A strict audit of all 69 new public roots
+passes using only `propext`, `Classical.choice`, and `Quot.sound`.
+The [verification dossier](../notes/research_sprint_2026-11-13/REPORT_IT.md)
+records the dependency-audit result and source hashes.
+
+- `RootPoolBudget` and `SiblingPool` formalize shared dissipative charges
+  and the stronger reciprocal charge for an entire nonrecurrent pool,
+  including canonical siblings. The pool mechanism is attributed to
+  Shaik's pinned sources and proved independently in this toolchain.
+- `CapacityAllocation` supplies a finite threshold certificate; its lower
+  mass is an explicit input. `RelativeMassFlow` records relative-mass,
+  image-load and finite disjoint-block obligations without proving H.
+- `JointAtomDictionary` and `AffinePositivity` connect exact positive odd
+  predecessors to full ternary congruences, prove automatic positivity,
+  and count same-length catalogues without source duplication.
+- `ReturnBlocks` proves arbitrarily many increasing first returns;
+  `WordSurgery` and `CycleRotation` supply exact arithmetic constraints.
+- `FiniteOrbitTransfer` proves that deleting at most N terminal points
+  lets an N-step injectivity estimate apply to an injective finite orbit.
+  The numerical sparse-window estimate is still an explicit hypothesis
+  in that module. At that date the universal reciprocal/product and height
+  bounds were paper deductions; the 15 November modules above now prove a
+  stronger explicit bound and its first-arrival application in Lean.
+
+The same sprint corrects the historical Cauchy and Haar-sampling sketches.
+A clock-only convergence estimate is proved on paper for one explicit
+macro branch; it does not close Gate 10.B. The finite profile-matching
+experiment and the relative mass fraction eta are distinguished from
+asymptotic conclusions. No new analytic density dependency was imported,
+no new tower level was computed, and no v7 was published.
 
 **Signed-transport follow-up, 26 September (H.2):** the full multivalued
 relation changing only the final exponent has o(X) distinct output images

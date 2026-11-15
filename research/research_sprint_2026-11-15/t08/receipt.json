@@ -1,0 +1,64 @@
+{
+  "recorded_utc": "2026-11-15T20:56:03.596461+00:00",
+  "checks": {
+    "capped_check": {
+      "status": "PASS",
+      "normal_optimized_identical": true,
+      "sha256": "9f063fc17baabffd9c99edbe0242296f079ac51bb5edfdb7b6587248adf720cd",
+      "bytes": 41934,
+      "cylinder_replays": 3822,
+      "disjoint_pairs_checked": 241627,
+      "odd_sources_checked": 4096,
+      "max_distinct_steps_observed": 97,
+      "finite_fraction_inequalities_checked": 5292,
+      "optimized_float_diagnostics": 490,
+      "ordinary_float_diagnostics": 490
+    },
+    "abstract_check": {
+      "status": "PASS",
+      "normal_optimized_identical": true,
+      "sha256": "10a50cd93dc0c35ce6ee5e6b4bd35d10010df8ad6fbf7d557cf5835bca3f99a0",
+      "bytes": 4028,
+      "projective_residue_checks": 9840,
+      "refinement_pairs": 45
+    },
+    "overflow_check": {
+      "status": "PASS",
+      "normal_optimized_identical": true,
+      "sha256": "3f760ccd478a63f8df0f81a8cca3268c6b9371d960f05dcb49fa9f787bbfb0cb",
+      "bytes": 241,
+      "integer_certificates": 4,
+      "binomial_checks": 1026,
+      "lift_checks": 67080,
+      "clock_checks": 67584,
+      "clock_overflow_events": 15
+    }
+  },
+  "scope": "Finite replay only; asymptotic cap proof and countermodel estimates remain paper mathematics. No downloaded source executed, no Lean module added.",
+  "status": "PASS",
+  "source_hashes": {
+    "check_abstract_joint.py": "5b6d3c437b0180fad816c71df2a991aa48d27c406b998f3e20ef9dbb2fc647a6",
+    "check_capped_prefixes.py": "96fe33c4ab2164a65be7161adfe5ca8a967b95ac290b44c61654b3b2d4aaac34",
+    "check_overflow_bound.py": "e4a32447abd849eb3f7deca8f084b901571906fd22fa85e5d5735173d7d954e4"
+  },
+  "protocol_hashes": {
+    "protocol.json": "860f8cf1f24bc202e781daffe204c21fd134911ed52be37eec72f368e43617be",
+    "protocol_addendum_overflow.json": "b9f4ade46709fcea112014cd8dd4f1c5abdfa75985e02ce58b9410e402c93b64"
+  },
+  "review": {
+    "reviewer": "/root/t09_independent_math",
+    "scope": "Independent paper audit reported by direct collaboration messages; no Lean proof of these conclusions claimed.",
+    "reported_pass": [
+      "fixed-cap finite inequality and 3/9 powers",
+      "variable-cap deficit and ordinary lift at same cap",
+      "strong overflow bound 6 X theta^r +8 X^(3/4)",
+      "cumulative-slope rank transport including ties"
+    ],
+    "caveats": [
+      "odd input domain for r=0",
+      "J(u,L) counts the initial time",
+      "fixed M(X) used at every ordinary-lift cutoff",
+      "single target or explicitly charged target-pool size"
+    ]
+  }
+}

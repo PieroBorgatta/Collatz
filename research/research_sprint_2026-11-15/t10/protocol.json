@@ -1,0 +1,10 @@
+{
+  "frozen_at_utc": "2026-11-15T20:55:27Z",
+  "purpose": "Independent exact finite checks of stationary odometer resolvent and affine energy identity; finite error check only",
+  "levels_k": [0, 1, 2, 3, 4, 5],
+  "stationary_density_max_depth": 6,
+  "density_constructor": "Independent forward exact rational solution on the doubling cycle, with the boundary solved by a finite weighted sum; no import of T03/T07 programs",
+  "checks": ["full probability mass", "binary stationary recursion", "H(y)=4y+1 is a single cycle", "finite cyclic resolvent at every residue", "resolvent autocorrelation formula", "energy increment identity"],
+  "paired_countermodel": {"resolved_spikes_j": [1, 2, 3, 4, 5, 6, 7, 8], "floor": "3/4", "spike_coefficient": "1/2", "finite_only": true},
+  "forbidden_inference": "No asymptotic bound on the true correlator, no uniform Doob relaxation rate, no H or Collatz conclusion"
+}

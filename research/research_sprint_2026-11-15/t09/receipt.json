@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "verified_utc": "2026-11-15T20:46:05.294889+00:00",
+  "normal_optimized_identical": true,
+  "result_sha256": "0712ffe8507f2e214e563baa17943770a1b74eea0c6c30649f0018a9bf3b709d",
+  "script_sha256": "ae1f142e03786cbbc2a4ea21b32c1a82f05dd84b938665301e99b773e7c7bcce",
+  "exact_capped_checks": 12096,
+  "finite_capped_rows": 336,
+  "countermodel_conditional_checks": 9841,
+  "countermodel_residues": 29524,
+  "paper_review_status": "PASS within the explicit conditional domains; no uniform relaxation rate or eta proved",
+  "paper_note_sha256": "51f563f6f167180796c87119e4ee3bfcb6e48ec75042af8b994aa40d63d7c186",
+  "paper_note_recorded_utc": "2026-11-15T21:03:56.615295+00:00"
+}

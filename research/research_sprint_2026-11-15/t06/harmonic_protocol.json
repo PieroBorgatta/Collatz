@@ -1,0 +1,37 @@
+{
+  "frozen_utc": "2026-11-15T20:27:31.724647+00:00",
+  "based_on": "phase2 exposes Jacobian imbalance; test whether good code counts carry harmonic source mass",
+  "domain_protocol_sha256": "78c5110bca8f64ed0db375c1918b5e45fac42a53120c44447365ea9c8f711439",
+  "policies": [
+    "ordinal",
+    "greedy",
+    "greedy_capped"
+  ],
+  "targets": [
+    5,
+    7,
+    31,
+    593
+  ],
+  "max_depth": 18,
+  "record_depths": [
+    6,
+    10,
+    14,
+    18
+  ],
+  "height_thresholds": [
+    4,
+    16,
+    64,
+    256,
+    4096
+  ],
+  "harmonic_bits": 256,
+  "metrics": [
+    "sum1/u interval using floor(2^256/u) with error at most codes2^-256",
+    "height-good harmonic fraction",
+    "maximum source harmonic mass retained at final image capacity1, by choosing minimumu perimage among height-good edges"
+  ],
+  "interpretation": "finite harmonic/potential source mass on the binary subtree, still not natural-density eta"
+}

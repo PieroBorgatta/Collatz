@@ -1,0 +1,15 @@
+{
+  "retrieved_at_utc": "2026-11-15T19:56:01.799131+00:00",
+  "title": "An Explicit Windowed Sparsity Bound for Divergent 3x+1 Orbits, with Logarithmic-Floor Exclusion beyond the Harmonic Barrier",
+  "author": "Michael John Curry",
+  "publication_date": "2026-08-24",
+  "doi": "10.5281/zenodo.22087163",
+  "source_url": "https://zenodo.org/api/records/22087163/files/occupation_note_clean.pdf/content",
+  "license": "CC-BY-4.0",
+  "archived_for_independent_mathematical_audit": true,
+  "files": {
+    "curry.pdf": "67daa37d9b1b1b3e3f96af3448fd710c7a683e17a00dc6f314f45a6c36288a76",
+    "curry_metadata.json": "d99868aa983c3714361782a99fa8008d0e0da40c78d7484d3d4d5d574bec4828",
+    "curry.txt": "3bdc6b286965b437512062acda36610fb87873409d3897baa4044d7fc4d40dbb"
+  }
+}

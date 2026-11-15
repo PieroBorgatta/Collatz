@@ -1,0 +1,600 @@
+{
+  "sha": "d18959450f9acb5c0fa8c54310bc799a636d7db4",
+  "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/trees/d18959450f9acb5c0fa8c54310bc799a636d7db4",
+  "tree": [
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6bcf1838d11abb7a13fc1e57d1c09a6fea5fa3f1",
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/trees/6bcf1838d11abb7a13fc1e57d1c09a6fea5fa3f1"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6bec32b28aa6ffee3fc590abcc878274185f0e6c",
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/trees/6bec32b28aa6ffee3fc590abcc878274185f0e6c"
+    },
+    {
+      "path": ".github/workflows/lean.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aafe1bee388c0008ce85328a7c250dabb214a9b3",
+      "size": 779,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/aafe1bee388c0008ce85328a7c250dabb214a9b3"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae73679948e8ab42b43d663e78f13a0c6640fb41",
+      "size": 20,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/ae73679948e8ab42b43d663e78f13a0c6640fb41"
+    },
+    {
+      "path": "Collatz.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c899f69ff671d1df65c5c3495663686987e7a978",
+      "size": 25,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/c899f69ff671d1df65c5c3495663686987e7a978"
+    },
+    {
+      "path": "Collatz",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "feb842a5657132a7d72367af2f1defab51670e4e",
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/trees/feb842a5657132a7d72367af2f1defab51670e4e"
+    },
+    {
+      "path": "Collatz/Checker.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed582f3fe1f1ec67d8830b522a48c13434cfdeed",
+      "size": 2913,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/ed582f3fe1f1ec67d8830b522a48c13434cfdeed"
+    },
+    {
+      "path": "Collatz/CycleWindows.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4e4bbc131cbb9be00f6bf61396d44e3d3abacdb1",
+      "size": 5595,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/4e4bbc131cbb9be00f6bf61396d44e3d3abacdb1"
+    },
+    {
+      "path": "Collatz/Cycles.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9b24ec60f5a8cd409ca4188b74f494577c31c091",
+      "size": 7756,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/9b24ec60f5a8cd409ca4188b74f494577c31c091"
+    },
+    {
+      "path": "Collatz/Defs.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d33745933cc35d107b97f4c9c0c6cb908e3b5b41",
+      "size": 4437,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/d33745933cc35d107b97f4c9c0c6cb908e3b5b41"
+    },
+    {
+      "path": "Collatz/FareyCertificate.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f80bc5129659ec2289b999248e594db347e2bbd9",
+      "size": 5320,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/f80bc5129659ec2289b999248e594db347e2bbd9"
+    },
+    {
+      "path": "Collatz/HarmonicResidue.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d054cde3a277d68f124380d0aab024c6313501c1",
+      "size": 21424,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/d054cde3a277d68f124380d0aab024c6313501c1"
+    },
+    {
+      "path": "Collatz/HercherAll.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b7cf3768ff55cecf10bd09700d87fb795837997f",
+      "size": 51662,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/b7cf3768ff55cecf10bd09700d87fb795837997f"
+    },
+    {
+      "path": "Collatz/HercherBootstrap.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd39a895191b07401d6e51bfc5db6cb6ee83a68a",
+      "size": 18221,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/bd39a895191b07401d6e51bfc5db6cb6ee83a68a"
+    },
+    {
+      "path": "Collatz/HercherChain91.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "42f4802c80921baf219285de6ca9e9c8dc700d54",
+      "size": 16889,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/42f4802c80921baf219285de6ca9e9c8dc700d54"
+    },
+    {
+      "path": "Collatz/HercherLocal.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f5662573a02fc95304142db137c8cfba246eba98",
+      "size": 14023,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/f5662573a02fc95304142db137c8cfba246eba98"
+    },
+    {
+      "path": "Collatz/HercherMinima.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e400ec934f35b5ee02911156657a4b0c243e6a98",
+      "size": 18271,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/e400ec934f35b5ee02911156657a4b0c243e6a98"
+    },
+    {
+      "path": "Collatz/HercherNo91.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e3c2c902bf351f66fcc25a6341bf3b96db1d1696",
+      "size": 10227,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/e3c2c902bf351f66fcc25a6341bf3b96db1d1696"
+    },
+    {
+      "path": "Collatz/HercherRhin.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "915a9d8e5ca2a14dcfa1d9703f10abff789c63fc",
+      "size": 7525,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/915a9d8e5ca2a14dcfa1d9703f10abff789c63fc"
+    },
+    {
+      "path": "Collatz/HercherVertex.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "44e495838418b0193b40e0478364bbd03be9debe",
+      "size": 20087,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/44e495838418b0193b40e0478364bbd03be9debe"
+    },
+    {
+      "path": "Collatz/HercherWindow.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0c60cbab3cfc96e5d700f42738b104b75b1822a8",
+      "size": 20486,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/0c60cbab3cfc96e5d700f42738b104b75b1822a8"
+    },
+    {
+      "path": "Collatz/InverseTree.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "25572e60c733455b9cb71cc3eb1482b830c9f946",
+      "size": 3267,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/25572e60c733455b9cb71cc3eb1482b830c9f946"
+    },
+    {
+      "path": "Collatz/LogTwoThreeBounds.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9c5da2d68cf03a8cf98f0f5a03f31ef4400550fc",
+      "size": 8562,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/9c5da2d68cf03a8cf98f0f5a03f31ef4400550fc"
+    },
+    {
+      "path": "Collatz/MCycle100.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f24d02ae7a845e739225365e5934b49d23b921ce",
+      "size": 10918,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/f24d02ae7a845e739225365e5934b49d23b921ce"
+    },
+    {
+      "path": "Collatz/MCycle101.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0a17c63e6314b5b1c43b061b70cbdcbe7cc0c331",
+      "size": 4352,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/0a17c63e6314b5b1c43b061b70cbdcbe7cc0c331"
+    },
+    {
+      "path": "Collatz/MCycle101Data.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f3b30ae6efc590b0d78c0ac87076078ea66bc1ac",
+      "size": 12911,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/f3b30ae6efc590b0d78c0ac87076078ea66bc1ac"
+    },
+    {
+      "path": "Collatz/MCycle92.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d61a894b6a4a791bdca25613fbe23e4c57d7cdb8",
+      "size": 4702,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/d61a894b6a4a791bdca25613fbe23e4c57d7cdb8"
+    },
+    {
+      "path": "Collatz/MCycle93.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "77e25a3d26c74fab8aeb2fe2375a1fdf29b2a29e",
+      "size": 5193,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/77e25a3d26c74fab8aeb2fe2375a1fdf29b2a29e"
+    },
+    {
+      "path": "Collatz/MCycle94.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2ec33066bd977e351e6cfa2a13e69bf265e9a20d",
+      "size": 5686,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/2ec33066bd977e351e6cfa2a13e69bf265e9a20d"
+    },
+    {
+      "path": "Collatz/MCycle95.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d3c5abf295069bfeb8feb497c1a1657e8d5886b",
+      "size": 6284,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/8d3c5abf295069bfeb8feb497c1a1657e8d5886b"
+    },
+    {
+      "path": "Collatz/MCycle96.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aaeb260e3646e9b202f291dccaa89c626ba5fc2d",
+      "size": 6787,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/aaeb260e3646e9b202f291dccaa89c626ba5fc2d"
+    },
+    {
+      "path": "Collatz/MCycle97.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cbde13c30bb77ab49049ac35b6db4f2c9904a074",
+      "size": 8222,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/cbde13c30bb77ab49049ac35b6db4f2c9904a074"
+    },
+    {
+      "path": "Collatz/MCycle98.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "27cb1d9351d0c1448c318ec6b33b5dab70954cd9",
+      "size": 8721,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/27cb1d9351d0c1448c318ec6b33b5dab70954cd9"
+    },
+    {
+      "path": "Collatz/MCycle99.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e0c56c82f7fc829fb9b9a78c4ba590082ab363a",
+      "size": 9928,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/1e0c56c82f7fc829fb9b9a78c4ba590082ab363a"
+    },
+    {
+      "path": "Collatz/MCycleChain.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d79dedb091cbf50d14408c25e1eddc606aa75b2",
+      "size": 21015,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/8d79dedb091cbf50d14408c25e1eddc606aa75b2"
+    },
+    {
+      "path": "Collatz/MCycleGridHi.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "70a64aca52718d632c6f54b52b1c01a8726b46d5",
+      "size": 9068,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/70a64aca52718d632c6f54b52b1c01a8726b46d5"
+    },
+    {
+      "path": "Collatz/MCycleGridLo.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1034dd6bbb34102c9f37a90028b2a7440cfb6fea",
+      "size": 3675,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/1034dd6bbb34102c9f37a90028b2a7440cfb6fea"
+    },
+    {
+      "path": "Collatz/MCycleSteps.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eae45a5f93543c742ee243f7393dec5dc711cd41",
+      "size": 12066,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/eae45a5f93543c742ee243f7393dec5dc711cd41"
+    },
+    {
+      "path": "Collatz/MCycleTwoRiseHi1.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "74def61a78d11e47f8fa157a83614c52c0bed634",
+      "size": 10230,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/74def61a78d11e47f8fa157a83614c52c0bed634"
+    },
+    {
+      "path": "Collatz/MCycleTwoRiseHi2.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d1dec6d0711d2db2be00c058a37438d493ae573c",
+      "size": 12173,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/d1dec6d0711d2db2be00c058a37438d493ae573c"
+    },
+    {
+      "path": "Collatz/MCycleTwoRiseHi3.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1328fcee68c98f240dfbba877e492dc11ad7ec19",
+      "size": 12353,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/1328fcee68c98f240dfbba877e492dc11ad7ec19"
+    },
+    {
+      "path": "Collatz/MCycleTwoRiseHi4.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "87be1e3d534fd8f5da56d3c5f35f864876577b24",
+      "size": 12297,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/87be1e3d534fd8f5da56d3c5f35f864876577b24"
+    },
+    {
+      "path": "Collatz/MCycleTwoRiseHi5.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b9c062284fad47e46e43eb7a616d2ec050834ccb",
+      "size": 12899,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/b9c062284fad47e46e43eb7a616d2ec050834ccb"
+    },
+    {
+      "path": "Collatz/MCycleTwoRiseHi6.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fe5d0a656d50d907efadd6adb99d2c7468b919ad",
+      "size": 12475,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/fe5d0a656d50d907efadd6adb99d2c7468b919ad"
+    },
+    {
+      "path": "Collatz/MCycleTwoRiseLo.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6a72a18c5257d91f7f7f6d637e4e64776456a2a2",
+      "size": 10007,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/6a72a18c5257d91f7f7f6d637e4e64776456a2a2"
+    },
+    {
+      "path": "Collatz/MCycleWalk.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6aa247f900494758436d2e84e883d508240031ef",
+      "size": 17862,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/6aa247f900494758436d2e84e883d508240031ef"
+    },
+    {
+      "path": "Collatz/ParityVector.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8708589e2b921e46a5064035e0a5a5a44508df35",
+      "size": 5964,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/8708589e2b921e46a5064035e0a5a5a44508df35"
+    },
+    {
+      "path": "Collatz/Records.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b7cb8617f08030982f6e7d0e6e3d7328571bcb7",
+      "size": 3937,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/7b7cb8617f08030982f6e7d0e6e3d7328571bcb7"
+    },
+    {
+      "path": "Collatz/Reductions.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ce6dfd5f1d78ea618ffdc333bb2927077e48e67b",
+      "size": 4479,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/ce6dfd5f1d78ea618ffdc333bb2927077e48e67b"
+    },
+    {
+      "path": "Collatz/RotationBound.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f6e0220abda734f26c9e19b20010ec8f12e7941f",
+      "size": 14275,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/f6e0220abda734f26c9e19b20010ec8f12e7941f"
+    },
+    {
+      "path": "Collatz/SharpCycleBound.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d36ad6f510494d3863fef0524d367ea5bcb4b31b",
+      "size": 14568,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/d36ad6f510494d3863fef0524d367ea5bcb4b31b"
+    },
+    {
+      "path": "Collatz/Statements.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2692329ee3195596bb89e99f89a50e97ac016372",
+      "size": 3692,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/2692329ee3195596bb89e99f89a50e97ac016372"
+    },
+    {
+      "path": "Collatz/Steiner.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "42cc0dc510aee6d529b596f28c244ee5da233b6d",
+      "size": 4878,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/42cc0dc510aee6d529b596f28c244ee5da233b6d"
+    },
+    {
+      "path": "Collatz/Terras.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d43ca139a38b0198043db8973bb0b5ceab9cbd2c",
+      "size": 4724,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/d43ca139a38b0198043db8973bb0b5ceab9cbd2c"
+    },
+    {
+      "path": "Collatz/TwoRiseCheck.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2a27eceea9d4e96be4d2e0963c328a57a6d311ad",
+      "size": 37390,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/2a27eceea9d4e96be4d2e0963c328a57a6d311ad"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8dada3edaf50dbc082c9a125058f25def75e625a",
+      "size": 11357,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/8dada3edaf50dbc082c9a125058f25def75e625a"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ad3f5d40df77670c0cc3f8b944aeef91c3e03171",
+      "size": 8311,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/ad3f5d40df77670c0cc3f8b944aeef91c3e03171"
+    },
+    {
+      "path": "lake-manifest.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "20f34331df450692410b9561b953cf14cc0ec27f",
+      "size": 3149,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/20f34331df450692410b9561b953cf14cc0ec27f"
+    },
+    {
+      "path": "lakefile.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b84655ca31e22578cc9bbb6d0b8d178177e8b875",
+      "size": 346,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/b84655ca31e22578cc9bbb6d0b8d178177e8b875"
+    },
+    {
+      "path": "lean-toolchain",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f0e00b3338bac0d6f050d9a64e277314a9f7830f",
+      "size": 29,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/f0e00b3338bac0d6f050d9a64e277314a9f7830f"
+    },
+    {
+      "path": "research",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8351fd2e36804b31213bfcd5c4d1a25bd9b5266b",
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/trees/8351fd2e36804b31213bfcd5c4d1a25bd9b5266b"
+    },
+    {
+      "path": "research/scripts",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e08248eefe4895a72169abf7f1d10e69c28180f7",
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/trees/e08248eefe4895a72169abf7f1d10e69c28180f7"
+    },
+    {
+      "path": "research/scripts/hercher_certificates.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "691ab06b795d4de51e87eeccd3e11d8f8bb5825a",
+      "size": 14499,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/691ab06b795d4de51e87eeccd3e11d8f8bb5825a"
+    },
+    {
+      "path": "research/scripts/hercher_thm23_bootstrap.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a829038cacf9131deac469f7635753a7724d13c6",
+      "size": 6855,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/a829038cacf9131deac469f7635753a7724d13c6"
+    },
+    {
+      "path": "research/scripts/mcycle101_certgen",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "da76c022bcc45e0f54db1bfe5d868027377f7e70",
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/trees/da76c022bcc45e0f54db1bfe5d868027377f7e70"
+    },
+    {
+      "path": "research/scripts/mcycle101_certgen/gen_lean.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "399b7bdc5e35e891ea9b3a4cb64804372f853e97",
+      "size": 15802,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/399b7bdc5e35e891ea9b3a4cb64804372f853e97"
+    },
+    {
+      "path": "research/scripts/mcycle101_certgen/gen_mcycle.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a5bf04dbc4777bd9065a48d6ff57cb19cda552d9",
+      "size": 5797,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/a5bf04dbc4777bd9065a48d6ff57cb19cda552d9"
+    },
+    {
+      "path": "research/scripts/mcycle101_certgen/grid_hi.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "51660146ea1a9e783e6cc77d1c50993efc839159",
+      "size": 421,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/51660146ea1a9e783e6cc77d1c50993efc839159"
+    },
+    {
+      "path": "research/scripts/mcycle101_certgen/grid_lo.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "209b8da996d4b03a493d31f5cf6d2ead96f51ffc",
+      "size": 134,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/209b8da996d4b03a493d31f5cf6d2ead96f51ffc"
+    },
+    {
+      "path": "research/scripts/mcycle101_certgen/mbar_cache.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "107850253fcb7eb9db271ce0c8291411eecb3436",
+      "size": 1234,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/107850253fcb7eb9db271ce0c8291411eecb3436"
+    },
+    {
+      "path": "research/scripts/mcycle101_certgen/plan_hi_grid.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c3e0ee7f204ca6e11f7243b1c5721e0aed765e89",
+      "size": 1950,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/c3e0ee7f204ca6e11f7243b1c5721e0aed765e89"
+    },
+    {
+      "path": "research/scripts/mcycle101_certgen/tworise_fast.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7477379566062a21a1f5028b968fc070ff18e6a9",
+      "size": 4761,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/7477379566062a21a1f5028b968fc070ff18e6a9"
+    },
+    {
+      "path": "scripts",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "70c7f0765716c373b84acd14bcbf9fb0fef09bb4",
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/trees/70c7f0765716c373b84acd14bcbf9fb0fef09bb4"
+    },
+    {
+      "path": "scripts/AxiomAudit.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2bc07443f3903a58d13add2235d0dfb110c1f882",
+      "size": 1032,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/2bc07443f3903a58d13add2235d0dfb110c1f882"
+    },
+    {
+      "path": "scripts/Statement.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fcbb2ff89f17745195bc462ca07c7e14293fe8df",
+      "size": 1604,
+      "url": "https://api.github.com/repos/justinalick/collatz-m-cycles-101-lean/git/blobs/fcbb2ff89f17745195bc462ca07c7e14293fe8df"
+    }
+  ],
+  "truncated": false
+}

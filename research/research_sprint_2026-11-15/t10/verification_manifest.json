@@ -1,0 +1,154 @@
+{
+  "frozen_at_utc": "2026-11-15T21:32:09.954460+00:00",
+  "status": "FROZEN",
+  "scope": "T10 arithmetic multiplier cutoff, stationary odometer reconstruction and primary paper146 audit",
+  "report": {
+    "path": "/Volumes/AFUOCO/SVILUPPO/TEORIE/Collatz/notes/research_sprint_2026-11-15/agents/T10_STATIONARY_ATTACK_IT.md",
+    "sha256": "cce2c7f699a8755f93e087fedf81631ac99a70359618704856bba7e5accb7b01"
+  },
+  "finite_checks": [
+    {
+      "status": "PASS",
+      "checked_at_utc": "2026-11-15T20:56:35.270326+00:00",
+      "normal_optimized_identical": true,
+      "output_sha256": "16a31bdd22ae5ef3c67d4a027729c1b9c09f191e4a07cb0b96b76b9de41bd442",
+      "pointwise_checks": 364,
+      "levels": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "finite_only": true,
+      "script_sha256": "23f1d3d3173353b4dc9929920c72edefc91fcf5cfb63e7a220d14275db9b5fb0"
+    },
+    {
+      "complete_spacing_fiber_checks": 290,
+      "finite_only": true,
+      "inequalities_checked": 192,
+      "maximum_lhs_rhs_ratio": "1/8",
+      "maximum_ratio_fixture": [
+        "1",
+        4,
+        6,
+        1
+      ],
+      "maximum_stopped_length": 8,
+      "nonzero_left_sides": 71,
+      "physical_prefix_checks": 293,
+      "script_sha256": "1cbfab370d54fe56b18a7b272f74b6591026f7b83234d041e2d46687ae846241",
+      "status": "PASS",
+      "normal_optimized_identical": true,
+      "output_sha256": "16c27fc3d80dbb55b674adb83631cf6b69c4b0f076dc75f1150f0e54fa304875",
+      "checked_at_utc": "2026-11-15T21:13:21.909410+00:00"
+    },
+    {
+      "all_positive_prefix_checks": 5422,
+      "atom_checks": 455,
+      "finite_only": true,
+      "fixed_total_source_fibers": 3250,
+      "script_sha256": "24be46a14ecb9c2651645a878526ebc0b2aed1114da74efdd9737e8a6ace9ccc",
+      "status": "PASS",
+      "truncated_tilt_comparisons": 325,
+      "normal_optimized_identical": true,
+      "checked_at_utc": "2026-11-15T21:22:16.824372+00:00",
+      "output_sha256": "0dabdce06efb77d25acd21ff37994431c9bfe68b189c588b6b57c8926ecf95f4"
+    }
+  ],
+  "files": {
+    "__pycache__/check_resolvent.cpython-314.pyc": {
+      "bytes": 9734,
+      "sha256": "3fd7224beab8641c20722666445512757e072251bdcbc98880bcad0276b8a4bf"
+    },
+    "check_delayed_support.py": {
+      "bytes": 4450,
+      "sha256": "1cbfab370d54fe56b18a7b272f74b6591026f7b83234d041e2d46687ae846241"
+    },
+    "check_positive_atoms.py": {
+      "bytes": 2849,
+      "sha256": "24be46a14ecb9c2651645a878526ebc0b2aed1114da74efdd9737e8a6ace9ccc"
+    },
+    "check_resolvent.py": {
+      "bytes": 4357,
+      "sha256": "23f1d3d3173353b4dc9929920c72edefc91fcf5cfb63e7a220d14275db9b5fb0"
+    },
+    "delayed_support_check.json": {
+      "bytes": 393,
+      "sha256": "16c27fc3d80dbb55b674adb83631cf6b69c4b0f076dc75f1150f0e54fa304875"
+    },
+    "delayed_support_check_optimized.json": {
+      "bytes": 393,
+      "sha256": "16c27fc3d80dbb55b674adb83631cf6b69c4b0f076dc75f1150f0e54fa304875"
+    },
+    "delayed_support_protocol.json": {
+      "bytes": 751,
+      "sha256": "4b288dcbd86f576867a0aebc4abc7a499587f4cfd8961cad45b9d898ca40352d"
+    },
+    "delayed_support_receipt.json": {
+      "bytes": 574,
+      "sha256": "c9b71666b36418dfbc29ea4d4dbf583a5c28c96e3faeefdab039ad2fdc995acf"
+    },
+    "positive_atom_check.json": {
+      "bytes": 267,
+      "sha256": "0dabdce06efb77d25acd21ff37994431c9bfe68b189c588b6b57c8926ecf95f4"
+    },
+    "positive_atom_check_optimized.json": {
+      "bytes": 267,
+      "sha256": "0dabdce06efb77d25acd21ff37994431c9bfe68b189c588b6b57c8926ecf95f4"
+    },
+    "positive_atom_protocol.json": {
+      "bytes": 1196,
+      "sha256": "d9d9155dd2b9d45886fd99c664949130cdb47fe6f3bfbdbef3da545f6a6625ce"
+    },
+    "positive_atom_receipt.json": {
+      "bytes": 448,
+      "sha256": "f9d8e41c3ec8ebd1af63c170010f82e49db7af1be744885b4c7f256dae5fc512"
+    },
+    "protocol.json": {
+      "bytes": 908,
+      "sha256": "4d0a129edf51ae100d398243d1b5ffd26d7f35da6c0dc57371dd3b6c78ace16e"
+    },
+    "receipt.json": {
+      "bytes": 401,
+      "sha256": "b30350218315edb2f1552a69ad4860840cf5b15fc914ba956e951e9fd7d1b89a"
+    },
+    "resolvent_check.json": {
+      "bytes": 3306,
+      "sha256": "16a31bdd22ae5ef3c67d4a027729c1b9c09f191e4a07cb0b96b76b9de41bd442"
+    },
+    "resolvent_check_optimized.json": {
+      "bytes": 3306,
+      "sha256": "16a31bdd22ae5ef3c67d4a027729c1b9c09f191e4a07cb0b96b76b9de41bd442"
+    },
+    "sources/NOTICE_IT.md": {
+      "bytes": 859,
+      "sha256": "820e2d43cd038c0d75fbf9357ecf2436b05b312fccea72e601ff026a33175686"
+    },
+    "sources/manifest.json": {
+      "bytes": 995,
+      "sha256": "283d3d873bbcc1e794d869a0da4675ad028dc1e2a19f0c43b7ba204458aacf06"
+    },
+    "sources/paper146_v1.md": {
+      "bytes": 27097,
+      "sha256": "ff3c011022cd87f7f068c30759b732e7b92bb24f9269856dba4e851491c3e150"
+    }
+  },
+  "proved_or_derived_on_paper": [
+    "rho*_m(n) <= 2*n^2 via positive integer sources",
+    "sum_m rho*_m(n) <= 2*n^2 for nonreturning odd positive n",
+    "sum_m cutoff cylinder errors <= 2*n^2/B",
+    "unit-seed comparison rho_m^U <= rho_(m+1) <= 2*rho_m^U"
+  ],
+  "external_result_status": "Paper146 independently reconstructed; no external theorem imported into Lean. Delayed-support finite enumeration is not a proof of the uniform exponential bound.",
+  "open": [
+    "uniform relaxation at growing integer targets",
+    "uniform positive reciprocal-trace expectation under the actual Doob kernel",
+    "uniform bound of each finite energy increment",
+    "Collatz convergence"
+  ],
+  "code_boundary": "IntegerAtomTilt owned and integrated by root, not included as a T10 mutation.",
+  "documentary_correction_at_utc": "2026-11-15T21:33:53.064485+00:00",
+  "documentary_correction": "Qualified the paired-odometer energy/correlation identity by m>=1; m=0 has N0=C0(1)=1. No test or mathematical bound changed."
+}

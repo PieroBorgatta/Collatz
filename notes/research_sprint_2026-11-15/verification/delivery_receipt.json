@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "recorded_at_utc": "2026-11-15T21:53:27.928489+00:00",
+  "checks": {
+    "duration_at_least_two_hours": true,
+    "integration_PASS": true,
+    "formal_sources_unchanged": true,
+    "verification_logs_unchanged": true,
+    "all_ten_replays_PASS": true,
+    "finite_replay_files_unchanged": true,
+    "baseline_changes_within_expected_paths": true,
+    "public_theorems_indexed": true,
+    "local_document_links_valid": true,
+    "git_diff_check": true,
+    "workflow_yaml_parses": true,
+    "final_manifest_target_present": true,
+    "final_report_independent_review_PASS": true
+  },
+  "research_duration_seconds": 7216,
+  "agents_distinct": 11,
+  "max_concurrent_workers": 3,
+  "formal_public_theorems": 56,
+  "all_new_module_declarations": {
+    "declarations": 136,
+    "encoded_private": 14,
+    "modules": 7
+  },
+  "finite_replay_suites": 10,
+  "markdown_files_checked": 22,
+  "local_document_links_checked": 290,
+  "missing_links": [],
+  "changed_formal_sources": [],
+  "changed_logs": [],
+  "changed_finite_artifacts": [],
+  "changed_baseline_paths": [
+    "lean/CollatzShadowing.lean",
+    ".github/workflows/lean.yml",
+    "lean/README.md",
+    "lean/STATUS.md",
+    "README.md"
+  ],
+  "missing_index_names": [],
+  "diff_check_output": "",
+  "workflow_parse_output": "",
+  "scope": "Delivery integrity and documentation checks; successful Lean build/audit and finite replays are bound to their earlier immutable source snapshots. No new exploration.",
+  "manifest_link": "notes/research_sprint_2026-11-15/verification_manifest.json",
+  "final_report_review": "notes/research_sprint_2026-11-15/verification/final_report_review.json"
+}

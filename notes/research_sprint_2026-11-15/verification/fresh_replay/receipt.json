@@ -1,0 +1,158 @@
+{
+  "status": "PASS",
+  "started_utc": "2026-11-15T21:35:23.171971+00:00",
+  "finished_utc": "2026-11-15T21:35:27.145718+00:00",
+  "meaning": "Finite error checks only; no proof of asymptotic mass, H, or Collatz.",
+  "cases": [
+    {
+      "label": "cap_overflow",
+      "script": "research/research_sprint_2026-11-15/t08/check_overflow_bound.py",
+      "script_sha256": "e4a32447abd849eb3f7deca8f084b901571906fd22fa85e5d5735173d7d954e4",
+      "exit_codes": [
+        0,
+        0
+      ],
+      "normal_optimized_identical": true,
+      "source_unchanged": true,
+      "normal_sha256": "3f760ccd478a63f8df0f81a8cca3268c6b9371d960f05dcb49fa9f787bbfb0cb",
+      "optimized_sha256": "3f760ccd478a63f8df0f81a8cca3268c6b9371d960f05dcb49fa9f787bbfb0cb",
+      "status": "PASS",
+      "elapsed_seconds": 0.632
+    },
+    {
+      "label": "delayed_support",
+      "script": "research/research_sprint_2026-11-15/t10/check_delayed_support.py",
+      "script_sha256": "1cbfab370d54fe56b18a7b272f74b6591026f7b83234d041e2d46687ae846241",
+      "exit_codes": [
+        0,
+        0
+      ],
+      "normal_optimized_identical": true,
+      "source_unchanged": true,
+      "normal_sha256": "16c27fc3d80dbb55b674adb83631cf6b69c4b0f076dc75f1150f0e54fa304875",
+      "optimized_sha256": "16c27fc3d80dbb55b674adb83631cf6b69c4b0f076dc75f1150f0e54fa304875",
+      "status": "PASS",
+      "elapsed_seconds": 0.212
+    },
+    {
+      "label": "dyadic",
+      "script": "research/research_sprint_2026-11-15/t01/verify_dyadic.py",
+      "script_sha256": "d654ed8f239c82da4df7a52c5727ee350f028385efe725155a86ce79c77efbe2",
+      "exit_codes": [
+        0,
+        0
+      ],
+      "normal_optimized_identical": true,
+      "source_unchanged": true,
+      "normal_sha256": "146e4062feb6aab3f3a24c8252e2631d2e64960504fe12358d93a62ef4da0d53",
+      "optimized_sha256": "146e4062feb6aab3f3a24c8252e2631d2e64960504fe12358d93a62ef4da0d53",
+      "status": "PASS",
+      "elapsed_seconds": 3.495
+    },
+    {
+      "label": "independent_math",
+      "script": "research/research_sprint_2026-11-15/t09/independent_audit.py",
+      "script_sha256": "ae1f142e03786cbbc2a4ea21b32c1a82f05dd84b938665301e99b773e7c7bcce",
+      "exit_codes": [
+        0,
+        0
+      ],
+      "normal_optimized_identical": true,
+      "source_unchanged": true,
+      "normal_sha256": "0712ffe8507f2e214e563baa17943770a1b74eea0c6c30649f0018a9bf3b709d",
+      "optimized_sha256": "0712ffe8507f2e214e563baa17943770a1b74eea0c6c30649f0018a9bf3b709d",
+      "status": "PASS",
+      "elapsed_seconds": 0.693
+    },
+    {
+      "label": "independent_terminal",
+      "script": "research/research_sprint_2026-11-15/t04/independent_terminal.py",
+      "script_sha256": "6ae8be6aad709b91a2d84f548aa36026aecb3b3d97f0ae1517fcaf99880aeee1",
+      "exit_codes": [
+        0,
+        0
+      ],
+      "normal_optimized_identical": true,
+      "source_unchanged": true,
+      "normal_sha256": "97dc4e89c107829099640215b1f8abf6e518cfae902a3cc4bce7fbfb36fa53ac",
+      "optimized_sha256": "97dc4e89c107829099640215b1f8abf6e518cfae902a3cc4bce7fbfb36fa53ac",
+      "status": "PASS",
+      "elapsed_seconds": 0.137
+    },
+    {
+      "label": "independent_two_edit",
+      "script": "research/research_sprint_2026-11-15/t04/independent_two_edit.py",
+      "script_sha256": "295df245e3e08fabceeeec308d9009b35857815400603ca13c97d6dc6e97a47b",
+      "exit_codes": [
+        0,
+        0
+      ],
+      "normal_optimized_identical": true,
+      "source_unchanged": true,
+      "normal_sha256": "04d1184dce0749bfb5bf2b1f07705ce10c301af5ac11daa4b290236983e1b7c6",
+      "optimized_sha256": "04d1184dce0749bfb5bf2b1f07705ce10c301af5ac11daa4b290236983e1b7c6",
+      "status": "PASS",
+      "elapsed_seconds": 0.129
+    },
+    {
+      "label": "odometer_resolvent",
+      "script": "research/research_sprint_2026-11-15/t10/check_resolvent.py",
+      "script_sha256": "23f1d3d3173353b4dc9929920c72edefc91fcf5cfb63e7a220d14275db9b5fb0",
+      "exit_codes": [
+        0,
+        0
+      ],
+      "normal_optimized_identical": true,
+      "source_unchanged": true,
+      "normal_sha256": "16a31bdd22ae5ef3c67d4a027729c1b9c09f191e4a07cb0b96b76b9de41bd442",
+      "optimized_sha256": "16a31bdd22ae5ef3c67d4a027729c1b9c09f191e4a07cb0b96b76b9de41bd442",
+      "status": "PASS",
+      "elapsed_seconds": 0.786
+    },
+    {
+      "label": "positive_integer_atoms",
+      "script": "research/research_sprint_2026-11-15/t10/check_positive_atoms.py",
+      "script_sha256": "24be46a14ecb9c2651645a878526ebc0b2aed1114da74efdd9737e8a6ace9ccc",
+      "exit_codes": [
+        0,
+        0
+      ],
+      "normal_optimized_identical": true,
+      "source_unchanged": true,
+      "normal_sha256": "0dabdce06efb77d25acd21ff37994431c9bfe68b189c588b6b57c8926ecf95f4",
+      "optimized_sha256": "0dabdce06efb77d25acd21ff37994431c9bfe68b189c588b6b57c8926ecf95f4",
+      "status": "PASS",
+      "elapsed_seconds": 2.282
+    },
+    {
+      "label": "stationary",
+      "script": "research/research_sprint_2026-11-15/t03/stationary_cylinders.py",
+      "script_sha256": "2e91eaded57f02ec4eb978cd1300a5343855500376d9310b8678f4dd8b96a70e",
+      "exit_codes": [
+        0,
+        0
+      ],
+      "normal_optimized_identical": true,
+      "source_unchanged": true,
+      "normal_sha256": "9f08259611c163083164f2131af90cabd57f2907d9ffdfc2e5030604788cbb7d",
+      "optimized_sha256": "9f08259611c163083164f2131af90cabd57f2907d9ffdfc2e5030604788cbb7d",
+      "status": "PASS",
+      "elapsed_seconds": 0.845
+    },
+    {
+      "label": "two_edit",
+      "script": "research/research_sprint_2026-11-15/t02/check_two_edit_residuals.py",
+      "script_sha256": "b933a0d5a7df80c3ad5ae940b44eea5cd152f7da82381d4f7fd91e7b6cec457e",
+      "exit_codes": [
+        0,
+        0
+      ],
+      "normal_optimized_identical": true,
+      "source_unchanged": true,
+      "normal_sha256": "494198cabf1e8632c064b0549c9985803eb70601fb07d52342517ae492ceb43d",
+      "optimized_sha256": "494198cabf1e8632c064b0549c9985803eb70601fb07d52342517ae492ceb43d",
+      "status": "PASS",
+      "elapsed_seconds": 0.252
+    }
+  ]
+}

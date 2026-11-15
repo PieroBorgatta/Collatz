@@ -1,0 +1,416 @@
+{
+  "algorithm": "augmenting paths plus explicit vertex-cover optimality certificate",
+  "capacities": {
+    "image": 1,
+    "source": 1
+  },
+  "rows": [
+    {
+      "D": 16,
+      "X": 256,
+      "base_odd_count": 120,
+      "cover_left_card": 0,
+      "cover_right_card": 0,
+      "edges": 0,
+      "image_odd_count": 48,
+      "matched_sources": 0,
+      "matching_card_equals_vertex_cover": true,
+      "matching_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "missing_profile_sources": 70,
+      "n": 5,
+      "sample_pairs": [],
+      "y": 85
+    },
+    {
+      "D": 64,
+      "X": 256,
+      "base_odd_count": 120,
+      "cover_left_card": 33,
+      "cover_right_card": 14,
+      "edges": 89,
+      "image_odd_count": 203,
+      "matched_sources": 47,
+      "matching_card_equals_vertex_cover": true,
+      "matching_sha256": "617163195fcea3781d19c7773384bb1ae4cd855aef45a59eee760bd3a977a331",
+      "missing_profile_sources": 60,
+      "n": 5,
+      "sample_pairs": [
+        [
+          5,
+          85,
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          15,
+          267,
+          [
+            4,
+            8
+          ]
+        ],
+        [
+          17,
+          301,
+          [
+            2,
+            5
+          ]
+        ],
+        [
+          23,
+          401,
+          [
+            3,
+            7
+          ]
+        ],
+        [
+          25,
+          475,
+          [
+            6,
+            12
+          ]
+        ],
+        [
+          29,
+          535,
+          [
+            4,
+            9
+          ]
+        ],
+        [
+          33,
+          633,
+          [
+            7,
+            14
+          ]
+        ],
+        [
+          37,
+          713,
+          [
+            5,
+            11
+          ]
+        ]
+      ],
+      "y": 85
+    },
+    {
+      "D": 16,
+      "X": 256,
+      "base_odd_count": 18,
+      "cover_left_card": 15,
+      "cover_right_card": 0,
+      "edges": 34,
+      "image_odd_count": 471,
+      "matched_sources": 15,
+      "matching_card_equals_vertex_cover": true,
+      "matching_sha256": "e2a14015295b7fee4442a7f98c44e148ad825e36eff32ae976ef84a2dc6400c3",
+      "missing_profile_sources": 3,
+      "n": 7,
+      "sample_pairs": [
+        [
+          7,
+          29,
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          43,
+          179,
+          [
+            4,
+            9
+          ]
+        ],
+        [
+          49,
+          205,
+          [
+            2,
+            6
+          ]
+        ],
+        [
+          57,
+          237,
+          [
+            5,
+            11
+          ]
+        ],
+        [
+          65,
+          273,
+          [
+            3,
+            8
+          ]
+        ],
+        [
+          87,
+          357,
+          [
+            4,
+            10
+          ]
+        ],
+        [
+          99,
+          405,
+          [
+            2,
+            7
+          ]
+        ],
+        [
+          115,
+          477,
+          [
+            5,
+            12
+          ]
+        ]
+      ],
+      "y": 29
+    },
+    {
+      "D": 64,
+      "X": 256,
+      "base_odd_count": 18,
+      "cover_left_card": 15,
+      "cover_right_card": 0,
+      "edges": 34,
+      "image_odd_count": 1933,
+      "matched_sources": 15,
+      "matching_card_equals_vertex_cover": true,
+      "matching_sha256": "e2a14015295b7fee4442a7f98c44e148ad825e36eff32ae976ef84a2dc6400c3",
+      "missing_profile_sources": 3,
+      "n": 7,
+      "sample_pairs": [
+        [
+          7,
+          29,
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          43,
+          179,
+          [
+            4,
+            9
+          ]
+        ],
+        [
+          49,
+          205,
+          [
+            2,
+            6
+          ]
+        ],
+        [
+          57,
+          237,
+          [
+            5,
+            11
+          ]
+        ],
+        [
+          65,
+          273,
+          [
+            3,
+            8
+          ]
+        ],
+        [
+          87,
+          357,
+          [
+            4,
+            10
+          ]
+        ],
+        [
+          99,
+          405,
+          [
+            2,
+            7
+          ]
+        ],
+        [
+          115,
+          477,
+          [
+            5,
+            12
+          ]
+        ]
+      ],
+      "y": 29
+    },
+    {
+      "D": 16,
+      "X": 256,
+      "base_odd_count": 9,
+      "cover_left_card": 5,
+      "cover_right_card": 0,
+      "edges": 11,
+      "image_odd_count": 190,
+      "matched_sources": 5,
+      "matching_card_equals_vertex_cover": true,
+      "matching_sha256": "21a82c6a813c2cda3a09dcff4aa3778441e0f03104160233b5c2e87933bc1848",
+      "missing_profile_sources": 4,
+      "n": 31,
+      "sample_pairs": [
+        [
+          31,
+          125,
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          145,
+          589,
+          [
+            3,
+            7
+          ]
+        ],
+        [
+          171,
+          697,
+          [
+            6,
+            12
+          ]
+        ],
+        [
+          193,
+          785,
+          [
+            4,
+            9
+          ]
+        ],
+        [
+          231,
+          935,
+          [
+            7,
+            14
+          ]
+        ]
+      ],
+      "y": 125
+    },
+    {
+      "D": 64,
+      "X": 256,
+      "base_odd_count": 9,
+      "cover_left_card": 5,
+      "cover_right_card": 0,
+      "edges": 11,
+      "image_odd_count": 740,
+      "matched_sources": 5,
+      "matching_card_equals_vertex_cover": true,
+      "matching_sha256": "21a82c6a813c2cda3a09dcff4aa3778441e0f03104160233b5c2e87933bc1848",
+      "missing_profile_sources": 4,
+      "n": 31,
+      "sample_pairs": [
+        [
+          31,
+          125,
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          145,
+          589,
+          [
+            3,
+            7
+          ]
+        ],
+        [
+          171,
+          697,
+          [
+            6,
+            12
+          ]
+        ],
+        [
+          193,
+          785,
+          [
+            4,
+            9
+          ]
+        ],
+        [
+          231,
+          935,
+          [
+            7,
+            14
+          ]
+        ]
+      ],
+      "y": 125
+    },
+    {
+      "D": 16,
+      "X": 256,
+      "base_odd_count": 40,
+      "cover_left_card": 0,
+      "cover_right_card": 0,
+      "edges": 0,
+      "image_odd_count": 0,
+      "matched_sources": 0,
+      "matching_card_equals_vertex_cover": true,
+      "matching_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "missing_profile_sources": 40,
+      "n": 593,
+      "sample_pairs": [],
+      "y": 9493
+    },
+    {
+      "D": 64,
+      "X": 256,
+      "base_odd_count": 40,
+      "cover_left_card": 0,
+      "cover_right_card": 0,
+      "edges": 0,
+      "image_odd_count": 2,
+      "matched_sources": 0,
+      "matching_card_equals_vertex_cover": true,
+      "matching_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "missing_profile_sources": 40,
+      "n": 593,
+      "sample_pairs": [],
+      "y": 9493
+    }
+  ],
+  "scope": "eight finite odd-source cases; no asymptotic claim",
+  "status": "PASS"
+}

@@ -1,5 +1,21 @@
 # Phantom Orbit Shadowing for the Collatz Conjecture
 
+**15 November 2026:** [seven new Lean modules](lean/STATUS.md) formalize a
+reciprocal budget `<81` for finite injective shortcut trajectories and the resulting height
+control for first-arrival transports. The integrated build and strict audit
+of all 136 declarations pass. The [two-hour research report](notes/research_sprint_2026-11-15/REPORT_IT.md)
+records the new integer-atom cutoff estimate, independently reviewed alternatives,
+and the remaining local relaxation problem. The [height derivation](notes/research_sprint_2026-11-15/ROOT_HEIGHT_IT.md)
+distinguishes these global finite theorems from the still-open relative
+mass comparison H and the separate cycle problem.
+
+**13 November 2026:** the [research sprint](notes/research_sprint_2026-11-13/REPORT_IT.md)
+integrates ten modules for root-pool charges, capacity allocation, exact
+joint-word counting and finite transport interfaces. Its paper-level
+finite-sparsity height argument is now strengthened and formalized above;
+relative mass remains open. The [v7 assessment](notes/research_sprint_2026-11-13/V7_OUTLINE_IT.md)
+recommends preparing a technical continuation; no new version has been deposited.
+
 **26 September, H.2:** [signed-transport follow-up](notes/post_v6_signed_mass_2026-09-26/RESULTS_IT.md) proves on paper that all final-exponent corrections have only o(X) distinct images within a fixed dilation, even with arbitrary dyadic lifts. Six arithmetic lemmas are formalized; H remains open.
 
 [![DOI (latest)](https://img.shields.io/badge/DOI%20(latest)-10.5281%2Fzenodo.20021537-1682d4?logo=doi&logoColor=white)](https://doi.org/10.5281/zenodo.20021537)

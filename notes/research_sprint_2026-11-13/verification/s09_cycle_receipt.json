@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "scope": "Six core rotation declarations only; dedicated first elaboration returned exit 0 before optional product candidate was added. Product candidate removed from library. Final aggregate replay owned by coordinator.",
+  "module": "lean/CollatzShadowing/CycleRotation.lean",
+  "sha256": "18f19967fe87cc42ed43f649741b76e2e78f5046445831966500eccee7123017",
+  "theorems": 6,
+  "unintegrated_candidate": "research/research_sprint_2026-11-13/s09_product_candidate.lean.txt",
+  "finite_probe": {
+    "normal_equals_optimized": true,
+    "words": 5460,
+    "sha256": "edad7d5faad639cce8e4c17655e60def031d1bba32f8e5f31c3c9866ac617807"
+  },
+  "unused_product_trial": "Cancelled by coordinator scope decision; not counted as verification failure of the core six declarations."
+}

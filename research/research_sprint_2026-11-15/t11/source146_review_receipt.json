@@ -1,0 +1,31 @@
+{
+  "reviewer": "T11",
+  "reviewed_at_utc": "2026-11-15T21:10:20.364130+00:00",
+  "primary_url": "https://rstation.ai/api/v1/papers/collatz_146/versions/1/download",
+  "primary_page": "https://rstation.ai/problems/collatz/papers/146",
+  "manuscript_date": "2026-11-14",
+  "version": 1,
+  "source_sha256": "ff3c011022cd87f7f068c30759b732e7b92bb24f9269856dba4e851491c3e150",
+  "source_bytes": 27097,
+  "deeply_reconstructed_sections": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "scope_and_algebra_read_sections": [
+    8,
+    9
+  ],
+  "delayed_support_proof_available": true,
+  "blocking_error_found_in_weak_l2_core": false,
+  "imported_Tao_input_statement_read_primary": true,
+  "renewal_external_full_proof_replayed": false,
+  "external_formal_replay": false,
+  "external_supplement_executed": false,
+  "new_Lean_result_claimed": false,
+  "uniform_energy_increment_bound_not_established": true,
+  "integer_trace_rate_not_established": true
+}

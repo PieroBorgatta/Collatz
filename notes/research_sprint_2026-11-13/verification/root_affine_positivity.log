@@ -1,0 +1,7 @@
+CollatzShadowing/AffinePositivity.lean:22:43: error: invalid `▸` notation, expected result type of cast is 
+  0 < x
+however, the equality 
+  Eq.symm haff
+of type 
+  2 ^ [].sum * y = 3 ^ [].length * x + ↑(syracuseWordConst [])
+does not contain the expected result type on either the left or the right hand side

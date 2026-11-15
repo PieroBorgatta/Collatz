@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "indexed_public_theorems": 56,
+  "missing_index_names": [],
+  "new_lean_trailing_whitespace": [],
+  "core_sources_still_match_build": true
+}

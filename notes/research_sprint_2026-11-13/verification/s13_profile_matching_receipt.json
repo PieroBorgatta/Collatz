@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "normal_exit_code": 0,
+  "optimized_exit_code": 0,
+  "outputs_identical": true,
+  "independent_method": "Direct first-arrival catalogues; explicit bipartite graph; augmenting-path maximum matching and vertex-cover certificate. No threshold greedy.",
+  "scope": "8 cases with X=256, n in [5,7,31,593], D in [16,64], odd sources and odd images only.",
+  "script": "experiments/s13_profile_matching.py",
+  "script_sha256": "26ba85d78b8ed5b0dfa4c93f91173058ed00f29ada229b6ce83798a2f4bdab8d",
+  "result": "verification/s13_profile_matching.json",
+  "result_sha256": "72b786cd0fbd4c0cf5f74dd94055920b75e510c4e9824e1a4b9bd0a9d587a29f",
+  "reference": "verification/root_profile_transport.json",
+  "reference_sha256": "e786b9f2ba3ce4869984fe121b9b213a28d01cc22f1c4fcf569d79206ed1d85a",
+  "protocol_sha256": "43ad17db59749564c92522ec9e9ccbaea1c3c4d1a799795187393269cc48163d",
+  "asymptotic_claim": false
+}

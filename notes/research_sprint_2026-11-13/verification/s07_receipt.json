@@ -1,0 +1,20 @@
+{
+  "result": "PASS",
+  "normal_equals_optimized": true,
+  "finite_checks_only": true,
+  "new_lean_declarations": false,
+  "files": [
+    {
+      "path": "experiments/s07_macro_exit.py",
+      "sha256": "ce4c534505c83df18602974444cdf28adcb483c7181bc8eafcca520e77a66fe2"
+    },
+    {
+      "path": "verification/s07_macro_exit.json",
+      "sha256": "3f6bf452a47e4a5dd4e3212cca20061efae9c852737ae661e0203f4d1ca3a457"
+    },
+    {
+      "path": "agents/S07_MACRO_IT.md",
+      "sha256": "369f8ee1876205e74c5c7e8da974a6db134ed8ee35d5386aee509d58c5d287a9"
+    }
+  ]
+}

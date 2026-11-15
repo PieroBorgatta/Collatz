@@ -1,0 +1,10 @@
+⚠ [3301/3303] Replayed CollatzShadowing.SignedTransport
+warning: CollatzShadowing/SignedTransport.lean:25:51: unused variable `hy`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3302/3303] Built CollatzShadowing.WordSurgery (137s)
+warning: CollatzShadowing/WordSurgery.lean:54:4: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [3303/3303] Built CollatzShadowing.CycleRotation (137s)
+Build completed successfully (3303 jobs).

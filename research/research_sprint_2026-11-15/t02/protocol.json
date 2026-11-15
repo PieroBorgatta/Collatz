@@ -1,0 +1,19 @@
+{
+  "frozen_at_utc": "2026-11-15T19:56:38.907458+00:00",
+  "script_sha256": "b933a0d5a7df80c3ad5ae940b44eea5cd152f7da82381d4f7fd91e7b6cec457e",
+  "domain": {
+    "lengths": [
+      2,
+      5
+    ],
+    "positive_total_maximum": 12,
+    "targets": [
+      5,
+      7,
+      31,
+      593
+    ],
+    "shifts": "all nonzero admissible two edits"
+  },
+  "purpose": "finite algebra/replay error check; no density claim"
+}

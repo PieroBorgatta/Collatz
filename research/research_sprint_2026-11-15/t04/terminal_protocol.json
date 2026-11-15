@@ -1,0 +1,59 @@
+{
+  "frozen_at_utc": "2026-11-15T20:07:06.970038+00:00",
+  "purpose": "independent bounded terminal replacement residual and diagonal boundary replay",
+  "pairs": [
+    [
+      5,
+      85
+    ],
+    [
+      7,
+      29
+    ],
+    [
+      31,
+      125
+    ],
+    [
+      593,
+      9493
+    ],
+    [
+      5,
+      1
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      7,
+      11
+    ]
+  ],
+  "length_min": 1,
+  "length_max": 5,
+  "total_exponent_max": 12,
+  "old_tail_lengths": [
+    0,
+    1,
+    2
+  ],
+  "new_tail_lengths": [
+    0,
+    1,
+    2
+  ],
+  "net_total_shifts": [
+    -4,
+    -3,
+    -2,
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "algorithm": "backward exact inversion; direct valuation replay; all positive compositions of new terminal total"
+}

@@ -1,0 +1,43 @@
+{
+  "reviewer": "T11 formal semantic review",
+  "reviewed_at_utc": "2026-11-15T21:01:39.883102+00:00",
+  "no_build_repeated": true,
+  "source_snapshot_matches_prior_integration": true,
+  "source_sha256": {
+    "lean/CollatzShadowing/OrbitReciprocal.lean": "750ee15525eea3dd9f7ea7cb1a90a9d07425680555949e322251a073c24875e0",
+    "lean/CollatzShadowing/WordProductEnvelope.lean": "85b5ad253999ac5f6786f203b114511a9418cf6757c02fae69c509d3de4a355b",
+    "lean/CollatzShadowing/FirstArrivalBudget.lean": "cb9230c960720263a30f910e4acb51101bd3639b7736bbf122a23343db1789c7",
+    "lean/CollatzShadowing/TwoEditSparsity.lean": "4d271a6d56d52259b25c10f541150a48d3ebe8746212e851cf0e99258aff2d75",
+    "lean/CollatzShadowing/TraceDensityBridge.lean": "ecc3d5ec9398cfaa7b6c391810cb590c0adfcbd8a41137213d3729a185ce9a83",
+    "lean/CollatzShadowing/CycleMinimumProduct.lean": "12789431a44ca24864e6fbcd9090ceeb8b8e138925c026cc61276672b16348ee"
+  },
+  "public_theorem_counts": {
+    "OrbitReciprocal": 19,
+    "WordProductEnvelope": 7,
+    "FirstArrivalBudget": 13,
+    "TwoEditSparsity": 5,
+    "TraceDensityBridge": 4,
+    "CycleMinimumProduct": 3
+  },
+  "index_line_checks": 51,
+  "constant_check": {
+    "heavy_ratio": "3125/3456",
+    "light_ratio": "27/32",
+    "heavy_five_coeff_sum": "3271/576",
+    "light_five_coeff_sum": "51/16",
+    "conservative_reciprocal_bound": "133547/1655",
+    "decimal": 80.69305135951662,
+    "less_than_81": true
+  },
+  "logical_specification_findings": [],
+  "documentation_clarifications": [
+    {
+      "path": "README.md",
+      "description": "State injective shortcut qualification explicitly in November15 headline."
+    },
+    {
+      "path": "notes/research_sprint_2026-11-15/ROOT_HEIGHT_IT.md",
+      "description": "Affine constant need only be nonnegative; empty words have constant zero."
+    }
+  ]
+}

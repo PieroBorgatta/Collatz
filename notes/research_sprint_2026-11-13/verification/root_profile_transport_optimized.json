@@ -1,0 +1,1707 @@
+{
+  "protocol": "PROFILE_TRANSPORT_PROTOCOL_IT.md",
+  "status": "PASS",
+  "finite_odd_sources_only": true,
+  "asymptotic_claim": false,
+  "graph_odd_nodes": 208223,
+  "maximum_accelerated_depth": 164,
+  "rows": [
+    {
+      "n": 5,
+      "y": 85,
+      "X": 256,
+      "D": 4,
+      "base_odd_count": 120,
+      "image_odd_count": 13,
+      "matched_sources": 0,
+      "load": 1,
+      "eta_numerator": 0,
+      "eta_denominator": 120,
+      "missing_profile_sources": 109,
+      "sample_pairs": [],
+      "pairs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "n": 5,
+      "y": 85,
+      "X": 256,
+      "D": 16,
+      "base_odd_count": 120,
+      "image_odd_count": 48,
+      "matched_sources": 0,
+      "load": 1,
+      "eta_numerator": 0,
+      "eta_denominator": 120,
+      "missing_profile_sources": 70,
+      "sample_pairs": [],
+      "pairs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "n": 5,
+      "y": 85,
+      "X": 256,
+      "D": 64,
+      "base_odd_count": 120,
+      "image_odd_count": 203,
+      "matched_sources": 47,
+      "load": 1,
+      "eta_numerator": 47,
+      "eta_denominator": 120,
+      "missing_profile_sources": 60,
+      "sample_pairs": [
+        [
+          5,
+          85,
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          17,
+          301,
+          [
+            2,
+            5
+          ]
+        ],
+        [
+          69,
+          1205,
+          [
+            2,
+            7
+          ]
+        ],
+        [
+          141,
+          2417,
+          [
+            2,
+            8
+          ]
+        ],
+        [
+          23,
+          401,
+          [
+            3,
+            7
+          ]
+        ],
+        [
+          45,
+          803,
+          [
+            3,
+            8
+          ]
+        ],
+        [
+          93,
+          1605,
+          [
+            3,
+            9
+          ]
+        ],
+        [
+          181,
+          3213,
+          [
+            3,
+            10
+          ]
+        ]
+      ],
+      "pairs_sha256": "9af1b8c382e65ddd50c00d1d3ef9c7caeae942d53e2247da6fc7f4f49c3ef19f"
+    },
+    {
+      "n": 5,
+      "y": 85,
+      "X": 1024,
+      "D": 4,
+      "base_odd_count": 480,
+      "image_odd_count": 48,
+      "matched_sources": 0,
+      "load": 1,
+      "eta_numerator": 0,
+      "eta_denominator": 480,
+      "missing_profile_sources": 430,
+      "sample_pairs": [],
+      "pairs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "n": 5,
+      "y": 85,
+      "X": 1024,
+      "D": 16,
+      "base_odd_count": 480,
+      "image_odd_count": 203,
+      "matched_sources": 0,
+      "load": 1,
+      "eta_numerator": 0,
+      "eta_denominator": 480,
+      "missing_profile_sources": 226,
+      "sample_pairs": [],
+      "pairs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "n": 5,
+      "y": 85,
+      "X": 1024,
+      "D": 64,
+      "base_odd_count": 480,
+      "image_odd_count": 815,
+      "matched_sources": 229,
+      "load": 1,
+      "eta_numerator": 229,
+      "eta_denominator": 480,
+      "missing_profile_sources": 183,
+      "sample_pairs": [
+        [
+          5,
+          85,
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          17,
+          301,
+          [
+            2,
+            5
+          ]
+        ],
+        [
+          69,
+          1205,
+          [
+            2,
+            7
+          ]
+        ],
+        [
+          141,
+          2417,
+          [
+            2,
+            8
+          ]
+        ],
+        [
+          277,
+          4821,
+          [
+            2,
+            9
+          ]
+        ],
+        [
+          565,
+          9669,
+          [
+            2,
+            10
+          ]
+        ],
+        [
+          23,
+          401,
+          [
+            3,
+            7
+          ]
+        ],
+        [
+          45,
+          803,
+          [
+            3,
+            8
+          ]
+        ]
+      ],
+      "pairs_sha256": "876f8de4456d5d6bc9eece5ef444e6dfcf3e8c69d6913451114d68439f3e6304"
+    },
+    {
+      "n": 5,
+      "y": 85,
+      "X": 4096,
+      "D": 4,
+      "base_odd_count": 1924,
+      "image_odd_count": 203,
+      "matched_sources": 0,
+      "load": 1,
+      "eta_numerator": 0,
+      "eta_denominator": 1924,
+      "missing_profile_sources": 1670,
+      "sample_pairs": [],
+      "pairs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "n": 5,
+      "y": 85,
+      "X": 4096,
+      "D": 16,
+      "base_odd_count": 1924,
+      "image_odd_count": 815,
+      "matched_sources": 0,
+      "load": 1,
+      "eta_numerator": 0,
+      "eta_denominator": 1924,
+      "missing_profile_sources": 707,
+      "sample_pairs": [],
+      "pairs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "n": 5,
+      "y": 85,
+      "X": 4096,
+      "D": 64,
+      "base_odd_count": 1924,
+      "image_odd_count": 3119,
+      "matched_sources": 946,
+      "load": 1,
+      "eta_numerator": 946,
+      "eta_denominator": 1924,
+      "missing_profile_sources": 470,
+      "sample_pairs": [
+        [
+          5,
+          85,
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          17,
+          301,
+          [
+            2,
+            5
+          ]
+        ],
+        [
+          69,
+          1205,
+          [
+            2,
+            7
+          ]
+        ],
+        [
+          141,
+          2417,
+          [
+            2,
+            8
+          ]
+        ],
+        [
+          277,
+          4821,
+          [
+            2,
+            9
+          ]
+        ],
+        [
+          565,
+          9669,
+          [
+            2,
+            10
+          ]
+        ],
+        [
+          1109,
+          19285,
+          [
+            2,
+            11
+          ]
+        ],
+        [
+          1137,
+          19341,
+          [
+            2,
+            11
+          ]
+        ]
+      ],
+      "pairs_sha256": "9773af712f4e47347e75213c8f25895720480adfc46c2ce7231255289850d19e"
+    },
+    {
+      "n": 7,
+      "y": 29,
+      "X": 256,
+      "D": 4,
+      "base_odd_count": 18,
+      "image_odd_count": 114,
+      "matched_sources": 0,
+      "load": 1,
+      "eta_numerator": 0,
+      "eta_denominator": 18,
+      "missing_profile_sources": 3,
+      "sample_pairs": [],
+      "pairs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "n": 7,
+      "y": 29,
+      "X": 256,
+      "D": 16,
+      "base_odd_count": 18,
+      "image_odd_count": 471,
+      "matched_sources": 15,
+      "load": 1,
+      "eta_numerator": 15,
+      "eta_denominator": 18,
+      "missing_profile_sources": 3,
+      "sample_pairs": [
+        [
+          7,
+          29,
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          49,
+          205,
+          [
+            2,
+            6
+          ]
+        ],
+        [
+          99,
+          405,
+          [
+            2,
+            7
+          ]
+        ],
+        [
+          197,
+          821,
+          [
+            2,
+            8
+          ]
+        ],
+        [
+          65,
+          269,
+          [
+            3,
+            8
+          ]
+        ],
+        [
+          131,
+          533,
+          [
+            3,
+            9
+          ]
+        ],
+        [
+          43,
+          177,
+          [
+            4,
+            9
+          ]
+        ],
+        [
+          87,
+          355,
+          [
+            4,
+            10
+          ]
+        ]
+      ],
+      "pairs_sha256": "9eb70f3bdc5c5569fba7a4593af0619fb90e4c53340c734d264515e4fc53a4d7"
+    },
+    {
+      "n": 7,
+      "y": 29,
+      "X": 256,
+      "D": 64,
+      "base_odd_count": 18,
+      "image_odd_count": 1933,
+      "matched_sources": 15,
+      "load": 1,
+      "eta_numerator": 15,
+      "eta_denominator": 18,
+      "missing_profile_sources": 3,
+      "sample_pairs": [
+        [
+          7,
+          29,
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          49,
+          205,
+          [
+            2,
+            6
+          ]
+        ],
+        [
+          99,
+          405,
+          [
+            2,
+            7
+          ]
+        ],
+        [
+          197,
+          821,
+          [
+            2,
+            8
+          ]
+        ],
+        [
+          65,
+          269,
+          [
+            3,
+            8
+          ]
+        ],
+        [
+          131,
+          533,
+          [
+            3,
+            9
+          ]
+        ],
+        [
+          43,
+          177,
+          [
+            4,
+            9
+          ]
+        ],
+        [
+          87,
+          355,
+          [
+            4,
+            10
+          ]
+        ]
+      ],
+      "pairs_sha256": "9eb70f3bdc5c5569fba7a4593af0619fb90e4c53340c734d264515e4fc53a4d7"
+    },
+    {
+      "n": 7,
+      "y": 29,
+      "X": 1024,
+      "D": 4,
+      "base_odd_count": 88,
+      "image_odd_count": 471,
+      "matched_sources": 0,
+      "load": 1,
+      "eta_numerator": 0,
+      "eta_denominator": 88,
+      "missing_profile_sources": 10,
+      "sample_pairs": [],
+      "pairs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "n": 7,
+      "y": 29,
+      "X": 1024,
+      "D": 16,
+      "base_odd_count": 88,
+      "image_odd_count": 1933,
+      "matched_sources": 83,
+      "load": 1,
+      "eta_numerator": 83,
+      "eta_denominator": 88,
+      "missing_profile_sources": 5,
+      "sample_pairs": [
+        [
+          7,
+          29,
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          49,
+          205,
+          [
+            2,
+            6
+          ]
+        ],
+        [
+          99,
+          405,
+          [
+            2,
+            7
+          ]
+        ],
+        [
+          197,
+          821,
+          [
+            2,
+            8
+          ]
+        ],
+        [
+          397,
+          1621,
+          [
+            2,
+            9
+          ]
+        ],
+        [
+          789,
+          3285,
+          [
+            2,
+            10
+          ]
+        ],
+        [
+          65,
+          269,
+          [
+            3,
+            8
+          ]
+        ],
+        [
+          131,
+          533,
+          [
+            3,
+            9
+          ]
+        ]
+      ],
+      "pairs_sha256": "25b5bb74099798d0a10f98ee480e755300a5d2c9910405f0cb6f360c3c329b7d"
+    },
+    {
+      "n": 7,
+      "y": 29,
+      "X": 1024,
+      "D": 64,
+      "base_odd_count": 88,
+      "image_odd_count": 7732,
+      "matched_sources": 83,
+      "load": 1,
+      "eta_numerator": 83,
+      "eta_denominator": 88,
+      "missing_profile_sources": 5,
+      "sample_pairs": [
+        [
+          7,
+          29,
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          49,
+          205,
+          [
+            2,
+            6
+          ]
+        ],
+        [
+          99,
+          405,
+          [
+            2,
+            7
+          ]
+        ],
+        [
+          197,
+          821,
+          [
+            2,
+            8
+          ]
+        ],
+        [
+          397,
+          1621,
+          [
+            2,
+            9
+          ]
+        ],
+        [
+          789,
+          3285,
+          [
+            2,
+            10
+          ]
+        ],
+        [
+          65,
+          269,
+          [
+            3,
+            8
+          ]
+        ],
+        [
+          131,
+          533,
+          [
+            3,
+            9
+          ]
+        ]
+      ],
+      "pairs_sha256": "25b5bb74099798d0a10f98ee480e755300a5d2c9910405f0cb6f360c3c329b7d"
+    },
+    {
+      "n": 7,
+      "y": 29,
+      "X": 4096,
+      "D": 4,
+      "base_odd_count": 382,
+      "image_odd_count": 1933,
+      "matched_sources": 8,
+      "load": 1,
+      "eta_numerator": 8,
+      "eta_denominator": 382,
+      "missing_profile_sources": 20,
+      "sample_pairs": [
+        [
+          3353,
+          13397,
+          [
+            7,
+            20
+          ]
+        ],
+        [
+          2235,
+          8917,
+          [
+            8,
+            21
+          ]
+        ],
+        [
+          2971,
+          11861,
+          [
+            9,
+            23
+          ]
+        ],
+        [
+          2975,
+          11889,
+          [
+            9,
+            23
+          ]
+        ],
+        [
+          1983,
+          7893,
+          [
+            10,
+            24
+          ]
+        ],
+        [
+          3961,
+          15813,
+          [
+            10,
+            25
+          ]
+        ],
+        [
+          3963,
+          15829,
+          [
+            10,
+            25
+          ]
+        ],
+        [
+          3967,
+          15843,
+          [
+            10,
+            25
+          ]
+        ]
+      ],
+      "pairs_sha256": "bb8eaa4a59706d9c82e749122b3825fc3ce8f93897479dc4337ebd1e0c83137b"
+    },
+    {
+      "n": 7,
+      "y": 29,
+      "X": 4096,
+      "D": 16,
+      "base_odd_count": 382,
+      "image_odd_count": 7732,
+      "matched_sources": 376,
+      "load": 1,
+      "eta_numerator": 376,
+      "eta_denominator": 382,
+      "missing_profile_sources": 6,
+      "sample_pairs": [
+        [
+          7,
+          29,
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          49,
+          205,
+          [
+            2,
+            6
+          ]
+        ],
+        [
+          99,
+          405,
+          [
+            2,
+            7
+          ]
+        ],
+        [
+          197,
+          821,
+          [
+            2,
+            8
+          ]
+        ],
+        [
+          397,
+          1621,
+          [
+            2,
+            9
+          ]
+        ],
+        [
+          789,
+          3285,
+          [
+            2,
+            10
+          ]
+        ],
+        [
+          1589,
+          6485,
+          [
+            2,
+            11
+          ]
+        ],
+        [
+          3157,
+          13141,
+          [
+            2,
+            12
+          ]
+        ]
+      ],
+      "pairs_sha256": "901096b67a127394b2dfb26d3343a03f8338ec9a897e7bfca48765febe904061"
+    },
+    {
+      "n": 7,
+      "y": 29,
+      "X": 4096,
+      "D": 64,
+      "base_odd_count": 382,
+      "image_odd_count": 30991,
+      "matched_sources": 376,
+      "load": 1,
+      "eta_numerator": 376,
+      "eta_denominator": 382,
+      "missing_profile_sources": 6,
+      "sample_pairs": [
+        [
+          7,
+          29,
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          49,
+          205,
+          [
+            2,
+            6
+          ]
+        ],
+        [
+          99,
+          405,
+          [
+            2,
+            7
+          ]
+        ],
+        [
+          197,
+          821,
+          [
+            2,
+            8
+          ]
+        ],
+        [
+          397,
+          1621,
+          [
+            2,
+            9
+          ]
+        ],
+        [
+          789,
+          3285,
+          [
+            2,
+            10
+          ]
+        ],
+        [
+          1589,
+          6485,
+          [
+            2,
+            11
+          ]
+        ],
+        [
+          3157,
+          13141,
+          [
+            2,
+            12
+          ]
+        ]
+      ],
+      "pairs_sha256": "901096b67a127394b2dfb26d3343a03f8338ec9a897e7bfca48765febe904061"
+    },
+    {
+      "n": 31,
+      "y": 125,
+      "X": 256,
+      "D": 4,
+      "base_odd_count": 9,
+      "image_odd_count": 45,
+      "matched_sources": 1,
+      "load": 1,
+      "eta_numerator": 1,
+      "eta_denominator": 9,
+      "missing_profile_sources": 4,
+      "sample_pairs": [
+        [
+          231,
+          919,
+          [
+            7,
+            14
+          ]
+        ]
+      ],
+      "pairs_sha256": "ffda57ae86db243879c2c879a4d5f9016e19b3132cda550dcfa4d1548fb78b4c"
+    },
+    {
+      "n": 31,
+      "y": 125,
+      "X": 256,
+      "D": 16,
+      "base_odd_count": 9,
+      "image_odd_count": 190,
+      "matched_sources": 5,
+      "load": 1,
+      "eta_numerator": 5,
+      "eta_denominator": 9,
+      "missing_profile_sources": 4,
+      "sample_pairs": [
+        [
+          31,
+          125,
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          145,
+          589,
+          [
+            3,
+            7
+          ]
+        ],
+        [
+          193,
+          781,
+          [
+            4,
+            9
+          ]
+        ],
+        [
+          171,
+          689,
+          [
+            6,
+            12
+          ]
+        ],
+        [
+          231,
+          919,
+          [
+            7,
+            14
+          ]
+        ]
+      ],
+      "pairs_sha256": "8c7db28f81c407d8e78e6b495aa53ee82ffb77073f8726f6eb133f6014c3fbdd"
+    },
+    {
+      "n": 31,
+      "y": 125,
+      "X": 256,
+      "D": 64,
+      "base_odd_count": 9,
+      "image_odd_count": 740,
+      "matched_sources": 5,
+      "load": 1,
+      "eta_numerator": 5,
+      "eta_denominator": 9,
+      "missing_profile_sources": 4,
+      "sample_pairs": [
+        [
+          31,
+          125,
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          145,
+          589,
+          [
+            3,
+            7
+          ]
+        ],
+        [
+          193,
+          781,
+          [
+            4,
+            9
+          ]
+        ],
+        [
+          171,
+          689,
+          [
+            6,
+            12
+          ]
+        ],
+        [
+          231,
+          919,
+          [
+            7,
+            14
+          ]
+        ]
+      ],
+      "pairs_sha256": "8c7db28f81c407d8e78e6b495aa53ee82ffb77073f8726f6eb133f6014c3fbdd"
+    },
+    {
+      "n": 31,
+      "y": 125,
+      "X": 1024,
+      "D": 4,
+      "base_odd_count": 43,
+      "image_odd_count": 190,
+      "matched_sources": 16,
+      "load": 1,
+      "eta_numerator": 16,
+      "eta_denominator": 43,
+      "missing_profile_sources": 5,
+      "sample_pairs": [
+        [
+          391,
+          1557,
+          [
+            4,
+            10
+          ]
+        ],
+        [
+          783,
+          3125,
+          [
+            4,
+            11
+          ]
+        ],
+        [
+          521,
+          2069,
+          [
+            5,
+            12
+          ]
+        ],
+        [
+          347,
+          1379,
+          [
+            6,
+            13
+          ]
+        ],
+        [
+          695,
+          2757,
+          [
+            6,
+            14
+          ]
+        ],
+        [
+          231,
+          919,
+          [
+            7,
+            14
+          ]
+        ],
+        [
+          463,
+          1837,
+          [
+            7,
+            15
+          ]
+        ],
+        [
+          925,
+          3677,
+          [
+            7,
+            16
+          ]
+        ]
+      ],
+      "pairs_sha256": "cdb3f410de68b533826cf67f691dfd3cbf4dcdf6b665312154fe7e750c43fec0"
+    },
+    {
+      "n": 31,
+      "y": 125,
+      "X": 1024,
+      "D": 16,
+      "base_odd_count": 43,
+      "image_odd_count": 740,
+      "matched_sources": 38,
+      "load": 1,
+      "eta_numerator": 38,
+      "eta_denominator": 43,
+      "missing_profile_sources": 5,
+      "sample_pairs": [
+        [
+          31,
+          125,
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          437,
+          1777,
+          [
+            2,
+            7
+          ]
+        ],
+        [
+          881,
+          3541,
+          [
+            2,
+            8
+          ]
+        ],
+        [
+          145,
+          589,
+          [
+            3,
+            7
+          ]
+        ],
+        [
+          291,
+          1173,
+          [
+            3,
+            8
+          ]
+        ],
+        [
+          581,
+          2357,
+          [
+            3,
+            9
+          ]
+        ],
+        [
+          587,
+          2369,
+          [
+            3,
+            9
+          ]
+        ],
+        [
+          193,
+          781,
+          [
+            4,
+            9
+          ]
+        ]
+      ],
+      "pairs_sha256": "058448976e6b22d07f02e9192279da727f9e1cb6bb8773af7e3333c0fb06c41a"
+    },
+    {
+      "n": 31,
+      "y": 125,
+      "X": 1024,
+      "D": 64,
+      "base_odd_count": 43,
+      "image_odd_count": 2944,
+      "matched_sources": 38,
+      "load": 1,
+      "eta_numerator": 38,
+      "eta_denominator": 43,
+      "missing_profile_sources": 5,
+      "sample_pairs": [
+        [
+          31,
+          125,
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          437,
+          1777,
+          [
+            2,
+            7
+          ]
+        ],
+        [
+          881,
+          3541,
+          [
+            2,
+            8
+          ]
+        ],
+        [
+          145,
+          589,
+          [
+            3,
+            7
+          ]
+        ],
+        [
+          291,
+          1173,
+          [
+            3,
+            8
+          ]
+        ],
+        [
+          581,
+          2357,
+          [
+            3,
+            9
+          ]
+        ],
+        [
+          587,
+          2369,
+          [
+            3,
+            9
+          ]
+        ],
+        [
+          193,
+          781,
+          [
+            4,
+            9
+          ]
+        ]
+      ],
+      "pairs_sha256": "058448976e6b22d07f02e9192279da727f9e1cb6bb8773af7e3333c0fb06c41a"
+    },
+    {
+      "n": 31,
+      "y": 125,
+      "X": 4096,
+      "D": 4,
+      "base_odd_count": 197,
+      "image_odd_count": 740,
+      "matched_sources": 72,
+      "load": 1,
+      "eta_numerator": 72,
+      "eta_denominator": 197,
+      "missing_profile_sources": 6,
+      "sample_pairs": [
+        [
+          1175,
+          4693,
+          [
+            3,
+            10
+          ]
+        ],
+        [
+          391,
+          1557,
+          [
+            4,
+            10
+          ]
+        ],
+        [
+          783,
+          3125,
+          [
+            4,
+            11
+          ]
+        ],
+        [
+          1565,
+          6229,
+          [
+            4,
+            12
+          ]
+        ],
+        [
+          3133,
+          12501,
+          [
+            4,
+            13
+          ]
+        ],
+        [
+          521,
+          2069,
+          [
+            5,
+            12
+          ]
+        ],
+        [
+          1043,
+          4149,
+          [
+            5,
+            13
+          ]
+        ],
+        [
+          2071,
+          8277,
+          [
+            5,
+            14
+          ]
+        ]
+      ],
+      "pairs_sha256": "3e7c3c8932aa6a09fbb41c50d84d0e47cfc63035a8590dc1eef3a86519bd2775"
+    },
+    {
+      "n": 31,
+      "y": 125,
+      "X": 4096,
+      "D": 16,
+      "base_odd_count": 197,
+      "image_odd_count": 2944,
+      "matched_sources": 190,
+      "load": 1,
+      "eta_numerator": 190,
+      "eta_denominator": 197,
+      "missing_profile_sources": 6,
+      "sample_pairs": [
+        [
+          31,
+          125,
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          437,
+          1777,
+          [
+            2,
+            7
+          ]
+        ],
+        [
+          881,
+          3541,
+          [
+            2,
+            8
+          ]
+        ],
+        [
+          1749,
+          7109,
+          [
+            2,
+            9
+          ]
+        ],
+        [
+          3525,
+          14165,
+          [
+            2,
+            10
+          ]
+        ],
+        [
+          145,
+          589,
+          [
+            3,
+            7
+          ]
+        ],
+        [
+          291,
+          1173,
+          [
+            3,
+            8
+          ]
+        ],
+        [
+          581,
+          2357,
+          [
+            3,
+            9
+          ]
+        ]
+      ],
+      "pairs_sha256": "1d80a289407cea23f22c02b4cf872d10272f842c4c714fec3a6aa076f3643355"
+    },
+    {
+      "n": 31,
+      "y": 125,
+      "X": 4096,
+      "D": 64,
+      "base_odd_count": 197,
+      "image_odd_count": 12055,
+      "matched_sources": 190,
+      "load": 1,
+      "eta_numerator": 190,
+      "eta_denominator": 197,
+      "missing_profile_sources": 6,
+      "sample_pairs": [
+        [
+          31,
+          125,
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          437,
+          1777,
+          [
+            2,
+            7
+          ]
+        ],
+        [
+          881,
+          3541,
+          [
+            2,
+            8
+          ]
+        ],
+        [
+          1749,
+          7109,
+          [
+            2,
+            9
+          ]
+        ],
+        [
+          3525,
+          14165,
+          [
+            2,
+            10
+          ]
+        ],
+        [
+          145,
+          589,
+          [
+            3,
+            7
+          ]
+        ],
+        [
+          291,
+          1173,
+          [
+            3,
+            8
+          ]
+        ],
+        [
+          581,
+          2357,
+          [
+            3,
+            9
+          ]
+        ]
+      ],
+      "pairs_sha256": "1d80a289407cea23f22c02b4cf872d10272f842c4c714fec3a6aa076f3643355"
+    },
+    {
+      "n": 593,
+      "y": 9493,
+      "X": 256,
+      "D": 4,
+      "base_odd_count": 40,
+      "image_odd_count": 0,
+      "matched_sources": 0,
+      "load": 1,
+      "eta_numerator": 0,
+      "eta_denominator": 40,
+      "missing_profile_sources": 40,
+      "sample_pairs": [],
+      "pairs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "n": 593,
+      "y": 9493,
+      "X": 256,
+      "D": 16,
+      "base_odd_count": 40,
+      "image_odd_count": 0,
+      "matched_sources": 0,
+      "load": 1,
+      "eta_numerator": 0,
+      "eta_denominator": 40,
+      "missing_profile_sources": 40,
+      "sample_pairs": [],
+      "pairs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "n": 593,
+      "y": 9493,
+      "X": 256,
+      "D": 64,
+      "base_odd_count": 40,
+      "image_odd_count": 2,
+      "matched_sources": 0,
+      "load": 1,
+      "eta_numerator": 0,
+      "eta_denominator": 40,
+      "missing_profile_sources": 40,
+      "sample_pairs": [],
+      "pairs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "n": 593,
+      "y": 9493,
+      "X": 1024,
+      "D": 4,
+      "base_odd_count": 166,
+      "image_odd_count": 0,
+      "matched_sources": 0,
+      "load": 1,
+      "eta_numerator": 0,
+      "eta_denominator": 166,
+      "missing_profile_sources": 166,
+      "sample_pairs": [],
+      "pairs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "n": 593,
+      "y": 9493,
+      "X": 1024,
+      "D": 16,
+      "base_odd_count": 166,
+      "image_odd_count": 2,
+      "matched_sources": 0,
+      "load": 1,
+      "eta_numerator": 0,
+      "eta_denominator": 166,
+      "missing_profile_sources": 165,
+      "sample_pairs": [],
+      "pairs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "n": 593,
+      "y": 9493,
+      "X": 1024,
+      "D": 64,
+      "base_odd_count": 166,
+      "image_odd_count": 4,
+      "matched_sources": 1,
+      "load": 1,
+      "eta_numerator": 1,
+      "eta_denominator": 166,
+      "missing_profile_sources": 165,
+      "sample_pairs": [
+        [
+          593,
+          9493,
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "pairs_sha256": "8c769488decc3e7ff705438cc53a64b90a3c81fee34e27e10a1decd0d25892fa"
+    },
+    {
+      "n": 593,
+      "y": 9493,
+      "X": 4096,
+      "D": 4,
+      "base_odd_count": 689,
+      "image_odd_count": 2,
+      "matched_sources": 0,
+      "load": 1,
+      "eta_numerator": 0,
+      "eta_denominator": 689,
+      "missing_profile_sources": 688,
+      "sample_pairs": [],
+      "pairs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "n": 593,
+      "y": 9493,
+      "X": 4096,
+      "D": 16,
+      "base_odd_count": 689,
+      "image_odd_count": 4,
+      "matched_sources": 0,
+      "load": 1,
+      "eta_numerator": 0,
+      "eta_denominator": 689,
+      "missing_profile_sources": 687,
+      "sample_pairs": [],
+      "pairs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "n": 593,
+      "y": 9493,
+      "X": 4096,
+      "D": 64,
+      "base_odd_count": 689,
+      "image_odd_count": 13,
+      "matched_sources": 2,
+      "load": 1,
+      "eta_numerator": 2,
+      "eta_denominator": 689,
+      "missing_profile_sources": 687,
+      "sample_pairs": [
+        [
+          593,
+          9493,
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          2805,
+          45003,
+          [
+            3,
+            7
+          ]
+        ]
+      ],
+      "pairs_sha256": "ed543552dfda8718fdb25f8a56c243d1e42fa9cbdd12652f329b596ab1cb5a0c"
+    }
+  ]
+}

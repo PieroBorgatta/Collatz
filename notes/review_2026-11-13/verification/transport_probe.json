@@ -1,0 +1,19 @@
+{
+  "exact_balanced_surgery_identities": 8988,
+  "early_only_surgeries_blocked_mod3": 5232,
+  "surgeries_touching_last_pass_mod3_only": 3756,
+  "word_lengths": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "original_exponents": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "delta": 1,
+  "claim": "finite verification only; passing mod3 does not imply mod3^k or bounded mass transport"
+}

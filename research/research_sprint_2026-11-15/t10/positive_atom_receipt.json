@@ -1,0 +1,12 @@
+{
+  "all_positive_prefix_checks": 5422,
+  "atom_checks": 455,
+  "finite_only": true,
+  "fixed_total_source_fibers": 3250,
+  "script_sha256": "24be46a14ecb9c2651645a878526ebc0b2aed1114da74efdd9737e8a6ace9ccc",
+  "status": "PASS",
+  "truncated_tilt_comparisons": 325,
+  "normal_optimized_identical": true,
+  "checked_at_utc": "2026-11-15T21:22:16.824372+00:00",
+  "output_sha256": "0dabdce06efb77d25acd21ff37994431c9bfe68b189c588b6b57c8926ecf95f4"
+}

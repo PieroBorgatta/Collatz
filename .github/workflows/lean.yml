@@ -119,3 +119,41 @@ jobs:
             /tmp/signed-transport-audit.log
             /tmp/signed-results.json
           if-no-files-found: ignore
+      - name: Audit November root-pool and transport theorems without native axioms
+        working-directory: lean
+        run: |
+          set -o pipefail
+          lake env lean ../notes/research_sprint_2026-11-13/verification/AllNewDependencyAudit.lean | tee /tmp/november-root-audit.log
+      - name: Replay independent November finite checks
+        run: |
+          python3 notes/research_sprint_2026-11-13/experiments/s13_independent.py > /tmp/november-finite-replay.json
+          python3 -O notes/research_sprint_2026-11-13/experiments/s13_independent.py > /tmp/november-finite-replay-optimized.json
+          cmp /tmp/november-finite-replay.json /tmp/november-finite-replay-optimized.json
+          python3 notes/research_sprint_2026-11-13/experiments/s13_profile_matching.py > /tmp/november-profile-replay.json
+      - name: Preserve November verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: november-transport-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            /tmp/november-root-audit.log
+            /tmp/november-finite-replay.json
+            /tmp/november-finite-replay-optimized.json
+            /tmp/november-profile-replay.json
+          if-no-files-found: ignore
+      - name: Audit November 15 packing and transport declarations
+        working-directory: lean
+        run: |
+          set -o pipefail
+          lake env lean ../notes/research_sprint_2026-11-15/verification/AllNewDependencyAudit.lean | tee /tmp/november-15-audit.log
+      - name: Replay November 15 finite checks with optimization comparison
+        run: python3 notes/research_sprint_2026-11-15/replay_finite.py --output /tmp/november-15-replay
+      - name: Preserve November 15 verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: november-15-packing-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            /tmp/november-15-audit.log
+            /tmp/november-15-replay
+          if-no-files-found: ignore

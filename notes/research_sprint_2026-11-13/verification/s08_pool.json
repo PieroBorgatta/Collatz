@@ -1,0 +1,16 @@
+{
+  "agent": "S08",
+  "result": "PASS",
+  "exit_code": 0,
+  "command": "lake env lean CollatzShadowing/SiblingPool.lean",
+  "cwd": "lean",
+  "source": "lean/CollatzShadowing/SiblingPool.lean",
+  "source_sha256": "851c32eb349dfdb668e2d9b6a2c1bf0891897cd989f022b344d83fa81fa536e9",
+  "public_theorems": 8,
+  "source_lines": 114,
+  "log": "notes/research_sprint_2026-11-13/verification/s08_pool.log",
+  "log_bytes": 0,
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "axioms_audit": "prepared, not executed by S08",
+  "verification_boundary": "Fresh elaboration of local module using installed compiled dependencies; not full build or independent-kernel replay."
+}

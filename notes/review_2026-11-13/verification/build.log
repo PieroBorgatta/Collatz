@@ -1,0 +1,5 @@
+⚠ [3354/3380] Replayed CollatzShadowing.SignedTransport
+warning: CollatzShadowing/SignedTransport.lean:25:51: unused variable `hy`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Build completed successfully (3380 jobs).

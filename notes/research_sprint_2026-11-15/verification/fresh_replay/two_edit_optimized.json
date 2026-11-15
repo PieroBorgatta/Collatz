@@ -1,0 +1,1657 @@
+{
+  "counts": {
+    "exact_original_words": 136,
+    "exact_transports": 81,
+    "negative_transports": 27,
+    "positive_exponent_edits": 58256,
+    "positive_transports": 54,
+    "words": 1573
+  },
+  "meaning": "finite algebra and exact replay error check only",
+  "protocol": {
+    "lengths": [
+      2,
+      5
+    ],
+    "maximum_total": 12,
+    "shifts": "all positive-exponent admissible",
+    "targets": [
+      5,
+      7,
+      31,
+      593
+    ]
+  },
+  "status": "PASS",
+  "transports": [
+    {
+      "delta": 1,
+      "index": 0,
+      "modified": [
+        3,
+        2
+      ],
+      "n": 5,
+      "q": 1,
+      "residual": 639,
+      "u": 17,
+      "v": 301,
+      "v3_residual": 2,
+      "word": [
+        2,
+        3
+      ],
+      "y": 85
+    },
+    {
+      "delta": 1,
+      "index": 0,
+      "modified": [
+        3,
+        3
+      ],
+      "n": 7,
+      "q": 1,
+      "residual": 351,
+      "u": 49,
+      "v": 205,
+      "v3_residual": 3,
+      "word": [
+        2,
+        4
+      ],
+      "y": 29
+    },
+    {
+      "delta": -3,
+      "index": 0,
+      "modified": [
+        2,
+        4
+      ],
+      "n": 593,
+      "q": 1,
+      "residual": 142407,
+      "u": 4213,
+      "v": 67505,
+      "v3_residual": 2,
+      "word": [
+        5,
+        1
+      ],
+      "y": 9493
+    },
+    {
+      "delta": 5,
+      "index": 0,
+      "modified": [
+        6,
+        1
+      ],
+      "n": 7,
+      "q": 1,
+      "residual": 1377,
+      "u": 99,
+      "v": 405,
+      "v3_residual": 4,
+      "word": [
+        1,
+        6
+      ],
+      "y": 29
+    },
+    {
+      "delta": -1,
+      "index": 0,
+      "modified": [
+        1,
+        6
+      ],
+      "n": 593,
+      "q": 1,
+      "residual": 569601,
+      "u": 8433,
+      "v": 135011,
+      "v3_residual": 2,
+      "word": [
+        2,
+        5
+      ],
+      "y": 9493
+    },
+    {
+      "delta": 1,
+      "index": 0,
+      "modified": [
+        5,
+        2
+      ],
+      "n": 5,
+      "q": 1,
+      "residual": 639,
+      "u": 69,
+      "v": 1205,
+      "v3_residual": 2,
+      "word": [
+        4,
+        3
+      ],
+      "y": 85
+    },
+    {
+      "delta": -3,
+      "index": 0,
+      "modified": [
+        2,
+        5
+      ],
+      "n": 31,
+      "q": 1,
+      "residual": 3015,
+      "u": 437,
+      "v": 1777,
+      "v3_residual": 2,
+      "word": [
+        5,
+        2
+      ],
+      "y": 125
+    },
+    {
+      "delta": 3,
+      "index": 0,
+      "modified": [
+        4,
+        4
+      ],
+      "n": 593,
+      "q": 1,
+      "residual": 1139193,
+      "u": 16867,
+      "v": 270021,
+      "v3_residual": 2,
+      "word": [
+        1,
+        7
+      ],
+      "y": 9493
+    },
+    {
+      "delta": -1,
+      "index": 0,
+      "modified": [
+        1,
+        7
+      ],
+      "n": 31,
+      "q": 1,
+      "residual": 12033,
+      "u": 881,
+      "v": 3555,
+      "v3_residual": 2,
+      "word": [
+        2,
+        6
+      ],
+      "y": 125
+    },
+    {
+      "delta": 5,
+      "index": 0,
+      "modified": [
+        7,
+        1
+      ],
+      "n": 31,
+      "q": 1,
+      "residual": 5985,
+      "u": 881,
+      "v": 3541,
+      "v3_residual": 2,
+      "word": [
+        2,
+        6
+      ],
+      "y": 125
+    },
+    {
+      "delta": -1,
+      "index": 0,
+      "modified": [
+        2,
+        6
+      ],
+      "n": 5,
+      "q": 1,
+      "residual": 5121,
+      "u": 141,
+      "v": 2417,
+      "v3_residual": 2,
+      "word": [
+        3,
+        5
+      ],
+      "y": 85
+    },
+    {
+      "delta": 1,
+      "index": 0,
+      "modified": [
+        5,
+        3
+      ],
+      "n": 7,
+      "q": 1,
+      "residual": 351,
+      "u": 197,
+      "v": 821,
+      "v3_residual": 3,
+      "word": [
+        4,
+        4
+      ],
+      "y": 29
+    },
+    {
+      "delta": -3,
+      "index": 0,
+      "modified": [
+        4,
+        4
+      ],
+      "n": 593,
+      "q": 1,
+      "residual": 142407,
+      "u": 16853,
+      "v": 270021,
+      "v3_residual": 2,
+      "word": [
+        7,
+        1
+      ],
+      "y": 9493
+    },
+    {
+      "delta": 3,
+      "index": 0,
+      "modified": [
+        4,
+        5
+      ],
+      "n": 31,
+      "q": 1,
+      "residual": 24057,
+      "u": 1763,
+      "v": 7109,
+      "v3_residual": 7,
+      "word": [
+        1,
+        8
+      ],
+      "y": 125
+    },
+    {
+      "delta": -1,
+      "index": 0,
+      "modified": [
+        2,
+        7
+      ],
+      "n": 7,
+      "q": 1,
+      "residual": 2817,
+      "u": 397,
+      "v": 1649,
+      "v3_residual": 2,
+      "word": [
+        3,
+        6
+      ],
+      "y": 29
+    },
+    {
+      "delta": 5,
+      "index": 0,
+      "modified": [
+        8,
+        1
+      ],
+      "n": 7,
+      "q": 1,
+      "residual": 1377,
+      "u": 397,
+      "v": 1621,
+      "v3_residual": 4,
+      "word": [
+        3,
+        6
+      ],
+      "y": 29
+    },
+    {
+      "delta": -1,
+      "index": 0,
+      "modified": [
+        3,
+        6
+      ],
+      "n": 593,
+      "q": 1,
+      "residual": 569601,
+      "u": 33733,
+      "v": 540045,
+      "v3_residual": 2,
+      "word": [
+        4,
+        5
+      ],
+      "y": 9493
+    },
+    {
+      "delta": -5,
+      "index": 0,
+      "modified": [
+        1,
+        8
+      ],
+      "n": 5,
+      "q": 1,
+      "residual": 20511,
+      "u": 277,
+      "v": 4835,
+      "v3_residual": 2,
+      "word": [
+        6,
+        3
+      ],
+      "y": 85
+    },
+    {
+      "delta": 1,
+      "index": 0,
+      "modified": [
+        7,
+        2
+      ],
+      "n": 5,
+      "q": 1,
+      "residual": 639,
+      "u": 277,
+      "v": 4821,
+      "v3_residual": 2,
+      "word": [
+        6,
+        3
+      ],
+      "y": 85
+    },
+    {
+      "delta": -3,
+      "index": 0,
+      "modified": [
+        4,
+        5
+      ],
+      "n": 31,
+      "q": 1,
+      "residual": 3015,
+      "u": 1749,
+      "v": 7109,
+      "v3_residual": 2,
+      "word": [
+        7,
+        2
+      ],
+      "y": 125
+    },
+    {
+      "delta": 3,
+      "index": 0,
+      "modified": [
+        6,
+        4
+      ],
+      "n": 593,
+      "q": 1,
+      "residual": 1139193,
+      "u": 67469,
+      "v": 1080085,
+      "v3_residual": 2,
+      "word": [
+        3,
+        7
+      ],
+      "y": 9493
+    },
+    {
+      "delta": -1,
+      "index": 0,
+      "modified": [
+        3,
+        7
+      ],
+      "n": 31,
+      "q": 1,
+      "residual": 12033,
+      "u": 3525,
+      "v": 14221,
+      "v3_residual": 2,
+      "word": [
+        4,
+        6
+      ],
+      "y": 125
+    },
+    {
+      "delta": 5,
+      "index": 0,
+      "modified": [
+        9,
+        1
+      ],
+      "n": 31,
+      "q": 1,
+      "residual": 5985,
+      "u": 3525,
+      "v": 14165,
+      "v3_residual": 2,
+      "word": [
+        4,
+        6
+      ],
+      "y": 125
+    },
+    {
+      "delta": -1,
+      "index": 0,
+      "modified": [
+        4,
+        6
+      ],
+      "n": 5,
+      "q": 1,
+      "residual": 5121,
+      "u": 565,
+      "v": 9669,
+      "v3_residual": 2,
+      "word": [
+        5,
+        5
+      ],
+      "y": 85
+    },
+    {
+      "delta": -5,
+      "index": 0,
+      "modified": [
+        1,
+        9
+      ],
+      "n": 7,
+      "q": 1,
+      "residual": 11295,
+      "u": 789,
+      "v": 3299,
+      "v3_residual": 2,
+      "word": [
+        6,
+        4
+      ],
+      "y": 29
+    },
+    {
+      "delta": 1,
+      "index": 0,
+      "modified": [
+        7,
+        3
+      ],
+      "n": 7,
+      "q": 1,
+      "residual": 351,
+      "u": 789,
+      "v": 3285,
+      "v3_residual": 3,
+      "word": [
+        6,
+        4
+      ],
+      "y": 29
+    },
+    {
+      "delta": -3,
+      "index": 0,
+      "modified": [
+        6,
+        4
+      ],
+      "n": 593,
+      "q": 1,
+      "residual": 142407,
+      "u": 67413,
+      "v": 1080085,
+      "v3_residual": 2,
+      "word": [
+        9,
+        1
+      ],
+      "y": 9493
+    },
+    {
+      "delta": 1,
+      "index": 0,
+      "modified": [
+        3,
+        8
+      ],
+      "n": 5,
+      "q": 1,
+      "residual": 40959,
+      "u": 1137,
+      "v": 19341,
+      "v3_residual": 3,
+      "word": [
+        2,
+        9
+      ],
+      "y": 85
+    },
+    {
+      "delta": 7,
+      "index": 0,
+      "modified": [
+        9,
+        2
+      ],
+      "n": 5,
+      "q": 1,
+      "residual": 40833,
+      "u": 1137,
+      "v": 19285,
+      "v3_residual": 2,
+      "word": [
+        2,
+        9
+      ],
+      "y": 85
+    },
+    {
+      "delta": 3,
+      "index": 0,
+      "modified": [
+        6,
+        5
+      ],
+      "n": 31,
+      "q": 1,
+      "residual": 24057,
+      "u": 7053,
+      "v": 28437,
+      "v3_residual": 7,
+      "word": [
+        3,
+        8
+      ],
+      "y": 125
+    },
+    {
+      "delta": -1,
+      "index": 0,
+      "modified": [
+        4,
+        7
+      ],
+      "n": 7,
+      "q": 1,
+      "residual": 2817,
+      "u": 1589,
+      "v": 6597,
+      "v3_residual": 2,
+      "word": [
+        5,
+        6
+      ],
+      "y": 29
+    },
+    {
+      "delta": 5,
+      "index": 0,
+      "modified": [
+        10,
+        1
+      ],
+      "n": 7,
+      "q": 1,
+      "residual": 1377,
+      "u": 1589,
+      "v": 6485,
+      "v3_residual": 4,
+      "word": [
+        5,
+        6
+      ],
+      "y": 29
+    },
+    {
+      "delta": -1,
+      "index": 0,
+      "modified": [
+        5,
+        6
+      ],
+      "n": 593,
+      "q": 1,
+      "residual": 569601,
+      "u": 134933,
+      "v": 2160181,
+      "v3_residual": 2,
+      "word": [
+        6,
+        5
+      ],
+      "y": 9493
+    },
+    {
+      "delta": -5,
+      "index": 0,
+      "modified": [
+        3,
+        8
+      ],
+      "n": 5,
+      "q": 1,
+      "residual": 20511,
+      "u": 1109,
+      "v": 19341,
+      "v3_residual": 2,
+      "word": [
+        8,
+        3
+      ],
+      "y": 85
+    },
+    {
+      "delta": 1,
+      "index": 0,
+      "modified": [
+        9,
+        2
+      ],
+      "n": 5,
+      "q": 1,
+      "residual": 639,
+      "u": 1109,
+      "v": 19285,
+      "v3_residual": 2,
+      "word": [
+        8,
+        3
+      ],
+      "y": 85
+    },
+    {
+      "delta": -3,
+      "index": 0,
+      "modified": [
+        6,
+        5
+      ],
+      "n": 31,
+      "q": 1,
+      "residual": 3015,
+      "u": 6997,
+      "v": 28437,
+      "v3_residual": 2,
+      "word": [
+        9,
+        2
+      ],
+      "y": 125
+    },
+    {
+      "delta": 5,
+      "index": 0,
+      "modified": [
+        6,
+        6
+      ],
+      "n": 5,
+      "q": 1,
+      "residual": 163809,
+      "u": 2275,
+      "v": 38677,
+      "v3_residual": 3,
+      "word": [
+        1,
+        11
+      ],
+      "y": 85
+    },
+    {
+      "delta": 1,
+      "index": 0,
+      "modified": [
+        3,
+        9
+      ],
+      "n": 7,
+      "q": 1,
+      "residual": 22527,
+      "u": 3185,
+      "v": 13197,
+      "v3_residual": 2,
+      "word": [
+        2,
+        10
+      ],
+      "y": 29
+    },
+    {
+      "delta": 7,
+      "index": 0,
+      "modified": [
+        9,
+        3
+      ],
+      "n": 7,
+      "q": 1,
+      "residual": 22401,
+      "u": 3185,
+      "v": 13141,
+      "v3_residual": 2,
+      "word": [
+        2,
+        10
+      ],
+      "y": 29
+    },
+    {
+      "delta": -3,
+      "index": 0,
+      "modified": [
+        2,
+        10
+      ],
+      "n": 593,
+      "q": 1,
+      "residual": 9113607,
+      "u": 269877,
+      "v": 4320369,
+      "v3_residual": 3,
+      "word": [
+        5,
+        7
+      ],
+      "y": 9493
+    },
+    {
+      "delta": 3,
+      "index": 0,
+      "modified": [
+        8,
+        4
+      ],
+      "n": 593,
+      "q": 1,
+      "residual": 1139193,
+      "u": 269877,
+      "v": 4320341,
+      "v3_residual": 2,
+      "word": [
+        5,
+        7
+      ],
+      "y": 9493
+    },
+    {
+      "delta": -1,
+      "index": 0,
+      "modified": [
+        5,
+        7
+      ],
+      "n": 31,
+      "q": 1,
+      "residual": 12033,
+      "u": 14101,
+      "v": 56885,
+      "v3_residual": 2,
+      "word": [
+        6,
+        6
+      ],
+      "y": 125
+    },
+    {
+      "delta": 5,
+      "index": 0,
+      "modified": [
+        11,
+        1
+      ],
+      "n": 31,
+      "q": 1,
+      "residual": 5985,
+      "u": 14101,
+      "v": 56661,
+      "v3_residual": 2,
+      "word": [
+        6,
+        6
+      ],
+      "y": 125
+    },
+    {
+      "delta": -1,
+      "index": 0,
+      "modified": [
+        6,
+        6
+      ],
+      "n": 5,
+      "q": 1,
+      "residual": 5121,
+      "u": 2261,
+      "v": 38677,
+      "v3_residual": 2,
+      "word": [
+        7,
+        5
+      ],
+      "y": 85
+    },
+    {
+      "delta": -5,
+      "index": 0,
+      "modified": [
+        3,
+        9
+      ],
+      "n": 7,
+      "q": 1,
+      "residual": 11295,
+      "u": 3157,
+      "v": 13197,
+      "v3_residual": 2,
+      "word": [
+        8,
+        4
+      ],
+      "y": 29
+    },
+    {
+      "delta": 1,
+      "index": 0,
+      "modified": [
+        9,
+        3
+      ],
+      "n": 7,
+      "q": 1,
+      "residual": 351,
+      "u": 3157,
+      "v": 13141,
+      "v3_residual": 3,
+      "word": [
+        8,
+        4
+      ],
+      "y": 29
+    },
+    {
+      "delta": -9,
+      "index": 0,
+      "modified": [
+        2,
+        10
+      ],
+      "n": 593,
+      "q": 1,
+      "residual": 9114111,
+      "u": 269653,
+      "v": 4320369,
+      "v3_residual": 2,
+      "word": [
+        11,
+        1
+      ],
+      "y": 9493
+    },
+    {
+      "delta": -3,
+      "index": 0,
+      "modified": [
+        8,
+        4
+      ],
+      "n": 593,
+      "q": 1,
+      "residual": 142407,
+      "u": 269653,
+      "v": 4320341,
+      "v3_residual": 2,
+      "word": [
+        11,
+        1
+      ],
+      "y": 9493
+    },
+    {
+      "delta": 1,
+      "index": 0,
+      "modified": [
+        3,
+        3,
+        1
+      ],
+      "n": 31,
+      "q": 2,
+      "residual": 2997,
+      "u": 145,
+      "v": 589,
+      "v3_residual": 4,
+      "word": [
+        2,
+        3,
+        2
+      ],
+      "y": 125
+    },
+    {
+      "delta": 1,
+      "index": 1,
+      "modified": [
+        2,
+        3,
+        3
+      ],
+      "n": 7,
+      "q": 1,
+      "residual": 351,
+      "u": 65,
+      "v": 273,
+      "v3_residual": 3,
+      "word": [
+        2,
+        2,
+        4
+      ],
+      "y": 29
+    },
+    {
+      "delta": 1,
+      "index": 0,
+      "modified": [
+        2,
+        2,
+        5
+      ],
+      "n": 31,
+      "q": 2,
+      "residual": 24057,
+      "u": 587,
+      "v": 2369,
+      "v3_residual": 7,
+      "word": [
+        1,
+        2,
+        6
+      ],
+      "y": 125
+    },
+    {
+      "delta": 1,
+      "index": 1,
+      "modified": [
+        1,
+        5,
+        3
+      ],
+      "n": 7,
+      "q": 1,
+      "residual": 351,
+      "u": 131,
+      "v": 547,
+      "v3_residual": 3,
+      "word": [
+        1,
+        4,
+        4
+      ],
+      "y": 29
+    },
+    {
+      "delta": 1,
+      "index": 0,
+      "modified": [
+        5,
+        3,
+        1
+      ],
+      "n": 31,
+      "q": 2,
+      "residual": 2997,
+      "u": 581,
+      "v": 2357,
+      "v3_residual": 4,
+      "word": [
+        4,
+        3,
+        2
+      ],
+      "y": 125
+    },
+    {
+      "delta": 7,
+      "index": 0,
+      "modified": [
+        8,
+        1,
+        1
+      ],
+      "n": 31,
+      "q": 2,
+      "residual": 47493,
+      "u": 1175,
+      "v": 4693,
+      "v3_residual": 3,
+      "word": [
+        1,
+        1,
+        8
+      ],
+      "y": 125
+    },
+    {
+      "delta": 3,
+      "index": 1,
+      "modified": [
+        1,
+        4,
+        5
+      ],
+      "n": 31,
+      "q": 1,
+      "residual": 24057,
+      "u": 1175,
+      "v": 4739,
+      "v3_residual": 7,
+      "word": [
+        1,
+        1,
+        8
+      ],
+      "y": 125
+    },
+    {
+      "delta": 1,
+      "index": 0,
+      "modified": [
+        3,
+        1,
+        6
+      ],
+      "n": 593,
+      "q": 2,
+      "residual": 2278395,
+      "u": 22489,
+      "v": 360029,
+      "v3_residual": 3,
+      "word": [
+        2,
+        1,
+        7
+      ],
+      "y": 9493
+    },
+    {
+      "delta": -3,
+      "index": 0,
+      "modified": [
+        1,
+        2,
+        7
+      ],
+      "n": 7,
+      "q": 2,
+      "residual": 11313,
+      "u": 261,
+      "v": 1099,
+      "v3_residual": 3,
+      "word": [
+        4,
+        2,
+        4
+      ],
+      "y": 29
+    },
+    {
+      "delta": 1,
+      "index": 1,
+      "modified": [
+        4,
+        3,
+        3
+      ],
+      "n": 7,
+      "q": 1,
+      "residual": 351,
+      "u": 261,
+      "v": 1093,
+      "v3_residual": 3,
+      "word": [
+        4,
+        2,
+        4
+      ],
+      "y": 29
+    },
+    {
+      "delta": 5,
+      "index": 1,
+      "modified": [
+        2,
+        8,
+        1
+      ],
+      "n": 7,
+      "q": 1,
+      "residual": 1377,
+      "u": 529,
+      "v": 2161,
+      "v3_residual": 4,
+      "word": [
+        2,
+        3,
+        6
+      ],
+      "y": 29
+    },
+    {
+      "delta": 1,
+      "index": 0,
+      "modified": [
+        4,
+        2,
+        5
+      ],
+      "n": 31,
+      "q": 2,
+      "residual": 24057,
+      "u": 2349,
+      "v": 9477,
+      "v3_residual": 7,
+      "word": [
+        3,
+        2,
+        6
+      ],
+      "y": 125
+    },
+    {
+      "delta": 1,
+      "index": 1,
+      "modified": [
+        3,
+        5,
+        3
+      ],
+      "n": 7,
+      "q": 1,
+      "residual": 351,
+      "u": 525,
+      "v": 2189,
+      "v3_residual": 3,
+      "word": [
+        3,
+        4,
+        4
+      ],
+      "y": 29
+    },
+    {
+      "delta": 1,
+      "index": 0,
+      "modified": [
+        7,
+        3,
+        1
+      ],
+      "n": 31,
+      "q": 2,
+      "residual": 2997,
+      "u": 2325,
+      "v": 9429,
+      "v3_residual": 4,
+      "word": [
+        6,
+        3,
+        2
+      ],
+      "y": 125
+    },
+    {
+      "delta": 5,
+      "index": 1,
+      "modified": [
+        1,
+        10,
+        1
+      ],
+      "n": 7,
+      "q": 1,
+      "residual": 1377,
+      "u": 1059,
+      "v": 4323,
+      "v3_residual": 4,
+      "word": [
+        1,
+        5,
+        6
+      ],
+      "y": 29
+    },
+    {
+      "delta": 1,
+      "index": 0,
+      "modified": [
+        2,
+        6,
+        4
+      ],
+      "n": 593,
+      "q": 2,
+      "residual": 18227133,
+      "u": 89955,
+      "v": 1440113,
+      "v3_residual": 3,
+      "word": [
+        1,
+        6,
+        5
+      ],
+      "y": 9493
+    },
+    {
+      "delta": 3,
+      "index": 0,
+      "modified": [
+        5,
+        5,
+        2
+      ],
+      "n": 5,
+      "q": 2,
+      "residual": 81675,
+      "u": 753,
+      "v": 12853,
+      "v3_residual": 3,
+      "word": [
+        2,
+        5,
+        5
+      ],
+      "y": 85
+    },
+    {
+      "delta": 7,
+      "index": 0,
+      "modified": [
+        10,
+        1,
+        1
+      ],
+      "n": 31,
+      "q": 2,
+      "residual": 47493,
+      "u": 4701,
+      "v": 18773,
+      "v3_residual": 3,
+      "word": [
+        3,
+        1,
+        8
+      ],
+      "y": 125
+    },
+    {
+      "delta": 3,
+      "index": 1,
+      "modified": [
+        3,
+        4,
+        5
+      ],
+      "n": 31,
+      "q": 1,
+      "residual": 24057,
+      "u": 4701,
+      "v": 18957,
+      "v3_residual": 7,
+      "word": [
+        3,
+        1,
+        8
+      ],
+      "y": 125
+    },
+    {
+      "delta": 1,
+      "index": 0,
+      "modified": [
+        5,
+        1,
+        6
+      ],
+      "n": 593,
+      "q": 2,
+      "residual": 2278395,
+      "u": 89957,
+      "v": 1440117,
+      "v3_residual": 3,
+      "word": [
+        4,
+        1,
+        7
+      ],
+      "y": 9493
+    },
+    {
+      "delta": -3,
+      "index": 0,
+      "modified": [
+        3,
+        2,
+        7
+      ],
+      "n": 7,
+      "q": 2,
+      "residual": 11313,
+      "u": 1045,
+      "v": 4397,
+      "v3_residual": 3,
+      "word": [
+        6,
+        2,
+        4
+      ],
+      "y": 29
+    },
+    {
+      "delta": 1,
+      "index": 1,
+      "modified": [
+        6,
+        3,
+        3
+      ],
+      "n": 7,
+      "q": 1,
+      "residual": 351,
+      "u": 1045,
+      "v": 4373,
+      "v3_residual": 3,
+      "word": [
+        6,
+        2,
+        4
+      ],
+      "y": 29
+    },
+    {
+      "delta": 1,
+      "index": 1,
+      "modified": [
+        2,
+        3,
+        3,
+        1
+      ],
+      "n": 31,
+      "q": 2,
+      "residual": 2997,
+      "u": 193,
+      "v": 785,
+      "v3_residual": 4,
+      "word": [
+        2,
+        2,
+        3,
+        2
+      ],
+      "y": 125
+    },
+    {
+      "delta": 1,
+      "index": 1,
+      "modified": [
+        1,
+        2,
+        2,
+        5
+      ],
+      "n": 31,
+      "q": 2,
+      "residual": 24057,
+      "u": 391,
+      "v": 1579,
+      "v3_residual": 7,
+      "word": [
+        1,
+        1,
+        2,
+        6
+      ],
+      "y": 125
+    },
+    {
+      "delta": 3,
+      "index": 0,
+      "modified": [
+        4,
+        1,
+        4,
+        1
+      ],
+      "n": 7,
+      "q": 3,
+      "residual": 10935,
+      "u": 87,
+      "v": 357,
+      "v3_residual": 7,
+      "word": [
+        1,
+        1,
+        4,
+        4
+      ],
+      "y": 29
+    },
+    {
+      "delta": 1,
+      "index": 1,
+      "modified": [
+        1,
+        5,
+        3,
+        1
+      ],
+      "n": 31,
+      "q": 2,
+      "residual": 2997,
+      "u": 387,
+      "v": 1571,
+      "v3_residual": 4,
+      "word": [
+        1,
+        4,
+        3,
+        2
+      ],
+      "y": 125
+    },
+    {
+      "delta": 3,
+      "index": 2,
+      "modified": [
+        1,
+        1,
+        4,
+        5
+      ],
+      "n": 31,
+      "q": 1,
+      "residual": 24057,
+      "u": 783,
+      "v": 3159,
+      "v3_residual": 7,
+      "word": [
+        1,
+        1,
+        1,
+        8
+      ],
+      "y": 125
+    },
+    {
+      "delta": 1,
+      "index": 1,
+      "modified": [
+        4,
+        3,
+        3,
+        1
+      ],
+      "n": 31,
+      "q": 2,
+      "residual": 2997,
+      "u": 773,
+      "v": 3141,
+      "v3_residual": 4,
+      "word": [
+        4,
+        2,
+        3,
+        2
+      ],
+      "y": 125
+    },
+    {
+      "delta": 1,
+      "index": 1,
+      "modified": [
+        3,
+        2,
+        2,
+        5
+      ],
+      "n": 31,
+      "q": 2,
+      "residual": 24057,
+      "u": 1565,
+      "v": 6317,
+      "v3_residual": 7,
+      "word": [
+        3,
+        1,
+        2,
+        6
+      ],
+      "y": 125
+    },
+    {
+      "delta": 3,
+      "index": 0,
+      "modified": [
+        6,
+        1,
+        4,
+        1
+      ],
+      "n": 7,
+      "q": 3,
+      "residual": 10935,
+      "u": 349,
+      "v": 1429,
+      "v3_residual": 7,
+      "word": [
+        3,
+        1,
+        4,
+        4
+      ],
+      "y": 29
+    },
+    {
+      "delta": 1,
+      "index": 1,
+      "modified": [
+        3,
+        5,
+        3,
+        1
+      ],
+      "n": 31,
+      "q": 2,
+      "residual": 2997,
+      "u": 1549,
+      "v": 6285,
+      "v3_residual": 4,
+      "word": [
+        3,
+        4,
+        3,
+        2
+      ],
+      "y": 125
+    },
+    {
+      "delta": -3,
+      "index": 0,
+      "modified": [
+        2,
+        1,
+        1,
+        8
+      ],
+      "n": 5,
+      "q": 3,
+      "residual": 82053,
+      "u": 245,
+      "v": 4297,
+      "v3_residual": 4,
+      "word": [
+        5,
+        1,
+        1,
+        5
+      ],
+      "y": 85
+    },
+    {
+      "delta": 1,
+      "index": 2,
+      "modified": [
+        2,
+        1,
+        2,
+        2,
+        5
+      ],
+      "n": 31,
+      "q": 2,
+      "residual": 24057,
+      "u": 521,
+      "v": 2105,
+      "v3_residual": 7,
+      "word": [
+        2,
+        1,
+        1,
+        2,
+        6
+      ],
+      "y": 125
+    }
+  ]
+}

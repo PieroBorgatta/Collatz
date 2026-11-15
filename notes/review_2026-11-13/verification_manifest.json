@@ -1,0 +1,244 @@
+{
+  "review_date": "2026-11-13",
+  "timezone": "Europe/Rome",
+  "baseline_commit": "5428e895635e2b72f4022b71d7ab9eebb53f7811",
+  "branch": "phase10-wip",
+  "main_toolchain": "leanprover/lean4:v4.29.1",
+  "scope": "Incremental main-library build; fresh elaboration of four strict dependency audits and ExactCylinders. Installed compiled dependencies reused. External analytic overlay not rebuilt. No independent-kernel replay.",
+  "audit_roots": {
+    "PrefixOptimality": 10,
+    "SiblingBasins": 14,
+    "LastExponentTransport": 7,
+    "SignedTransport": 6
+  },
+  "checks": [
+    {
+      "check": "build",
+      "result": "PASS",
+      "exit_code_reported_by_audit_agent": 0,
+      "path": "verification/build.log",
+      "bytes": 257,
+      "sha256": "b1799d85ba27d948f58dc28de6198c24f555b63cae3bc4f3761911f8b907be96"
+    },
+    {
+      "check": "prefix-audit",
+      "result": "PASS",
+      "exit_code_reported_by_audit_agent": 0,
+      "path": "verification/prefix-audit.log",
+      "bytes": 3256,
+      "sha256": "2b72bcce1e5e5a61d41e82c801a24ea7bd508eead4a1df188070a51729404706"
+    },
+    {
+      "check": "sibling-audit",
+      "result": "PASS",
+      "exit_code_reported_by_audit_agent": 0,
+      "path": "verification/sibling-audit.log",
+      "bytes": 1711,
+      "sha256": "596dddf85209cbcf85e425d9bae89b95ce9e1d6be272469a2e670e1ba4864160"
+    },
+    {
+      "check": "last-exponent-audit",
+      "result": "PASS",
+      "exit_code_reported_by_audit_agent": 0,
+      "path": "verification/last-exponent-audit.log",
+      "bytes": 1017,
+      "sha256": "9d095a229ae889e7bb69d1b056fb16035073b1b41c172c03a619e55ec62af083"
+    },
+    {
+      "check": "signed-audit",
+      "result": "PASS",
+      "exit_code_reported_by_audit_agent": 0,
+      "path": "verification/signed-audit.log",
+      "bytes": 880,
+      "sha256": "95f9f3fcc3facdb0b84c6d95bba073fddf1329ad494c3691c85ccf8256ce1deb"
+    },
+    {
+      "check": "exact-cylinders",
+      "result": "PASS",
+      "exit_code_reported_by_audit_agent": 0,
+      "path": "verification/exact-cylinders.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "review_checks": {
+    "result": "PASS",
+    "normal_equals_optimized": true,
+    "script": "review_checks.py",
+    "script_sha256": "0c5e227b5a088a4d4f343384c56d8fa56f2b549dc60e3fafff04d0c43a18eda4",
+    "output": "verification/review_checks.json",
+    "scope": "Exact finite arithmetic checks; no new Lean declarations."
+  },
+  "agent_analyses": [
+    {
+      "agent": "/root/01_web_frontiera",
+      "status": "completed",
+      "report": "AGENTE_01_IT.md"
+    },
+    {
+      "agent": "/root/02_audit_formale",
+      "status": "completed",
+      "report": "AGENTE_02_IT.md"
+    },
+    {
+      "agent": "/root/03_storia_gap",
+      "status": "completed",
+      "report": "AGENTE_03_IT.md"
+    },
+    {
+      "agent": "/root/04_spettrale",
+      "status": "completed",
+      "report": "AGENTE_04_IT.md"
+    },
+    {
+      "agent": "/root/05_ritorni_sezione",
+      "status": "completed",
+      "report": "AGENTE_05_IT.md"
+    },
+    {
+      "agent": "/root/06_torre_aritmetica",
+      "status": "completed",
+      "report": "AGENTE_06_IT.md"
+    },
+    {
+      "agent": "/root/07_densita_analitica",
+      "status": "completed",
+      "report": "AGENTE_07_IT.md"
+    },
+    {
+      "agent": "/root/08_trasporto_variabile",
+      "status": "completed",
+      "report": "AGENTE_08_IT.md"
+    },
+    {
+      "agent": "/root/09_cicli_diofanteo",
+      "status": "completed",
+      "report": "AGENTE_09_IT.md"
+    },
+    {
+      "agent": "/root/10_revisione_avversa",
+      "status": "completed",
+      "report": "AGENTE_10_IT.md"
+    }
+  ],
+  "artifact_validation": {
+    "ten_reports_present": true,
+    "local_markdown_links": "PASS",
+    "verification_log_hashes": "PASS",
+    "lean_source_changes": false,
+    "published_artifact_changes": false,
+    "remote_publication_or_contact": false
+  },
+  "artifacts": [
+    {
+      "path": "AGENTE_01_IT.md",
+      "sha256": "14b46532de59dc646c99444ca8f35c2f855f795483e0e14837ec30bb05679673",
+      "bytes": 1825
+    },
+    {
+      "path": "AGENTE_02_IT.md",
+      "sha256": "712d18d67c2395c71436bd62ecdda0f4916610b48b1a2b3138159cb05131cf7e",
+      "bytes": 1896
+    },
+    {
+      "path": "AGENTE_03_IT.md",
+      "sha256": "75c35c0c8de9044687f39736498539c3f0057a55b46474f3725a7b1b79b49198",
+      "bytes": 2168
+    },
+    {
+      "path": "AGENTE_04_IT.md",
+      "sha256": "980ab40608bf920ce16900c1704c9963a894285efbf1460ee95ae54e474e517c",
+      "bytes": 8906
+    },
+    {
+      "path": "AGENTE_05_IT.md",
+      "sha256": "a4da26d3dbe6d9f847d3a416e13e26dd53a226339dcd7ff140322c8605d5899c",
+      "bytes": 7358
+    },
+    {
+      "path": "AGENTE_06_IT.md",
+      "sha256": "ee507127bef757f098688a171fbce9f332c580c17f4bd1649d431684c440cef6",
+      "bytes": 9735
+    },
+    {
+      "path": "AGENTE_07_IT.md",
+      "sha256": "19f16e59773ed661483b14a4ae3a555007c90bc9cec3ecede826b2c781a0b60c",
+      "bytes": 8088
+    },
+    {
+      "path": "AGENTE_08_IT.md",
+      "sha256": "60e1863bed1860047ddd539892494674fbed30a28d207a927ce662f42370ce5b",
+      "bytes": 7851
+    },
+    {
+      "path": "AGENTE_09_IT.md",
+      "sha256": "a9371141dcd70c7e4c0e9124d81d4864abca4f142b577e500b0c87ab05803c99",
+      "bytes": 7883
+    },
+    {
+      "path": "AGENTE_10_IT.md",
+      "sha256": "cb05bf1062613c880cf3795cac4a6a47530a7d3ffca7ceee0c3155a3696fa326",
+      "bytes": 9040
+    },
+    {
+      "path": "ANALISI_AGENTI_IT.md",
+      "sha256": "2aba637ed3c8e6a958620a0da753bebb30b4db96776decec652e4c40ed6ddc1a",
+      "bytes": 3054
+    },
+    {
+      "path": "FONTI_WEB_IT.md",
+      "sha256": "247d4235dc64ca0dfc73f93ed2ad2985f5a6b967b9952b3c8fb81e4e1649c72f",
+      "bytes": 6856
+    },
+    {
+      "path": "REPORT_IT.md",
+      "sha256": "2c5cba8f92dc6b7b9d9688739878cb5b4315d0bbe0837b55f1e00528108706ee",
+      "bytes": 19345
+    },
+    {
+      "path": "review_checks.py",
+      "sha256": "0c5e227b5a088a4d4f343384c56d8fa56f2b549dc60e3fafff04d0c43a18eda4",
+      "bytes": 3176
+    },
+    {
+      "path": "verification/build.log",
+      "sha256": "b1799d85ba27d948f58dc28de6198c24f555b63cae3bc4f3761911f8b907be96",
+      "bytes": 257
+    },
+    {
+      "path": "verification/exact-cylinders.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "verification/last-exponent-audit.log",
+      "sha256": "9d095a229ae889e7bb69d1b056fb16035073b1b41c172c03a619e55ec62af083",
+      "bytes": 1017
+    },
+    {
+      "path": "verification/prefix-audit.log",
+      "sha256": "2b72bcce1e5e5a61d41e82c801a24ea7bd508eead4a1df188070a51729404706",
+      "bytes": 3256
+    },
+    {
+      "path": "verification/review_checks.json",
+      "sha256": "1832ab2649a6ec22b44459f945fa0f164934c30754d3f0aad0d4e219ea1946cd",
+      "bytes": 360
+    },
+    {
+      "path": "verification/sibling-audit.log",
+      "sha256": "596dddf85209cbcf85e425d9bae89b95ce9e1d6be272469a2e670e1ba4864160",
+      "bytes": 1711
+    },
+    {
+      "path": "verification/signed-audit.log",
+      "sha256": "95f9f3fcc3facdb0b84c6d95bba073fddf1329ad494c3691c85ccf8256ce1deb",
+      "bytes": 880
+    },
+    {
+      "path": "verification/transport_probe.json",
+      "sha256": "11e9a366251df0c5847bddfc5098091abe966a2fffdabf97126fdab0e5469bd0",
+      "bytes": 368
+    }
+  ]
+}

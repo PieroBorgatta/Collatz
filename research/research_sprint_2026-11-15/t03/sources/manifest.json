@@ -1,0 +1,168 @@
+{
+  "repo": "https://github.com/x1xhlol/collatz-two-coordinate-obstruction",
+  "commit": "a7275d5a73814d3d9a400c6fe6577de9542b03a3",
+  "committer_date": "2026-10-08T12:48:51Z",
+  "retrieved_utc": "2026-11-15T19:50:49.933371+00:00",
+  "read_only_not_executed": true,
+  "files": [
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/README.md",
+      "sha256": "76baa5a375c09a8f4cbcc043cd0057d2b69103224a14854070c98342a3f6c257",
+      "bytes": 19794
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/LICENSE",
+      "sha256": "697bde3198556b7a17e0c507f0a92ce61b687a1069d4612236228a805e14f384",
+      "bytes": 1071
+    },
+    {
+      "path": "paper/tao-basin-densities.tex",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/paper/tao-basin-densities.tex",
+      "sha256": "fa4e6c790002bdbb32c1679eb0b833574e110f0462f16a0e2303594137822850",
+      "bytes": 125523
+    },
+    {
+      "path": "paper/positive-stationary-envelope.tex",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/paper/positive-stationary-envelope.tex",
+      "sha256": "522693c1f61c233f56f7d95e31c58a266ee81729d3628f2656f55a418cd01a78",
+      "bytes": 22670
+    },
+    {
+      "path": "paper/growing-deficit-fourier.tex",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/paper/growing-deficit-fourier.tex",
+      "sha256": "ca99dae8fdfc5f96c3b2647fdfda37b0981a6f4b9db15b5a59242836a995ac3c",
+      "bytes": 28811
+    },
+    {
+      "path": "formal-periodic-census/README.md",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/formal-periodic-census/README.md",
+      "sha256": "c60f7b567e1b3a5cbdbef90b2e5c4aa32aecf62ac481d7634d04b14e705aaeb8",
+      "bytes": 6880
+    },
+    {
+      "path": "formal-periodic-census/REPLAY-REPORT.md",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/formal-periodic-census/REPLAY-REPORT.md",
+      "sha256": "40aca95d266220abc2d6ed4e2145f6d8eb2f486aef88974aa36af1acf490be97",
+      "bytes": 4073
+    },
+    {
+      "path": "formal-periodic-census/recorded/replay-record.json",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/formal-periodic-census/recorded/replay-record.json",
+      "sha256": "0d442ab3f21fe5ff9ec8e30a20e322a5fe058799d089f8e335d4744e1134a37c",
+      "bytes": 917461
+    },
+    {
+      "path": "formal-periodic-census/bundle-manifest.json",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/formal-periodic-census/bundle-manifest.json",
+      "sha256": "c0d92d90ad3e6f477a7ccaa7d04d5048677657ae4e25da32b1339877e12e324a",
+      "bytes": 121478
+    },
+    {
+      "path": "formal-periodic-census/source/ActualBasinPolynomialFloor.lean",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/formal-periodic-census/source/ActualBasinPolynomialFloor.lean",
+      "sha256": "756e9002202b7f6bf9f921953b6531d1b1dd27396c64c7db7d12e7315eba523c",
+      "bytes": 3053
+    },
+    {
+      "path": "formal-periodic-census/source/CanonicalTracePolynomialFloor.lean",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/formal-periodic-census/source/CanonicalTracePolynomialFloor.lean",
+      "sha256": "0fc02abbfd683e676102e241543e28746103c52866090c71308565b5b5934e29",
+      "bytes": 2657
+    },
+    {
+      "path": "formal-stationary-envelope/README.md",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/formal-stationary-envelope/README.md",
+      "sha256": "b83704dcab7d8c434e0b468299ce7717ac49a9067e1cd0899149fd38ef9fca39",
+      "bytes": 1497
+    },
+    {
+      "path": "formal-stationary-envelope/evidence/reference-replay/replay-record.json.gz",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/formal-stationary-envelope/evidence/reference-replay/replay-record.json",
+      "original_content_sha256": "d51c6afb6168cf34f629cd1d1849cdf5c98067a30c6f60c5d311b74e4e9f39fe",
+      "original_bytes": 30834609,
+      "sha256": "d78d05ad2ec0e8c2945dccaaf13a48f534fb925754466524bca528f3d5ddf14c",
+      "bytes": 1845728,
+      "compression": "gzip, deterministic mtime=0"
+    },
+    {
+      "path": "formal-stationary-envelope/dependency-pins.json",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/formal-stationary-envelope/dependency-pins.json",
+      "sha256": "180cae101dd4e45a2e99efd6c0022ac71bf7c5d6e57debdabc342fd2afdbbd86",
+      "bytes": 5338
+    },
+    {
+      "path": "formal-stationary-envelope/publication-manifest.json",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/formal-stationary-envelope/publication-manifest.json",
+      "sha256": "fd5e291225eacd415823f55b6da9ab1f347f2a78cc92df0968b5c29b168bc366",
+      "bytes": 1019189
+    },
+    {
+      "path": "paper/LICENSE",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/paper/LICENSE",
+      "sha256": "3ab702f1571a369530f7ce5f0f149007245ca408def3f1a0b14e1dc5b4da34d1",
+      "bytes": 18986
+    },
+    {
+      "path": "formal-basins-native/source/ActualBasinDensity.lean",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/formal-basins-native/source/ActualBasinDensity.lean",
+      "sha256": "7c9305e3837c219289d5d7c5ab4e27b238fbe6c1fee7fcaf6c22c0dc683e0869",
+      "bytes": 3096
+    },
+    {
+      "path": "formal-basins-native/source/BasinWeightedDensityComparison.lean",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/formal-basins-native/source/BasinWeightedDensityComparison.lean",
+      "sha256": "fa380467cd1fc2e915e2f4c8bd5fb134b09fa9842d57eb74502fcf2b3c6d1438",
+      "bytes": 3422
+    },
+    {
+      "path": "formal-stationary-envelope/source/CanonicalIntegerEnvelope.lean",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/formal-stationary-envelope/source/CanonicalIntegerEnvelope.lean",
+      "sha256": "e9a7850d392e1cdb169ede260be05cef7c2978084957081fccb61430af5f6eb0",
+      "bytes": 3377
+    },
+    {
+      "path": "formal-stationary-envelope/source/CanonicalIntegerEnvelopeResults.lean",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/formal-stationary-envelope/source/CanonicalIntegerEnvelopeResults.lean",
+      "sha256": "a48d93c68b048c0df7475f4ef7b3fe3da03e49b0fcebe7b4aa7268c525cd417d",
+      "bytes": 1556
+    },
+    {
+      "path": "formal-stationary-envelope/source/PadicIntegerEnvelope.lean",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/formal-stationary-envelope/source/PadicIntegerEnvelope.lean",
+      "sha256": "40652658374d2687bb59083269c36114c2382a9cf59208dc7f749caa4a9204ef",
+      "bytes": 5836
+    },
+    {
+      "path": "formal-stationary-envelope/source/PadicIntegerEnvelopeIntegral.lean",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/formal-stationary-envelope/source/PadicIntegerEnvelopeIntegral.lean",
+      "sha256": "932e9aec1190d0be7f8f44aa334f3919fc14c7ef41204942490d3e99d2a76554",
+      "bytes": 8605
+    },
+    {
+      "path": "formal-stationary-envelope/source/CanonicalEnvelopeTraceConsequences.lean",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/formal-stationary-envelope/source/CanonicalEnvelopeTraceConsequences.lean",
+      "sha256": "7cdba4c0d09734a3e8c135d8c66bbadbf8800b7735887533dc93b4a92391ef8f",
+      "bytes": 1519
+    },
+    {
+      "path": "formal-stationary-envelope/source/CanonicalEnvelopeArithmeticRegularity.lean",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/formal-stationary-envelope/source/CanonicalEnvelopeArithmeticRegularity.lean",
+      "sha256": "c4d6f33ab877d951a74307688527bd1f04f7c41a7640afcf3c60e9d18808c1d0",
+      "bytes": 2564
+    },
+    {
+      "path": "formal-stationary-envelope/provenance/source-origins.json",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/formal-stationary-envelope/provenance/source-origins.json",
+      "sha256": "65db1de59255f1eace8c9ca9bdc25517e4c620567197ced61946f4b722e07732",
+      "bytes": 233737
+    },
+    {
+      "path": "formal-stationary-envelope/provenance/retained-native/SOURCE-LICENSES.md",
+      "url": "https://raw.githubusercontent.com/x1xhlol/collatz-two-coordinate-obstruction/a7275d5a73814d3d9a400c6fe6577de9542b03a3/formal-stationary-envelope/provenance/retained-native/SOURCE-LICENSES.md",
+      "sha256": "9e135d1f1ef46281a15a0aa969d8c043a84cc1a39c1ec9712b0908b84665b876",
+      "bytes": 1671
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "retrieved_utc": "2026-11-15T19:55:17.697041+00:00",
+  "status": "STATIC_SOURCE_AND_PUBLISHED_RECORD_REVIEW_ONLY",
+  "local_lean_replay_performed": false,
+  "periodic_census": {
+    "status": "PASS",
+    "scope": "All 51 bundled application modules freshly compiled and individually kernel-replayed; all their compiled constants, including private and generated constants, audited. Required native objects reused after pinned source/object/fingerprint authentication. Pinned Mathlib/Lean caches reused. No fresh rebuild of the entire native or library closure.",
+    "counted_declarations": 1697,
+    "recorded_declarations": 1697,
+    "unexpected_axioms": [],
+    "axiom_occurrences": {
+      "propext": 1393,
+      "Classical.choice": 711,
+      "Quot.sound": 1184
+    },
+    "all_builds_exit_zero": true,
+    "all_kernel_replays_exit_zero": true,
+    "toolchain": {
+      "dependency_revisions": {
+        "Cli": "13567aed1ac4f12aea9484178e07e51f8c9f7658",
+        "LeanSearchClient": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "Qq": "1cc7e819b9b9bc1e87c9edcccb62e0269e00a809",
+        "aesop": "f0c6e183ea26531e82773feb4b73ab6595ca17a5",
+        "batteries": "5c57f3857ba81924a88b2cdf4f062e34ec04ff11",
+        "importGraph": "cdab3938ccabbdb044be6896e251b5814bec932e",
+        "plausible": "86210d4ad1b08b086d0bd638637a75246523dbb8",
+        "proofwidgets": "2db6054a44326f8c0230ee0570e2ddb894816511"
+      },
+      "lean_version": "Lean (version 4.30.0-rc2, x86_64-unknown-linux-gnu, commit 3dc1a088b6d2d8eafe25a7cd7ec7b58d731bd7cc, Release)",
+      "mathlib_lake_manifest_sha256": "71f9e393a23807b33a5369e8f45888debe0cb79e872188b8dfbe308175e6d90c",
+      "mathlib_revision": "5450b53e5ddc75d46418fabb605edbf36bd0beb6"
+    },
+    "root_modules": {
+      "ActualBasinPolynomialFloor": {
+        "source_hash_matches_record": true,
+        "build": {
+          "exit_code": 0,
+          "generated_audit_harness": false,
+          "log_sha256": "e187571b6da7178d17b51262d6aaebd043161bb5001efac1c4c1b472b4a2a676",
+          "object_sha256": "f9c150ef9ecffe7e273b512f7867ce20acd61273d76ba6aa888af841fa209715",
+          "seconds": 4.766979004954919,
+          "source_sha256": "756e9002202b7f6bf9f921953b6531d1b1dd27396c64c7db7d12e7315eba523c",
+          "warnings": []
+        },
+        "kernel": {
+          "exit_code": 0,
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "seconds": 6.563350391108543
+        },
+        "declarations": {
+          "CollatzCanonical.PeriodicCensusFloor.actual_basin_polynomial_lower_density": {
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "visibility": "public"
+          },
+          "CollatzCanonical.PeriodicCensusFloor.frozen_seed_periodic_density_bound": {
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "visibility": "public"
+          }
+        }
+      },
+      "CanonicalTracePolynomialFloor": {
+        "source_hash_matches_record": true,
+        "build": {
+          "exit_code": 0,
+          "generated_audit_harness": false,
+          "log_sha256": "268f6b7a2ecaaf864a2ba5e205dfd8b6edc90477386fe1aa913a72a4e4feb6a9",
+          "object_sha256": "91a3f3baa6f47311b9083ddd21bcad32e5a7c9f4249c297ad38232a82fc79517",
+          "seconds": 4.59486504108645,
+          "source_sha256": "0fc02abbfd683e676102e241543e28746103c52866090c71308565b5b5934e29",
+          "warnings": []
+        },
+        "kernel": {
+          "exit_code": 0,
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "seconds": 6.554534137947485
+        },
+        "declarations": {
+          "CollatzCanonical.PeriodicCensusFloor.exists_uniform_firstHit_reciprocal_floor": {
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "visibility": "public"
+          },
+          "CollatzCanonical.PeriodicCensusFloor.exists_uniform_unit_canonical_trace_floor": {
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "visibility": "public"
+          },
+          "CollatzCanonical.PeriodicCensusFloor.greenCycleFactor_one_ge_one": {
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ],
+            "visibility": "public"
+          },
+          "CollatzCanonical.PeriodicCensusFloor.greenCycleFactor_one_ge_one._simp_1_1": {
+            "axioms": [
+              "propext"
+            ],
+            "visibility": "public"
+          }
+        }
+      }
+    }
+  },
+  "envelope": {
+    "status": "PASS",
+    "scope": "Fresh strict compilation and official kernel replay of the exact canonical integer-envelope endpoint source closure. External Mathlib/dependency/toolchain compiled libraries are separately pinned and inventoried before and after, not rebuilt. No Collatz convergence conclusion.",
+    "started_utc": "2026-10-08T10:43:23+00:00",
+    "finished_utc": "2026-10-08T12:27:48+00:00",
+    "modules": 1620,
+    "commands": 3242,
+    "allowed_axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "audit_counts": {
+      "audited_constant_rows": 36651,
+      "audited_distinct_names": 36539,
+      "audited_private_rows": 3419,
+      "header_owner_mismatch_rows": 112
+    },
+    "counted_audit_rows": 36651,
+    "unexpected_axioms": []
+  }
+}

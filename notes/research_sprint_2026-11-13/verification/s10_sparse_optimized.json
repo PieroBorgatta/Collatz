@@ -1,0 +1,32 @@
+{
+  "N_range": [
+    1,
+    16
+  ],
+  "collision_without_trim": {
+    "N": 5,
+    "image": 2,
+    "inputs": [
+      20,
+      5
+    ],
+    "source": 7,
+    "target": 5
+  },
+  "finite_only": true,
+  "max_affine_product": {
+    "float": 1.1748207603703762,
+    "fraction": "720575940379279360/613349682509959371",
+    "source": 993
+  },
+  "max_reciprocal_sum": {
+    "float": 1.0610773361495813,
+    "fraction": "1777245188044826772347262288778822575654530291054737164699894925157/1674944066277075297142299651968567173877435254591503958878038085792",
+    "source": 3531
+  },
+  "max_shortcut_length": 146,
+  "segments": 1924,
+  "source_domain": "odd u<=4095 reaching known nonreturn target 5",
+  "status": "PASS",
+  "trim_injectivity_checks": 30784
+}

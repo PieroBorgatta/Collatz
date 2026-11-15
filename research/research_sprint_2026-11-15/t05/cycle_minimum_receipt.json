@@ -1,0 +1,34 @@
+{
+  "recorded_at_utc": "2026-11-15T20:21:07.458796+00:00",
+  "target": "CollatzShadowing.CycleMinimumProduct",
+  "command": "lake build CollatzShadowing.CycleMinimumProduct",
+  "exit_code": 0,
+  "observed_stdout": "\u2714 [3297/3297] Built CollatzShadowing.CycleMinimumProduct (120s)\nBuild completed successfully (3297 jobs).\n",
+  "source_sha256": "12789431a44ca24864e6fbcd9090ceeb8b8e138925c026cc61276672b16348ee",
+  "toolchain": "leanprover/lean4:v4.29.1",
+  "public_theorems": [
+    "CollatzShadowing.CycleMinimumProduct.path_minimum_product_bound",
+    "CollatzShadowing.CycleMinimumProduct.cycle_minimum_product_bound",
+    "CollatzShadowing.CycleMinimumProduct.cycle_log_gap_le"
+  ],
+  "scope": "Three local mathematical theorems compiled. Dedicated integration/axiom audit remains the coordinator\u2019s subsequent check. External projects were not rebuilt.",
+  "prior_attempts": [
+    {
+      "scope": "initial two integer theorems",
+      "exit_code": 0,
+      "target_seconds": 138
+    },
+    {
+      "scope": "first extension with logarithmic gap",
+      "exit_code": 1,
+      "target_seconds": 132,
+      "errors": "Redundant ring after field_simp; final nlinarith expression mismatch after rewriting division in only one hypothesis."
+    }
+  ],
+  "frozen_at_utc": "2026-11-15T20:23:18.359362+00:00",
+  "report": "notes/research_sprint_2026-11-15/agents/T05_WEB_CYCLES_IT.md",
+  "source_selections": {
+    "alick_files": 19,
+    "nashida_files": 12
+  }
+}

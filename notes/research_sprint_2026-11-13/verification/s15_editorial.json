@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "scope": "Editorial comparison, explicit F/C/E/H matrix and local-link checks; not a publication or full manuscript validation.",
+  "files": [
+    {
+      "path": "agents/S15_V7_IT.md",
+      "sha256": "ce309d31d524065edb341a9e5c974167666159691fb1ac1f83681ed639cf532a",
+      "words": 1058
+    },
+    {
+      "path": "V7_OUTLINE_IT.md",
+      "sha256": "71a3d9533989478ad855fd4e2ea9fc62a02136d2b92c8d1072a3be86c9471368",
+      "words": 1007
+    }
+  ],
+  "local_links": "PASS",
+  "v7_pdf_created": false,
+  "publication_performed": false,
+  "build_audit_status_at_writing": "Integration running; final receipt belongs to coordinator and S14."
+}

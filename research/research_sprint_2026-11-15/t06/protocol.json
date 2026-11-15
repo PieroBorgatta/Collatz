@@ -1,0 +1,45 @@
+{
+  "frozen_utc": "2026-11-15T20:16:53.127342+00:00",
+  "targets": [
+    5,
+    7,
+    31,
+    593
+  ],
+  "canonical_siblings": {
+    "5": 85,
+    "7": 29,
+    "31": 125,
+    "593": 9493
+  },
+  "max_depth": 18,
+  "base_branch_ranks": [
+    0,
+    1
+  ],
+  "policies": [
+    "ordinal",
+    "pair_minimax",
+    "greedy",
+    "greedy_capped"
+  ],
+  "height_thresholds": [
+    4,
+    16,
+    64,
+    256,
+    4096
+  ],
+  "greedy_rule": "choose positive internal image exponent b minimizing (abs(d+b-a),b), searching until max(12,a-d+6)",
+  "pair_minimax_rule": "choose identity or swap of the first two internal ranks minimizing (max absolute new debt,sum absolute new debt,swap flag)",
+  "capped_rule": "if both greedy edges hit same image exponent, retain edge minimizing (absolute new debt,input exponent)",
+  "checks": [
+    "inverse steps are exact odd nonmultiples of3",
+    "roots have checked forward termination at1; therefore no positive return",
+    "normal and Python -O outputs byte-identical",
+    "each policy edge is replayed by forward Syracuse",
+    "ordinal and pair minimax output identities are compared",
+    "image congestion counted on physical integers at each depth"
+  ],
+  "interpretation": "binary code subtree at fixed depth; no claim of density, eta, coverage of all predecessors, or asymptotic drift"
+}

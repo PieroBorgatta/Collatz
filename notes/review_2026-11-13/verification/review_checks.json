@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "finite_checks_only": true,
+  "returns": {
+    "pairs_checked": 180,
+    "r": [
+      1,
+      8
+    ],
+    "t": [
+      1,
+      5
+    ]
+  },
+  "dissipation": {
+    "identities_checked": 3200,
+    "odd_sources": 100,
+    "steps_per_source": 32
+  },
+  "factorization": {
+    "levels_checked": 7,
+    "v": [
+      1,
+      7
+    ]
+  }
+}

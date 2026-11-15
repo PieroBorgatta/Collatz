@@ -1,0 +1,19 @@
+SIGNED_TRANSPORT_ROOT_AUDIT: PASS CollatzShadowing.SignedTransport.affine_comparison; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SIGNED_TRANSPORT_ROOT_AUDIT: PASS CollatzShadowing.SignedTransport.odd_ne_two_pow_mul; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SIGNED_TRANSPORT_ROOT_AUDIT: PASS CollatzShadowing.SignedTransport.congruent_shift_requires_large; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+SIGNED_TRANSPORT_ROOT_AUDIT: PASS CollatzShadowing.SignedTransport.positive_shift_expands; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SIGNED_TRANSPORT_ROOT_AUDIT: PASS CollatzShadowing.SignedTransport.negative_shift_compresses; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SIGNED_TRANSPORT_ROOT_AUDIT: PASS CollatzShadowing.SignedTransport.lift_comparison; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SIGNED_TRANSPORT_AUDIT: PASS; roots: 6

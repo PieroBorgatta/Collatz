@@ -1,0 +1,51 @@
+{
+  "frozen_at_utc": "2026-11-15T20:02:06.559610+00:00",
+  "purpose": "independent reverse-step reconstruction of signed two-edit residuals, not asymptotic evidence",
+  "pairs": [
+    [
+      1,
+      5
+    ],
+    [
+      5,
+      1
+    ],
+    [
+      5,
+      85
+    ],
+    [
+      7,
+      29
+    ],
+    [
+      31,
+      125
+    ],
+    [
+      593,
+      9493
+    ],
+    [
+      11,
+      17
+    ],
+    [
+      17,
+      11
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      7,
+      3
+    ]
+  ],
+  "length_min": 2,
+  "length_max": 6,
+  "total_exponent_max": 16,
+  "shifts": "all nonzero shifts preserving positivity",
+  "algorithm": "generate words by inverse-step recursion, verify transformed word by inverse-step recursion, compute constants by left append recurrence"
+}

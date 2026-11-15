@@ -1,0 +1,21 @@
+{
+  "module_elaboration": "PASS",
+  "module_exit_code": 0,
+  "theorems": 7,
+  "axiom_audit": "prepared, not run by S05",
+  "normal_optimized_outputs_identical": true,
+  "files": [
+    {
+      "path": "lean/CollatzShadowing/CapacityAllocation.lean",
+      "sha256": "8217c43961c04c127cb01c37010a6d4be470491d834da3b2bb94f8719c553701"
+    },
+    {
+      "path": "notes/research_sprint_2026-11-13/experiments/s05_capacity.py",
+      "sha256": "b292d7d1c2519205ebf180797970b9971175b7d7efbc35d5b6cf2dd8fc7004b1"
+    },
+    {
+      "path": "notes/research_sprint_2026-11-13/verification/s05_capacity.json",
+      "sha256": "a2b8c379efd4e5436bd77fba0595e23e6e9fda7658e66ee841cca31b03906552"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "source_scan": "2026-11-15",
+  "AI_authored": {
+    "files": 60,
+    "lines": 15897,
+    "public_theorem_lemma_declarations": 682
+  },
+  "generator_emitted": {
+    "files": 26,
+    "lines": 43513,
+    "public_theorem_lemma_declarations": 966
+  },
+  "total": {
+    "files": 86,
+    "lines": 59410,
+    "public_theorem_lemma_declarations": 1648
+  },
+  "new_modules": {
+    "files": 7,
+    "lines": 1402,
+    "public_theorem_lemma_declarations": 56
+  },
+  "new_modules_by_name": {
+    "OrbitReciprocal": {
+      "files": 1,
+      "lines": 482,
+      "public_theorem_lemma_declarations": 19
+    },
+    "WordProductEnvelope": {
+      "files": 1,
+      "lines": 174,
+      "public_theorem_lemma_declarations": 7
+    },
+    "FirstArrivalBudget": {
+      "files": 1,
+      "lines": 250,
+      "public_theorem_lemma_declarations": 13
+    },
+    "TwoEditSparsity": {
+      "files": 1,
+      "lines": 87,
+      "public_theorem_lemma_declarations": 5
+    },
+    "TraceDensityBridge": {
+      "files": 1,
+      "lines": 166,
+      "public_theorem_lemma_declarations": 4
+    },
+    "CycleMinimumProduct": {
+      "files": 1,
+      "lines": 95,
+      "public_theorem_lemma_declarations": 3
+    },
+    "IntegerAtomTilt": {
+      "files": 1,
+      "lines": 148,
+      "public_theorem_lemma_declarations": 5
+    }
+  },
+  "no_independent_discoveries_implied": true
+}

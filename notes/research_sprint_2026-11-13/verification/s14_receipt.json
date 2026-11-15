@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "started_utc": "2026-11-13T16:21:39.595012+00:00",
+  "scope": "Strict transitive axiom audit of all 69 public theorem roots in ten new modules.",
+  "audit": "notes/research_sprint_2026-11-13/verification/AllNewDependencyAudit.lean",
+  "audit_sha256": "bb38dc365ca7f5c2df3e4a066d8fbd27af6b90db787fbfe9c359662bd3ca6801",
+  "public_theorem_roots": 69,
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "independent_kernel": false,
+  "cold_dependency_rebuild": false,
+  "root_confirmed_all_module_builds": true,
+  "audit_started_utc": "2026-11-13T16:21:39.598773+00:00",
+  "sources": {
+    "lean/CollatzShadowing/RootPoolBudget.lean": "708adbde011385e816eb556baf892d2fc1b8173e8be94441f041ffdcd786491d",
+    "lean/CollatzShadowing/ReturnBlocks.lean": "5dfefe3d662a33faf118b96316e340724b48578bfdda5ed4f8d11e99d9c98bfd",
+    "lean/CollatzShadowing/JointAtomDictionary.lean": "41ed60218c3467983efa7f41aefa862334fd76aa0137ebcf4cc4773a2f27bd71",
+    "lean/CollatzShadowing/AffinePositivity.lean": "378f95a3c266d6eaa0621de49622e4ef69d04a5b9256bfec2b910d246d3fc40e",
+    "lean/CollatzShadowing/CapacityAllocation.lean": "8217c43961c04c127cb01c37010a6d4be470491d834da3b2bb94f8719c553701",
+    "lean/CollatzShadowing/RelativeMassFlow.lean": "b0ab4b4a61d1c083aa5b64c687d053d70ad07e845936d49d76a245920ac8a8fc",
+    "lean/CollatzShadowing/WordSurgery.lean": "1593c955d5b4b461bba98be1aae8352dd5caeae4b0ca8b19811d98ef6b375478",
+    "lean/CollatzShadowing/SiblingPool.lean": "851c32eb349dfdb668e2d9b6a2c1bf0891897cd989f022b344d83fa81fa536e9",
+    "lean/CollatzShadowing/CycleRotation.lean": "18f19967fe87cc42ed43f649741b76e2e78f5046445831966500eccee7123017",
+    "lean/CollatzShadowing/FiniteOrbitTransfer.lean": "c66576be359bd599eb56b46872b8d82adff9fa50c18ed15f777f069713660507"
+  },
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "/Volumes/AFUOCO/SVILUPPO/TEORIE/Collatz/notes/research_sprint_2026-11-13/verification/AllNewDependencyAudit.lean"
+  ],
+  "exit_code": 0,
+  "audit_elapsed_seconds": 115.668,
+  "log": "notes/research_sprint_2026-11-13/verification/s14_all_new_axioms.log",
+  "log_sha256": "6fe220363274972a56207272a294d23fc2a26126dc639282c850315ecee43777",
+  "roots_passed": 69,
+  "exact_root_list_match": true,
+  "source_unchanged": true,
+  "finished_utc": "2026-11-13T16:23:35.285803+00:00",
+  "integration_status_at_finish": "PASS",
+  "integration_receipt_sha256": "3a84610b12aff8750589142adc30570430e37ad9e38d78b645e62a06f5171979"
+}

@@ -1,0 +1,9 @@
+import CollatzShadowing.CapacityAllocation
+
+#print axioms CollatzShadowing.CapacityAllocation.capped_cell_bound
+#print axioms CollatzShadowing.CapacityAllocation.mass_le_threshold_cost
+#print axioms CollatzShadowing.CapacityAllocation.threshold_lower_bound
+#print axioms CollatzShadowing.CapacityAllocation.threshold_cell_identity
+#print axioms CollatzShadowing.CapacityAllocation.threshold_allocation_exact
+#print axioms CollatzShadowing.CapacityAllocation.threshold_certificate_le_competitor
+#print axioms CollatzShadowing.CapacityAllocation.threshold_at_score_upper_bound

@@ -1,0 +1,353 @@
+{
+  "sha": "976fffb160744c56f1f26912f7bd23d195fe02d2",
+  "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/trees/976fffb160744c56f1f26912f7bd23d195fe02d2",
+  "tree": [
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "85e7c1dfcb7fbb33f932c81024018cd8c10519da",
+      "size": 8,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/85e7c1dfcb7fbb33f932c81024018cd8c10519da"
+    },
+    {
+      "path": "CollatzND",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ad999a3e756f2ac7fe699f278fb57fcdea0b9fca",
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/trees/ad999a3e756f2ac7fe699f278fb57fcdea0b9fca"
+    },
+    {
+      "path": "CollatzND/Core",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "00468d04b0f41dbbd66e571fcd13ad8dbf5690f2",
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/trees/00468d04b0f41dbbd66e571fcd13ad8dbf5690f2"
+    },
+    {
+      "path": "CollatzND/Core/Bridge.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "064dc2568dc115fea246555b46dfae791fe2922b",
+      "size": 6407,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/064dc2568dc115fea246555b46dfae791fe2922b"
+    },
+    {
+      "path": "CollatzND/Core/Col.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "64e61b7ccd32c4ffe09b232df54d1c0e1728b0a1",
+      "size": 4825,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/64e61b7ccd32c4ffe09b232df54d1c0e1728b0a1"
+    },
+    {
+      "path": "CollatzND/Core/Density.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8698ed9414a11449e9cabf0bc0302e2692311b3f",
+      "size": 13547,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/8698ed9414a11449e9cabf0bc0302e2692311b3f"
+    },
+    {
+      "path": "CollatzND/Core/Explicit.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c0a4cf9e5c825018cd4108386ed384b98a4238a4",
+      "size": 13507,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/c0a4cf9e5c825018cd4108386ed384b98a4238a4"
+    },
+    {
+      "path": "CollatzND/Core/Main.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae7d0ea71b2ac3f8e7061b75f70f780a1562cee0",
+      "size": 2563,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/ae7d0ea71b2ac3f8e7061b75f70f780a1562cee0"
+    },
+    {
+      "path": "CollatzND/Core/Power.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "085159ca0059d9837e2c1296a67156bd0137da09",
+      "size": 5129,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/085159ca0059d9837e2c1296a67156bd0137da09"
+    },
+    {
+      "path": "CollatzND/Core/ShaikBridge.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4545115e97488e932b3d7bcb2cd4d8879dc2936a",
+      "size": 1541,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/4545115e97488e932b3d7bcb2cd4d8879dc2936a"
+    },
+    {
+      "path": "CollatzND/Core/Uniform.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "377947df6e259bd99556ecafe5c8fa60cfd8280e",
+      "size": 32284,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/377947df6e259bd99556ecafe5c8fa60cfd8280e"
+    },
+    {
+      "path": "CollatzND/Spec.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "af4466543b69229dd96a7431caf4221dcfa5e630",
+      "size": 3265,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/af4466543b69229dd96a7431caf4221dcfa5e630"
+    },
+    {
+      "path": "CollatzProof",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "22523374f1bafd232e58fa228dcf43cf0dbe211d",
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/trees/22523374f1bafd232e58fa228dcf43cf0dbe211d"
+    },
+    {
+      "path": "CollatzProof/Core",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "63b3a7ad41feb7f296521e97b08acc1a997a1b16",
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/trees/63b3a7ad41feb7f296521e97b08acc1a997a1b16"
+    },
+    {
+      "path": "CollatzProof/Core/Conv.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ac10a2ba488928e9d72bc5cbe76538d6dd9e9c74",
+      "size": 10019,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/ac10a2ba488928e9d72bc5cbe76538d6dd9e9c74"
+    },
+    {
+      "path": "CollatzProof/Core/Defs.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3205195fa1ec2afe093dd3369aabcbfe775a8e37",
+      "size": 939,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/3205195fa1ec2afe093dd3369aabcbfe775a8e37"
+    },
+    {
+      "path": "CollatzProof/Core/Recursion.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7785d8393f37eea33b9a0cea68c5b522fedfd107",
+      "size": 1104,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/7785d8393f37eea33b9a0cea68c5b522fedfd107"
+    },
+    {
+      "path": "CollatzProof/Core/Step.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "85f0663028a5df6d71cca8332469e7b6754b894e",
+      "size": 817,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/85f0663028a5df6d71cca8332469e7b6754b894e"
+    },
+    {
+      "path": "CollatzProof/Core/Syr.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "48d397678c9d56504bb2b4f53e2b80b931d16f03",
+      "size": 3286,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/48d397678c9d56504bb2b4f53e2b80b931d16f03"
+    },
+    {
+      "path": "CollatzProof/Core/TaoDefs.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b03f6bce89bac04c39b1b2b758b765acea016484",
+      "size": 1442,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/b03f6bce89bac04c39b1b2b758b765acea016484"
+    },
+    {
+      "path": "CollatzProof/Core/TaoFinal.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e3c9df348b9aff421653f3564bba144f44f7272",
+      "size": 2692,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/1e3c9df348b9aff421653f3564bba144f44f7272"
+    },
+    {
+      "path": "CollatzProof/Core/TaoRec.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7997eebcd39b8ca0b84e0080d045f286145f03ff",
+      "size": 5531,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/7997eebcd39b8ca0b84e0080d045f286145f03ff"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "size": 11357,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+    },
+    {
+      "path": "MANIFEST.sha256",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "977eea80c7302483c658c465e2c4ce8aa413cca3",
+      "size": 3345,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/977eea80c7302483c658c465e2c4ce8aa413cca3"
+    },
+    {
+      "path": "NOTICE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "063d5e29474ad653bdef0b08f0ff0dd85e821cc9",
+      "size": 3102,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/063d5e29474ad653bdef0b08f0ff0dd85e821cc9"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f35a3d6079fcbf3651e20c82919740d033e898d9",
+      "size": 23420,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/f35a3d6079fcbf3651e20c82919740d033e898d9"
+    },
+    {
+      "path": "fetch_mazur.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fbb9fcb6a04568a7f3db1230f2ad4580a25ffea7",
+      "size": 2571,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/fbb9fcb6a04568a7f3db1230f2ad4580a25ffea7"
+    },
+    {
+      "path": "fetch_shaik.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b1fd3953f3693b13c041c659a4ec78b0a900c92",
+      "size": 5931,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/2b1fd3953f3693b13c041c659a4ec78b0a900c92"
+    },
+    {
+      "path": "lake-manifest.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6b15ae13c1e00ffbd564749bec500096dd8fb29b",
+      "size": 3151,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/6b15ae13c1e00ffbd564749bec500096dd8fb29b"
+    },
+    {
+      "path": "lakefile.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0d61a05c8be300cddd2830ca7e443b1832cc60f3",
+      "size": 2749,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/0d61a05c8be300cddd2830ca7e443b1832cc60f3"
+    },
+    {
+      "path": "lean-toolchain",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c7e31fffe3e03be3e0d7021acd9cd848e44db26",
+      "size": 29,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/6c7e31fffe3e03be3e0d7021acd9cd848e44db26"
+    },
+    {
+      "path": "patches",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "23ce566bb12013d28aae34e16283afedb5ac53d0",
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/trees/23ce566bb12013d28aae34e16283afedb5ac53d0"
+    },
+    {
+      "path": "patches/shaik-v4.30.patch",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bf5e31c69726eb178b8189aa02bda773d89862e0",
+      "size": 56625,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/bf5e31c69726eb178b8189aa02bda773d89862e0"
+    },
+    {
+      "path": "verify",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a531c9c19e50e733aca896f44eda349e8bda43ed",
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/trees/a531c9c19e50e733aca896f44eda349e8bda43ed"
+    },
+    {
+      "path": "verify/Replay.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "597517754b305c0eb228d2145b3a108a987fb44a",
+      "size": 3503,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/597517754b305c0eb228d2145b3a108a987fb44a"
+    },
+    {
+      "path": "verify/Stmt.lean",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "02bac6c3f28c6f92bb0e66c463d9273c1cd674d9",
+      "size": 1733,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/02bac6c3f28c6f92bb0e66c463d9273c1cd674d9"
+    },
+    {
+      "path": "verify/constants.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8bdde41199b3a318696053402e26d32e6dec9ce9",
+      "size": 1374,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/8bdde41199b3a318696053402e26d32e6dec9ce9"
+    },
+    {
+      "path": "verify/density-2026-09-27.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ea1160df12c62631e2c9cede2720d4769b7aeab3",
+      "size": 8835,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/ea1160df12c62631e2c9cede2720d4769b7aeab3"
+    },
+    {
+      "path": "verify/fresh-build-2026-09-26.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ebfc2b00eecd96bc8deab50843a241032748fa9e",
+      "size": 790,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/ebfc2b00eecd96bc8deab50843a241032748fa9e"
+    },
+    {
+      "path": "verify/leanchecker-fresh-2026-09-26.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d2aef8d428c6ba9d0867db33efab8b05abc3075",
+      "size": 279,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/8d2aef8d428c6ba9d0867db33efab8b05abc3075"
+    },
+    {
+      "path": "verify/leanchecker-fresh-2026-09-27.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8211d60d59051bc8cfd0ddd1f3d5dd3d033f3cad",
+      "size": 527,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/8211d60d59051bc8cfd0ddd1f3d5dd3d033f3cad"
+    },
+    {
+      "path": "verify/replay-2026-09-26.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "64ee034ce20640c0010ee35efc0d98d2afe20934",
+      "size": 903,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/64ee034ce20640c0010ee35efc0d98d2afe20934"
+    },
+    {
+      "path": "verify/replay-tamper-2026-09-26.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "39e9719afda38e49534f813acd9046d34b4d712a",
+      "size": 1557,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/39e9719afda38e49534f813acd9046d34b4d712a"
+    },
+    {
+      "path": "verify/stmt-2026-09-26.log",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "713d9e6ca31e783d205cf94815147db96a4d466b",
+      "size": 8969,
+      "url": "https://api.github.com/repos/harappa/collatz-fixed-barrier-power-saving/git/blobs/713d9e6ca31e783d205cf94815147db96a4d466b"
+    }
+  ],
+  "truncated": false
+}

@@ -1,0 +1,24 @@
+{
+  "frozen_utc": "2026-11-15T20:25:24.002990+00:00",
+  "based_on": "phase1 count/load diagnostic; this is a declared follow-up, not an original blind outcome",
+  "domain_protocol_sha256": "78c5110bca8f64ed0db375c1918b5e45fac42a53120c44447365ea9c8f711439",
+  "policies": [
+    "ordinal",
+    "greedy",
+    "greedy_capped"
+  ],
+  "targets": [
+    5,
+    7,
+    31,
+    593
+  ],
+  "max_depth": 18,
+  "metrics": [
+    "exact sum3^k*2^-A for input codes",
+    "exact deduplicated image sum3^k*2^-B",
+    "maximum retained source Jacobian mass under final image capacity1",
+    "same for local greedy capped"
+  ],
+  "interpretation": "Jacobian/critical pressure diagnostic; no natural-density or eta inference"
+}

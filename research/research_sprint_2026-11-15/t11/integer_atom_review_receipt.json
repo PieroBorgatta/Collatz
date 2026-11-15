@@ -1,0 +1,23 @@
+{
+  "reviewer": "T11",
+  "reviewed_at_utc": "2026-11-15T21:23:33.632409+00:00",
+  "source": "lean/CollatzShadowing/IntegerAtomTilt.lean",
+  "source_sha256_at_read": "32fc803a9fa4f0c7cc48b393995b0b7a61238bd85ed742ebba045290b7dd572c",
+  "public_theorems": [
+    "sum_reciprocal_sq_finset_le_two",
+    "wordWeight_le_target",
+    "tilted_integer_atom_le"
+  ],
+  "semantic_specification_findings": [],
+  "same_length_injectivity_required": true,
+  "first_arrival_not_required": true,
+  "cyclic_targets_allowed": true,
+  "metadata_duplicates_not_counted": true,
+  "source_positive_explicit": true,
+  "empty_word_allowed": true,
+  "review_repeated_build": false,
+  "updated_aggregate_build_audit_claimed_here": false,
+  "paper_probability_bridge_requires_positive_odd_target": true,
+  "paper_probability_bridge_requires_B_gt_n": true,
+  "integer_trace_relaxation_rate_obtained": false
+}
