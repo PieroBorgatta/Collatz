@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "recorded_at_utc": "2026-11-15T22:54:13.652964+00:00",
+  "scope": "One unchanged-grid finite parent diagnostic and accompanying paper deductions; no lower or limiting law proved.",
+  "exit_codes": [
+    0,
+    0
+  ],
+  "normal_optimized_identical": true,
+  "output_sha256": "c8d9a302a9080b46d28381c591faaa5a79a7c37488a81203c9ed251ac0be7dd3",
+  "maximum_source": 262144,
+  "registered_rows": 40,
+  "odd_sources_certified_to_one": 131072,
+  "direct_forward_steps": 5420588,
+  "potential_checks": 249564,
+  "last_parent_checks": 249556,
+  "all_counts_match_U03": true,
+  "source_unchanged_during_execution": true,
+  "protocol_unchanged_during_execution": true,
+  "normal_optimized_byte_identical": true,
+  "gpu_used": false,
+  "external_resources_created": false,
+  "paper_proof_independent_review": "Pending parent/U04 review",
+  "artifacts": {
+    "research/research_sprint_2026-11-15_three_hours/u07/protocol.json": {
+      "sha256": "6d6372a9a9829c0b1880779d088af316ef40c352be5379b41da26e46b19fa2c7",
+      "bytes": 1016
+    },
+    "research/research_sprint_2026-11-15_three_hours/u07/diagnostic_protocol.json": {
+      "sha256": "088f1af1772a257b92c29217a7019400b37102015f50d7274c0232f07bc77b14",
+      "bytes": 1869
+    },
+    "research/research_sprint_2026-11-15_three_hours/u07/physical_parent_collision.py": {
+      "sha256": "d082e11ee26053ac903ee5529aa56cb86cd6854a9aee9b32cfa579ce771193c1",
+      "bytes": 7993
+    },
+    "research/research_sprint_2026-11-15_three_hours/u07/physical_parent_collision_result.json": {
+      "sha256": "c8d9a302a9080b46d28381c591faaa5a79a7c37488a81203c9ed251ac0be7dd3",
+      "bytes": 117928
+    },
+    "research/research_sprint_2026-11-15_three_hours/u07/physical_parent_collision_result_optimized.json": {
+      "sha256": "c8d9a302a9080b46d28381c591faaa5a79a7c37488a81203c9ed251ac0be7dd3",
+      "bytes": 117928
+    },
+    "notes/research_sprint_2026-11-15_three_hours/agents/U07_BELLMAN_IT.md": {
+      "sha256": "6330c4f371312b83f169d5573b4be3af33eaf02f08075a6c47358379a34eac46",
+      "bytes": 17346
+    }
+  }
+}

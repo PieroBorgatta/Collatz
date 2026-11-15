@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "recorded_at_utc": "2026-11-15T23:26:32.894146+00:00",
+  "checks": {
+    "all_sources_resolved": true,
+    "target_reaches_one_without_return": true,
+    "first_unit_seed31": true,
+    "second_unit_seed6325": true,
+    "first_best_weight_exceeds_empty": true,
+    "all_larger_first_branch_candidates_bounded": true,
+    "all_unscanned_unit_seeds_below_second_weight": true,
+    "normal_optimized_identical": true
+  },
+  "global_arithmetic_F_593": {
+    "numerator": 4782969,
+    "denominator": 262144
+  },
+  "global_second_largest_branch_anchor_weight": {
+    "numerator": 3,
+    "denominator": 32
+  },
+  "branch_surplus_lower_bound": {
+    "numerator": 3,
+    "denominator": 32
+  },
+  "proof_input": "Every scanned unit seed is completely classified; for any other sourceu>6325, reciprocal potential givesΩ≤593/u<3/32. For all unitu≥33,Ω≤593/u<4782969/262144. Target593 has no return because it reaches1.",
+  "not_a_limiting_Doob_estimate": true
+}

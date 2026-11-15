@@ -1,0 +1,37 @@
+{
+  "recorded_at_utc": "2026-11-15T23:32:35.808997+00:00",
+  "question": "Can every prefix be F-calibrated while an internal raw factor is not inverse-weight optimal?",
+  "selected_before_execution": {
+    "source": 31,
+    "target": 911,
+    "candidate_threshold": 35,
+    "factor_original_parent": 2429,
+    "factor_original_exponent": 3,
+    "factor_rival_parent": 607,
+    "factor_rival_exponent": 1,
+    "smaller_unit_closure": [
+      1,
+      5,
+      7,
+      11,
+      13,
+      17,
+      19,
+      23,
+      25,
+      29,
+      35,
+      53
+    ]
+  },
+  "checks": [
+    "Direct orbit31 through911 and then to1; no repeats before1",
+    "All unit seeds below31 in forward-closed certificate that avoids911",
+    "33 is excluded as a multiple of3, so all larger unit seeds are at least35",
+    "Exact normalized potential n_i/Omega_i is increasing and final value<35",
+    "Raw rival607 maps to911 with exponent1 rather than3",
+    "Optional strict weighted-rival upper via F607<=607/35"
+  ],
+  "failure_policy": "If endpoint potential is not below35, report failure; no adjusted threshold or enlarged search.",
+  "resources": "Exact local integers/rationals only; no GPU, no external code, no grid."
+}

@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "recorded_at_utc": "2026-11-15T23:12:26.375109+00:00",
+  "normal_optimized_identical": true,
+  "GPU_used": false,
+  "artifacts": {
+    "result.json": "a4d5bc2152f348c2dd456573051efeab7148d6d7f2b82ac4b73510c15cf0c409",
+    "check_minimal_prefix.py": "a26de1dc29ce8012358a3f2e85f1b16e637706f5aba4834ec333fe511bf8948e",
+    "protocol.json": "332807f259a39ef2f4a5f62b653ea76b157c5a573639c0900c6252d8daa6535f",
+    "result_optimized.json": "a4d5bc2152f348c2dd456573051efeab7148d6d7f2b82ac4b73510c15cf0c409",
+    "source_review.json": "ab26b8ef2492d66c20cdedce260bff70885cf0736f6e7cccc93a9ee886a4e5fe"
+  },
+  "paper_report": "notes/research_sprint_2026-11-15_three_hours/agents/U13_INFINITE_MINIMAL_IT.md",
+  "report_sha256": "f3629483d810711afbfc943105e90f8d43636fde76122debf50248219fa4ca57",
+  "paper_lemmas_independently_reviewed": false,
+  "conclusions": [
+    "Finite fully inverse-minimal prefixes need not have minimal factors; exact physical witnesses verified.",
+    "Fully inverse-minimal finite prefixes of arbitrarily large length exist, with explicit source upper bounds.",
+    "Bounded least cylinder representatives are necessary and sufficient for positive-integer realization.",
+    "No implication from the complete infinite least-counterexample condition to Sturmian/automatic/morphic structure proved."
+  ]
+}

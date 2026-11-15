@@ -1,0 +1,49 @@
+{
+  "recorded_at_utc": "2026-11-15T22:43:24.927560+00:00",
+  "base_commit": "203cbb868b2ba19e51e16feeede253a42dd821c3",
+  "purpose": "One finite physical transport test for v=p*u, distinguishing nonsmooth multipliers from coalescence controls. No asymptotic or independence claim.",
+  "source_domain": "All odd positive u <= 2^18; ordinary-source counts obtained by exact dyadic lifts",
+  "maximum_source": 262144,
+  "cutoffs": [
+    1024,
+    4096,
+    16384,
+    65536,
+    262144
+  ],
+  "base_targets": [
+    5,
+    7,
+    31,
+    593
+  ],
+  "canonical_sibling_rule": "4n+1 if n%3==1, otherwise16n+5",
+  "multipliers": [
+    2,
+    3,
+    5,
+    7,
+    11,
+    13
+  ],
+  "offset": 0,
+  "smooth_controls": [
+    2,
+    3
+  ],
+  "image_bound": "p*cutoff; do not restrict images to the source cutoff",
+  "certificate": "Every odd part of each registered source and image must have a checked Syracuse path to1. A repeated non1 state or >10000 uncached steps yields unknown, not no-hit, and fails complete claim.",
+  "validation": "Independent direct Syracuse traversal of every unique registered odd starting state, using repeated halving rather than bit valuation, agrees with memoized target masks; paired basins disjoint; p=2 masks exactly agree with source masks; source totals agree with U03 complete catalogue.",
+  "measures": [
+    "physical odd transfer count and fraction within base basin",
+    "dyadically lifted ordinary transfer count/fraction",
+    "distinct image count and load1",
+    "height exactlyp",
+    "p/eta divided by1+log n, for comparison only",
+    "joint versus product of finite marginals, explicitly non-iid"
+  ],
+  "interpretable_positive_result": "Positive finite transfer fraction shows an admissible finite map only; does not provide uniform eta or H.",
+  "interpretable_negative_result": "Zero transfers at this cutoff does not imply an asymptotic no-go.",
+  "no_automatic_grid_extension": true,
+  "resources": "Local CPU only; no GPU, paid resource, SSH or external code execution."
+}

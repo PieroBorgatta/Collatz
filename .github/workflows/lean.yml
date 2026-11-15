@@ -52,6 +52,22 @@ jobs:
             /tmp/tower-transport-results.json
             /tmp/tower-dependency-audit.log
           if-no-files-found: ignore
+      - name: Audit finite catalogue and collision declarations
+        working-directory: lean
+        run: |
+          set -o pipefail
+          lake env lean ../notes/research_sprint_2026-11-15_three_hours/verification/AllNewDependencyAudit.lean | tee /tmp/three-hour-arithmetic-audit.log
+      - name: Replay physical catalogues and exact minimality certificates
+        run: python3 notes/research_sprint_2026-11-15_three_hours/replay_finite.py --output /tmp/three-hour-arithmetic-replay
+      - name: Preserve arithmetic follow-up verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: arithmetic-follow-up-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            /tmp/three-hour-arithmetic-audit.log
+            /tmp/three-hour-arithmetic-replay
+          if-no-files-found: ignore
       - name: Audit descent and quadratic transfer without native axioms
         working-directory: lean
         run: |

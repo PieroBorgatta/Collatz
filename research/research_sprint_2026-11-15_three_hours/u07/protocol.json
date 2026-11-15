@@ -1,0 +1,25 @@
+{
+  "recorded_at_utc": "2026-11-15T22:44:20.565287+00:00",
+  "base_commit": "203cbb868b2ba19e51e16feeede253a42dd821c3",
+  "task": "Bellman and physical two-copy nonconcentration",
+  "mathematical_targets": [
+    "Critical one-step collision-defect lower on heavy roots",
+    "Critical finite-depth physical endpoint collision gap",
+    "Shannon entropy summability under explicit minimum-predecessor-label tail"
+  ],
+  "experiments_executed": false,
+  "gpu_used": false,
+  "no_subagents_spawned": true,
+  "new_Lean_modules": false,
+  "source_inputs": [
+    "Canonical positive harmonic trace and nonperiodic linear upper",
+    "Pinned finite-orbit product budget P0=exp27",
+    "Paper12 eq36 only for supplemental Shannon refinement"
+  ],
+  "sources": [
+    "https://rstation.ai/problems/collatz/papers/12",
+    "https://rstation.ai/problems/collatz/papers/37/v3",
+    "https://rstation.ai/r/collatz/posts/16"
+  ],
+  "novelty_status": "Local reconstruction and criteria; no global priority claim or proved lower."
+}

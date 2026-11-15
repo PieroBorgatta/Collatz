@@ -1,0 +1,65 @@
+{
+  "recorded_at_utc": "2026-11-15T22:14:41.961929+00:00",
+  "base_commit": "203cbb868b2ba19e51e16feeede253a42dd821c3",
+  "purpose": "One preregistered complete finite physical-catalogue CDF stress test, without a word-depth or valuation cap. No asymptotic inference.",
+  "targets": [
+    5,
+    7,
+    31,
+    593
+  ],
+  "canonical_sibling_rule": "4n+1 unless divisible by3, otherwise16n+5",
+  "source_domain": "All positive odd integers u≤2^18",
+  "maximum_source": 262144,
+  "registered_cutoffs": [
+    1024,
+    4096,
+    16384,
+    65536,
+    262144
+  ],
+  "profile": "Exact first-arrival length k, valuation total A, maximum letter a; slope=2^A/3^k with exact Fraction comparison",
+  "termination_policy": {
+    "stop_at": 1,
+    "max_steps_per_uncached_path": 10000,
+    "cycle_before_one": "unknown and fail completeness",
+    "timeout": "unknown, never classify as no hit",
+    "no_hit_certificate": "A directly verified path reaches1 without the target, and S(1)=1 with all targets>1"
+  },
+  "catalogue_validation": "Memoized catalogues checked against independent forward enumeration from every registered source; all target paths checked to1",
+  "incoming_loads": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    64,
+    128
+  ],
+  "slope_dilations": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+  ],
+  "matching": "Ascending exact slope keys with physical source tie-break; match smallest available image when admissible, skipping unmatchable sources; capacity m per physical image. Complete catalogue optimum also via rank matching if capacity sufficient.",
+  "measurements": [
+    "Physical odd and dyadically lifted ordinary counts",
+    "Incoming load and exact maximum actual height",
+    "Selected fraction of the full physical catalogue",
+    "Minimal full slope dilation and minimal full physical height by sorted rank",
+    "Fraction using valuations≤6, solely as finite representability diagnostic"
+  ],
+  "checks": [
+    "Every normal/optimized run must have identical JSON bytes",
+    "No unresolved source allowed for a complete claim",
+    "All pair target basins disjoint in finite certified data",
+    "All exact catalogue and height inequalities checked with integer/Fraction guards"
+  ],
+  "resource_policy": "Local CPU only; no GPU or paid resource needed",
+  "no_automatic_extension": true,
+  "result_interpretation": "Finite benchmark only. Positive fractions at these cutoffs do not imply η or H; negative truncated capacity does not imply an asymptotic no-go."
+}

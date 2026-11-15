@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "recorded_at_utc": "2026-11-15T22:49:31.533788+00:00",
+  "scope": "One preregistered finite physical affine transport experiment, normal and optimized. No asymptotic, independence, eta or H claim.",
+  "commands": [
+    [
+      "python3",
+      "affine_transport.py"
+    ],
+    [
+      "python3",
+      "-O",
+      "affine_transport.py"
+    ]
+  ],
+  "exit_codes": [
+    0,
+    0
+  ],
+  "normal_optimized_identical": true,
+  "sha256": {
+    "protocol.json": "67d95cfa3f1d6848d4a49669c3e18adc564ccc8248a630881d596f0d33dfb642",
+    "affine_transport.py": "947c28004b1419e8ba987fed81366b6769874c98b0326bb170d67d058c2dc14c",
+    "result.json": "3f2bf580e609c03cd724fdb095c62cb7c907bdc8fe3be8174a2d9e186b085907",
+    "result_optimized.json": "3f2bf580e609c03cd724fdb095c62cb7c907bdc8fe3be8174a2d9e186b085907"
+  },
+  "cross_check_U03_result_sha256": "84b72ce902d96adee1ac7e40236b14f9c49970aa2f0423923b1fa190be27fdb6",
+  "unique_odd_starts_certified_to_one": 582034,
+  "direct_forward_steps_per_run": 27788001,
+  "unresolved_sources": [],
+  "all_direct_masks_agree": true,
+  "all_U03_counts_agree": true,
+  "gpu_used": false,
+  "external_code_executed": false,
+  "paid_resources_created": false,
+  "registered_grid_unchanged": true
+}

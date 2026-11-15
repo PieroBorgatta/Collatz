@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "recorded_at_utc": "2026-11-15T23:34:13.457781+00:00",
+  "normal_optimized_identical": true,
+  "registered_threshold": 35,
+  "threshold_adjusted": false,
+  "source": 31,
+  "target": 911,
+  "prefix_length": 27,
+  "total_exponent": 38,
+  "endpoint_potential": {
+    "denominator": 7625597484987,
+    "numerator": 250413773225984
+  },
+  "GPU_used": false,
+  "new_Lean_modules": 0,
+  "external_code_executed": false,
+  "report_sha256": "808d958ccde4bfee9b9ada4261f0887eac7cb96ee408f2228354e5f935b68897",
+  "paper_proof_independent_review": false,
+  "artifacts": {
+    "result.json": {
+      "sha256": "dbb1d195426ae998dbc86c43c44cf24899b7914c12d4af9c90b3a86bdfca7dba",
+      "bytes": 10250
+    },
+    "protocol.json": {
+      "sha256": "560c07003325953fe746a44c39fd181ba57b82dc18e313344ca2a26bed265b6a",
+      "bytes": 1211
+    },
+    "check_calibrated_prefix.py": {
+      "sha256": "b3afc09f33412dcf77c35f47840cc8dde355781e80db975540332e021190d349",
+      "bytes": 3389
+    },
+    "result_optimized.json": {
+      "sha256": "dbb1d195426ae998dbc86c43c44cf24899b7914c12d4af9c90b3a86bdfca7dba",
+      "bytes": 10250
+    }
+  }
+}

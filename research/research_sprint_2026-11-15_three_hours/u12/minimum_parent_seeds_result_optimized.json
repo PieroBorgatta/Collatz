@@ -1,0 +1,153 @@
+{
+  "branches": [
+    {
+      "exact_inflation": {
+        "denominator": 148272039,
+        "numerator": 155451392
+      },
+      "exponents": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1
+      ],
+      "hit_sources_in_branch": 716,
+      "homogeneous_weight": {
+        "denominator": 262144,
+        "numerator": 4782969
+      },
+      "last_exponent": 1,
+      "last_parent": 395,
+      "length": 14,
+      "minimum_unit_seed_in_scanned_domain": 31,
+      "states_to_first_hit": [
+        31,
+        47,
+        71,
+        107,
+        161,
+        121,
+        91,
+        137,
+        103,
+        155,
+        233,
+        175,
+        263,
+        395,
+        593
+      ],
+      "total_valuation": 18
+    },
+    {
+      "exact_inflation": {
+        "denominator": 18975,
+        "numerator": 18976
+      },
+      "exponents": [
+        5
+      ],
+      "hit_sources_in_branch": 1,
+      "homogeneous_weight": {
+        "denominator": 32,
+        "numerator": 3
+      },
+      "last_exponent": 5,
+      "last_parent": 6325,
+      "length": 1,
+      "minimum_unit_seed_in_scanned_domain": 6325,
+      "states_to_first_hit": [
+        6325,
+        593
+      ],
+      "total_valuation": 5
+    }
+  ],
+  "certified_sources_to_one": 2109,
+  "direct_steps": 61581,
+  "empty_arrival_sources": [
+    593
+  ],
+  "harmonic_seed_mass_minus_best": {
+    "denominator": 6325,
+    "numerator": 1
+  },
+  "hit_sources_including_empty": 718,
+  "maximum_length_to_one": 86,
+  "maximum_seed": 6325,
+  "maximum_state_bits": 22,
+  "minimum_second_parent_seed": 6325,
+  "protocol_sha256": "2ccdda9ee11ea8b2bc942b9ce3fc4aa17527aebd8c9b4c27c53cc410d758bbb5",
+  "scope": "Exact finite minimum-label and witness certificate only; no claim about limiting Doob probabilities or logarithmic asymptotic seed bounds.",
+  "script_sha256": "4379bacf5782d4ec77ca07e7feff5e9d6754a6255a22f32155a84bccc5432f60",
+  "source_domain": "odd positive integers not divisible by3",
+  "status": "PASS",
+  "target": 593,
+  "target_exponents_to_one": [
+    2,
+    3,
+    1,
+    1,
+    2,
+    1,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    3,
+    1,
+    1,
+    1,
+    4,
+    2,
+    2,
+    4,
+    3,
+    1,
+    1,
+    5,
+    4
+  ],
+  "target_has_positive_return": false,
+  "target_states_to_one": [
+    593,
+    445,
+    167,
+    251,
+    377,
+    283,
+    425,
+    319,
+    479,
+    719,
+    1079,
+    1619,
+    2429,
+    911,
+    1367,
+    2051,
+    3077,
+    577,
+    433,
+    325,
+    61,
+    23,
+    35,
+    53,
+    5,
+    1
+  ],
+  "unresolved_sources": 0
+}

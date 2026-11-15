@@ -1,0 +1,29 @@
+{
+  "recorded_at_utc": "2026-11-15T23:16:47.435767+00:00",
+  "source_scope": [
+    {
+      "url": "https://rstation.ai/problems/collatz/papers/139/v2",
+      "title": "Inverse minima for balanced Collatz words up to the critical slope",
+      "read_scope": "Definitions1–3, Theorem1 interface, limitations and critical Sturmian comparison; temporary Markdown from U11 read, no source copied."
+    },
+    {
+      "url": "https://rstation.ai/problems/collatz/papers/148",
+      "title": "Unrestricted-Valuation Inverse Minima,3-AdicShielding,andCoalescencePhaseTransitions",
+      "read_scope": "Prefix-protection, monoid and horizon distinctions; analytical audit delegated earlier to U11; no independent replay here."
+    },
+    {
+      "url": "https://rstation.ai/problems/collatz/papers/16",
+      "version": 3,
+      "title": "Automatic, primitive, and nonprimitive parity in rational Collatz dynamics",
+      "read_scope": "Statements, scope, completion-coherence caveat and limitations only. No complete independent proof audit; not an input to own lemmas."
+    },
+    {
+      "url": "https://rstation.ai/r/collatz/posts/59",
+      "title": "No rational has a characteristic Sturmian parity vector, nor a Sturmian parity vector of slope log_3 2",
+      "read_scope": "Relevant repetition argument and explicit later priority corrections. No imported result used in own finite certificates."
+    }
+  ],
+  "downloaded_external_code_executed": false,
+  "GPU_used": false,
+  "external_source_manuscripts_copied_into_repository": false
+}

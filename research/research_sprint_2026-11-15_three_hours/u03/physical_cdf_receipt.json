@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "recorded_at_utc": "2026-11-15T22:20:01.395856+00:00",
+  "script_sha256": "498247e75ddcdb4faae0f0c0879ddb4431beee356b3c3214cb3af0c1da7af30d",
+  "protocol_sha256": "4171ae8d85de5b7e7bf57f31740ae6d102f52105d1fc20c2ebd4256a841930d3",
+  "normal_sha256": "84b72ce902d96adee1ac7e40236b14f9c49970aa2f0423923b1fa190be27fdb6",
+  "optimized_sha256": "84b72ce902d96adee1ac7e40236b14f9c49970aa2f0423923b1fa190be27fdb6",
+  "normal_optimized_identical": true,
+  "exit_codes": [
+    0,
+    0
+  ],
+  "source_mutations_between_runs": false,
+  "source_count": 131072,
+  "independent_forward_steps": 5420588,
+  "unresolved_sources": 0,
+  "maximum_source": 262144,
+  "GPU_or_paid_resources_used": false,
+  "scope": "One preregistered complete finite physical CDF replay, checked normally and with optimization. No asymptotic or global H conclusion."
+}

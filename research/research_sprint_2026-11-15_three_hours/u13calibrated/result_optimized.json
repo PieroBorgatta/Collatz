@@ -1,0 +1,552 @@
+{
+  "F31_exact": {
+    "denominator": 1,
+    "numerator": 1
+  },
+  "F911_exact": {
+    "denominator": 274877906944,
+    "numerator": 7625597484987
+  },
+  "all_prefixes_have_unique_maximizing_unit_seed31": true,
+  "closure_edges": [
+    [
+      1,
+      2,
+      1
+    ],
+    [
+      5,
+      4,
+      1
+    ],
+    [
+      7,
+      1,
+      11
+    ],
+    [
+      11,
+      1,
+      17
+    ],
+    [
+      13,
+      3,
+      5
+    ],
+    [
+      17,
+      2,
+      13
+    ],
+    [
+      19,
+      1,
+      29
+    ],
+    [
+      23,
+      1,
+      35
+    ],
+    [
+      25,
+      2,
+      19
+    ],
+    [
+      29,
+      3,
+      11
+    ],
+    [
+      35,
+      1,
+      53
+    ],
+    [
+      53,
+      5,
+      5
+    ]
+  ],
+  "endpoint_potential": {
+    "denominator": 7625597484987,
+    "numerator": 250413773225984
+  },
+  "endpoint_potential_decimal": 32.83857739921227,
+  "factor_remains_F_weighted_calibrated": true,
+  "full_orbit_to_one": [
+    31,
+    47,
+    71,
+    107,
+    161,
+    121,
+    91,
+    137,
+    103,
+    155,
+    233,
+    175,
+    263,
+    395,
+    593,
+    445,
+    167,
+    251,
+    377,
+    283,
+    425,
+    319,
+    479,
+    719,
+    1079,
+    1619,
+    2429,
+    911,
+    1367,
+    2051,
+    3077,
+    577,
+    433,
+    325,
+    61,
+    23,
+    35,
+    53,
+    5,
+    1
+  ],
+  "meaning": "Finite calibrated prefixes do not imply raw factor optimality; no claim about an infinite least-counterexample word.",
+  "prefix_length": 27,
+  "prefix_rows": [
+    {
+      "Omega": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 0,
+      "state": 31,
+      "state_over_Omega": {
+        "denominator": 1,
+        "numerator": 31
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 2,
+        "numerator": 3
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 1,
+      "state": 47,
+      "state_over_Omega": {
+        "denominator": 3,
+        "numerator": 94
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 4,
+        "numerator": 9
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 2,
+      "state": 71,
+      "state_over_Omega": {
+        "denominator": 9,
+        "numerator": 284
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 8,
+        "numerator": 27
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 3,
+      "state": 107,
+      "state_over_Omega": {
+        "denominator": 27,
+        "numerator": 856
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 16,
+        "numerator": 81
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 4,
+      "state": 161,
+      "state_over_Omega": {
+        "denominator": 81,
+        "numerator": 2576
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 64,
+        "numerator": 243
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 5,
+      "state": 121,
+      "state_over_Omega": {
+        "denominator": 243,
+        "numerator": 7744
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 256,
+        "numerator": 729
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 6,
+      "state": 91,
+      "state_over_Omega": {
+        "denominator": 729,
+        "numerator": 23296
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 512,
+        "numerator": 2187
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 7,
+      "state": 137,
+      "state_over_Omega": {
+        "denominator": 2187,
+        "numerator": 70144
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 2048,
+        "numerator": 6561
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 8,
+      "state": 103,
+      "state_over_Omega": {
+        "denominator": 6561,
+        "numerator": 210944
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 4096,
+        "numerator": 19683
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 9,
+      "state": 155,
+      "state_over_Omega": {
+        "denominator": 19683,
+        "numerator": 634880
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 8192,
+        "numerator": 59049
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 10,
+      "state": 233,
+      "state_over_Omega": {
+        "denominator": 59049,
+        "numerator": 1908736
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 32768,
+        "numerator": 177147
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 11,
+      "state": 175,
+      "state_over_Omega": {
+        "denominator": 177147,
+        "numerator": 5734400
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 65536,
+        "numerator": 531441
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 12,
+      "state": 263,
+      "state_over_Omega": {
+        "denominator": 531441,
+        "numerator": 17235968
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 131072,
+        "numerator": 1594323
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 13,
+      "state": 395,
+      "state_over_Omega": {
+        "denominator": 1594323,
+        "numerator": 51773440
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 262144,
+        "numerator": 4782969
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 14,
+      "state": 593,
+      "state_over_Omega": {
+        "denominator": 4782969,
+        "numerator": 155451392
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 1048576,
+        "numerator": 14348907
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 15,
+      "state": 445,
+      "state_over_Omega": {
+        "denominator": 14348907,
+        "numerator": 466616320
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 8388608,
+        "numerator": 43046721
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 16,
+      "state": 167,
+      "state_over_Omega": {
+        "denominator": 43046721,
+        "numerator": 1400897536
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 16777216,
+        "numerator": 129140163
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 17,
+      "state": 251,
+      "state_over_Omega": {
+        "denominator": 129140163,
+        "numerator": 4211081216
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 33554432,
+        "numerator": 387420489
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 18,
+      "state": 377,
+      "state_over_Omega": {
+        "denominator": 387420489,
+        "numerator": 12650020864
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 134217728,
+        "numerator": 1162261467
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 19,
+      "state": 283,
+      "state_over_Omega": {
+        "denominator": 1162261467,
+        "numerator": 37983617024
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 268435456,
+        "numerator": 3486784401
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 20,
+      "state": 425,
+      "state_over_Omega": {
+        "denominator": 3486784401,
+        "numerator": 114085068800
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 1073741824,
+        "numerator": 10460353203
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 21,
+      "state": 319,
+      "state_over_Omega": {
+        "denominator": 10460353203,
+        "numerator": 342523641856
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 2147483648,
+        "numerator": 31381059609
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 22,
+      "state": 479,
+      "state_over_Omega": {
+        "denominator": 31381059609,
+        "numerator": 1028644667392
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 4294967296,
+        "numerator": 94143178827
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 23,
+      "state": 719,
+      "state_over_Omega": {
+        "denominator": 94143178827,
+        "numerator": 3088081485824
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 8589934592,
+        "numerator": 282429536481
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 24,
+      "state": 1079,
+      "state_over_Omega": {
+        "denominator": 282429536481,
+        "numerator": 9268539424768
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 17179869184,
+        "numerator": 847288609443
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 25,
+      "state": 1619,
+      "state_over_Omega": {
+        "denominator": 847288609443,
+        "numerator": 27814208208896
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 34359738368,
+        "numerator": 2541865828329
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 26,
+      "state": 2429,
+      "state_over_Omega": {
+        "denominator": 2541865828329,
+        "numerator": 83459804495872
+      }
+    },
+    {
+      "Omega": {
+        "denominator": 274877906944,
+        "numerator": 7625597484987
+      },
+      "all_unit_seeds_ge35_strictly_worse": true,
+      "index": 27,
+      "state": 911,
+      "state_over_Omega": {
+        "denominator": 7625597484987,
+        "numerator": 250413773225984
+      }
+    }
+  ],
+  "raw_factor_optimality": false,
+  "raw_factor_weight": {
+    "denominator": 8,
+    "numerator": 3
+  },
+  "raw_rival_weight": {
+    "denominator": 2,
+    "numerator": 3
+  },
+  "smaller_unit_seeds": [
+    1,
+    5,
+    7,
+    11,
+    13,
+    17,
+    19,
+    23,
+    25,
+    29
+  ],
+  "source": 31,
+  "status": "PASS",
+  "target": 911,
+  "threshold_fixed": 35,
+  "threshold_margin": {
+    "denominator": 7625597484987,
+    "numerator": 16482138748561
+  },
+  "total_exponent": 38,
+  "weighted_rival_upper": {
+    "denominator": 70,
+    "numerator": 1821
+  },
+  "word": [
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    1,
+    2,
+    1,
+    1,
+    2,
+    1,
+    1,
+    1,
+    2,
+    3,
+    1,
+    1,
+    2,
+    1,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    3
+  ]
+}

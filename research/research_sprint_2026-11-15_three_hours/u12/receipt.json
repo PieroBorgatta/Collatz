@@ -1,0 +1,58 @@
+{
+  "status": "FINITE_AUDIT_PASS_PAPER_PROOFS_PENDING_REVIEW",
+  "completed_at_utc": "2026-11-15T23:26:32.895404+00:00",
+  "agent": "/root/u12_two_seed_attack",
+  "new_objects": [
+    "finite harmonic seed certificate",
+    "arithmetic maximum F and branch surplus LF−F",
+    "surplus criterion from disjoint predecessor basins",
+    "periodic-construction complexity bound"
+  ],
+  "open_lower": "LF−F≥c_epsilon*n/(1+logn) on F-heavy nonreturn roots is not proved",
+  "finite_audit": {
+    "maximum_seed": 6325,
+    "certified_unit_sources": 2109,
+    "direct_steps": 61581,
+    "unresolved": 0,
+    "normal_optimized_identical": true,
+    "output_sha256": "39afd5e0040babde9da7162404ae055474a0c90b23bbb0884580e66a02ed86cd",
+    "prediction_corrected_transparently": true,
+    "source_domain_was_correct_from_start": true,
+    "program_rerun_after_prediction_correction": false
+  },
+  "GPU_used": false,
+  "external_code_executed": false,
+  "preexisting_sources_modified": false,
+  "Lean_modified": false,
+  "commit_or_push": false,
+  "artifacts": {
+    "notes/research_sprint_2026-11-15_three_hours/agents/U12_TWO_SEEDS_IT.md": {
+      "sha256": "402142a08423a17fbcc92e2c195b60702f44a4d713bd27ac3452168879231b66",
+      "bytes": 10969
+    },
+    "research/research_sprint_2026-11-15_three_hours/u12/global_anchor_certificate.json": {
+      "sha256": "aee029d2806e710fa47a41cf5cda3ebdac0a853ab9c0baa8006e659cc1168d31",
+      "bytes": 981
+    },
+    "research/research_sprint_2026-11-15_three_hours/u12/minimum_parent_seeds.py": {
+      "sha256": "4379bacf5782d4ec77ca07e7feff5e9d6754a6255a22f32155a84bccc5432f60",
+      "bytes": 4995
+    },
+    "research/research_sprint_2026-11-15_three_hours/u12/minimum_parent_seeds_result.json": {
+      "sha256": "39afd5e0040babde9da7162404ae055474a0c90b23bbb0884580e66a02ed86cd",
+      "bytes": 2635
+    },
+    "research/research_sprint_2026-11-15_three_hours/u12/minimum_parent_seeds_result_optimized.json": {
+      "sha256": "39afd5e0040babde9da7162404ae055474a0c90b23bbb0884580e66a02ed86cd",
+      "bytes": 2635
+    },
+    "research/research_sprint_2026-11-15_three_hours/u12/prediction_correction.json": {
+      "sha256": "329d6949fa1c5aa33d45001f485a38fbb5e99ca38c3e3edde3d053f294d3ae4a",
+      "bytes": 498
+    },
+    "research/research_sprint_2026-11-15_three_hours/u12/protocol.json": {
+      "sha256": "2ccdda9ee11ea8b2bc942b9ce3fc4aa17527aebd8c9b4c27c53cc410d758bbb5",
+      "bytes": 999
+    }
+  }
+}

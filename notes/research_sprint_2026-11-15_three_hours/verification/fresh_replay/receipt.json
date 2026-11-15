@@ -1,0 +1,98 @@
+{
+  "status": "PASS",
+  "started_utc": "2026-11-15T23:35:47.818083+00:00",
+  "finished_utc": "2026-11-15T23:36:56.017993+00:00",
+  "meaning": "Finite error checks only; no proof of asymptotic mass, H, or Collatz.",
+  "cases": [
+    {
+      "label": "affine_transport",
+      "script": "research/research_sprint_2026-11-15_three_hours/u10/affine_transport.py",
+      "script_sha256": "947c28004b1419e8ba987fed81366b6769874c98b0326bb170d67d058c2dc14c",
+      "exit_codes": [
+        0,
+        0
+      ],
+      "normal_optimized_identical": true,
+      "source_unchanged": true,
+      "normal_sha256": "3f2bf580e609c03cd724fdb095c62cb7c907bdc8fe3be8174a2d9e186b085907",
+      "optimized_sha256": "3f2bf580e609c03cd724fdb095c62cb7c907bdc8fe3be8174a2d9e186b085907",
+      "status": "PASS",
+      "elapsed_seconds": 41.595
+    },
+    {
+      "label": "calibrated_prefix",
+      "script": "research/research_sprint_2026-11-15_three_hours/u13calibrated/check_calibrated_prefix.py",
+      "script_sha256": "b3afc09f33412dcf77c35f47840cc8dde355781e80db975540332e021190d349",
+      "exit_codes": [
+        0,
+        0
+      ],
+      "normal_optimized_identical": true,
+      "source_unchanged": true,
+      "normal_sha256": "dbb1d195426ae998dbc86c43c44cf24899b7914c12d4af9c90b3a86bdfca7dba",
+      "optimized_sha256": "dbb1d195426ae998dbc86c43c44cf24899b7914c12d4af9c90b3a86bdfca7dba",
+      "status": "PASS",
+      "elapsed_seconds": 0.056
+    },
+    {
+      "label": "minimal_prefix",
+      "script": "research/research_sprint_2026-11-15_three_hours/u13/check_minimal_prefix.py",
+      "script_sha256": "a26de1dc29ce8012358a3f2e85f1b16e637706f5aba4834ec333fe511bf8948e",
+      "exit_codes": [
+        0,
+        0
+      ],
+      "normal_optimized_identical": true,
+      "source_unchanged": true,
+      "normal_sha256": "a4d5bc2152f348c2dd456573051efeab7148d6d7f2b82ac4b73510c15cf0c409",
+      "optimized_sha256": "a4d5bc2152f348c2dd456573051efeab7148d6d7f2b82ac4b73510c15cf0c409",
+      "status": "PASS",
+      "elapsed_seconds": 0.052
+    },
+    {
+      "label": "minimum_parent_seeds",
+      "script": "research/research_sprint_2026-11-15_three_hours/u12/minimum_parent_seeds.py",
+      "script_sha256": "4379bacf5782d4ec77ca07e7feff5e9d6754a6255a22f32155a84bccc5432f60",
+      "exit_codes": [
+        0,
+        0
+      ],
+      "normal_optimized_identical": true,
+      "source_unchanged": true,
+      "normal_sha256": "39afd5e0040babde9da7162404ae055474a0c90b23bbb0884580e66a02ed86cd",
+      "optimized_sha256": "39afd5e0040babde9da7162404ae055474a0c90b23bbb0884580e66a02ed86cd",
+      "status": "PASS",
+      "elapsed_seconds": 0.129
+    },
+    {
+      "label": "physical_cdf",
+      "script": "research/research_sprint_2026-11-15_three_hours/u03/physical_cdf.py",
+      "script_sha256": "498247e75ddcdb4faae0f0c0879ddb4431beee356b3c3214cb3af0c1da7af30d",
+      "exit_codes": [
+        0,
+        0
+      ],
+      "normal_optimized_identical": true,
+      "source_unchanged": true,
+      "normal_sha256": "84b72ce902d96adee1ac7e40236b14f9c49970aa2f0423923b1fa190be27fdb6",
+      "optimized_sha256": "84b72ce902d96adee1ac7e40236b14f9c49970aa2f0423923b1fa190be27fdb6",
+      "status": "PASS",
+      "elapsed_seconds": 68.198
+    },
+    {
+      "label": "physical_parent_collision",
+      "script": "research/research_sprint_2026-11-15_three_hours/u07/physical_parent_collision.py",
+      "script_sha256": "d082e11ee26053ac903ee5529aa56cb86cd6854a9aee9b32cfa579ce771193c1",
+      "exit_codes": [
+        0,
+        0
+      ],
+      "normal_optimized_identical": true,
+      "source_unchanged": true,
+      "normal_sha256": "c8d9a302a9080b46d28381c591faaa5a79a7c37488a81203c9ed251ac0be7dd3",
+      "optimized_sha256": "c8d9a302a9080b46d28381c591faaa5a79a7c37488a81203c9ed251ac0be7dd3",
+      "status": "PASS",
+      "elapsed_seconds": 9.822
+    }
+  ]
+}

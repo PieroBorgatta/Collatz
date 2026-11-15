@@ -1,0 +1,27 @@
+{
+  "recorded_at_utc": "2026-11-15T22:03:22.446120+00:00",
+  "base_commit": "203cbb868b2ba19e51e16feeede253a42dd821c3",
+  "phase": "Analytic reconstruction before any experiment",
+  "questions": [
+    "Uniform multiplier-cap moment bound for every fixed p>2",
+    "Physical CDF capacity comparison under scale-dependent path recoding",
+    "Distinguish bibliographic rediscovery from new deduction"
+  ],
+  "constraints": [
+    "No Lean edits",
+    "No preexisting files modified",
+    "No commit or push",
+    "No paid compute",
+    "No asymptotic inference from finite codes"
+  ],
+  "experiments_planned": [],
+  "known_prior": [
+    "Fixed-cap all-finite-Lp and essential unboundedness from post16 October21",
+    "Sharp global cylinder maximum from paper9 theorem9 and post16",
+    "Full finite-depth moment spectrum from post16 October20"
+  ],
+  "sources": [
+    "https://rstation.ai/problems/collatz/papers/146",
+    "https://rstation.ai/r/collatz/posts/16#comment-U25dwMkOamDR5RVr"
+  ]
+}

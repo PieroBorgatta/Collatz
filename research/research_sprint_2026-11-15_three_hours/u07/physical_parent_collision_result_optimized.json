@@ -1,0 +1,3335 @@
+{
+  "U03_result_sha256": "84b72ce902d96adee1ac7e40236b14f9c49970aa2f0423923b1fa190be27fdb6",
+  "all_counts_match_U03": true,
+  "direct_forward_steps": 5420588,
+  "last_parent_checks": 249556,
+  "maximum_direct_state_bits": 33,
+  "maximum_length_to_one": 164,
+  "maximum_source": 262144,
+  "maximum_total_valuation_to_one": 278,
+  "odd_sources_certified_to_one": 131072,
+  "potential_checks": 249564,
+  "protocol_sha256": "088f1af1772a257b92c29217a7019400b37102015f50d7274c0232f07bc77b14",
+  "rows": [
+    {
+      "all_first_hit_sources": 480,
+      "cutoff": 1024,
+      "nonunit_last_parent_sources": 2,
+      "nonunit_last_parent_weight": {
+        "denominator": 128,
+        "numerator": 243
+      },
+      "target": 5,
+      "unit_last_parent_sources": 477,
+      "unit_last_parent_weight": {
+        "denominator": 3245185536584267267831560205762560,
+        "numerator": 1411051724642158294366027615754621199
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.6954214074552673,
+        "Shannon_nats_float_diagnostic_only": 0.7066584210364023,
+        "collision": {
+          "denominator": 221229663290623257011614753723046820260613390114129070329585991553355289,
+          "numerator": 110363554259359824190624069708722425272437023191101242298034574800533609
+        },
+        "diversity": {
+          "denominator": 221229663290623257011614753723046820260613390114129070329585991553355289,
+          "numerator": 110866109031263432820990684014324394988176366923027828031551416752821680
+        },
+        "dominant_parent": 53,
+        "dominant_probability": {
+          "denominator": 470350574880719431455342538584873733,
+          "numerator": 245938652793989553269641902695204045
+        },
+        "number_of_parents": 3,
+        "parents": [
+          {
+            "last_exponent": 3,
+            "parent": 13,
+            "probability": {
+              "denominator": 470350574880719431455342538584873733,
+              "numerator": 223330616124735198506223948055483960
+            },
+            "source_count": 232,
+            "weight": {
+              "denominator": 81129638414606681695789005144064,
+              "numerator": 16749796209355139887966796104161297
+            }
+          },
+          {
+            "last_exponent": 5,
+            "parent": 53,
+            "probability": {
+              "denominator": 470350574880719431455342538584873733,
+              "numerator": 245938652793989553269641902695204045
+            },
+            "source_count": 244,
+            "weight": {
+              "denominator": 649037107316853453566312041152512,
+              "numerator": 147563191676393731961785141617122427
+            }
+          },
+          {
+            "last_exponent": 9,
+            "parent": 853,
+            "probability": {
+              "denominator": 470350574880719431455342538584873733,
+              "numerator": 1081305961994679679476687834185728
+            },
+            "source_count": 1,
+            "weight": {
+              "denominator": 2560,
+              "numerator": 2559
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 75843,
+          "numerator": 37787
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 88,
+      "cutoff": 1024,
+      "nonunit_last_parent_sources": 2,
+      "nonunit_last_parent_weight": {
+        "denominator": 1792,
+        "numerator": 3519
+      },
+      "target": 7,
+      "unit_last_parent_sources": 85,
+      "unit_last_parent_weight": {
+        "denominator": 504403158265495552,
+        "numerator": 41818942122273307809
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.1453785095239024,
+        "Shannon_nats_float_diagnostic_only": 0.291662231699737,
+        "collision": {
+          "denominator": 194313768914004972197355328728273375609,
+          "numerator": 168022131954073481685936502371833991545
+        },
+        "diversity": {
+          "denominator": 194313768914004972197355328728273375609,
+          "numerator": 26291636959931490511418826356439384064
+        },
+        "dominant_parent": 37,
+        "dominant_probability": {
+          "denominator": 13939647374091102603,
+          "numerator": 12934159383652739467
+        },
+        "number_of_parents": 3,
+        "parents": [
+          {
+            "last_exponent": 4,
+            "parent": 37,
+            "probability": {
+              "denominator": 13939647374091102603,
+              "numerator": 12934159383652739467
+            },
+            "source_count": 79,
+            "weight": {
+              "denominator": 504403158265495552,
+              "numerator": 38802478150958218401
+            }
+          },
+          {
+            "last_exponent": 6,
+            "parent": 149,
+            "probability": {
+              "denominator": 13939647374091102603,
+              "numerator": 837519997109534720
+            },
+            "source_count": 5,
+            "weight": {
+              "denominator": 57344,
+              "numerator": 285645
+            }
+          },
+          {
+            "last_exponent": 10,
+            "parent": 2389,
+            "probability": {
+              "denominator": 4646549124697034201,
+              "numerator": 55989331109609472
+            },
+            "source_count": 1,
+            "weight": {
+              "denominator": 229376,
+              "numerator": 229149
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 7225,
+          "numerator": 6267
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 114,
+      "cutoff": 1024,
+      "nonunit_last_parent_sources": 1,
+      "nonunit_last_parent_weight": {
+        "denominator": 928,
+        "numerator": 927
+      },
+      "target": 29,
+      "unit_last_parent_sources": 112,
+      "unit_last_parent_weight": {
+        "denominator": 4595233425827331580425549119488,
+        "numerator": 500568062065060254807044965948101
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.5050815861287623,
+        "Shannon_nats_float_diagnostic_only": 0.585790173124271,
+        "collision": {
+          "denominator": 568182278366371916844014063171318453287653471241450119323867361,
+          "numerator": 342873198014897961804957716149742558457090251744278048434968801
+        },
+        "diversity": {
+          "denominator": 568182278366371916844014063171318453287653471241450119323867361,
+          "numerator": 225309080351473955039056347021575894830563219497172070888898560
+        },
+        "dominant_parent": 19,
+        "dominant_probability": {
+          "denominator": 23836574384050488324144998378481,
+          "numerator": 17339636601153565757444039633905
+        },
+        "number_of_parents": 2,
+        "parents": [
+          {
+            "last_exponent": 1,
+            "parent": 19,
+            "probability": {
+              "denominator": 23836574384050488324144998378481,
+              "numerator": 17339636601153565757444039633905
+            },
+            "source_count": 82,
+            "weight": {
+              "denominator": 4595233425827331580425549119488,
+              "numerator": 364132368624224880906324832312005
+            }
+          },
+          {
+            "last_exponent": 3,
+            "parent": 77,
+            "probability": {
+              "denominator": 23836574384050488324144998378481,
+              "numerator": 6496937782896922566700958744576
+            },
+            "source_count": 30,
+            "weight": {
+              "denominator": 31138512896,
+              "numerator": 924524220207
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 1568,
+          "numerator": 953
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 43,
+      "cutoff": 1024,
+      "nonunit_last_parent_sources": 1,
+      "nonunit_last_parent_weight": {
+        "denominator": 496,
+        "numerator": 495
+      },
+      "target": 31,
+      "unit_last_parent_sources": 41,
+      "unit_last_parent_weight": {
+        "denominator": 4160749568,
+        "numerator": 169017086349
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.7327831028250648,
+        "Shannon_nats_float_diagnostic_only": 0.7871419546942171,
+        "collision": {
+          "denominator": 3174086164211702461089,
+          "numerator": 1525369484750343433121
+        },
+        "diversity": {
+          "denominator": 3174086164211702461089,
+          "numerator": 1648716679461359027968
+        },
+        "dominant_parent": 41,
+        "dominant_probability": {
+          "denominator": 56339028783,
+          "numerator": 30075278464
+        },
+        "number_of_parents": 3,
+        "parents": [
+          {
+            "last_exponent": 2,
+            "parent": 41,
+            "probability": {
+              "denominator": 56339028783,
+              "numerator": 30075278464
+            },
+            "source_count": 22,
+            "weight": {
+              "denominator": 32505856,
+              "numerator": 704889339
+            }
+          },
+          {
+            "last_exponent": 6,
+            "parent": 661,
+            "probability": {
+              "denominator": 56339028783,
+              "numerator": 24878253743
+            },
+            "source_count": 18,
+            "weight": {
+              "denominator": 4160749568,
+              "numerator": 74634761229
+            }
+          },
+          {
+            "last_exponent": 8,
+            "parent": 2645,
+            "probability": {
+              "denominator": 6259892087,
+              "numerator": 153944064
+            },
+            "source_count": 1,
+            "weight": {
+              "denominator": 63488,
+              "numerator": 63423
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 1681,
+          "numerator": 809
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 13,
+      "cutoff": 1024,
+      "nonunit_last_parent_sources": 1,
+      "nonunit_last_parent_weight": {
+        "denominator": 1360,
+        "numerator": 1359
+      },
+      "target": 85,
+      "unit_last_parent_sources": 11,
+      "unit_last_parent_weight": {
+        "denominator": 1392640,
+        "numerator": 15244341
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": -0.0,
+        "Shannon_nats_float_diagnostic_only": -0.0,
+        "collision": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "diversity": {
+          "denominator": 1,
+          "numerator": 0
+        },
+        "dominant_parent": 113,
+        "dominant_probability": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "number_of_parents": 1,
+        "parents": [
+          {
+            "last_exponent": 2,
+            "parent": 113,
+            "probability": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "source_count": 11,
+            "weight": {
+              "denominator": 1392640,
+              "numerator": 15244341
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 1,
+          "numerator": 1
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 45,
+      "cutoff": 1024,
+      "nonunit_last_parent_sources": 1,
+      "nonunit_last_parent_weight": {
+        "denominator": 1000,
+        "numerator": 999
+      },
+      "target": 125,
+      "unit_last_parent_sources": 43,
+      "unit_last_parent_weight": {
+        "denominator": 134217728000,
+        "numerator": 5710026894771
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.5177045443348152,
+        "Shannon_nats_float_diagnostic_only": 0.5939330402048973,
+        "collision": {
+          "denominator": 3622711904334238745238049,
+          "numerator": 2158726243948073389898137
+        },
+        "diversity": {
+          "denominator": 3622711904334238745238049,
+          "numerator": 1463985660386165355339912
+        },
+        "dominant_parent": 83,
+        "dominant_probability": {
+          "denominator": 1903342298257,
+          "numerator": 1368426648061
+        },
+        "number_of_parents": 2,
+        "parents": [
+          {
+            "last_exponent": 1,
+            "parent": 83,
+            "probability": {
+              "denominator": 1903342298257,
+              "numerator": 1368426648061
+            },
+            "source_count": 31,
+            "weight": {
+              "denominator": 134217728000,
+              "numerator": 4105279944183
+            }
+          },
+          {
+            "last_exponent": 5,
+            "parent": 1333,
+            "probability": {
+              "denominator": 1903342298257,
+              "numerator": 534915650196
+            },
+            "source_count": 12,
+            "weight": {
+              "denominator": 33554432000,
+              "numerator": 401186737647
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 1849,
+          "numerator": 1105
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 166,
+      "cutoff": 1024,
+      "nonunit_last_parent_sources": 0,
+      "nonunit_last_parent_weight": {
+        "denominator": 1,
+        "numerator": 0
+      },
+      "target": 593,
+      "unit_last_parent_sources": 165,
+      "unit_last_parent_weight": {
+        "denominator": 10938919235709764108288,
+        "numerator": 1737576582552294996674631
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": -0.0,
+        "Shannon_nats_float_diagnostic_only": -0.0,
+        "collision": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "diversity": {
+          "denominator": 1,
+          "numerator": 0
+        },
+        "dominant_parent": 395,
+        "dominant_probability": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "number_of_parents": 1,
+        "parents": [
+          {
+            "last_exponent": 1,
+            "parent": 395,
+            "probability": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "source_count": 165,
+            "weight": {
+              "denominator": 10938919235709764108288,
+              "numerator": 1737576582552294996674631
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 1,
+          "numerator": 1
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 0,
+      "cutoff": 1024,
+      "nonunit_last_parent_sources": 0,
+      "nonunit_last_parent_weight": {
+        "denominator": 1,
+        "numerator": 0
+      },
+      "target": 9493,
+      "unit_last_parent_sources": 0,
+      "unit_last_parent_weight": {
+        "denominator": 1,
+        "numerator": 0
+      },
+      "unit_parent_law": null,
+      "zero_arrival_sources": 0,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 0
+      }
+    },
+    {
+      "all_first_hit_sources": 1924,
+      "cutoff": 4096,
+      "nonunit_last_parent_sources": 2,
+      "nonunit_last_parent_weight": {
+        "denominator": 128,
+        "numerator": 243
+      },
+      "target": 5,
+      "unit_last_parent_sources": 1921,
+      "unit_last_parent_weight": {
+        "denominator": 89202980794122492566142873090593446023921664,
+        "numerator": 155651310608150240319588251525333597358047813499
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.7032876694062634,
+        "Shannon_nats_float_diagnostic_only": 0.7273044639724511,
+        "collision": {
+          "denominator": 67298140261207954263789374505078580739849998797917353389313919483851947647299690437263018397225,
+          "numerator": 33309576335934903789974080229192099915705655604168587965938961859818711638085716204124632206889
+        },
+        "diversity": {
+          "denominator": 67298140261207954263789374505078580739849998797917353389313919483851947647299690437263018397225,
+          "numerator": 33988563925273050473815294275886480824144343193748765423374957624033236009213974233138386190336
+        },
+        "dominant_parent": 53,
+        "dominant_probability": {
+          "denominator": 259418851013583733865980419208889328930079689165,
+          "numerator": 133634247483710836310849920987968719160919206349
+        },
+        "number_of_parents": 4,
+        "parents": [
+          {
+            "last_exponent": 3,
+            "parent": 13,
+            "probability": {
+              "denominator": 259418851013583733865980419208889328930079689165,
+              "numerator": 124298768932898257249968681816708588916644552704
+            },
+            "source_count": 943,
+            "weight": {
+              "denominator": 54445178707350154154139937189082913832960,
+              "numerator": 45519568701012545379627202813736055511466511
+            }
+          },
+          {
+            "last_exponent": 5,
+            "parent": 53,
+            "probability": {
+              "denominator": 259418851013583733865980419208889328930079689165,
+              "numerator": 133634247483710836310849920987968719160919206349
+            },
+            "source_count": 968,
+            "weight": {
+              "denominator": 446014903970612462830714365452967230119608320,
+              "numerator": 400902742451132508932549762963906157482757619047
+            }
+          },
+          {
+            "last_exponent": 9,
+            "parent": 853,
+            "probability": {
+              "denominator": 259418851013583733865980419208889328930079689165,
+              "numerator": 1039923138843571807623994904639712879932604416
+            },
+            "source_count": 7,
+            "weight": {
+              "denominator": 20971520,
+              "numerator": 146690853
+            }
+          },
+          {
+            "last_exponent": 11,
+            "parent": 3413,
+            "probability": {
+              "denominator": 259418851013583733865980419208889328930079689165,
+              "numerator": 445911458131068497537821499572307972583325696
+            },
+            "source_count": 3,
+            "weight": {
+              "denominator": 81920,
+              "numerator": 245703
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 3690241,
+          "numerator": 1826331
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 382,
+      "cutoff": 4096,
+      "nonunit_last_parent_sources": 2,
+      "nonunit_last_parent_weight": {
+        "denominator": 1792,
+        "numerator": 3519
+      },
+      "target": 7,
+      "unit_last_parent_sources": 379,
+      "unit_last_parent_weight": {
+        "denominator": 4436777100798802905238461218816,
+        "numerator": 1640868011352263187131488645480989
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.18719656810757207,
+        "Shannon_nats_float_diagnostic_only": 0.3806398555631367,
+        "collision": {
+          "denominator": 299160870075458990173113610151887033902882214443812356552351157569,
+          "numerator": 248088338807167721792740836496215731656522432017478730793439595841
+        },
+        "diversity": {
+          "denominator": 299160870075458990173113610151887033902882214443812356552351157569,
+          "numerator": 51072531268291268380372773655671302246359782426333625758911561728
+        },
+        "dominant_parent": 37,
+        "dominant_probability": {
+          "denominator": 546956003784087729043829548493663,
+          "numerator": 496799833484321020103284878846815
+        },
+        "number_of_parents": 4,
+        "parents": [
+          {
+            "last_exponent": 4,
+            "parent": 37,
+            "probability": {
+              "denominator": 546956003784087729043829548493663,
+              "numerator": 496799833484321020103284878846815
+            },
+            "source_count": 345,
+            "weight": {
+              "denominator": 4436777100798802905238461218816,
+              "numerator": 1490399500452963060309854636540445
+            }
+          },
+          {
+            "last_exponent": 6,
+            "parent": 149,
+            "probability": {
+              "denominator": 546956003784087729043829548493663,
+              "numerator": 32420971327051975935248148987904
+            },
+            "source_count": 22,
+            "weight": {
+              "denominator": 33554432,
+              "numerator": 735579399
+            }
+          },
+          {
+            "last_exponent": 10,
+            "parent": 2389,
+            "probability": {
+              "denominator": 546956003784087729043829548493663,
+              "numerator": 14778446888727500637933745995776
+            },
+            "source_count": 10,
+            "weight": {
+              "denominator": 2097152,
+              "numerator": 20956191
+            }
+          },
+          {
+            "last_exponent": 12,
+            "parent": 9557,
+            "probability": {
+              "denominator": 546956003784087729043829548493663,
+              "numerator": 2956752083987232367362774663168
+            },
+            "source_count": 2,
+            "weight": {
+              "denominator": 458752,
+              "numerator": 917163
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 143641,
+          "numerator": 119613
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 471,
+      "cutoff": 4096,
+      "nonunit_last_parent_sources": 1,
+      "nonunit_last_parent_weight": {
+        "denominator": 928,
+        "numerator": 927
+      },
+      "target": 29,
+      "unit_last_parent_sources": 469,
+      "unit_last_parent_weight": {
+        "denominator": 616761790044200965027366475970079883264,
+        "numerator": 281103600996860275719171043299717324792927
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.5299585416681378,
+        "Shannon_nats_float_diagnostic_only": 0.6722966889633063,
+        "collision": {
+          "denominator": 8779914943711336155225949764612727941346144180654105088075401556305654862603247481,
+          "numerator": 5168115826241375344625938806504407919379268224880776701535920555995119149587521401
+        },
+        "diversity": {
+          "denominator": 8779914943711336155225949764612727941346144180654105088075401556305654862603247481,
+          "numerator": 3611799117469960810600010958108320021966875955773328386539481000310535713015726080
+        },
+        "dominant_parent": 19,
+        "dominant_probability": {
+          "denominator": 93701200332286758573057014433239108264309,
+          "numerator": 67691560234394125738328576113050206445941
+        },
+        "number_of_parents": 4,
+        "parents": [
+          {
+            "last_exponent": 1,
+            "parent": 19,
+            "probability": {
+              "denominator": 93701200332286758573057014433239108264309,
+              "numerator": 67691560234394125738328576113050206445941
+            },
+            "source_count": 341,
+            "weight": {
+              "denominator": 616761790044200965027366475970079883264,
+              "numerator": 203074680703182377214985728339150619337823
+            }
+          },
+          {
+            "last_exponent": 3,
+            "parent": 77,
+            "probability": {
+              "denominator": 93701200332286758573057014433239108264309,
+              "numerator": 24160537922406668563492190279129683197952
+            },
+            "source_count": 119,
+            "weight": {
+              "denominator": 36761867406618652643404392955904,
+              "numerator": 4320240841342211108832154919945541
+            }
+          },
+          {
+            "last_exponent": 7,
+            "parent": 1237,
+            "probability": {
+              "denominator": 13385885761755251224722430633319872609187,
+              "numerator": 205432576170823138269355520953551945728
+            },
+            "source_count": 7,
+            "weight": {
+              "denominator": 950272,
+              "numerator": 6646899
+            }
+          },
+          {
+            "last_exponent": 9,
+            "parent": 4949,
+            "probability": {
+              "denominator": 13385885761755251224722430633319872609187,
+              "numerator": 58724877470028900478679913483479285760
+            },
+            "source_count": 2,
+            "weight": {
+              "denominator": 2048,
+              "numerator": 4095
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 219961,
+          "numerator": 130495
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 197,
+      "cutoff": 4096,
+      "nonunit_last_parent_sources": 1,
+      "nonunit_last_parent_weight": {
+        "denominator": 496,
+        "numerator": 495
+      },
+      "target": 31,
+      "unit_last_parent_sources": 195,
+      "unit_last_parent_weight": {
+        "denominator": 2233785415175766016,
+        "numerator": 430835642312068887693
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.658088943902687,
+        "Shannon_nats_float_diagnostic_only": 0.7508469198265278,
+        "collision": {
+          "denominator": 20624372298494773694696233164216249651361,
+          "numerator": 10680125173649785434648709587147634413729
+        },
+        "diversity": {
+          "denominator": 20624372298494773694696233164216249651361,
+          "numerator": 9944247124844988260047523577068615237632
+        },
+        "dominant_parent": 41,
+        "dominant_probability": {
+          "denominator": 143611880770689629231,
+          "numerator": 90939991280601529391
+        },
+        "number_of_parents": 3,
+        "parents": [
+          {
+            "last_exponent": 2,
+            "parent": 41,
+            "probability": {
+              "denominator": 143611880770689629231,
+              "numerator": 90939991280601529391
+            },
+            "source_count": 124,
+            "weight": {
+              "denominator": 2233785415175766016,
+              "numerator": 272819973841804588173
+            }
+          },
+          {
+            "last_exponent": 6,
+            "parent": 661,
+            "probability": {
+              "denominator": 143611880770689629231,
+              "numerator": 48950975015926693888
+            },
+            "source_count": 66,
+            "weight": {
+              "denominator": 34084860461056,
+              "numerator": 2240797806515199
+            }
+          },
+          {
+            "last_exponent": 8,
+            "parent": 2645,
+            "probability": {
+              "denominator": 143611880770689629231,
+              "numerator": 3720914474161405952
+            },
+            "source_count": 5,
+            "weight": {
+              "denominator": 253952,
+              "numerator": 1269057
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 38025,
+          "numerator": 19757
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 48,
+      "cutoff": 4096,
+      "nonunit_last_parent_sources": 1,
+      "nonunit_last_parent_weight": {
+        "denominator": 1360,
+        "numerator": 1359
+      },
+      "target": 85,
+      "unit_last_parent_sources": 46,
+      "unit_last_parent_weight": {
+        "denominator": 373833953443840,
+        "numerator": 17120137659392133
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.22336713372599398,
+        "Shannon_nats_float_diagnostic_only": 0.41817342661123014,
+        "collision": {
+          "denominator": 32566568164059638018047451365521,
+          "numerator": 26047430132905564398420407124113
+        },
+        "diversity": {
+          "denominator": 32566568164059638018047451365521,
+          "numerator": 6519138031154073619627044241408
+        },
+        "dominant_parent": 113,
+        "dominant_probability": {
+          "denominator": 5706712553130711,
+          "numerator": 5083866999065303
+        },
+        "number_of_parents": 3,
+        "parents": [
+          {
+            "last_exponent": 2,
+            "parent": 113,
+            "probability": {
+              "denominator": 5706712553130711,
+              "numerator": 5083866999065303
+            },
+            "source_count": 41,
+            "weight": {
+              "denominator": 373833953443840,
+              "numerator": 15251600997195909
+            }
+          },
+          {
+            "last_exponent": 6,
+            "parent": 1813,
+            "probability": {
+              "denominator": 5706712553130711,
+              "numerator": 373705104424960
+            },
+            "source_count": 3,
+            "weight": {
+              "denominator": 8704,
+              "numerator": 26103
+            }
+          },
+          {
+            "last_exponent": 8,
+            "parent": 7253,
+            "probability": {
+              "denominator": 634079172570079,
+              "numerator": 27682272182272
+            },
+            "source_count": 2,
+            "weight": {
+              "denominator": 2785280,
+              "numerator": 5568723
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 1058,
+          "numerator": 847
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 190,
+      "cutoff": 4096,
+      "nonunit_last_parent_sources": 1,
+      "nonunit_last_parent_weight": {
+        "denominator": 1000,
+        "numerator": 999
+      },
+      "target": 125,
+      "unit_last_parent_sources": 188,
+      "unit_last_parent_weight": {
+        "denominator": 302231454903657293676544000,
+        "numerator": 56152902475099409205496330431
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.5354468496807798,
+        "Shannon_nats_float_diagnostic_only": 0.628647156128404,
+        "collision": {
+          "denominator": 50049975498063894547106591039917029287339244104868835647,
+          "numerator": 29299638162122625963754062660495810699284809952609579327
+        },
+        "diversity": {
+          "denominator": 50049975498063894547106591039917029287339244104868835647,
+          "numerator": 20750337335941268583352528379421218588054434152259256320
+        },
+        "dominant_parent": 83,
+        "dominant_probability": {
+          "denominator": 18717634158366469735165443477,
+          "numerator": 13295477305030241382965427605
+        },
+        "number_of_parents": 3,
+        "parents": [
+          {
+            "last_exponent": 1,
+            "parent": 83,
+            "probability": {
+              "denominator": 18717634158366469735165443477,
+              "numerator": 13295477305030241382965427605
+            },
+            "source_count": 134,
+            "weight": {
+              "denominator": 60446290980731458735308800,
+              "numerator": 7977286383018144829779256563
+            }
+          },
+          {
+            "last_exponent": 5,
+            "parent": 1333,
+            "probability": {
+              "denominator": 18717634158366469735165443477,
+              "numerator": 5321428776256618819791880192
+            },
+            "source_count": 53,
+            "weight": {
+              "denominator": 2147483648000,
+              "numerator": 113433076825017
+            }
+          },
+          {
+            "last_exponent": 7,
+            "parent": 5333,
+            "probability": {
+              "denominator": 6239211386122156578388481159,
+              "numerator": 33576025693203177469378560
+            },
+            "source_count": 1,
+            "weight": {
+              "denominator": 6400,
+              "numerator": 6399
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 17672,
+          "numerator": 10383
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 689,
+      "cutoff": 4096,
+      "nonunit_last_parent_sources": 1,
+      "nonunit_last_parent_weight": {
+        "denominator": 4744,
+        "numerator": 4743
+      },
+      "target": 593,
+      "unit_last_parent_sources": 687,
+      "unit_last_parent_weight": {
+        "denominator": 1503433611870680070175090001575936,
+        "numerator": 991953842546997033652965989789013831
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": -0.0,
+        "Shannon_nats_float_diagnostic_only": -0.0,
+        "collision": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "diversity": {
+          "denominator": 1,
+          "numerator": 0
+        },
+        "dominant_parent": 395,
+        "dominant_probability": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "number_of_parents": 1,
+        "parents": [
+          {
+            "last_exponent": 1,
+            "parent": 395,
+            "probability": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "source_count": 687,
+            "weight": {
+              "denominator": 1503433611870680070175090001575936,
+              "numerator": 991953842546997033652965989789013831
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 1,
+          "numerator": 1
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 0,
+      "cutoff": 4096,
+      "nonunit_last_parent_sources": 0,
+      "nonunit_last_parent_weight": {
+        "denominator": 1,
+        "numerator": 0
+      },
+      "target": 9493,
+      "unit_last_parent_sources": 0,
+      "unit_last_parent_weight": {
+        "denominator": 1,
+        "numerator": 0
+      },
+      "unit_parent_law": null,
+      "zero_arrival_sources": 0,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 0
+      }
+    },
+    {
+      "all_first_hit_sources": 7697,
+      "cutoff": 16384,
+      "nonunit_last_parent_sources": 3,
+      "nonunit_last_parent_weight": {
+        "denominator": 40960,
+        "numerator": 118719
+      },
+      "target": 5,
+      "unit_last_parent_sources": 7693,
+      "unit_last_parent_weight": {
+        "denominator": 1496577676626844588240573268701473812127674924007424,
+        "numerator": 10442976782786798883229491258404778027491344899325655259
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.7060223566278936,
+        "Shannon_nats_float_diagnostic_only": 0.7311963236834026,
+        "collision": {
+          "denominator": 60586535603235622479976258478354051788059277024830203429391154999835884064009431214740959048772443905396865045,
+          "numerator": 29905736763580421440799133546103732205260065948117142972913540411999554461994609355571539085944812617411885077
+        },
+        "diversity": {
+          "denominator": 60586535603235622479976258478354051788059277024830203429391154999835884064009431214740959048772443905396865045,
+          "numerator": 30680798839655201039177124932250319582799211076713060456477614587836329602014821859169419962827631287984979968
+        },
+        "dominant_parent": 53,
+        "dominant_probability": {
+          "denominator": 17404961304644664805382485430674630045818908165542758765,
+          "numerator": 8658934966901761834899653406082148113548900269950749037
+        },
+        "number_of_parents": 4,
+        "parents": [
+          {
+            "last_exponent": 3,
+            "parent": 13,
+            "probability": {
+              "denominator": 17404961304644664805382485430674630045818908165542758765,
+              "numerator": 8633863392234958727580432686327765837967096085181628416
+            },
+            "source_count": 3907,
+            "weight": {
+              "denominator": 223007451985306231415357182726483615059804160,
+              "numerator": 771927540800120716772714199393489882764258630739
+            }
+          },
+          {
+            "last_exponent": 5,
+            "parent": 53,
+            "probability": {
+              "denominator": 17404961304644664805382485430674630045818908165542758765,
+              "numerator": 8658934966901761834899653406082148113548900269950749037
+            },
+            "source_count": 3741,
+            "weight": {
+              "denominator": 7482888383134222941202866343507369060638374620037120,
+              "numerator": 25976804900705285504698960218246444340646700809852247111
+            }
+          },
+          {
+            "last_exponent": 9,
+            "parent": 853,
+            "probability": {
+              "denominator": 17404961304644664805382485430674630045818908165542758765,
+              "numerator": 84732109052613627447167062724051299450940500050182144
+            },
+            "source_count": 34,
+            "weight": {
+              "denominator": 188894659314785808547840,
+              "numerator": 6416817431858906415491199
+            }
+          },
+          {
+            "last_exponent": 11,
+            "parent": 3413,
+            "probability": {
+              "denominator": 17404961304644664805382485430674630045818908165542758765,
+              "numerator": 27430836455330615455232275540664794851971310360199168
+            },
+            "source_count": 11,
+            "weight": {
+              "denominator": 10485760,
+              "numerator": 115316367
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 59182249,
+          "numerator": 29261007
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 1595,
+      "cutoff": 16384,
+      "nonunit_last_parent_sources": 2,
+      "nonunit_last_parent_weight": {
+        "denominator": 1792,
+        "numerator": 3519
+      },
+      "target": 7,
+      "unit_last_parent_sources": 1592,
+      "unit_last_parent_weight": {
+        "denominator": 2439144006089286906105469186070914539716608,
+        "numerator": 3789139461497570149820541095350347931229252703
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.17643364769269493,
+        "Shannon_nats_float_diagnostic_only": 0.3619202276567223,
+        "collision": {
+          "denominator": 1595286428742010655538773857724529960491381183644704109171904509424364083488552420870311801,
+          "numerator": 1337255864042768428959866168742334421984341037086254071207780379001778903002673351928696697
+        },
+        "diversity": {
+          "denominator": 1595286428742010655538773857724529960491381183644704109171904509424364083488552420870311801,
+          "numerator": 258030564699242226578907688982195538507040146558450037964124130422585180485879068941615104
+        },
+        "dominant_parent": 37,
+        "dominant_probability": {
+          "denominator": 1263046487165856716606847031783449310409750901,
+          "numerator": 1153570782856386787720584497426766838435117429
+        },
+        "number_of_parents": 4,
+        "parents": [
+          {
+            "last_exponent": 4,
+            "parent": 37,
+            "probability": {
+              "denominator": 1263046487165856716606847031783449310409750901,
+              "numerator": 1153570782856386787720584497426766838435117429
+            },
+            "source_count": 1457,
+            "weight": {
+              "denominator": 2439144006089286906105469186070914539716608,
+              "numerator": 3460712348569160363161753492280300515305352287
+            }
+          },
+          {
+            "last_exponent": 6,
+            "parent": 149,
+            "probability": {
+              "denominator": 1263046487165856716606847031783449310409750901,
+              "numerator": 76164398209189663268354936336555052458049536
+            },
+            "source_count": 94,
+            "weight": {
+              "denominator": 36028797018963968,
+              "numerator": 3375091798146976593
+            }
+          },
+          {
+            "last_exponent": 10,
+            "parent": 2389,
+            "probability": {
+              "denominator": 1263046487165856716606847031783449310409750901,
+              "numerator": 25995778082762908464320368113343258830045184
+            },
+            "source_count": 32,
+            "weight": {
+              "denominator": 492581209243648,
+              "numerator": 15749416727264937
+            }
+          },
+          {
+            "last_exponent": 12,
+            "parent": 9557,
+            "probability": {
+              "denominator": 1263046487165856716606847031783449310409750901,
+              "numerator": 7315528017517357153587229906784160686538752
+            },
+            "source_count": 9,
+            "weight": {
+              "denominator": 2066035336255469780992,
+              "numerator": 18589479772197407726319
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 1267232,
+          "numerator": 1066395
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 1933,
+      "cutoff": 16384,
+      "nonunit_last_parent_sources": 1,
+      "nonunit_last_parent_weight": {
+        "denominator": 928,
+        "numerator": 927
+      },
+      "target": 29,
+      "unit_last_parent_sources": 1931,
+      "unit_last_parent_weight": {
+        "denominator": 631564073005261788188023271393361800462336,
+        "numerator": 1184207071534373945010410531338337665857949761
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.4851131599404207,
+        "Shannon_nats_float_diagnostic_only": 0.6525064305625021,
+        "collision": {
+          "denominator": 155816265363557538862726905861493596998997156970430602158554480144985760598241546933328569,
+          "numerator": 95924782337778292917776875832107585608531919646071865160148666239041241813477203094917857
+        },
+        "diversity": {
+          "denominator": 155816265363557538862726905861493596998997156970430602158554480144985760598241546933328569,
+          "numerator": 59891483025779245944950030029386011390465237324358736998405813905944518784764343838410712
+        },
+        "dominant_parent": 19,
+        "dominant_probability": {
+          "denominator": 394735690511457981670136843779445888619316587,
+          "numerator": 296753645207027411933938584786713497957837940
+        },
+        "number_of_parents": 4,
+        "parents": [
+          {
+            "last_exponent": 1,
+            "parent": 19,
+            "probability": {
+              "denominator": 394735690511457981670136843779445888619316587,
+              "numerator": 296753645207027411933938584786713497957837940
+            },
+            "source_count": 1460,
+            "weight": {
+              "denominator": 157891018251315447047005817848340450115584,
+              "numerator": 222565233905270558950453938590035123468378455
+            }
+          },
+          {
+            "last_exponent": 3,
+            "parent": 77,
+            "probability": {
+              "denominator": 394735690511457981670136843779445888619316587,
+              "numerator": 88305768772377264376490695372992538785798391
+            },
+            "source_count": 425,
+            "weight": {
+              "denominator": 631564073005261788188023271393361800462336,
+              "numerator": 264917306317131793129472086118977616357395173
+            }
+          },
+          {
+            "last_exponent": 7,
+            "parent": 1237,
+            "probability": {
+              "denominator": 394735690511457981670136843779445888619316587,
+              "numerator": 7781982001438508894661218213334614099886080
+            },
+            "source_count": 37,
+            "weight": {
+              "denominator": 510173395288064,
+              "numerator": 18858704996562135
+            }
+          },
+          {
+            "last_exponent": 9,
+            "parent": 4949,
+            "probability": {
+              "denominator": 394735690511457981670136843779445888619316587,
+              "numerator": 1894294530614796465046345406405237775794176
+            },
+            "source_count": 9,
+            "weight": {
+              "denominator": 7602176,
+              "numerator": 68405223
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 3728761,
+          "numerator": 2313675
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 772,
+      "cutoff": 16384,
+      "nonunit_last_parent_sources": 2,
+      "nonunit_last_parent_weight": {
+        "denominator": 31744,
+        "numerator": 63423
+      },
+      "target": 31,
+      "unit_last_parent_sources": 769,
+      "unit_last_parent_weight": {
+        "denominator": 4574792530279968800768,
+        "numerator": 3479433084084657707214555
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.6416233976636525,
+        "Shannon_nats_float_diagnostic_only": 0.7319601126841947,
+        "collision": {
+          "denominator": 1345161620735874745622553692674007257521867094225,
+          "numerator": 708143000402854972706379550303757716272925488981
+        },
+        "diversity": {
+          "denominator": 1345161620735874745622553692674007257521867094225,
+          "numerator": 637018620333019772916174142370249541248941605244
+        },
+        "dominant_parent": 41,
+        "dominant_probability": {
+          "denominator": 1159811028028219235738185,
+          "numerator": 745127466231853732003543
+        },
+        "number_of_parents": 3,
+        "parents": [
+          {
+            "last_exponent": 2,
+            "parent": 41,
+            "probability": {
+              "denominator": 1159811028028219235738185,
+              "numerator": 745127466231853732003543
+            },
+            "source_count": 496,
+            "weight": {
+              "denominator": 4574792530279968800768,
+              "numerator": 2235382398695561196010629
+            }
+          },
+          {
+            "last_exponent": 6,
+            "parent": 661,
+            "probability": {
+              "denominator": 1159811028028219235738185,
+              "numerator": 390299195694212001604466
+            },
+            "source_count": 257,
+            "weight": {
+              "denominator": 2287396265139984400384,
+              "numerator": 585448793541318002406699
+            }
+          },
+          {
+            "last_exponent": 8,
+            "parent": 2645,
+            "probability": {
+              "denominator": 1159811028028219235738185,
+              "numerator": 24384366102153502130176
+            },
+            "source_count": 16,
+            "weight": {
+              "denominator": 16252928,
+              "numerator": 259892013
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 591361,
+          "numerator": 312321
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 203,
+      "cutoff": 16384,
+      "nonunit_last_parent_sources": 1,
+      "nonunit_last_parent_weight": {
+        "denominator": 1360,
+        "numerator": 1359
+      },
+      "target": 85,
+      "unit_last_parent_sources": 201,
+      "unit_last_parent_weight": {
+        "denominator": 195996655783163985920,
+        "numerator": 39223951154768922352779
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.2756856620242426,
+        "Shannon_nats_float_diagnostic_only": 0.47750435273772884,
+        "collision": {
+          "denominator": 170946482687966475258870638433170576992113649,
+          "numerator": 129757182732065862644837643051939863950267377
+        },
+        "diversity": {
+          "denominator": 170946482687966475258870638433170576992113649,
+          "numerator": 41189299955900612614032995381230713041846272
+        },
+        "dominant_parent": 113,
+        "dominant_probability": {
+          "denominator": 13074650384922974117593,
+          "numerator": 11311246877053462273753
+        },
+        "number_of_parents": 3,
+        "parents": [
+          {
+            "last_exponent": 2,
+            "parent": 113,
+            "probability": {
+              "denominator": 13074650384922974117593,
+              "numerator": 11311246877053462273753
+            },
+            "source_count": 174,
+            "weight": {
+              "denominator": 195996655783163985920,
+              "numerator": 33933740631160386821259
+            }
+          },
+          {
+            "last_exponent": 6,
+            "parent": 1813,
+            "probability": {
+              "denominator": 13074650384922974117593,
+              "numerator": 522479780337016635392
+            },
+            "source_count": 8,
+            "weight": {
+              "denominator": 11141120,
+              "numerator": 89098611
+            }
+          },
+          {
+            "last_exponent": 8,
+            "parent": 7253,
+            "probability": {
+              "denominator": 13074650384922974117593,
+              "numerator": 1240923727532495208448
+            },
+            "source_count": 19,
+            "weight": {
+              "denominator": 182536110080,
+              "numerator": 3467100842481
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 40401,
+          "numerator": 30701
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 740,
+      "cutoff": 16384,
+      "nonunit_last_parent_sources": 1,
+      "nonunit_last_parent_weight": {
+        "denominator": 1000,
+        "numerator": 999
+      },
+      "target": 125,
+      "unit_last_parent_sources": 738,
+      "unit_last_parent_weight": {
+        "denominator": 5070602400912917605986812821504000,
+        "numerator": 3696302864283886544191395159088335399
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.5058709354490681,
+        "Shannon_nats_float_diagnostic_only": 0.6052455863381765,
+        "collision": {
+          "denominator": 1518072762723695976530224950151203609463670337021376814275741113857387689,
+          "numerator": 915367802672280942961352777999773336809847189546237414465260797538147801
+        },
+        "diversity": {
+          "denominator": 1518072762723695976530224950151203609463670337021376814275741113857387689,
+          "numerator": 602704960051415033568872172151430272653823147475139399810480316319239888
+        },
+        "dominant_parent": 83,
+        "dominant_probability": {
+          "denominator": 1232100954761295514730465053029445133,
+          "numerator": 898594126473426601236137627322484808
+        },
+        "number_of_parents": 3,
+        "parents": [
+          {
+            "last_exponent": 1,
+            "parent": 83,
+            "probability": {
+              "denominator": 1232100954761295514730465053029445133,
+              "numerator": 898594126473426601236137627322484808
+            },
+            "source_count": 540,
+            "weight": {
+              "denominator": 633825300114114700748351602688000,
+              "numerator": 336972797427534975463551610245931803
+            }
+          },
+          {
+            "last_exponent": 5,
+            "parent": 1333,
+            "probability": {
+              "denominator": 1232100954761295514730465053029445133,
+              "numerator": 328436740870012338606534970921133509
+            },
+            "source_count": 195,
+            "weight": {
+              "denominator": 5070602400912917605986812821504000,
+              "numerator": 985310222610037015819604912763400527
+            }
+          },
+          {
+            "last_exponent": 7,
+            "parent": 5333,
+            "probability": {
+              "denominator": 1232100954761295514730465053029445133,
+              "numerator": 5070087417856574887792454785826816
+            },
+            "source_count": 3,
+            "weight": {
+              "denominator": 128000,
+              "numerator": 383961
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 30258,
+          "numerator": 18313
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 2691,
+      "cutoff": 16384,
+      "nonunit_last_parent_sources": 1,
+      "nonunit_last_parent_weight": {
+        "denominator": 4744,
+        "numerator": 4743
+      },
+      "target": 593,
+      "unit_last_parent_sources": 2689,
+      "unit_last_parent_weight": {
+        "denominator": 25223430448014563604222642775879818674176,
+        "numerator": 65119958742005627516517363235574985316594215
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.0015492388598385076,
+        "Shannon_nats_float_diagnostic_only": 0.006323027978698934,
+        "collision": {
+          "denominator": 471178780728946127761206807391498166013753540247490830641456872513741111072827441274025,
+          "numerator": 470449377407783593097551723778364263816730184723323297022671841537520691116703612525737
+        },
+        "diversity": {
+          "denominator": 471178780728946127761206807391498166013753540247490830641456872513741111072827441274025,
+          "numerator": 729403321162534663655083613133902197023355524167533618785030976220419956123828748288
+        },
+        "dominant_parent": 395,
+        "dominant_probability": {
+          "denominator": 21706652914001875838839121078524995105531405,
+          "numerator": 21689838512162195599275856145164213816731149
+        },
+        "number_of_parents": 2,
+        "parents": [
+          {
+            "last_exponent": 1,
+            "parent": 395,
+            "probability": {
+              "denominator": 21706652914001875838839121078524995105531405,
+              "numerator": 21689838512162195599275856145164213816731149
+            },
+            "source_count": 2687,
+            "weight": {
+              "denominator": 25223430448014563604222642775879818674176,
+              "numerator": 65069515536486586797827568435492641450193447
+            }
+          },
+          {
+            "last_exponent": 5,
+            "parent": 6325,
+            "probability": {
+              "denominator": 21706652914001875838839121078524995105531405,
+              "numerator": 16814401839680239563264933360781288800256
+            },
+            "source_count": 2,
+            "weight": {
+              "denominator": 75904,
+              "numerator": 151797
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 7230721,
+          "numerator": 7219973
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 2,
+      "cutoff": 16384,
+      "nonunit_last_parent_sources": 1,
+      "nonunit_last_parent_weight": {
+        "denominator": 37972,
+        "numerator": 37971
+      },
+      "target": 9493,
+      "unit_last_parent_sources": 0,
+      "unit_last_parent_weight": {
+        "denominator": 1,
+        "numerator": 0
+      },
+      "unit_parent_law": null,
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 30678,
+      "cutoff": 65536,
+      "nonunit_last_parent_sources": 3,
+      "nonunit_last_parent_weight": {
+        "denominator": 40960,
+        "numerator": 118719
+      },
+      "target": 5,
+      "unit_last_parent_sources": 30674,
+      "unit_last_parent_weight": {
+        "denominator": 1645504557321206042154969182557350504982735865633579863348609024,
+        "numerator": 45792245021912567553211126215791509439806857507768573843181669571403
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.7083794174465574,
+        "Shannon_nats_float_diagnostic_only": 0.7369693194981818,
+        "collision": {
+          "denominator": 5824804733741323123420970759924823280876174248771833948023150693917941819196133863801211344372443792820047243763815936268421526987190025,
+          "numerator": 2868376124434290409126365313998563216512987608872817473896428039139646833838554968084614433008866049906185735861528403307172993481831561
+        },
+        "diversity": {
+          "denominator": 5824804733741323123420970759924823280876174248771833948023150693917941819196133863801211344372443792820047243763815936268421526987190025,
+          "numerator": 2956428609307032714294605445926260064363186639899016474126722654778294985357578895716596911363577742913861507902287532961248533505358464
+        },
+        "dominant_parent": 13,
+        "dominant_probability": {
+          "denominator": 76320408369854279255351877026319182399678095846280956405302782619005,
+          "numerator": 38122803382637854308100088281724544082824626874476126765135338481216
+        },
+        "number_of_parents": 5,
+        "parents": [
+          {
+            "last_exponent": 3,
+            "parent": 13,
+            "probability": {
+              "denominator": 76320408369854279255351877026319182399678095846280956405302782619005,
+              "numerator": 38122803382637854308100088281724544082824626874476126765135338481216
+            },
+            "source_count": 15681,
+            "weight": {
+              "denominator": 128555043540719222043356967387293008201776239502623426824110080,
+              "numerator": 1787006408561149420692191638205838003882404384741068442115718991307
+            }
+          },
+          {
+            "last_exponent": 5,
+            "parent": 53,
+            "probability": {
+              "denominator": 76320408369854279255351877026319182399678095846280956405302782619005,
+              "numerator": 37613920293702428879781147950747022907932942594016834442089719088957
+            },
+            "source_count": 14780,
+            "weight": {
+              "denominator": 8227522786606030210774845912786752524913679328167899316743045120,
+              "numerator": 112841760881107286639343443852241068723798827782050503326269157266871
+            }
+          },
+          {
+            "last_exponent": 9,
+            "parent": 853,
+            "probability": {
+              "denominator": 76320408369854279255351877026319182399678095846280956405302782619005,
+              "numerator": 452076143571284166840819692732557756355430164521637560323833593856
+            },
+            "source_count": 165,
+            "weight": {
+              "denominator": 6044629098073145873530880,
+              "numerator": 996399286705443611015979207
+            }
+          },
+          {
+            "last_exponent": 11,
+            "parent": 3413,
+            "probability": {
+              "denominator": 76320408369854279255351877026319182399678095846280956405302782619005,
+              "numerator": 128866059086114518257378189372900530277235429763249523219069140992
+            },
+            "source_count": 47,
+            "weight": {
+              "denominator": 175921860444160,
+              "numerator": 8266287721296543
+            }
+          },
+          {
+            "last_exponent": 15,
+            "parent": 54613,
+            "probability": {
+              "denominator": 76320408369854279255351877026319182399678095846280956405302782619005,
+              "numerator": 2742490856597382372442911742157122287860783503108114534822313984
+            },
+            "source_count": 1,
+            "weight": {
+              "denominator": 163840,
+              "numerator": 163839
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 235223569,
+          "numerator": 116092899
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 6356,
+      "cutoff": 65536,
+      "nonunit_last_parent_sources": 3,
+      "nonunit_last_parent_weight": {
+        "denominator": 114688,
+        "numerator": 339903
+      },
+      "target": 7,
+      "unit_last_parent_sources": 6352,
+      "unit_last_parent_weight": {
+        "denominator": 42909875144244888034033716760208657141324695421140860928,
+        "numerator": 265898543735345266775054513004806070825299790602587962433587
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.1703233441982438,
+        "Shannon_nats_float_diagnostic_only": 0.35390684866781014,
+        "collision": {
+          "denominator": 7855781728953035512844363208397895902305855634097043705287033229054384115099848720240435223914081395924673060820631841,
+          "numerator": 6625503986913349544501254988593313882752825193041755571427901900515183670641664839906934357984910400109969929712845089
+        },
+        "diversity": {
+          "denominator": 7855781728953035512844363208397895902305855634097043705287033229054384115099848720240435223914081395924673060820631841,
+          "numerator": 1230277742039685968343108219804582019553030441055288133859131328539200444458183880333500865929170995814703131107786752
+        },
+        "dominant_parent": 37,
+        "dominant_probability": {
+          "denominator": 88632847911781755591684837668268690275099930200862654144529,
+          "numerator": 81214775125650952288719770625790761545525574760126785462289
+        },
+        "number_of_parents": 4,
+        "parents": [
+          {
+            "last_exponent": 4,
+            "parent": 37,
+            "probability": {
+              "denominator": 88632847911781755591684837668268690275099930200862654144529,
+              "numerator": 81214775125650952288719770625790761545525574760126785462289
+            },
+            "source_count": 5832,
+            "weight": {
+              "denominator": 42909875144244888034033716760208657141324695421140860928,
+              "numerator": 243644325376952856866159311877372284636576724280380356386867
+            }
+          },
+          {
+            "last_exponent": 6,
+            "parent": 149,
+            "probability": {
+              "denominator": 88632847911781755591684837668268690275099930200862654144529,
+              "numerator": 5145610195634080079778991925960133910336528741660079685632
+            },
+            "source_count": 361,
+            "weight": {
+              "denominator": 8264141345021879123968,
+              "numerator": 2973025427374781293842051
+            }
+          },
+          {
+            "last_exponent": 10,
+            "parent": 2389,
+            "probability": {
+              "denominator": 88632847911781755591684837668268690275099930200862654144529,
+              "numerator": 1686204387899245997182700403463816182831068046111035883520
+            },
+            "source_count": 118,
+            "weight": {
+              "denominator": 36028797018963968,
+              "numerator": 4247407997801393235
+            }
+          },
+          {
+            "last_exponent": 12,
+            "parent": 9557,
+            "probability": {
+              "denominator": 88632847911781755591684837668268690275099930200862654144529,
+              "numerator": 586258202597477226003374713053978636406758652964753113088
+            },
+            "source_count": 41,
+            "weight": {
+              "denominator": 2115620184325601055735808,
+              "numerator": 86714283073929228565390329
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 20173952,
+          "numerator": 17079075
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 7732,
+      "cutoff": 65536,
+      "nonunit_last_parent_sources": 2,
+      "nonunit_last_parent_weight": {
+        "denominator": 59392,
+        "numerator": 118719
+      },
+      "target": 29,
+      "unit_last_parent_sources": 7729,
+      "unit_last_parent_weight": {
+        "denominator": 1456287602609709937209903146184178608535746463115656006991872,
+        "numerator": 10932709210239281475740270097538774320051827076465371018678985051
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.508092170312796,
+        "Shannon_nats_float_diagnostic_only": 0.6699957974766131,
+        "collision": {
+          "denominator": 13280458963961201520808148950125772683234126500855442769798090582930595716339171688362060249645388575634266445026924948386830289,
+          "numerator": 7990086083919566626281061464983810246872990335863768752068815724719541038760251257782207930477636927144355921711069479473338321
+        },
+        "diversity": {
+          "denominator": 13280458963961201520808148950125772683234126500855442769798090582930595716339171688362060249645388575634266445026924948386830289,
+          "numerator": 5290372880041634894527087485141962436361136164991674017729274858211054677578920430579852319167751648489910523315855468913491968
+        },
+        "dominant_parent": 19,
+        "dominant_probability": {
+          "denominator": 3644236403413093825246756699179591440017275692155123672892995017,
+          "numerator": 2690971490417507058295427919168424354580120964083294530541614537
+        },
+        "number_of_parents": 4,
+        "parents": [
+          {
+            "last_exponent": 1,
+            "parent": 19,
+            "probability": {
+              "denominator": 3644236403413093825246756699179591440017275692155123672892995017,
+              "numerator": 2690971490417507058295427919168424354580120964083294530541614537
+            },
+            "source_count": 5742,
+            "weight": {
+              "denominator": 1456287602609709937209903146184178608535746463115656006991872,
+              "numerator": 8072914471252521174886283757505273063740362892249883591624843611
+            }
+          },
+          {
+            "last_exponent": 3,
+            "parent": 77,
+            "probability": {
+              "denominator": 3644236403413093825246756699179591440017275692155123672892995017,
+              "numerator": 862078230816305857496294561278950179150584540606695805911302144
+            },
+            "source_count": 1799,
+            "weight": {
+              "denominator": 646721610757388071104535829906802483673432064,
+              "numerator": 1148518921056459506364115201220976975028055742909
+            }
+          },
+          {
+            "last_exponent": 7,
+            "parent": 1237,
+            "probability": {
+              "denominator": 3644236403413093825246756699179591440017275692155123672892995017,
+              "numerator": 72259238120706493042685172104695072184551246562475283358679040
+            },
+            "source_count": 149,
+            "weight": {
+              "denominator": 147573952589676412928,
+              "numerator": 21967325742830940367755
+            }
+          },
+          {
+            "last_exponent": 9,
+            "parent": 4949,
+            "probability": {
+              "denominator": 3644236403413093825246756699179591440017275692155123672892995017,
+              "numerator": 18927444058574416412349046627521834102018940902658053081399296
+            },
+            "source_count": 39,
+            "weight": {
+              "denominator": 32651097298436096,
+              "numerator": 1273103918057962209
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 59737441,
+          "numerator": 36230687
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 3036,
+      "cutoff": 65536,
+      "nonunit_last_parent_sources": 2,
+      "nonunit_last_parent_weight": {
+        "denominator": 31744,
+        "numerator": 63423
+      },
+      "target": 31,
+      "unit_last_parent_sources": 3033,
+      "unit_last_parent_weight": {
+        "denominator": 21097506749098184734729225660769629110272,
+        "numerator": 63303883454448284331624979870582311190342707
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.6683635378348842,
+        "Shannon_nats_float_diagnostic_only": 0.7550029793236758,
+        "collision": {
+          "denominator": 445264628934930138698120553685206412926951664915240691842318553430557168926900012009761,
+          "numerator": 228218896180472144773355635982166199492096068040446968061936781891678204802354811586849
+        },
+        "diversity": {
+          "denominator": 445264628934930138698120553685206412926951664915240691842318553430557168926900012009761,
+          "numerator": 217045732754457993924764917703040213434855596874793723780381771538878964124545200422912
+        },
+        "dominant_parent": 41,
+        "dominant_probability": {
+          "denominator": 21101294484816094777208326623527437063447569,
+          "numerator": 13107975926413926933777819318037879817004049
+        },
+        "number_of_parents": 4,
+        "parents": [
+          {
+            "last_exponent": 2,
+            "parent": 41,
+            "probability": {
+              "denominator": 21101294484816094777208326623527437063447569,
+              "numerator": 13107975926413926933777819318037879817004049
+            },
+            "source_count": 1892,
+            "weight": {
+              "denominator": 21097506749098184734729225660769629110272,
+              "numerator": 39323927779241780801333457954113639451012147
+            }
+          },
+          {
+            "last_exponent": 6,
+            "parent": 661,
+            "probability": {
+              "denominator": 21101294484816094777208326623527437063447569,
+              "numerator": 7494296639185049902706459097178216485355520
+            },
+            "source_count": 1070,
+            "weight": {
+              "denominator": 20120150326822457060555673275727872,
+              "numerator": 21441354672961377819175126353773736435
+            }
+          },
+          {
+            "last_exponent": 8,
+            "parent": 2645,
+            "probability": {
+              "denominator": 21101294484816094777208326623527437063447569,
+              "numerator": 484957067025093667922505828098719998803968
+            },
+            "source_count": 69,
+            "weight": {
+              "denominator": 1152921504606846976,
+              "numerator": 79504763956270908207
+            }
+          },
+          {
+            "last_exponent": 12,
+            "parent": 42325,
+            "probability": {
+              "denominator": 21101294484816094777208326623527437063447569,
+              "numerator": 14064852192024272801542380212620762284032
+            },
+            "source_count": 2,
+            "weight": {
+              "denominator": 507904,
+              "numerator": 1015797
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 1022121,
+          "numerator": 525481
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 815,
+      "cutoff": 65536,
+      "nonunit_last_parent_sources": 2,
+      "nonunit_last_parent_weight": {
+        "denominator": 17408,
+        "numerator": 34803
+      },
+      "target": 85,
+      "unit_last_parent_sources": 812,
+      "unit_last_parent_weight": {
+        "denominator": 26306225834814330841606389760,
+        "numerator": 21269204787702906531718070095041
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.32013920388061917,
+        "Shannon_nats_float_diagnostic_only": 0.5326214624641696,
+        "collision": {
+          "denominator": 50264341366804915700884129465780787844787760431881576752532409,
+          "numerator": 36494322577720497366199334816312639117423896914579451889503161
+        },
+        "diversity": {
+          "denominator": 50264341366804915700884129465780787844787760431881576752532409,
+          "numerator": 13770018789084418334684794649468148727363863517302124863029248
+        },
+        "dominant_parent": 113,
+        "dominant_probability": {
+          "denominator": 7089734929234302177239356698347,
+          "numerator": 5985221509151385820630701600491
+        },
+        "number_of_parents": 3,
+        "parents": [
+          {
+            "last_exponent": 2,
+            "parent": 113,
+            "probability": {
+              "denominator": 7089734929234302177239356698347,
+              "numerator": 5985221509151385820630701600491
+            },
+            "source_count": 686,
+            "weight": {
+              "denominator": 26306225834814330841606389760,
+              "numerator": 17955664527454157461892104801473
+            }
+          },
+          {
+            "last_exponent": 6,
+            "parent": 1813,
+            "probability": {
+              "denominator": 7089734929234302177239356698347,
+              "numerator": 376941113843523584838558810112
+            },
+            "source_count": 43,
+            "weight": {
+              "denominator": 47850746040811520,
+              "numerator": 2056955675526425247
+            }
+          },
+          {
+            "last_exponent": 8,
+            "parent": 7253,
+            "probability": {
+              "denominator": 7089734929234302177239356698347,
+              "numerator": 727572306239392771770096287744
+            },
+            "source_count": 83,
+            "weight": {
+              "denominator": 373833953443840,
+              "numerator": 31018273016317413
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 329672,
+          "numerator": 239667
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 2944,
+      "cutoff": 65536,
+      "nonunit_last_parent_sources": 2,
+      "nonunit_last_parent_weight": {
+        "denominator": 12800,
+        "numerator": 25587
+      },
+      "target": 125,
+      "unit_last_parent_sources": 2941,
+      "unit_last_parent_weight": {
+        "denominator": 340282366920938463463374607431768211456000,
+        "numerator": 988335912810520034649443110309086651997070013
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.4918428823422846,
+        "Shannon_nats_float_diagnostic_only": 0.6002915420323729,
+        "collision": {
+          "denominator": 108534208505667095548444515556336664032939034016841879426082795855964302695060170758202241,
+          "numerator": 66368498698032222755776321947613618948062569137547647451482013446464674179858859466449793
+        },
+        "diversity": {
+          "denominator": 108534208505667095548444515556336664032939034016841879426082795855964302695060170758202241,
+          "numerator": 42165709807634872792668193608723045084876464879294231974600782409499628515201311291752448
+        },
+        "dominant_parent": 83,
+        "dominant_probability": {
+          "denominator": 329445304270173344883147703436362217332356671,
+          "numerator": 243309776268377535954867467624078090571997184
+        },
+        "number_of_parents": 5,
+        "parents": [
+          {
+            "last_exponent": 1,
+            "parent": 83,
+            "probability": {
+              "denominator": 329445304270173344883147703436362217332356671,
+              "numerator": 243309776268377535954867467624078090571997184
+            },
+            "source_count": 2179,
+            "weight": {
+              "denominator": 41538374868278621028243970633760768000,
+              "numerator": 89102701270157789045971973006864535121581
+            }
+          },
+          {
+            "last_exponent": 5,
+            "parent": 1333,
+            "probability": {
+              "denominator": 329445304270173344883147703436362217332356671,
+              "numerator": 84661093937851249949828817968866553823319615
+            },
+            "source_count": 749,
+            "weight": {
+              "denominator": 68056473384187692692674921486353642291200,
+              "numerator": 50796656362710749969897290781319932293991769
+            }
+          },
+          {
+            "last_exponent": 7,
+            "parent": 5333,
+            "probability": {
+              "denominator": 329445304270173344883147703436362217332356671,
+              "numerator": 1134159373834525858730692018324627477495808
+            },
+            "source_count": 10,
+            "weight": {
+              "denominator": 67108864000,
+              "numerator": 671020492731
+            }
+          },
+          {
+            "last_exponent": 11,
+            "parent": 85333,
+            "probability": {
+              "denominator": 329445304270173344883147703436362217332356671,
+              "numerator": 226849746676017019667035226620830010048512
+            },
+            "source_count": 2,
+            "weight": {
+              "denominator": 8192000,
+              "numerator": 16383627
+            }
+          },
+          {
+            "last_exponent": 13,
+            "parent": 341333,
+            "probability": {
+              "denominator": 329445304270173344883147703436362217332356671,
+              "numerator": 113424943434016100053690598472115449495552
+            },
+            "source_count": 1,
+            "weight": {
+              "denominator": 131072000,
+              "numerator": 131069097
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 8649481,
+          "numerator": 5309147
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 10624,
+      "cutoff": 65536,
+      "nonunit_last_parent_sources": 1,
+      "nonunit_last_parent_weight": {
+        "denominator": 4744,
+        "numerator": 4743
+      },
+      "target": 593,
+      "unit_last_parent_sources": 10622,
+      "unit_last_parent_weight": {
+        "denominator": 27733455069991213775833123385624186580990975935512576,
+        "numerator": 282799263518793612474044291460658527311438164455559358559
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.00451289790976154,
+        "Shannon_nats_float_diagnostic_only": 0.017384011958177473,
+        "collision": {
+          "denominator": 8886158160752452420297941872525743854567749509739005040965683416950060640598785085239511315422180058076391839609,
+          "numerator": 8846146189042516596227345582433395885914075735723590082731054797739251052242063348534197248154634164010326333305
+        },
+        "diversity": {
+          "denominator": 8886158160752452420297941872525743854567749509739005040965683416950060640598785085239511315422180058076391839609,
+          "numerator": 40011971709935824070596290092347968653673774015414958234628619210809588356721736705314067267545894066065506304
+        },
+        "dominant_parent": 395,
+        "dominant_probability": {
+          "denominator": 659205742468050378727375970770765797928760290106198971,
+          "numerator": 657718986451400688209354371676391950054914127088372667
+        },
+        "number_of_parents": 3,
+        "parents": [
+          {
+            "last_exponent": 1,
+            "parent": 395,
+            "probability": {
+              "denominator": 659205742468050378727375970770765797928760290106198971,
+              "numerator": 657718986451400688209354371676391950054914127088372667
+            },
+            "source_count": 10599,
+            "weight": {
+              "denominator": 27733455069991213775833123385624186580990975935512576,
+              "numerator": 282161445187650895241813025449172146573558160520911874143
+            }
+          },
+          {
+            "last_exponent": 5,
+            "parent": 6325,
+            "probability": {
+              "denominator": 94266421172931204158014763820219509103812721485186452853,
+              "numerator": 64706522777564549447570001754537729687499189216346112
+            },
+            "source_count": 7,
+            "weight": {
+              "denominator": 38862848,
+              "numerator": 272019453
+            }
+          },
+          {
+            "last_exponent": 7,
+            "parent": 25301,
+            "probability": {
+              "denominator": 94266421172931204158014763820219509103812721485186452853,
+              "numerator": 147899587603341194629518668740922516272502122332815360
+            },
+            "source_count": 16,
+            "weight": {
+              "denominator": 11201453297366798446886912,
+              "numerator": 179208503129988204587654835
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 56413442,
+          "numerator": 56169553
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 4,
+      "cutoff": 65536,
+      "nonunit_last_parent_sources": 1,
+      "nonunit_last_parent_weight": {
+        "denominator": 37972,
+        "numerator": 37971
+      },
+      "target": 9493,
+      "unit_last_parent_sources": 2,
+      "unit_last_parent_weight": {
+        "denominator": 1215104,
+        "numerator": 2430177
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": -0.0,
+        "Shannon_nats_float_diagnostic_only": -0.0,
+        "collision": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "diversity": {
+          "denominator": 1,
+          "numerator": 0
+        },
+        "dominant_parent": 50629,
+        "dominant_probability": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "number_of_parents": 1,
+        "parents": [
+          {
+            "last_exponent": 4,
+            "parent": 50629,
+            "probability": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "source_count": 2,
+            "weight": {
+              "denominator": 1215104,
+              "numerator": 2430177
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 1,
+          "numerator": 1
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 122825,
+      "cutoff": 262144,
+      "nonunit_last_parent_sources": 3,
+      "nonunit_last_parent_weight": {
+        "denominator": 40960,
+        "numerator": 118719
+      },
+      "target": 5,
+      "unit_last_parent_sources": 122821,
+      "unit_last_parent_weight": {
+        "denominator": 151771007205135083665582961470587414581438034300948400097797844510851897281656913920,
+        "numerator": 16910915399416122451281218786607697765667254748895841812392451204928103869157392709913309
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.7087215285959494,
+        "Shannon_nats_float_diagnostic_only": 0.7377875176152651,
+        "collision": {
+          "denominator": 10591817023933679716283538444826841205085204075247837346289481888821593754469564297343723083334349203603268450460615640151078295289187165033679275274767331115514705080085012203,
+          "numerator": 5214067156791317653032972504816433032185691364701986924320896510273492621432424236927685394331618510691851556188491188782423916340429797495055646623989123240334993441433476843
+        },
+        "diversity": {
+          "denominator": 10591817023933679716283538444826841205085204075247837346289481888821593754469564297343723083334349203603268450460615640151078295289187165033679275274767331115514705080085012203,
+          "numerator": 5377749867142362063250565940010408172899512710545850421968585378548101133037140060416037689002730692911416894272124451368654378948757367538623628650778207875179711638651535360
+        },
+        "dominant_parent": 53,
+        "dominant_probability": {
+          "denominator": 5636971799805374150427072928869232588555751582965280604130817068309367956385797569971103,
+          "numerator": 2804825419830634319545114945917037640419359291798891721307772218804575907630491577025439
+        },
+        "number_of_parents": 6,
+        "parents": [
+          {
+            "last_exponent": 3,
+            "parent": 13,
+            "probability": {
+              "denominator": 5636971799805374150427072928869232588555751582965280604130817068309367956385797569971103,
+              "numerator": 2788167930736265450440714937969390597801508442829484160190590131421492677030742750920704
+            },
+            "source_count": 62190,
+            "weight": {
+              "denominator": 1104279415486490205989560937964324072392177435547261848826003875807887360,
+              "numerator": 60859775055787732354089856481792025394712438926860722717332612914211335236121
+            }
+          },
+          {
+            "last_exponent": 5,
+            "parent": 53,
+            "probability": {
+              "denominator": 5636971799805374150427072928869232588555751582965280604130817068309367956385797569971103,
+              "numerator": 2804825419830634319545114945917037640419359291798891721307772218804575907630491577025439
+            },
+            "source_count": 59761,
+            "weight": {
+              "denominator": 151771007205135083665582961470587414581438034300948400097797844510851897281656913920,
+              "numerator": 8414476259491902958635344837751112921258077875396675163923316656413727722891474731076317
+            }
+          },
+          {
+            "last_exponent": 9,
+            "parent": 853,
+            "probability": {
+              "denominator": 5636971799805374150427072928869232588555751582965280604130817068309367956385797569971103,
+              "numerator": 34570885977578044755866717497003719906013495096008769200075700642809472086190157987840
+            },
+            "source_count": 684,
+            "weight": {
+              "denominator": 79228162514264337593543950336,
+              "numerator": 54140533615717813162871922376641
+            }
+          },
+          {
+            "last_exponent": 11,
+            "parent": 3413,
+            "probability": {
+              "denominator": 5636971799805374150427072928869232588555751582965280604130817068309367956385797569971103,
+              "numerator": 8952254350804724056271048914905484313927142209181235617525964214259838602506036838400
+            },
+            "source_count": 177,
+            "weight": {
+              "denominator": 9223372036854775808,
+              "numerator": 1632129363174511952355
+            }
+          },
+          {
+            "last_exponent": 15,
+            "parent": 54613,
+            "probability": {
+              "denominator": 5636971799805374150427072928869232588555751582965280604130817068309367956385797569971103,
+              "numerator": 354128508803063127066012584913719525494037333144049767949170755290522456143245082624
+            },
+            "source_count": 7,
+            "weight": {
+              "denominator": 167772160,
+              "numerator": 1174392381
+            }
+          },
+          {
+            "last_exponent": 17,
+            "parent": 218453,
+            "probability": {
+              "denominator": 5636971799805374150427072928869232588555751582965280604130817068309367956385797569971103,
+              "numerator": 101180401288548502039265985981426589449173698570668046903882470939538579723802116096
+            },
+            "source_count": 2,
+            "weight": {
+              "denominator": 1310720,
+              "numerator": 2621433
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 15084998041,
+          "numerator": 7439472459
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 25111,
+      "cutoff": 262144,
+      "nonunit_last_parent_sources": 3,
+      "nonunit_last_parent_weight": {
+        "denominator": 114688,
+        "numerator": 339903
+      },
+      "target": 7,
+      "unit_last_parent_sources": 25107,
+      "unit_last_parent_weight": {
+        "denominator": 13164036458569648337239753460458804039861886925068638906788872192,
+        "numerator": 322419131875419987489086278215529994709365578681741620824601160343025
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.16926421224948585,
+        "Shannon_nats_float_diagnostic_only": 0.35407248902213057,
+        "collision": {
+          "denominator": 565972303707297087325036712365466350498195783647834628917054308237219963152621189373278509906820580292457598519731254440344230094182375625,
+          "numerator": 477842381060211045398135628541211795071209728716729856919132885843826569981643438033284312557403495694076063581047584015551100078715134153
+        },
+        "diversity": {
+          "denominator": 565972303707297087325036712365466350498195783647834628917054308237219963152621189373278509906820580292457598519731254440344230094182375625,
+          "numerator": 88129922647086041926901083824254555426986054931104771997921422393393393170977751339994197349417084598381534938683670424793130015467241472
+        },
+        "dominant_parent": 37,
+        "dominant_probability": {
+          "denominator": 752311307709313304141201315836236654321853016924063781924069374133725,
+          "numerator": 689755002212498474151513919952840871339486348857528113807922606867933
+        },
+        "number_of_parents": 5,
+        "parents": [
+          {
+            "last_exponent": 4,
+            "parent": 37,
+            "probability": {
+              "denominator": 752311307709313304141201315836236654321853016924063781924069374133725,
+              "numerator": 689755002212498474151513919952840871339486348857528113807922606867933
+            },
+            "source_count": 23065,
+            "weight": {
+              "denominator": 92148255209987538360678274223211628279033208475480472347522105344,
+              "numerator": 2069265006637495422454541759858522614018459046572584341423767820603799
+            }
+          },
+          {
+            "last_exponent": 6,
+            "parent": 149,
+            "probability": {
+              "denominator": 752311307709313304141201315836236654321853016924063781924069374133725,
+              "numerator": 43158192409821855576976551142935910088454481545059669184047629729792
+            },
+            "source_count": 1410,
+            "weight": {
+              "denominator": 18609191940988822220653298843924824064,
+              "numerator": 26147182642264066484762502120196990013631
+            }
+          },
+          {
+            "last_exponent": 10,
+            "parent": 2389,
+            "probability": {
+              "denominator": 150462261541862660828240263167247330864370603384812756384813874826745,
+              "numerator": 2718919905061205123085691567808066208470035239054747266760809906176
+            },
+            "source_count": 443,
+            "weight": {
+              "denominator": 9756576024357147624421876744283658158866432,
+              "numerator": 4318152638498203208503962652170339353686736295
+            }
+          },
+          {
+            "last_exponent": 12,
+            "parent": 9557,
+            "probability": {
+              "denominator": 21494608791694665832605751881035332980624371912116108054973410689535,
+              "numerator": 164059473590722133610987727365349252765739135034886723457383399424
+            },
+            "source_count": 187,
+            "weight": {
+              "denominator": 79228162514264337593543950336,
+              "numerator": 14810955602286500058411941326755
+            }
+          },
+          {
+            "last_exponent": 16,
+            "parent": 152917,
+            "probability": {
+              "denominator": 150462261541862660828240263167247330864370603384812756384813874826745,
+              "numerator": 12286397202334824179563288726463600952228119996245455457333805056
+            },
+            "source_count": 2,
+            "weight": {
+              "denominator": 1835008,
+              "numerator": 3670005
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 630361449,
+          "numerator": 534213547
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 30991,
+      "cutoff": 262144,
+      "nonunit_last_parent_sources": 2,
+      "nonunit_last_parent_weight": {
+        "denominator": 59392,
+        "numerator": 118719
+      },
+      "target": 29,
+      "unit_last_parent_sources": 30988,
+      "unit_last_parent_weight": {
+        "denominator": 12509415253557896864725495000377108632567635012058825631232075155636224,
+        "numerator": 376488560020112828698091886025776204642384462048436268313336347088351912777
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.4996444992980601,
+        "Shannon_nats_float_diagnostic_only": 0.6678616227089597,
+        "collision": {
+          "denominator": 15749292869557566647616344857032888987461071582437368537149041656860695003105180691130160120953521142886027509939186022870103631091296858817179539081,
+          "numerator": 9555825493085987240688052270260122058108234277661145194497791740161165649239627759654875827119032463615178436802715330290582326117862593204835702409
+        },
+        "diversity": {
+          "denominator": 15749292869557566647616344857032888987461071582437368537149041656860695003105180691130160120953521142886027509939186022870103631091296858817179539081,
+          "numerator": 6193467376471579406928292586772766929352837304776223342651249916699529353865552931475284293834488679270849073136470692579521304973434265612343836672
+        },
+        "dominant_parent": 19,
+        "dominant_probability": {
+          "denominator": 125496186673370942899363962008592068214128154016145422771112115696117304259,
+          "numerator": 93347827588975586029027071658636365175300369370270581464800389944628300739
+        },
+        "number_of_parents": 6,
+        "parents": [
+          {
+            "last_exponent": 1,
+            "parent": 19,
+            "probability": {
+              "denominator": 125496186673370942899363962008592068214128154016145422771112115696117304259,
+              "numerator": 93347827588975586029027071658636365175300369370270581464800389944628300739
+            },
+            "source_count": 23188,
+            "weight": {
+              "denominator": 12509415253557896864725495000377108632567635012058825631232075155636224,
+              "numerator": 280043482766926758087081214975909095525901108110811744394401169833884902217
+            }
+          },
+          {
+            "last_exponent": 3,
+            "parent": 77,
+            "probability": {
+              "denominator": 125496186673370942899363962008592068214128154016145422771112115696117304259,
+              "numerator": 28902567383340074959731647925776037244948835451900536371257977093849350144
+            },
+            "source_count": 7021,
+            "weight": {
+              "denominator": 11110592671277694223098015946839741581235858635831115776,
+              "numerator": 77011909871434114264583342703687762074024286778685430044943
+            }
+          },
+          {
+            "last_exponent": 7,
+            "parent": 1237,
+            "probability": {
+              "denominator": 125496186673370942899363962008592068214128154016145422771112115696117304259,
+              "numerator": 2462038755322347191339689517655704519150034450987988416325995047570898944
+            },
+            "source_count": 591,
+            "weight": {
+              "denominator": 2243766321204751748254662656,
+              "numerator": 1324819632745493437863755818383
+            }
+          },
+          {
+            "last_exponent": 9,
+            "parent": 4949,
+            "probability": {
+              "denominator": 125496186673370942899363962008592068214128154016145422771112115696117304259,
+              "numerator": 767073807944336149059755361297745788179241562937487343837367321183125504
+            },
+            "source_count": 184,
+            "weight": {
+              "denominator": 273897256006439422394368,
+              "numerator": 50385906988883808311995359
+            }
+          },
+          {
+            "last_exponent": 13,
+            "parent": 79189,
+            "probability": {
+              "denominator": 125496186673370942899363962008592068214128154016145422771112115696117304259,
+              "numerator": 8339561900904916487773093454488717406096943847787158502478725211226112
+            },
+            "source_count": 2,
+            "weight": {
+              "denominator": 950272,
+              "numerator": 1900533
+            }
+          },
+          {
+            "last_exponent": 15,
+            "parent": 316757,
+            "probability": {
+              "denominator": 125496186673370942899363962008592068214128154016145422771112115696117304259,
+              "numerator": 8339575887693653718024451771726769143576236201042016387907563674402816
+            },
+            "source_count": 2,
+            "weight": {
+              "denominator": 15204352,
+              "numerator": 30408579
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 480128072,
+          "numerator": 293680465
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 12256,
+      "cutoff": 262144,
+      "nonunit_last_parent_sources": 2,
+      "nonunit_last_parent_weight": {
+        "denominator": 31744,
+        "numerator": 63423
+      },
+      "target": 31,
+      "unit_last_parent_sources": 12253,
+      "unit_last_parent_weight": {
+        "denominator": 102021282553914774613608089318555731308929623669281951527613759488,
+        "numerator": 1236672617993013164973348817015349869954104300878193771544640300397861
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.668853298381533,
+        "Shannon_nats_float_diagnostic_only": 0.7585252325031289,
+        "collision": {
+          "denominator": 169928796010410340985795908821648997729005645862376768566960600691451391472876817189321387554052425996222184621241528962792696550543708369,
+          "numerator": 87053790040685536122175662436945524826738155291836109920033902693356503359269888680662702777692900044856978058117067126331251029125746897
+        },
+        "diversity": {
+          "denominator": 169928796010410340985795908821648997729005645862376768566960600691451391472876817189321387554052425996222184621241528962792696550543708369,
+          "numerator": 82875005969724804863620246384703472902267490570540658646926697998094888113606928508658684776359525951365206563124461836461445521417961472
+        },
+        "dominant_parent": 41,
+        "dominant_probability": {
+          "denominator": 412224205997671054991116272338449956651368100292731257181546766799287,
+          "numerator": 256596684348538689175095037661248312984194194053807835155280617673143
+        },
+        "number_of_parents": 5,
+        "parents": [
+          {
+            "last_exponent": 2,
+            "parent": 41,
+            "probability": {
+              "denominator": 412224205997671054991116272338449956651368100292731257181546766799287,
+              "numerator": 256596684348538689175095037661248312984194194053807835155280617673143
+            },
+            "source_count": 7659,
+            "weight": {
+              "denominator": 102021282553914774613608089318555731308929623669281951527613759488,
+              "numerator": 769790053045616067525285112983744938952582582161423505465841853019429
+            }
+          },
+          {
+            "last_exponent": 6,
+            "parent": 661,
+            "probability": {
+              "denominator": 412224205997671054991116272338449956651368100292731257181546766799287,
+              "numerator": 145295156299974210906553834596958254579472788137889504714189027934208
+            },
+            "source_count": 4290,
+            "weight": {
+              "denominator": 1449809624232255694858055354054552755498685082632192,
+              "numerator": 6194305071004501893407642452741509426607796689462311891
+            }
+          },
+          {
+            "last_exponent": 8,
+            "parent": 2645,
+            "probability": {
+              "denominator": 412224205997671054991116272338449956651368100292731257181546766799287,
+              "numerator": 10060311036427440286685482180210027861458263899048374097102237597696
+            },
+            "source_count": 296,
+            "weight": {
+              "denominator": 149906801632214017663565824,
+              "numerator": 44346895465633381250607980499
+            }
+          },
+          {
+            "last_exponent": 12,
+            "parent": 42325,
+            "probability": {
+              "denominator": 412224205997671054991116272338449956651368100292731257181546766799287,
+              "numerator": 170033507236531737556047862234801658716572202095275042713892814848
+            },
+            "source_count": 5,
+            "weight": {
+              "denominator": 32505856,
+              "numerator": 162527403
+            }
+          },
+          {
+            "last_exponent": 14,
+            "parent": 169301,
+            "probability": {
+              "denominator": 412224205997671054991116272338449956651368100292731257181546766799287,
+              "numerator": 102020805494182885225870037798559567526281999890268172260990779392
+            },
+            "source_count": 3,
+            "weight": {
+              "denominator": 4063232,
+              "numerator": 12189639
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 150136009,
+          "numerator": 77152031
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 3119,
+      "cutoff": 262144,
+      "nonunit_last_parent_sources": 2,
+      "nonunit_last_parent_weight": {
+        "denominator": 17408,
+        "numerator": 34803
+      },
+      "target": 85,
+      "unit_last_parent_sources": 3116,
+      "unit_last_parent_weight": {
+        "denominator": 56492189820858924598411800061914644480,
+        "numerator": 175275205475160400278448684475973008751039
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.3133009051500415,
+        "Shannon_nats_float_diagnostic_only": 0.5288993334472727,
+        "collision": {
+          "denominator": 3413488628262188706572411833309838892699803301898261705582765713874294274964842169,
+          "numerator": 2495362280628877769986419986962007917468027640833164962863028983221087941724202681
+        },
+        "diversity": {
+          "denominator": 3413488628262188706572411833309838892699803301898261705582765713874294274964842169,
+          "numerator": 918126347633310936585991846347830975231775661065096742719736730653206333240639488
+        },
+        "dominant_parent": 113,
+        "dominant_probability": {
+          "denominator": 8346438355960019060878508784570143273859,
+          "numerator": 7074427971157351514392899239058711966595
+        },
+        "number_of_parents": 4,
+        "parents": [
+          {
+            "last_exponent": 2,
+            "parent": 113,
+            "probability": {
+              "denominator": 8346438355960019060878508784570143273859,
+              "numerator": 7074427971157351514392899239058711966595
+            },
+            "source_count": 2643,
+            "weight": {
+              "denominator": 11298437964171784919682360012382928896,
+              "numerator": 29712597478860876360450176804046590259699
+            }
+          },
+          {
+            "last_exponent": 6,
+            "parent": 1813,
+            "probability": {
+              "denominator": 8346438355960019060878508784570143273859,
+              "numerator": 438347492404624686391689153999194292224
+            },
+            "source_count": 163,
+            "weight": {
+              "denominator": 802802302087839686328320,
+              "numerator": 130815143116039939943469111
+            }
+          },
+          {
+            "last_exponent": 8,
+            "parent": 7253,
+            "probability": {
+              "denominator": 58425068491720133426149561491991002917013,
+              "numerator": 5797978935643397831037417982824225439744
+            },
+            "source_count": 308,
+            "weight": {
+              "denominator": 1567973246265311887360,
+              "numerator": 482778728298221923384899
+            }
+          },
+          {
+            "last_exponent": 12,
+            "parent": 116053,
+            "probability": {
+              "denominator": 58425068491720133426149561491991002917013,
+              "numerator": 37661311142902189620024757761433665536
+            },
+            "source_count": 2,
+            "weight": {
+              "denominator": 1392640,
+              "numerator": 2785269
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 4854728,
+          "numerator": 3553443
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 12055,
+      "cutoff": 262144,
+      "nonunit_last_parent_sources": 2,
+      "nonunit_last_parent_weight": {
+        "denominator": 12800,
+        "numerator": 25587
+      },
+      "target": 125,
+      "unit_last_parent_sources": 12052,
+      "unit_last_parent_weight": {
+        "denominator": 2923003274661805836407369665432566039311865085952000,
+        "numerator": 34793339417732837934951322344608952092062178335284389307
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.4951488042557677,
+        "Shannon_nats_float_diagnostic_only": 0.6096286665067389,
+        "collision": {
+          "denominator": 134508496426395739767374055872979415456856748861924832411238998176461285942109825547584322046698111663103993361,
+          "numerator": 81980266285510670637582833422940521709570617036676969627236760241742929732784934294455497190437943170341987857
+        },
+        "diversity": {
+          "denominator": 134508496426395739767374055872979415456856748861924832411238998176461285942109825547584322046698111663103993361,
+          "numerator": 52528230140885069129791222450038893747286131825247862784002237934718356209324891253128824856260168492762005504
+        },
+        "dominant_parent": 83,
+        "dominant_probability": {
+          "denominator": 11597779805910945978317107448202984030687392778428129769,
+          "numerator": 8549803513474971839619034988320022335430336141874602473
+        },
+        "number_of_parents": 5,
+        "parents": [
+          {
+            "last_exponent": 1,
+            "parent": 83,
+            "probability": {
+              "denominator": 11597779805910945978317107448202984030687392778428129769,
+              "numerator": 8549803513474971839619034988320022335430336141874602473
+            },
+            "source_count": 8913,
+            "weight": {
+              "denominator": 2923003274661805836407369665432566039311865085952000,
+              "numerator": 25649410540424915518857104964960067006291008425623807419
+            }
+          },
+          {
+            "last_exponent": 5,
+            "parent": 1333,
+            "probability": {
+              "denominator": 11597779805910945978317107448202984030687392778428129769,
+              "numerator": 2979777519949281580314928404288420134981729257203040256
+            },
+            "source_count": 3069,
+            "weight": {
+              "denominator": 22300745198530623141535718272648361505980416000,
+              "numerator": 68201694945128209998663217261240084876595976040719
+            }
+          },
+          {
+            "last_exponent": 7,
+            "parent": 5333,
+            "probability": {
+              "denominator": 11597779805910945978317107448202984030687392778428129769,
+              "numerator": 39943544707736385260241899900760593855431459653812224
+            },
+            "source_count": 41,
+            "weight": {
+              "denominator": 2147483648000,
+              "numerator": 88037645917053
+            }
+          },
+          {
+            "last_exponent": 11,
+            "parent": 85333,
+            "probability": {
+              "denominator": 11597779805910945978317107448202984030687392778428129769,
+              "numerator": 8768865231106786401312351369389763320906288275128320
+            },
+            "source_count": 9,
+            "weight": {
+              "denominator": 214748364800,
+              "numerator": 1932703414179
+            }
+          },
+          {
+            "last_exponent": 13,
+            "parent": 341333,
+            "probability": {
+              "denominator": 3865926601970315326105702482734328010229130926142709923,
+              "numerator": 6495454182616462240529934774797067699663210473848832
+            },
+            "source_count": 20,
+            "weight": {
+              "denominator": 144115188075855872000,
+              "numerator": 2882255549805241721343
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 36312676,
+          "numerator": 22215623
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 43194,
+      "cutoff": 262144,
+      "nonunit_last_parent_sources": 2,
+      "nonunit_last_parent_weight": {
+        "denominator": 303616,
+        "numerator": 607167
+      },
+      "target": 593,
+      "unit_last_parent_sources": 43191,
+      "unit_last_parent_weight": {
+        "denominator": 511591947955850540743601278291284511662938452562129903401422108089122816,
+        "numerator": 21212754579131129033024020587631221598586320622385919255232795256011759183229
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.0057416517871310005,
+        "Shannon_nats_float_diagnostic_only": 0.02096283689459068,
+        "collision": {
+          "denominator": 49997884092716520359161940521981194237712030011650100349962114037215228597136456488604761570087044217541147943969272986506652094325603355737579243874049,
+          "numerator": 49711636206390554590256048772912219493037435055807559486666946923628614193944154561073761967818434368007116728165742620135831174302522828378239668496129
+        },
+        "diversity": {
+          "denominator": 49997884092716520359161940521981194237712030011650100349962114037215228597136456488604761570087044217541147943969272986506652094325603355737579243874049,
+          "numerator": 286247886325965768905891749068974744674594955842540863295167113586614403192301927530999602268609849534031215803530366370820920023080527359339575377920
+        },
+        "dominant_parent": 395,
+        "dominant_probability": {
+          "denominator": 7070918193043709677674673529210407199528773540795306418410931752003919727743,
+          "numerator": 7050626894793149230450552439056451676199717276436578367721570151127849946239
+        },
+        "number_of_parents": 3,
+        "parents": [
+          {
+            "last_exponent": 1,
+            "parent": 395,
+            "probability": {
+              "denominator": 7070918193043709677674673529210407199528773540795306418410931752003919727743,
+              "numerator": 7050626894793149230450552439056451676199717276436578367721570151127849946239
+            },
+            "source_count": 43072,
+            "weight": {
+              "denominator": 511591947955850540743601278291284511662938452562129903401422108089122816,
+              "numerator": 21151880684379447691351657317169355028599151829309735103164710453383549838717
+            }
+          },
+          {
+            "last_exponent": 5,
+            "parent": 6325,
+            "probability": {
+              "denominator": 7070918193043709677674673529210407199528773540795306418410931752003919727743,
+              "numerator": 3410353373712793228901540904779928494462681667837258127552424077271498752
+            },
+            "source_count": 20,
+            "weight": {
+              "denominator": 4974444544,
+              "numerator": 99481317879
+            }
+          },
+          {
+            "last_exponent": 7,
+            "parent": 25301,
+            "probability": {
+              "denominator": 7070918193043709677674673529210407199528773540795306418410931752003919727743,
+              "numerator": 16880944876847653995219549249175594834593582690890792561809176798798282752
+            },
+            "source_count": 99,
+            "weight": {
+              "denominator": 3006867223741360140350180003151872,
+              "numerator": 297651830089152797656142619892759977
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 1865462481,
+          "numerator": 1855207385
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "all_first_hit_sources": 13,
+      "cutoff": 262144,
+      "nonunit_last_parent_sources": 1,
+      "nonunit_last_parent_weight": {
+        "denominator": 37972,
+        "numerator": 37971
+      },
+      "target": 9493,
+      "unit_last_parent_sources": 11,
+      "unit_last_parent_weight": {
+        "denominator": 38883328,
+        "numerator": 427712229
+      },
+      "unit_parent_law": {
+        "H2_nats_float_diagnostic_only": 0.6849173563694787,
+        "Shannon_nats_float_diagnostic_only": 0.6890095796805983,
+        "collision": {
+          "denominator": 20326416759572049,
+          "numerator": 10247194921164149
+        },
+        "diversity": {
+          "denominator": 20326416759572049,
+          "numerator": 10079221838407900
+        },
+        "dominant_parent": 50629,
+        "dominant_probability": {
+          "denominator": 142570743,
+          "numerator": 77765593
+        },
+        "number_of_parents": 2,
+        "parents": [
+          {
+            "last_exponent": 4,
+            "parent": 50629,
+            "probability": {
+              "denominator": 142570743,
+              "numerator": 77765593
+            },
+            "source_count": 6,
+            "weight": {
+              "denominator": 38883328,
+              "numerator": 233296779
+            }
+          },
+          {
+            "last_exponent": 6,
+            "parent": 202517,
+            "probability": {
+              "denominator": 142570743,
+              "numerator": 64805150
+            },
+            "source_count": 5,
+            "weight": {
+              "denominator": 19441664,
+              "numerator": 97207725
+            }
+          }
+        ],
+        "unweighted_collision": {
+          "denominator": 121,
+          "numerator": 61
+        }
+      },
+      "zero_arrival_sources": 1,
+      "zero_arrival_weight": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    }
+  ],
+  "scope": "Finite first-arrival weighted parent frontiers only; no limiting law, lower, H or Collatz claim.",
+  "script_sha256": "d082e11ee26053ac903ee5529aa56cb86cd6854a9aee9b32cfa579ce771193c1",
+  "status": "PASS",
+  "unresolved_sources": []
+}

@@ -1,0 +1,87 @@
+{
+  "recorded_at_utc": "2026-11-15T23:12:26.170388+00:00",
+  "kind": "Exact finite witness selected analytically, before verification",
+  "question": "Does full-depth minimality at every endpoint of a finite prefix imply matched-depth minimality of its factors?",
+  "registered_cases": [
+    {
+      "source": 27,
+      "target": 167,
+      "closure": [
+        1,
+        3,
+        5,
+        7,
+        9,
+        11,
+        13,
+        15,
+        17,
+        19,
+        21,
+        23,
+        25,
+        29,
+        35,
+        53
+      ],
+      "rival": [
+        445,
+        111,
+        167
+      ]
+    },
+    {
+      "source": 27,
+      "target": 911,
+      "closure": [
+        1,
+        3,
+        5,
+        7,
+        9,
+        11,
+        13,
+        15,
+        17,
+        19,
+        21,
+        23,
+        25,
+        29,
+        35,
+        53
+      ],
+      "rival": [
+        2429,
+        607,
+        911
+      ]
+    },
+    {
+      "source": 31,
+      "target": 911,
+      "domain": "odd units only",
+      "closure": [
+        1,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        25,
+        29,
+        35,
+        53
+      ],
+      "rival": [
+        2429,
+        607,
+        911
+      ]
+    }
+  ],
+  "limits": "Finite prefix only; not a counterexample to an infinite least-counterexample statement. No claim of Collatz progress or global novelty.",
+  "resource_plan": "Local exact integers only; no GPU, no enlargement or search."
+}

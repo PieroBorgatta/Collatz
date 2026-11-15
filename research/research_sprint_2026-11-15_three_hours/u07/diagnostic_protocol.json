@@ -1,0 +1,49 @@
+{
+  "recorded_at_utc": "2026-11-15T22:46:12.653590+00:00",
+  "authorization": "Parent /root approved one diagnostic on the unchanged U03 source grid.",
+  "purpose": "Finite physical last-parent law with exact first-hit weights, collision and diversity; no asymptotic lower inferred.",
+  "maximum_source": 262144,
+  "source_domain": "All positive odd u≤2^18; every forward orbit directly certified to1.",
+  "cutoffs": [
+    1024,
+    4096,
+    16384,
+    65536,
+    262144
+  ],
+  "targets": [
+    5,
+    7,
+    29,
+    31,
+    85,
+    125,
+    593,
+    9493
+  ],
+  "canonical_siblings": {
+    "5": 85,
+    "7": 29,
+    "31": 125,
+    "593": 9493
+  },
+  "weight": "w(u,n)=u*3^k/(n*2^A)=1/P(u→n), k,A of exact first arrival.",
+  "last_parent": "Actual odd state immediately before the first hit. Zero-arrival source and last parents divisible by3 are recorded separately and excluded from the unit-parent law.",
+  "measurements": [
+    "Full physical first-hit counts, checked against U03 registered output",
+    "Exact rational weighted parent histogram and exact collision Σp², diversity1−Σp²",
+    "Unweighted parent histogram solely for finite comparison",
+    "Shannon entropy in floating nats, diagnostic only",
+    "Dominant parent including verification of395forroot593"
+  ],
+  "termination_policy": {
+    "stop_at": 1,
+    "cycle_before1": "Fail completeness; never classify nohit.",
+    "step_limit": 10000,
+    "timeout": "Fail completeness; never classify nohit."
+  },
+  "normal_and_optimized": "Exactly one normal run and one Python-O run; byte-identical JSON required.",
+  "no_automatic_extension": true,
+  "resource_policy": "Local CPU only; no GPU or external service.",
+  "interpretation": "A finite weighted frontier. Convergence to the canonical Doob law uses external weighted-density identities and is not certified at the finite cutoff."
+}

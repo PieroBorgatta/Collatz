@@ -51,6 +51,10 @@ import CollatzShadowing.TwoEditSparsity
 import CollatzShadowing.TraceDensityBridge
 import CollatzShadowing.CycleMinimumProduct
 import CollatzShadowing.IntegerAtomTilt
+import CollatzShadowing.FiniteHorizonBudget
+import CollatzShadowing.QuadraticOccupation
+import CollatzShadowing.BoundedSlopeCatalogue
+import CollatzShadowing.SpineDispersion
 import CollatzShadowing.EpisodeInventory
 import CollatzShadowing.EpisodeGraph
 import CollatzShadowing.Operator
