@@ -1,0 +1,13 @@
+CollatzShadowing/QuadraticOccupation.lean:55:42: warning: This simp argument is unused:
+  div_pow
+
+Hint: Omit it from the simp argument list.
+  simp [potential, weight_zero,̵ ̵d̵i̵v̵_̵p̵o̵w̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CollatzShadowing/QuadraticOccupation.lean:89:2: error: Type mismatch: After simplification, term
+  mul_le_mul_of_nonneg_left (sum_squareLoss_finset_le hx H) hfactor
+ has type
+  visitConstant n * ∑ k ∈ H, squareLoss x k ≤ visitConstant n * (1 * (↑x ^ 2)⁻¹)
+but is expected to have type
+  visitConstant n * ∑ k ∈ H, squareLoss x k ≤ visitConstant n * (↑x ^ 2)⁻¹

@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "finished_at_utc": "2026-11-16T00:30:19.732047+00:00",
+  "task_first_tool_utc": "2026-11-16T00:11:25+00:00",
+  "owner": "/root/u06_quadratic_formal",
+  "source": "research/research_sprint_2026-11-15_three_hours/u06_max_envelope/CompositionPrototype.lean",
+  "source_sha256": "d199434cf12f96c042e133810d269437773cac1d65295f853f06d156b39faefa",
+  "source_lines": 247,
+  "frozen_core_source": "research/research_sprint_2026-11-15_three_hours/u06_max_envelope/MaxEnvelopePrototype.lean",
+  "frozen_core_sha256": "c640f8cd46ee70772c5f0f3c0dc1795b912b05923bd9a3d6e92c7c8343562836",
+  "core_verbatim_prefix": true,
+  "new_namespace": "MaxEnvelopeComposition",
+  "new_public_theorems": [
+    "envelope_composition",
+    "maximizing_seed_baseline",
+    "maximizing_prefix_calibrated"
+  ],
+  "new_public_theorem_count": 3,
+  "copied_core_public_theorem_count": 6,
+  "core_declarations_audited": 18,
+  "core_encoded_private": 8,
+  "new_declarations_audited": 4,
+  "new_encoded_private": 1,
+  "total_mathematical_declarations_audited": 22,
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "standalone_command": [
+    "lake",
+    "env",
+    "lean",
+    "../research/research_sprint_2026-11-15_three_hours/u06_max_envelope/CompositionPrototype.lean"
+  ],
+  "final_exit_code": 0,
+  "strict_axiom_audit_same_checked_source": true,
+  "source_and_four_frozen_modules_unchanged_since_final_snapshot": true,
+  "independent_semantic_review": {
+    "reviewer": "/root/u04_independent_review",
+    "status": "PASS communicated on exact final source SHA",
+    "additional_receipt": "Coordinator maintains the independent review receipt"
+  },
+  "integrated_into_main_library": false,
+  "main_statistics_changed_by_agent": false,
+  "cold_dependency_rebuild": false,
+  "independent_kernel_replay": false,
+  "GPU_or_external_code_used": false,
+  "commit_or_push_by_agent": false,
+  "scope": "Exact max-envelope composition, optimal seed baseline, calibrated prefix with explicit valid intermediate endpoint; no profile or density theorem.",
+  "failed_attempt_retained": true,
+  "historical_attempt_snapshot_note": "The attempt01 source hash refers to the then-current prototype; its exact bytes are preserved in composition_attempt_01_source.lean, while the live prototype is final attempt02.",
+  "artifacts": {
+    "research/research_sprint_2026-11-15_three_hours/u06_max_envelope/CompositionPrototype.lean": {
+      "sha256": "d199434cf12f96c042e133810d269437773cac1d65295f853f06d156b39faefa",
+      "bytes": 10501
+    },
+    "research/research_sprint_2026-11-15_three_hours/u06_max_envelope/COMPOSITION_RESULTS_IT.md": {
+      "sha256": "1a30d0e799f970cb8894d8f04d71a9b4d2eaea4b7f74931dc1313d1c6efc59e6",
+      "bytes": 2776
+    },
+    "research/research_sprint_2026-11-15_three_hours/u06_max_envelope/composition_protocol.json": {
+      "sha256": "a166fb0b30745f945a71befecaabf540765b98efd604b4fc84fc0ededdcebc75",
+      "bytes": 743
+    },
+    "research/research_sprint_2026-11-15_three_hours/u06_max_envelope/composition_attempt_01_source_snapshot.json": {
+      "sha256": "817514a9360ad9ff928d9f8cb47891c118dfd5e539a0c0382444faccc49d9d52",
+      "bytes": 982
+    },
+    "research/research_sprint_2026-11-15_three_hours/u06_max_envelope/composition_attempt_02_source_snapshot.json": {
+      "sha256": "6379857a3307654fe64c2985f18209e76e06aff01d821a56c205b50d0386b609",
+      "bytes": 1016
+    },
+    "research/research_sprint_2026-11-15_three_hours/u06_max_envelope/composition_attempt_01.log": {
+      "sha256": "0e33239f2aa90ecf05599c10f8b1fa8ae79f9cdb2986356ad43ef7cb9227b1a8",
+      "bytes": 3692
+    },
+    "research/research_sprint_2026-11-15_three_hours/u06_max_envelope/composition_attempt_01_source.lean": {
+      "sha256": "ab47c857f2c7517d046b65693873e23645ea20570c0c49bc127ccb34210e2c72",
+      "bytes": 10485
+    },
+    "research/research_sprint_2026-11-15_three_hours/u06_max_envelope/composition_attempt_02.log": {
+      "sha256": "2a1401cd87a31ed06cf6e1c06853924ee12541f461627f4e5434d6df5c245bd5",
+      "bytes": 2745
+    },
+    "research/research_sprint_2026-11-15_three_hours/u06_max_envelope/core_receipt.json": {
+      "sha256": "61a8e50a2b7a677b5fa6cab7c1040bb8696229c1cefb07bb9648f5f878c8db8a",
+      "bytes": 2338
+    }
+  }
+}

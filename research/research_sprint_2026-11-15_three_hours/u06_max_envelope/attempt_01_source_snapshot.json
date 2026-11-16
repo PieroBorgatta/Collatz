@@ -1,0 +1,14 @@
+{
+  "captured_at_utc": "2026-11-16T00:15:51.282799+00:00",
+  "stage": "First standalone check running; immutable attempt source hash",
+  "sha256": {
+    "research/research_sprint_2026-11-15_three_hours/u06_max_envelope/MaxEnvelopePrototype.lean": "c640f8cd46ee70772c5f0f3c0dc1795b912b05923bd9a3d6e92c7c8343562836",
+    "lean/CollatzShadowing/FiniteHorizonBudget.lean": "acddcaf114d5a8dff1d118df3fa88f00ab4956e38f987c45e7f5f347bb2dc9a5",
+    "lean/CollatzShadowing/QuadraticOccupation.lean": "5af51a6b1a263905d324a2f76b9aea3e11b22843c3e293d664ad1d6fc2f0c935",
+    "lean/CollatzShadowing/BoundedSlopeCatalogue.lean": "a3581a63341dadb22967c745825451410534756e2d69f7e1fc81659e72b1eafb",
+    "lean/CollatzShadowing/SpineDispersion.lean": "79af91e4b456506c4bb5f9a276d70c3989b54a25178c9a79889e348ba0add0b3",
+    "lean/lean-toolchain": "7dc000621e0046d1aada809e2b7177e64454645cf4c741e9daaf79c99ec2e7a2",
+    "lean/lakefile.toml": "1afedb74a3cf1e2bb139c954ff54bf474efdc204375401799eca58b98a56d80d",
+    "lean/lake-manifest.json": "83e5a26c8c107c4615a22196f6e911d51e2632d01d5a4138955b75a70a08fe74"
+  }
+}

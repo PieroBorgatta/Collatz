@@ -1,0 +1,86 @@
+{
+  "status": "PASS",
+  "completed_at_utc": "2026-11-15T23:10:20.082822+00:00",
+  "owner": "/root/u06_quadratic_formal",
+  "module": "CollatzShadowing.BoundedSlopeCatalogue",
+  "public_theorems": [
+    "subcatalogue_card_le",
+    "catalogue_finite",
+    "catalogue_ncard_le",
+    "catalogue_parameter_bounds",
+    "catalogue_source_bound"
+  ],
+  "public_theorem_count": 5,
+  "source_lines": 133,
+  "build_command": [
+    "lake",
+    "build",
+    "CollatzShadowing.BoundedSlopeCatalogue"
+  ],
+  "build_exit_code": 0,
+  "reported_build_jobs": 3298,
+  "reported_new_module_compile_seconds": 128,
+  "audit_command": [
+    "lake",
+    "env",
+    "lean",
+    "../research/research_sprint_2026-11-15_three_hours/u06_catalogue/AllDeclarationAudit.lean"
+  ],
+  "audit_exit_code": 0,
+  "declarations_audited": 9,
+  "encoded_private": 3,
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "source_snapshot_unchanged": true,
+  "source_changed_paths": [],
+  "cold_dependency_rebuild": false,
+  "independent_kernel_replay": false,
+  "full_library_build_by_agent": false,
+  "GPU_used": false,
+  "external_code_executed": false,
+  "commit_or_push_by_agent": false,
+  "scope": "Exact finite-set ingredient only: numerical cardinality and source bounds, full catalogue finite even with cyclic targets, existential length/sum bounds. Rational R>0; target arbitrary natural, including empty catalogue at zero.",
+  "excluded_claims": [
+    "Computable time or word-length cutoff",
+    "Full recoding sparsity theorem",
+    "S-unit theorem",
+    "Relative mass or Collatz conclusion"
+  ],
+  "artifacts": {
+    "lean/CollatzShadowing/BoundedSlopeCatalogue.lean": {
+      "sha256": "a3581a63341dadb22967c745825451410534756e2d69f7e1fc81659e72b1eafb",
+      "bytes": 6017
+    },
+    "notes/research_sprint_2026-11-15_three_hours/agents/U06_CATALOGUE_FORMAL_IT.md": {
+      "sha256": "00bfc22d5fa96b7e81c4bd83ac1a979d3faad8c5f6b288728e25d71acb1b51a8",
+      "bytes": 4252
+    },
+    "research/research_sprint_2026-11-15_three_hours/u06_catalogue/AllDeclarationAudit.lean": {
+      "sha256": "c8d18a982916f181a97d76b01865e336e11b5494697b23126a6d612ee66b7165",
+      "bytes": 1828
+    },
+    "research/research_sprint_2026-11-15_three_hours/u06_catalogue/all_declaration_audit.log": {
+      "sha256": "6743417a8da648b8e5b57f587f4be7a1383acdc242016586bf507839c9389eb7",
+      "bytes": 1366
+    },
+    "research/research_sprint_2026-11-15_three_hours/u06_catalogue/check_attempt_01.log": {
+      "sha256": "4062ef50a733611ccc40140b28a0ac22d357dbbb2efb3732e0fa0f70ca527bbe",
+      "bytes": 1167
+    },
+    "research/research_sprint_2026-11-15_three_hours/u06_catalogue/module_build.log": {
+      "sha256": "981dfe4c3a11167742dda173489208662d3d376668257d4a2a74ca5f33b45d28",
+      "bytes": 110
+    },
+    "research/research_sprint_2026-11-15_three_hours/u06_catalogue/protocol.json": {
+      "sha256": "1ab44799e2a668ea31e4876f0828431b7cdb409f6eef70f5b110abe9c81c2feb",
+      "bytes": 987
+    },
+    "research/research_sprint_2026-11-15_three_hours/u06_catalogue/source_snapshot.json": {
+      "sha256": "807c7f3a467001802da0bf19c80e021c57c8598ba8d481df272cd1b33bca2f09",
+      "bytes": 674
+    }
+  }
+}

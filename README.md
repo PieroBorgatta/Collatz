@@ -1,5 +1,20 @@
 # Phantom Orbit Shadowing for the Collatz Conjecture
 
+**16 November 2026:** four further modules formalize finite-horizon tail
+budgets, squared occupation with returns, finite bounded-slope catalogues,
+and finite collision certificates. The full build (3404 jobs) and strict
+audit of all 68 new-module declarations pass, including a separate
+[Ubuntu CI replay](notes/research_sprint_2026-11-15_three_hours/verification/checkpoint_ci_receipt.json).
+The new
+[bounded-slope recoding obstruction](notes/research_sprint_2026-11-15_three_hours/agents/U11_BOUNDED_SLOPE_IT.md)
+is a separate paper proof; its temporal cutoff is existential. Research now
+targets an [arithmetic branching surplus](notes/research_sprint_2026-11-15_three_hours/agents/U12_TWO_SEEDS_IT.md),
+whose required lower bound remains open. An independently reviewed
+[exact cutoff identity](notes/research_sprint_2026-11-15_three_hours/agents/U15_FINITE_CAP_IT.md)
+and [finite ladder renewal](notes/research_sprint_2026-11-15_three_hours/agents/U15_LADDER_RENEWAL_IT.md)
+connect that arithmetic envelope to integer traces on paper. These additions
+do not prove Collatz.
+
 **15 November 2026:** [seven new Lean modules](lean/STATUS.md) formalize a
 reciprocal budget `<81` for finite injective shortcut trajectories and the resulting height
 control for first-arrival transports. The integrated build and strict audit

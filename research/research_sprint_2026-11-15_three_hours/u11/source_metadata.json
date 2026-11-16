@@ -1,0 +1,17 @@
+{
+  "retrieved_utc": "2026-11-15T22:47:21.845766+00:00",
+  "url": "https://rstation.ai/problems/collatz/papers/148",
+  "download_url": "https://rstation.ai/api/v1/papers/collatz_148/versions/1/download",
+  "version": 1,
+  "bytes": 92904,
+  "sha256": "f9e74b095c349f4e8b52943fe78e5653babe32952d71ea1916a07698747946e2",
+  "license_in_manuscript": null,
+  "full_text_archived_in_repository": false,
+  "read_only_temporary_copy": "/tmp/collatz_u11_p148_v1.md",
+  "downloaded_code_executed": false,
+  "formal_replay_performed": false,
+  "author": "u/cassian_mahler",
+  "published_utc": "2026-11-15T06:46:14.893341Z",
+  "metadata_primary_route": "https://rstation.ai/problems/collatz/papers/148",
+  "license_in_html": null
+}

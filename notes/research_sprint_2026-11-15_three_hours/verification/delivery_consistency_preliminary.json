@@ -1,0 +1,594 @@
+{
+  "status": "PASS",
+  "recorded_at_utc": "2026-11-16T00:50:22.374290+00:00",
+  "scope": "Delivery consistency only; no additional mathematical verification.",
+  "final": false,
+  "reviewed_snapshot_checks": 33,
+  "checks": [
+    {
+      "label": "build_and_audit_receipt",
+      "status": "PASS"
+    },
+    {
+      "label": "verified_source:lean/CollatzShadowing/FiniteHorizonBudget.lean",
+      "status": "PASS"
+    },
+    {
+      "label": "verified_source:lean/CollatzShadowing/QuadraticOccupation.lean",
+      "status": "PASS"
+    },
+    {
+      "label": "verified_source:lean/CollatzShadowing/BoundedSlopeCatalogue.lean",
+      "status": "PASS"
+    },
+    {
+      "label": "verified_source:lean/CollatzShadowing/SpineDispersion.lean",
+      "status": "PASS"
+    },
+    {
+      "label": "verified_source:lean/CollatzShadowing.lean",
+      "status": "PASS"
+    },
+    {
+      "label": "verified_source:lean/lean-toolchain",
+      "status": "PASS"
+    },
+    {
+      "label": "verified_source:lean/lakefile.toml",
+      "status": "PASS"
+    },
+    {
+      "label": "verified_source:lean/lake-manifest.json",
+      "status": "PASS"
+    },
+    {
+      "label": "verified_source:notes/research_sprint_2026-11-15_three_hours/verification/AllNewDependencyAudit.lean",
+      "status": "PASS"
+    },
+    {
+      "label": "verified_log:notes/research_sprint_2026-11-15_three_hours/verification/integrated_build.log",
+      "status": "PASS"
+    },
+    {
+      "label": "verified_log:notes/research_sprint_2026-11-15_three_hours/verification/all_new_axioms.log",
+      "status": "PASS"
+    },
+    {
+      "label": "strict_audit_scope",
+      "status": "PASS"
+    },
+    {
+      "label": "six_replay_receipt",
+      "status": "PASS"
+    },
+    {
+      "label": "replay_snapshot:affine_transport",
+      "status": "PASS"
+    },
+    {
+      "label": "replay_snapshot:calibrated_prefix",
+      "status": "PASS"
+    },
+    {
+      "label": "replay_snapshot:minimal_prefix",
+      "status": "PASS"
+    },
+    {
+      "label": "replay_snapshot:minimum_parent_seeds",
+      "status": "PASS"
+    },
+    {
+      "label": "replay_snapshot:physical_cdf",
+      "status": "PASS"
+    },
+    {
+      "label": "replay_snapshot:physical_parent_collision",
+      "status": "PASS"
+    },
+    {
+      "label": "frozen_previous_sources_and_pdfs",
+      "status": "PASS",
+      "permitted_changes": [
+        "lean/CollatzShadowing.lean",
+        "lean/CollatzShadowing/THEOREM_INDEX.md"
+      ],
+      "actual_changes": [
+        "lean/CollatzShadowing.lean",
+        "lean/CollatzShadowing/THEOREM_INDEX.md"
+      ]
+    },
+    {
+      "label": "statistics:AI_authored",
+      "status": "PASS",
+      "actual": {
+        "files": 64,
+        "lines": 16603,
+        "public_theorem_lemma_declarations": 710
+      }
+    },
+    {
+      "label": "statistics:generator_emitted",
+      "status": "PASS",
+      "actual": {
+        "files": 26,
+        "lines": 43513,
+        "public_theorem_lemma_declarations": 966
+      }
+    },
+    {
+      "label": "statistics:total",
+      "status": "PASS",
+      "actual": {
+        "files": 90,
+        "lines": 60116,
+        "public_theorem_lemma_declarations": 1676
+      }
+    },
+    {
+      "label": "statistics:new_modules",
+      "status": "PASS",
+      "actual": {
+        "files": 4,
+        "lines": 702,
+        "public_theorem_lemma_declarations": 28
+      }
+    },
+    {
+      "label": "index_line:FiniteHorizonBudget:20",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:FiniteHorizonBudget:36",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:FiniteHorizonBudget:54",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:FiniteHorizonBudget:100",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:FiniteHorizonBudget:130",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:FiniteHorizonBudget:170",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:FiniteHorizonBudget:184",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:FiniteHorizonBudget:201",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:QuadraticOccupation:29",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:QuadraticOccupation:33",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:QuadraticOccupation:41",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:QuadraticOccupation:51",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:QuadraticOccupation:61",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:QuadraticOccupation:72",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:QuadraticOccupation:94",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:QuadraticOccupation:117",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:BoundedSlopeCatalogue:44",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:BoundedSlopeCatalogue:66",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:BoundedSlopeCatalogue:88",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:BoundedSlopeCatalogue:99",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:BoundedSlopeCatalogue:111",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:SpineDispersion:26",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:SpineDispersion:33",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:SpineDispersion:48",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:SpineDispersion:95",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:SpineDispersion:123",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:SpineDispersion:151",
+      "status": "PASS"
+    },
+    {
+      "label": "index_line:SpineDispersion:173",
+      "status": "PASS"
+    },
+    {
+      "label": "index_all_28_public_theorems",
+      "status": "PASS",
+      "count": 28
+    },
+    {
+      "label": "standalone_prototype_frozen_prefix",
+      "status": "PASS"
+    },
+    {
+      "label": "standalone_receipt:core_receipt.json",
+      "status": "PASS"
+    },
+    {
+      "label": "standalone_artifact:research/research_sprint_2026-11-15_three_hours/u06_max_envelope/MaxEnvelopePrototype.lean",
+      "status": "PASS"
+    },
+    {
+      "label": "standalone_artifact:research/research_sprint_2026-11-15_three_hours/u06_max_envelope/CORE_RESULTS_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "standalone_artifact:research/research_sprint_2026-11-15_three_hours/u06_max_envelope/protocol.json",
+      "status": "PASS"
+    },
+    {
+      "label": "standalone_artifact:research/research_sprint_2026-11-15_three_hours/u06_max_envelope/attempt_01_source_snapshot.json",
+      "status": "PASS"
+    },
+    {
+      "label": "standalone_artifact:research/research_sprint_2026-11-15_three_hours/u06_max_envelope/check_attempt_01.log",
+      "status": "PASS"
+    },
+    {
+      "label": "standalone_receipt:composition_receipt.json",
+      "status": "PASS"
+    },
+    {
+      "label": "standalone_artifact:research/research_sprint_2026-11-15_three_hours/u06_max_envelope/CompositionPrototype.lean",
+      "status": "PASS"
+    },
+    {
+      "label": "standalone_artifact:research/research_sprint_2026-11-15_three_hours/u06_max_envelope/COMPOSITION_RESULTS_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "standalone_artifact:research/research_sprint_2026-11-15_three_hours/u06_max_envelope/composition_protocol.json",
+      "status": "PASS"
+    },
+    {
+      "label": "standalone_artifact:research/research_sprint_2026-11-15_three_hours/u06_max_envelope/composition_attempt_01_source_snapshot.json",
+      "status": "PASS"
+    },
+    {
+      "label": "standalone_artifact:research/research_sprint_2026-11-15_three_hours/u06_max_envelope/composition_attempt_02_source_snapshot.json",
+      "status": "PASS"
+    },
+    {
+      "label": "standalone_artifact:research/research_sprint_2026-11-15_three_hours/u06_max_envelope/composition_attempt_01.log",
+      "status": "PASS"
+    },
+    {
+      "label": "standalone_artifact:research/research_sprint_2026-11-15_three_hours/u06_max_envelope/composition_attempt_01_source.lean",
+      "status": "PASS"
+    },
+    {
+      "label": "standalone_artifact:research/research_sprint_2026-11-15_three_hours/u06_max_envelope/composition_attempt_02.log",
+      "status": "PASS"
+    },
+    {
+      "label": "standalone_artifact:research/research_sprint_2026-11-15_three_hours/u06_max_envelope/core_receipt.json",
+      "status": "PASS"
+    },
+    {
+      "label": "local_markdown_destinations",
+      "status": "PASS",
+      "missing": []
+    },
+    {
+      "label": "review_hash:notes/research_sprint_2026-11-15_three_hours/agents/U07_BELLMAN_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/collision_snapshots/U07_BELLMAN_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:notes/research_sprint_2026-11-15_three_hours/agents/U08_AFFINE_COALESCENCE_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/collision_snapshots/U08_AFFINE_COALESCENCE_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:notes/research_sprint_2026-11-15_three_hours/agents/U10_NONSMOOTH_AFFINE_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/collision_snapshots/U10_NONSMOOTH_AFFINE_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "historical_review:lean/CollatzShadowing/SpineDispersion.lean",
+      "status": "PASS",
+      "original_matches_snapshot": false,
+      "meaning": "Snapshot integrity checked separately; current Lean is bound by integration receipt."
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/collision_snapshots/SpineDispersion.lean",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:notes/research_sprint_2026-11-15_three_hours/agents/U15_LADDER_OBSTRUCTION_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/final_semantic_snapshots/U15_LADDER_OBSTRUCTION_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:notes/research_sprint_2026-11-15_three_hours/agents/U15_MINIMUM_SEED_ASYMPTOTIC_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/final_semantic_snapshots/U15_MINIMUM_SEED_ASYMPTOTIC_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:notes/research_sprint_2026-11-15_three_hours/agents/U09_TAIL_AND_SEMANTICS_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/final_semantic_snapshots/U09_TAIL_AND_SEMANTICS_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:research/research_sprint_2026-11-15_three_hours/u06_max_envelope/MaxEnvelopePrototype.lean",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/final_semantic_snapshots/MaxEnvelopePrototype.lean",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:research/research_sprint_2026-11-15_three_hours/u06_max_envelope/CompositionPrototype.lean",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/final_semantic_snapshots/CompositionPrototype.lean",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:research/research_sprint_2026-11-15_three_hours/u06_max_envelope/core_receipt.json",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/final_semantic_snapshots/core_receipt.json",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:research/research_sprint_2026-11-15_three_hours/u06_max_envelope/CORE_RESULTS_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/final_semantic_snapshots/CORE_RESULTS_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:research/research_sprint_2026-11-15_three_hours/u06_max_envelope/composition_attempt_02.log",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/final_semantic_snapshots/composition_attempt_02.log",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:notes/research_sprint_2026-11-15_three_hours/agents/U02_GROWING_CARRY_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/growing_carry_snapshots/U02_GROWING_CARRY_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:research/research_sprint_2026-11-15_three_hours/u02/growing_carry_receipt.json",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/growing_carry_snapshots/growing_carry_receipt.json",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:notes/research_sprint_2026-11-15_three_hours/agents/U15_ZERO_TEMPERATURE_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/horizon_zero_temp_snapshots/U15_ZERO_TEMPERATURE_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:notes/research_sprint_2026-11-15_three_hours/agents/U14_COLOURED_HORIZON_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/horizon_zero_temp_snapshots/U14_COLOURED_HORIZON_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:notes/research_sprint_2026-11-15_three_hours/agents/U14_ADAPTIVE_CERTIFICATE_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/horizon_zero_temp_snapshots/U14_ADAPTIVE_CERTIFICATE_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:notes/research_sprint_2026-11-15_three_hours/agents/U15_LINEAR_CAP_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/horizon_zero_temp_snapshots/U15_LINEAR_CAP_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:notes/research_sprint_2026-11-15_three_hours/agents/U14_SOURCE147_INTERFACE_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/horizon_zero_temp_snapshots/U14_SOURCE147_INTERFACE_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:notes/research_sprint_2026-11-15_three_hours/agents/U15_LADDER_RENEWAL_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/ladder_snapshots/U15_LADDER_RENEWAL_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:notes/research_sprint_2026-11-15_three_hours/agents/U12_TWO_SEEDS_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/maxplus_snapshots/U12_TWO_SEEDS_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:research/research_sprint_2026-11-15_three_hours/u12/global_anchor_certificate.json",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/maxplus_snapshots/global_anchor_certificate.json",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:research/research_sprint_2026-11-15_three_hours/u12/minimum_parent_seeds_result.json",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/maxplus_snapshots/minimum_parent_seeds_result.json",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:research/research_sprint_2026-11-15_three_hours/u12/minimum_parent_seeds.py",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/maxplus_snapshots/minimum_parent_seeds.py",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:research/research_sprint_2026-11-15_three_hours/u12/prediction_correction.json",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/maxplus_snapshots/prediction_correction.json",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:research/research_sprint_2026-11-15_three_hours/u12/protocol.json",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/maxplus_snapshots/protocol.json",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:notes/research_sprint_2026-11-15_three_hours/agents/U15_MAXPLUS_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/maxplus_snapshots/U15_MAXPLUS_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:notes/research_sprint_2026-11-15_three_hours/agents/U15_FINITE_CAP_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/maxplus_snapshots/U15_FINITE_CAP_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:notes/research_sprint_2026-11-15_three_hours/agents/U05_MOVING_EDITS_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/surgery_snapshots/U05_MOVING_EDITS_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:notes/research_sprint_2026-11-15_three_hours/agents/U05_PERIODIC_DICTIONARY_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/surgery_snapshots/U05_PERIODIC_DICTIONARY_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:notes/research_sprint_2026-11-15_three_hours/agents/U03_LOCAL_MASS_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/surgery_snapshots/U03_LOCAL_MASS_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:notes/research_sprint_2026-11-15_three_hours/agents/U13_INFINITE_MINIMAL_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/symbolic_snapshots/U13_INFINITE_MINIMAL_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_hash:notes/research_sprint_2026-11-15_three_hours/agents/U13_CALIBRATED_COUNTEREXAMPLE_IT.md",
+      "status": "PASS"
+    },
+    {
+      "label": "review_snapshot:research/research_sprint_2026-11-15_three_hours/u04/symbolic_snapshots/U13_CALIBRATED_COUNTEREXAMPLE_IT.md",
+      "status": "PASS"
+    }
+  ],
+  "failures": []
+}

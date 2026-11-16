@@ -1,0 +1,24 @@
+{
+  "status": "SCOPED_READING_ONLY",
+  "recorded_at_utc": "2026-11-16T00:11:41.115162+00:00",
+  "note": "notes/research_sprint_2026-11-15_three_hours/agents/ROOT_SUM_PRODUCT_INTERFACE_IT.md",
+  "note_sha256": "e9c02c413b02e92364d76306ae529b42bf5d824ab36a3d33221fd37a2e50cb8d",
+  "primary_source": "https://rstation.ai/problems/collatz/papers/144",
+  "version": 1,
+  "download_sha256": "3c714de24c76d4755a65aec9a156bb9f9c47dd35013d4320ee209d1be7647304",
+  "paper_proof_sections_reconstructed": [
+    "2",
+    "3",
+    "4"
+  ],
+  "other_interfaces_read": [
+    "5",
+    "6",
+    "7"
+  ],
+  "independent_external_review": false,
+  "source_code_executed": false,
+  "Lean_import": false,
+  "surplus_lower_proved": false,
+  "license_text_found_in_download": false
+}

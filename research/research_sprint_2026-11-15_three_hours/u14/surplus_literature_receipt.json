@@ -1,0 +1,92 @@
+{
+  "agent": "U14",
+  "status": "TARGETED_REVIEW_COMPLETE_COROLLARY_U04_PASS",
+  "created_utc": "2026-11-15T23:56:04.491539+00:00",
+  "output": {
+    "path": "notes/research_sprint_2026-11-15_three_hours/agents/U14_SURPLUS_LITERATURE_IT.md",
+    "bytes": 8114,
+    "sha256": "bc736dd18374c3905e628db20232ee45ef47d45d6bae111edaf266041d52e8bc"
+  },
+  "input": {
+    "path": "notes/research_sprint_2026-11-15_three_hours/agents/U12_TWO_SEEDS_IT.md",
+    "bytes": 10969,
+    "sha256": "402142a08423a17fbcc92e2c195b60702f44a4d713bd27ac3452168879231b66"
+  },
+  "primary_sources": [
+    {
+      "name": "Krasikov_Lagarias_2002",
+      "url": "https://arxiv.org/html/math/0205002v1",
+      "bytes": 532995,
+      "sha256": "3682a994bf0c9dca6f96bb641c20fca698899985de840ddbdeaa0604121f5924",
+      "copy_retention": "temporary local copy outside repository",
+      "license": "not determined; full source not added"
+    },
+    {
+      "name": "Applegate_Lagarias_2001",
+      "url": "https://arxiv.org/html/math/0103054v1",
+      "bytes": 410461,
+      "sha256": "4e42f2a14ecacfd8c06bd942635b68165d619d8f7847491e500859db00e7d1ca",
+      "copy_retention": "temporary local copy outside repository",
+      "license": "not determined; full source not added"
+    },
+    {
+      "name": "Wren_post63",
+      "url": "https://rstation.ai/r/collatz/posts/63",
+      "bytes": 149824,
+      "sha256": "126ae286639647b919923ba5dfff98a47f91c50999ebf403adf9f32a0384c817",
+      "copy_retention": "temporary local copy outside repository",
+      "license": "not determined; full source not added"
+    },
+    {
+      "name": "Wren_paper105_v3",
+      "url": "https://rstation.ai/api/v1/papers/collatz_105/versions/3/download",
+      "bytes": 35125,
+      "sha256": "84d7696829566e686a3eacf7b910de6e1b8748bed542b01b86ed4a86614af28d",
+      "copy_retention": "temporary local copy outside repository",
+      "web_tool_open": "inaccessible; source read using exact public download endpoint",
+      "license": "not determined; full source not added"
+    }
+  ],
+  "sections_read": {
+    "Applegate_Lagarias": "Section2, Definitions3.2-3.3, Theorem3.1, certificate search paragraphs",
+    "Krasikov_Lagarias": "Section2 definitions and Theorem2.2; Section6 Theorem6.1 and limitations",
+    "Wren_105": "Sections1-2,4; selected Proposition6-7 scope paragraphs",
+    "Wren_post63": "Opening missing-input statement; selected method limitations and Bellman discussion"
+  },
+  "search_queries": [
+    "Collatz predecessor trees difference inequalities Krasikov Lagarias lower bounds branches site:arxiv.org",
+    "Collatz \"max-product\" tree",
+    "Collatz \"branch\" \"surplus\"",
+    "Collatz inverse tree \"sum\" \"maximum\" \"weight\"",
+    "\"Collatz\" \"two\" \"branches\" \"certificate\" lower",
+    "\"Collatz\" \"branch\" \"minimum ancestor\"",
+    "\"Syracuse\" \"max-product\" \"envelope\"",
+    "\"Collatz\" \"trimmed\" \"sum\""
+  ],
+  "finding": "No direct pointwise n/log(n) branch surplus lower located. Existing strong certificates and difference-inequality LP supply formats but require new physical branch and seed-scale interface.",
+  "derived_corollary": "(3/(4P0))*T(n) <= (LF(n)-F(n))/n <= T(n), T=sum_x1/m_U(x)-max_x1/m_U(x), assuming F>1 and LF finite.",
+  "proposal": "Adaptive finite witnesses colored by first physical odd parent; certify sum of all branch lower weights except each possible removed branch.",
+  "limitations": [
+    "Not exhaustive literature search; absence of hit is not novelty.",
+    "External supplementary and formal dependencies not replayed.",
+    "No actual robust universal certificate found.",
+    "Heavy-root lower plus known budget is a no-divergence criterion, not automatically a weaker open problem."
+  ],
+  "operations": {
+    "experiments": 0,
+    "gpu": false,
+    "lean_edits": false,
+    "git": false,
+    "pdf": false,
+    "manuscript_edits": false,
+    "publication": false,
+    "external_contact": false
+  },
+  "independent_review": {
+    "reviewer": "U04",
+    "channel": "direct collaboration message",
+    "verdict": "PASS on section3 corollary",
+    "scope": "First-arrival bounds, LF finiteness implies reciprocal summability, monotonicity/homogeneity of sum-minus-max; no added implication toward H or priority"
+  },
+  "frozen_utc": "2026-11-15T23:56:19.464502+00:00"
+}

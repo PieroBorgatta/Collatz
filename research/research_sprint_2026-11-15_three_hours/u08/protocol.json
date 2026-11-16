@@ -1,0 +1,18 @@
+{
+  "recorded_at_utc": "2026-11-15T22:38:47.917709+00:00",
+  "task": "Analytic coalescence obstruction; no finite experiment planned",
+  "base_commit": "203cbb868b2ba19e51e16feeede253a42dd821c3",
+  "constraints": [
+    "No Lean edits",
+    "No preexisting file edits",
+    "No code from external sources executed",
+    "No GPU resources",
+    "No commit/push"
+  ],
+  "primary_inputs": [
+    "https://doi.org/10.5281/zenodo.23003524",
+    "https://doi.org/10.5281/zenodo.23268751",
+    "https://doi.org/10.5281/zenodo.23268755",
+    "https://rstation.ai/problems/collatz/papers/124/v1"
+  ]
+}

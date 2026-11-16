@@ -1,0 +1,13 @@
+{
+  "captured_at_utc": "2026-11-15T22:23:33.040742+00:00",
+  "stage": "During module build, after the initial elaboration repair; final audit will be tied to the same snapshot",
+  "sources": {
+    "lean/CollatzShadowing/QuadraticOccupation.lean": "5af51a6b1a263905d324a2f76b9aea3e11b22843c3e293d664ad1d6fc2f0c935",
+    "lean/CollatzShadowing/WeightedVisits.lean": "f9a45d7c4c950b7d1028df8ae1146aab1b4625c1b0056d18402838e05dd47605",
+    "lean/CollatzShadowing/WeightedWords.lean": "8867082623502544909da42330cd520220ac177dc56a220c1ee59a7ff84e8571",
+    "lean/CollatzShadowing/IntegerAtomTilt.lean": "39320f3fd4f45feafce25c7b0fac7fb4d3c1c9562368c9ccc5072b3151d1b701",
+    "lean/lean-toolchain": "7dc000621e0046d1aada809e2b7177e64454645cf4c741e9daaf79c99ec2e7a2",
+    "lean/lakefile.toml": "1afedb74a3cf1e2bb139c954ff54bf474efdc204375401799eca58b98a56d80d",
+    "lean/lake-manifest.json": "83e5a26c8c107c4615a22196f6e911d51e2632d01d5a4138955b75a70a08fe74"
+  }
+}

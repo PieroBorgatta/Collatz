@@ -1,0 +1,94 @@
+{
+  "agent": "U14",
+  "status": "COMPLETE_NO_NEW_SCANS",
+  "frozen_utc": "2026-11-16T00:09:50.072861+00:00",
+  "outputs": [
+    {
+      "path": "notes/research_sprint_2026-11-15_three_hours/agents/U14_COLOURED_HORIZON_IT.md",
+      "bytes": 3589,
+      "sha256": "a7e2dfeaf42ca33c79b957854d1ad30a53fff841002dc903f9a4e334b292ea0e"
+    },
+    {
+      "path": "notes/research_sprint_2026-11-15_three_hours/agents/U14_ADAPTIVE_CERTIFICATE_IT.md",
+      "bytes": 5682,
+      "sha256": "1d30e903055cd26ffa418519241de58c801fb31ebdd7a2461f3a98ac2bcd44ea"
+    },
+    {
+      "path": "notes/research_sprint_2026-11-15_three_hours/agents/U14_SOURCE147_INTERFACE_IT.md",
+      "bytes": 4364,
+      "sha256": "9e4441070a8973995124ad097a85af83a5229810c11687334b8d4830bb66b309"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "notes/research_sprint_2026-11-15_three_hours/agents/U12_TWO_SEEDS_IT.md",
+      "bytes": 10969,
+      "sha256": "402142a08423a17fbcc92e2c195b60702f44a4d713bd27ac3452168879231b66"
+    },
+    {
+      "path": "notes/research_sprint_2026-11-15_three_hours/agents/U05_PERIODIC_DICTIONARY_IT.md",
+      "bytes": 6042,
+      "sha256": "d4eb9f46b5b50ba74ac7af2082fe188cbc2fd33f7577492db6c30b0a3837696d"
+    }
+  ],
+  "primary_sources": [
+    {
+      "url": "https://rstation.ai/r/collatz/posts/16",
+      "bytes": 370214,
+      "sha256": "fd4b97a4c2034c769933bafed99696e0bcba72513b8b416e23484b8c1ba4f2df",
+      "copy": "temporary outside repository",
+      "sections": "Wren audit giving M_k<(5/3)(3/2)^k",
+      "verification": "primary written statement read; initialization and dependencies not independently replayed"
+    },
+    {
+      "url": "https://rstation.ai/problems/collatz/papers/147",
+      "primary_download": "https://rstation.ai/api/v1/papers/collatz_147/versions/1/download",
+      "bytes": 37312,
+      "sha256": "84f885032fc926e1ebdc232aa0b6438ea837153a7b5cc887ef1d0e9d8043b00b",
+      "copy": "root-provided temporary primary text; no full source added to repository",
+      "sections": "2 definitions/imported duration7; 4 theorem2 and proof scope; 7 limitations",
+      "verification": "written external theorem read; dependencies and supplement not replayed"
+    },
+    {
+      "url": "https://rstation.ai/problems/collatz/papers/9/v1",
+      "temporary_source_sha256": "87a87f521a247f6d09a4e04caa96fc61b92fb433f22193e0023cc29af42be7a5",
+      "sections": "Theorem9: exponential rate alone, distinct from post16 prefactor"
+    }
+  ],
+  "review": {
+    "horizon": "U04 PASS via direct collaboration message; external prefactor conditional",
+    "adaptive": "U04 PASS via direct collaboration message: correctness, strict-threshold completeness, finite phases, bit bounds",
+    "source147_interface": "targeted primary-source review plus elementary conditional duration inversion; sent to U04 for any issue",
+    "frozen_note": {
+      "path": "notes/research_sprint_2026-11-15_three_hours/agents/U04_HORIZON_ZERO_TEMP_REVIEW_IT.md",
+      "bytes": 7795,
+      "sha256": "e6202b1f67bc3b94e8981d77637296d0e1f4ddb3daf0371a552db2c61e4b525a",
+      "sections": "5 horizon and 6 adaptive certifier"
+    }
+  },
+  "claims": [
+    "One witness per physical first branch and length<=K yields R<5((3/2)^K-1).",
+    "Lower c*n/(1+log n) requires K>log_(3/2)n-log_(3/2)(1+log n)+log_(3/2)(c/5).",
+    "Explicit dovetail K0+t, U=(n+1)2^t is complete for strict lower A>ell when F>1 and LF finite.",
+    "Optional quadratic horizon remains complete and forces growing dictionary cost for any existing witness at deep frontier, under external duration input and stated guards."
+  ],
+  "limitations": [
+    "No global surplus lower or witness existence established.",
+    "No uniform success-stage rate and no negative certificate from timeout.",
+    "Paper9 rate alone does not justify the uniform critical-base prefactor.",
+    "Paper147 return theorem is not automatically applicable to paired recoding words.",
+    "No growing-dictionary or all-cycle exclusion follows.",
+    "No novelty priority claim."
+  ],
+  "operations": {
+    "new_scans": 0,
+    "experiments": 0,
+    "gpu": false,
+    "lean_edits": false,
+    "git": false,
+    "pdf": false,
+    "manuscript_edits": false,
+    "publication": false,
+    "external_contact": false
+  }
+}

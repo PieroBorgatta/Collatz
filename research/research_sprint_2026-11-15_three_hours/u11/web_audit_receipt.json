@@ -1,0 +1,32 @@
+{
+  "status": "SCOPED_ANALYTIC_READING_COMPLETE",
+  "recorded_utc": "2026-11-15T22:59:10.761178+00:00",
+  "reviewer": "/root/u11_web_inverse_minima",
+  "paper": "collatz_148",
+  "version": 1,
+  "analytical_sections_read": [
+    "2",
+    "3",
+    "4",
+    "5",
+    "6"
+  ],
+  "related_interfaces_read": [
+    "139v2 reference alphabet and scope",
+    "108v1 fixed anchor and finite depth",
+    "1v3 Proposition9 exact companion"
+  ],
+  "blocking_error_found_in_read_analytic_steps": false,
+  "full_theorem_independently_verified": false,
+  "finite_certificates_replayed": false,
+  "downloaded_code_executed": false,
+  "formal_replay": false,
+  "GPU_used": false,
+  "license_of_manuscript_identified": false,
+  "full_text_archived_in_repository": false,
+  "bibliographic_correction": "148section5.1 companion of1v3Prop9 should be(1,2)^(L-1)(1,4,1,2,1), not(1,2)^(L-1)(1,7)",
+  "note": "notes/research_sprint_2026-11-15_three_hours/agents/U11_WEB_INVERSE_IT.md",
+  "sha256": "54bdf939ddf5b3adf7afbf7795177fd6ff3e50a75fc1453169578bee0426c09a",
+  "new_local_deduction": "notes/research_sprint_2026-11-15_three_hours/agents/U11_BOUNDED_SLOPE_IT.md",
+  "new_local_deduction_status": "PAPER_PROOF_INDEPENDENT_REVIEW_PASS"
+}

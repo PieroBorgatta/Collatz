@@ -1,0 +1,13 @@
+{
+  "recorded_at_utc": "2026-11-16T00:55:52.638276+00:00",
+  "local_cpu_used": true,
+  "home_server_gpu_used": false,
+  "server_connections_made": false,
+  "runpod_used": false,
+  "created_runpod_resources": [],
+  "paid_compute_resources_created": [],
+  "shutdown_required": false,
+  "reason": "The unresolved obligation is a mathematical uniform lower bound. The useful exact finite checks were small CPU jobs; larger hardware would not certify that bound.",
+  "final_resource_audit_pending": false,
+  "final_resource_audit": "No server connection or Runpod resource was created by this sprint; nothing requires shutdown."
+}

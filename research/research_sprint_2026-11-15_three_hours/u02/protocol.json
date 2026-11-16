@@ -1,0 +1,18 @@
+{
+  "started_at_utc": "2026-11-15T22:01:47.018613+00:00",
+  "scope": "Green/renewal identities and target-dependent relaxation; proofs on paper, finite tests only if a precise identity needs independent verification.",
+  "questions": [
+    "Exact quadratic Green equation and killed Doob law",
+    "Relation of depth moments to small-ancestor hitting times",
+    "Localized prefix budgets versus infinite tails",
+    "Whether new microscopic occupation source can pay uncapped tails"
+  ],
+  "no_go_guardrails": [
+    "No inference of a uniform target rate from pointwise Green finiteness",
+    "No inference of uncapped moments from total variation times a polynomial maximum",
+    "No claim of bibliographic novelty without primary-source comparison"
+  ],
+  "experiment_before_execution_required": true,
+  "paid_resources_allowed_to_this_worker": false,
+  "old_sources_read_only": true
+}

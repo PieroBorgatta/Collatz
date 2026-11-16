@@ -1,0 +1,14 @@
+{
+  "recorded_at_utc": "2026-11-15T22:22:49.797754+00:00",
+  "task": "Fixed sparse edits and growing common blocks",
+  "scope": "Paper proof first: sparse non-one suffix obstruction; generic sparse edits remain open",
+  "experiment_planned": false,
+  "sources": [
+    "notes/research_sprint_2026-11-15/agents/T02_SURGERY_ETA_IT.md",
+    "notes/research_sprint_2026-11-15/agents/T04_SURGERY_REVIEW_IT.md",
+    "lean/CollatzShadowing/WordSurgery.lean"
+  ],
+  "external_input": "Evertse 1984, Corollary2, printed p228, as audited in T02/T04",
+  "no_Lean_modifications": true,
+  "no_GPU_or_external_resources": true
+}

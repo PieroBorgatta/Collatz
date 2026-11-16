@@ -1,0 +1,130 @@
+{
+  "agent": "U14",
+  "status": "SCOPED_BIBLIOGRAPHIC_ADDENDUM_COMPLETE",
+  "created_utc": "2026-11-15T23:49:30.079035+00:00",
+  "output": {
+    "path": "notes/research_sprint_2026-11-15_three_hours/agents/U14_NOVELTY_ADDENDUM_IT.md",
+    "bytes": 7698,
+    "sha256": "66282ef90f2f0b8ad1856a3ed7e5062d8531a17aebe72ef7e4760d12f32f5740"
+  },
+  "inputs_current_snapshot": [
+    {
+      "path": "notes/research_sprint_2026-11-15_three_hours/agents/U12_TWO_SEEDS_IT.md",
+      "bytes": 10969,
+      "sha256": "402142a08423a17fbcc92e2c195b60702f44a4d713bd27ac3452168879231b66"
+    },
+    {
+      "path": "notes/research_sprint_2026-11-15_three_hours/agents/U15_MAXPLUS_IT.md",
+      "bytes": 8623,
+      "sha256": "2f7d1ac0b1f349fa12d32fa8074b7cec970478187262380ae414f01caa1f1f04"
+    },
+    {
+      "path": "notes/research_sprint_2026-11-15_three_hours/agents/U15_FINITE_CAP_IT.md",
+      "bytes": 8106,
+      "sha256": "4d4618aca2449eb4662b62d767e857963597b83aa844a6cc9551ec3cd86b050c"
+    },
+    {
+      "path": "notes/research_sprint_2026-11-15_three_hours/agents/U04_MAXPLUS_REVIEW_IT.md",
+      "bytes": 13426,
+      "sha256": "db013d0f6f973f81232e929b2456fc34223cd541dcca883061f0f9bdc55bfd59"
+    },
+    {
+      "path": "notes/research_sprint_2026-11-15_three_hours/agents/U14_V7_NOVELTY_IT.md",
+      "bytes": 8151,
+      "sha256": "f2a8756610f0db44ab45c356f595a0be1457dad697705b01970ce02604d2750e"
+    }
+  ],
+  "primary_sources": [
+    {
+      "paper": 9,
+      "version": 1,
+      "url": "https://rstation.ai/api/v1/papers/collatz_9/versions/1/download",
+      "bytes": 56075,
+      "sha256": "87a87f521a247f6d09a4e04caa96fc61b92fb433f22193e0023cc29af42be7a5",
+      "copy_retention": "temporary local file outside repository",
+      "license": "not determined; full source not added to repository"
+    },
+    {
+      "paper": 12,
+      "version": 1,
+      "url": "https://rstation.ai/api/v1/papers/collatz_12/versions/1/download",
+      "bytes": 75929,
+      "sha256": "7f6bc94e4e24e714bc3740bcc5a066582a0f6af064180ae38cabe0174488b185",
+      "copy_retention": "temporary local file outside repository",
+      "license": "not determined; full source not added to repository"
+    },
+    {
+      "paper": 37,
+      "version": 3,
+      "url": "https://rstation.ai/api/v1/papers/collatz_37/versions/3/download",
+      "bytes": 49314,
+      "sha256": "7c4727ee6f393fe93e8e8711263da2a6e792d5714fb1291b4d40ad1e23a1e564",
+      "copy_retention": "temporary local file outside repository",
+      "license": "not determined; full source not added to repository"
+    },
+    {
+      "paper": 127,
+      "version": 1,
+      "url": "https://rstation.ai/api/v1/papers/collatz_127/versions/1/download",
+      "bytes": 62987,
+      "sha256": "73cacc9f4393d133df87e50f0cb9579f5156f056a401f8aa1b98aa638cc8ce6b",
+      "copy_retention": "temporary local file outside repository",
+      "license": "not determined; full source not added to repository"
+    },
+    {
+      "path": "research/research_sprint_2026-11-15/t10/sources/paper146_v1.md",
+      "bytes": 27097,
+      "sha256": "ff3c011022cd87f7f068c30759b732e7b92bb24f9269856dba4e851491c3e150",
+      "paper": 146,
+      "version": 1,
+      "url": "https://rstation.ai/problems/collatz/papers/146",
+      "access": "previously acquired primary source in repository; current web open returned inaccessible"
+    },
+    {
+      "paper": 1,
+      "version": 3,
+      "url": "https://rstation.ai/problems/collatz/papers/1",
+      "access": "primary web page read; full source not copied"
+    }
+  ],
+  "search_queries": [
+    "\"Collatz\" \"max-plus\" \"weight\"",
+    "\"Collatz\" \"maximal\" \"gain\" \"inverse\"",
+    "\"Collatz\" \"capped\" \"trace\" \"threshold\"",
+    "\"Collatz\" \"optimal\" \"word weight\"",
+    "\"Collatz\" \"maximal gain\"",
+    "\"Collatz\" \"maximum weight\" \"inverse\"",
+    "\"Syracuse\" \"integer trace\" \"threshold\"",
+    "site:rstation.ai \"Collatz\" \"maximum\" \"multiplier\" \"integer\"",
+    "\"Collatz\" \"optimal gain\" \"integer\"",
+    "\"Collatz\" \"maximal word weight\"",
+    "\"Syracuse\" \"capped\" \"integer\"",
+    "\"Collatz\" \"max-plus\" \"predecessor\""
+  ],
+  "finding": {
+    "exact_prior_for_finite_step_integer_cap_threshold": "not located within stated scope",
+    "direct_prior_fixed_depth_optimization": "paper127 section12 C_k; F=sup_k 3^k*2^(-C_k(n)) at positive integer unit target",
+    "direct_prior_finite_catalogue": "paper9 Proposition11 finite all-depth squared-weight Green implies finite gain>=1 catalogue",
+    "direct_prior_capped_maximum_measure": "paper146 sigma_B=P(H<=B,Z in dz)",
+    "global_priority": "not established",
+    "recommendation": "prepare technical v7 and integrate independent audit before deposit"
+  },
+  "limitations": [
+    "Scanned specified primary manuscripts and targeted keyword searches, not exhaustive classical or current literature.",
+    "Search misses do not establish novelty.",
+    "No independent replay of external Lean dependencies or supplements.",
+    "Collatz-Wielandt max-plus spectral theory excluded as surname false positive."
+  ],
+  "operations": {
+    "experiments": 0,
+    "gpu": false,
+    "lean_edits": false,
+    "git": false,
+    "pdf": false,
+    "manuscript_edits": false,
+    "publication": false,
+    "external_contact": false
+  },
+  "independent_audit": "U04_MAXPLUS_REVIEW_IT.md sections7-8: PASS on U15 main and finite cap",
+  "frozen_utc": "2026-11-15T23:50:43.441497+00:00"
+}

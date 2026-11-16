@@ -1,0 +1,46 @@
+{
+  "source_scan": "2026-11-16",
+  "AI_authored": {
+    "files": 64,
+    "lines": 16603,
+    "public_theorem_lemma_declarations": 710
+  },
+  "generator_emitted": {
+    "files": 26,
+    "lines": 43513,
+    "public_theorem_lemma_declarations": 966
+  },
+  "total": {
+    "files": 90,
+    "lines": 60116,
+    "public_theorem_lemma_declarations": 1676
+  },
+  "new_modules": {
+    "files": 4,
+    "lines": 702,
+    "public_theorem_lemma_declarations": 28
+  },
+  "new_modules_by_name": {
+    "FiniteHorizonBudget": {
+      "files": 1,
+      "lines": 225,
+      "public_theorem_lemma_declarations": 8
+    },
+    "QuadraticOccupation": {
+      "files": 1,
+      "lines": 154,
+      "public_theorem_lemma_declarations": 8
+    },
+    "BoundedSlopeCatalogue": {
+      "files": 1,
+      "lines": 133,
+      "public_theorem_lemma_declarations": 5
+    },
+    "SpineDispersion": {
+      "files": 1,
+      "lines": 190,
+      "public_theorem_lemma_declarations": 7
+    }
+  },
+  "no_independent_discoveries_implied": true
+}

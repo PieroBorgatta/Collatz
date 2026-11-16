@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "finished_at_utc": "2026-11-16T00:18:01.363281+00:00",
+  "owner": "/root/u06_quadratic_formal",
+  "source": "research/research_sprint_2026-11-15_three_hours/u06_max_envelope/MaxEnvelopePrototype.lean",
+  "source_sha256": "c640f8cd46ee70772c5f0f3c0dc1795b912b05923bd9a3d6e92c7c8343562836",
+  "namespace": "MaxEnvelopePrototype",
+  "public_theorems": [
+    "one_le_envelope",
+    "wordWeight_le_envelope",
+    "exists_maximizing_word",
+    "envelope_le_target",
+    "optimal_source_bound",
+    "envelope_le_of_word_majorant"
+  ],
+  "public_theorem_count": 6,
+  "source_lines": 159,
+  "standalone_command": [
+    "lake",
+    "env",
+    "lean",
+    "../research/research_sprint_2026-11-15_three_hours/u06_max_envelope/MaxEnvelopePrototype.lean"
+  ],
+  "exit_code": 0,
+  "strict_axiom_audit_same_checked_source": true,
+  "declarations_audited": 18,
+  "encoded_private": 8,
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "source_and_four_frozen_modules_unchanged_since_snapshot": true,
+  "integrated_into_main_library": false,
+  "main_statistics_changed": false,
+  "effective_maximum_computation_claimed": false,
+  "g_or_Q_or_density_axioms": false,
+  "GPU_or_external_code_used": false,
+  "commit_or_push_by_agent": false,
+  "artifacts": {
+    "research/research_sprint_2026-11-15_three_hours/u06_max_envelope/MaxEnvelopePrototype.lean": {
+      "sha256": "c640f8cd46ee70772c5f0f3c0dc1795b912b05923bd9a3d6e92c7c8343562836",
+      "bytes": 6674
+    },
+    "research/research_sprint_2026-11-15_three_hours/u06_max_envelope/CORE_RESULTS_IT.md": {
+      "sha256": "f848b97751be708dabfb3b83463d049c4eea2dc20750a22c638471891e8e32e8",
+      "bytes": 1873
+    },
+    "research/research_sprint_2026-11-15_three_hours/u06_max_envelope/protocol.json": {
+      "sha256": "9a2334cbdc90691de29c8917d059415967f564f7236d2fbdf7b0d600b565e8bd",
+      "bytes": 917
+    },
+    "research/research_sprint_2026-11-15_three_hours/u06_max_envelope/attempt_01_source_snapshot.json": {
+      "sha256": "f11455298b82456adcd3c4e9f5b65a6d3bc7e79123658a07043a1fa1c121a4ae",
+      "bytes": 1094
+    },
+    "research/research_sprint_2026-11-15_three_hours/u06_max_envelope/check_attempt_01.log": {
+      "sha256": "297885ecd30ac66a30202767a5a9cb1640448447fa8f9e27ccabdea848942a60",
+      "bytes": 2167
+    }
+  }
+}

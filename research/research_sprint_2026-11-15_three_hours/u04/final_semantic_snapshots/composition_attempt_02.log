@@ -1,0 +1,44 @@
+MAX_ENVELOPE_ROOT: PASS MaxEnvelopePrototype.Admissible; axioms: [propext, Classical.choice, Quot.sound]
+MAX_ENVELOPE_ROOT: PASS MaxEnvelopePrototype.IsUnitSeed; axioms: [propext]
+MAX_ENVELOPE_ROOT: PASS MaxEnvelopePrototype.envelope; axioms: [propext, Quot.sound, Classical.choice]
+MAX_ENVELOPE_ROOT: PASS MaxEnvelopePrototype.envelope_le_of_word_majorant; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+MAX_ENVELOPE_ROOT: PASS MaxEnvelopePrototype.envelope_le_target; axioms: [propext, Quot.sound, Classical.choice]
+MAX_ENVELOPE_ROOT: PASS MaxEnvelopePrototype.exists_maximizing_word; axioms: [propext, Classical.choice, Quot.sound]
+MAX_ENVELOPE_ROOT: PASS MaxEnvelopePrototype.one_le_envelope; axioms: [propext, Quot.sound, Classical.choice]
+MAX_ENVELOPE_ROOT: PASS MaxEnvelopePrototype.one_le_envelope._simp_1_2; axioms: [propext, Quot.sound]
+MAX_ENVELOPE_ROOT: PASS MaxEnvelopePrototype.optimal_source_bound; axioms: [propext, Classical.choice, Quot.sound]
+MAX_ENVELOPE_ROOT: PASS MaxEnvelopePrototype.wordWeight_le_envelope; axioms: [propext, Classical.choice, Quot.sound]
+MAX_ENVELOPE_ROOT: PASS _private._stdin.0.MaxEnvelopePrototype.candidates; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+MAX_ENVELOPE_ROOT: PASS _private._stdin.0.MaxEnvelopePrototype.candidates._proof_1; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+MAX_ENVELOPE_ROOT: PASS _private._stdin.0.MaxEnvelopePrototype.mem_candidates; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+MAX_ENVELOPE_ROOT: PASS _private._stdin.0.MaxEnvelopePrototype.weight_mul_source_le; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+MAX_ENVELOPE_ROOT: PASS _private._stdin.0.MaxEnvelopePrototype.weights; axioms: [propext, Quot.sound, Classical.choice]
+MAX_ENVELOPE_ROOT: PASS _private._stdin.0.MaxEnvelopePrototype.weights.eq_1; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+MAX_ENVELOPE_ROOT: PASS _private._stdin.0.MaxEnvelopePrototype.weights_nonempty; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+MAX_ENVELOPE_ROOT: PASS _private._stdin.0.MaxEnvelopePrototype.weights_nonempty._simp_1_2; axioms: [propext, Quot.sound]
+MAX_ENVELOPE_AUDIT: PASS; declarations: 18; encoded-private: 8
+MAX_COMPOSITION_ROOT: PASS MaxEnvelopeComposition.envelope_composition; axioms: [propext, Classical.choice, Quot.sound]
+MAX_COMPOSITION_ROOT: PASS MaxEnvelopeComposition.maximizing_prefix_calibrated; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+MAX_COMPOSITION_ROOT: PASS MaxEnvelopeComposition.maximizing_seed_baseline; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+MAX_COMPOSITION_ROOT: PASS _private._stdin.0.MaxEnvelopeComposition.wordWeight_append; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+MAX_COMPOSITION_AUDIT: PASS; declarations: 4; encoded-private: 1

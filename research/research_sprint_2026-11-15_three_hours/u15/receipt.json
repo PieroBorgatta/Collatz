@@ -1,0 +1,79 @@
+{
+  "agent": "U15 max-plus/surplus",
+  "timestamp_utc": "2026-11-16T00:23:43.825336+00:00",
+  "artifacts": [
+    {
+      "path": "notes/research_sprint_2026-11-15_three_hours/agents/U15_MAXPLUS_IT.md",
+      "sha256": "2f7d1ac0b1f349fa12d32fa8074b7cec970478187262380ae414f01caa1f1f04",
+      "review": "PASS U04 snapshot audit"
+    },
+    {
+      "path": "notes/research_sprint_2026-11-15_three_hours/agents/U15_FINITE_CAP_IT.md",
+      "sha256": "4d4618aca2449eb4662b62d767e857963597b83aa844a6cc9551ec3cd86b050c",
+      "review": "PASS U04 snapshot audit"
+    },
+    {
+      "path": "notes/research_sprint_2026-11-15_three_hours/agents/U15_PHASE_BARRIER_IT.md",
+      "sha256": "a2f692de0fecb43056099b07eace47abde27acfa4187f121044bed83bd95da9c",
+      "review": "mathematical derivation; not independently audited"
+    },
+    {
+      "path": "notes/research_sprint_2026-11-15_three_hours/agents/U15_LADDER_RENEWAL_IT.md",
+      "sha256": "00fb7dc2753eb3529ba00b546f5d5738a6b88953f65c8a04e9951ec957572966",
+      "review": "PASS U04_LADDER_REVIEW_IT.md, assigned snapshot"
+    },
+    {
+      "path": "notes/research_sprint_2026-11-15_three_hours/agents/U15_ZERO_TEMPERATURE_IT.md",
+      "sha256": "6fbb3d853c2e271c0ff57c67fa174bd8046c84db57dc6ca58c4e88333191c42f",
+      "review": "PASS U04_HORIZON_ZERO_TEMP_REVIEW_IT.md and explicit scope review in team messages"
+    },
+    {
+      "path": "notes/research_sprint_2026-11-15_three_hours/agents/U15_LINEAR_CAP_IT.md",
+      "sha256": "c47030639a49851114f196b03a142218c8c3d0fc72a4910aba84084b40be8621",
+      "review": "PASS U04_HORIZON_ZERO_TEMP_REVIEW_IT.md section7, including marginal floor estimate"
+    },
+    {
+      "path": "notes/research_sprint_2026-11-15_three_hours/agents/U15_LADDER_OBSTRUCTION_IT.md",
+      "sha256": "2a993d34425e1178f4b438e7a66bc43218e57a0d4695f5ac158d0b4eda5ba182",
+      "review": "PASS U04 snapshot and scope audit"
+    },
+    {
+      "path": "notes/research_sprint_2026-11-15_three_hours/agents/U15_MINIMUM_SEED_ASYMPTOTIC_IT.md",
+      "sha256": "671e584f107f0570350e3a47507cbe056703681863ca7209d3817deacb634bec",
+      "review": "PASS U04 explicit team audit after comparison with U09; audit file integration pending"
+    }
+  ],
+  "claims": {
+    "new_collatz_solution": false,
+    "logarithmic_surplus_lower_proved": false,
+    "critical_optimal_clock_bound_proved": false,
+    "global_bibliographic_priority_claimed": false,
+    "finite_cap_Doob_crossing_proof": "paper proof, independent PASS",
+    "maxplus_profile_and_stabilization": "paper proof, independent PASS",
+    "zero_temperature_gap": "existential, not effective",
+    "ladder_h_positivity": "pointwise, no floor, independent PASS",
+    "linear_cap_heavy_retention": "existential constants only; core proof independent PASS",
+    "ladder_locality_and_obstruction": "paper proof and abstract model, independent PASS; not actual Collatz graph",
+    "minimum_seed_asymptotic": "paper proof independent PASS; no new surplus lower"
+  },
+  "actions": {
+    "lean_changes": false,
+    "git_actions": false,
+    "gpu_usage": false,
+    "new_numeric_experiments": false
+  },
+  "external_inputs": [
+    "BoundedSlopeCatalogue exact word finiteness",
+    "canonical harmonic g and fixed-integer Cesaro",
+    "unweighted quadratic Green for cap identity",
+    "pre-existing uniform lower predecessor density only for A criterion",
+    "first-arrival product bound P0",
+    "U09 high-tail only on injective paths"
+  ],
+  "periodic_guard": "Linear upper g<=Cn is used only on nonreturn/divergent roots or as explicitly extra hypothesis; no global periodic attribution.",
+  "review_documents": [
+    "notes/research_sprint_2026-11-15_three_hours/agents/U04_MAXPLUS_REVIEW_IT.md",
+    "notes/research_sprint_2026-11-15_three_hours/agents/U04_LADDER_REVIEW_IT.md",
+    "notes/research_sprint_2026-11-15_three_hours/agents/U04_HORIZON_ZERO_TEMP_REVIEW_IT.md"
+  ]
+}

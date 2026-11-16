@@ -1,0 +1,17 @@
+{
+  "recorded_at_utc": "2026-11-15T22:13:13.137096+00:00",
+  "agent": "/root/u01_capped_relaxation",
+  "purpose": "Paper proof of capped integer Cesaro trace and Doob survival identity; localized budget and cap optimization; bibliography checks",
+  "experiments_planned": false,
+  "max_profile_replay_cancelled_before_creation": "Explicit prior global maximum bound found in post16/paper9; no reason to duplicate the numerical profile census",
+  "allowed_mutations": [
+    "notes/research_sprint_2026-11-15_three_hours/agents/U01_CAP_RELAXATION_IT.md",
+    "research/research_sprint_2026-11-15_three_hours/u01/"
+  ],
+  "no_remote_compute_requested": true,
+  "not_claimed": [
+    "Collatz proof",
+    "uniform lower relaxation estimate",
+    "global priority"
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "status": "PASS",
+  "recorded_at_utc": "2026-11-16T00:10:33.744401+00:00",
+  "run": {
+    "conclusion": "success",
+    "headSha": "b20698f854b72e8bbeba0aa9d7c89ad351422dae",
+    "status": "completed",
+    "updatedAt": "2026-11-16T00:01:05Z",
+    "url": "https://github.com/PieroBorgatta/Collatz/actions/runs/43777436364"
+  },
+  "artifact": {
+    "id": 14186868396,
+    "name": "arithmetic-follow-up-43777436364-1",
+    "service_digest": "sha256:7d5db1d3aa7147a6eaa657eab6f6092dbaa13a68a14d42007d8c835c8527040c",
+    "local_extracted_temporary_directory": "/tmp/collatz-ci-b20698f-arithmetic"
+  },
+  "meaning": "Separate Ubuntu CI execution of the same frozen Lean sources, strict audit and finite Python programs. This is cross-platform replay, not independent kernel implementation or an asymptotic proof.",
+  "remote_audit_sha256": "739e68a2facdb09c87d853330536ceb7b2cdcb5ffb0bf00e40c41d2c52aeeaa8",
+  "remote_audit_byte_identical_to_local": true,
+  "outputs": [
+    {
+      "name": "affine_transport.json",
+      "local_sha256": "3f2bf580e609c03cd724fdb095c62cb7c907bdc8fe3be8174a2d9e186b085907",
+      "remote_sha256": "3f2bf580e609c03cd724fdb095c62cb7c907bdc8fe3be8174a2d9e186b085907",
+      "identical": true
+    },
+    {
+      "name": "affine_transport_optimized.json",
+      "local_sha256": "3f2bf580e609c03cd724fdb095c62cb7c907bdc8fe3be8174a2d9e186b085907",
+      "remote_sha256": "3f2bf580e609c03cd724fdb095c62cb7c907bdc8fe3be8174a2d9e186b085907",
+      "identical": true
+    },
+    {
+      "name": "calibrated_prefix.json",
+      "local_sha256": "dbb1d195426ae998dbc86c43c44cf24899b7914c12d4af9c90b3a86bdfca7dba",
+      "remote_sha256": "dbb1d195426ae998dbc86c43c44cf24899b7914c12d4af9c90b3a86bdfca7dba",
+      "identical": true
+    },
+    {
+      "name": "calibrated_prefix_optimized.json",
+      "local_sha256": "dbb1d195426ae998dbc86c43c44cf24899b7914c12d4af9c90b3a86bdfca7dba",
+      "remote_sha256": "dbb1d195426ae998dbc86c43c44cf24899b7914c12d4af9c90b3a86bdfca7dba",
+      "identical": true
+    },
+    {
+      "name": "minimal_prefix.json",
+      "local_sha256": "a4d5bc2152f348c2dd456573051efeab7148d6d7f2b82ac4b73510c15cf0c409",
+      "remote_sha256": "a4d5bc2152f348c2dd456573051efeab7148d6d7f2b82ac4b73510c15cf0c409",
+      "identical": true
+    },
+    {
+      "name": "minimal_prefix_optimized.json",
+      "local_sha256": "a4d5bc2152f348c2dd456573051efeab7148d6d7f2b82ac4b73510c15cf0c409",
+      "remote_sha256": "a4d5bc2152f348c2dd456573051efeab7148d6d7f2b82ac4b73510c15cf0c409",
+      "identical": true
+    },
+    {
+      "name": "minimum_parent_seeds.json",
+      "local_sha256": "39afd5e0040babde9da7162404ae055474a0c90b23bbb0884580e66a02ed86cd",
+      "remote_sha256": "39afd5e0040babde9da7162404ae055474a0c90b23bbb0884580e66a02ed86cd",
+      "identical": true
+    },
+    {
+      "name": "minimum_parent_seeds_optimized.json",
+      "local_sha256": "39afd5e0040babde9da7162404ae055474a0c90b23bbb0884580e66a02ed86cd",
+      "remote_sha256": "39afd5e0040babde9da7162404ae055474a0c90b23bbb0884580e66a02ed86cd",
+      "identical": true
+    },
+    {
+      "name": "physical_cdf.json",
+      "local_sha256": "84b72ce902d96adee1ac7e40236b14f9c49970aa2f0423923b1fa190be27fdb6",
+      "remote_sha256": "84b72ce902d96adee1ac7e40236b14f9c49970aa2f0423923b1fa190be27fdb6",
+      "identical": true
+    },
+    {
+      "name": "physical_cdf_optimized.json",
+      "local_sha256": "84b72ce902d96adee1ac7e40236b14f9c49970aa2f0423923b1fa190be27fdb6",
+      "remote_sha256": "84b72ce902d96adee1ac7e40236b14f9c49970aa2f0423923b1fa190be27fdb6",
+      "identical": true
+    },
+    {
+      "name": "physical_parent_collision.json",
+      "local_sha256": "c8d9a302a9080b46d28381c591faaa5a79a7c37488a81203c9ed251ac0be7dd3",
+      "remote_sha256": "c8d9a302a9080b46d28381c591faaa5a79a7c37488a81203c9ed251ac0be7dd3",
+      "identical": true
+    },
+    {
+      "name": "physical_parent_collision_optimized.json",
+      "local_sha256": "c8d9a302a9080b46d28381c591faaa5a79a7c37488a81203c9ed251ac0be7dd3",
+      "remote_sha256": "c8d9a302a9080b46d28381c591faaa5a79a7c37488a81203c9ed251ac0be7dd3",
+      "identical": true
+    }
+  ]
+}

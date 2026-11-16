@@ -1,0 +1,12 @@
+{
+  "recorded_at_utc": "2026-11-15T22:22:49.924779+00:00",
+  "status": "PAPER_PROOF_PENDING_INDEPENDENT_REVIEW",
+  "report": "../notes/research_sprint_2026-11-15_three_hours/agents/U05_MOVING_EDITS_IT.md",
+  "report_sha256": "d276de5d5e6354483f6d77d27f762974aca076fb5b41ca079747d8fb677e0fd2",
+  "new_claim": "X^o(1) transport codes with same profile and common prefix, suffix lengths arbitrary but \u2264s non-one exponents in each suffix",
+  "external_input": "Evertse1984Corollary2",
+  "generic_fixed_edit_problem_closed": false,
+  "experiments_run": false,
+  "Lean_modified": false,
+  "GPU_used": false
+}

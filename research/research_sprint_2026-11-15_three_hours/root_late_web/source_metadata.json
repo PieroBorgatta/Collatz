@@ -1,0 +1,27 @@
+{
+  "retrieved_utc": "2026-11-16T00:02:56.959352+00:00",
+  "sources": [
+    {
+      "number": 144,
+      "version": 1,
+      "primary_url": "https://rstation.ai/problems/collatz/papers/144",
+      "download_url": "https://rstation.ai/api/v1/papers/collatz_144/versions/1/download",
+      "bytes": 33326,
+      "sha256": "3c714de24c76d4755a65aec9a156bb9f9c47dd35013d4320ee209d1be7647304",
+      "temporary_copy": "/tmp/collatz_root_p144_v1.md",
+      "full_text_archived_in_repository": false,
+      "downloaded_code_executed": false
+    },
+    {
+      "number": 147,
+      "version": 1,
+      "primary_url": "https://rstation.ai/problems/collatz/papers/147",
+      "download_url": "https://rstation.ai/api/v1/papers/collatz_147/versions/1/download",
+      "bytes": 37312,
+      "sha256": "84f885032fc926e1ebdc232aa0b6438ea837153a7b5cc887ef1d0e9d8043b00b",
+      "temporary_copy": "/tmp/collatz_root_p147_v1.md",
+      "full_text_archived_in_repository": false,
+      "downloaded_code_executed": false
+    }
+  ]
+}

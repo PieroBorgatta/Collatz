@@ -1,0 +1,59 @@
+MAX_ENVELOPE_ROOT: PASS MaxEnvelopePrototype.Admissible; axioms: [propext, Classical.choice, Quot.sound]
+MAX_ENVELOPE_ROOT: PASS MaxEnvelopePrototype.IsUnitSeed; axioms: [propext]
+MAX_ENVELOPE_ROOT: PASS MaxEnvelopePrototype.envelope; axioms: [propext, Quot.sound, Classical.choice]
+MAX_ENVELOPE_ROOT: PASS MaxEnvelopePrototype.envelope_le_of_word_majorant; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+MAX_ENVELOPE_ROOT: PASS MaxEnvelopePrototype.envelope_le_target; axioms: [propext, Quot.sound, Classical.choice]
+MAX_ENVELOPE_ROOT: PASS MaxEnvelopePrototype.exists_maximizing_word; axioms: [propext, Classical.choice, Quot.sound]
+MAX_ENVELOPE_ROOT: PASS MaxEnvelopePrototype.one_le_envelope; axioms: [propext, Quot.sound, Classical.choice]
+MAX_ENVELOPE_ROOT: PASS MaxEnvelopePrototype.one_le_envelope._simp_1_2; axioms: [propext, Quot.sound]
+MAX_ENVELOPE_ROOT: PASS MaxEnvelopePrototype.optimal_source_bound; axioms: [propext, Classical.choice, Quot.sound]
+MAX_ENVELOPE_ROOT: PASS MaxEnvelopePrototype.wordWeight_le_envelope; axioms: [propext, Classical.choice, Quot.sound]
+MAX_ENVELOPE_ROOT: PASS _private._stdin.0.MaxEnvelopePrototype.candidates; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+MAX_ENVELOPE_ROOT: PASS _private._stdin.0.MaxEnvelopePrototype.candidates._proof_1; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+MAX_ENVELOPE_ROOT: PASS _private._stdin.0.MaxEnvelopePrototype.mem_candidates; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+MAX_ENVELOPE_ROOT: PASS _private._stdin.0.MaxEnvelopePrototype.weight_mul_source_le; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+MAX_ENVELOPE_ROOT: PASS _private._stdin.0.MaxEnvelopePrototype.weights; axioms: [propext, Quot.sound, Classical.choice]
+MAX_ENVELOPE_ROOT: PASS _private._stdin.0.MaxEnvelopePrototype.weights.eq_1; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+MAX_ENVELOPE_ROOT: PASS _private._stdin.0.MaxEnvelopePrototype.weights_nonempty; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+MAX_ENVELOPE_ROOT: PASS _private._stdin.0.MaxEnvelopePrototype.weights_nonempty._simp_1_2; axioms: [propext, Quot.sound]
+MAX_ENVELOPE_AUDIT: PASS; declarations: 18; encoded-private: 8
+../research/research_sprint_2026-11-15_three_hours/u06_max_envelope/CompositionPrototype.lean:195:52: error(lean.invalidField): Invalid field `mp`: The environment does not contain `Function.mp`, so it is not possible to project the field `mp` from an expression
+  mul_le_mul_left ?m.39
+of type
+  ∀ (a : ?m.33), ?m.37 * a ≤ ?m.38 * a
+../research/research_sprint_2026-11-15_three_hours/u06_max_envelope/CompositionPrototype.lean:195:48: error: Application type mismatch: The argument
+  hF
+has type
+  0 < envelope n
+but is expected to have type
+  ?m.37 ≤ ?m.38
+in the application
+  mul_le_mul_left hF
+../research/research_sprint_2026-11-15_three_hours/u06_max_envelope/CompositionPrototype.lean:210:65: error(lean.invalidField): Invalid field `mp`: The environment does not contain `Function.mp`, so it is not possible to project the field `mp` from an expression
+  mul_le_mul_left ?m.55
+of type
+  ∀ (a : ?m.49), ?m.53 * a ≤ ?m.54 * a
+../research/research_sprint_2026-11-15_three_hours/u06_max_envelope/CompositionPrototype.lean:210:59: error: Application type mismatch: The argument
+  hpos
+has type
+  0 < wordWeight w
+but is expected to have type
+  ?m.53 ≤ ?m.54
+in the application
+  mul_le_mul_left hpos
+MAX_COMPOSITION_ROOT: PASS MaxEnvelopeComposition.envelope_composition; axioms: [propext, Classical.choice, Quot.sound]
+../research/research_sprint_2026-11-15_three_hours/u06_max_envelope/CompositionPrototype.lean:245:0: error: Unexpected axiom in MaxEnvelopeComposition.maximizing_prefix_calibrated: sorryAx

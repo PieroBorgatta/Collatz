@@ -1,0 +1,29 @@
+{
+  "recorded_at_utc": "2026-11-15T22:15:36.020915+00:00",
+  "agent": "/root/u01_capped_relaxation",
+  "status": "PAPER_PROOF_INDEPENDENT_REVIEW_PASS",
+  "report": "/Volumes/AFUOCO/SVILUPPO/TEORIE/Collatz/notes/research_sprint_2026-11-15_three_hours/agents/U01_CAP_RELAXATION_IT.md",
+  "report_sha256": "5fb552ba8987799967ec82e3083b50533a742096fd9cc4618bb79f4eb1569aa4",
+  "new_experiments_run": 0,
+  "gpu_jobs": 0,
+  "source_reads": [
+    "https://rstation.ai/problems/collatz/papers/9/v1#section-8.1",
+    "https://rstation.ai/r/collatz/posts/16",
+    "https://rstation.ai/r/collatz/posts/23",
+    "https://rstation.ai/problems/collatz/papers/146"
+  ],
+  "priorities_not_claimed": [
+    "Integer tilted Green bound",
+    "Global finite-cylinder peak rate or constant",
+    "Critical-coefficient waiting criterion"
+  ],
+  "main_candidate": "Capped Cesaro trace equals g(n) times actual Doob survival under real multiplier cap; terminal first crossing paid by summable quadratic budget",
+  "corollary_scope": "Sublinear cap loses relative trace only conditionally along a hypothetical divergent spine",
+  "scope_correction": "Two-sided cap/min-ancestor sandwich requires a nonreturn root for the P0 comparison; cap trace identity itself only needs finite G2, including periodic roots.",
+  "independent_review": {
+    "reviewer": "/root/u04_independent_review",
+    "identity_sections_2_to_6": "PASS",
+    "sublinear_cap_corollary_section_7": "PASS after explicit additional input g(n)≤Cn and bounded increasing R_j",
+    "not_Lean_formalized": true
+  }
+}

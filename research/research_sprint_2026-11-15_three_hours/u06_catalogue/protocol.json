@@ -1,0 +1,27 @@
+{
+  "recorded_at_utc": "2026-11-15T23:03:37.824485+00:00",
+  "owner": "/root/u06_quadratic_formal",
+  "kind": "Formal proof development; no finite experiment",
+  "source": "lean/CollatzShadowing/BoundedSlopeCatalogue.lean",
+  "definitions": {
+    "catalogue": "Exact positive-source words ending at n with wordWeight>=1/R",
+    "R": "Positive rational",
+    "n": "Arbitrary natural target, including zero"
+  },
+  "claims": [
+    "Every finite subcatalogue has card<=2*visitConstant(n)*R^2",
+    "Full catalogue finite, including returns",
+    "Full catalogue cardinality has same bound",
+    "Length and sum cutoffs exist, not a computable hitting-time bound",
+    "Positive source can be chosen <=R*n"
+  ],
+  "excluded_claims": [
+    "Effective word-length cutoff",
+    "S-unit inequality",
+    "Full recoding no-go",
+    "Positive relative mass",
+    "Collatz convergence"
+  ],
+  "frozen_dependency": "lean/CollatzShadowing/QuadraticOccupation.lean",
+  "external_code_or_GPU": false
+}

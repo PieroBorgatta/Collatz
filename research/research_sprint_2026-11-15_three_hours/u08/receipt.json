@@ -1,0 +1,26 @@
+{
+  "status": "PAPER_PROOF_PENDING_INDEPENDENT_REVIEW",
+  "recorded_at_utc": "2026-11-15T22:45:13.182548+00:00",
+  "report": "notes/research_sprint_2026-11-15_three_hours/agents/U08_AFFINE_COALESCENCE_IT.md",
+  "report_sha256": "dfd27885a8f09e9cdf9bc9e0c4d84e18fe9f6fa108792c9f0a13f7ee59bd54f0",
+  "results": [
+    "Fixed-shift hitting-indicator disagreement O(X/sqrt(log X))",
+    "Fixed finite smooth-rational affine menu gives o(X) outgoing transport between disjoint basins",
+    "Adaptive additive windows with logG=o((logX)^(1/8)) preserve all targets up to X^r, r<1, outside o(X) absolute source errors"
+  ],
+  "external_inputs": [
+    "Leen exact binary absorption-cylinder transport and square-root tail",
+    "Paper124/v1 growing-family tail and integer discrepancy, Eq18"
+  ],
+  "primary_sources_read_targetedly": true,
+  "external_full_proofs_rebuilt": false,
+  "lean_changed": false,
+  "finite_experiments": false,
+  "gpu_used": false,
+  "new_global_priority_claim": false,
+  "limits": [
+    "Target-growing estimates are absolute, not relative to rare basin mass",
+    "Disjoint basins required for the no-transport consequence",
+    "Nonsmooth slopes and large source-dependent deformations remain open"
+  ]
+}

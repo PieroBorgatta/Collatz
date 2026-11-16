@@ -1,5 +1,15 @@
 # CollatzShadowing — a Lean 4 + Mathlib formalization
 
+**16 November 2026:** four additional modules add 28 public theorem
+declarations for finite-horizon localization, quadratic occupation,
+bounded-slope catalogue finiteness and collision budgets/certificates.
+The full build passes (3404 jobs); the transitive audit covers all 68
+declarations, including five encoded-private helpers. See
+[current status](STATUS.md) and the
+[integration receipt](../notes/research_sprint_2026-11-15_three_hours/verification/integration_receipt.json).
+No infinite-kernel lower bound is asserted, and catalogue time bounds
+are existential rather than effective.
+
 **15 November 2026:** the universal reciprocal budget for finite injective
 shortcut trajectories is now formalized with constant `<81`, together with
 the first-arrival Syracuse bridge and universal height for existing

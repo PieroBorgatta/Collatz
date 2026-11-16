@@ -1,0 +1,45 @@
+{
+  "status": "PASS_WITH_DECLARED_DOMAINS",
+  "recorded_at_utc": "2026-11-15T22:33:23.603114+00:00",
+  "reviewer": "/root/u04_independent_review",
+  "scope": "Independent paper reconstruction of U05 full two notes and U03 section2 only; no numerical replay",
+  "results": {
+    "few_nonone_tail_no_go": "PASS_WITHOUT_FIRST_ARRIVAL",
+    "finite_periodic_dictionary_no_go": "PASS_WITH_FIRST_ARRIVAL_ORIGINAL_ONLY",
+    "CDF_partial_matching": "PASS",
+    "dyadic_lift_loss": "PASS",
+    "U03_finite_replay": "NOT_REAUDITED"
+  },
+  "required_fixed_parameters": [
+    "distinct positive odd n,y",
+    "s",
+    "finite dictionary D for periodic version",
+    "same suffix length L and total B",
+    "identical prefix p"
+  ],
+  "external_input": "Evertse1984 Corollary2 printedp228; coordinate and total nonzero; zero proper subsums allowed",
+  "clarification": "Infinite CDF catalogues require finite sublevel sets, automatically satisfied for physical first-arrival catalogues.",
+  "source_snapshots": {
+    "notes/research_sprint_2026-11-15_three_hours/agents/U05_MOVING_EDITS_IT.md": {
+      "sha256": "d276de5d5e6354483f6d77d27f762974aca076fb5b41ca079747d8fb677e0fd2",
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/surgery_snapshots/U05_MOVING_EDITS_IT.md"
+    },
+    "notes/research_sprint_2026-11-15_three_hours/agents/U05_PERIODIC_DICTIONARY_IT.md": {
+      "sha256": "d4eb9f46b5b50ba74ac7af2082fe188cbc2fd33f7577492db6c30b0a3837696d",
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/surgery_snapshots/U05_PERIODIC_DICTIONARY_IT.md"
+    },
+    "notes/research_sprint_2026-11-15_three_hours/agents/U03_LOCAL_MASS_IT.md": {
+      "sha256": "c690fa2de5ab261f790c6d780a8618a9c5408685a7779c77e3b91880702aac7d",
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/surgery_snapshots/U03_LOCAL_MASS_IT.md"
+    }
+  },
+  "report": "notes/research_sprint_2026-11-15_three_hours/agents/U04_SURGERY_REVIEW_IT.md",
+  "report_sha256": "429ca1bd90d2d41f385c5b8fb671ce2e60138bd225460b138256f9a628df4838",
+  "generic_moving_edit_problem_closed": false,
+  "experiments_run": false,
+  "Lean_modified": false,
+  "GPU_used": false,
+  "git_operations": false,
+  "H_proved": false,
+  "Collatz_proved": false
+}

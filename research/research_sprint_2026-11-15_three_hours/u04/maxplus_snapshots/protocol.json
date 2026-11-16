@@ -1,0 +1,19 @@
+{
+  "recorded_at_utc": "2026-11-15T23:13:19.742035+00:00",
+  "question": "For target593, determine the least positive odd unit seed entering each last-parent branch among all seeds≤6325; test whether a branch distinct from395 appears before6325.",
+  "maximum_seed": 6325,
+  "target": 593,
+  "source_domain": "positive odd integers coprime to3",
+  "empty_arrival": "record separately, never count as a parent branch",
+  "termination_certificate": "Every scanned source followed exactly to1; root593 separately checked to1. Unknown/loop/length/bit guards force FAIL, never no-hit.",
+  "max_length": 10000,
+  "max_state_bits": 1024,
+  "success": "Complete finite classification, witness paths and first-parent identities verified, identical normal/optimized output. No asymptotic conclusion.",
+  "predicted_witnesses": {
+    "395": 27,
+    "6325": 6325
+  },
+  "no_adaptive_extension": true,
+  "GPU": false,
+  "reuse_previous_grid": "Strict subset of U03/U07 grid, new minimum-label question only."
+}

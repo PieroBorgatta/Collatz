@@ -1,0 +1,85 @@
+{
+  "status": "PASS",
+  "completed_at_utc": "2026-11-15T22:27:36.579038+00:00",
+  "owner": "/root/u06_quadratic_formal",
+  "module": "CollatzShadowing.QuadraticOccupation",
+  "public_theorems": [
+    "visitConstant_nonneg",
+    "squareLoss_pos",
+    "potential_sq_sub_succ",
+    "sum_squareLoss_range",
+    "sum_squareLoss_finset_le",
+    "sum_weight_sq_visits_le",
+    "sum_wordWeight_sq_fiber_le",
+    "tilted_catalogue_le"
+  ],
+  "public_theorem_count": 8,
+  "definition_count": 2,
+  "source_lines": 154,
+  "build_command": [
+    "lake",
+    "build",
+    "CollatzShadowing.QuadraticOccupation"
+  ],
+  "build_exit_code": 0,
+  "reported_build_jobs": 3297,
+  "reported_new_module_compile_seconds": 105,
+  "audit_command": [
+    "lake",
+    "env",
+    "lean",
+    "../research/research_sprint_2026-11-15_three_hours/u06/AllDeclarationAudit.lean"
+  ],
+  "audit_exit_code": 0,
+  "declarations_audited": 24,
+  "encoded_private": 0,
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "source_snapshot_unchanged": true,
+  "source_changed_paths": [],
+  "cold_dependency_rebuild": false,
+  "independent_kernel_replay": false,
+  "full_library_build_by_agent": false,
+  "GPU_used": false,
+  "external_code_executed": false,
+  "commit_or_push_by_agent": false,
+  "scope": "Finite squared occupation and catalogue bounds, allowing repeated sources, arbitrary depths and cyclic targets. No probability law or infinite-series conclusion.",
+  "novelty": "Local formalization and explicit constant only; Green finiteness and recurrent target bounds already paper9/v1 Proposition11.",
+  "artifacts": {
+    "lean/CollatzShadowing/QuadraticOccupation.lean": {
+      "sha256": "5af51a6b1a263905d324a2f76b9aea3e11b22843c3e293d664ad1d6fc2f0c935",
+      "bytes": 6537
+    },
+    "notes/research_sprint_2026-11-15_three_hours/agents/U06_QUADRATIC_FORMAL_IT.md": {
+      "sha256": "7532cb1523eae215d563c43de1a37100a9d621d5a0b8d3d795124d2ccec38759",
+      "bytes": 4137
+    },
+    "research/research_sprint_2026-11-15_three_hours/u06/AllDeclarationAudit.lean": {
+      "sha256": "86a182dbd4c011079eb20ecf0bcbce3786506c4b598a83d41aa3206169041bac",
+      "bytes": 1818
+    },
+    "research/research_sprint_2026-11-15_three_hours/u06/all_declaration_audit.log": {
+      "sha256": "3298a7730905c151f738ffda6f1cd34def8a8bdaae4c61de09f01d9e2899d578",
+      "bytes": 2962
+    },
+    "research/research_sprint_2026-11-15_three_hours/u06/build_attempt_01.log": {
+      "sha256": "659ea8ad84027c1deccd227f3b0f4b76d4e951c2fca999ea8ce69ef90762599e",
+      "bytes": 664
+    },
+    "research/research_sprint_2026-11-15_three_hours/u06/module_build.log": {
+      "sha256": "6616f163c1876f95837fbb126479c7265951b83c57748a4cc10bcd1e28e1219b",
+      "bytes": 108
+    },
+    "research/research_sprint_2026-11-15_three_hours/u06/protocol.json": {
+      "sha256": "d15428561080358ef9629be662d74f52eb0919527ee94e6e2177911876c2af45",
+      "bytes": 837
+    },
+    "research/research_sprint_2026-11-15_three_hours/u06/source_snapshot.json": {
+      "sha256": "5dc4cbe5466caf4ee8ae6c828222de95058683eb7425237686f3e07760b81e04",
+      "bytes": 959
+    }
+  }
+}

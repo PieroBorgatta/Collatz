@@ -1,0 +1,66 @@
+{
+  "status": "PASS_WITH_DECLARED_INPUTS",
+  "recorded_at_utc": "2026-11-15T23:03:57.634586+00:00",
+  "reviewer": "/root/u04_independent_review",
+  "scope": "Independent paper reconstruction of U07 theoretical sections1–8, U08 consumers conditional on stated external interfaces, U10 theoretical section1, semantic review of five finite Lean statements. Numerical replay sections not reaudited.",
+  "results": {
+    "physical_endpoint_equals_full_path": "PASS",
+    "quadratic_kernel_and_finite_telescope": "PASS",
+    "R_monotone_and_bounded": "PASS_WITH_LINEAR_TRACE_UPPER",
+    "summable_H2_and_D": "PASS",
+    "local_heavy_root_lower_criterion": "PASS_CONDITIONAL_LOWER_OPEN",
+    "critical_clock_collision_criterion": "PASS_CONDITIONAL_LOWER_OPEN",
+    "two_small_unit_seed_certificate": "PASS_DISTINCT_FINAL_PARENTS_REQUIRED",
+    "Shannon_label_tail": "PRIMARY_EQ36_INTERFACE_READ",
+    "all_moments_to_entropy_summability": "PASS_WITH_EXTRA_SOURCE_INPUT",
+    "Bellman_and_nearcritical_barriers": "PASS",
+    "U08_smooth_affine_obstruction": "PASS_WITH_COALESCENCE_INPUT",
+    "U08_growing_windows": "PASS_WITH_PAPER124_INPUT",
+    "U10_asynchronous_nonsmooth_bound": "PASS",
+    "SpineDispersion_semantic_scope": "PASS_FINITE_ONLY",
+    "SpineDispersion_compilation": "NOT_RUN_BY_REVIEWER"
+  },
+  "source_snapshots": {
+    "notes/research_sprint_2026-11-15_three_hours/agents/U07_BELLMAN_IT.md": {
+      "sha256": "6330c4f371312b83f169d5573b4be3af33eaf02f08075a6c47358379a34eac46",
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/collision_snapshots/U07_BELLMAN_IT.md"
+    },
+    "notes/research_sprint_2026-11-15_three_hours/agents/U08_AFFINE_COALESCENCE_IT.md": {
+      "sha256": "dfd27885a8f09e9cdf9bc9e0c4d84e18fe9f6fa108792c9f0a13f7ee59bd54f0",
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/collision_snapshots/U08_AFFINE_COALESCENCE_IT.md"
+    },
+    "notes/research_sprint_2026-11-15_three_hours/agents/U10_NONSMOOTH_AFFINE_IT.md": {
+      "sha256": "1bfd65597f3481124433c89eb2247e152c7d575c37e3eac6480f429af0e8d5c7",
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/collision_snapshots/U10_NONSMOOTH_AFFINE_IT.md"
+    },
+    "lean/CollatzShadowing/SpineDispersion.lean": {
+      "sha256": "f9baa47b96a4e4be749a45c432dfe1eea4ec94032e93927c43fbd47b51291185",
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/collision_snapshots/SpineDispersion.lean"
+    }
+  },
+  "external_source_hashes": {
+    "research/research_sprint_2026-11-15_three_hours/u08/sources/collatz-synchronization-rates.tex": "d2f961635d339a4b215c82b1f2f8b9ca53143043f4c58b9aa67290f46056996e",
+    "research/research_sprint_2026-11-15_three_hours/u08/sources/gao-tao-coalescence.tex": "2dd65fc17137f55d49d6cc9dc283660b524368a43182dc4a52901d12cd5056bd"
+  },
+  "external_interfaces_read": [
+    {
+      "url": "https://rstation.ai/problems/collatz/papers/12",
+      "version": 1,
+      "scope": "Section12 equation36 and Corollary12; minimum predecessor labels and uniform tails, not parent-height tails."
+    },
+    {
+      "url": "https://rstation.ai/problems/collatz/papers/124",
+      "version": 1,
+      "scope": "Theorem1 and equation18; counted shortcut fusion, physical common time at most2t."
+    }
+  ],
+  "report": "notes/research_sprint_2026-11-15_three_hours/agents/U04_COLLISION_REVIEW_IT.md",
+  "report_sha256": "81ecbe5044b29b3fce808f23b665ecf48f7fd8e3600000bfbb0b343bbd632278",
+  "experiments_run": false,
+  "GPU_used": false,
+  "git_operations": false,
+  "external_archives_recompiled": false,
+  "H_proved": false,
+  "Collatz_proved": false,
+  "global_priority_established": false
+}

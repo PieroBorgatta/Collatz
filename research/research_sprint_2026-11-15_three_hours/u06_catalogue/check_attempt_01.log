@@ -1,0 +1,25 @@
+CollatzShadowing/BoundedSlopeCatalogue.lean:33:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Decidable (w ∈ catalogue n R)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+CollatzShadowing/BoundedSlopeCatalogue.lean:39:14: warning: declaration uses `sorry`
+CollatzShadowing/BoundedSlopeCatalogue.lean:35:16: warning: declaration uses `sorry`
+CollatzShadowing/BoundedSlopeCatalogue.lean:36:5: warning: unused variable `hw`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CollatzShadowing/BoundedSlopeCatalogue.lean:75:14: error(lean.unknownIdentifier): Unknown constant `Set.Finite.mem_toFinset.mp`
+CollatzShadowing/BoundedSlopeCatalogue.lean:110:13: error(lean.unknownIdentifier): Unknown identifier `reciprocalWeight_le_initial`
+CollatzShadowing/BoundedSlopeCatalogue.lean:102:52: error: unsolved goals
+n : ℕ
+R : ℚ
+hR : 0 < R
+w : List ℕ
+u : ℕ
+hu : 0 < u
+hm : SyracuseWordMatchesFrom w u
+he : evalSyracuseWord w u = n
+hwgt : 1 / R ≤ wordWeight w
+hn : 0 < n
+hu' : 0 < ↑u
+hn' : 0 < ↑n
+⊢ ↑u ≤ R * ↑n

@@ -1,0 +1,26 @@
+CATALOGUE_ROOT: PASS CollatzShadowing.BoundedSlopeCatalogue.catalogue; axioms: [propext, Classical.choice, Quot.sound]
+CATALOGUE_ROOT: PASS CollatzShadowing.BoundedSlopeCatalogue.catalogue_finite; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+CATALOGUE_ROOT: PASS CollatzShadowing.BoundedSlopeCatalogue.catalogue_ncard_le; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+CATALOGUE_ROOT: PASS CollatzShadowing.BoundedSlopeCatalogue.catalogue_parameter_bounds; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+CATALOGUE_ROOT: PASS CollatzShadowing.BoundedSlopeCatalogue.catalogue_source_bound; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+CATALOGUE_ROOT: PASS CollatzShadowing.BoundedSlopeCatalogue.subcatalogue_card_le; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+CATALOGUE_ROOT: PASS _private.CollatzShadowing.BoundedSlopeCatalogue.0.CollatzShadowing.BoundedSlopeCatalogue.source; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+CATALOGUE_ROOT: PASS _private.CollatzShadowing.BoundedSlopeCatalogue.0.CollatzShadowing.BoundedSlopeCatalogue.source.eq_1; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+CATALOGUE_ROOT: PASS _private.CollatzShadowing.BoundedSlopeCatalogue.0.CollatzShadowing.BoundedSlopeCatalogue.source_spec; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+CATALOGUE_AUDIT: PASS; declarations: 9; encoded-private: 3; modules: 1

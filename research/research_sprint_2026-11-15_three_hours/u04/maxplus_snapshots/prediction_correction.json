@@ -1,0 +1,7 @@
+{
+  "recorded_at_utc": "2026-11-15T23:14:11.381381+00:00",
+  "correction": "The analytic prediction used27, which is not a unit. The preregistered actual source domain and executed code both explicitly exclude all multiples of3. The output therefore determines the minimum unit seed without using the mistaken prediction. The original protocol is preserved unchanged.",
+  "correct_candidate_first_unit_seed": 31,
+  "finite_domain_was_not_changed": true,
+  "program_rerun_after_correction": false
+}

@@ -1,0 +1,149 @@
+{
+  "created": "2026-09-28T01:10:29.687562+00:00",
+  "modified": "2026-09-28T01:10:30.136026+00:00",
+  "id": 23003524,
+  "conceptrecid": "23003523",
+  "doi": "10.5281/zenodo.23003524",
+  "conceptdoi": "10.5281/zenodo.23003523",
+  "doi_url": "https://doi.org/10.5281/zenodo.23003524",
+  "metadata": {
+    "title": "Consecutive integers coalesce with density one under the Collatz map: a formally verified proof of a conjecture of Gao",
+    "doi": "10.5281/zenodo.23003524",
+    "publication_date": "2026-09-27",
+    "description": "<p>Let C be the Collatz map, C(n) = n/2 for even n and C(n) = 3n+1 for odd n. Following Gao (1993), two consecutive integers n and n+1 coalesce if C^k(n) = C^k(n+1) for some k, with the same number of halvings on both trajectories and without either trajectory passing through 1. Gao computed the normalized count d̄_k of the n &lt; 2^k − 1 for which this happens within k steps, proved that d̄_k is nondecreasing, and conjectured that d̄_k → 1. In the form recorded by Lagarias, the conjecture states that the set of n with C^k(n) = C^k(n+1) for some k ≤ log_2 n has natural density one. We prove both statements, and also that the proportion d(x) of n &lt; x for which n and n+1 coalesce tends to 1; Gao did not know whether this limit exists. The proof follows a pair of trajectories through a Markov chain on states {v, 3^k v + c} driven by fair coin flips, which describes the residue classes modulo 2^t exactly, and shows that the chain is absorbed almost surely. The ingredients are a contraction of the square root of |c|/3^k, a harmonic function for the level k, a clock controlling long runs of equal parity, a window in which the offset returns to a bounded range, a universal absorbing word of length O(log^2(2+|c|)), and a counting argument for repeated trials that never conditions on the future. A short lemma shows that a meeting within log_2 n steps is already a coalescence in Gao's sense. Every step is formalized in Lean 4 with Mathlib, and the final theorems depend only on the axioms propext, Classical.choice and Quot.sound. The results concern coalescence only: they do not show that any integer reaches 1, and the convergence is extremely slow.</p>",
+    "access_right": "open",
+    "creators": [
+      {
+        "name": "Said Duran, Omar Javier",
+        "affiliation": "Independent Researcher",
+        "orcid": "0009-0009-1418-2558"
+      }
+    ],
+    "keywords": [
+      "Collatz problem",
+      "3x+1 problem",
+      "coalescence",
+      "natural density",
+      "Markov chain",
+      "Lean",
+      "formal verification"
+    ],
+    "related_identifiers": [
+      {
+        "identifier": "10.5281/zenodo.23003500",
+        "relation": "isSupplementedBy",
+        "resource_type": "software",
+        "scheme": "doi"
+      },
+      {
+        "identifier": "10.5281/zenodo.23003526",
+        "relation": "references",
+        "resource_type": "publication-preprint",
+        "scheme": "doi"
+      },
+      {
+        "identifier": "10.5281/zenodo.23003528",
+        "relation": "references",
+        "resource_type": "publication-preprint",
+        "scheme": "doi"
+      }
+    ],
+    "version": "1",
+    "language": "eng",
+    "resource_type": {
+      "title": "Preprint",
+      "type": "publication",
+      "subtype": "preprint"
+    },
+    "license": {
+      "id": "cc-by-4.0"
+    },
+    "relations": {
+      "version": [
+        {
+          "index": 0,
+          "is_last": true,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "23003523"
+          }
+        }
+      ]
+    },
+    "notes": "<p>Companion papers: <em>Arbitrarily long runs of consecutive integers with the same Collatz height</em>, doi:10.5281/zenodo.23003526, and <em>On two conjectures of Wu on consecutive integers of the same height in the Collatz problem</em>, doi:10.5281/zenodo.23003528. The Lean 4 sources, the build record and the programs of the numerical checks are archived at doi:10.5281/zenodo.23003500.</p>"
+  },
+  "title": "Consecutive integers coalesce with density one under the Collatz map: a formally verified proof of a conjecture of Gao",
+  "links": {
+    "self": "https://zenodo.org/api/records/23003524",
+    "self_html": "https://zenodo.org/records/23003524",
+    "preview_html": "https://zenodo.org/records/23003524?preview=1",
+    "doi": "https://doi.org/10.5281/zenodo.23003524",
+    "self_doi": "https://doi.org/10.5281/zenodo.23003524",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.23003524",
+    "reserve_doi": "https://zenodo.org/api/records/23003524/draft/pids/doi",
+    "parent": "https://zenodo.org/api/records/23003523",
+    "parent_html": "https://zenodo.org/records/23003523",
+    "parent_doi": "https://doi.org/10.5281/zenodo.23003523",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.23003523",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:23003524/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:23003524/sequence/default",
+    "files": "https://zenodo.org/api/records/23003524/files",
+    "media_files": "https://zenodo.org/api/records/23003524/media-files",
+    "thumbnails": {
+      "10": "https://zenodo.org/api/iiif/record:23003524:said-duran-2026-gao-coalescence-density-one.pdf/full/%5E10,/0/default.jpg",
+      "50": "https://zenodo.org/api/iiif/record:23003524:said-duran-2026-gao-coalescence-density-one.pdf/full/%5E50,/0/default.jpg",
+      "100": "https://zenodo.org/api/iiif/record:23003524:said-duran-2026-gao-coalescence-density-one.pdf/full/%5E100,/0/default.jpg",
+      "250": "https://zenodo.org/api/iiif/record:23003524:said-duran-2026-gao-coalescence-density-one.pdf/full/%5E250,/0/default.jpg",
+      "750": "https://zenodo.org/api/iiif/record:23003524:said-duran-2026-gao-coalescence-density-one.pdf/full/%5E750,/0/default.jpg",
+      "1200": "https://zenodo.org/api/iiif/record:23003524:said-duran-2026-gao-coalescence-density-one.pdf/full/%5E1200,/0/default.jpg"
+    },
+    "latest": "https://zenodo.org/api/records/23003524/versions/latest",
+    "latest_html": "https://zenodo.org/records/23003524/latest",
+    "versions": "https://zenodo.org/api/records/23003524/versions",
+    "draft": "https://zenodo.org/api/records/23003524/draft",
+    "access_links": "https://zenodo.org/api/records/23003524/access/links",
+    "access_grants": "https://zenodo.org/api/records/23003524/access/grants",
+    "access_users": "https://zenodo.org/api/records/23003524/access/users",
+    "access_request": "https://zenodo.org/api/records/23003524/access/request",
+    "access": "https://zenodo.org/api/records/23003524/access",
+    "communities": "https://zenodo.org/api/records/23003524/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/23003524/communities-suggestions",
+    "request_deletion": "https://zenodo.org/api/records/23003524/request-deletion",
+    "file_modification": "https://zenodo.org/api/records/23003524/file-modification",
+    "quota_increase": "https://zenodo.org/api/records/23003524/quota-increase",
+    "requests": "https://zenodo.org/api/records/23003524/requests"
+  },
+  "updated": "2026-09-28T01:10:30.136026+00:00",
+  "recid": "23003524",
+  "revision": 3,
+  "files": [
+    {
+      "id": "c393c3f3-bb03-4752-ba78-2b1a380e33d0",
+      "key": "said-duran-2026-gao-coalescence-density-one.pdf",
+      "size": 181353,
+      "checksum": "md5:e419d8d9c16eb3d8a4c0d9c028c4f8da",
+      "links": {
+        "self": "https://zenodo.org/api/records/23003524/files/said-duran-2026-gao-coalescence-density-one.pdf/content"
+      }
+    }
+  ],
+  "swh": {},
+  "owners": [
+    {
+      "id": "1905632"
+    }
+  ],
+  "status": "published",
+  "stats": {
+    "downloads": 57,
+    "unique_downloads": 52,
+    "views": 52,
+    "unique_views": 51,
+    "version_downloads": 57,
+    "version_unique_downloads": 52,
+    "version_unique_views": 51,
+    "version_views": 52
+  },
+  "state": "done",
+  "submitted": true
+}

@@ -55,7 +55,30 @@ Current counts include every
 or not it was tracked by Git at the time of counting; generated Lean files
 are reported separately.
 
-Current source scan after the 15 November 2026 integration (including the entrypoint):
+Current source scan after the 16 November 2026 follow-up (including the entrypoint):
+
+| Lean source class | files | lines | public `theorem`/`lemma` declarations |
+|---|---:|---:|---:|
+| AI-authored modules and entrypoint | 64 | 16,603 | 710 |
+| Generator-emitted certificates | 26 | 43,513 | 966 |
+| **Total** | **90** | **60,116** | **1,676** |
+
+The four further modules add 702 lines and 28 public theorem declarations;
+four entrypoint imports bring the line delta to 706. The transitive audit
+covers all 68 compiled declarations, including five encoded-private helpers.
+These are implementation counts, not 28 independent discoveries. The
+[scan](research_sprint_2026-11-15_three_hours/verification/source_statistics.json)
+and [integration receipt](research_sprint_2026-11-15_three_hours/verification/integration_receipt.json)
+separate finite formal statements, paper deductions and open lower bounds.
+Generated certificates and the pinned toolchain are unchanged.
+
+The separate [maximal-gain prototype](../research/research_sprint_2026-11-15_three_hours/u06_max_envelope/COMPOSITION_RESULTS_IT.md)
+under `research/` is excluded from these library counts. Its standalone
+extension checks nine named results and audits 22 declarations, including
+an exact copy of a frozen six-theorem core. The core and its copy are not
+counted as separate mathematical results.
+
+Historical source scan after the 15 November 2026 integration (including the entrypoint):
 
 | Lean source class | files | lines | public `theorem`/`lemma` declarations |
 |---|---:|---:|---:|

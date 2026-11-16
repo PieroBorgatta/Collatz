@@ -1,0 +1,63 @@
+{
+  "status": "PASS_WITH_EXPLICIT_INPUTS",
+  "recorded_at_utc": "2026-11-15T22:17:16.303551+00:00",
+  "reviewer": "/root/u04_independent_review",
+  "scope": "Independent paper proof reconstruction, no Lean verification or new numerical experiment",
+  "results": {
+    "U03_moments_fixed_p": "PASS",
+    "U02_quadratic_dissipation": "PASS_CONSTANT_IMPROVEMENT_ONLY",
+    "U01_capped_Doob_identity": "PASS",
+    "U01_minimum_ancestor_sandwich": "PASS_NONRETURN_FOR_P0_SIDE",
+    "U01_sublinear_cap_no_go": "PASS_AFTER_EXPLICIT_g_LE_Cn_INPUT",
+    "post23_main_ineffective_argument": "PASS_WITH_EVERTSE_THEOREM2_INPUT",
+    "post23_effective_full_chain": "NOT_AUDITED",
+    "Evertse_Ferretti2013_special_forms_exceptional_subspace": "PRIMARY_INTERFACE_VERIFIED"
+  },
+  "source_hashes": {
+    "notes/research_sprint_2026-11-15_three_hours/agents/U01_CAP_RELAXATION_IT.md": "5fb552ba8987799967ec82e3083b50533a742096fd9cc4618bb79f4eb1569aa4",
+    "notes/research_sprint_2026-11-15_three_hours/agents/U02_GREEN_RENEWAL_IT.md": "47215f9ad3ddc576969eb47dddbc01d756c32b95a06eabd6464de6db4f93ddfc",
+    "notes/research_sprint_2026-11-15_three_hours/agents/U03_LOCAL_MASS_IT.md": "1e7635b2177710b3c439b088273935f43dc8bf876d1762059a92063163cc213d",
+    "notes/research_sprint_2026-11-15_three_hours/agents/U04_REVIEW_IT.md": "1323cec919b793411a0aa4c1ceee3ffb31241ba80e33dea1139ada9f87a82891",
+    "research/research_sprint_2026-11-15/t10/sources/paper146_v1.md": "ff3c011022cd87f7f068c30759b732e7b92bb24f9269856dba4e851491c3e150"
+  },
+  "primary_pdf_checks": [
+    {
+      "url": "https://www.numdam.org/item/CM_1984__53_2_225_0.pdf",
+      "printed_page": 228,
+      "sha256": "5b02e0e31c546f7f8c6c34071b2caa4d7137be24f16d11d483cdcc65377b2f6d",
+      "copy_in_repository": false
+    },
+    {
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v177-n2-p04-p.pdf",
+      "printed_pages": [
+        516,
+        517
+      ],
+      "sha256": "d6caa03fa7a17e162a5843c1152b2dd7b65bf3f5510b8c5fa56cec6c57812937",
+      "copy_in_repository": false
+    }
+  ],
+  "new_experiments": false,
+  "gpu_used": false,
+  "git_operations": false,
+  "H_proved": false,
+  "Collatz_proved": false,
+  "global_priority_established": false,
+  "reviewed_text_snapshots": {
+    "notes/research_sprint_2026-11-15_three_hours/agents/U01_CAP_RELAXATION_IT.md": {
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/reviewed_U01_CAP_RELAXATION_IT.md",
+      "sha256": "5fb552ba8987799967ec82e3083b50533a742096fd9cc4618bb79f4eb1569aa4",
+      "scope": "U01 sections2–7; U02 sections1–3; U03 sections1.1–1.5; later additions are outside this review."
+    },
+    "notes/research_sprint_2026-11-15_three_hours/agents/U02_GREEN_RENEWAL_IT.md": {
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/reviewed_U02_GREEN_RENEWAL_IT.md",
+      "sha256": "47215f9ad3ddc576969eb47dddbc01d756c32b95a06eabd6464de6db4f93ddfc",
+      "scope": "U01 sections2–7; U02 sections1–3; U03 sections1.1–1.5; later additions are outside this review."
+    },
+    "notes/research_sprint_2026-11-15_three_hours/agents/U03_LOCAL_MASS_IT.md": {
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/reviewed_U03_LOCAL_MASS_IT.md",
+      "sha256": "1e7635b2177710b3c439b088273935f43dc8bf876d1762059a92063163cc213d",
+      "scope": "U01 sections2–7; U02 sections1–3; U03 sections1.1–1.5; later additions are outside this review."
+    }
+  }
+}

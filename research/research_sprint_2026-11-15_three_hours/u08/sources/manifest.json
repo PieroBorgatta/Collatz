@@ -1,0 +1,48 @@
+{
+  "retrieved_at_utc": "2026-11-15T22:38:48.909393+00:00",
+  "records": [
+    {
+      "record": "23003524",
+      "title": "Consecutive integers coalesce with density one under the Collatz map: a formally verified proof of a conjecture of Gao",
+      "date": "2026-09-27",
+      "license": {
+        "id": "cc-by-4.0"
+      },
+      "files": []
+    },
+    {
+      "record": "23268751",
+      "title": "Exact rates in Collatz synchronization",
+      "date": "2026-10-09",
+      "license": {
+        "id": "cc-by-4.0"
+      },
+      "files": [
+        {
+          "file": "research/research_sprint_2026-11-15_three_hours/u08/sources/collatz-synchronization-rates.tex",
+          "url": "https://zenodo.org/api/records/23268751/files/collatz-synchronization-rates.tex/content",
+          "bytes": 147560,
+          "sha256": "d2f961635d339a4b215c82b1f2f8b9ca53143043f4c58b9aa67290f46056996e"
+        }
+      ]
+    },
+    {
+      "record": "23268755",
+      "title": "Quantitative synchronization of Collatz trajectories",
+      "date": "2026-10-09",
+      "license": {
+        "id": "cc-by-4.0"
+      },
+      "files": [
+        {
+          "file": "research/research_sprint_2026-11-15_three_hours/u08/sources/gao-tao-coalescence.tex",
+          "url": "https://zenodo.org/api/records/23268755/files/gao-tao-coalescence.tex/content",
+          "bytes": 74047,
+          "sha256": "2dd65fc17137f55d49d6cc9dc283660b524368a43182dc4a52901d12cd5056bd"
+        }
+      ]
+    }
+  ],
+  "external_code_executed": false,
+  "formal_archives_rebuilt": false
+}

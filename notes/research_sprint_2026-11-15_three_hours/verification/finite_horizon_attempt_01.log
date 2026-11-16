@@ -1,0 +1,40 @@
+CollatzShadowing/FiniteHorizonBudget.lean:42:10: error: Invalid rewrite argument: The pattern to be substituted is a metavariable (`?f (?f^[?n] ?x)`) in this equality
+  ?f (?f^[?n] ?x) = ?f^[Nat.succ ?n] ?x
+CollatzShadowing/FiniteHorizonBudget.lean:108:6: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  d ≥ 0
+  c ≥ 0
+  b ≥ 0
+  b - c ≥ 0
+  b - d ≤ -1
+  a ≥ 1
+where
+ a := ↑R
+ b := ↑(U.sup id)
+ c := ↑(id u)
+ d := ↑u
+CollatzShadowing/FiniteHorizonBudget.lean:110:4: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  b ≥ 0
+  b - c ≥ 0
+  a ≥ 1
+  a - c ≥ 1
+  a - c ≥ 1
+where
+ a := ↑R
+ b := ↑(U.sup id)
+ c := ↑u
+CollatzShadowing/FiniteHorizonBudget.lean:116:52: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  f ≥ 0
+  e ≥ 0
+  e - f ≥ 1
+  d ≥ 0
+  c ≥ 1
+where
+ c := ↑R
+ d := ↑((fun j => R + j) b)
+ e := ↑b
+ f := ↑a
+CollatzShadowing/FiniteHorizonBudget.lean:120:26: error: not a positivity goal

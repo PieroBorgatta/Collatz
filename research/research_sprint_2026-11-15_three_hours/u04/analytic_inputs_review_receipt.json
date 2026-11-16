@@ -1,0 +1,75 @@
+{
+  "status": "MANUSCRIPT_PROOFS_IDENTIFIED_WITH_DOMAIN_CORRECTION",
+  "recorded_at_utc": "2026-11-16T00:19:34.425112+00:00",
+  "reviewer": "/root/u04_independent_review",
+  "results": {
+    "finite_canonical_cesaro_trace": "MANUSCRIPT_THEOREM_EXTERNAL_NOT_REPLAYED",
+    "unit_positive_and_absolute_floor": "THEOREM_A_PLUS_CESARO_NO_OPEN_COLLatz_PREMISE_FOUND",
+    "odd_parent_harmonicity": "PASS_FROM_FINITE_EQUATION_AND_BOUNDARY",
+    "linear_upper_nonreturn": "PASS_CAN_TAKE_kappa_LOG_4_OVER_3_DIV_2",
+    "linear_upper_all_cycles": "NOT_JUSTIFIED_BY_READ_SOURCES_CYCLE_FACTOR_REQUIRED",
+    "uniform_reciprocal_natural_density": "MANUSCRIPT_PROOF_FROM_ATOM_FLOOR_AND_DENSITY_EXISTENCE",
+    "paper9_alone_reciprocal": "FAIL_ONLY_POWER_2_PLUS_EPSILON",
+    "ordinary_to_unit_minimum": "PASS_mU_LE_2_mstar",
+    "tail36": "PASS_UNIT_NONRETURN_FULL_PARENT_TAIL_ONLY",
+    "g_heavy_to_F_heavy": "PASS_NONRETURN_WITH_TAIL_INPUT",
+    "Collatz_or_nondivergence_assumed_in_analytic_inputs": "NO_SUCH_OPEN_PREMISE_FOUND_IN_READ_CHAIN",
+    "full_external_analytic_or_formal_reverification": "NOT_PERFORMED"
+  },
+  "sources": {
+    "paper12.md": {
+      "url": "https://rstation.ai/api/v1/papers/collatz_12/versions/1/download",
+      "sha256": "7f6bc94e4e24e714bc3740bcc5a066582a0f6af064180ae38cabe0174488b185",
+      "bytes": 75929,
+      "read_scope": "Primary12/v1, §§1–2 Inputs C/D and Theorem1; §7 Cor5 proof; §§8–9 Theorem6 and Cor7 proof; §12 Theorem11, eq36 and Cor12 proof; references/status.",
+      "retained_in_repository": false
+    },
+    "paper9.md": {
+      "url": "https://rstation.ai/api/v1/papers/collatz_9/versions/1/download",
+      "sha256": "87a87f521a247f6d09a4e04caa96fc61b92fb433f22193e0023cc29af42be7a5",
+      "bytes": 56075,
+      "read_scope": "Primary9/v1, §§1–2 dependency and normalization statements; §8.1 Prop11; §8.2 Theorem12 and imported weighted-path interface/proof/status.",
+      "retained_in_repository": false
+    },
+    "el_jaouhari.tex": {
+      "url": "https://zenodo.org/api/records/23377671/files/uniform-syracuse-atoms-density-regularity.tex/content",
+      "sha256": "93b001f062794cbec6efe142bb382c983f64a7a1d0db10e72b44003dc9966521",
+      "bytes": 118553,
+      "read_scope": "Theorem A statement; selected approximation/core criterion; Tao mixing input; fixed-total injectivity, weighted residue counting, prefix bound, selected-density construction, CE verification, positive cylinder and spreading proof; formal-scope section. Other counting/integrability results not fully audited.",
+      "retained_in_repository": false
+    },
+    "valbuena_basin.tex": {
+      "url": "https://zenodo.org/records/23025885",
+      "sha256": "d5c61f228ece84aae6d565c777de84089c016073df19d7b0e6974e1cfa2bb258",
+      "bytes": 72256,
+      "read_scope": "Archive entry x1xhlol-collatz-two-coordinate-obstruction-ea8cadf/paper/tao-basin-densities.tex: introduction/dependency map; two-scale Tao input proof; weighted-density statement/proof interface; Theorem8 Green/harmonic proof, Prop9 boundary proof, Theorem14 canonical identification proof, Theorem16 natural upgrade statement and transport interface, positivity statement and formal-scope notes. Full external Lean bundle not inspected or built.",
+      "retained_in_repository": false
+    },
+    "leen_brownian.tex": {
+      "url": "https://zenodo.org/api/records/23252395/files/collatz-brownian-motion.tex/content",
+      "sha256": "43635af89c6727e4a7d5065d2621477913f58fb8d6570de16396168bbe49a5f1",
+      "bytes": 122056,
+      "read_scope": "Invariant sets and density statements; Landing rule, Densities and relevant proofs; relative passage/minimum-tail interfaces and dependency table; formal-scope notes. Brownian process and moderate-deviation proofs not audited in full.",
+      "retained_in_repository": false
+    },
+    "leen_gaussian.tex": {
+      "url": "https://zenodo.org/api/records/23046896/files/collatz-exact-threshold.tex/content",
+      "sha256": "7e5cb6a6ab3404c5cfe74ad425d69bb5d470eef3bbb30869936719f51d1628fc",
+      "bytes": 63093,
+      "read_scope": "Timed relative passage Theorem5.3 statement/proof and mass corollary; introductory passage interface and formal-scope note. No full audit of all arithmetic mixing and Diophantine inputs.",
+      "retained_in_repository": false
+    },
+    "valbuena_archive": {
+      "url": "https://zenodo.org/api/records/23025885/files/x1xhlol/collatz-two-coordinate-obstruction-v2026.09.28.5.zip/content",
+      "sha256": "8109f2d8615530b11b00aa95f7a829761b05f28ef4f6b7a07c58ec84b48741fd",
+      "read_scope": "Only selected manuscript entry read; no extraction or compilation of the Lean project.",
+      "retained_in_repository": false
+    }
+  },
+  "report": "notes/research_sprint_2026-11-15_three_hours/agents/U04_ANALYTIC_INPUTS_REVIEW_IT.md",
+  "report_sha256": "2a170dd754525b5dccf9a174190f7086772681e0692ce476966477d56a393292",
+  "external_builds_run": false,
+  "certificates_replayed": false,
+  "Lean_imports_added": false,
+  "experiments_run": false
+}

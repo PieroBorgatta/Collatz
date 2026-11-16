@@ -59,6 +59,11 @@ jobs:
           lake env lean ../notes/research_sprint_2026-11-15_three_hours/verification/AllNewDependencyAudit.lean | tee /tmp/three-hour-arithmetic-audit.log
       - name: Replay physical catalogues and exact minimality certificates
         run: python3 notes/research_sprint_2026-11-15_three_hours/replay_finite.py --output /tmp/three-hour-arithmetic-replay
+      - name: Audit standalone maximal-gain and composition prototype
+        working-directory: lean
+        run: |
+          set -o pipefail
+          lake env lean ../research/research_sprint_2026-11-15_three_hours/u06_max_envelope/CompositionPrototype.lean | tee /tmp/maximal-gain-prototype-audit.log
       - name: Preserve arithmetic follow-up verification evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -67,6 +72,7 @@ jobs:
           path: |
             /tmp/three-hour-arithmetic-audit.log
             /tmp/three-hour-arithmetic-replay
+            /tmp/maximal-gain-prototype-audit.log
           if-no-files-found: ignore
       - name: Audit descent and quadratic transfer without native axioms
         working-directory: lean

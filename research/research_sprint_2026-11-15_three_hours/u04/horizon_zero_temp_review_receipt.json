@@ -1,0 +1,49 @@
+{
+  "status": "PASS_WITH_EXPLICIT_DOMAINS_AND_EXTERNAL_INPUTS",
+  "recorded_at_utc": "2026-11-16T00:11:27.255271+00:00",
+  "reviewer": "/root/u04_independent_review",
+  "scope": "Independent paper reconstruction; real obstruction specialized to u=1. Source147 duration is a conditional imported input; no fresh audit of effectiveness or certificates.",
+  "results": {
+    "green_p_selector": "PASS_TERMINAL_g_INCLUDING_EMPTY_WORD",
+    "uniform_relative_gap": "PASS_NONRETURN_ONLY_EXISTENTIAL",
+    "relative_offsets": "PASS_NO_ABSOLUTE_CLOCK",
+    "heavy_reach_and_qualitative_equivalence": "PASS_NON_DIVERGENCE_ALLOWS_CYCLES",
+    "real_clock_obstruction": "PASS_LISTED_CONSTRAINTS_ONLY_u_EQUALS_ONE",
+    "coloured_horizon": "PASS_CONDITIONAL_ON_POST16_UNIFORM_PREFACTOR",
+    "adaptive_certificate": "PASS_STRICT_THRESHOLDS_F_GREATER_ONE_LF_FINITE",
+    "linear_cap_positive_quota": "PASS_CANONICAL_CAP_AND_LINEAR_g_UPPER",
+    "absolute_h_lower": "PASS_WITH_ADDITIONAL_UNIFORM_FLOOR",
+    "source147_frontier_interface": "PASS_CONDITIONAL_ON_IMPORTED_DURATION",
+    "uniform_surplus_lower": "NOT_OBTAINED"
+  },
+  "source_snapshots": {
+    "notes/research_sprint_2026-11-15_three_hours/agents/U15_ZERO_TEMPERATURE_IT.md": {
+      "sha256": "6fbb3d853c2e271c0ff57c67fa174bd8046c84db57dc6ca58c4e88333191c42f",
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/horizon_zero_temp_snapshots/U15_ZERO_TEMPERATURE_IT.md"
+    },
+    "notes/research_sprint_2026-11-15_three_hours/agents/U14_COLOURED_HORIZON_IT.md": {
+      "sha256": "a7e2dfeaf42ca33c79b957854d1ad30a53fff841002dc903f9a4e334b292ea0e",
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/horizon_zero_temp_snapshots/U14_COLOURED_HORIZON_IT.md"
+    },
+    "notes/research_sprint_2026-11-15_three_hours/agents/U14_ADAPTIVE_CERTIFICATE_IT.md": {
+      "sha256": "1d30e903055cd26ffa418519241de58c801fb31ebdd7a2461f3a98ac2bcd44ea",
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/horizon_zero_temp_snapshots/U14_ADAPTIVE_CERTIFICATE_IT.md"
+    },
+    "notes/research_sprint_2026-11-15_three_hours/agents/U15_LINEAR_CAP_IT.md": {
+      "sha256": "c47030639a49851114f196b03a142218c8c3d0fc72a4910aba84084b40be8621",
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/horizon_zero_temp_snapshots/U15_LINEAR_CAP_IT.md"
+    },
+    "notes/research_sprint_2026-11-15_three_hours/agents/U14_SOURCE147_INTERFACE_IT.md": {
+      "sha256": "9e4441070a8973995124ad097a85af83a5229810c11687334b8d4830bb66b309",
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/horizon_zero_temp_snapshots/U14_SOURCE147_INTERFACE_IT.md"
+    }
+  },
+  "report": "notes/research_sprint_2026-11-15_three_hours/agents/U04_HORIZON_ZERO_TEMP_REVIEW_IT.md",
+  "report_sha256": "14171ee821887ded7816662f93e1a34640863f04cb5fab1da209e4ded010f057",
+  "experiments_run": false,
+  "build_run": false,
+  "GPU_used": false,
+  "H_proved": false,
+  "Collatz_proved": false,
+  "global_priority_established": false
+}

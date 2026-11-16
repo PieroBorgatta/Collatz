@@ -1,0 +1,895 @@
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs}
+\usepackage[margin=1in]{geometry}
+\usepackage{xurl}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\setlength{\emergencystretch}{3em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\E}{\mathbb E}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\Ztwo}{\mathbb Z_2}
+\newcommand{\one}{\mathbf 1}
+\DeclareMathOperator{\ord}{ord}
+\title[Quantitative Collatz synchronization]{Quantitative synchronization of Collatz trajectories}
+\author{David Leen}
+\email{daleen@gmail.com}
+\date{October 2026}
+\subjclass[2020]{11B83, 37A44, 11K38}
+\keywords{Collatz problem, coalescence, natural density, logarithmic density, stopping times}
+\begin{document}
+\begin{abstract}
+We study simultaneous trajectories of the ordinary Collatz map. A balanced coupling of the shortcut trajectories gives a uniform absorption estimate of order
+$\sqrt{(1+\log(1+|d|))/h}$ for offset $d$ and shortcut horizon $h$.
+Its realization preserves both the ordinary clock and the number of halvings.
+Consequently, Gao's finite-horizon dyadic coalescence proportions tend to one, as first proved publicly by Said Duran, and the balanced deficiency is in fact $\Theta(k^{-1/2})$ at horizon $k$, under Gao's original requirement that merger occur before either trajectory reaches $1$. The upper bound is deduced from the pair estimate; the matching lower bound comes from a converse clock dictionary from balanced ordinary merger to symbolic absorption. The leading constant is determined in a companion paper.
+For every prescribed $L(n)=o(\sqrt{\log n})$ and every fixed $\log_4 3<c<1$, combining an earlier merger deadline with Korec's theorem gives a common value below $n^c$ for all starts $n,n+1,\ldots,n+L(n)$, at one ordinary time $t\le2\log_2 n$, for natural-density-almost every $n$.
+Combining adjacent-pair absorption with Tao's almost-bounded minimum theorem yields a simultaneous conclusion: for every prescribed $L(n)=o(\sqrt{\log n})$ and every $f(n)\to\infty$, logarithmic-density-almost every $n$ admits one ordinary time $t$ and one positive value $y<f(n)$ shared by all starts $n,n+1,\ldots,n+L(n)$.
+Both arguments first prove early merger and then force the chosen descent witness to occur after merger. Companion statements permit subpolynomial block lengths after omitting a proportion tending to zero of their members.
+No convergence-to-one assumption is used. The exceptional integer sets are not removed. The natural-density minimum law, proved in a companion paper, also upgrades the arbitrary-threshold window statement to natural density for the attained minimum and its first ordinary clock; that strengthening is proved in Section~\ref{sec:later-strengthening}. Published short-interval estimates for multiplicative functions also make the Liouville sign asymptotically independent of the full synchronized mark.
+\end{abstract}
+\maketitle
+
+\section{Statements and context}
+For positive integers define the ordinary Collatz map and its shortcut by
+\[
+ C(n)=\begin{cases}n/2&n\equiv0\pmod2,\\3n+1&n\equiv1\pmod2,\end{cases}
+ \qquad
+ T(n)=\begin{cases}n/2&n\equiv0\pmod2,\\(3n+1)/2&n\equiv1\pmod2.\end{cases}
+\]
+The same shortcut formulas define $T$ on $\Ztwo$, equipped with normalized additive Haar measure $\mu$. All unmarked logarithms are natural logarithms. We use $\N=\{0,1,\ldots\}$ and take integer starting values to be positive.
+A set $A$ has natural density one if $\#(A\cap[1,N])/N\to1$, and logarithmic density one if
+\[
+ \frac1{\log N}\sum_{\substack{n\le N\\n\in A}}\frac1n\longrightarrow1.
+\]
+
+\begin{definition}[Balanced merger and Gao's predicate]\label{def:gao}
+Let
+\[
+ H(n,m)=\#\{0\le j<m:C^j(n)\equiv0\pmod2\}
+\]
+be the number of halving branches among the first $m$ ordinary steps.
+Two positive starts $a,b$ merge in a balanced way at time $m$ if
+$C^m(a)=C^m(b)$ and $H(a,m)=H(b,m)$.
+Write $G(n,k)$ if some $m\le k$ gives such a merger for $n,n+1$ and
+\[
+ C^j(n)>1,\qquad C^j(n+1)>1\quad(0\le j\le m).
+\]
+Finally put
+\[
+ \bar d_k=2^{-k}\#\{n\in\Z:1\le n<2^k-1,\ G(n,k)\}.
+\]
+\end{definition}
+This is Gao's coalescence condition and printed dyadic endpoint \cite[p.~264--265]{Gao1993}. His height counts ordinary steps to the first visit to $1$; his total stopping time counts halvings. Coalescence itself is meaningful without assuming that either trajectory eventually reaches $1$.
+
+\begin{theorem}[Gao's conjecture, quantitatively]\label{thm:gao}
+For the quantities in Definition~\ref{def:gao},
+\[
+ 0\le1-\bar d_k\ll k^{-1/2}\quad(k\ge1).
+\]
+In particular $\bar d_k\to1$, as conjectured by Gao.
+\end{theorem}
+
+\begin{theorem}[Synchronized power descent]\label{thm:power-window}
+Fix $\log_4 3<c<1$, and let $L:\Z_{>0}\to\N$ satisfy $L(n)=o(\sqrt{\log n})$.
+For natural-density-almost every positive integer $n$, there exist $t\in\N$ and $y\in\Z_{>0}$ such that
+\[
+ t\le2\log_2 n,\qquad
+ C^t(n+d)=y<n^c\quad(0\le d\le L(n),\ d\in\Z).
+\]
+The exceptional set may depend on $c$ and $L$. No monotonicity is required.
+\end{theorem}
+Here $\log_4 3=0.792481\ldots$. Thus $c=4/5$ and $L(n)=\lfloor(\log n)^{1/3}\rfloor$ are admissible.
+The common value lies below $(n+d)^c$ for every member as well.
+
+\begin{theorem}[Simultaneous almost-bounded values]\label{thm:window}
+Let $L:\Z_{>0}\to\N$ and $f:\Z_{>0}\to\R$ satisfy
+\[
+ \frac{L(n)}{\sqrt{\log n}}\longrightarrow0\quad(n\ge2),
+ \qquad f(n)\longrightarrow+\infty.
+\]
+For logarithmic-density-almost every positive integer $n$, there exist $t\in\N$ and $y\in\Z_{>0}$ such that
+\[
+ y<f(n),\qquad C^t(n+d)=y\quad(0\le d\le L(n),\ d\in\Z).
+\]
+The exceptional set may depend on $L$ and $f$. No monotonicity is required.
+\end{theorem}
+For example, every fixed $0<a<1/2$ permits $L(n)=\lfloor(\log n)^a\rfloor$.
+The time of merger is controlled; the theorem does not give an upper bound for the later time at which the small value is reached.
+The two window theorems give different guarantees. Theorem~\ref{thm:power-window} retains natural density and a logarithmic deadline, while Theorem~\ref{thm:window} permits any diverging threshold at logarithmic density.
+
+The probabilistic input is a theorem about the actual two-adic trajectories, not an independence model for different integer starts. Section~\ref{sec:kernel} defines their canonical state $(s,D)$ and symbolic absorption time $\tau$.
+\begin{theorem}[Uniform pair absorption]\label{thm:pair}
+Start the canonical process from $(0,D)$, with $D\in\Z$, and a Haar-distributed base. There is an absolute constant $A\ge1$ such that for every real $h\ge1$,
+\[
+ \PP_{(0,D)}(\tau>h)\le
+ \min\left\{1,A\sqrt{\frac{1+\log(1+|D|)}{h}}\right\}.
+\]
+Every initial state $(s,D)$, $s\ge0$, is absorbed almost surely.
+\end{theorem}
+
+\begin{corollary}[Fixed offsets and prescribed deadlines]\label{cor:deadline}
+For every fixed $d\in\Z$ and every real-valued $g(n)\to+\infty$, a set of positive integers $n$ of natural density one has $n+d>0$ and a balanced merger of $n,n+d$ at a common ordinary time $m\le g(n)$, before either trajectory visits $1$.
+\end{corollary}
+The assertion is for each fixed offset and each prescribed deadline; it does not assert simultaneous success for arbitrary choices of an offset depending on the start.
+
+\subsection*{Earlier work and scope}
+Said Duran gave the first public proof of Gao's density-one conjecture, formalized in Lean~4 \cite[Theorems~A and~B]{Duran2026} (Zenodo, version~1, published 27 September 2026). Our proof of Theorem~\ref{thm:gao} is independent of his and adds the rate; the short paper \cite{GaoDensityOne} isolates it, and \cite[Theorem~A]{Rates} determines the leading constant of the deficiency.
+Gao proves replication of terminating consecutive tuples from one tuple with common ordinary height and common halving count. He also reports long finite runs and a table whose rounded value at $k=24$ is $0.389$ \cite{Gao1993}. That entry and his monotonicity argument are distinct from the density-one conjecture addressed here; the finite calculation is not reproduced in this paper.
+Elia and Tucker give ordinary-clock congruence families and infinitely many counterexamples to Garner's proposed classification of equal-height pairs \cite{EliaTucker2015}; those are counterexamples to the classification, not to the Collatz conjecture. LaDue gives shortcut-clock criteria and arithmetic pair/triple families \cite{LaDue2017}. Novgorodtsev gives exact synchronized clocks for a special positive-density family \cite{Novgorodtsev2026b}.
+Korec proves natural-density-one descent below $n^c$ for every $c>\log_4 3$; his proof supplies a witness within $\log_2 n$ shortcut steps \cite[Theorem~1 and pp.~86--88]{Korec1994}. Theorem~\ref{thm:power-window} extends that singleton conclusion to synchronized growing blocks and converts the clock to ordinary steps. Theorem~\ref{thm:window} instead uses Tao's published logarithmic-density minimum theorem \cite[Theorem~1.3]{Tao2022}. Neither singleton proof is repeated.
+
+The results of this paper combine the pair estimate, which is also kernel-checked (Section~\ref{sec:verification}), with the explicit Gao dictionary and the growing-window argument. We make no assertion of historical priority. We have not compared our results with the full texts of Wu's papers on coalescing consecutive pairs \cite{Wu1995,WuHuang2001}, which we know through Lagarias's annotated bibliographies \cite[entry~190]{Lagarias2011}, \cite[entry~125]{Lagarias2012}, or of the computational-streak paper of Frinkle et al.\ \cite{FrinkleEtAl2025}. An overview of the series of papers to which this one belongs is \cite{Umbrella}.
+
+\section{The canonical pair process}\label{sec:kernel}
+Keep an orientation bit and write the currently oriented entries as $Y=3^sX+D$, with $s\ge0$ and $D\in\Z$. A step applies $T$ simultaneously to both entries. The label $\epsilon$ is the parity of the current base $X$. Direct substitution gives
+\[
+\begin{array}{c|c|c}
+\text{condition}&\text{new }(s,D)&\text{new base}\\\hline
+D\text{ even},\ \epsilon=0&(s,D/2)&T(X)\\
+D\text{ even},\ \epsilon=1&(s,(3D+1-3^s)/2)&T(X)\\
+D\text{ odd},\ s\ge1,\ \epsilon=0&(s+1,(3D+1)/2)&T(X)\\
+D\text{ odd},\ s\ge1,\ \epsilon=1&(s-1,(D-3^{s-1})/2)&T(X)\\
+D\text{ odd},\ s=0,\ \epsilon=0&(1,(3D+1)/2)&T(X)\\
+D\text{ odd},\ s=0,\ \epsilon=1&(1,(1-3D)/2)&T(Y).
+\end{array}
+\]
+The last row swaps the orientation. All the offsets displayed are integers. State $(0,0)$ is absorbing, and $\tau$ denotes its first hitting time, measured in simultaneous shortcut steps. Symbolic absorption is stronger than bare endpoint equality.
+
+\begin{lemma}[Fresh labels and exact cylinders]\label{lem:cylinders}
+Conditional on any finite labelled history, the current base is Haar-distributed. Every length-$h$ labelled history corresponds to one residue class of the original base modulo $2^h$. Consequently the proportion of nonabsorbed residues modulo $2^h$ equals $\PP(\tau>h)$.
+\end{lemma}
+\begin{proof}
+Write the current base as $X=2U+\epsilon$. Conditional on its parity, $U$ is Haar. The next base is $U$, $3U+2$, or, in the swapped row, $U+(D+1)/2$. Each affine map has odd coefficient and preserves Haar measure. Induction proves the conditional statement. The same induction on residues says that each next parity chooses exactly one of the two refinements of a residue class; all multipliers in the new coordinate are odd. Thus each word has one cylinder of modulus $2^h$, with measure $2^{-h}$.
+\end{proof}
+
+\begin{lemma}[Clock and halving-count realization]\label{lem:clock}
+If the state from $(0,d)$ is absorbed at shortcut horizon $h$, the two original trajectories have equal shortcut odd-branch counts $r$. They merge in a balanced way at ordinary time $m=h+r\le2h$, and both have made exactly $h$ halvings.
+\end{lemma}
+\begin{proof}
+The signed level, with its sign specified by the orientation, changes by the difference of the original odd-branch indicators. The six transition formulas prove this by induction; the last row reverses the orientation when the signed difference crosses zero. Starting at level zero, absorption therefore forces equality of the original odd counts. Each even shortcut step consists of one ordinary halving; each odd shortcut step consists of an odd ordinary step followed by one halving. A shortcut path of length $h$ with $r$ odd steps thus takes ordinary time $h+r$ and contains exactly $h$ halvings. Absorption identifies the endpoints as well.
+\end{proof}
+
+\section{Returns, moments, and absorption}\label{sec:returns}
+All probabilities in this section refer to the fair labels of Lemma~\ref{lem:cylinders}, conditional on the complete finite past when needed. No argument conditions on eternal survival.
+
+\begin{lemma}[Holding times and the level walk]\label{lem:holding}
+At the successive odd-offset transitions, the positive level is a fair nearest-neighbor walk, stopped at zero. At a positive level $j$, a segment of even-offset holding steps together with its terminal odd-offset transition has conditional expected length at most $e_j+2$, uniformly in the incoming offset, where
+\[
+ e_j=v_2(1-3^j)=\begin{cases}1&j\text{ odd},\\2+v_2(j)&j\text{ even}.\end{cases}
+\]
+Each holding segment is finite almost surely, and every positive initial level returns to zero almost surely.
+\end{lemma}
+\begin{proof}
+Odd offsets give the two level changes with conditional probability $1/2$ each. For an even nonzero offset, a valuation below $e_j$ drops by one under either branch. A valuation above $e_j$ is sent to $e_j-1$ by the odd label; a valuation equal to $e_j$ is sent there by the even label. A failed trial keeps the valuation at least $e_j$. Offset zero is included by treating its valuation as infinite. The number of trials to fall below $e_j$ has geometric mean two; at most $e_j-1$ further holding steps and one terminal transition remain. The identity for $e_j$ follows from the usual factorization of $3^j-1$ and repeated squaring.
+For the embedded walk stopped at $\{0,H\}$, the chance to hit $H$ first from $s<H$ is $s/H$. A path avoiding zero cannot stay forever in a finite interval, so passage to $H\to\infty$ proves recurrence to zero. Almost-sure finiteness of the countably many holding segments transfers this to shortcut time.
+\end{proof}
+
+Fix $\alpha\in(0,1)$ once and for all. Set
+\[
+ q=2^{-\alpha},\quad p=(3/2)^\alpha,\quad
+ \kappa=(q+p)/2<1,\quad
+ r=\frac{1-\sqrt{1-qp}}q,\quad a=rq<1.
+\]
+The strict inequality for $\kappa$ follows from strict convexity of
+$2^{-u}+(3/2)^u$ between its equal values at $u=0,1$. The smaller root of $qz^2-2z+p$ lies in $(0,1)$, so $0<r<1$ and $(qr+p/r)/2=1$.
+Use the normalized offset $z=D/3^s$, the moment $V(D)=|D|^\alpha$, and $W(s,z)=r^s|z|^\alpha$.
+The six normalized updates are
+\[
+ z/2,\quad 3z/2+(3^{-s}-1)/2,\quad
+ z/2+1/(2\cdot3^{s+1}),\quad 3z/2-1/2,\quad
+ z/2+1/6,\quad -z/2+1/6.
+\]
+Subadditivity of the $\alpha$-power gives the following drift facts. At positive even offsets the coefficient of $W$ is $\kappa$ in conditional expectation. At positive odd offsets it is $(qr+p/r)/2=1$. In both cases the additive source is at most $c_0r^{s-1}$, for an absolute $c_0$ depending only on the fixed $\alpha$. At an odd level-zero departure,
+\begin{equation}\label{eq:departure}
+ \E[W_1\mid D]\le aV(D)+r6^{-\alpha}.
+\end{equation}
+
+\begin{lemma}[Return moments]\label{lem:moment}
+Let $R$ be the first return to level zero from a state $(s,D)$ with $s>0$, and $U$ its raw offset on return. There is a constant $b_\infty$ such that
+\[
+ \E V(U)\le r^s|D/3^s|^\alpha+b_\infty.
+\]
+For a process departing from an odd level-zero offset $D$, let $U$ again denote the raw return offset. For a constant $b$,
+\[
+ \E V(U)\le aV(D)+b.
+\]
+The same inequality holds if the return is followed by its even-offset coast to an odd boundary offset or absorption.
+\end{lemma}
+\begin{proof}
+The killed half-line Green function of the embedded walk is
+$G_s(j)=2\min(s,j)$. Indeed, for $s\le j$ the chance to reach $j$ before zero is $s/j$, whereas for $s\ge j$ it is one. From $j$, the probability of returning to $j$ after one step and before absorption is $1-1/(2j)$; hence the expected number of visits including the present one is $2j$.
+Conditional holding bounds and Tonelli give
+\[
+ \E\sum_{i<R}r^{s_i-1}
+ \le2\sum_{j\ge1}\min(s,j)(e_j+2)r^{j-1}
+ \le2\sum_{j\ge1}j(e_j+2)r^{j-1}<\infty.
+\]
+Stop the one-step drift inequality at $R\wedge n$ and use Fatou on the nonnegative terminal moment. Lemma~\ref{lem:holding} gives $R<\infty$ almost surely; no uniform-integrability assertion is needed. This proves the first estimate. Starting from level one bounds the same sum by $2\sum_j(e_j+2)r^{j-1}$; combine with \eqref{eq:departure} for the second estimate.
+At level zero and nonzero even offset, each step replaces $D$ by $D/2$ or $3D/2$. Its valuation drops exactly one, and its conditional $V$ moment is multiplied by $\kappa$. Thus the whole coast cannot increase the expected moment. Offset zero is absorbed immediately.
+\end{proof}
+
+\begin{lemma}[Finite boundary trials]\label{lem:trials}
+From every state the process is absorbed almost surely. After a possibly random raw boundary offset $U$ with $\E V(U)<\infty$, the expected total number of boundary departures and the expected total length of even coasts, up to compact absorbing-word trials, are bounded by a constant times $1+\E V(U)$.
+The expected number of compact trials and subsequent recoveries is finite.
+\end{lemma}
+\begin{proof}
+Consider the chain $Z_i$ on odd level-zero offsets with cemetery state zero, after each even coast. Lemma~\ref{lem:moment} gives
+$\E[V(Z_{i+1})\mid\mathcal F_i]\le aV(Z_i)+b$.
+Choose $R_0>b/(1-a)$, set $c=a+b/R_0<1$, and let $\sigma$ be first entry into
+$\mathcal K=\{D\text{ odd}:V(D)\le R_0\}\cup\{0\}$.
+Writing $q_i=\E[V(Z_i)\one_{\{\sigma>i\}}]$ and killing on entry,
+\[
+ q_{i+1}\le a q_i+b\PP(\sigma>i)\le c q_i,
+ \qquad \sum_iq_i\le\frac{\E V(Z_0)}{1-c}.
+\]
+Here $\PP(\sigma>i)\le q_i/R_0$. This proves integrability of the departure count. The raw-return version of Lemma~\ref{lem:moment} bounds the sum of raw-return moments by the same geometric sum. For nonzero $u$, its coast length satisfies
+$v_2(u)\le |u|^\alpha/(\alpha\log2)$; zero has coast length zero. This proves the coast estimate, including an initially random even $U$.
+
+Every integer boundary offset has a finite absorbing word. For even $D$, use zero labels to remove its powers of two. For odd $|D|>1$, the words $01$ when $D\equiv3\pmod4$ and $11$ when $D\equiv1\pmod4$ return to level zero with offsets
+\[
+ (3D-1)/4\quad\hbox{and}\quad -(3D+1)/4,
+\]
+respectively. Both have smaller absolute value. Repeat after removing powers of two. Terminal offsets $1$ and $-1$ have absorbing words $001$ and $101$.
+Choose one word for each state of the finite set $\mathcal K$, and let $\ell$ bound their lengths. Each trial succeeds conditionally with probability at least $2^{-\ell}$.
+The endpoints of all failed trials lie in a fixed finite state set. Lemmas~\ref{lem:holding} and \ref{lem:moment} and the preceding killed-moment estimate give a finite expected recovery departure count and coast length uniformly on that set. Define the next trial only after recovery to $\mathcal K$. The probability of failing the first $j$ trials is at most $(1-2^{-\ell})^j$.
+Thus absorption is almost sure, and all asserted counts and coast lengths are integrable. An arbitrary positive initial level first returns to zero almost surely by Lemma~\ref{lem:holding}.
+\end{proof}
+
+\section{A quantitative absorption bound}\label{sec:tail}
+\begin{lemma}[Physical return tail]\label{lem:return-tail}
+For the first return $R$ from any positive level $s$, uniformly in the offset,
+\[
+ \PP(R>t)\ll\frac{s}{\sqrt t}\quad(t>0),\qquad
+ \E(1-e^{-\lambda R})\ll s\sqrt\lambda\quad(0<\lambda\le1).
+\]
+\end{lemma}
+\begin{proof}
+Kill the embedded walk at $0,H$, where $H>s$. Its Green function is
+\[
+ G_{0,H}(s,j)=\frac{2\min(s,j)(H-\max(s,j))}{H}\le2s.
+\]
+This formula solves the finite difference equation for expected visits, with zero boundary values; alternatively it follows by hitting probabilities as in Lemma~\ref{lem:moment}.
+Since $\sum_{j=1}^{H-1}v_2(j)\le H-1$, the formula for $e_j$ gives
+\[
+ \sum_{j=1}^{H-1}(e_j+2)\le\tfrac92(H-1).
+\]
+The expected physical exit time from this interval is therefore at most $9sH$, with no holding segment at terminal height $H$. The event $R>t$ implies either exit at $H$ or physical interval exit time exceeding $t$, whence
+\[
+ \PP(R>t)\le s/H+9sH/t.
+\]
+For $t\ge(s+1)^2$, take an integer $H>s$ comparable to $\sqrt t$. For smaller $t$, use $1\le2s/\sqrt t$. Tail integration against $\lambda e^{-\lambda t}$ proves the Laplace bound.
+\end{proof}
+
+\begin{lemma}[Uniform remaining-time estimate]\label{lem:remaining}
+For every state $(s,D)$, with $z=D/3^s$, and $0<\lambda\le1$,
+\[
+ \E_{(s,D)}(1-e^{-\lambda\tau})
+ \ll(1+s+|z|^\alpha)\sqrt\lambda.
+\]
+\end{lemma}
+\begin{proof}
+For $s>0$, first return to zero. Its Laplace cost is $O(s\sqrt\lambda)$ by Lemma~\ref{lem:return-tail}; its raw offset $U$ satisfies
+$\E V(U)\le |z|^\alpha+b_\infty$ by Lemma~\ref{lem:moment}.
+For $s=0$ take initial return time zero and $U=D$.
+
+Partition the subsequent boundary phase carefully. Let $R_i$ be positive-level recovery intervals ending at the first return to zero and lying outside compact trial-word intervals. Let $M$ count them. Let $A_0$ count every other step, including all even coasts, all odd level-zero departure steps, and whole compact trial words, even if a word visits positive levels. The intervals are disjoint and exhaust the phase:
+\[
+ \tau_{\rm boundary}=A_0+\sum_{i=1}^{M}R_i.
+\]
+Lemma~\ref{lem:trials} gives
+$\E A_0+\E M\ll1+\E V(U)$.
+Every recovery begins at level one or at a level in the fixed finite set of failed-word endpoints. At its start, before future labels have been revealed, Lemma~\ref{lem:return-tail} gives a uniform conditional Laplace bound $O(\sqrt\lambda)$.
+Using $1-e^{-(u+v)}\le(1-e^{-u})+(1-e^{-v})$, conditional expectation and Tonelli,
+\[
+ \E(1-e^{-\lambda\tau_{\rm boundary}})
+ \le\lambda\E A_0+O(\sqrt\lambda)\E M
+ \ll(1+\E V(U))\sqrt\lambda.
+\]
+Combine this with the initial return estimate. No independence between a return time and its return offset, and no finite mean for an entire positive-level excursion, has been assumed.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:pair}]
+Almost-sure absorption was proved in Lemma~\ref{lem:trials}.
+For the uniform dependence on $D$, retain absorbed states fixed and let $(s_i,z_i)$ be the physical state and normalized offset from $(0,D)$.
+The six normalized formulas and subadditivity give at every step
+\[
+ \E[|z_{i+1}|^\alpha\mid\mathcal F_i]
+ \le\kappa|z_i|^\alpha+b_0,
+ \qquad
+ \E|z_i|^\alpha\le\kappa^i|D|^\alpha+\frac{b_0}{1-\kappa}.
+\]
+The positive-level odd-offset move has mean squared-level increment one; an even offset holds the level; the odd level-zero move raises its square from zero to one. Hence
+\[
+ \E[s_{i+1}^2-s_i^2\mid\mathcal F_i]\le1,
+ \qquad \E s_i^2\le i,\qquad \E s_i\le\sqrt i.
+\]
+Choose
+\[
+ b_D=\left\lceil\frac{\log(1+|D|^\alpha)}{|\log\kappa|}\right\rceil+1
+ \ll 1+\log(1+|D|).
+\]
+At this deterministic time the expected normalized-offset moment is bounded absolutely. The current base is still conditionally Haar after every labelled history, so Lemma~\ref{lem:remaining} applies to the remaining absorption time $Q$.
+As $\tau\le b_D+Q$,
+\[
+ \E(1-e^{-\lambda\tau})
+ \ll\lambda b_D+\sqrt{b_D+1}\sqrt\lambda.
+\]
+For $t\ge1$, put $\lambda=1/t$ and use
+$1-e^{-\tau/t}\ge1-e^{-1}$ on $\{\tau>t\}$.
+If $t\ge b_D+1$, both resulting terms are bounded by a constant times $\sqrt{(b_D+1)/t}$. If $t<b_D+1$, the trivial probability bound one suffices after enlarging the absolute constant. This proves the stated bound, including $D=0$, for which absorption is immediate.
+\end{proof}
+
+\begin{remark}[Which scale is sharp]
+The symbolic tail from $(0,1)$ also has a lower bound of order $h^{-1/2}$. Before absorption its first positive-level excursion must return to zero, and its physical duration dominates the embedded walk's first-hit time. Reflection gives
+$\PP_1(K>2m)=\binom{2m}{m}/4^m\asymp m^{-1/2}$.
+This concerns symbolic shortcut time. It does not prove optimality of the Gao deficiency bound or the permitted window length. Likewise, from $D=2^m$ the first $m$ steps remain at nonzero even boundary offsets, so $\tau>m$. A uniform prefactor in a square-root tail bound must therefore grow at least as $\sqrt m$ along these offsets.
+\end{remark}
+
+\section{Integer density and Gao's conjecture}\label{sec:gao}
+For $D\in\Z$, put $S_h(D)=\PP_{(0,D)}(\tau>h)$. Lemma~\ref{lem:cylinders} and elementary residue counting imply, for every integer $Y\ge0$,
+\begin{equation}\label{eq:residue-count}
+ \#\{1\le n\le Y:\text{state from }(n,n+D)\text{ unabsorbed at }h\}
+ \le YS_h(D)+2^h.
+\end{equation}
+The integer realization is valid for signed offsets even when one endpoint is not positive; positivity is imposed only in the ordinary-map applications.
+
+\begin{lemma}[Excluding an early visit to one]\label{lem:before-one}
+For positive $n$ and $j\ge0$, $C^j(n)\ge n/2^j$. If $n>2^{2h}$, both trajectories from $n,n+1$ stay strictly above $1$ through ordinary time $2h$.
+\end{lemma}
+\begin{proof}
+Each ordinary step satisfies $C(x)\ge x/2$ for $x>0$. Induction proves the bound and then the asserted strict inequality. The same argument applies separately to any positive second start.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:deadline}]
+Fix $h$. The absorbed residue set has natural density $1-S_h(d)$. For all sufficiently large $n$, both $n$ and $n+d$ exceed $2^{2h}$ and $g(n)\ge2h$. Lemmas~\ref{lem:clock} and \ref{lem:before-one} show that this fixed residue set, minus a finite prefix, satisfies the claimed balanced merger condition. Its lower density is therefore at least $1-S_h(d)$. Let $h\to\infty$ using Theorem~\ref{thm:pair}. The upper density is at most one.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:gao}]
+For integers $h\ge1$ and $k\ge2h$, every absorbed start in Gao's interval with $n>2^{2h}$ satisfies $G(n,k)$. Lemma~\ref{lem:clock} supplies both equal counts and a common time at most $2h$; Lemma~\ref{lem:before-one} supplies the before-one condition.
+There are $2^k-2$ positive starts in the printed interval. By \eqref{eq:residue-count},
+\begin{equation}\label{eq:gao-finite}
+ 1-\bar d_k
+ \le S_h(1)+2^{2h-k}+2^{h-k}+2^{1-k}.
+\end{equation}
+The terms respectively account for survival, the discarded prefix, residue discrepancy, and the two missing endpoints in the normalization.
+Taking $h=\lfloor k/4\rfloor$ for $k\ge8$ gives $h\ge k/8$, and Theorem~\ref{thm:pair} bounds the first term by $O(k^{-1/2})$; the remaining terms decay exponentially. A larger constant covers the finitely many smaller positive $k$.
+Alternatively, first fix $h$ in \eqref{eq:gao-finite} and let $k\to\infty$, then let $h\to\infty$. This yields Gao's limit without using the quantitative tail or exchanging two dependent limits.
+\end{proof}
+
+\begin{corollary}[Uniform finite offset counts]\label{cor:finite}
+Let $F(N,D)$ count positive $n\le N$ with $n+D>0$ for which no common ordinary-clock merger occurs by $\log_2 n$. For $N\ge16$,
+\[
+ F(N,D)\ll\min\left\{N,\ N\sqrt{\frac{1+\log(1+|D|)}{\log N}}+\sqrt N\right\},
+\]
+with an absolute implied constant. In particular one offset $D_N$ for each cutoff, satisfying $\log(1+|D_N|)=o(\log N)$, gives $F(N,D_N)=o(N)$.
+\end{corollary}
+\begin{proof}
+Set $h=\lfloor\log_2N/4\rfloor$ and discard starts $n<\sqrt N$. For the rest, $2h\le\log_2n$. Apply Lemma~\ref{lem:clock}, \eqref{eq:residue-count}, and Theorem~\ref{thm:pair}; the residue error $2^h\le N^{1/4}$ is absorbed by the discarded prefix. Restricting to positive second starts can only reduce the count. Increase the constant for the bounded small range. The assertion about $D_N$ is substitution into this finite inequality, not an estimate for arbitrary adaptive offsets $D(n)$.
+\end{proof}
+
+\section{Growing blocks and descent witnesses}\label{sec:windows}
+\begin{lemma}[Adjacent-edge count]\label{lem:window-count}
+Let $X=2^j$ for an integer $j\ge0$, and let $h\ge1$ and $H\ge0$ be integers. A start $n\in[X,2X)$ is defective if one of its $H$ adjacent pairs $(n+d,n+d+1)$, $0\le d<H$, is unabsorbed at $h$. Then
+\[
+ \#\{\text{defective starts}\}
+ \le H\bigl((2X+H)S_h(1)+2^h\bigr).
+\]
+At every nondefective start, all $H+1$ trajectories agree at ordinary time $2h$ and at every later common time.
+\end{lemma}
+\begin{proof}
+For a fixed $d$, translation $n\mapsto n+d$ is injective, and its image lies in $[1,2X+H]$. Apply \eqref{eq:residue-count} to this adjacent edge and sum over the $H$ choices. No independence of different edges is used. Each absorbed edge agrees by some ordinary time at most $2h$, hence at time $2h$. Induction along the adjacent edges gives the joint equality. If $H=0$, the exceptional set is empty and the equality is tautological.
+\end{proof}
+For every fixed $0<\delta<1$, taking $h=\lfloor\delta j\rfloor$ and $H\le X$, Theorem~\ref{thm:pair} implies for sufficiently large $j$
+\begin{equation}\label{eq:shell}
+ \frac{\#\{\text{defective starts}\}}{X}
+ \ll_\delta \frac{H}{\sqrt j}+HX^{-(1-\delta)}.
+\end{equation}
+Using adjacent edges is essential to this estimate: summing the offset-dependent bound for every pair $(n,n+d)$ would introduce an additional logarithmic factor.
+
+\begin{lemma}[Natural-density early merger]\label{lem:early}
+Fix $0<\delta<1$. For every $L$ as in Theorem~\ref{thm:window}, a set $E_{L,\delta}$ of natural density one has the property that, for $2^j\le n<2^{j+1}$, all starts $n,\ldots,n+L(n)$ agree at time $M_j=2\lfloor\delta j\rfloor$. The set depends only on $L$ and $\delta$.
+\end{lemma}
+\begin{proof}
+Let $H_j=\max_{2^j\le n<2^{j+1}}L(n)$. The definition of a limit, uniformly over all sufficiently large integers, gives $H_j=o(\sqrt j)$ even when $L$ is not monotone. In particular $H_j\le2^j$ eventually. Equation~\eqref{eq:shell} gives $o(2^j)$ defective starts in each full shell. Summing the geometric shell sizes shows that their union has counting function $o(N)$: after any sufficiently large fixed shell, every full-shell defect count is at most $\epsilon2^j$, and the sum through the shell containing $N$ is at most $2\epsilon N$. The omitted initial shells are finite. Nondefective starts for the larger shell window $H_j$ work for the required smaller window $L(n)$.
+\end{proof}
+
+\begin{theorem}[Korec, retaining the deadline from his proof]\label{thm:korec}
+The following statement retains the shortcut deadline in Korec's construction; the ordinary-time conclusion is our conversion.
+For every fixed $\log_4 3<c<1$, natural-density-almost every positive $n$ has some integer $r$ satisfying
+\[
+ 0\le r\le\log_2 n,\qquad T^r(n)<n^c.
+\]
+Consequently there is an ordinary time $t\le2\log_2 n$ with $C^t(n)<n^c$.
+\end{theorem}
+The density assertion is \cite[Theorem~1]{Korec1994}. The observation on p.~86 and the proof on pp.~87--88 retain $r\le\log_2 n$: the successful inputs satisfy $m2^m<n$ and use $r=m$.
+For the last assertion, expand the $r$ shortcut steps into ordinary steps. If $q$ of them are odd, the resulting ordinary time is $t=r+q\le2r$.
+
+\begin{proof}[Proof of Theorem~\ref{thm:power-window}]
+Choose a fixed $0<\delta<(1-c)/2$. For $2^j\le n<2^{j+1}$ put $M_j=2\lfloor\delta j\rfloor$.
+For $n>1$ and every $0\le i\le M_j$, Lemma~\ref{lem:before-one} gives
+\[
+ C^i(n)\ge n2^{-i}\ge n2^{-2\delta j}
+ \ge n^{1-2\delta}>n^c.
+\]
+Thus the ordinary witness $t$ supplied by Theorem~\ref{thm:korec} occurs strictly after $M_j$.
+On $E_{L,\delta}$, every window member already agrees with the anchor at $M_j$ and hence at $t$.
+Intersecting this natural-density-one set with Korec's natural-density-one set preserves natural density one. The common positive value is $y=C^t(n)<n^c$, with $t\le2\log_2 n$.
+\end{proof}
+
+\begin{theorem}[Tao]\label{thm:tao}
+For every real-valued $u(n)\to+\infty$, logarithmic-density-almost every positive $n$ has some iterate $C^t(n)<u(n)$.
+\end{theorem}
+This is \cite[Theorem~1.3]{Tao2022}, with the ordinary-map convention above. It does not assert a fixed terminal threshold or a time bound for that witness.
+
+\begin{proof}[Proof of Theorem~\ref{thm:window}]
+Use Lemma~\ref{lem:early} with $\delta=1/4$, so $M_j=2\lfloor j/4\rfloor$.
+Let $u(n)=\min\{f(n),n^{1/4}\}$. This tends to infinity. If $X=2^j\le n<2X$ and $0\le i\le M_j$, Lemma~\ref{lem:before-one} gives
+\[
+ C^i(n)\ge n/2^i\ge\sqrt X.
+\]
+For sufficiently large shells,
+\[
+ u(n)\le n^{1/4}<(2X)^{1/4}\le\sqrt X.
+\]
+Thus any witness supplied by Theorem~\ref{thm:tao} occurs strictly after $M_j$. On $E_{L,1/4}$, all trajectories have already merged by that time, so the same witness is shared by every start in the window and lies strictly below $f(n)$.
+A natural-density-zero set has logarithmic density zero: if $A(x)=o(x)$ is its counting function, partial summation gives
+\[
+ \sum_{\substack{n\le N\\n\in A}}\frac1n
+ =\frac{A(N)}N+\int_1^N\frac{A(x)}{x^2}\,dx=o(\log N).
+\]
+Consequently intersecting Tao's logarithmic-density-one set with $E_{L,1/4}$ preserves logarithmic density one and proves the result.
+\end{proof}
+
+\begin{remark}[The singleton input can be varied]
+The transfer argument uses early merger and a singleton witness forced to occur after that deadline. Korec and Tao give the two established applications above. Any independently established natural-density almost-bounded singleton theorem would also give a natural-density almost-bounded window conclusion. That stronger singleton input is not assumed here.
+\end{remark}
+
+\section{Larger blocks with a vanishing omitted fraction}\label{sec:majority}
+The offset-dependent estimate gives a different extension if a vanishing proportion of block members may be omitted. The block length below is fixed throughout each dyadic shell.
+
+\begin{theorem}[Near-total synchronization]
+Let $H_j\ge1$ be integers with $\log H_j=o(j)$, and let $f(n)\to+\infty$. There are a sequence $\varepsilon_j\to0$ and a set $A$ of logarithmic density one such that, for every sufficiently large $n\in A$, writing $2^j\le n<2^{j+1}$, there are a common time $t$ and a positive $y<f(n)$ for which
+\[
+ \#\{0\le d<H_j:C^t(n+d)=C^t(n)=y\}
+ \ge(1-\varepsilon_j)H_j.
+\]
+The same proportion already agrees with the anchor at time $2\lfloor j/4\rfloor$ on a set of anchors of natural density one.
+\end{theorem}
+\begin{proof}
+For $N,H,h\ge1$ define
+\[
+ r_{H,h}(n)=\frac1H\#\{0\le d<H:C^{2h}(n+d)\ne C^{2h}(n)\}.
+\]
+For a fixed offset $d$, failure of this ordinary equality implies symbolic nonabsorption. Counting its residue classes on the interval of exactly $N$ anchors, rather than enlarging that interval by $H$, gives
+\[
+ \frac1N\sum_{n=N}^{2N-1}r_{H,h}(n)
+ \le C_0\sqrt{\frac{1+\log H}{h}}+\frac{2^h}{N}
+\]
+for an absolute $C_0$, by Theorem~\ref{thm:pair}. This follows by averaging the separate offset counts; it uses no independence.
+Put $N=2^j$, $h=\lfloor j/4\rfloor$, and let $a_j$ be the right-hand side with $H=H_j$, for sufficiently large $j$. Then $a_j\to0$. Markov's inequality with $\varepsilon_j=\sqrt{a_j}$ leaves at most $\varepsilon_j2^j$ defective anchors, each nondefective anchor having the asserted synchronized proportion. Define the finitely many initial $\varepsilon_j$ arbitrarily. The dyadic argument of Lemma~\ref{lem:early} gives natural density one.
+Intersect this set with Tao's theorem for $u(n)=\min\{f(n),n^{1/4}\}$. The same lower bound before the merger deadline used in Theorem~\ref{thm:window} forces the witness after that deadline. All members already agreeing with the anchor then share its small value.
+\end{proof}
+For example $H_j=\lceil\exp(\sqrt j)\rceil$ permits $\varepsilon_j=O(j^{-1/8})$. This extension allows much larger blocks, while Theorem~\ref{thm:window} includes every member of its smaller blocks. Neither assertion removes the exceptional anchors.
+
+\begin{corollary}[Near-total synchronized power descent]\label{cor:majority-power}
+Fix $\log_4 3<c<1$, and let $H_j\ge1$ be integers with $\log H_j=o(j)$.
+There are a sequence $\varepsilon_j\to0$ and a set $A$ of natural density one such that, for every sufficiently large $n\in A$, writing $2^j\le n<2^{j+1}$, some $t\in\N$ and $y\in\Z_{>0}$ satisfy
+\[
+ t\le2\log_2 n,\qquad y<n^c,\qquad
+ \#\{0\le d<H_j:C^t(n+d)=C^t(n)=y\}\ge(1-\varepsilon_j)H_j.
+\]
+\end{corollary}
+\begin{proof}
+Choose $0<\delta<(1-c)/2$ and use the averaging inequality in the preceding proof with $h=\lfloor\delta j\rfloor$.
+Its right-hand side is
+\[
+ a_j=C_0\sqrt{\frac{1+\log H_j}{\lfloor\delta j\rfloor}}
+       +2^{\lfloor\delta j\rfloor-j}\longrightarrow0.
+\]
+For sufficiently large $j$, Markov's inequality with $\varepsilon_j=\sqrt{a_j}$ and the same dyadic summation leave a natural-density-one set with the required proportion synchronized by $2h$.
+Intersect with Korec's set. The lower bound in the proof of Theorem~\ref{thm:power-window} forces its witness after $2h$, preserving the synchronized proportion and giving the asserted common value and clock.
+\end{proof}
+
+\section{Later strengthening: sharp Gao rate and natural-density minimum marks}\label{sec:later-strengthening}
+This section combines the pair estimate with the natural-density law of the attained minimum, and records the exact clock converse needed for the sharp Gao rate. The minimum-law input is \cite[Corollary~3.8]{BM}: for every $r\ge1$ the set $\{m=r\}$ has a natural density $p_r$, and $\sum_rp_r=1$. Consequently, for each fixed $R$ the tail set $\{m>R\}$ has natural density $d_R=\sum_{r>R}p_r$, and $d_R\to0$. This input is a written and independently reviewed proof in \cite{BM}, and it is also kernel-checked (Section~\ref{sec:verification}). The compositions in this section are written mathematics.
+
+For a positive start put
+\[
+ m(n)=\min_{j\ge0}C^j(n),\qquad
+ \tau_m(n)=\min\{j:C^j(n)=m(n)\},
+\]
+and let $H(n,t)$ and $J(n,t)=t-H(n,t)$ count the halving and odd branches in the first $t$ ordinary steps. Write
+\[
+ M(n)=\bigl(m(n),\tau_m(n),H(n,\tau_m(n)),J(n,\tau_m(n))\bigr).
+\]
+The minimum exists by well-ordering, without a termination assumption.
+
+\begin{lemma}[Balanced ordinary merger implies symbolic absorption]\label{lem:later-converse}
+If two positive starts have equal endpoints at ordinary time $t$ and equal halving counts there, then the canonical pair process for their offset is absorbed by a shortcut horizon at most $t$.
+\end{lemma}
+\begin{proof}
+Group every even ordinary step as one shortcut step and every odd ordinary step together with its following halving. An ordinary prefix can end either after a completed shortcut block or halfway through one final odd block. In the completed case the two shortcut endpoints and odd counts already agree. If both prefixes end halfway through odd blocks, injectivity of $u\mapsto3u+1$ makes their penultimate values equal, so the completed shortcut endpoints and odd counts agree. In the mixed case one further shortcut step sends the completed endpoint $y$ and the pending endpoint $u$ to the common value $y/2=(3u+1)/2$; the odd counts become equal. The signed-level cocycle identifies the level with the odd-count difference, so equal counts force level zero, and equal endpoints then force offset zero. In the mixed case at least one odd branch occurred, so the extra shortcut step has horizon at most $t$.
+\end{proof}
+
+\begin{theorem}[Sharp order for Gao's deficiency]\label{thm:sharp-gao}
+There are absolute constants $c,C>0$ such that
+\[
+ c k^{-1/2}\le 1-\bar d_k\le Ck^{-1/2}\qquad(k\ge1).
+\]
+\end{theorem}
+\begin{proof}
+The upper bound is Theorem~\ref{thm:gao}. For the lower bound, Lemma~\ref{lem:later-converse} gives $G(n,k)\Rightarrow$ canonical absorption by horizon $k$. Exact binary cylinders contain exactly $2^kS_k(1)$ nonabsorbed residues in a period of length $2^k$, where $S_k(1)=\PP_{(0,1)}(\tau_{\rm pair}>k)$. Gao's interval omits only two endpoints, so the possible two-residue loss cancels with its normalization and
+\[
+ 1-\bar d_k\ge S_k(1).
+\]
+The first positive-level excursion of the pair process contains a fair nearest-neighbor walk started at one. Reflection gives $\PP(K>2r)=\binom{2r}{r}/4^r\asymp(r+1)^{-1/2}$ for its first return to zero; holding steps only increase the shortcut duration. Thus $S_k(1)\gg(k+1)^{-1/2}$.
+\end{proof}
+The converse and lower transfer are written deductions; the author's Lean development checks the forward absorption-to-Gao implication and the qualitative limit. The leading constant is determined in \cite[Theorem~A]{Rates}: $\sqrt k\,(1-\bar d_k)\to\sqrt6\,\E M_{\rm dep}/\sqrt\pi$, where $1\le\E M_{\rm dep}<\infty$ and $M_{\rm dep}$ is the number of level-zero departures of the canonical pair process from $(0,1)$ before absorption; the Haar-measure tail $\sqrt h\,\PP_{(0,1)}(\tau>h)\to2\E M_{\rm dep}/\sqrt\pi$ of the canonical process, proved there, is also kernel-checked, as \nolinkurl{Collatz.N04CanonicalHaarTail.canonical_haar_absorption_tail}; the passage to Gao's integer proportion is written. No optimality is claimed for unbalanced mergers.
+
+\begin{lemma}[Stable full mark after an early merger]\label{lem:later-mark}
+Suppose two starts meet at the same ordinary time with equal halving counts, every earlier value is greater than $R$, and the first start has $m(a)\le R$. Then $M(a)=M(b)$.
+\end{lemma}
+\begin{proof}
+The minimum of $a$ occurs in the common future. The earlier prefixes of both starts exceed it, so the minima and their first attainment times agree. Equal halving counts at the meeting persist after the common future is appended; subtracting from the common ordinary time gives equal odd counts.
+\end{proof}
+
+\begin{theorem}[Natural-density synchronized minimum marks]\label{thm:natural-mark}
+Let $L(n)=o(\sqrt{\log n})$ and $f(n)\to\infty$. For natural-density-almost every $n$,
+\[
+ M(n+d)=M(n)\quad(0\le d\le L(n)),\qquad m(n)<f(n).
+\]
+On the shell $2^j\le n<2^{j+1}$ the merger can be required by a deterministic deadline $b_j=o(j)$.
+\end{theorem}
+\begin{proof}
+Put $L_j=\max_{2^j\le n<2^{j+1}}L(n)$ and choose $h_j\to\infty$ with $h_j=o(j)$ and $(1+L_j^2)/h_j\to0$. The exact adjacent-edge count from Section~\ref{sec:windows}, with horizon $h_j$, bounds the defective fraction in the shell by
+\[
+ O\!\left(\frac{L_j}{\sqrt{h_j}}+L_j2^{h_j-j}\right)=o(1).
+\]
+Every nondefective anchor has all required adjacent pairs absorbed and therefore has a common balanced merger by $b_j=2h_j=o(j)$. For any fixed $R$, the deterministic bound $C^i(x)\ge x/2^i$ keeps every prefix through $b_j$ above $R$ on all sufficiently large shells. Lemma~\ref{lem:later-mark} then identifies all marks on the set $m(n)\le R$. The minimum law gives $d\{m>R\}\to0$ as $R\to\infty$, so a diagonal shell choice leaves a natural-density-one set with equal marks. The same fixed-threshold sandwich gives $m(n)<f(n)$ in natural density for every diverging $f$.
+\end{proof}
+
+\begin{theorem}[Near-total full marks on subpolynomial shells]\label{thm:natural-majority}
+Let $H_j\ge1$ with $\log H_j=o(j)$ and let $f(n)\to\infty$. There are $\varepsilon_j\to0$ and a natural-density-one set of anchors such that, for $n\in[2^j,2^{j+1})$,
+\[
+ \#\{0\le d<H_j:M(n+d)=M(n)\}\ge(1-\varepsilon_j)H_j,
+ \qquad m(n)<f(n).
+\]
+A selected set of at least $(1-\varepsilon_j)H_j$ offsets has one common state at one common ordinary time at most $2h_j=o(j)$.
+\end{theorem}
+\begin{proof}
+Average the offset-dependent pair failure bound over $d<H_j$ at a horizon $h_j\to\infty$ with $(1+\log H_j)/h_j\to0$ and $h_j=o(j)$. The shell mean is
+\[
+ O\!\left(\sqrt{\frac{1+\log H_j}{h_j}}+2^{h_j-j}\right)=o(1).
+\]
+Markov leaves a proportion $1-o(1)$ of anchors with a proportion $1-o(1)$ of absorbed offsets. Taking the maximum of their individual meeting times gives one common state and time at most $2h_j$. For fixed $R$, the safe-prefix bound and Lemma~\ref{lem:later-mark} identify the full marks whenever $m(n)\le R$; minimum-law tightness and a diagonal choice of $R$ remove the remaining anchors.
+\end{proof}
+The every-member range remains $o(\sqrt{\log n})$; the near-total theorem reaches shellwise $\exp(o(j))$ blocks while omitting a vanishing fraction. Neither conclusion supplies a fixed common threshold or convergence to one.
+
+\section{Arithmetic signs on synchronized marks}\label{sec:arithmetic-signs}
+Let $\lambda(n)=(-1)^{\Omega(n)}$, where $\Omega$ counts prime factors with multiplicity, and let $\nu$ be the fair probability law on $\{-1,1\}$. The following transfer uses a published short-interval theorem, rather than a fixed-shift Chowla hypothesis.
+
+\begin{lemma}[Sparse boundaries and arithmetic-sign independence]\label{lem:sparse-sign}
+For each integer $X\ge1$, let $Z_X:\{1,\ldots,X\}\to E_X$ take values in a countable set. Suppose
+\[
+ \epsilon_X=\frac1X\#\{1\le n<X:Z_X(n+1)\ne Z_X(n)\}\longrightarrow0.
+\]
+With $N$ uniform on $\{1,\ldots,X\}$,
+\[
+ \bigl\|\operatorname{Law}(Z_X(N),\lambda(N))-
+ \operatorname{Law}(Z_X(N))\otimes\nu\bigr\|_1\longrightarrow0.
+\]
+The label, its value space, and tests of that label may depend on $X$.
+\end{lemma}
+\begin{proof}
+Put $A_H\lambda(n)=H^{-1}\sum_{0\le d<H}\lambda(n+d)$. Matom\"aki--Radziwi\l\l's Theorem~1~\cite{MatomakiRadziwill2016}, applied to $\lambda$, and the prime number theorem give
+\begin{equation}\label{eq:liouville-short}
+ \lim_{H\to\infty}\limsup_{X\to\infty}
+ \frac1X\sum_{n\le X}|A_H\lambda(n)|=0.
+\end{equation}
+Here $H$ is fixed in the inner limit. To check the order of limits, their integer-center theorem bounds the discrepancy from the long dyadic mean by $\delta+C'\log\log H/\log H$, outside a fraction
+\[
+ O\!\left(\frac{(\log H)^{1/3}}{\delta^2H^{\delta/25}}+
+ \frac1{\delta^2(\log Y)^{1/50}}\right)
+\]
+of centers in $[Y,2Y]$. The long Liouville mean tends to zero. Deleting the inclusive sum's last term costs $1/H$. Thus at fixed $H,\delta$, the dyadic mean absolute value has limiting upper bound
+\[
+ \delta+C'\frac{\log\log H}{\log H}
+ +O\!\left(\frac{(\log H)^{1/3}}{\delta^2H^{\delta/25}}\right)+\frac1H.
+\]
+Cover $[X/2^J,X]$ by $J$ dyadic blocks and discard the initial fraction $2^{-J}$. Take $X\to\infty$, then $J\to\infty$, still at fixed $H,\delta$. Choosing $\delta=(\log H)^{-1/200}$ and finally sending $H\to\infty$ proves~\eqref{eq:liouville-short}.
+
+For every $g_X:E_X\to[-1,1]$, reindex each fixed shift $d<H$. A crossed boundary changes the test by at most two, and the omitted endpoint pieces have total length at most $2d$. Therefore, uniformly over these tests,
+\[
+ \left|\E g_X(Z_X(N))\lambda(N)
+       -\E g_X(Z_X(N))A_H\lambda(N)\right|
+ \le2H\epsilon_X+\frac{2H}{X}.
+\]
+All label comparisons stay inside $\{1,\ldots,X\}$. The second expectation is at most $\E|A_H\lambda(N)|$ in absolute value. Taking $X\to\infty$ first and then $H\to\infty$ makes the supremum over $g_X$ vanish. If $s_e=\E[\lambda(N)\one_{\{Z_X(N)=e\}}]$, choose $g_X(e)=\operatorname{sign}(s_e)$. This supremum equals $\sum_e|s_e|$, which is exactly the displayed $\ell^1$ distance, since the two sign masses are $(\PP(Z_X(N)=e)\pm s_e)/2$.
+\end{proof}
+
+\begin{corollary}[The full orbit mark and Liouville sign]\label{cor:marked-sign}
+For the full mark $M(n)$ defined in Section~\ref{sec:later-strengthening},
+\[
+ \|\operatorname{Law}_X(M,\lambda)-\operatorname{Law}_X(M)\otimes\nu\|_1\to0.
+\]
+In particular, if $p$ is the attained-minimum law, then $\operatorname{Law}_X(m,\lambda)\to p\otimes\nu$ in total variation. For every prescribed integer cutoff length $L_X=o(\sqrt{\log X})$, the joint law of the block $(M(N),\ldots,M(N+L_X))$ and $\lambda(N)$ approaches the empirical diagonal block law times $\nu$ in $\ell^1$.
+\end{corollary}
+\begin{proof}
+Theorem~\ref{thm:natural-mark} with $L=1$ gives the sparse adjacent boundary of $M$. Apply Lemma~\ref{lem:sparse-sign} and project to $m$, using the minimum-law convergence. The same adjacent-edge count in that theorem's proof applies at a fixed cutoff with $L_X=o(\sqrt{\log X})$: choose $h_X=o(\log X)$ with $L_X/\sqrt{h_X}\to0$, discard $n<\delta X$, and first keep the minimum guard $R$ fixed. The remaining defect tends to zero, after releasing $R$ and then $\delta$. Thus the block equals its anchor's constant diagonal outside a set of density tending to zero. Couple this block jointly with the anchor's arithmetic sign and use the triangle inequality.
+\end{proof}
+This result uses the minimum law of \cite{BM} through Theorem~\ref{thm:natural-mark}. It adds arithmetic-label independence, with no asserted limit law for the unnormalized clock. It supplies neither a growing-residue estimate nor collapse of the minimum marginal to $p_1=1$. Fixed-clock Liouville correlations require a separate affine-correlation premise and are retained only as conditional adapter deductions.
+
+\section{Further arithmetic transfers}\label{sec:arithmetic-transfers}
+The arguments below develop three consumers of the sparse-sign lemma and a source-conditioned extension. They use the minimum law and its residue form from \cite{BM}; all new deductions are written mathematics. The basin/clock, variation, and fixed-source deductions passed scoped independent review. Remarks~\ref{cor:prime-sign} and~\ref{prop:growing-history-sign} are sketches only: they are not claimed as proved, they have not been independently reviewed, and no other result uses them.
+
+\subsection{Basin laws with dyadic and ternary valuations}
+Put $V_2(n)=v_2(n)$ and $V_3(n)=v_3(n)$, and define
+\[
+ g_2(a)=2^{-(a+1)},\qquad g_3(b)=2\,3^{-(b+1)}\quad(a,b\ge0).
+\]
+\begin{theorem}[Valuations, the full mark, and the arithmetic sign]\label{thm:valuation-sign}
+The full empirical mark satisfies
+\[
+ \|\operatorname{Law}_X(M,V_2,V_3,\lambda)
+       -\operatorname{Law}_X(M,V_2,V_3)\otimes\nu\|_1\to0.
+\]
+Using the residue form of the minimum law \cite[Theorem~3]{BM},
+\[
+ \operatorname{Law}_X(m,V_2,V_3,\lambda)
+       \longrightarrow p\otimes g_2\otimes g_3\otimes\nu
+\]
+in total variation. In particular each sign has density
+\[
+ d\{m=r,V_2=a,V_3=b,\lambda=\pm1\}
+       =\frac{p_r}{2^{a+1}3^{b+1}}.
+\]
+\end{theorem}
+\begin{proof}
+On the mark coordinates define
+\[
+ A_2(m,t,h,j)=(m,t+1,h+1,j),\qquad
+ A_3(m,t,h,j)=(m,t-1,h,j-1).
+\]
+Exact doubling gives $M(2u)=A_2M(u)$. For odd $u$ with $m(u)<u$, the first odd step gives $M(3u+1)=A_3M(u)$. The set $E_0=\{u:m(u)=u\}$ has density zero: for each fixed $R$, its count is at most $R+\#\{u\le X:m(u)>R\}$, and then minimum tightness releases $R$. If $B=\{x:M(x+1)\ne M(x)\}$, Theorem~\ref{thm:natural-mark} gives $\#(B\cap[1,X])=o(X)$. Thus the odd exceptions to $M(3u)=A_3M(u)$ are at most $\#(E_0\cap[1,X])+\#(B\cap[1,3X])=o(X)$.
+
+Writing $n=2^a u$ with $u$ odd, exact doubling and the commuting coordinate shifts extend this to all starts outside a density-zero set. To check the infinite decomposition, retain $a<A$, then bound the omitted source by $2^{-A}X$. For each fixed $b$, the preimage of a tripling exception under $u\mapsto3^b u$ also has density zero. Consequently for every fixed $a,b$,
+\[
+ M(2^a3^b u)=A_2^aA_3^b M(u)
+\]
+outside $o(X)$ inputs $u\le X$. Invalid negative coordinate shifts may be assigned arbitrary labels; their uses are contained in these exceptional sets.
+
+Reindex each divisibility class $D\mid n$, $D=2^a3^b$, and use $\lambda(Du)=(-1)^{a+b}\lambda(u)$. Lemma~\ref{lem:sparse-sign}, uniformly over bounded tests of $M$, gives vanishing signed mass on that class. Four-term inclusion--exclusion gives the exact $(V_2,V_3)=(a,b)$ class. Truncate $a<A,b<B$; the omitted mass is at most $2^{-A}+3^{-B}+O(X^{-1})$. Sign-test duality proves the first assertion. Finally fixed residues modulo $2^A3^B$ identify the finite valuation probabilities and their independence from $m$; the same geometric tails prove the total-variation limit.
+\end{proof}
+
+\begin{remark}[Every fixed finite prime set; a sketch, not used elsewhere]\label{cor:prime-sign}
+We sketch, without claiming a complete proof, the following extension of Theorem~\ref{thm:valuation-sign}. Using the published M\"obius short-progression corollary of Klurman--Mangerel--Ter\"av\"ainen~\cite{KMT2023}, one expects, for every fixed modulus $q$,
+\[
+ \|\operatorname{Law}_X(M,N\bmod q,\lambda)
+       -\operatorname{Law}_X(M,N\bmod q)\otimes\nu\|_1\to0.
+\]
+For any fixed finite set $\mathcal P$ of primes, put $V_{\mathcal P}=(v_\ell)_{\ell\in\mathcal P}$ and $g_\ell(a)=(1-1/\ell)\ell^{-a}$. Then
+\[
+ \operatorname{Law}_X(m,V_{\mathcal P},\lambda)
+       \longrightarrow p\otimes\bigotimes_{\ell\in\mathcal P}g_\ell\otimes\nu
+\]
+in total variation. Theorem~\ref{thm:valuation-sign} proves the case $\mathcal P=\{2,3\}$ using only Matom\"aki--Radziwi\l\l's theorem.
+
+\emph{Sketch.} For every fixed residue $r$ modulo $q$, the cited M\"obius corollary gives vanishing iterated-limit mean absolute short averages of $\mu\one_{r\ (q)}$ on reduced classes. Its typicality condition holds for a fixed conductor once the short length grows; its exceptional divisor $q_0\ge\log X$ eventually exceeds that conductor. The exact identity $\lambda(n)=\sum_{d^2\mid n}\mu(n/d^2)$ transfers the statement to $\lambda\one_{r\ (q)}$: retain finitely many square divisors, average the resulting cofactor intervals, and bound the omitted averaged mass by $\sum_{d>D}d^{-2}+O(X^{-1/2})$. Take $X\to\infty$, then the averaging length to infinity, then $D\to\infty$. Nonunit residues reduce by $n=gm$, $g=\gcd(r,q)$, and $\lambda(gm)=\lambda(g)\lambda(m)$.
+
+Apply Lemma~\ref{lem:variation-sign} to this arithmetic input with weights $g_X(M(n))$. Their mean variation is at most $2B_M(X)/X$, uniformly for unit-bounded tests. Sum the finitely many residues and optimize the cell signs. For prime valuations, truncate each $v_\ell<A_\ell$ and use modulus $\prod\ell^{A_\ell}$. Minimum-law residue independence \cite[Theorem~3]{BM} and CRT give the finite-cell probabilities; the omitted mass is at most $\sum\ell^{-A_\ell}$. Release those fixed cutoffs last. The complete prime factorization or a prescribed growing prime set is outside the statement. The hypotheses of the cited corollary are not verified in detail here.
+\end{remark}
+
+\subsection{Normalized clock bands}
+For any $c,\sigma>0$, put $Z(n)=(\tau_m(n)-c\log n)/(\sigma\sqrt{\log n})$ for $n\ge2$, assigning $Z(1)=0$.
+\begin{proposition}[Moving clock thresholds]\label{prop:clock-sign}
+Uniformly over real thresholds $t$,
+\[
+ \sup_t\sum_r\left|\frac1X\sum_{\substack{n\le X\\m(n)=r,\ Z(n)\le t}}\lambda(n)\right|\to0.
+\]
+If, as an additional premise, for every fixed $r,t$ the unsigned Gaussian law is
+\[
+ \PP_X\{m=r,Z\le t\}\to p_r\Phi(t),
+\]
+then
+\[
+ \sup_t\sum_r\left|\PP_X\{m=r,Z\le t,\lambda=\pm1\}
+                         -\tfrac12 p_r\Phi(t)\right|\to0.
+\]
+For the ordinary-clock constants $c=3/\log(4/3)$ and $\sigma^2=2(\log6)^2/\log^3(4/3)$ this premise holds: it is \cite[Corollary~1.1]{BM} in the ordinary-clock form of \cite[Remark~7.6]{BM}. For these constants the Gaussian conclusion is therefore unconditional, and every fixed valuation cell further satisfies
+\[
+ d\{m=r,V_2=a,V_3=b,Z\le t,\lambda=\pm1\}
+       =\frac{p_r\Phi(t)}{2^{a+1}3^{b+1}}.
+\]
+\end{proposition}
+\begin{proof}
+On each constant-$M$ run, differentiation with respect to $y=\log n$ gives
+\[
+ \frac{d}{dy}\frac{\tau_m-cy}{\sigma\sqrt y}
+       =-\frac{\tau_m+cy}{2\sigma y^{3/2}}<0.
+\]
+The label $(M,\one_{\{Z\le t\}})$ therefore adds at most one boundary per run, uniformly in $t$. Its boundary count is at most $2\#(B\cap[1,X])+1=o(X)$. Lemma~\ref{lem:sparse-sign} and projection give the signed assertion, uniformly over cutoff-dependent thresholds. For the Gaussian assertion, continuity of $\Phi$ upgrades each cell's pointwise CDF convergence to uniform convergence by a finite grid; minimum tightness controls the summed tail. Splitting the two sign masses gives the formula.
+
+For fixed $D=2^a3^b$, the cocycle above shifts the raw clock by $a-b$ outside a density-zero set. With $L=\log u$,
+\[
+ Z(Du)=Z(u)\sqrt{\frac{L}{L+\log D}}
+       +\frac{a-b-c\log D}{\sigma\sqrt{L+\log D}}
+\]
+on that set. Gaussian tightness makes this change tend to zero in probability. Thus the same unsigned Gaussian law holds after each fixed dilation. The transformed threshold label also has sparse boundaries: away from cocycle exceptions it is monotone on each constant-$M$ run, and changing $o(X)$ labels changes at most $o(X)$ boundaries. Apply the signed lemma to these labels, then four-term inclusion--exclusion and the valuation densities prove the last assertion.
+\end{proof}
+The signed threshold statement needs no Gaussian premise. The Gaussian conclusions are transfers of the Gaussian law of \cite{BM}, not new proofs of it. Versions for an arbitrary target and for the halving and odd counts are not treated here. Continuous-clock conclusions use CDF or weak metrics; no total-variation independence of the exact real-valued clock is asserted.
+
+\subsection{Variation and actual masked sources}
+\begin{lemma}[Mean adjacent variation]\label{lem:variation-sign}
+Let $|f(n)|\le1$ satisfy
+\[
+ \lim_{H\to\infty}\limsup_{X\to\infty}\frac1X\sum_{n\le X}|A_H f(n)|=0.
+\]
+For complex weights $w_X$ bounded by a fixed $B$, set $v_X=X^{-1}\sum_{n<X}|w_X(n+1)-w_X(n)|$. For $1\le H\le X$,
+\[
+ \left|\frac1X\sum_{n\le X}w_X(n)f(n)\right|
+ \le \frac B X\sum_{n\le X}|A_H f(n)|
+       +\frac{H-1}{2}v_X+\frac{B(H-1)}X.
+\]
+In particular $v_X\to0$ implies zero limiting pairing. This applies to $f=\lambda$ by~\eqref{eq:liouville-short}.
+\end{lemma}
+\begin{proof}
+Reindex a shift $d<H$. The common interval costs at most $dXv_X$ by telescoping, and the two endpoint pieces cost $2Bd$. Average over $d$, for which the mean is $(H-1)/2$, and bound the remaining weighted arithmetic average by $B\E|A_Hf|$. Take $X\to\infty$ at fixed $H$, then $H\to\infty$.
+\end{proof}
+For metric observations, a bounded $L$-Lipschitz test has variation at most $L$ times the mean metric step. We give one example, which no other result uses.
+
+\emph{Example (binary digits).} For $0\le n<2^k$ write $n=\sum_{i<k}b_i(n)2^i$, put $\varepsilon_i(n)=2b_i(n)-1$ and $S_j(n)=\sum_{i<j}\varepsilon_i(n)$, and let $P_n\in C[0,1]$ be the linear interpolation of the values $P_n(j/k)=S_j(n)/\sqrt k$, $0\le j\le k$; put $P_{2^k}=P_0$. Let $N$ be uniform on $\{1,\ldots,2^k\}$, $W$ a standard Brownian motion on $[0,1]$, and $\xi$ a fair sign independent of $W$. Then $(P_N,\lambda(N))\to(W,\xi)$ in law as $k\to\infty$.
+
+Indeed, if $n<2^k-1$ has exactly $t$ trailing binary ones, then passing to $n+1$ lowers $\varepsilon_i$ by $2$ for $i<t$, raises $\varepsilon_t$ by $2$, and leaves the other digits unchanged, so $\max_j|S_j(n+1)-S_j(n)|\le2(t+1)$. Interpolations with common nodes differ in sup norm by their largest nodal difference, so $\|P_{n+1}-P_n\|_\infty\le2(t+1)/\sqrt k$. Exactly $2^{k-t-1}$ integers $n<2^k$ have $t<k$ trailing ones, so the mean of $t+1$ over $0\le n<2^k-1$ is less than $\sum_{t\ge0}(t+1)2^{-t-1}=2$; the last step, from $2^k-1$ to $P_{2^k}=P_0$, has length at most $2\sqrt k$. Let $F$ on $C[0,1]$ be bounded by $B$ and $L$-Lipschitz, and apply Lemma~\ref{lem:variation-sign} with $X=2^k$, $f=\lambda$ and $w_X(n)=F(P_n)$: then $v_X\le L(4/\sqrt k+2\sqrt k/2^k)\to0$, so $\E F(P_N)\lambda(N)\to0$. Since $n\mapsto n\bmod2^k$ is a bijection of $\{1,\ldots,2^k\}$ onto $\{0,\ldots,2^k-1\}$, the digits $\varepsilon_i(N\bmod2^k)$ are independent fair signs, and Donsker's invariance principle~\cite{Donsker1951} gives $\E F(P_N)\to\E F(W)$. Hence, for $s=\pm1$,
+\[
+ \E\bigl[F(P_N)\one_{\{\lambda(N)=s\}}\bigr]
+ =\tfrac12\bigl(\E F(P_N)+s\,\E F(P_N)\lambda(N)\bigr)\longrightarrow\tfrac12\E F(W).
+\]
+Bounded Lipschitz functions determine weak convergence on the separable metric space $C[0,1]$, so both sign-restricted laws converge to $\frac12\operatorname{Law}(W)$, which is the assertion. The path $P_n$ determines $n$, so this is a weak product limit and not a limit in total variation.
+
+\begin{proposition}[Arbitrary anchor masks on literal offset sources]\label{prop:source-sign}
+Let $X=4^j$, $I=[X,32X)\cap\Z$, $N=31X$, $R=\lfloor\sqrt j\rfloor$, $S=\lfloor j^{1/4}\rfloor$, $q_s=3^s$, and $n_s=2q_sR+1$. For any $v:I\to[0,1]$, let $\mu_j^v$ retain the literal atoms $(x,s,D)$ with mass $v(x)/(N(S+1)n_s)$ for $|D|\le q_sR$, and put $Y=q_sx+D$. Uniformly over all such masks,
+\[
+ \|\operatorname{Law}_{\mu_j^v}(x,s,M(Y),\lambda(Y))
+   -\operatorname{Law}_{\mu_j^v}(x,s,M(Y))\otimes\nu\|_1\to0.
+\]
+These are subprobability laws of mass $p=N^{-1}\sum_xv(x)$. Normalized conditioning is valid when $p$ stays bounded below. The exact anchor retains every deterministically attached anchor history.
+\end{proposition}
+\begin{proof}
+For a unit-bounded test $\Psi_s(x,e)$, reorder the literal sum as
+\[
+ w_s(y)=\frac1{Nn_s}\sum_{x\in I}v(x)
+     \one_{\{|y-q_sx|\le q_sR\}}\Psi_s(x,M(y)).
+\]
+At cutoff $T_s=33q_sX$, the rescaled weight $W_s=T_sw_s$ is bounded by $B=99/62$ for all large $j$: at most $2R+1$ anchors contribute to any $y$. Each window enters and exits once; the mark changes at its actual adjacent boundaries. Thus
+\[
+ v_{T_s}(W_s)\le \frac{2p}{n_s}+2B\epsilon_{T_s},\qquad
+ \epsilon_T=T^{-1}\#\{y<T:M(y+1)\ne M(y)\}.
+\]
+The arbitrary anchor test introduces no factor for the number of anchors. Lemma~\ref{lem:variation-sign} bounds its pairing by
+\[
+ B\E_{T_s}|A_H\lambda|+(H-1)\left(\frac p{n_s}+B\epsilon_{T_s}\right)
+       +\frac{B(H-1)}{T_s}.
+\]
+At fixed $H$, $T_s\ge33X$ and $n_s\ge2R+1$ uniformly over the growing levels. Take $j\to\infty$, then $H\to\infty$. Optimizing tests on $(x,s,M(Y))$ and using sign-test duality proves the assertion.
+\end{proof}
+For example the permitted test may contain $\lambda(x)$ and both orbit marks, giving averaged dilated two-sign cancellation over the complete offset window, with arbitrary anchor selection. It does not isolate a fixed offset. Root-one arrival deadlines are also tests of the retained output mark. Retaining additional fixed output residues and finite parity histories would need a short-progression argument; that extension is not proved here and is not used.
+
+\begin{remark}[A prescribed growing legal history; a sketch, not used elsewhere]\label{prop:growing-history-sign}
+We sketch, without claiming a complete proof, an estimate for growing parity histories. Assume the uniform hypotheses of the published KMT M\"obius short-progression corollary. Set
+\[
+ h_j=\left\lfloor\frac3{1000}\log\log(j+e^e)\right\rfloor.
+\]
+In the literal masked source of Proposition~\ref{prop:source-sign}, let $\alpha_{h_j}(Y)$ be the genuine shortcut parity word and $Z=T^{h_j}(Y)$. The subprobability law retaining
+\[
+ (x,s,\alpha_{h_j}(Y),M(Y),M(Z),\lambda(Z))
+\]
+should be within $O((\log j)^{-1/1000})$ in $\ell^1$ of its retained marginal times $\nu$, uniformly over anchor masks, and exact logarithmic deadline coordinates may also be retained. If the anchor mass has a fixed positive floor, every exact word of this growing length should separately have conditional sign discrepancy $O((\log j)^{-1/2000})$. These would be arithmetic-sign estimates, not a lower successful-source mass.
+
+\emph{Sketch.} We use the uniform minimum bound
+\[
+ \PP_T(m>R)\le K(1+\log R)^{-1/2}\quad(T,R\ge2),
+\]
+where $\PP_T$ is uniform sampling from $\{1,\ldots,T\}$. It follows from \cite[Corollary~10.2]{BM}, which gives $\PP(m(W_Y)>R)\le C_A(\log R)^{-A}$ for every $A>0$, $R\ge2$ and $Y\ge R$, with $W_Y$ uniform on the odd integers in $[Y,2Y)$: write $n=2^ev$ with $v$ odd, so that $m(n)=m(v)$, and $m(v)>R$ forces $v>R$; then sum over the dyadic blocks $[2^iR,2^{i+1}R)$ containing $v$ and over $e$.
+The balanced adjacent-pair estimate and a safe-prefix truncation at $k=\lfloor\log_2 T/8\rfloor$, $R=\lfloor T^{1/8}\rfloor$ give the full-mark boundary $\epsilon_M(T)=O((\log T)^{-1/2})$ under this minimum-tail bound. Use arithmetic averaging length $H=\lfloor j^{1/8}\rfloor$ and square-divisor cutoff $D=\lfloor(\log j)^{1/100}\rfloor$. The KMT corollary gives simultaneous short-average control on each legal inverse residue modulo $3^{m_\alpha}$; its typicality and exceptional-modulus conditions are checked on all cofactor center scales.
+
+Retaining each word's physical slope $\beta_\alpha=3^{m_\alpha}/2^h$ gives source cap at most $2\beta_\alpha$. Summing the finite branch errors pays all endpoints and yields, with $\rho=(1+\sqrt3)/2$ and $L=\log j$,
+\[
+ C\left[\rho^h L^{-1/400}+L^{-1/100}
+       +2^h\{L^{1/100}j^{-1/8}+j^{-3/8}+O(e^{-j/2})\}\right].
+\]
+Since $\log\rho<1/2$, the prescribed $h$ makes this $O(L^{-1/1000})$. The exact source count gives each word mass $p\,2^{-h}+O(p/n_s)$; dividing its individual arithmetic bound proves the conditional word estimate, with every endpoint cost retained. A safe prefix and the uniform minimum tail preserve $M(Y)$ from the terminal mark except on $O(j^{-1/2})$ source mass. The cofactor endpoint bounds, inverse legality, source eligibility and deadline costs are not written out here. No arbitrary numerical trajectory independence or relative estimate for a rare success cell follows.
+\end{remark}
+
+Proposition~\ref{prop:source-sign} pays an actual masked arithmetic estimate, but it concerns signs only: a fair split of a possibly tiny mass of successful sources gives no positive lower bound for that mass. Unsigned lower bounds of this kind, and output histories of growing length, remain open. None of these transfers proves $p_1=1$ or removes exceptional integers.
+
+\section{Verification and limitations}\label{sec:verification}
+The following statements are kernel-checked in the author's Lean~4 development, which is not yet public. Theorem~\ref{thm:pair} is \nolinkurl{Collatz.ShortcutPair.square_root_tail}, with almost-sure absorption in \nolinkurl{Collatz.ShortcutPair.haar_absorption}; the exact residue law of Lemma~\ref{lem:cylinders} is \nolinkurl{Collatz.ShortcutPair.count_survival_eq_residue_ratio}; for Lemma~\ref{lem:clock}, the odd-count identity is \nolinkurl{Collatz.ShortcutPair.signedLevel_eq_oddCount_difference}, the common ordinary endpoint of two positive integers at a time at most $2h$ is \nolinkurl{Collatz.ShortcutPair.absorption_same_clock}, and the halving count $h$ is \nolinkurl{Collatz.GaoCoalescence.halvingCount_shortcut_clock}. The conditional Haar law of the current base in Lemma~\ref{lem:cylinders} is used in written form. Corollary~\ref{cor:finite} is \nolinkurl{Collatz.ShortcutPair.finite_count_bound}, and the common-clock part of Corollary~\ref{cor:deadline}, without the equal halving counts and the condition before one, is \nolinkurl{Collatz.ShortcutPair.same_clock_density}. Gao's exact predicate and the limit $\bar d_k\to1$ of Theorem~\ref{thm:gao} are \nolinkurl{Collatz.GaoCoalescence.dyadicProportion_tendsto_one}. The finite adjacent-edge counts and the simultaneous-witness mechanism of Section~\ref{sec:windows} are checked in the module \nolinkurl{Collatz.SimultaneousWindows}. All analytic premises of these declarations are discharged in the development. The proof text above records the complete mathematical argument, including the time partition in Lemma~\ref{lem:remaining}; it is not a deduction from a simulation.
+
+The rate in Theorem~\ref{thm:gao}, the lower bound of Theorem~\ref{thm:sharp-gao}, the growing-window limiting arguments, the variable merger horizon, the invocations of Korec and Tao, and Sections~\ref{sec:later-strengthening}--\ref{sec:arithmetic-transfers} are written proofs that have been independently reviewed, except for the binary-digit example after Lemma~\ref{lem:variation-sign}, written for this version. Remarks~\ref{cor:prime-sign} and~\ref{prop:growing-history-sign} are sketches and are not claimed as proved. They are not end-to-end Lean formalizations, and independent review is not external peer review.
+
+The imported inputs and their assurance are as follows. Korec's Theorem~1 \cite{Korec1994}, Tao's Theorem~1.3 \cite{Tao2022}, Matom\"aki--Radziwi\l\l's Theorem~1 \cite{MatomakiRadziwill2016}, the M\"obius short-progression corollary of \cite{KMT2023}, used only in the two sketched remarks, and Donsker's invariance principle \cite{Donsker1951} are published results. The minimum law \cite[Corollary~3.8]{BM}, its residue form \cite[Theorem~3]{BM}, the Gaussian law of the time to the minimum \cite[Corollary~1.1 and Remark~7.6]{BM} and the minimum tail \cite[Corollary~10.2]{BM}, used only in Remark~\ref{prop:growing-history-sign}, are written and independently reviewed proofs in a preprint; the minimum law is also kernel-checked in the author's Lean development, as \nolinkurl{Collatz.FateLaw.minimum_law}. The exact constant of \cite{Rates} is cited for comparison only.
+
+A direct control is $n=28$: both $28$ and $29$ reach $22$ at ordinary time three, after two halvings, with neither path visiting $1$. Both reach $2$ at time seventeen. The case $L=0$ in the two window theorems recovers the singleton Korec and Tao conclusions, respectively.
+
+The results leave density-zero exceptional sets and do not establish convergence of every positive integer, cycle uniqueness, absence of divergent orbits, or a fixed bound for the common small value. The scale $o(\sqrt{\log n})$ is sufficient; its optimality is not claimed.
+Reflection of the shortcut map transfers its Haar pair statistic to the sign-reflected map, so that statistic alone cannot identify the positive terminating basin. For multiplier five, the moment mechanism first fails at
+$(2^{-\alpha}+(5/2)^\alpha)/2>1$ for $\alpha>0$.
+The uses of Korec's and Tao's positive-$3x+1$ theorems are explicit. The power-descent conclusion does not improve Korec's exponent, and its ordinary deadline is the safe conversion of his shortcut deadline; no optimality of the clock is claimed. None of these observations is an exclusion theorem for other proof methods.
+
+\begin{thebibliography}{99}
+\bibitem{Duran2026}
+O.~J.~Said Duran, \emph{Consecutive integers coalesce with density one under the Collatz map: a formally verified proof of a conjecture of Gao},
+preprint, Zenodo, version~1, 27 September 2026,
+\url{https://doi.org/10.5281/zenodo.23003524}.
+\bibitem{EliaTucker2015}
+M.~Elia and A.~Tucker, \emph{Consecutive integers and the Collatz conjecture},
+Integers \textbf{15} (2015); accepted manuscript,
+\href{https://arxiv.org/abs/1511.09141v1}{arXiv:1511.09141v1}.
+\bibitem{FrinkleEtAl2025}
+K.~Frinkle, S.~Rowland, J.~Pack, M.~Gordon, J.~Eskue, S.~Egbe and M.~Morris, \emph{Computing streaks of consecutive numbers with the same Collatz height},
+J. Supercomput. \textbf{81} (2025), no.~14, article 1338,
+\href{https://doi.org/10.1007/s11227-025-07820-8}{doi:10.1007/s11227-025-07820-8}.
+\bibitem{Gao1993}
+G.-G.~Gao, \emph{On consecutive numbers of the same height in the Collatz problem},
+Discrete Math. \textbf{112} (1993), 261--267.
+\bibitem{Korec1994}
+I.~Korec, \emph{A density estimate for the $3x+1$ problem},
+Math. Slovaca \textbf{44} (1994), no.~1, 85--89,
+\href{https://dml.cz/bitstream/handle/10338.dmlcz/133225/MathSlov_44-1994-1_8.pdf}{primary article}.
+\bibitem{Lagarias2011}
+J.~C.~Lagarias, \emph{The $3x+1$ problem: an annotated bibliography (1963--1999)},
+\href{https://arxiv.org/abs/math/0309224v13}{arXiv:math/0309224v13} (2011).
+\bibitem{Lagarias2012}
+J.~C.~Lagarias, \emph{The $3x+1$ problem: an annotated bibliography, II (2000--2009)},
+\href{https://arxiv.org/abs/math/0608208v6}{arXiv:math/0608208v6} (2012).
+\bibitem{LaDue2017}
+M.~D.~LaDue, \emph{Clusters of integers with equal total stopping times in the $3x+1$ problem},
+\href{https://arxiv.org/abs/1709.02979v3}{arXiv:1709.02979v3} (2017).
+\bibitem{KMT2023}
+O.~Klurman, A.~P.~Mangerel and J.~Ter\"av\"ainen, \emph{Multiplicative functions in short arithmetic progressions},
+Proc. Lond. Math. Soc. (3) \textbf{127} (2023), no.~2, 366--446,
+\href{https://doi.org/10.1112/plms.12546}{doi:10.1112/plms.12546}; M\"obius short-progression corollary.
+\bibitem{Donsker1951}
+M.~D.~Donsker, \emph{An invariance principle for certain probability limit theorems},
+Mem. Amer. Math. Soc. \textbf{6} (1951).
+\bibitem{MatomakiRadziwill2016}
+K.~Matom\"aki and M.~Radziwi\l\l, \emph{Multiplicative functions in short intervals},
+Ann. of Math. \textbf{183} (2016), no.~3, 1015--1056, Theorem~1,
+\href{https://doi.org/10.4007/annals.2016.183.3.6}{doi:10.4007/annals.2016.183.3.6}.
+\bibitem{Novgorodtsev2026b}
+A.~Novgorodtsev, \emph{Exact synchronized coalescence clocks and peak-envelope transfer for a positive-density family of consecutive Collatz trajectories},
+preprint (2026), \href{https://zenodo.org/records/21848913}{Zenodo 21848913}.
+\bibitem{Tao2022}
+T.~Tao, \emph{Almost all orbits of the Collatz map attain almost bounded values},
+Forum Math. Pi \textbf{10} (2022), e12,
+\href{https://doi.org/10.1017/fmp.2022.8}{doi:10.1017/fmp.2022.8}.
+\bibitem{Wu1995}
+J.~B.~Wu, \emph{The monotonicity of pairs of coalescence numbers in the Collatz problem} (Chinese),
+J. Huazhong Univ. Sci. Tech. \textbf{23} (1995), suppl.~II, 170--172. MR 1403509.
+\bibitem{WuHuang2001}
+J.~B.~Wu and G.~L.~Huang, \emph{Family of consecutive integer pairs of the same height in the Collatz conjecture} (Chinese),
+Math. Appl. (Wuhan) \textbf{14} (2001), suppl., 21--25. MR 1885838.
+\bibitem{BM}
+D.~Leen, \emph{Brownian motion in Collatz orbits}, preprint, Zenodo, 2026,
+\url{https://doi.org/10.5281/zenodo.23252395}.
+\bibitem{GaoDensityOne}
+D.~Leen, \emph{Gao's dyadic density-one coalescence conjecture}, preprint, Zenodo, 2026,
+\url{https://doi.org/10.5281/zenodo.23268762}.
+\bibitem{Rates}
+D.~Leen, \emph{Exact rates in Collatz synchronization}, preprint, Zenodo, 2026,
+\url{https://doi.org/10.5281/zenodo.23268751}.
+\bibitem{Umbrella}
+D.~Leen, \emph{The stochastic $3x+1$ model is a theorem: Brownian structure of Collatz orbits}, preprint, Zenodo, 2026,
+\url{https://doi.org/10.5281/zenodo.23268765}.
+\end{thebibliography}
+\end{document}

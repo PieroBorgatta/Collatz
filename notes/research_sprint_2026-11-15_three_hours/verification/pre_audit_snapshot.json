@@ -1,0 +1,9 @@
+{
+  "recorded_at_utc": "2026-11-15T22:44:58.220767+00:00",
+  "sources": {
+    "lean/CollatzShadowing/FiniteHorizonBudget.lean": "acddcaf114d5a8dff1d118df3fa88f00ab4956e38f987c45e7f5f347bb2dc9a5",
+    "lean/CollatzShadowing/QuadraticOccupation.lean": "5af51a6b1a263905d324a2f76b9aea3e11b22843c3e293d664ad1d6fc2f0c935"
+  },
+  "entrypoint_sha256": "17c7f4ca8e3a9ecfd08fb7e2ad607885137bd0358b9622b2cedc7fcf34e4eb33",
+  "meaning": "Snapshot of frozen modules already individually compiled and semantically reviewed; a full integrated build is currently in progress. The separate verification runner will bind a fresh incremental build and complete all-declaration audit."
+}

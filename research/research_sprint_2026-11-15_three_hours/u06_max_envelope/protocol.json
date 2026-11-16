@@ -1,0 +1,24 @@
+{
+  "recorded_at_utc": "2026-11-16T00:13:26.054357+00:00",
+  "owner": "/root/u06_quadratic_formal",
+  "kind": "Standalone Lean prototype, not integrated into the main library",
+  "maximum_development_minutes": 20,
+  "domain": "Positive odd unit seeds and targets; exact Syracuse words; empty word included",
+  "definition": "Maximum of word weights >=1, obtained from finite BoundedSlopeCatalogue(n,1), with baseline1",
+  "targets": [
+    "Maximum attained by an actual word",
+    "F>=1",
+    "F dominates every admissible word",
+    "F<=n",
+    "Optimal source u<=n/F"
+  ],
+  "excluded": [
+    "Density or Doob axioms",
+    "Effective computation of maximum",
+    "Optimal profile uniqueness",
+    "Collatz convergence"
+  ],
+  "frozen_modules_must_not_change": true,
+  "verification": "Standalone Lean check plus strict audit in the same checked source; only standard axioms",
+  "GPU_or_external_execution": false
+}

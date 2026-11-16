@@ -1,0 +1,73 @@
+{
+  "status": "PASS_WITH_DECLARED_INPUTS",
+  "recorded_at_utc": "2026-11-15T23:50:08.730942+00:00",
+  "reviewer": "/root/u04_independent_review",
+  "scope": "Independent paper reconstruction of U12 and both assigned U15 notes; static reading of U12 certificate, output and program. No numerical rerun or build.",
+  "results": {
+    "multiwitness_collision_lemma": "PASS_DISTINCT_FINAL_PARENTS",
+    "F_maximum_attained": "PASS_BOUNDED_SLOPE_CATALOGUE_INPUT",
+    "branch_maximum_and_LF_finite": "PASS",
+    "surplus_nonnegative": "PASS_WHEN_F_GT_ONE",
+    "density_only_surplus_criterion": "PASS_WITH_UNIFORM_RECIPROCAL_BASIN_LOWER",
+    "off_spine_basin_disjointness": "PASS_ACROSS_ALL_j",
+    "baseline_A_ge_3_64": "PASS_WHEN_F_GT_ONE",
+    "global_F_593_and_second_branch": "STATIC_CERTIFICATE_LOGIC_PASS",
+    "fixed_periodic_dictionary_complexity": "PASS_ENDPOINT_BOUND_ALLOWS_FIXED_POINTS",
+    "F_heavy_logical_force": "QUALIFIED_NO_H_IMPLICATION",
+    "U15_canonical_profile_and_inverse_rank": "PASS_NO_FORWARD_TERMINATION_RANK",
+    "U15_divergent_spine_stabilization": "PASS_EXISTENTIAL_ONLY",
+    "U15_lateral_p_budget": "PASS_NOT_l1_SURPLUS_BOUND",
+    "U15_finite_crossing_proof": "PASS_OUTERMOST_FIRST_WORDS_VIA_REVERSAL",
+    "U15_finite_cap_staircase": "PASS",
+    "U15_exact_threshold_and_top_jump": "PASS_INCLUDING_PERIODIC_AND_F_EQ_ONE",
+    "U15_affine_green_terminal_g": "PASS_DISTINCT_FROM_TERMINAL_g2"
+  },
+  "source_snapshots": {
+    "notes/research_sprint_2026-11-15_three_hours/agents/U12_TWO_SEEDS_IT.md": {
+      "sha256": "402142a08423a17fbcc92e2c195b60702f44a4d713bd27ac3452168879231b66",
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/maxplus_snapshots/U12_TWO_SEEDS_IT.md"
+    },
+    "research/research_sprint_2026-11-15_three_hours/u12/global_anchor_certificate.json": {
+      "sha256": "aee029d2806e710fa47a41cf5cda3ebdac0a853ab9c0baa8006e659cc1168d31",
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/maxplus_snapshots/global_anchor_certificate.json"
+    },
+    "research/research_sprint_2026-11-15_three_hours/u12/minimum_parent_seeds_result.json": {
+      "sha256": "39afd5e0040babde9da7162404ae055474a0c90b23bbb0884580e66a02ed86cd",
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/maxplus_snapshots/minimum_parent_seeds_result.json"
+    },
+    "research/research_sprint_2026-11-15_three_hours/u12/minimum_parent_seeds.py": {
+      "sha256": "4379bacf5782d4ec77ca07e7feff5e9d6754a6255a22f32155a84bccc5432f60",
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/maxplus_snapshots/minimum_parent_seeds.py"
+    },
+    "research/research_sprint_2026-11-15_three_hours/u12/prediction_correction.json": {
+      "sha256": "329d6949fa1c5aa33d45001f485a38fbb5e99ca38c3e3edde3d053f294d3ae4a",
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/maxplus_snapshots/prediction_correction.json"
+    },
+    "research/research_sprint_2026-11-15_three_hours/u12/protocol.json": {
+      "sha256": "2ccdda9ee11ea8b2bc942b9ce3fc4aa17527aebd8c9b4c27c53cc410d758bbb5",
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/maxplus_snapshots/protocol.json"
+    },
+    "notes/research_sprint_2026-11-15_three_hours/agents/U15_MAXPLUS_IT.md": {
+      "sha256": "2f7d1ac0b1f349fa12d32fa8074b7cec970478187262380ae414f01caa1f1f04",
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/maxplus_snapshots/U15_MAXPLUS_IT.md"
+    },
+    "notes/research_sprint_2026-11-15_three_hours/agents/U15_FINITE_CAP_IT.md": {
+      "sha256": "4d4618aca2449eb4662b62d767e857963597b83aa844a6cc9551ec3cd86b050c",
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/maxplus_snapshots/U15_FINITE_CAP_IT.md"
+    }
+  },
+  "formal_reference": {
+    "path": "lean/CollatzShadowing/BoundedSlopeCatalogue.lean",
+    "sha256": "a3581a63341dadb22967c745825451410534756e2d69f7e1fc81659e72b1eafb",
+    "use": "Finiteness of exact words with weight>=1; no effective hitting-time cutoff claimed."
+  },
+  "report": "notes/research_sprint_2026-11-15_three_hours/agents/U04_MAXPLUS_REVIEW_IT.md",
+  "report_sha256": "db013d0f6f973f81232e929b2456fc34223cd541dcca883061f0f9bdc55bfd59",
+  "experiments_run": false,
+  "GPU_used": false,
+  "build_run": false,
+  "git_operations": false,
+  "H_proved": false,
+  "Collatz_proved": false,
+  "global_priority_established": false
+}

@@ -1,10 +1,67 @@
 # Current mathematical status
 
-Updated 2026-11-15. The published v1–v6 Zenodo PDFs are frozen snapshots.
+Updated 2026-11-16. The published v1–v6 Zenodo PDFs are frozen snapshots.
 Published [v6](https://doi.org/10.5281/zenodo.22936057) includes the erratum
 to v4; subsequent working-tree developments are separate from its frozen
 supplementary archive. This working tree targets pinned Lean v4.29.1 and Mathlib
 v4.29.1; portability to later toolchains has not been checked.
+
+**Research follow-up, 16 November:** four modules add 28 public theorem
+declarations. The full incremental build passes (3404 jobs); a strict
+transitive audit of all 68 compiled declarations, including five
+encoded-private helpers, permits only `propext`, `Classical.choice` and
+`Quot.sound`. The [receipt](../notes/research_sprint_2026-11-15_three_hours/verification/integration_receipt.json)
+binds the same frozen source snapshot throughout both phases.
+Six further finite replay suites pass with identical normal and optimized
+output. A separate Ubuntu CI run also passes; all twelve output files and
+the strict audit log are byte-identical to the local evidence, as recorded
+in the [CI receipt](../notes/research_sprint_2026-11-15_three_hours/verification/checkpoint_ci_receipt.json).
+
+- `FiniteHorizonBudget` proves shifted-height growth, source localization
+  and a reciprocal-square tail budget `2/R`, with fixed-depth and
+  nonreturning finite-horizon applications.
+- `QuadraticOccupation` proves squared-potential dissipation and a shared
+  finite catalogue bound `2*n^2*(3*n+1)^2/(6*n+1)`, allowing repeated sources
+  and cyclic targets. Green finiteness was already known in the external
+  literature; this is a local formalization with explicit constant.
+- `BoundedSlopeCatalogue` proves finiteness of the complete bounded-slope
+  word set, an explicit cardinality/source bound, and only existential
+  bounds on word length and total exponent. A cardinality bound is not a
+  computable bound on hitting time.
+- `SpineDispersion` proves finite collision upper budgets and lower
+  certificates from distinct branch allocations. A truncated catalogue's
+  defect is an **upper** bound on the full defect. Branch lower allocations
+  transfer to an infinite kernel only because the inequality holds for
+  every finite extension, followed by a justified limit. Normalized sample
+  frequencies are not certified probabilities of that kernel.
+
+The [bounded-slope suffix obstruction](../notes/research_sprint_2026-11-15_three_hours/agents/U11_BOUNDED_SLOPE_IT.md),
+the [periodic-dictionary obstruction](../notes/research_sprint_2026-11-15_three_hours/agents/U05_PERIODIC_DICTIONARY_IT.md),
+the [finite-crossing cap/Doob identity](../notes/research_sprint_2026-11-15_three_hours/agents/U15_FINITE_CAP_IT.md),
+the [exact cutoff and ladder renewal](../notes/research_sprint_2026-11-15_three_hours/agents/U15_LADDER_RENEWAL_IT.md)
+and the [collision/branch-surplus criteria](../notes/research_sprint_2026-11-15_three_hours/agents/U12_TWO_SEEDS_IT.md)
+are paper deductions with separately stated analytic inputs. Their required
+lower bound remains unproved. The exact cutoff is the maximal gain F;
+its attainment is a consequence of the finite catalogue, not a new global
+Green-finiteness claim. The cited linear upper bound for the trace applies
+to nonperiodic targets; the external periodic bound has an additional
+return factor. Cap identities themselves do not require that linear upper
+bound. No external density project, asymptotic
+mass estimate or general cycle exclusion is imported into Lean.
+
+A [standalone maximal-gain prototype](../research/research_sprint_2026-11-15_three_hours/u06_max_envelope/COMPOSITION_RESULTS_IT.md)
+separately checks nine named results: maximum attainment, source bounds,
+composition and calibration of optimal prefixes. Its 22 declarations pass
+a strict audit with the same three standard axioms and an independent
+semantic review. It is outside the main-library module and source counts;
+the extension contains an exact frozen copy of its six-theorem core.
+The cap, renewal and asymptotic statements above remain paper proofs.
+The [final novelty review](../notes/research_sprint_2026-11-15_three_hours/agents/U14_MINIMUM_ASYMPTOTIC_NOVELTY_IT.md)
+identifies an existing uniform high-state packing/product estimate behind
+the constant-one minimum-ancestor comparison. That comparison is treated
+as an attributed corollary. The literature also supplies a stronger power
+tail with an unevaluated constant; it is an external alternative to the
+explicit local tail, with no additional Lean import.
 
 **Research integration, 15 November:** seven new modules add 56 public theorem
 declarations. The integrated library build passes (3400 jobs). A transitive

@@ -1,0 +1,170 @@
+{
+  "created": "2026-10-09T20:31:13.959006+00:00",
+  "modified": "2026-10-09T20:31:14.461218+00:00",
+  "id": 23268755,
+  "conceptrecid": "23268754",
+  "doi": "10.5281/zenodo.23268755",
+  "conceptdoi": "10.5281/zenodo.23268754",
+  "doi_url": "https://doi.org/10.5281/zenodo.23268755",
+  "metadata": {
+    "title": "Quantitative synchronization of Collatz trajectories",
+    "doi": "10.5281/zenodo.23268755",
+    "publication_date": "2026-10-09",
+    "description": "<p>We study simultaneous trajectories of the ordinary Collatz map. A balanced coupling of the shortcut trajectories gives a uniform absorption estimate of order √((1 + log(1 + |d|))/h) for offset d and shortcut horizon h. Its realization preserves both the ordinary clock and the number of halvings. Consequently Gao's finite-horizon dyadic coalescence proportions tend to one, as first proved publicly by Said Duran, and the balanced deficiency is Θ(k<sup>−1/2</sup>) at horizon k, under Gao's original requirement that merger occur before either trajectory reaches 1. The upper bound is deduced from the pair estimate; the matching lower bound comes from a converse clock dictionary from balanced ordinary merger to symbolic absorption. The leading constant is determined in a companion paper.</p><p>For every prescribed L(n) = o(√(log n)) and every fixed log<sub>4</sub> 3 &lt; c &lt; 1, combining an earlier merger deadline with Korec's theorem gives a common value below n<sup>c</sup> for all starts n, n+1, …, n+L(n), at one ordinary time t ≤ 2 log<sub>2</sub> n, for natural-density-almost every n. Combining adjacent-pair absorption with Tao's almost-bounded minimum theorem yields a simultaneous conclusion: for every prescribed L(n) = o(√(log n)) and every f(n) → ∞, logarithmic-density-almost every n admits one ordinary time t and one positive value y &lt; f(n) shared by all starts n, n+1, …, n+L(n).</p><p>Both arguments first prove early merger and then force the chosen descent witness to occur after merger. No convergence-to-one assumption is used, and the exceptional integer sets are not removed. The natural-density minimum law, proved in a companion paper, upgrades the arbitrary-threshold window statement to natural density for the attained minimum and its first ordinary clock.</p><p>Companion papers: <a href=\"https://doi.org/10.5281/zenodo.23252395\">Brownian motion in Collatz orbits</a>; <a href=\"https://doi.org/10.5281/zenodo.23268751\">Exact rates in Collatz synchronization</a>; <a href=\"https://doi.org/10.5281/zenodo.23268762\">Gao's dyadic density-one coalescence conjecture</a>; <a href=\"https://doi.org/10.5281/zenodo.23268765\">The stochastic 3x+1 model is a theorem: Brownian structure of Collatz orbits</a>.</p>",
+    "access_right": "open",
+    "creators": [
+      {
+        "name": "Leen, David",
+        "affiliation": null,
+        "orcid": "0009-0006-6279-8953"
+      }
+    ],
+    "keywords": [
+      "Collatz problem",
+      "3x+1 problem",
+      "coalescence",
+      "synchronization",
+      "natural density",
+      "logarithmic density",
+      "stopping times"
+    ],
+    "related_identifiers": [
+      {
+        "identifier": "10.5281/zenodo.23003524",
+        "relation": "references",
+        "resource_type": "publication-preprint",
+        "scheme": "doi"
+      },
+      {
+        "identifier": "10.5281/zenodo.23252395",
+        "relation": "references",
+        "resource_type": "publication-preprint",
+        "scheme": "doi"
+      },
+      {
+        "identifier": "10.5281/zenodo.23268751",
+        "relation": "references",
+        "resource_type": "publication-preprint",
+        "scheme": "doi"
+      },
+      {
+        "identifier": "10.5281/zenodo.23268762",
+        "relation": "references",
+        "resource_type": "publication-preprint",
+        "scheme": "doi"
+      },
+      {
+        "identifier": "10.5281/zenodo.23268765",
+        "relation": "references",
+        "resource_type": "publication-preprint",
+        "scheme": "doi"
+      }
+    ],
+    "version": "1",
+    "language": "eng",
+    "resource_type": {
+      "title": "Preprint",
+      "type": "publication",
+      "subtype": "preprint"
+    },
+    "license": {
+      "id": "cc-by-4.0"
+    },
+    "relations": {
+      "version": [
+        {
+          "index": 0,
+          "is_last": true,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "23268754"
+          }
+        }
+      ]
+    },
+    "notes": "AI assistance was used in the mathematical research and preparation of this manuscript. Some imported inputs are kernel-checked in the author's Lean 4 development, which is not yet public; no proof in the paper depends on the formalization. Correspondence: daleen@gmail.com. MSC2020: 11B83, 37A44, 11K38."
+  },
+  "title": "Quantitative synchronization of Collatz trajectories",
+  "links": {
+    "self": "https://zenodo.org/api/records/23268755",
+    "self_html": "https://zenodo.org/records/23268755",
+    "preview_html": "https://zenodo.org/records/23268755?preview=1",
+    "doi": "https://doi.org/10.5281/zenodo.23268755",
+    "self_doi": "https://doi.org/10.5281/zenodo.23268755",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.23268755",
+    "reserve_doi": "https://zenodo.org/api/records/23268755/draft/pids/doi",
+    "parent": "https://zenodo.org/api/records/23268754",
+    "parent_html": "https://zenodo.org/records/23268754",
+    "parent_doi": "https://doi.org/10.5281/zenodo.23268754",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.23268754",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:23268755/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:23268755/sequence/default",
+    "files": "https://zenodo.org/api/records/23268755/files",
+    "media_files": "https://zenodo.org/api/records/23268755/media-files",
+    "thumbnails": {
+      "10": "https://zenodo.org/api/iiif/record:23268755:gao-tao-coalescence.pdf/full/%5E10,/0/default.jpg",
+      "50": "https://zenodo.org/api/iiif/record:23268755:gao-tao-coalescence.pdf/full/%5E50,/0/default.jpg",
+      "100": "https://zenodo.org/api/iiif/record:23268755:gao-tao-coalescence.pdf/full/%5E100,/0/default.jpg",
+      "250": "https://zenodo.org/api/iiif/record:23268755:gao-tao-coalescence.pdf/full/%5E250,/0/default.jpg",
+      "750": "https://zenodo.org/api/iiif/record:23268755:gao-tao-coalescence.pdf/full/%5E750,/0/default.jpg",
+      "1200": "https://zenodo.org/api/iiif/record:23268755:gao-tao-coalescence.pdf/full/%5E1200,/0/default.jpg"
+    },
+    "latest": "https://zenodo.org/api/records/23268755/versions/latest",
+    "latest_html": "https://zenodo.org/records/23268755/latest",
+    "versions": "https://zenodo.org/api/records/23268755/versions",
+    "draft": "https://zenodo.org/api/records/23268755/draft",
+    "access_links": "https://zenodo.org/api/records/23268755/access/links",
+    "access_grants": "https://zenodo.org/api/records/23268755/access/grants",
+    "access_users": "https://zenodo.org/api/records/23268755/access/users",
+    "access_request": "https://zenodo.org/api/records/23268755/access/request",
+    "access": "https://zenodo.org/api/records/23268755/access",
+    "communities": "https://zenodo.org/api/records/23268755/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/23268755/communities-suggestions",
+    "request_deletion": "https://zenodo.org/api/records/23268755/request-deletion",
+    "file_modification": "https://zenodo.org/api/records/23268755/file-modification",
+    "quota_increase": "https://zenodo.org/api/records/23268755/quota-increase",
+    "requests": "https://zenodo.org/api/records/23268755/requests"
+  },
+  "updated": "2026-10-09T20:31:14.461218+00:00",
+  "recid": "23268755",
+  "revision": 3,
+  "files": [
+    {
+      "id": "e99ae5e9-0339-4fc6-b8fb-08100aa077e6",
+      "key": "gao-tao-coalescence.pdf",
+      "size": 236496,
+      "checksum": "md5:56e11b39742c428d6c98d1f95b1e5566",
+      "links": {
+        "self": "https://zenodo.org/api/records/23268755/files/gao-tao-coalescence.pdf/content"
+      }
+    },
+    {
+      "id": "301ddb1b-80b5-4594-b995-39541d8aee36",
+      "key": "gao-tao-coalescence.tex",
+      "size": 74047,
+      "checksum": "md5:d5ecc65dcf82d78d9ca8fd7901ee9621",
+      "links": {
+        "self": "https://zenodo.org/api/records/23268755/files/gao-tao-coalescence.tex/content"
+      }
+    }
+  ],
+  "swh": {},
+  "owners": [
+    {
+      "id": "1911085"
+    }
+  ],
+  "status": "published",
+  "stats": {
+    "downloads": 49,
+    "unique_downloads": 40,
+    "views": 32,
+    "unique_views": 32,
+    "version_downloads": 49,
+    "version_unique_downloads": 40,
+    "version_unique_views": 32,
+    "version_views": 32
+  },
+  "state": "done",
+  "submitted": true
+}

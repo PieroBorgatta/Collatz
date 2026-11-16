@@ -1,0 +1,108 @@
+{
+  "status": "PASS_SEMANTIC_SOURCE_REVIEW",
+  "recorded_at_utc": "2026-11-15T23:27:29.308888+00:00",
+  "reviewer": "/root/u09_tail_formal_review",
+  "scope": "Independent semantic review of final four Lean source modules; no build, kernel replay, new axiom audit or orbit computation.",
+  "new_modules_reviewed": [
+    "SpineDispersion",
+    "BoundedSlopeCatalogue"
+  ],
+  "prior_modules_reconfirmed": [
+    "FiniteHorizonBudget",
+    "QuadraticOccupation"
+  ],
+  "new_public_theorems_reviewed": 12,
+  "all_four_public_theorems": 28,
+  "checks": {
+    "old_two_modules_unchanged": true,
+    "SpineDispersion_seven_public_theorems": true,
+    "BoundedSlopeCatalogue_five_public_theorems": true,
+    "truncated_defect_is_upper_for_complete_law": true,
+    "two_branch_lower_survives_all_finite_completions": true,
+    "signed_lower_allocation_algebra_valid": true,
+    "zero_extension_of_allocations_uses_M_nonnegative": true,
+    "finite_spine_budget_not_uniform_global_lower": true,
+    "bounded_slope_finiteness_before_ncard": true,
+    "bounded_slope_source_positive_even_allowed": true,
+    "bounded_slope_target_zero_forces_empty": true,
+    "bounded_slope_R_strictly_positive": true,
+    "bounded_slope_parameter_maxima_existential_only": true,
+    "bounded_slope_paper_no_go_not_imported": true
+  },
+  "old_source_hash_checks": {
+    "lean/CollatzShadowing/FiniteHorizonBudget.lean": true,
+    "lean/CollatzShadowing/QuadraticOccupation.lean": true
+  },
+  "sources": {
+    "lean/CollatzShadowing/FiniteHorizonBudget.lean": {
+      "sha256": "acddcaf114d5a8dff1d118df3fa88f00ab4956e38f987c45e7f5f347bb2dc9a5",
+      "bytes": 9696,
+      "lines": 225,
+      "public_theorems": [
+        "step_shifted_growth",
+        "iterate_shifted_growth",
+        "source_lower_of_horizon",
+        "reciprocal_square_tail",
+        "tilted_tail_catalogue",
+        "tilted_horizon_catalogue",
+        "tilted_fixed_depth_tail",
+        "tilted_nonreturn_horizon"
+      ]
+    },
+    "lean/CollatzShadowing/QuadraticOccupation.lean": {
+      "sha256": "5af51a6b1a263905d324a2f76b9aea3e11b22843c3e293d664ad1d6fc2f0c935",
+      "bytes": 6537,
+      "lines": 154,
+      "public_theorems": [
+        "visitConstant_nonneg",
+        "squareLoss_pos",
+        "potential_sq_sub_succ",
+        "sum_squareLoss_range",
+        "sum_squareLoss_finset_le",
+        "sum_weight_sq_visits_le",
+        "sum_wordWeight_sq_fiber_le",
+        "tilted_catalogue_le"
+      ]
+    },
+    "lean/CollatzShadowing/SpineDispersion.lean": {
+      "sha256": "79af91e4b456506c4bb5f9a276d70c3989b54a25178c9a79889e348ba0add0b3",
+      "bytes": 7501,
+      "lines": 190,
+      "public_theorems": [
+        "collision_defect_le_selected",
+        "collision_defect_nonneg",
+        "collision_defect_ge_of_two_branches",
+        "collision_defect_ge_lower_allocations",
+        "ratio_square_defect_le",
+        "ratio_square_prefix_budget",
+        "collision_spine_budget"
+      ]
+    },
+    "lean/CollatzShadowing/BoundedSlopeCatalogue.lean": {
+      "sha256": "a3581a63341dadb22967c745825451410534756e2d69f7e1fc81659e72b1eafb",
+      "bytes": 6017,
+      "lines": 133,
+      "public_theorems": [
+        "subcatalogue_card_le",
+        "catalogue_finite",
+        "catalogue_ncard_le",
+        "catalogue_parameter_bounds",
+        "catalogue_source_bound"
+      ]
+    }
+  },
+  "reviewed_paper_note": {
+    "path": "notes/research_sprint_2026-11-15_three_hours/agents/U11_BOUNDED_SLOPE_IT.md",
+    "sha256": "5a4853a04b5637e43d4aec410d2315f45caa10721f4fc3931f45c2e62b2667e4"
+  },
+  "report": {
+    "path": "notes/research_sprint_2026-11-15_three_hours/agents/U09_FINAL_SEMANTICS_IT.md",
+    "sha256": "a67b4193f01ef6ee6b4c05be1728cf0ac999c01f4df1b3e6a7e8e411b45a78ac"
+  },
+  "note_local_links_valid": true,
+  "missing_local_links": [],
+  "compiled_integration_audit_performed_by_this_reviewer": false,
+  "Lean_source_modified": false,
+  "H_or_Collatz_proved": false,
+  "finished_at_utc": "2026-11-15T23:27:39.954178+00:00"
+}

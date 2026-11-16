@@ -1,0 +1,17 @@
+{
+  "recorded_at_utc": "2026-11-16T00:19:58.987096+00:00",
+  "kind": "Standalone extension; frozen core copied byte-for-byte as prefix",
+  "file": "CompositionPrototype.lean",
+  "frozen_core_sha256": "c640f8cd46ee70772c5f0f3c0dc1795b912b05923bd9a3d6e92c7c8343562836",
+  "claims": [
+    "Composition F(n)>=Omega(w)F(u) for exact u->n and valid source u",
+    "Seed of an optimal word has F(u)=1",
+    "A prefix of an optimal word is calibrated when its endpoint is valid"
+  ],
+  "excluded": [
+    "Profiles K/A",
+    "Canonical inverse law or density",
+    "Main-library integration"
+  ],
+  "verification": "Standalone combined Lean check; separate strict audit of extension declarations; no change to frozen core or four integrated modules"
+}

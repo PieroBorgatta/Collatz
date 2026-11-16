@@ -1,0 +1,11 @@
+{
+  "captured_at_utc": "2026-11-15T23:03:37.825870+00:00",
+  "stage": "During module build, after initial API repairs",
+  "sources": {
+    "lean/CollatzShadowing/BoundedSlopeCatalogue.lean": "a3581a63341dadb22967c745825451410534756e2d69f7e1fc81659e72b1eafb",
+    "lean/CollatzShadowing/QuadraticOccupation.lean": "5af51a6b1a263905d324a2f76b9aea3e11b22843c3e293d664ad1d6fc2f0c935",
+    "lean/lean-toolchain": "7dc000621e0046d1aada809e2b7177e64454645cf4c741e9daaf79c99ec2e7a2",
+    "lean/lakefile.toml": "1afedb74a3cf1e2bb139c954ff54bf474efdc204375401799eca58b98a56d80d",
+    "lean/lake-manifest.json": "83e5a26c8c107c4615a22196f6e911d51e2632d01d5a4138955b75a70a08fe74"
+  }
+}

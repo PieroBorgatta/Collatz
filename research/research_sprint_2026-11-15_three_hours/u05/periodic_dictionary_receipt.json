@@ -1,0 +1,10 @@
+{
+  "recorded_at_utc": "2026-11-15T22:26:52.913073+00:00",
+  "status": "PAPER_PROOF_PENDING_INDEPENDENT_REVIEW",
+  "report": "notes/research_sprint_2026-11-15_three_hours/agents/U05_PERIODIC_DICTIONARY_IT.md",
+  "sha256": "d4eb9f46b5b50ba74ac7af2082fe188cbc2fd33f7577492db6c30b0a3837696d",
+  "first_arrival_required_for_original_word": true,
+  "generic_moving_edit_problem_closed": false,
+  "experiments_run": false,
+  "Lean_modified": false
+}

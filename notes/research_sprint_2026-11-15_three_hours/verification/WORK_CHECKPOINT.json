@@ -1,0 +1,19 @@
+{
+  "recorded_at_utc": "2026-11-16T00:55:52.638276+00:00",
+  "status": "RESEARCH_COMPLETE",
+  "research_stop_not_before_utc": "2026-11-16T00:55:33+00:00",
+  "initial_commit": "203cbb868b2ba19e51e16feeede253a42dd821c3",
+  "verified_code_checkpoint": "b20698f854b72e8bbeba0aa9d7c89ad351422dae",
+  "checkpoint_ci": "PASS",
+  "integrated_modules": 4,
+  "integrated_public_theorems": 28,
+  "integrated_audited_declarations": 68,
+  "standalone_unique_public_theorems": 9,
+  "standalone_audited_declarations": 22,
+  "local_replays": "6 suites PASS;12 outputs identical normal/O and Ubuntu CI",
+  "independent_semantics": "PASS; sources and hypotheses scoped in review receipts",
+  "remaining": [
+    "Final commit/push and exact-head CI observation follow this pre-delivery checkpoint."
+  ],
+  "research_stop_utc": "2026-11-16T00:55:52.638276+00:00"
+}

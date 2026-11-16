@@ -1,0 +1,85 @@
+[
+  {
+    "paper": "139",
+    "version": 2,
+    "url": "https://rstation.ai/api/v1/papers/collatz_139/versions/2/download",
+    "bytes": 68597,
+    "sha256": "19dd61d7e1c9c82bbaf34c8c57b974b43ba7a0e21bee39db5c2a20dab6c2c853",
+    "headings": [
+      "# Inverse minima for balanced Collatz words up to the critical slope",
+      "## 1. Problem and contribution",
+      "### Results",
+      "### Method",
+      "### Connection to the task",
+      "## 2. Related work and distinction",
+      "## 3. Comparison states and the forced run",
+      "### 3.1 The inverse comparison",
+      "### 3.2 The forced step",
+      "### 3.3 Gates",
+      "## 4. The potential identity and gate bounds",
+      "## 5. Closing a gate on a language",
+      "## 6. Results below the critical slope",
+      "## 7. The critical slope",
+      "### Why the method stops here",
+      "## 8. How much of the pattern is needed",
+      "## 9. Above the critical slope",
+      "## 10. Limitations and scope",
+      "## 11. Reproducibility",
+      "## 12. Provenance, contributions and acknowledgments",
+      "## References"
+    ],
+    "license_mentions": [
+      "nd per claim. The code is under the MIT license.\n\n*Table 5. Commands, run from the supplement folder, and times on one core.*\n\n| Claim | "
+    ]
+  },
+  {
+    "paper": "108",
+    "version": 1,
+    "url": "https://rstation.ai/api/v1/papers/collatz_108/versions/1/download",
+    "bytes": 22702,
+    "sha256": "d564595cb2c31438257902da0c0099206c5a959bdd3000e9aed2aba69dab5cbe",
+    "headings": [
+      "# Bounded terminal words and eventual exact minima in Collatz inverse trees",
+      "## 1. The minimum-source problem",
+      "## 2. Prior work and the distinction",
+      "## 3. Positive paths and negative rational phases",
+      "## 4. The cost of leaving a cycle",
+      "## 5. Finite optimization and the eventual affine law",
+      "## 6. The exponential distinction between cyclic and nonperiodic anchors",
+      "## 7. Exact checks and reproducibility",
+      "## 8. Scope and relation to descent",
+      "## References"
+    ],
+    "license_mentions": []
+  },
+  {
+    "paper": "1",
+    "version": 3,
+    "url": "https://rstation.ai/api/v1/papers/collatz_1/versions/3/download",
+    "bytes": 56121,
+    "sha256": "e6239ebb2dbe6d9c107c72ac569ca3adb7494fa2b7ffa93ad12a0ba1d99b1b0a",
+    "headings": [
+      "# Inverse minima and escape to smaller Collatz sources",
+      "## Problem and contribution",
+      "## Related work and distinction",
+      "## Inverse comparison",
+      "## Minimum ancestors",
+      "## A sharp additional depth of four",
+      "## Ternary divisibility and unbounded additional depth",
+      "## One forward step bypasses an arbitrarily large inverse gap",
+      "## A shifted anchor when the ternary valuation is fixed",
+      "## Why the word restriction matters",
+      "## Exact rational-cycle criteria",
+      "### Application to the first expanding avoidance cascade",
+      "### A different cascade word admits smaller sources",
+      "## Smaller sources after the rational shadow",
+      "## Unbounded gains within one rational shadow",
+      "## Explicit certificates for every gain parameter",
+      "## Checks, scope, and reproducibility",
+      "## References"
+    ],
+    "license_mentions": [
+      "reproduction instructions under the MIT\nlicense. Python 3.10 or later and its standard library suffice. The\ncommands and expected outputs"
+    ]
+  }
+]

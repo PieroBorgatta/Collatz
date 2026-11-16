@@ -1,0 +1,14 @@
+{
+  "recorded_at_utc": "2026-11-15T22:20:36.375150+00:00",
+  "type": "Formal development, no finite experiment",
+  "owner": "/root/u06_quadratic_formal",
+  "source": "lean/CollatzShadowing/QuadraticOccupation.lean",
+  "goal": "Finite catalogue squared-weight bound allowing repeated sources, arbitrary depths and cyclic targets",
+  "target_bound": "2*n^2*(3*n+1)^2/(6*n+1)",
+  "inputs": "Positive natural sources and exact Syracuse words to one target; no source injectivity, nonreturn, first arrival or oddness required",
+  "novelty": "Local formal proof and sharper constant only; integer Green finiteness already paper9/v1 Proposition11",
+  "initial_check": "lake env lean CollatzShadowing/QuadraticOccupation.lean",
+  "full_library_integration": "Coordinator responsibility",
+  "external_code_executed": false,
+  "GPU_used": false
+}

@@ -1,0 +1,45 @@
+QUADRATIC_ROOT: PASS CollatzShadowing.QuadraticOccupation.potential_sq_sub_succ; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+QUADRATIC_ROOT: PASS CollatzShadowing.QuadraticOccupation.potential_sq_sub_succ._simp_1_1; axioms: [propext]
+QUADRATIC_ROOT: PASS CollatzShadowing.QuadraticOccupation.potential_sq_sub_succ._simp_1_2; axioms: [propext]
+QUADRATIC_ROOT: PASS CollatzShadowing.QuadraticOccupation.potential_sq_sub_succ._simp_1_3; axioms: [propext]
+QUADRATIC_ROOT: PASS CollatzShadowing.QuadraticOccupation.potential_sq_sub_succ._simp_1_4; axioms: [propext]
+QUADRATIC_ROOT: PASS CollatzShadowing.QuadraticOccupation.potential_sq_sub_succ._simp_1_5; axioms: [propext]
+QUADRATIC_ROOT: PASS CollatzShadowing.QuadraticOccupation.potential_sq_sub_succ._simp_1_6; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QUADRATIC_ROOT: PASS CollatzShadowing.QuadraticOccupation.potential_sq_sub_succ._simp_1_7; axioms: [propext]
+QUADRATIC_ROOT: PASS CollatzShadowing.QuadraticOccupation.squareLoss; axioms: [propext, Quot.sound, Classical.choice]
+QUADRATIC_ROOT: PASS CollatzShadowing.QuadraticOccupation.squareLoss_pos; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+QUADRATIC_ROOT: PASS CollatzShadowing.QuadraticOccupation.sum_squareLoss_finset_le; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+QUADRATIC_ROOT: PASS CollatzShadowing.QuadraticOccupation.sum_squareLoss_range; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+QUADRATIC_ROOT: PASS CollatzShadowing.QuadraticOccupation.sum_weight_sq_visits_le; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+QUADRATIC_ROOT: PASS CollatzShadowing.QuadraticOccupation.sum_weight_sq_visits_le._simp_1_1; axioms: [propext]
+QUADRATIC_ROOT: PASS CollatzShadowing.QuadraticOccupation.sum_weight_sq_visits_le._simp_1_2; axioms: [propext]
+QUADRATIC_ROOT: PASS CollatzShadowing.QuadraticOccupation.sum_weight_sq_visits_le._simp_1_3; axioms: [propext]
+QUADRATIC_ROOT: PASS CollatzShadowing.QuadraticOccupation.sum_weight_sq_visits_le._simp_1_4; axioms: [propext]
+QUADRATIC_ROOT: PASS CollatzShadowing.QuadraticOccupation.sum_weight_sq_visits_le._simp_1_5; axioms: [propext]
+QUADRATIC_ROOT: PASS CollatzShadowing.QuadraticOccupation.sum_weight_sq_visits_le._simp_1_6; axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QUADRATIC_ROOT: PASS CollatzShadowing.QuadraticOccupation.sum_weight_sq_visits_le._simp_1_7; axioms: [propext]
+QUADRATIC_ROOT: PASS CollatzShadowing.QuadraticOccupation.sum_wordWeight_sq_fiber_le; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+QUADRATIC_ROOT: PASS CollatzShadowing.QuadraticOccupation.tilted_catalogue_le; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+QUADRATIC_ROOT: PASS CollatzShadowing.QuadraticOccupation.visitConstant; axioms: [propext, Quot.sound, Classical.choice]
+QUADRATIC_ROOT: PASS CollatzShadowing.QuadraticOccupation.visitConstant_nonneg; axioms: [propext,
+ Quot.sound,
+ Classical.choice]
+QUADRATIC_AUDIT: PASS; declarations: 24; encoded-private: 0; modules: 1

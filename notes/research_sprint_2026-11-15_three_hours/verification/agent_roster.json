@@ -1,0 +1,68 @@
+{
+  "recorded_at_utc": "2026-11-16T00:09:55.372869+00:00",
+  "distinct_new_agents": 15,
+  "maximum_simultaneous_agents_including_root": 4,
+  "execution": "Three workers at a time, rotated; this does not claim15 concurrent workers.",
+  "agents": [
+    {
+      "name": "u01_capped_relaxation",
+      "role": "Capped trace and Doob identity"
+    },
+    {
+      "name": "u02_green_renewal",
+      "role": "Green budget and local relaxation"
+    },
+    {
+      "name": "u03_local_mass",
+      "role": "Moments, physical CDF and ordered matching"
+    },
+    {
+      "name": "u04_independent_review",
+      "role": "Independent paper proofs and boundary cases"
+    },
+    {
+      "name": "u05_moving_edits",
+      "role": "Sparse edits and periodic dictionaries"
+    },
+    {
+      "name": "u06_quadratic_formal",
+      "role": "Quadratic occupation and bounded-slope catalogue Lean proofs"
+    },
+    {
+      "name": "u07_bellman_obstruction",
+      "role": "Collision criterion and Bellman obstructions"
+    },
+    {
+      "name": "u08_affine_coalescence",
+      "role": "Affine synchronization literature and scope"
+    },
+    {
+      "name": "u09_tail_formal_review",
+      "role": "Quantitative tail and all-module semantic audit"
+    },
+    {
+      "name": "u10_nonsmooth_affine",
+      "role": "Nonsmooth affine transport and exact finite check"
+    },
+    {
+      "name": "u11_web_inverse_minima",
+      "role": "New web source and bounded-slope recoding theorem"
+    },
+    {
+      "name": "u12_two_seed_attack",
+      "role": "Branch witnesses, max envelope and exact593 certificate"
+    },
+    {
+      "name": "u13_infinite_minimal_words",
+      "role": "Minimal prefixes and calibrated counterexample"
+    },
+    {
+      "name": "u14_v7_novelty",
+      "role": "Primary literature, novelty and adaptive certificate directions"
+    },
+    {
+      "name": "u15_maxplus_surplus",
+      "role": "Canonical profile, exact capped trace and ladder renewal"
+    }
+  ]
+}

@@ -10,6 +10,57 @@ the axioms audit and pinned-toolchain caveat.
 
 ---
 
+## 16 November 2026 arithmetic follow-up
+
+The four modules below add 28 public theorem declarations. The full build
+passes (3404 jobs); the strict transitive audit covers all 68 compiled
+declarations, including five encoded-private helpers. These are finite
+statements: no kernel lower bound, asymptotic recoding theorem or Collatz
+conclusion is imported. Catalogue parameter bounds are existential. A
+truncated collision defect is an upper bound on the complete defect; lower
+allocations are certificates only when they extend to the full law.
+See the [integration receipt](../../notes/research_sprint_2026-11-15_three_hours/verification/integration_receipt.json).
+
+### `FiniteHorizonBudget.lean`
+
+- `step_shifted_growth` — [FiniteHorizonBudget.lean:20](FiniteHorizonBudget.lean#L20).
+- `iterate_shifted_growth` — [FiniteHorizonBudget.lean:36](FiniteHorizonBudget.lean#L36).
+- `source_lower_of_horizon` — [FiniteHorizonBudget.lean:54](FiniteHorizonBudget.lean#L54).
+- `reciprocal_square_tail` — [FiniteHorizonBudget.lean:100](FiniteHorizonBudget.lean#L100).
+- `tilted_tail_catalogue` — [FiniteHorizonBudget.lean:130](FiniteHorizonBudget.lean#L130).
+- `tilted_horizon_catalogue` — [FiniteHorizonBudget.lean:170](FiniteHorizonBudget.lean#L170).
+- `tilted_fixed_depth_tail` — [FiniteHorizonBudget.lean:184](FiniteHorizonBudget.lean#L184).
+- `tilted_nonreturn_horizon` — [FiniteHorizonBudget.lean:201](FiniteHorizonBudget.lean#L201).
+
+### `QuadraticOccupation.lean`
+
+- `visitConstant_nonneg` — [QuadraticOccupation.lean:29](QuadraticOccupation.lean#L29).
+- `squareLoss_pos` — [QuadraticOccupation.lean:33](QuadraticOccupation.lean#L33).
+- `potential_sq_sub_succ` — [QuadraticOccupation.lean:41](QuadraticOccupation.lean#L41).
+- `sum_squareLoss_range` — [QuadraticOccupation.lean:51](QuadraticOccupation.lean#L51).
+- `sum_squareLoss_finset_le` — [QuadraticOccupation.lean:61](QuadraticOccupation.lean#L61).
+- `sum_weight_sq_visits_le` — [QuadraticOccupation.lean:72](QuadraticOccupation.lean#L72).
+- `sum_wordWeight_sq_fiber_le` — [QuadraticOccupation.lean:94](QuadraticOccupation.lean#L94).
+- `tilted_catalogue_le` — [QuadraticOccupation.lean:117](QuadraticOccupation.lean#L117).
+
+### `BoundedSlopeCatalogue.lean`
+
+- `subcatalogue_card_le` — [BoundedSlopeCatalogue.lean:44](BoundedSlopeCatalogue.lean#L44).
+- `catalogue_finite` — [BoundedSlopeCatalogue.lean:66](BoundedSlopeCatalogue.lean#L66).
+- `catalogue_ncard_le` — [BoundedSlopeCatalogue.lean:88](BoundedSlopeCatalogue.lean#L88).
+- `catalogue_parameter_bounds` — [BoundedSlopeCatalogue.lean:99](BoundedSlopeCatalogue.lean#L99).
+- `catalogue_source_bound` — [BoundedSlopeCatalogue.lean:111](BoundedSlopeCatalogue.lean#L111).
+
+### `SpineDispersion.lean`
+
+- `collision_defect_le_selected` — [SpineDispersion.lean:26](SpineDispersion.lean#L26).
+- `collision_defect_nonneg` — [SpineDispersion.lean:33](SpineDispersion.lean#L33).
+- `collision_defect_ge_of_two_branches` — [SpineDispersion.lean:48](SpineDispersion.lean#L48).
+- `collision_defect_ge_lower_allocations` — [SpineDispersion.lean:95](SpineDispersion.lean#L95).
+- `ratio_square_defect_le` — [SpineDispersion.lean:123](SpineDispersion.lean#L123).
+- `ratio_square_prefix_budget` — [SpineDispersion.lean:151](SpineDispersion.lean#L151).
+- `collision_spine_budget` — [SpineDispersion.lean:173](SpineDispersion.lean#L173).
+
 ## 15 November 2026 integration
 
 The 56 public theorem declarations below include the universal finite-injective

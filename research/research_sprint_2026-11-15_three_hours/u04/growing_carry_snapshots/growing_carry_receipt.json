@@ -1,0 +1,18 @@
+{
+  "status": "paper_derivations",
+  "recorded_at_utc": "2026-11-16T00:42:37.317625+00:00",
+  "report": "notes/research_sprint_2026-11-15_three_hours/agents/U02_GROWING_CARRY_IT.md",
+  "sha256": "390c2b89a39b4af9aee51b1705593d2940796365db802ba429fa295ae139f320",
+  "scope": [
+    "Exact rational carry retaining full offsets",
+    "Positive two-letter diamond and its contracting gain obstruction",
+    "Modulo-six exponent lifting and explicit ternary cost",
+    "Open growing-overhead certificate with physical first-parent color"
+  ],
+  "review": "U04 PASS on carry, diamond, conditional density argument and modulo-six lifting. Domain guards q,r>=1 and final-endpoint unit guard explicit.",
+  "experiments": 0,
+  "gpu_used": false,
+  "lean_modified": false,
+  "uniform_editor_constructed": false,
+  "frozen": true
+}

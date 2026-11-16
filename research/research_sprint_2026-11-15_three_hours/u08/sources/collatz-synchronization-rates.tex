@@ -1,0 +1,3326 @@
+% ---- exact/opening ----
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs}
+\usepackage[margin=1in]{geometry}
+\usepackage{xurl}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\setlength{\emergencystretch}{3em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{maintheorem}{Theorem}
+\renewcommand{\themaintheorem}{\Alph{maintheorem}}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\E}{\mathbb E}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\Ztwo}{\mathbb Z_2}
+\newcommand{\Qtwo}{\mathbb Q_2}
+\newcommand{\haar}{h}
+\newcommand{\one}{\mathbf 1}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+\title[Exact rates in Collatz synchronization]{Exact rates in Collatz synchronization}
+\author{David Leen}
+\email{daleen@gmail.com}
+\date{October 2026}
+\subjclass[2020]{11B83, 37A44, 60G50, 11K38}
+\keywords{Collatz map, synchronization, Gao's conjecture, absorption time,
+two-adic Haar measure, occupation measure}
+\begin{document}
+\begin{abstract}
+Gao conjectured that his dyadic proportions of coalescing adjacent
+integers tend to one. We determine the exact deficiency:
+\[
+1-\bar d_k\sim\frac{\beta}{\sqrt k},\qquad
+\beta=\frac{\sqrt6\,\E M}{\sqrt\pi},\qquad 1\le\E M<\infty.
+\]
+Here $M$ counts the excursions of the canonical adjacent-pair coupling.
+The balanced shortcut absorption time has coefficient $2\E M/\sqrt\pi$;
+the first ordinary meeting time has coefficient $\beta$. The same
+$\beta$ governs the fraction of integers $n<N$ with no ordinary meeting
+by $\lfloor\log_2n\rfloor$.
+The proof passes from stationary rigidity to actual killed occupation
+and then determines the physical clock of a long excursion. A weighted
+chronological assembly lemma handles dependent excursions using only
+their expected total weight. This weight also yields the harmonic
+survival capacity from every integer canonical state and extends the
+coefficient to the exact admissible offset domain $\Z[1/3]$.
+A uniform finite-horizon estimate gives synchronized growing-block
+versions of Korec's and Tao's descent theorems. No termination
+assumption is used.
+\end{abstract}
+\maketitle
+
+\section{The rates and their common mechanism}\label{sec:intro}
+
+For the ordinary and shortcut maps write
+\[
+C(n)=\begin{cases}n/2,&n\text{ even},\\3n+1,&n\text{ odd},\end{cases}
+\qquad
+T(n)=\begin{cases}n/2,&n\text{ even},\\(3n+1)/2,&n\text{ odd}.\end{cases}
+\]
+They also act on $\Ztwo$, with parity modulo two. Set
+$\N=\{0,1,\ldots\}$; unmarked logarithms are natural. Define
+\[
+o_t(x)=\#\{0\le j<t:T^j(x)\text{ odd}\},\qquad
+H(x,m)=\#\{0\le j<m:C^j(x)\text{ even}\}.
+\]
+Under a Haar root $x\in\Ztwo$, the adjacent clocks are
+\begin{align*}
+A&=\inf\{t:T^t(x)=T^t(x+1),\ o_t(x)=o_t(x+1)\},\\
+B&=\inf\{m:C^m(x)=C^m(x+1),\ H(x,m)=H(x+1,m)\},\\
+U&=\inf\{m:C^m(x)=C^m(x+1)\}.
+\end{align*}
+Empty hitting sets have infimum $\infty$. Equality of both endpoint and
+count is called balanced merger. The canonical coupling orients its
+entries as $Y=3^sX+D$, $s\ge0$, and absorbs at $(s,D)=(0,0)$.
+Let $M$ count \emph{all} odd-offset level-zero departures before
+absorption, including departures inside finite absorbing-word trials.
+The initial state $(0,1)$ departs, so $M\ge1$.
+
+For positive integers, write $G(n,k)$ if some $m\le k$ satisfies
+\[
+C^m(n)=C^m(n+1),\quad H(n,m)=H(n+1,m),\quad
+C^j(n),C^j(n+1)>1\quad(0\le j\le m).
+\]
+Gao's original proportion is
+\[
+\bar d_k=2^{-k}\#\{1\le n<2^k-1:G(n,k)\}.
+\]
+The strict interval has $2^k-2$ starts but denominator $2^k$.
+The different logarithmic-deadline population is
+\[
+\mathcal G=\{n\ge1:\exists j\le\lfloor\log_2n\rfloor,
+ C^j(n)=C^j(n+1)\},\qquad
+f_N=1-\frac{\#(\mathcal G\cap[0,N))}{N}.
+\]
+
+\begin{maintheorem}[Exact synchronization rates]
+\label{thm:exact}\label{thm:gao-sharp}\label{thm:deadline}
+Put
+\[
+\kappa=\frac{2\E M}{\sqrt\pi},\qquad
+\beta=\sqrt{\frac32}\,\kappa=\frac{\sqrt6\,\E M}{\sqrt\pi},
+\qquad 1\le\E M<\infty.
+\]
+Then
+\[
+\sqrt t\,\PP(A>t)\to\kappa,\qquad
+\sqrt t\,\PP(B>t)\to\beta,\qquad
+\sqrt t\,\PP(U>t)\to\beta,
+\]
+and, for Gao's original predicate and all integer cutoffs $N$,
+\[
+\sqrt k(1-\bar d_k)\to\beta,\qquad
+\sqrt{\log_2N}\,f_N\to\beta.
+\]
+On finite balanced absorption, $U=B=A+o_A(x)-1$ and both paths have
+$A-1$ halvings at that time. In particular $U=B$ Haar-almost surely.
+\end{maintheorem}
+
+\subsection*{Why the coefficient is an expected weight}
+The positive-level direction walk is simple symmetric walk killed at
+zero. Its physical duration also includes arithmetic holding times.
+The main arithmetic estimate proves that a long excursion uses twice
+its direction clock, with error negligible on the rare survival scale.
+Each departure consequently has the same physical tail coefficient
+$c=2/\sqrt\pi$. Chronological assembly gives $c\E M$ without assuming
+independence of the lengths, offsets, or count.
+
+From a fixed level $s$, the first return has weight $s$; later departures
+have weight one. Their expected total weight is
+$h_{\rm cap}(s,D)=s+\E_{s,D}M$. The level gains precisely what the
+future count loses at a departure, making this capacity harmonic.
+Section~\ref{harm:section} proves the state tail, conditioned-history
+law, and triadic extension. Sections~\ref{sec:ordinary} and
+\ref{sec:gao} transfer the coefficient to the original clocks and
+counted populations. Section~\ref{sec:windows} gives two short
+applications of the finite-horizon bound to published descent theorems.
+
+\subsection*{The questions answered}
+Gao states on p.~265 of \cite{Gao1993} that his proportions should tend
+to one. Said Duran's September 2026 preprint \cite{Duran2026},
+Theorems A and B, gave the first public proof of the qualitative
+density-one conclusions. The author's companion papers
+\cite{GaoDensityOne,GaoTao} give an independent proof with deficiency
+of order $k^{-1/2}$. The theorem above determines the leading
+deficiencies.
+
+For integer $t\ge0$, set
+\[
+a(t)=\#\{0\le r<2^t:T^t(r)=T^t(r+1),\ o_t(r)=o_t(r+1)\}.
+\]
+The exact cylinder dictionary gives
+\begin{equation}\label{eq:duran-law}
+\PP(A>t)=1-a(t)/2^t=\PP(\sigma>t)
+\end{equation}
+for the balanced absorption time in Duran's Corollary C. These counts
+are OEIS A398792 for $t\ge1$ \cite{OEIS398792}, and
+\begin{equation}\label{eq:sequence-asymptotic}
+a(t)=2^t(1-\kappa/\sqrt t+o(t^{-1/2})).
+\end{equation}
+This answers Remark 3.7, ``We do not know the true order of
+$P(\sigma>t)$,'' and the separate quantitative request in Section 7(1).
+Gao's p.~266 question about equal \emph{finite} heights and halving
+counts is a separate open problem.
+
+Terras--Lagarias parity cylinders supply the foundational correspondence
+\cite{Terras1976,Lagarias1985}; symmetric-walk estimates are classical.
+The stationary, killed-occupation, and arithmetic-clock arguments are
+proved here. The geometry companion \cite{GeometryCompanion} uses these
+laws to determine the shape of late pair and family synchronization.
+None of the main rate proofs depends on that companion; an overview of
+the series is \cite{Umbrella}. We give exact
+probabilistic constants, but no numerical value of $\E M$ or effective
+asymptotic onset. The integer statements retain possible individual
+exceptions and assume no convergence to one.
+
+% ---- exact/pair ----
+\section{The canonical shortcut pair and its return structure}\label{sec:pair}
+
+We use the maps and odd-count convention of Section~\ref{sec:intro}.
+Unless another initial state is specified, the pair starts from
+$(X_0,X_0+1)$ with $X_0$ Haar-distributed on $\Ztwo$.
+All statements about fresh randomness
+below are conditional on a finite revealed history.  We never condition on
+survival for all time.
+
+\subsection{Orientation, absorption, and binary cylinders}
+
+At shortcut time $t$ retain an orientation and write the two current entries as
+\begin{equation}\label{pair:affine}
+ Y_t=3^{s_t}X_t+D_t,\qquad (s_t,D_t)\in\N\times\Z.
+\end{equation}
+Here $X_t$ is the entry chosen as base by the orientation; the original entries
+continue to be tracked through every swap.  If $\epsilon=X_t\bmod2$, applying
+$T$ to both entries gives the following canonical kernel.
+
+\begin{proposition}[The canonical six-row kernel]\label{pair:kernel}
+The state and base updates are
+\[
+\begin{array}{c|c|c}
+\text{condition}&(s',D')&X'\\\hline
+D\text{ even},\ \epsilon=0&(s,D/2)&T(X)\\
+D\text{ even},\ \epsilon=1&(s,(3D+1-3^s)/2)&T(X)\\
+D\text{ odd},\ s\ge1,\ \epsilon=0&(s+1,(3D+1)/2)&T(X)\\
+D\text{ odd},\ s\ge1,\ \epsilon=1&(s-1,(D-3^{s-1})/2)&T(X)\\
+D\text{ odd},\ s=0,\ \epsilon=0&(1,(3D+1)/2)&T(X)\\
+D\text{ odd},\ s=0,\ \epsilon=1&(1,(1-3D)/2)&T(Y).
+\end{array}
+\]
+The final row reverses the orientation.  All displayed offsets are integers,
+and $(0,0)$ is absorbing.  Define the symbolic absorption time
+\[
+ A=\inf\{t\ge0:(s_t,D_t)=(0,0)\}.
+\]
+\end{proposition}
+\begin{proof}
+Since $3^s$ is odd, the entries have the same parity precisely when $D$ is
+even.  Substituting the appropriate two branches of $T$ in
+\eqref{pair:affine} gives the first four rows.  At level zero with odd $D$, an
+even base gives the fifth row.  An odd base and even second entry instead give
+$T(X)=3T(Y)+(1-3D)/2$; taking $T(Y)$ as the new base gives the final row.
+\end{proof}
+
+The boundary swap in this kernel is part of its definition.  In particular,
+one must not replace it by the boundary update of a raw compact affine kernel
+whose exponent or orientation is left unnormalized.  Compact-coordinate
+representations used later must retain the appropriate deterministic adapter
+to these six rows.
+
+\begin{lemma}[Fresh fair labels and exact cylinders]\label{pair:cylinders}
+Given any finite labelled history, the current base is Haar-distributed.
+Thus its next parity is a fresh fair bit.  A word of $h$ labels determines
+exactly one residue class of the initial base modulo $2^h$, and every such
+class occurs.  In particular, with
+\[
+ S_h(d)=\PP_{(0,d)}(A>h),
+\]
+there are exactly $2^h S_h(d)$ nonabsorbed residues in a complete period
+modulo $2^h$.
+\end{lemma}
+\begin{proof}
+Write $X=2U+\epsilon$.  Given its parity, $U$ is Haar.  The next base is
+$U$ when the base is even, $3U+2$ when it is odd without a swap, and
+$U+(D+1)/2$ in the swapped row.  These affine maps have odd coefficient,
+so each preserves Haar measure on $\Ztwo$.  This proves the conditional
+statement by induction.  On residues the same induction says that a next
+label chooses one of the two refinements of the current cylinder: the
+new base coordinate still has odd coefficient in the remaining quotient.
+Consequently each word has one cylinder of measure $2^{-h}$, and the
+cylinders partition $\Ztwo$.  The assertion applies after absorption as
+well, retaining the state $(0,0)$ and advancing the common base.
+\end{proof}
+
+For the two original entries $a,b$, the oriented level has a signed version:
+it is $s_t$ when the current orientation agrees with the initial one and
+$-s_t$ after reversal.  With a consistent choice of sign it equals
+$o_t(b)-o_t(a)$.
+
+\begin{lemma}[Exact balanced shortcut dictionary]\label{pair:dictionary}
+For every integer initial pair $(a,a+d)$ and every $t\ge0$, canonical
+absorption by time $t$ is equivalent to
+\begin{equation}\label{pair:balancedshortcut}
+ T^t(a)=T^t(a+d),\qquad o_t(a)=o_t(a+d).
+\end{equation}
+The same pointwise identity holds for pairs in $\Ztwo$; Haar measure
+is used only for the cylinder counts.
+For positive starts, absorption at a shortcut time $h$ produces a balanced
+ordinary merger at time
+\begin{equation}\label{pair:ordinaryclock}
+ m=h+o_h(a)=h+o_h(a+d)\le2h,
+\end{equation}
+with exactly $h$ halving branches on each ordinary trajectory.
+\end{lemma}
+\begin{proof}
+At every step the signed level changes by the difference of the two original
+odd-branch indicators.  The six rows verify this identity by induction;
+the last row reverses orientation exactly when this difference crosses
+zero.  Starting from level zero, equality of the odd counts is therefore
+equivalent to $s_t=0$.  At level zero, \eqref{pair:affine} becomes
+$Y_t=X_t+D_t$, so equality of the endpoints is equivalent to $D_t=0$.
+This proves absorption at time $t$.  Once absorbed, both entries and both
+odd counts evolve identically, giving the equivalence with absorption by
+$t$.  Each even shortcut step is one ordinary halving; each odd shortcut
+step is an ordinary odd branch followed by a halving.  A completed grid of
+$h$ shortcuts therefore has ordinary time $h+o_h$ and exactly $h$ halvings,
+which proves \eqref{pair:ordinaryclock}.
+\end{proof}
+
+This is the endpoint-and-count observable in Duran's residue count
+\cite[Corollary~C and Sections~2.2--2.4]{Duran2026}.  In particular, if $a(t)$
+denotes that count for adjacent starts, the cylinder dictionary gives
+\[
+ \frac{a(t)}{2^t}=\PP(A\le t),
+\]
+and Duran's absorption variable $\sigma$ has the same distribution as $A$.
+The preprint's use of an absolute offset can relabel boundary edges, so equality of
+the observables does not assert equality of signed labelled state paths.
+Likewise, \eqref{pair:ordinaryclock} is an implication about a completed
+shortcut grid; the exact relation with the first ordinary clocks is proved in
+Section~\ref{sec:ordinary}.
+
+\subsection{The embedded walk and fractional moments}
+
+When $s>0$, even offsets hold the level fixed and odd offsets move it up or
+down by one with equal conditional probability.  Write
+\begin{equation}\label{pair:valuation}
+ e_j=v_2(3^j-1)=
+ \begin{cases}1,&j\text{ odd},\\2+v_2(j),&j\text{ even}.
+ \end{cases}
+\end{equation}
+
+\begin{lemma}[Holding and return]\label{pair:holding}
+At the successive positive-level odd-offset transitions, the level is a
+simple symmetric nearest-neighbor walk, stopped at zero.  At level $j$,
+the conditional expected number of holding steps together with their
+terminal odd-offset transition is at most $e_j+2$, uniformly in the
+incoming offset.  Every holding segment is almost surely finite, and every
+positive initial level returns to zero almost surely.
+\end{lemma}
+\begin{proof}
+The fair directions follow from Lemma~\ref{pair:cylinders}.  For an even
+offset with valuation below $e_j$, either branch decreases that valuation
+by one.  A valuation above $e_j$ is sent to $e_j-1$ by the odd label,
+whereas a valuation equal to $e_j$ is sent there by the even label.  A
+failure keeps the valuation at least $e_j$.  This includes offset zero,
+whose valuation is interpreted as infinity.  The waiting time for a
+successful label is bounded by a geometric variable of mean two; there
+are then at most $e_j-1$ holding steps and one terminal transition.
+The formula for $e_j$ follows by factoring $3^j-1$ for odd $j$ and then
+using repeated squaring for even $j$.
+
+For the embedded walk killed at $\{0,H\}$, the probability of hitting
+$H$ before zero from $s<H$ is $s/H$.  A nearest-neighbor walk avoiding
+zero cannot stay forever in a fixed finite interval.  Sending $H$ to
+infinity proves almost-sure return to zero.  Almost-sure finiteness of
+the countably many holding segments transfers this conclusion to physical
+shortcut time.
+\end{proof}
+
+\begin{lemma}[Uniform physical return domination]\label{pair:return-bound}\label{family:return-bound}
+For the first return $R$ to level zero from any positive level $s$,
+uniformly in the integer offset and conditional on the revealed entry past,
+\begin{equation}\label{pair:return-envelope}
+ \PP_{(s,D)}(R>t)\le\min(1,C_0s/\sqrt t),\qquad C_0=30.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Kill the direction walk at $0,H$, $H>s$. Its expected visits to $j$ are
+\[
+ G_{0,H}(s,j)=2\min(s,j)(H-\max(s,j))/H\le2s.
+\]
+This solves the finite difference equation with zero boundary values.
+The holding bound of Lemma~\ref{pair:holding} and
+$\sum_{j<H}v_2(j)\le H-1$ give
+$\sum_{j<H}(e_j+2)\le(9/2)(H-1)$. Thus the physical exit time has
+expectation at most $9sH$, without a terminal holding. Gambler's ruin
+and Markov give $\PP(R>t)\le s/H+9sH/t$.
+For $t\ge(s+1)^2$, take $H=\lceil\sqrt t\rceil$; this is at most
+$19s/\sqrt t$. For smaller $t$, $1\le2s/\sqrt t$. Both imply the
+stated envelope. Each holding is averaged at its actual entry before
+future bits, so the proof also holds conditionally on the finite past.
+\end{proof}
+
+Fix $0<\alpha<1$, and reserve $\kappa$ for the absorption constant rather
+than the drift coefficient.  Set
+\begin{equation}\label{pair:driftconstants}
+ q=2^{-\alpha},\quad p=(3/2)^\alpha,\quad
+ \chi_\alpha=(q+p)/2<1,\quad
+ r=\frac{1-\sqrt{1-qp}}q\in(0,1),\quad a=rq<1.
+\end{equation}
+Strict convexity of $2^{-u}+(3/2)^u$ between its equal endpoint values
+at $u=0,1$ gives $\chi_\alpha<1$.  The smaller root $r$ of
+$qz^2-2z+p$ lies in $(0,1)$, and
+$(qr+p/r)/2=1$.  Write
+\[
+ z=D/3^s,\qquad V(D)=|D|^\alpha,\qquad
+ W(s,z)=r^s|z|^\alpha.
+\]
+In the order of the six kernel rows, the normalized offset updates are
+\[
+ z/2,\quad 3z/2+(3^{-s}-1)/2,\quad
+ z/2+1/(2\cdot3^{s+1}),\quad 3z/2-1/2,\quad
+ z/2+1/6,\quad -z/2+1/6.
+\]
+Using $|u+v|^\alpha\le |u|^\alpha+|v|^\alpha$, at positive even
+offsets the conditional coefficient of $W$ is $\chi_\alpha$, and at
+positive odd offsets it is $(qr+p/r)/2=1$.  The additive source is in
+both cases bounded by $c_0r^{s-1}$, for a constant depending only on
+$\alpha$.  At an odd level-zero departure it follows that
+\begin{equation}\label{pair:departuremoment}
+ \E[W(s_1,z_1)\mid D]\le aV(D)+r6^{-\alpha}.
+\end{equation}
+
+\begin{lemma}[Raw and coasted return moments]\label{pair:returnmoments}
+If the process starts at $(s,D)$, $s>0$, and $\Delta$ is the raw offset at its
+first return to zero, then
+\[
+ \E V(\Delta)\le r^s|D/3^s|^\alpha+b_\infty.
+\]
+For an excursion departing from an odd level-zero offset $d$, there is a
+constant $b$ such that
+\begin{equation}\label{pair:rawrecurrence}
+ \E_d V(\Delta)\le aV(d)+b.
+\end{equation}
+This last bound also holds after the following level-zero even coast to an
+odd offset or absorption.
+\end{lemma}
+\begin{proof}
+The Green function for the embedded walk on the positive half-line killed
+at zero is $G_s(j)=2\min(s,j)$.  Indeed the chance to hit $j$ before zero
+is $s/j$ for $s\le j$ and one for $s\ge j$; starting from $j$, the chance
+of returning to $j$ before zero after one step is $1-1/(2j)$.  Multiplying
+the hitting probability by the resulting expected $2j$ visits gives the
+formula.  If $\rho$ is the physical return time, holding bounds and Tonelli
+give
+\[
+ \E\sum_{t<\rho}r^{s_t-1}
+ \le2\sum_{j\ge1}\min(s,j)(e_j+2)r^{j-1}
+ \le2\sum_{j\ge1}j(e_j+2)r^{j-1}<\infty.
+\]
+Stop the one-step drift inequality at $\rho\wedge n$ and use Fatou's lemma
+on the nonnegative terminal moment.  Almost-sure return from
+Lemma~\ref{pair:holding} proves the first bound.  From level one the source
+sum has the sharper bound $2\sum_j(e_j+2)r^{j-1}$; together with
+\eqref{pair:departuremoment} this proves \eqref{pair:rawrecurrence}.
+At level zero a nonzero even offset changes to $D/2$ or $3D/2$, drops its
+valuation by exactly one, and multiplies its conditional $V$ moment by
+$\chi_\alpha$.  The coast therefore cannot increase expected $V$.
+Offset zero is already absorbed.  No uniform-integrability claim is used
+at the unbounded return time.
+\end{proof}
+
+\subsection{Compact trials and integrable boundary rewards}
+
+A departure is a step whose initial state is $(0,d)$ with $d$ odd.  Let
+$M$ count \emph{all} departures before absorption, including those within
+any absorbing-word trial.  Let $d_i$ be the offset of departure $i$, and
+$\Delta_i$ its raw offset on the next return to level zero.  Its physical
+excursion length $R_i$ includes the departure step and every subsequent
+positive-level step through that return, but excludes the following
+level-zero coast.  Let $C_{\mathrm{coast}}$ count all level-zero even-offset coast steps.
+
+\begin{lemma}[Finite boundary rewards]\label{pair:rewards}
+From a level-zero offset $u$,
+\begin{equation}\label{pair:rewardbound}
+ \E_u M+\E_u\sum_{i\le M}V(\Delta_i)+\E_u C_{\mathrm{coast}}
+ \le B_*(1+V(u))
+\end{equation}
+for a constant $B_*$ depending only on the fixed $\alpha$.  Absorption is
+almost sure.
+\end{lemma}
+\begin{proof}
+First remove an initial even coast.  It has exactly $v_2(u)$ steps for
+$u\ne0$ and zero for $u=0$, and its endpoint has expected $V$ at most
+$V(u)$.  The elementary inequality
+\begin{equation}\label{pair:coastbound}
+ v_2(u)\le\frac{V(u)}{\alpha\log2}\quad(u\ne0)
+\end{equation}
+bounds its expected length.
+
+On odd level-zero offsets, follow each excursion and its coast to form
+the boundary chain $Z_i$, with zero a cemetery state.  Its recurrence is
+$\E[V(Z_{i+1})\mid\mathcal F_i]\le aV(Z_i)+b$.
+Choose $R_0>b/(1-a)$, put $c=a+b/R_0<1$, and stop upon first entry
+$\sigma$ into the finite set
+\[
+ \mathcal K=\{d\in\Z:d\text{ odd},\ V(d)\le R_0\}\cup\{0\}.
+\]
+For $q_i=\E[V(Z_i)\one_{\{\sigma>i\}}]$, killing on entry gives
+\begin{equation}\label{pair:killedrecurrence}
+ q_{i+1}\le aq_i+b\PP(\sigma>i)\le cq_i,
+ \qquad \sum_{i\ge0}q_i\le\frac{\E V(Z_0)}{1-c},
+\end{equation}
+since $\PP(\sigma>i)\le q_i/R_0$.  Thus the expected number of departures
+before entry is bounded by a constant times $\E V(Z_0)$.
+
+Every integer boundary offset has a finite absorbing word.  Remove powers
+of two with zero labels.  At an odd offset with $|d|>1$, the word $01$
+for $d\equiv3\pmod4$, and the word $11$ for $d\equiv1\pmod4$, return
+to level zero with offsets
+\[
+ (3d-1)/4\quad\hbox{and}\quad -(3d+1)/4,
+\]
+respectively.  In their indicated residue classes both have smaller
+absolute value.  Repeat, removing any new powers of two, until reaching
+$1$ or $-1$, whose absorbing words are $001$ and $101$.  Select one
+absorbing word for each nonzero state in $\mathcal K$, and let $\ell$
+be the largest selected length.  A trial reveals the selected number of
+labels and follows its word when those labels agree; it succeeds with
+conditional probability at least $p_0=2^{-\ell}$.
+
+All prefixes of these finitely many trial words, and all possible states
+after a failed trial of length at most $\ell$, form a finite set $G$.
+Recover from a failed endpoint as follows: if its level is positive,
+first return to zero, then take its even coast; run the boundary chain
+until reaching $\mathcal K$ again.  The first-return moment bound and
+\eqref{pair:killedrecurrence} give a uniform finite expected departure
+count for this recovery, because the starting state lies in $G$.
+The $\ell$ trial
+steps themselves make at most $\ell$ departures.  This also counts a
+departure whose excursion is unfinished at the failed endpoint: that
+excursion is completed during the initial positive-level recovery,
+which creates no further departure before its first return.
+
+If $N_c$ counts the trials performed, conditional failure probabilities
+give $\PP(N_c>j)\le(1-p_0)^j$ and $\E N_c\le p_0^{-1}$.
+The event that round $j$ is performed is known at its start.  Conditional
+expectation and Tonelli therefore bound the total expected departure
+count by a uniform per-round bound times $\E N_c$.  The trial phase
+starts in the finite set $\mathcal K$, so its bound is uniform in that
+entry state.  Adding the pre-compact phase proves
+\begin{equation}\label{pair:meanbound}
+ m(u):=\E_u M\le B_0(1+V(u)).
+\end{equation}
+Each recovery returns almost surely, and the geometric trial bound proves
+almost-sure absorption.
+
+It remains to bound raw-return moments for the full count, without
+distinguishing trial-word departures.  Put
+\[
+ Q_i=\E_u[V(\Delta_i)\one_{\{M\ge i\}}],\qquad Q_0=V(u).
+\]
+The initial coast and every subsequent coast do not increase expected
+$V$.  Thus the expected $V$ of departure $i$, weighted by its occurrence,
+is at most $Q_{i-1}$.  The raw-return recurrence gives, for every $i\ge1$,
+\[
+ Q_i\le aQ_{i-1}+b\PP_u(M\ge i).
+\]
+Summing the first $n$ inequalities and using $Q_i\ge0$ yields
+\[
+ (1-a)\sum_{i=1}^nQ_i\le aV(u)+b\E_u M.
+\]
+Monotone convergence and \eqref{pair:meanbound} therefore bound the
+full sum of raw-return moments by a constant times $1+V(u)$.  Finally
+\eqref{pair:coastbound} bounds every coast, including the initial one,
+by this same moment reward.  This proves \eqref{pair:rewardbound}.
+\end{proof}
+
+\begin{lemma}[Boundary moments]\label{pair:moments}\label{pair:coasts}
+For the canonical process from $(0,1)$,
+\[
+ 1\le\E M<\infty,\qquad \E M^2<\infty,\qquad \E C_{\mathrm{coast}}<\infty.
+\]
+\end{lemma}
+\begin{proof}
+Time zero is a departure, so $M\ge1$.  The first moment follows from
+Lemma~\ref{pair:rewards}, which also gives $\E C_{\mathrm{coast}}<\infty$. At the raw return of excursion $i$, the strong
+Markov property and \eqref{pair:rewardbound} bound the conditional expected
+number of future departures by $B_*(1+V(\Delta_i))$.  The pathwise identity
+\[
+ M^2=\sum_{i\le M}\bigl(1+2(M-i)\bigr)
+\]
+and Tonelli consequently give
+\[
+ \E M^2\le(1+2B_*)\E M+
+ 2B_*\E\sum_{i\le M}V(\Delta_i)<\infty.
+\]
+The reward proof counts excursions across failed trial endpoints as well
+as departures inside trial words, so this is the second moment of the
+full count $M$ defined above.
+\end{proof}
+
+\begin{proposition}[The physical excursion decomposition]\label{pair:decomposition}
+Let $K_i$ be the number of positive-level odd-offset transitions in
+excursion $i$. Almost surely,
+\begin{equation}\label{pair:timesplit}
+ A=C_{\mathrm{coast}}+\sum_{i\le M}R_i.
+\end{equation}
+Given the history just after departure $i$, $K_i$ has the law of the first
+hit $K$ of zero by a simple symmetric walk started at one.  The event
+that excursion $i$ occurs is known before its future walk is revealed.
+\end{proposition}
+\begin{proof}
+Coasts at level zero cannot absorb a nonzero offset: their updates are
+$D/2$ and $3D/2$.  A departure goes to level one.  Positive-level holdings
+cannot absorb, so absorption occurs only on the last down-step of an
+excursion, from level one with offset one.  The coasts and the complete
+excursions therefore partition all steps through $A$, even when a compact
+trial cuts across that partition.  The conditional walk law follows
+from fresh fair labels and the almost-sure finite holding segments.
+\end{proof}
+
+\subsection{The uniform finite-horizon bound}
+
+The following finite-horizon bound supplies the growing-block
+applications. Its proof uses the boundary rewards and a deterministic
+contraction period, before any exact asymptotic coefficient.
+
+\begin{lemma}[Remaining absorption from a scalar state]\label{pair:remaining-tail}
+For $s\ge0$, $D\in\Z$, put $z=D/3^s$. There is a constant $C$,
+independent of this state, such that, for $t\ge1$,
+\[
+ \PP_{s,D}(A>t)\le
+ \min\{1,C(s+1+|z|^\alpha)/\sqrt t\}.
+\]
+\end{lemma}
+\begin{proof}
+At $s>0$ first finish the positive-level interval $R_0$. Its tail is
+bounded by $Cs/\sqrt t$ by Lemma~\ref{pair:return-bound}.
+Its raw return offset $U$ satisfies
+$\E|U|^\alpha\le r^s|z|^\alpha+b_\infty$ by
+Lemma~\ref{pair:returnmoments}. At $s=0$ put $R_0=0$ and $U=D$.
+Conditioning at this return, Lemma~\ref{pair:rewards} bounds both the
+future departure mean and the coast mean by $C(1+|z|^\alpha)$.
+A full departure interval consists of its first step and a positive-level
+return from level one. Thus Lemma~\ref{pair:return-bound} gives,
+uniformly at its actual entry,
+\[
+ \PP(R_i>x\mid\mathcal F_i)\le\min(1,C/\sqrt x),\qquad
+ \E(R_i\wedge x\mid\mathcal F_i)\le2C\sqrt x.
+\]
+Here $\mathcal F_i$ is the predeparture information, on the event that
+this departure occurs. Separate any interval longer than $x$, and
+apply Markov to the sum of the remaining truncated lengths.
+The occurrence event is known at entry, so conditional expectation
+and Tonelli give
+$\PP(\sum_{i\le M}R_i>x)\le C\E M/\sqrt x$.
+Markov bounds the coast tail by its mean divided by $x$.
+Use the union bound at threshold $t/3$ for these three components,
+and enlarge the constant for bounded $t$. This proves the claim.
+\end{proof}
+
+\begin{theorem}[Uniform pair absorption]\label{pair:uniform-tail}\label{thm:pair}
+There is an absolute constant $B\ge1$ such that, for every integer
+level-zero offset $d$ and every real $t\ge1$,
+\[
+ \PP_{0,d}(A>t)\le
+ \min\left\{1,B\sqrt{\frac{1+\log(1+|d|)}t}\right\}.
+\]
+Every fixed integer scalar state is absorbed almost surely.
+\end{theorem}
+\begin{proof}
+Fix once and for all an $\alpha\in(0,1)$. Retain absorbed states at
+$(0,0)$. For $z_h=D_h/3^{s_h}$, the six normalized rows and
+subadditivity give
+\[
+ \E(|z_{h+1}|^\alpha\mid\mathcal F_h)
+       \le\chi_\alpha|z_h|^\alpha+B_\alpha,
+ \qquad
+ \E|z_h|^\alpha\le\chi_\alpha^h|d|^\alpha+
+                          \frac{B_\alpha}{1-\chi_\alpha}.
+\]
+At a positive odd-offset state the conditional squared-level increment
+is one; at an even offset it is zero; at a level-zero departure it is
+one. Hence $\E s_h^2\le h$ and $\E s_h\le\sqrt h$.
+Choose the deterministic burn length
+\[
+ n_d=\left\lceil\frac{\log(1+|d|^\alpha)}{|\log\chi_\alpha|}
+                         \right\rceil+1
+       \le C(1+\log(1+|d|)).
+\]
+The normalized-offset moment at $n_d$ is bounded by an absolute
+constant. Condition on the finitely many histories at this time and
+apply Lemma~\ref{pair:remaining-tail}. For $t\ge2n_d$ this gives
+\[
+ \PP_{0,d}(A>t)
+ \le \frac{C(\sqrt{n_d}+1)}{\sqrt{t-n_d}}
+ \le C\sqrt{\frac{1+\log(1+|d|)}t}.
+\]
+For $t<2n_d$ enlarge the constant and use the probability bound one.
+At $d=0$ absorption is immediate. Almost-sure absorption from arbitrary
+integer states follows by their almost-sure positive-level return,
+if needed, and Lemma~\ref{pair:rewards} at its integer boundary offset.
+\end{proof}
+
+This is an upper bound at every horizon and with a uniform absolute
+constant. It supplies no uniform relative asymptotic. Its logarithmic
+scale is necessary for such a bound: from $d=2^k$ the first $k$ steps
+are nonzero boundary coasts, so $\PP(A>k)=1$.
+
+% ---- exact/stationary ----
+\section{Stationary rigidity of the raw kernel}
+\label{st:section}
+
+We first prove a rigidity statement for the compact raw kernel.  Its
+hypothesis concerns only the level marginal; absolute continuity of the
+joint law is neither assumed nor obtained by a preliminary smoothing
+argument.  This distinction matters for the expected occupations used
+below, whose finite approximants may be atomic.
+
+Write $E=\Ztwo^2$, with raw coordinates $(s,D)$, and let $\lambda$ be
+product normalized Haar measure.  The compact raw branches are
+\[
+\begin{array}{c|c|c}
+ &F_0(s,D)&F_1(s,D)\\\hline
+ D\text{ even}&(s,D/2)&(s,(3D+1-3^s)/2)\\
+ D\text{ odd}&(s+1,(3D+1)/2)&(s-1,(D-3^{s-1})/2).
+\end{array}
+\]
+These extend the positive ordinary-level rows to every $s\in\Ztwo$.
+The ordinary canonical process swaps orientation at level zero; this
+compact raw kernel instead retains the displayed signed decrement there.
+The discrepancy is paid at the killed ordinary boundary in
+\eqref{occ:boundary-telescoping}. We use the Markov operator
+\[
+ Pf=\tfrac12(f\circ F_0+f\circ F_1).
+\]
+All bits in this section are independent fair bits of this kernel.  The
+continuous power is $3^{2j}=9^j$, $3^{2j+1}=3\cdot9^j$, where
+$9^j=(1+8)^j$ is its binomial extension to $\Ztwo$.  It is a continuous
+homomorphism from the additive group $\Ztwo$ into $\Ztwo^\times$.  In
+particular,
+\begin{equation}
+ v_2(3^u-1)=
+ \begin{cases}1,&u\text{ odd},\\2+v_2(u),&u\ne0\text{ even},\end{cases}
+ \label{st:lte}
+\end{equation}
+and $s\mapsto3^s$ is injective.  For the even case, the identity
+$v_2(9^j-1)=3+v_2(j)$ follows by successive squaring and continuity;
+the odd case follows modulo four.  These observations also prove
+injectivity by applying \eqref{st:lte} to the difference of two exponents.
+
+\begin{lemma}[Haar odd-offset flux]\label{st:level-flux}
+For every finite raw stationary measure $\mu$, the level measure
+$\vartheta(B)=\mu\{s\in B,D\text{ odd}\}$ is $\vartheta(\Ztwo)$ times Haar.
+\end{lemma}
+\begin{proof}
+If $\sigma$ is the level marginal, projection of the raw rows gives
+\[
+ \sigma=\sigma-\vartheta+
+       \tfrac12(T_{+1}\vartheta+T_{-1}\vartheta),
+\]
+where $T_a$ translates by $a$.  On a nonconstant level character
+$c(s)=\exp(2\pi i js/2^L)$ the translation average has multiplier
+$\cos(2\pi j/2^L)<1$.  Hence $\vartheta(c)=0$.
+Fourier inversion on each finite residue group proves the assertion.
+\end{proof}
+
+\begin{theorem}[Raw stationary uniqueness]\label{st:uniqueness}
+Let $\mu$ be a probability measure on $E$ such that $\mu P=\mu$.  If its
+level marginal $\mu_s$ is absolutely continuous with respect to normalized
+Haar measure on $\Ztwo$, then $\mu=\lambda$.
+\end{theorem}
+
+The proof combines a coefficient escape argument, a finite word coding
+argument, and an exact energy identity.  We give the components before
+assembling them.  A qualitative mixing statement would not suffice for
+this assembly: the energy decay and the partition precision must have
+matching exponential scales.
+
+\subsection{Escape of affine curve coefficients}
+\label{st:affine-subsection}
+
+For $A,B\in\Qtwo$, define the partial affine graph
+\[
+ G_{A,B}=\{(s,D)\in E:D=A+B3^s\}.
+\]
+It is Borel (indeed closed).  The use of coefficients in $\Qtwo$, rather
+than only in $\Ztwo$, is necessary because a raw step divides by two.
+
+\begin{lemma}[Affine graphs have zero stationary mass]\label{st:affine}
+If $\mu P=\mu$ and $\mu_s$ is atomless, then every countable union of
+sets $G_{A,B}$ has $\mu$-measure zero.
+\end{lemma}
+\begin{proof}
+Put $X=3^s$.  Substitution of $D=A+BX$ into the raw branches gives the
+following coefficient transformations, where $D'=A'+B'X'$:
+\[
+\begin{array}{c|c|c|c}
+ D\bmod2&b&A'&B'\\\hline
+ 0&0&A/2&B/2\\
+ 0&1&(3A+1)/2&(3B-1)/2\\
+ 1&0&(3A+1)/2&B/2\\
+ 1&1&A/2&(3B-1)/2
+\end{array}
+\]
+Thus, independently of the parity selector, the slope follows
+\begin{equation}
+ L_0(B)=B/2,\qquad L_1(B)=(3B-1)/2,
+ \label{st:slope-kernel}
+\end{equation}
+each with probability $1/2$.
+
+This coefficient kernel has no stationary probability on $\Qtwo$.  Once
+$v_2(B)<0$, either map decreases the valuation by exactly one.  Before
+exit from $\Ztwo$, at least one of the two maps exits at each step:
+$L_1$ does so when $B$ is even, and $L_0$ when $B$ is odd.  Hence the
+probability of remaining in $\Ztwo$ for $n$ further steps is at most
+$2^{-n}$.  From every initial $B\in\Qtwo$ we therefore have
+$|B_n|_2\longrightarrow\infty$ almost surely.  If a stationary
+probability $\beta$ existed, dominated convergence, applied to
+$\one_{\{|B_n|_2\le2^R\}}$, would give
+$\beta\{|B|_2\le2^R\}=0$ for every integer $R$.  The countable union of
+these balls is $\Qtwo$, a contradiction.
+
+Close the given coefficient family under the four transformations in the
+table.  The closure is countable, and its union $G$ is forward invariant.
+Stationarity gives
+\[
+ \mu(G)=\mu(G)+\int_{G^c}P\one_G\,d\mu,
+\]
+so there is no incoming mass.  If $\mu(G)>0$, the normalized restriction
+$\eta=\mu|_G/\mu(G)$ is stationary and has atomless level marginal.
+We show that its slope labels contradict the preceding escape argument.
+
+Distinct graphs $G_{A,B}$ and $G_{A',B'}$ intersect at
+at most one level: if $B\ne B'$, their intersection fixes $3^s$, and
+injectivity fixes $s$; if $B=B'$ and $A\ne A'$, they are disjoint.
+All multiple-label points therefore form an $\eta$-null set.  Choosing
+the first graph in an enumeration gives a Borel coefficient label,
+unique almost everywhere.  Since $(F_b)_*\eta\le2\eta$, almost every
+child also avoids the multiple-label set.  The table and forward closure
+then identify its unique slope as $L_b(B)$.  Pushing $\eta$ forward by
+the slope label produces the excluded stationary coefficient law.
+Consequently $\mu(G)=0$, as required.
+\end{proof}
+
+\subsection{Word signatures and conditional nonatomicity}
+\label{st:words-subsection}
+
+Fix a word $w=(b_0,\ldots,b_{n-1})\in\{0,1\}^n$, and a parity history
+$p=(p_0,\ldots,p_{n-1})$ realized on a source domain.  Set
+\[
+ q_w=\sum_{t<n}b_t,\qquad
+ \ell_{w,p}=\sum_{t<n}p_t(1-2b_t).
+\]
+The endpoint level is $s+\ell_{w,p}$.  The multiplier of $D$ at step $t$
+is $3/2$ precisely when $p_t\ne b_t$.  If $u$ counts these multipliers,
+then $u-\ell_{w,p}=q_w$.  Define the coefficient signature recursively by
+\begin{equation}
+ C_0=0,\qquad
+ C_{t+1}=\begin{cases}C_t,&b_t=0,\\3C_t+2^t,&b_t=1,\end{cases}
+ \qquad C_w=C_n.
+ \label{st:signature}
+\end{equation}
+On the chosen parity domain the endpoint offset has the form
+\begin{equation}
+ D_n=\frac{3^{q_w+\ell_{w,p}}D
+                   -3^{\ell_{w,p}}C_w3^s+E_{w,p}}{2^n},
+ \label{st:word-formula}
+\end{equation}
+where $E_{w,p}\in\Qtwo$ is independent of $(s,D)$.  One way to verify
+all coefficients is to apply the word to the symbolic curve $D=A+B3^s$.
+Its final slope, by the preceding table, is
+$(3^{q_w}B-C_w)/2^n$, independently of $p$.  Multiplying by the endpoint
+power $3^{s+\ell_{w,p}}$ gives the coefficient of $3^s$ in
+\eqref{st:word-formula}; the coefficient of $D$ is $3^u/2^n$, and the
+remaining constant is $E_{w,p}/2^n$.  Negative values of $\ell_{w,p}$
+are harmless in $\Qtwo$.
+
+\begin{lemma}[Injectivity of the coefficient signature]\label{st:signature-injective}
+For a fixed length $n$, the pair $(q_w,C_w)$ determines $w$.
+\end{lemma}
+\begin{proof}
+Write $w=(b_0,w')$.  Expanding \eqref{st:signature} gives
+\[
+ q_{w'}=q_w-b_0,\qquad
+ C_w=b_0\,3^{q_{w'}}+2C_{w'}.
+\]
+Thus $b_0$ is the parity of the ordinary integer $C_w$, and the signature
+of $w'$ is recovered by subtraction and division by two.  Induction on
+the fixed length recovers every bit.
+\end{proof}
+
+\begin{lemma}[Free endpoint trees]\label{st:free-tree}
+Under the hypotheses of Lemma~\ref{st:affine}, for $\mu$-almost every
+source point and every $n\ge1$, the $2^n$ literal length-$n$ bit words
+have distinct endpoints.
+\end{lemma}
+\begin{proof}
+Take distinct equal-length words, together with two of their possible
+parity histories.  If their $\ell$ values differ, their endpoint levels
+differ by a nonzero ordinary integer in $\Ztwo$.  If the $\ell$ values
+agree, subtract \eqref{st:word-formula}.  When their $q$ values differ,
+the coefficient of $D$ is nonzero; endpoint equality defines one affine
+graph $D=A+B3^s$.  Its measure is zero by Lemma~\ref{st:affine}.  When
+the $q$ values agree, their $C$ values differ by
+Lemma~\ref{st:signature-injective}.  The endpoint equality then fixes
+$3^s$ to at most one value and so fixes at most one level, also a null
+set.  There are finitely many parity histories at each length, and only
+countably many lengths.  Removing the union of these null collision sets
+proves the simultaneous statement.
+\end{proof}
+
+\begin{lemma}[Graph-null disintegration]\label{st:nonatomic}
+If $\mu P=\mu$ and its level marginal $\sigma$ is atomless, then its
+conditional offset law $\gamma_s$ is nonatomic for $\sigma$-almost every
+$s$.
+\end{lemma}
+\begin{proof}
+Let $G$ be any Borel set with at most $M$ offsets in its fibre at
+each level.  A length-$n$ word can end only at one of the $2n+1$ levels
+$s-n,\ldots,s+n$.  On the full-measure set of Lemma~\ref{st:free-tree},
+at most $M(2n+1)$ distinct endpoints can belong to $G$.  Each literal
+word has probability $2^{-n}$, and therefore
+\[
+ P^n\one_G(z)\le M(2n+1)2^{-n}\quad\text{for $\mu$-almost every }z.
+\]
+Stationarity and integration imply $\mu(G)=0$.  No regularity of the
+finite fibre sections is required.
+
+Disintegrate $\mu$ over $\sigma$ as conditional probabilities $\gamma_s$.
+The singleton-mass function $(s,D)\mapsto\gamma_s\{D\}$ is measurable:
+evaluate the kernel $(s,D)\mapsto\gamma_s$ on the section of the Borel
+diagonal.  For $k\ge1$, the Borel set
+\[
+ E_k=\{(s,D):\gamma_s\{D\}\ge1/k\}
+\]
+has at most $k$ points in every level fibre, and hence $\mu(E_k)=0$.
+Their union is the positive-singleton-mass set.  Disintegration shows
+that, for $\sigma$-almost every $s$, this set has $\gamma_s$-measure
+zero.  A positive atom of $\gamma_s$ would itself give that set positive
+measure.  Thus $\gamma_s$ is nonatomic almost everywhere.
+\end{proof}
+
+\subsection{The critical collision estimate}
+\label{st:collision-subsection}
+
+Let $\mathcal C_q$ be the joint partition by $(s,D)$ modulo $2^q$.
+The following estimate uses equal precision in both coordinates and
+the conditional offset law given the full level.
+
+\begin{lemma}[Critical little-o collision]\label{st:collision}
+Let $\alpha$ be a finite measure on $E$ with level marginal $\sigma$
+bounded above by $K$ times Haar measure.  Suppose its conditional offset
+laws are nonatomic almost everywhere.  Then
+\begin{equation}
+ 2^q\sum_{C\in\mathcal C_q}\alpha(C)^2\longrightarrow0.
+ \label{st:critical}
+\end{equation}
+\end{lemma}
+\begin{proof}
+The zero measure is trivial.  Disintegrate a nonzero $\alpha$ as
+$\sigma(ds)\gamma_s(dD)$ with probability conditionals.  Let $L$ be a
+precision-$q$ level cell and $C_d=\{D\equiv d\pmod{2^q}\}$ an offset
+cell.  Integral Cauchy--Schwarz gives
+\[
+ \alpha(L\times C_d)^2
+ =\left(\int_L\gamma_s(C_d)\,d\sigma(s)\right)^2
+ \le \sigma(L)\int_L\gamma_s(C_d)^2\,d\sigma(s).
+\]
+Since $\sigma(L)\le K2^{-q}$, summing over the two partitions yields
+\begin{equation}
+ 2^q\sum_{C\in\mathcal C_q}\alpha(C)^2
+ \le K\int\sum_{d\bmod2^q}\gamma_s(C_d)^2\,d\sigma(s).
+ \label{st:collision-bound}
+\end{equation}
+For each $s$, the inner sum is the probability that two independent
+samples from $\gamma_s$ agree modulo $2^q$.  These events decrease to
+equality of the samples, whose probability is
+$\int\gamma_s\{D\}\,d\gamma_s(D)$.  It is zero for almost every $s$
+by conditional nonatomicity.  The inner sum is measurable and bounded
+by one.  Bounded convergence under the finite measure $\sigma$ proves
+\eqref{st:critical} directly as $q\to\infty$.
+\end{proof}
+
+For a stationary law with level density $w\in L^1$, the finite restriction
+$\alpha_K=\mu|_{\{w(s)\le K\}}$ has bounded level density and inherits
+nonatomic conditional offsets from Lemma~\ref{st:nonatomic}.  Hence it
+satisfies \eqref{st:critical}.  Its omitted mass tends to zero with $K$.
+We do not assert that this restriction is stationary.
+
+\subsection{High level bits and exact Haar energy}
+\label{st:energy-subsection}
+
+Each branch $F_b$ preserves $\lambda$.  To check this branch by branch,
+write $D=2u$ or $D=2u+1$ on the two parity halves.  Conditional on $s$,
+$u$ is Haar; the output offset is an odd affine bijection of $u$, and the
+output level is $s$ or a fixed translate of $s$.  Each half therefore
+pushes its mass to $\lambda/2$.  The operators $U_bf=f\circ F_b$ are
+$L^2(\lambda)$ isometries, and $P=(U_0+U_1)/2$ is an $L^2$ contraction.
+
+\begin{proposition}[Exact energy halving]\label{st:energy}
+Fix a bounded level cylinder $c$ of precision $L\ge0$, an odd integer
+$k$, and $N\ge1$.  Set
+\[
+ f(s,D)=c(s)\exp(2\pi i kD/2^N),\qquad
+ n_0=\max(3,L+3-N).
+\]
+For $n\ge n_0$,
+\begin{equation}
+ \|P^nf\|_{L^2(\lambda)}^2
+       =\tfrac12\|P^{n-1}f\|_{L^2(\lambda)}^2.
+ \label{st:energy-halving}
+\end{equation}
+In particular $\|P^nf\|_2^2\le C_f2^{-n}$ for all $n\ge0$, with a
+constant depending on this fixed test.  If
+$q_0=\max(L,N,1)$, then $P^nf$ has joint precision at most $q=n+q_0$.
+\end{proposition}
+\begin{proof}
+For $n\ge n_0$, put
+\[
+ h=n+N-3\ge1,\qquad \Delta=2^h,\qquad r=n+N-1.
+\]
+By \eqref{st:lte}, $v_2(3^\Delta-1)=r$.  Fix a literal length-$n$
+word.  Compare its paths from $(s,D)$ and $(s+\Delta,D)$, and let
+$\delta_t$ be the translated path's offset minus the original path's
+offset.  Throughout these paths the level difference is $\Delta$ and
+\begin{equation}
+ v_2(\delta_t)\ge r-t\quad(0\le t\le n),
+ \label{st:highbit-valuation}
+\end{equation}
+where $v_2(0)=\infty$.  Normalize the difference by
+$\eta_t=2^t\delta_t/(3^\Delta-1)$.  Whenever the input offsets have
+the same parity, the raw rows give equal level increments and
+\[
+ \eta_{t+1}=a_t\eta_t-b_t2^t3^{s_t-e_t},
+ \qquad a_t\in\{1,3\},\quad e_t\in\{0,1\}.
+\]
+Here $e_t=0$ for the even row and $e_t=1$ for the odd row; the exponent
+is an arbitrary element of $\Ztwo$.  Starting from $\eta_0=0$, induction
+keeps $\eta_t$ integral and proves \eqref{st:highbit-valuation}.  At each
+input time $t<n$ its lower bound is at least $N\ge1$, so the offsets
+have the same parity and the induction is valid through the last step.
+The normalized recurrence also gives $\eta_n\equiv b_0\pmod2$:
+its first injection has parity $b_0$, and all later injections are even.
+Since $(3^\Delta-1)/2^n$ has valuation $N-1$, this means
+$\delta_n\equiv b_0 2^{N-1}\pmod{2^N}$.  The endpoint level difference
+$\Delta$ is divisible by $2^L$, and therefore
+\begin{equation}
+ f(F_w(s+\Delta,D))=(-1)^{b_0}f(F_w(s,D)).
+ \label{st:highbit-sign}
+\end{equation}
+No branch probabilities or parity histories were conditioned or changed
+in this comparison.
+
+Let $A_n=U_0P^{n-1}f$ and $B_n=U_1P^{n-1}f$.  Averaging
+\eqref{st:highbit-sign} over suffix words shows that level translation
+by $\Delta$ fixes $A_n$ and negates $B_n$.  Since that translation
+preserves Haar measure,
+$\int A_n\overline{B_n}\,d\lambda=0$.  Expanding
+$\|(A_n+B_n)/2\|_2^2$ and using the branch isometries gives
+\eqref{st:energy-halving}.  Iteration and contraction on the finitely
+many earlier iterates give the asserted bound, for example
+$C_f=2^{n_0-1}\|f\|_2^2$.
+
+Finally a function of joint precision $q\ge1$ pulls back by either raw
+branch to a function of precision at most $q+1$.  The additional bit
+fixes the parity and supplies the bit consumed by division by two; the
+powers of three in the affine constants are determined at the required
+precision by those same input level bits.  Hence induction starting at
+$q_0$ proves the precision assertion.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{st:uniqueness}]
+The absolutely continuous level marginal is atomless, so the preceding
+lemmas apply.  Fix a nonzero-offset Fourier term $f$ as in
+Proposition~\ref{st:energy}.  A precision-$q$ joint cell has Haar mass
+$2^{-2q}$.  For any finite measure $\alpha$, Cauchy--Schwarz on these
+cells, with $q=n+q_0$, gives
+\begin{align}
+ |\alpha(P^nf)|
+ &\le\|P^nf\|_{L^2(\lambda)}
+       \left(2^{2q}\sum_{C\in\mathcal C_q}\alpha(C)^2\right)^{1/2}
+ \notag\\
+ &\le C'_f\left(2^q\sum_{C\in\mathcal C_q}\alpha(C)^2\right)^{1/2}.
+ \label{st:energy-collision}
+\end{align}
+The constant is independent of $n$ because $q-n=q_0$ is fixed.
+Apply this to $\alpha_K$ above.  Lemma~\ref{st:collision} makes it tend
+to zero for each fixed $K$.  The omitted measure contributes at most
+$\|f\|_\infty\mu\{w>K\}$, since $P$ is a sup-norm contraction.
+Stationarity of the full $\mu$ gives $\mu(f)=\mu(P^nf)$.  First taking
+$n\to\infty$, then $K\to\infty$, proves $\mu(f)=0$.
+
+For a nonconstant level character $c$, the preceding offset result gives
+$\mu(c(-1)^D)=0$.  The odd-offset flux $\vartheta$ of $\mu$ satisfies,
+by Lemma~\ref{st:level-flux},
+$0=\vartheta(c)=\mu(c)/2$, identifying the level marginal as Haar.
+Every nonconstant joint
+Fourier coefficient of $\mu$ vanishes.  Fourier inversion on each finite
+joint residue group determines its cylinder masses as those of
+$\lambda$; these cylinders determine the Borel probability law.  Thus
+$\mu=\lambda$.
+\end{proof}
+
+\begin{theorem}[Full raw stationary classification]\label{st:classification}
+Every probability measure $\mu$ on $E$ with $\mu P=\mu$ has the form
+\[
+ \mu=c\,\delta_{(0,0)}+(1-c)\lambda,\qquad 0\le c\le1.
+\]
+In particular, zero mass at the origin suffices for $\mu=\lambda$.
+\end{theorem}
+\begin{proof}
+Fix a Haar-null Borel level set $B$.  Its odd-offset section has zero
+$\mu$-mass by Lemma~\ref{st:level-flux}.  Branch domination gives
+$(F_0^n)_*\mu\le2^n\mu$.  Every point with $s\in B$ and
+$v_2(D)=n<\infty$ reaches that null odd-offset section after exactly
+$n$ bit-zero steps: until then the level remains $s$ and the offset is
+divided by two.  Thus $\mu\{s\in B,D\ne0\}=0$, by a countable union
+over $n\ge0$.  The bit-one image of $(s,0)$ is
+$(s,(1-3^s)/2)$.  For $s\ne0$ its offset is nonzero by
+\eqref{st:lte}; domination by $2\mu$ therefore also gives
+$\mu\{s\in B\setminus\{0\},D=0\}=0$.
+Consequently the level marginal of $\mu$ away from the origin is
+absolutely continuous.
+
+Put $c=\mu\{(0,0)\}$.  Both branches fix the origin, so
+$\mu-c\delta_{(0,0)}$ is a positive stationary measure.  Its level
+marginal is absolutely continuous by the null-set argument just proved.
+If $c<1$, normalize it and apply Theorem~\ref{st:uniqueness}.
+Both the origin and product Haar are stationary, which completes the
+classification.
+\end{proof}
+
+\begin{remark}\label{st:precision-scope}
+The input test in Proposition~\ref{st:energy} has fixed precision.  Its
+\emph{pullback} precision $n+q_0$ moves with $n$, and the matching
+little-o collision estimate is proved at that moving precision.  This
+does not make the conclusion uniform over a family of input tests whose
+precision grows.  The stationary control $\delta_{(0,0)}$ also explains
+why an absorbing component must be excluded: both raw branches fix
+$(0,0)$, and its level law is atomic.  The theorem makes no pointwise assertion about free trees
+from every ordinary integer start.
+\end{remark}
+
+\section{Killed expected occupation and fixed cylinders}
+\label{occ:section}
+
+Let $\mathcal A=\{s\text{ odd},D\text{ odd}\}\subset E$, and identify it with
+$\mathcal X=\Ztwo\times\Ztwo^\times$ by $s=2J+1$.  Let $\pi$ be Haar measure
+in $J$ times normalized Haar measure on odd $D$; thus
+$\pi=4\lambda|_{\mathcal A}$ under this chart.  Let $\tau$ be the first subsequent
+raw return to $\mathcal A$.  For $J\ne0,-1$ the raw return is almost surely finite,
+as proved below; write $Q$ for its law there.  On the two exceptional
+fibres $J=0,-1$, give $Q$ the identity extension.  This defines a Borel
+kernel.  We will neither assume global Feller continuity of this
+extension nor replace finite literal returns there by the identity.
+
+The canonical killed epoch process has states $Z_v=(J_v,D_v)$ for
+$v<\tau_{\mathrm e}$.  We allow any initial probability law $\xi$ on
+ordinary $J\ge0$ and odd $D\in\Ztwo$, including dependent coordinates.
+The original departure starts at $J_0=0$ with an odd-offset law $\beta$;
+it is the special case $\xi=\delta_0\otimes\beta$.
+The level transition probabilities are
+\begin{equation}
+ \begin{array}{c|ccc}
+ j\ge1&j-1:1/4&j:1/2&j+1:1/4\\
+ j=0&\dagger:1/2&0:1/4&1:1/4.
+ \end{array}
+ \label{occ:killed-level}
+\end{equation}
+The cemetery state $\dagger$ is assigned test value zero.  These
+probabilities follow from the two fresh direction bits at their actual
+entry times, with intervening horizontal holdings.  The special killed
+row at zero retains the ordinary departure/arrival convention.
+Away from it the raw return law and the killed epoch transition agree.
+
+Define the probability measures
+\begin{equation}
+ a_m(\xi)=\E_\xi\min(\tau_{\mathrm e},m),\qquad
+ \mu_{m,\xi}=\frac1{a_m(\xi)}\E_\xi
+       \sum_{v<\min(\tau_{\mathrm e},m)}\delta_{Z_v}.
+ \label{occ:occupation}
+\end{equation}
+The denominator depends only on the initial level law.  Every visit
+has its actual survival weight: this is the expected total occupation
+normalization.  For $\xi=\delta_0\otimes\beta$, write
+$a_m=a_m(\xi)$ and $\mu_{m,\beta}=\mu_{m,\xi}$; then $a_m$ is
+independent of $\beta$.
+
+\subsection{Green bounds and periodic correctors}
+\label{occ:level-subsection}
+
+\begin{lemma}[Killed level occupation]\label{occ:green}
+For \eqref{occ:killed-level}, starting at any ordinary $h\ge0$,
+$\tau_{\mathrm e}<\infty$ almost surely.  The total Green kernel is
+\begin{equation}
+ G(h,j):=\E_h\#\{v<\tau_{\mathrm e}:J_v=j\}
+       =2(2\min(h,j)+1)\le2(2j+1).
+ \label{occ:green-kernel}
+\end{equation}
+In particular $G(h,0)=2$ for every $h$.  The survival probability is
+\begin{equation}
+ \PP_h(\tau_{\mathrm e}>v)=4^{-v}
+       \sum_{k=-h}^{h}\binom{2v}{v+k},
+ \label{occ:survival-start}
+\end{equation}
+where binomial coefficients outside their usual range are zero.
+Writing $a_m$ for the zero-start denominator,
+\begin{equation}
+ a_m=2m\binom{2m}{m}4^{-m}\longrightarrow\infty,\qquad
+ a_m(\xi)\ge a_m
+ \label{occ:normalizer}
+\end{equation}
+for every initial law $\xi$.
+\end{lemma}
+\begin{proof}
+Use an ordinary simple symmetric walk started at $2h$, killed on reaching
+$-1$, and sample every two steps.  Its even-time surviving state $2J_v$
+has exactly \eqref{occ:killed-level}.  Reflection at the first hit of
+$-1$ gives the endpoint count at $2j$ as
+\[
+ \binom{2v}{v+j-h}-\binom{2v}{v+j+h+1}.
+\]
+Summing over $j\ge0$ telescopes to \eqref{occ:survival-start}.
+Each binomial term is at most the central one, so for fixed $h$ the
+survival probability is at most $(2h+1)c_v\to0$, where
+$c_v=\binom{2v}{v}4^{-v}$.  This proves almost-sure killing.
+
+For fixed target $j$, put $V_j(h)=2(2\min(h,j)+1)$ and
+$V_j(\dagger)=0$.  For $j\ge1$ its interior slope drops from four to
+zero at $j$; the zero row has $V_j(0)=2,V_j(1)=6$.
+For $j=0$, $V_0\equiv2$ on surviving states.  These substitutions give
+\[
+ (I-P_{\mathrm{lev}})V_j(h)=\one_{\{h=j\}}.
+\]
+Here $P_{\mathrm{lev}}$ is the killed level kernel.  Stopped telescoping
+at $\tau_{\mathrm e}\wedge m$ gives
+\[
+ \E_h\sum_{v<\tau_{\mathrm e}\wedge m}\one_{\{J_v=j\}}
+ =V_j(h)-\E_h V_j(J_{\tau_{\mathrm e}\wedge m}).
+\]
+The bounded potential vanishes at the almost-sure killing time, so
+bounded and monotone convergence prove \eqref{occ:green-kernel}.
+
+The survival sum also includes the central term, giving
+$\PP_h(\tau_{\mathrm e}>v)\ge c_v$.  The recursion
+$c_{v+1}=c_v(2v+1)/(2v+2)$ gives
+$\sum_{v<m}c_v=2mc_m$, by induction or telescoping.
+Since $c_m\sim(\pi m)^{-1/2}$, this proves divergence and, by averaging
+the survival lower bound over the initial law, $a_m(\xi)\ge a_m$.
+\end{proof}
+
+\begin{lemma}[Uniform Haar level limit]\label{occ:level-haar}
+For every fixed continuous level test $r$, the $J$ marginal of
+$\mu_{m,\xi}$ converges to Haar, uniformly over all initial laws $\xi$.
+For every fixed ordinary $C\ge0$,
+\begin{equation}
+ \mu_{m,\xi}\{0\le J\le C\}\le\frac{2(C+1)^2}{a_m(\xi)}.
+ \label{occ:finite-levels}
+\end{equation}
+For the departure specialization $\xi=\delta_0\otimes\beta$, the sharper
+bound is $\mu_{m,\beta}\{J\le C\}\le2(C+1)/a_m$.
+\end{lemma}
+\begin{proof}
+For a mean-zero real test $r$ on the cyclic group $\Z/q\Z$, solve the
+finite periodic Poisson equation
+\[
+ [g(j+1)-2g(j)+g(j-1)]/4=r(j)
+\]
+with bounded $q$-periodic $g$.  The discrete Fourier Laplacian has kernel
+exactly the constants, so the mean-zero assumption is precisely the
+solvability condition.  At interior states the killed drift of $g$ is
+$r$.  At zero it is $r(0)+c$, where
+$c=-(g(0)+g(-1))/4$, with $g(\dagger)=0$.  Bounded stopping at
+$\min(\tau_{\mathrm e},m)$ and the tower property therefore give
+\[
+ \left|\E_\xi\sum_{v<\min(\tau_{\mathrm e},m)}r(J_v)\right|
+ \le2\|g\|_\infty+|c|\E_\xi\#\{v<\tau_{\mathrm e}:J_v=0\}
+ \le3\|g\|_\infty.
+\]
+Division by $a_m(\xi)\ge a_m$ proves equidistribution for each fixed modulus,
+uniformly in $\xi$.  In particular each precision-$a$ level
+cylinder has limiting mass $2^{-a}$.  Level cylinders are uniformly dense
+in continuous functions on $\Ztwo$, so the claim extends to those tests.
+Summing the target-level bound $G(h,j)\le2(2j+1)$ over $0\le j\le C$
+gives \eqref{occ:finite-levels}, since $\sum_{j=0}^C(2j+1)=(C+1)^2$.
+At $h=0$ the Green mass at each level is two, giving the sharper
+specialized bound.
+\end{proof}
+
+\subsection{Return times and exceptional fibres}
+\label{occ:return-subsection}
+
+\begin{lemma}[Offset-uniform holding and return bounds]\label{occ:holding}
+At a nonzero raw level $s$, the expected horizontal holding time from an
+even offset until an odd offset is at most $v_2(3^s-1)+1$, uniformly in
+the initial offset.  At an odd offset it is zero.  For $r\ge2$, put
+\[
+ G_r=\{J\not\equiv0,-1\pmod{2^r}\}.
+\]
+Then $\E_z\tau\le r+7$ on $G_r$.  If an epoch law has Haar $J$
+marginal, its mean raw return time is at most nine.
+\end{lemma}
+\begin{proof}
+Write $e=v_2(3^s-1)$.  During even-offset holding the two choices are
+$D/2$ and $(3D+1-3^s)/2$.  If $1\le v_2(D)<e$, either choice decreases
+the valuation by one.  If $v_2(D)\ge e$, at least one choice lands at
+valuation $e-1$: use bit zero when $v_2(D)=e$, and bit one when
+$v_2(D)>e$, including $D=0$.  Until this happens the conditional chance
+of that event is at least $1/2$, so its waiting time has mean at most two.
+Thereafter at most $e-1$ further steps reach an odd offset.  The total
+mean is at most $e+1$.  This proves the bound without assumptions about
+the entry-offset distribution.
+
+An epoch return outside $J=0,-1$ consists of two direction steps, one
+even-level holding and one odd-level holding.  The intermediate even
+level is $2J$ or $2(J+1)$ and is nonzero; the later odd level is also
+nonzero.  On $G_r$ its even-level valuation is at most $r$.
+Equation~\eqref{st:lte} gives even holding mean at most $r+3$ and odd
+holding mean at most two, hence the budget $r+7$.  In particular the
+return is almost surely finite at every nonexceptional epoch point.
+
+For Haar $J$, the first fair direction enters even level $2U$ with
+$U=J$ or $J+1$.  Each of those unconditioned alternatives is Haar,
+regardless of the possible dependence of $D$ on $J$, since the direction
+bit is fresh and fair before it is used.  Haar $U$ satisfies
+$\E v_2(U)=\sum_{k\ge1}2^{-k}=1$, and $U=0$ has zero probability.
+The even holding mean is at most $4+v_2(U)$, hence at most five on
+average.  Add two direction steps and odd holding mean at most two to
+obtain $\E\tau\le9$.
+\end{proof}
+
+\begin{lemma}[Actual occupation limits are stationary]\label{occ:stationary-limit}
+Every weak limit of $\mu_{m_\ell,\xi_\ell}$, where $m_\ell\to\infty$
+and the initial laws $\xi_\ell$ on ordinary nonnegative levels and odd
+offsets may vary, has Haar $J$ marginal and is $Q$-stationary.
+\end{lemma}
+\begin{proof}
+Compactness of $\mathcal X$ gives subsequential limits.  Lemma~\ref{occ:level-haar}
+proves the Haar marginal along any such subsequence, and hence zero mass
+on the exact fibres $J=0,-1$.
+
+Let $f$ be a continuous epoch cylinder and $B=\|f\|_\infty$.  Define
+\begin{equation}
+ Q_Hf(z)=\E_z[f(X_\tau)\one_{\{\tau\le H\}}]
+ \label{occ:truncated-return}
+\end{equation}
+by literal raw returns at \emph{all} epoch points, including the two
+exceptional fibres.  Give value zero only to words with no return by
+$H$; the raw endpoint $X_\tau\in\mathcal A$ is identified with its epoch chart
+when evaluating $f$.  The raw maps and the parity domains are continuous, and the return
+event through a fixed number of steps is clopen.  The finite sum over
+words in \eqref{occ:truncated-return} is therefore a continuous finite
+cylinder.  In particular it is not the truncation obtained by inserting
+the identity extension on exceptional fibres.
+
+On $G_r$, Lemma~\ref{occ:holding} and Markov's inequality yield
+\begin{equation}
+ |Qf-Q_Hf|\le B(r+7)/H;
+ \qquad |Qf-Q_Hf|\le2B\text{ on }G_r^c.
+ \label{occ:return-approximation}
+\end{equation}
+The second bound includes the possible discrepancy between literal
+finite returns and the exceptional-fibre identity extension.  Uniform
+level convergence gives
+$\mu_{m,\xi}(G_r^c)\to2^{1-r}$ at fixed $r$, uniformly in $\xi$,
+and any limit $\nu$ gives this set exactly mass $2^{1-r}$.
+
+Let $P_{\mathrm{kill}}$ be the actual one-epoch killed transition, with
+cemetery value zero.  Bounded stopped telescoping gives
+\[
+ |\mu_{m,\xi}(P_{\mathrm{kill}}f-f)|\le2B/a_m(\xi).
+\]
+At ordinary $J\ge1$, this transition equals $Q$.  It can differ only
+at $J=0$, whose expected visits are at most two.  The extra cost is at
+most $2B\cdot2/a_m(\xi)$.  Thus the complete boundary payment is
+\begin{equation}
+ |\mu_{m,\xi}(Qf-f)|\le6B/a_m(\xi)\longrightarrow0.
+ \label{occ:boundary-telescoping}
+\end{equation}
+This pays the ordinary killed boundary before passage to a compact limit.
+
+Along a weakly convergent subsequence, pass $Q_Hf-f$ to the limit at
+fixed $r,H$.  The two approximation errors in
+\eqref{occ:return-approximation}, one before and one after the limit,
+are bounded in the limit by
+\[
+ 2B(r+7)/H+4B\,2^{1-r}.
+\]
+Use \eqref{occ:boundary-telescoping}, then take $H\to\infty$ and next
+$r\to\infty$.  This proves $\nu(Qf-f)=0$.  Finite cylinder tests
+determine probability laws on $\mathcal X$, so $\nu Q=\nu$.  All estimates used
+here are uniform over all initial laws $\xi$.
+\end{proof}
+
+\subsection{The raw occupation lift}
+\label{occ:lift-subsection}
+
+\begin{theorem}[Finite-mean literal-return uniqueness]\label{occ:epoch-uniqueness}
+Let $\nu$ be a probability law on $\mathcal X$ whose literal first
+subsequent raw return law is again $\nu$, and suppose
+$M_\nu=\E_\nu\tau<\infty$.  Then $\nu=\pi$ and $M_\nu=4$.
+In particular, these conclusions hold if $\nu Q=\nu$ and $\nu_J$ is Haar.
+\end{theorem}
+\begin{proof}
+Finite mean implies an almost-sure return.  Define the raw probability
+\begin{equation}
+ \rho(B)=\frac1{M_\nu}\int_{\mathcal X}\E_z
+        \sum_{0\le t<\tau}\one_B(X_t)\,d\nu(z).
+ \label{occ:lift}
+\end{equation}
+For a bounded raw test $g$, stopped telescoping gives
+\[
+ M_\nu\rho(Pg-g)
+   =\int_{\mathcal X}\E_z[g(X_\tau)-g(X_0)]\,d\nu(z)=0.
+\]
+First stop at $\tau\wedge H$; the summands are bounded by
+$2\|g\|_\infty$ and their number has finite mean, so dominated
+convergence justifies passage to $\tau$.  The literal endpoint law equals
+the initial law $\nu$, proving $\rho P=\rho$.
+
+A pre-return interval cannot visit the absorbing origin: after doing so
+it would never return to $\mathcal A$.  Since return is almost sure,
+$\rho\{(0,0)\}=0$.  Theorem~\ref{st:classification} therefore gives
+$\rho=\lambda$, with no level-density construction.
+A return interval contains exactly one visit to $\mathcal A$ before
+its endpoint, its starting point.  Thus, as measures on $\mathcal A$,
+\[
+ \rho|_{\mathcal A}=\nu/M_\nu.
+\]
+Since $\lambda(\mathcal A)=1/4$, total masses give $M_\nu=4$ and
+restriction gives $\nu=4\lambda|_{\mathcal A}=\pi$.
+
+For the final assertion, Haar $J$ gives zero mass to $J=0,-1$, so $Q$
+agrees $\nu$-almost everywhere with the literal return law.
+Lemma~\ref{occ:holding} supplies almost-sure return and $M_\nu\le9$.
+The preceding argument applies.
+\end{proof}
+
+\begin{theorem}[Uniform fixed-test expected occupation]\label{occ:uniform-convergence}
+For every fixed continuous $f$ on $\mathcal X$,
+\begin{equation}
+ \sup_\xi|\mu_{m,\xi}(f)-\pi(f)|\longrightarrow0,
+ \label{occ:uniform-limit}
+\end{equation}
+where the supremum ranges over every initial law $\xi$ on ordinary
+nonnegative levels and odd offsets, with denominator $a_m(\xi)$.
+In particular every fixed ordinary departure whose first epoch has $J_0=0$ and odd offset satisfies this conclusion with its actual
+first-epoch offset law.
+\end{theorem}
+\begin{proof}
+If \eqref{occ:uniform-limit} failed for a fixed test, there would be
+$\epsilon>0$, $m_\ell\to\infty$, and $\xi_\ell$ for which the
+absolute difference is at least $\epsilon$.  Compactness gives a weakly
+convergent subsequence of these probability measures.  Its limit is
+$Q$-stationary with Haar level by Lemma~\ref{occ:stationary-limit},
+and equals $\pi$ by Theorem~\ref{occ:epoch-uniqueness}.  Weak convergence
+for the fixed continuous test contradicts the difference.  The law at
+the first epoch may itself be random after the departure's initial
+holding; its law is the allowed special case $\xi=\delta_0\otimes\beta$.
+\end{proof}
+
+\begin{corollary}[Fixed joint-grid factorization]\label{occ:fc}
+For every fixed $a,b\ge1$,
+\begin{equation}
+ \sup_\xi\sum_{\substack{u\bmod2^a\\w\text{ odd}\bmod2^b}}
+ \left|\mu_{m,\xi}(J\equiv u,D\equiv w)
+       -2^{1-b}\mu_{m,\xi}(J\equiv u)\right|
+ \longrightarrow0.
+ \label{occ:FC}
+\end{equation}
+This supplies the fixed-cylinder condition for the actual killed
+expected occupations at each ordinary departure.
+\end{corollary}
+\begin{proof}
+Each cell $C_{u,w}$ and level cell $L_u$ is clopen.  For product Haar,
+$\pi(C_{u,w})=2^{1-b}\pi(L_u)$.  Bound each summand by
+\[
+ |\mu_{m,\xi}(C_{u,w})-\pi(C_{u,w})|
+ +2^{1-b}|\mu_{m,\xi}(L_u)-\pi(L_u)|.
+\]
+Theorem~\ref{occ:uniform-convergence} makes every term tend to zero
+uniformly in $\xi$, and there are finitely many cells at fixed $a,b$.
+\end{proof}
+
+\begin{remark}\label{occ:scope}
+The convergence in \eqref{occ:FC} concerns the full joint grid, rather
+than its separate marginals, and retains the law-dependent denominator
+$a_m(\xi)$ of \eqref{occ:occupation}.  The parameters $a,b$ and the continuous input
+test are fixed before $m\to\infty$.  Uniformity in the joint initial law
+permits moving ordinary starting levels and offset laws; it provides neither
+a rate nor a conclusion for observer precision growing with $m$.  These results are
+for the canonical fresh-bit kernel and its killed expected occupation.
+They do not refresh the bits of a deterministic integer trajectory or
+assert deterministic Collatz no-divergence.
+\end{remark}
+
+% ---- exact/clock ----
+\section{From epoch occupation to the physical excursion clock}
+\label{clk:section}
+
+Fix an odd signed integer $d$ and start the canonical pair process at
+$(0,d)$. All probabilities in this section refer to its fresh fair base
+bits. The positive excursion starts with the departure step and ends with
+the next arrival at level zero. Its raw shortcut length $R$ includes the
+departure, every positive-level holding step, and the terminal down step;
+it excludes subsequent level-zero coasts. Let $K$ be the number of
+positive-level direction steps. Their levels form a simple symmetric walk
+from one, stopped on first hitting zero, so $K$ is odd almost surely. There
+are
+\begin{equation}\label{clk:counts}
+ \tau_{\mathrm e}=\frac{K+1}{2}\quad\hbox{odd-level landings},\qquad
+ V=\tau_{\mathrm e}-1=\frac{K-1}{2}\quad\hbox{positive even-level landings}.
+\end{equation}
+The odd-level, odd-offset epochs are
+$Z_v=(s_v,D_v)=(2J_v+1,D_v)$, $0\le v<\tau_{\mathrm e}$. Epoch zero follows
+the departure and its holding segment. Write $\mathcal G_v$ for the
+information immediately before its direction bit. Add a cemetery state at
+$v=\tau_{\mathrm e}$, and extend the filtration and killed process thereafter. The level
+kernel is
+\begin{equation}\label{clk:killed}
+ \begin{split}
+ j\ge1 &: \quad \PP(J_{v+1}=j-1,j,j+1\mid\mathcal G_v)
+                    =\tfrac14,\tfrac12,\tfrac14,\\
+ j=0 &: \quad \PP(J_{v+1}=\partial,0,1\mid\mathcal G_v)
+                    =\tfrac12,\tfrac14,\tfrac14.
+ \end{split}
+\end{equation}
+In particular $\tau_{\mathrm e}$ is a stopping time for $(\mathcal G_v)$.
+
+We use Corollary~\ref{occ:fc} with its actual expected-occupation
+normalization:
+\begin{equation}\label{clk:occupation}
+ a_m=\E_d(\tau_{\mathrm e}\wedge m)=2m\binom{2m}{m}4^{-m},\qquad
+ \mu_m=\frac1{a_m}\E_d\sum_{v<\tau_{\mathrm e}\wedge m}\delta_{(J_v,D_v)}.
+\end{equation}
+Thus for every fixed $a,b\ge1$,
+\begin{equation}\label{clk:fc}
+ \sum_{u\bmod2^a}\ \sum_{\substack{w\bmod2^b\\w\ \text{odd}}}
+ \left|\mu_m(J=u,D=w)-2^{1-b}\mu_m(J=u)\right|\longrightarrow0.
+\end{equation}
+The product comparison is with $\mu_m$'s own level marginal. It is not
+conditioning on survival to $m$, nor averaging excursion proportions.
+Only fixed precisions and the fixed departure $d$ will be used.
+
+\begin{theorem}[The physical excursion tail]\label{clk:excursion-tail}\label{clock:tail}
+For every fixed odd integer $d$, including negative $d$,
+\begin{equation}\label{clk:tail-limit}
+ \lim_{t\to\infty}\sqrt t\,\PP_d(R>t)=\frac2{\sqrt\pi}.
+\end{equation}
+More precisely, for every $q>0$,
+\begin{equation}\label{clk:relative-error}
+ \PP_d\bigl(|R-2(K+1)|>qK,\ K>n\bigr)=o(n^{-1/2}).
+\end{equation}
+No uniform convergence over $d$ is asserted.
+\end{theorem}
+
+We give the proof in several steps. The holding identity is the usual
+shortcut parity correspondence \cite{Terras1976,Lagarias1985}; the walk estimates
+use reflection and the central binomial formula \cite{Feller}. The
+arithmetic, boundary, and occupation payments needed for this clock are
+included below.
+
+\subsection{The exact holding law and its predictable bias}
+
+At a positive-level landing $(s,D)$, let $H$ be the number of subsequent
+holding steps, before the offset next becomes odd. Put
+$e_s=v_2(3^s-1)$ and take $v_2(0)=+\infty$.
+
+\begin{lemma}[Holding law]\label{clk:holding}
+Conditionally on the landing information,
+\begin{equation}\label{clk:holding-law}
+ H=\begin{cases}
+ v_2(D),&v_2(D)<e_s,\\
+ e_s+G,&v_2(D)\ge e_s,
+ \end{cases}
+ \qquad \PP(G=r)=2^{-r-1}\quad(r\ge0).
+\end{equation}
+Here $\E G=1$, $\E G^2=3$, and the conditional mean is
+\begin{equation}\label{clk:eta}
+ \eta(s,D)=\begin{cases}v_2(D),&v_2(D)<e_s,\\e_s+1,&v_2(D)\ge e_s.
+ \end{cases}
+\end{equation}
+Moreover
+\begin{equation}\label{clk:lte}
+ e_s=1\quad(s\ \text{odd}),\qquad e_s=2+v_2(s)\quad(s\ \text{even}).
+\end{equation}
+If the landing offset is Haar on $\Ztwo$, then $H$ itself has the law of
+$G$, independently of $s$.
+\end{lemma}
+\begin{proof}
+The current oriented pair satisfies $Y=3^sX+D$, with $X$ Haar
+conditionally on the landing information. During a holding step $X,Y$
+have the same parity, and their difference is divided by two or multiplied
+by three and divided by two. Its valuation therefore drops by one. Thus
+\[
+ H=v_2(Y-X)=v_2((3^s-1)X+D).
+\]
+If $v_2(D)<e_s$, this is $v_2(D)$ identically. Otherwise write
+$(3^s-1)X+D=(3^s-1)(X-c)$ with
+$c=-D/(3^s-1)\in\Ztwo$. The valuation of $X-c$ has the displayed
+geometric law. Equal pairs form a Haar-null exception. Formula
+\eqref{clk:lte} follows from $3^s\equiv3\pmod4$ at odd $s$ and
+the lifting-the-exponent identity at even $s$. Under a Haar offset,
+$\PP(v_2(D)=r)=2^{-r-1}$; for $r\ge e_s$ the probability of $H=r$
+is $2^{-e_s}2^{-(r-e_s)-1}$, and for $r<e_s$ it is $2^{-r-1}$.
+\end{proof}
+
+\begin{lemma}[Odd landings and even predictable means]\label{clk:balance}
+The holding after an odd-level landing has conditional mean one and
+variance two given the past before that landing's direction bit. This
+includes the initial departure. At an odd-level epoch $(s,D)$ with
+$s\ge3$, define
+\[
+ D_+=\frac{3D+1}{2},\qquad D_- =\frac{D-3^{s-1}}2,\qquad
+ \bar\eta(s,D)=\frac{\eta(s+1,D_+)+\eta(s-1,D_-)}2.
+\]
+Then $\bar\eta$ is the conditional mean of the next even-landing
+holding. Its Haar-odd mean is one. At $s=1$ the down branch has holding
+zero and
+\begin{equation}\label{clk:zero-bias}
+ \bar\eta(1,D)=\tfrac12\eta(2,D_+)\le2,
+ \qquad |\bar\eta(1,D)-1|\le1.
+\end{equation}
+For $j\ge1$, put
+\begin{equation}\label{clk:emax}
+ E(j)=\max(e_{2j},e_{2j+2})=3+v_2(j(j+1)).
+\end{equation}
+Then $\bar\eta(2j+1,D)\le(2+E(j))/2$.
+\end{lemma}
+\begin{proof}
+From an even positive level, the two odd landings have offsets
+$(3D+1)/2$ and $(D-3^{s-1})/2$. Since $3^{s-1}\equiv3\pmod4$,
+exactly one is even. At departure the two offsets are
+$(3D+1)/2$ and $(1-3D)/2$, and again exactly one is even.
+The direction bit is fair. At an odd landing $e_s=1$, so $H=0$ on
+the odd branch and $H=1+G$ on the even branch. Consequently
+$\E H=1$ and $\E H^2=\tfrac12(1+2+3)=3$.
+
+For odd $s\ge3$, $3^{s-1}\equiv1\pmod8$. If $D\equiv3\pmod4$,
+both $D_+,D_-$ are odd. If $D\equiv1\pmod8$, then
+$v_2(D_+)=1$ and $v_2(D_-)\ge2$; if $D\equiv5\pmod8$, their
+roles are reversed. Hence the mean is zero in the first case, and at
+most $(1+(E(j)+1))/2$ in the second. The even-level formula
+\eqref{clk:lte} gives \eqref{clk:emax}. Finally, writing $D=1+2x$
+shows that both maps $D\mapsto D_+,D_-$ push Haar on the odd
+integers to Haar on $\Ztwo$; Lemma~\ref{clk:holding} gives their mean
+one. At $s=1$ only the up branch supplies a positive-level holding and
+$e_2=3$, proving \eqref{clk:zero-bias}.
+\end{proof}
+
+For $k\ge3$, replace $e_s$ in \eqref{clk:eta} by $e_s\wedge k$ to
+obtain $\eta_k$. Its Haar mean remains one. For odd $s\ge3$, set
+\begin{equation}\label{clk:psi}
+ \psi_k(s,D)=\frac{\eta_k(s+1,D_+)+\eta_k(s-1,D_-)}2-1,
+ \qquad B_k=k+1.
+\end{equation}
+This has $|\psi_k|\le B_k$, Haar-odd mean zero at each $s$, and depends
+only on $(s\bmod2^k,D\bmod2^{k+2})$. Also
+\begin{equation}\label{clk:cap-error}
+ |\bar\eta(2j+1,D)-1-\psi_k(2j+1,D)|
+       \le E(j)\one_{\{E(j)>k\}},\qquad j\ge1.
+\end{equation}
+Indeed changing a cap $e>k$ changes \eqref{clk:eta} by at most $e$,
+and changing it when $e\le k$ changes nothing.
+
+Let $W^o$ be the sum of the odd-landing holdings minus their conditional
+means, and let $W^e$ be the analogous martingale for the even landings.
+In the latter, include at every $v<\tau_{\mathrm e}$ the random holding
+$\widehat H_v$, which is zero when the direction step kills the excursion.
+Thus $\E(\widehat H_v\mid\mathcal G_v)=\bar\eta(Z_v)$ even at the
+last epoch. The exact identity is
+\begin{equation}\label{clk:decomposition}
+ R-2(K+1)=W^o_{\tau_{\mathrm e}}+W^e_{\tau_{\mathrm e}}+
+                  \sum_{v<\tau_{\mathrm e}}(\bar\eta(Z_v)-1).
+\end{equation}
+There are $K+1=2\tau_{\mathrm e}$ direction steps, $\tau_{\mathrm e}$ odd holdings, and $\tau_{\mathrm e}-1$ actual
+even holdings, but the last zero holding is retained in the conditional
+mean and martingale decomposition. The odd martingale includes the
+departure holding. Its increment variances are two. For the even
+martingale they are at most $C(1+\log(v+2))^2$: the holding law is
+bounded in second moment by $e^2+2e+3$, and any even landing at epoch
+$v$ has level at most $2v+2$. These conditional estimates use information
+available at entry, without conditioning on future excursion length.
+
+\subsection{Level correctors and the small-excursion payment}
+
+We record the elementary martingale estimate used repeatedly. If a
+martingale, stopped at a killing time, has conditional increment second
+moments at most $C(1+\log(r+2))^p$, Doob's inequality on
+$[0,2^{i+1}n]$ and a union bound give
+\begin{equation}\label{clk:doob}
+ \PP\left(\sup_{m\ge n}\frac{|M_m|}{m}>\varepsilon\right)
+ \le \frac{C_p(1+\log n)^p}{\varepsilon^2n}.
+\end{equation}
+Indeed the $i$th dyadic block contributes at most
+$C_p(1+\log(2^{i+1}n))^p/(\varepsilon^2 2^in)$, whose sum has
+the asserted order. The statement also applies when an entire holding
+segment is one increment, using its entry and completion filtrations.
+
+\begin{lemma}[Level Poisson correctors]\label{clk:level-corrector}
+Suppose $f:\N\cup\{0\}\to\R$ and $\bar f\in\R$ satisfy
+\[
+ \left|\sum_{j=1}^x(f(j)-\bar f)\right|
+       \le C(1+\log(x+1))^2\qquad(x\ge1).
+\]
+Then, uniformly in the departure offset, for $n\ge2$,
+\begin{equation}\label{clk:level-bound}
+ \PP_d\left(\tau_{\mathrm e}\ge n,\
+  \left|\sum_{v<\tau_{\mathrm e}}f(J_v)-\bar f \tau_{\mathrm e}\right|>\varepsilon \tau_{\mathrm e}\right)
+ \le \frac{C_f(1+\log n)^4}{\varepsilon^2n}.
+\end{equation}
+If the displayed partial sums are bounded independently of $x$, the
+logarithmic factor may be omitted.
+\end{lemma}
+\begin{proof}
+Replace $f$ by $f-\bar f$ and define
+$g(0)=g(1)=g(\partial)=0$ and
+\[
+ g(j+1)-g(j)=4\sum_{i=1}^jf(i)\qquad(j\ge1).
+\]
+At an interior level $(Pg-g)(j)=f(j)$ by \eqref{clk:killed}. At zero
+$(Pg-g)(0)=0$. With
+$\xi_v=g(J_{v+1})-\E(g(J_{v+1})\mid\mathcal G_v)$, telescoping
+from $J_0=0$ to the cemetery gives
+\[
+ \sum_{v<\tau_{\mathrm e}}f(J_v)=f(0)N_0-\sum_{v<\tau_{\mathrm e}}\xi_v,
+ \qquad N_0=\#\{v<\tau_{\mathrm e}:J_v=0\}.
+\]
+Since $J_v\le v$, $|\xi_v|\le C_f(1+\log(v+2))^2$. Equation
+\eqref{clk:doob} with $p=4$ bounds the martingale. Every visit to zero
+is followed by killing with conditional probability $1/2$, so
+$\PP(N_0>r)\le2^{-\lfloor r\rfloor}$. This pays the remaining
+boundary term on $\tau_{\mathrm e}\ge n$. Bounded partial sums give bounded
+increments and $p=0$.
+\end{proof}
+
+The useful instances have explicit arithmetic content. With $s_2(x)$
+the sum of the binary digits of $x$, Legendre's formula gives
+\begin{equation}\label{clk:legendre-epoch}
+ \sum_{j=1}^x(E(j)-5)=1-s_2(x)-s_2(x+1).
+\end{equation}
+For the cap tail $f_k(j)=E(j)\one_{\{E(j)>k\}}$, $j\ge1$, take
+$f_k(0)=0$. The two consecutive integers $j,j+1$ have exactly one even
+member; the limiting frequency of $v_2(j(j+1))=i$ is $2^{-i}$,
+$i\ge1$. Hence
+\begin{equation}\label{clk:ak}
+ \bar f_k=a_k=\sum_{i\ge k-2}(i+3)2^{-i}
+                   =(k+2)2^{3-k}\longrightarrow0.
+\end{equation}
+For each $i$ the count up to $x$ differs from $x2^{-i}$ by $O(1)$.
+Summing $(i+3)$ over $i\le\log_2(x+1)$ costs $O_k(\log^2(x+1))$;
+the remaining infinite mean tail, multiplied by $x$, costs
+$O_k(1+\log(x+1))$. This verifies the lemma's hypothesis. Finally,
+$f(j)=\one_{\{j\le C\}}$ has $\bar f=0$ and bounded partial sums.
+Thus cap tails are at most $(a_k+\varepsilon)\tau_{\mathrm e}$ and visits to any
+fixed finite level interval are at most $\varepsilon \tau_{\mathrm e}$, apart from
+events of order $O_{k,C,\varepsilon}((1+\log n)^4/n)$ on $\tau_{\mathrm e}\ge n$.
+
+\begin{lemma}[Small excursions]\label{clk:small}
+For $L\ge1$ and every odd $d$,
+\begin{equation}\label{clk:small-bound}
+ \E_d[R\one_{\{K\le L\}}]
+       \le1+\tfrac92\E[K\wedge(L+1)]\le C\sqrt L,
+\end{equation}
+with an absolute $C$.
+\end{lemma}
+\begin{proof}
+Number the landings $i=0,\ldots,K$, with levels $h_0=1$, $h_K=0$.
+The departure is landing zero and the terminal holding is $H_K=0$.
+Let $\mathcal L_i$ be the landing information before its holding,
+and let $\tau=K\wedge(L+1)$. The event $i<\tau$ is known at that
+landing. On $K\le L$,
+$R=1+\sum_{i<\tau}(1+H_i)$. Nonnegativity and Lemma~\ref{clk:holding}
+therefore give
+\[
+ \E_d[R\one_{\{K\le L\}}]
+       \le1+\E\sum_{i<\tau}(e_{h_i}+2).
+\]
+No holding has been conditioned on $K\le L$. By \eqref{clk:lte} and
+Legendre's formula,
+\[
+ P(x):=\sum_{h=1}^x(e_h-\tfrac52)
+   =-s_2(\lfloor x/2\rfloor)-\tfrac32\one_{\{x\ \text{odd}\}}.
+\]
+Set $g(0)=g(1)=0$ and $g(h+1)-g(h)=2P(h)$. Then
+$\tfrac12(g(h+1)+g(h-1))-g(h)=e_h-\tfrac52$ for $h\ge1$.
+Since $P(h)\le0$, $g\le0$. Optional stopping for the bounded index
+$\tau$ is legitimate (all visited levels are at most $L+2$), and gives
+\[
+ \E\sum_{i<\tau}(e_{h_i}-\tfrac52)=\E g(h_\tau)-g(1)\le0.
+\]
+This proves the first inequality. Reflection gives
+\begin{equation}\label{clk:walk-tail}
+ \PP(K>2r)=b_r:=\binom{2r}{r}4^{-r},\qquad
+ \PP(K>n)\sim\sqrt{\frac2{\pi n}}.
+\end{equation}
+The induction $b_r\le(r+1)^{-1/2}$ follows from
+$(2r+1)/(2r+2)\le\sqrt{(r+1)/(r+2)}$. Consequently
+\begin{equation}\label{clk:walk-trunc}
+ \PP(K>n)\le\sqrt{\frac2{n+1}},\qquad
+ \E(K\wedge x)\le2\sqrt{2x}\quad(x\in\N,\ x\ge1).
+\end{equation}
+The last bound follows by summing the preceding tail inequality.
+\end{proof}
+
+\begin{corollary}[Uniform excursion domination]\label{clk:domination}\label{clock:domination}
+For every odd $d$ and $t>0$,
+\begin{equation}\label{clk:domination-bound}
+ \PP_d(R>t)\le\min\{1,30/\sqrt t\},\qquad
+ \E_d(R\wedge x)\le60\sqrt x\quad(x>0).
+\end{equation}
+\end{corollary}
+\begin{proof}
+For $t\ge1$, put $L=\lfloor t\rfloor$. Split according to $K>L$,
+and apply \eqref{clk:walk-trunc}, \eqref{clk:small-bound}, and Markov:
+\[
+ \PP_d(R>t)\le\sqrt{2/t}
+       +\frac{1+9\sqrt{2(L+1)}}t\le\frac{30}{\sqrt t}.
+\]
+For $t<1$ use the probability bound one. Integrating the tail bound
+$30/\sqrt t$ on $(0,x)$ proves the second assertion.
+\end{proof}
+
+\subsection{Haar Ces\`aro bias: the stopping-time replica argument}
+
+Let $h_{\rm odd}$ be Haar probability measure on the odd elements of
+$\Ztwo$. For $k\ge3$, $L\ge1$, and odd $s\ge4L+3$, define
+\begin{equation}\label{clk:cesaro}
+ F_{k,L}(s,D)=\frac1{L+1}\sum_{\ell=L}^{2L}
+                 \E_{(s,D)}\psi_k(Z_\ell),\qquad
+ H_{k,L}(s)=\int|F_{k,L}(s,D)|\,dh_{\rm odd}(D).
+\end{equation}
+The level stays at least three through these epochs. These are
+unconditioned future expectations from the indicated state.
+
+\begin{lemma}[Haar Ces\`aro estimate]\label{clk:haar-bias}
+Writing $r_k=\lceil(k+3)/2\rceil$ and $B_k=k+1$, uniformly for the
+levels in \eqref{clk:cesaro},
+\begin{equation}\label{clk:haar-bound}
+ \int F_{k,L}(s,D)^2\,dh_{\rm odd}(D)
+      \le\frac{2(r_k+1)B_k^2}{L+1},\qquad
+ H_{k,L}(s)\le b_{k,L}:=B_k\sqrt{\frac{2(r_k+1)}{L+1}}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+We first describe precisely the unread-suffix fact. Fix the base bits
+of a finite positive-level raw word. Each offset row is an affine map
+with an odd multiplier followed by division by two. Inductively,
+specifying the offset parities through raw time $n$, including its
+terminal parity, specifies one initial coset modulo $2^{n+1}$.
+On it the offset at time $n$ has the form
+$(uD_0+c)/2^n$ with $u$ odd. Conditional Haar measure on that coset
+therefore pushes forward to Haar measure on the specified parity class.
+The induction just uses that at each division the next parity determines
+one additional input bit, because the multiplier is odd. This argument
+also applies at a stopping time whose defining event uses only the
+revealed word and terminal parity: on each value $n$ and each finite
+word the unused quotient of $D_0$ is still Haar. Starting from a coset of depth $q$, after $q$ raw divisions the
+offset is unrestricted Haar conditional on the consumed parities and
+base bits, before its next parity is revealed. Subsequent odd epochs
+have Haar-odd offset conditional on their finite words. Their centered reward \eqref{clk:psi} has mean zero.
+
+Take two replicas starting from the same $(s,D_0)$, with
+$D_0\sim h_{\rm odd}$, and using independent fair bit sequences.
+Let $n_j,n'_{j'}$ be their raw finishing times at epochs $j,j'$;
+let $N'(n)$ count the later epochs completed by replica two by time
+$n$, including an epoch at $n$. The replica identity is
+\[
+ \int (\E\psi_k(Z_j))(\E\psi_k(Z_{j'}))\,dh_{\rm odd}
+       =\E[\psi_k(Z_j)\psi_k(Z'_{j'})].
+\]
+Consider the event
+\[
+ A_{j,j'}=\{n_j\le n'_{j'},\ j'-N'(n_j)\ge r_k\}.
+\]
+At time $n=n_j$ reveal $n$, $D_0\bmod2^{n+1}$, and both length-$n$
+base-bit prefixes (raw indices $0,\ldots,n-1$). This stopped information determines both paths
+through $n$, the first replica's level, $N'(n)$, and $A_{j,j'}$.
+Conditionally, write $D_0=\rho+2^{n+1}u$ with $u$ Haar. The offsets
+are
+\[
+ D_n=c_1+2u_1u,\qquad D'_n=c_2+2u_2u,
+\]
+where $u_1,u_2$ are odd and all displayed coefficients are revealed.
+The first reward reads $D_n\bmod2^{k+2}$, hence only
+$u\bmod2^{k+1}$. Reveal this residue as well. The first reward is
+now fixed; the second offset is Haar on a coset of depth $k+2$.
+The second replica's future bits, at raw indices $n,n+1,\ldots$, are
+independent of this information and of its free suffix.
+
+On $A_{j,j'}$, its target epoch is at least $r_k$ epochs ahead.
+From any current raw state, reaching the next odd-level odd epoch
+takes at least one raw step, and each further such epoch requires at
+least two. Thus its target occurs after at least
+$1+2(r_k-1)\ge k+2$ further divisions. After those divisions the
+free-suffix fact supplies a Haar offset; at the target epoch its
+conditional Haar-odd mean reward is zero. The target-epoch event is
+measurable from its revealed word and terminal parity. The event $A_{j,j'}$
+was determined before this suffix was used, so
+\[
+ \E[\psi_k(Z_j)\psi_k(Z'_{j'})\one_{A_{j,j'}}]=0.
+\]
+The event with $n'_{j'}<n_j$ and $j-N(n'_{j'})\ge r_k$ has the
+same property.
+
+For the remaining pairs, when $n_j\le n'_{j'}$ the integer $j'$
+lies between $N'(n_j)$ and $N'(n_j)+r_k-1$. There are at most
+$r_k+1$ choices for each $j$. In the opposite ordering there are at
+most $r_k+1$ choices for each $j'$. Pathwise, at most
+$2(r_k+1)(L+1)$ pairs in $[L,2L]^2$ remain. Their rewards have
+product bounded by $B_k^2$. Summing the replica identity proves the
+first bound; Cauchy--Schwarz proves the second.
+\end{proof}
+
+\subsection{Fixed cylinders supply actual occupation typicality}
+
+\begin{lemma}[Typicality with the actual source]\label{clk:typicality}
+For every fixed $k\ge3$ and $L\ge1$,
+\begin{equation}\label{clk:typ}
+ \mu_m\!\left[\one_{\{J>2L\}}
+   \bigl(|F_{k,L}(2J+1,D)|-H_{k,L}(2J+1)\bigr)\right]
+                  \longrightarrow0.
+\end{equation}
+Consequently
+\begin{equation}\label{clk:theta}
+ \theta_{k,L}(d):=\limsup_{m\to\infty}
+       \mu_m[\one_{\{J>2L\}}|F_{k,L}(2J+1,D)|]
+         \le b_{k,L}\longrightarrow0\quad(L\to\infty).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Lemmas~\ref{occ:level-haar} and \ref{occ:green} give equidistribution
+of $J$ modulo each fixed power of two and the bound
+$\mu_m(J\le C)\le2(C+1)/a_m\to0$ for every fixed ordinary $C$.
+
+Fix $r$ with $2^r>4L+3$, and delete the corridor
+\[
+ \mathcal B_{r,L}=\{J:\operatorname{dist}(J,2^r\Z)\le2L+1\}.
+\]
+It has $4L+3$ distinct residues, so
+$\mu_m(\mathcal B_{r,L})\to(4L+3)/2^r$.
+Outside it, during the next $2L$ epoch intervals every level index
+$J'$ satisfies $|J'-J|\le2L$, and neither $J'$ nor $J'+1$ is
+divisible by $2^r$. Each intervening even raw level is $2J'$ or
+$2J'+2$, with valuation at most $r$. Lemma~\ref{clk:holding} bounds
+its arbitrary-entry mean holding by $r+3$, and bounds an odd-level
+holding by two. Each interval uses two direction steps. If $n_\ell$
+is the raw time of the $\ell$th later epoch, repeated conditional
+expectation at these actual entries gives, for any integer or 2-adic
+odd starting offset,
+\begin{equation}\label{clk:raw-cap}
+ \E n_{2L}\le2L(r+7),\qquad
+ \PP(n_{2L}>H)\le\frac{2L(r+7)}H.
+\end{equation}
+The initial $J>2L$ prevents killing through these epochs. This is
+a deterministic initial level restriction, not postselection on survival.
+
+For fixed $H\in\N$, truncate the observer:
+\[
+ F^H_{k,L}(s,D)=\frac1{L+1}\sum_{\ell=L}^{2L}
+       \E_{(s,D)}[\psi_k(Z_\ell)\one_{\{n_\ell\le H\}}],
+ \qquad h^H(s)=\int|F^H_{k,L}(s,D)|\,dh_{\rm odd}(D).
+\]
+With $Q=H+k+3$, this is a fixed joint cylinder in
+$(J\bmod2^Q,D\bmod2^Q)$ outside finitely many ordinary levels.
+Indeed each raw row consumes at most one offset bit, the terminal
+reward consumes at most $k+2$, and $Q$ leaves a spare bit.
+The rows are
+$D/2$, $(3D+1-3^s)/2$, $(3D+1)/2$, and
+$(D-3^{s-1})/2$ on their respective positive-level domains.
+Modulo $2^Q$, every positive power $3^e$ has period dividing
+$2^Q$ in its exponent. Changing $J$ by $2^Q$ changes $s$ by
+$2^{Q+1}$, preserving the affine constants at every reached row.
+Taking $s>H$ keeps every $H$-step word at a positive level; any
+additional levels outside the observer's domain form a finite exception.
+The same finite words determine the epoch indicator and $n_\ell\le H$.
+Representatives at arbitrarily large levels define the cylinder on every
+level residue. Its Haar-odd average $h^H$ is periodic in that residue.
+
+The centered cylinder $b_H=|F^H_{k,L}|-h^H$ has Haar-odd mean zero
+at every level residue and $|b_H|\le B_k$. Applying \eqref{clk:fc} at
+the fixed pair $(Q,Q)$ yields $\mu_m b_H\to0$ after deleting
+the finite exceptions. Their cost is at most $2(C+1)B_k/a_m$.
+On good corridor levels \eqref{clk:raw-cap} gives
+\[
+ |F_{k,L}-F^H_{k,L}|\le\frac{2B_kL(r+7)}H.
+\]
+The Haar average satisfies the same bound, uniformly in the offset;
+the centered error is therefore at most $4B_k L(r+7)/H$. On bad
+corridor levels its absolute value is at most $2B_k$. We obtain
+\[
+ \limsup_m\left|\mu_m[\one_{\{J>2L\}}(|F_{k,L}|-H_{k,L})]\right|
+ \le\frac{4B_k L(r+7)}H+\frac{2B_k(4L+3)}{2^r}.
+\]
+Keep $k,L,r,H$ fixed while $m\to\infty$, next let $H\to\infty$,
+and finally $r\to\infty$. This proves \eqref{clk:typ};
+Lemma~\ref{clk:haar-bias} gives \eqref{clk:theta}. Neither the
+precision nor the truncation horizon grows with $m$.
+\end{proof}
+
+\subsection{From occupation bias to relative control on long excursions}
+
+The endpoint convention in \eqref{clk:occupation} matters. Put
+\[
+ S_L(x)=\sum_{0\le u\le\min(V,x)}
+            \one_{\{J_u>2L\}}|F_{k,L}(Z_u)|.
+\]
+The inclusive cutoff has at most one extra summand relative to
+$u<\tau_{\mathrm e}\wedge m$, of size at most $B_k$. Since
+$\sum_{v=0}^{m-1}\PP(\tau_{\mathrm e}>v)=\sum_{v=0}^{m-1}b_v=2mb_m$, we have
+$a_m\le2\sqrt m$, and \eqref{clk:theta} implies
+\begin{equation}\label{clk:prefix-mean}
+ \E_d S_L(m)\le(\theta_{k,L}(d)+\varepsilon_m)a_m+B_k,
+ \qquad\varepsilon_m\longrightarrow0.
+\end{equation}
+For $V\in[2^in,2^{i+1}n)$, monotonicity gives
+$S_L(V)\le S_L(2^{i+1}n)$. Markov and \eqref{clk:prefix-mean}
+therefore give, for every $\delta>0$,
+\begin{equation}\label{clk:dyadic-bias}
+ \limsup_{n\to\infty}\sqrt n\,
+ \PP_d(V\ge n,S_L(V)>\delta \tau_{\mathrm e})
+ \le\frac{G\theta_{k,L}(d)}\delta,
+ \qquad G=2\sqrt2\sum_{i\ge0}2^{-i/2}=4(1+\sqrt2).
+\end{equation}
+The additive $B_k$ costs $O(B_k/n)$ before multiplication by $\sqrt n$.
+The errors $\varepsilon_m$ tend to zero uniformly over $m\ge n$
+once $n$ exceeds their fixed onset. This does not require an onset
+uniform in $d$.
+
+The Ces\`aro average has a bounded Poisson corrector, which turns this
+occupation payment into control of the actual stopped sum. Let $P$ be
+the full killed epoch kernel, with an absorbing cemetery, and set
+$y(s,D)=\psi_k(s,D)$ for $s\ge3$, and $y=0$ at $s=1$ and at the
+cemetery. For fixed
+$k,L$, define
+\begin{equation}\label{clk:cesaro-corrector}
+ Q_Ly=\frac1{L+1}\sum_{\ell=L}^{2L}P^\ell y,\qquad
+ U_L=\frac1{L+1}\sum_{\ell=L}^{2L}\sum_{r=0}^{\ell-1}P^r y.
+\end{equation}
+Finite telescoping gives
+\[
+ (I-P)U_L=y-Q_Ly,\qquad
+ \|U_L\|_\infty\le2LB_k,\qquad U_L(\partial)=0.
+\]
+With the stopped martingale
+\[
+ N_m=\sum_{v<m\wedge\tau_{\mathrm e}}
+       \bigl(U_L(Z_{v+1})-PU_L(Z_v)\bigr),
+\]
+the exact prefix identity is
+\begin{equation}\label{clk:corrector-prefix}
+ \sum_{v<m\wedge\tau_{\mathrm e}}y(Z_v)
+ =U_L(Z_0)-U_L(Z_{m\wedge\tau_{\mathrm e}})+N_m
+                 +\sum_{v<m\wedge\tau_{\mathrm e}}Q_Ly(Z_v).
+\end{equation}
+The increments of $N$ are bounded by $4LB_k$. On $J_v>2L$ the next
+$2L$ epochs cannot reach level zero, so $Q_Ly(Z_v)=F_{k,L}(Z_v)$
+uses precisely the unconditioned future kernel in \eqref{clk:cesaro}.
+At every other live state $|Q_Ly|\le B_k$. At killing the terminal
+corrector is zero. Thus
+\begin{equation}\label{clk:lag-boundary}
+ \left|\sum_{v<\tau_{\mathrm e}}y(Z_v)\right|
+ \le2LB_k+|N_{\tau_{\mathrm e}}|+S_L(V)
+                  +B_k\#\{v<\tau_{\mathrm e}:J_v\le2L\}.
+\end{equation}
+Equation~\eqref{clk:doob} and Lemma~\ref{clk:level-corrector} pay
+the martingale and the low-level count by $\varepsilon\tau_{\mathrm e}$
+each, outside $O_{k,L,\varepsilon}(1/n)$ on $\tau_{\mathrm e}\ge n$.
+The same identity also controls every prefix: its two corrector
+endpoints cost at most $4LB_k$, independently of the prefix length.
+
+Apply \eqref{clk:doob} to the two holding martingales in
+\eqref{clk:decomposition}; apply Lemma~\ref{clk:level-corrector}
+to \eqref{clk:cap-error}; and pay the zero-level bias
+\eqref{clk:zero-bias} by the geometric tail of $N_0$. For fixed
+$k,L,\varepsilon$, all exceptional probabilities are
+$O_{k,L,\varepsilon}((1+\log n)^4/n)=o(n^{-1/2})$ on $V\ge n$.
+On their complement, and when $S_L(V)\le\varepsilon \tau_{\mathrm e}$,
+\begin{equation}\label{clk:clock-error}
+ |R-2(K+1)|\le(7\varepsilon+a_k)\tau_{\mathrm e}+2L B_k.
+\end{equation}
+The seven payments are the two holding martingales, the cap-tail error,
+the zero-level count, the corrector martingale, the low-level count, and
+$S_L(V)$. This count leaves the limiting coefficient unambiguous.
+
+To prove \eqref{clk:relative-error}, fix $q>0$. Choose
+$0<\varepsilon<q/10$, then $k$ with $a_k\le\varepsilon$.
+For each fixed $L$, when $n$ is sufficiently large the term $2L B_k$
+is at most $\varepsilon \tau_{\mathrm e}$ on $V\ge n$. Since $\tau_{\mathrm e}\le K$,
+\eqref{clk:clock-error} is then at most $9\varepsilon K<qK$.
+Equation~\eqref{clk:dyadic-bias} bounds the remaining limiting
+$\sqrt n$-probability by $Gb_{k,L}/\varepsilon$. Let $n\to\infty$
+first and then $L\to\infty$. This bound vanishes. Replacing
+$V\ge n$ by $K>n$, using $V=(K-1)/2$, changes only a finite
+constant in the tail scale and proves \eqref{clk:relative-error}.
+In particular dividing by \eqref{clk:walk-tail} gives
+$R/[2(K+1)]\to1$ in probability conditionally on $K>n$; the
+joint estimate \eqref{clk:relative-error} is what the tail proof needs.
+
+\subsection{The two-sided tail squeeze}
+
+We finish the proof of Theorem~\ref{clk:excursion-tail}. Lemma
+\ref{clk:small} and Markov show that, for fixed $\eta>0$,
+\begin{equation}\label{clk:small-tail}
+ \limsup_{t\to\infty}\sqrt t\,
+       \PP_d(R>t,K\le\eta t)\le C\sqrt\eta.
+\end{equation}
+Fix $0<q<1$ and $0<\eta<1/(2+q)$. On $K>\eta t$, outside the
+exceptional event \eqref{clk:relative-error} with
+$n=\lfloor\eta t\rfloor$,
+\[
+ (2-q)(K+1)\le R\le(2+q)(K+1).
+\]
+The error event is $o(t^{-1/2})$. Comparing the two walk thresholds
+with \eqref{clk:walk-tail}, and adding \eqref{clk:small-tail} only
+on the upper side, yields
+\[
+ \liminf_t\sqrt t\,\PP_d(R>t)\ge\sqrt{\frac{2(2-q)}\pi},
+ \qquad
+ \limsup_t\sqrt t\,\PP_d(R>t)
+       \le\sqrt{\frac{2(2+q)}\pi}+C\sqrt\eta.
+\]
+Let $\eta\downarrow0$, then $q\downarrow0$, proving
+\eqref{clk:tail-limit}. The proof pays the initial holding and
+terminal step explicitly and uses no mixing conditional on future
+survival.
+
+% ---- exact/renewal ----
+\section{Chronological intervals and their expected weight}\label{sec:assembly}
+
+The return state, excursion length, and future departure count are
+dependent. The useful quantity is the expected sum of the tail weights
+at actual entries. The following elementary assembly argument applies
+both to level-zero departures and to an initial return from a random
+positive level.
+
+\begin{lemma}[Weighted chronological assembly]\label{renew:weighted}
+Let $M<\infty$ almost surely and let $R_1,\ldots,R_M$ be finite
+nonnegative lengths, with nonnegative actual starting times $\theta_i$ and entry
+histories $\mathcal F_i$. Write $B_i=\{M\ge i\}$. The event $B_i$ is
+$\mathcal F_i$-measurable; on it the start $\theta_i<\infty$ and a
+nonnegative finite weight $w_i$ are known, as are all earlier lengths.
+Suppose
+\[
+ A=C+\sum_{i\le M}R_i,\qquad C\ge0,\qquad
+ \theta_i+R_i\le A,\qquad
+ \theta_j\ge\theta_i+R_i\quad(i<j\le M).
+\]
+Assume that, on each occurrence, the actual conditional tail obeys
+\begin{equation}\label{renew:conditional}
+ q_i(t):=\PP(R_i>t\mid\mathcal F_i),\qquad
+ \sqrt t\,q_i(t)\longrightarrow c w_i\quad\hbox{almost surely},
+ \qquad q_i(t)\le\frac{C_0w_i}{\sqrt t}\quad(t>0),
+\end{equation}
+where $c,C_0>0$ are constants independent of $i$, and the conditional
+tails have versions satisfying these bounds for all $t>0$. Finally suppose
+\begin{equation}\label{renew:budget}
+ \E W<\infty,\qquad W=\sum_{i\le M}w_i,\qquad
+ \sqrt t\,\PP(C>t)\longrightarrow0.
+\end{equation}
+Then
+\begin{equation}\label{renew:tail}
+ \sqrt t\,\PP(A>t)\longrightarrow c\E W.
+\end{equation}
+An integrable $C$ satisfies the remainder hypothesis. More generally it
+allows an integrable coast together with a prefix having a moment of
+order greater than $1/2$.
+\end{lemma}
+
+In applications \eqref{renew:conditional} follows from a fixed-state
+kernel: $q_i(t)=\phi_t(X_i)$ at the actual entry, where $X_i$ is a finite
+ordinary state, and $\sqrt t\,\phi_t(x)\to c w(x)$ for every fixed $x$.
+Each realized $X_i$ is held fixed as $t\to\infty$; the envelope is uniform
+in $x$. Thus pointwise conditional convergence holds even for an
+unbounded random entry state. No uniform onset over entry states, or
+independence of $M$ from the lengths, is required. A marginal tail for
+$R_i$ would not supply \eqref{renew:conditional} after an earlier
+interval has been observed.
+
+\begin{proof}
+Conditional tail integration gives the truncated-moment payment
+\begin{equation}\label{renew:truncation}
+ \E(R_i\wedge x\mid\mathcal F_i)
+       =\int_0^xq_i(u)\,du\le2C_0w_i\sqrt x
+                 \quad\hbox{on }B_i.
+\end{equation}
+The chronological long-interval events
+\begin{equation}\label{renew:events}
+ E_i(t)=\{M\ge i,\ \theta_i\le t,\ R_i>t\}
+\end{equation}
+are disjoint: an interval longer than $t$ that starts by $t$ forces every
+later start past $t$. Each event implies $A>t$. Since the start and
+occurrence are known at entry,
+\[
+ \sqrt t\sum_i\PP(E_i(t))=
+ \sum_i\E[\one_{\{M\ge i,\theta_i\le t\}}\sqrt t\,q_i(t)]
+              \longrightarrow c\E W.
+\]
+For each realized occurrence the start is finite and the conditional
+limit is \eqref{renew:conditional}. The integrable dominator on counting
+measure times probability is $C_0\one_{B_i}w_i$, whose integral is
+$C_0\E W$. This proves the lower bound.
+
+For the upper bound, fix $\varepsilon,\rho\in(0,1)$, put
+$z=(1-\rho)t$, and take $\delta=\varepsilon^4$. Apart from
+$\{C>\rho t\}$, whose probability is $o(t^{-1/2})$, the event $A>t$
+implies $\sum R_i>z$. This is covered by
+\begin{align*}
+ E^{(1)}&=\{\exists i\le M:R_i>(1-\varepsilon)z\},\\
+ E^{(2)}&=\{\exists i<j\le M:R_i>\delta z,\ R_j>\delta z\},\\
+ E^{(3)}&=\left\{\sum_{i\le M}R_i\one_{\{R_i\le\delta z\}}
+                                              >\varepsilon z\right\}.
+\end{align*}
+Outside the first two events at most one term exceeds $\delta z$, and
+it is at most $(1-\varepsilon)z$, which proves this cover.
+A union bound and the same weighted dominated convergence give
+\begin{equation}\label{eq:assembly-large}
+ \limsup_t\sqrt t\,\PP(E^{(1)})
+ \le\frac{c\E W}{\sqrt{(1-\varepsilon)(1-\rho)}}.
+\end{equation}
+
+For the second event, charge each later index $j$ once. The event
+$L_{<j}(x)=\{\exists i<j:R_i>x\}$, restricted to $B_j$, is known at
+its entry. Consequently
+\begin{equation}\label{renew:one-charge}
+ \PP(E^{(2)})\le\frac{C_0}{\sqrt{\delta z}}
+    \E\sum_{j\le M}w_j\one_{L_{<j}(\delta z)}
+ \le\frac{C_0}{\sqrt{\delta z}}
+    \E[W\one_{\{\max_{i\le M}R_i>\delta z\}}]
+                         =o(t^{-1/2}).
+\end{equation}
+The realized collection has finite lengths, so its maximum is finite
+(the empty maximum is zero). Dominated convergence uses only
+$\E W<\infty$. Neither the number of earlier indices nor a product of
+weights enters this payment.
+
+Finally, \eqref{renew:truncation}, conditional expectation at each entry,
+and Tonelli give
+\[
+ \E\sum_{i\le M}R_i\one_{\{R_i\le\delta z\}}
+                 \le2C_0\E W\sqrt{\delta z}.
+\]
+Markov's inequality therefore yields
+\begin{equation}\label{eq:assembly-small}
+ \limsup_t\sqrt t\,\PP(E^{(3)})
+ \le\frac{2C_0\E W\sqrt\delta}{\varepsilon\sqrt{1-\rho}}
+ =\frac{2C_0\E W\varepsilon}{\sqrt{1-\rho}}.
+\end{equation}
+Let $t\to\infty$ first and then $\varepsilon,\rho\downarrow0$.
+The upper bound agrees with the lower bound, proving \eqref{renew:tail}.
+For an integrable remainder Markov gives the required negligible tail;
+for a prefix moment of order $p>1/2$ it gives $O(t^{-p})$.
+\end{proof}
+
+\begin{corollary}[Predictable marks on the long interval]\label{renew:marks}
+If $c\E W>0$, let $J_t$ be the unique index whose event $E_i(t)$ occurs,
+assigning any value when none occurs. Then
+\begin{equation}\label{renew:selection}
+ \PP\left(\bigcup_iE_i(t)\mid A>t\right)\longrightarrow1.
+\end{equation}
+For any uniformly bounded real marks $f_i$ measurable at their entries,
+\begin{equation}\label{renew:mark-law}
+ \E(f_{J_t}\mid A>t)\longrightarrow
+                 \frac{\E\sum_{i\le M}w_if_i}{\E W}.
+\end{equation}
+Off the union in \eqref{renew:selection}, the selected mark can be any
+uniformly bounded value.
+\end{corollary}
+\begin{proof}
+The proof of the lemma gives the union mass the same asymptotic as
+$\PP(A>t)$, proving \eqref{renew:selection}. Conditional expectation at
+entry and weighted dominated convergence, now with dominator
+$C_0\sup_i\|f_i\|_\infty\one_{B_i}w_i$, give
+\[
+ \sqrt t\,\E\sum_i f_i\one_{E_i(t)}
+                   \longrightarrow c\E\sum_{i\le M}w_if_i.
+\]
+The omitted part has negligible conditional probability.
+\end{proof}
+
+\subsection{The canonical departure count}
+
+For departure $i$, let $d_i$ be its odd integer offset, $\theta_i$ its
+physical starting time, and $\mathcal F_i$ the history immediately
+before its departure step. Occurrence, offset, and start are known in
+this history, and future bits are fresh. Put
+$\phi_x(d)=\PP_d(R>x)$, $c=2/\sqrt\pi$, and $C_0=30$.
+Theorem~\ref{clk:excursion-tail} and Corollary~\ref{clk:domination} give
+\begin{equation}\label{eq:assembly-input}
+ \sqrt x\,\phi_x(d)\longrightarrow c\quad\hbox{for every fixed odd }d,
+ \qquad \phi_x(d)\le\min(1,30/\sqrt x),
+\end{equation}
+\begin{equation}\label{eq:truncated-excursion}
+ \E_d(R\wedge x)\le60\sqrt x,
+\end{equation}
+while the stopping-time fresh-bit law is exactly
+\begin{equation}\label{eq:departure-conditioning}
+ \PP(R_i>x\mid\mathcal F_i)=\phi_x(d_i)
+                       \quad\hbox{on }\{M\ge i\}.
+\end{equation}
+The count here includes every actual departure, including those inside
+compact absorbing-word trials. The earlier reward estimates give
+\begin{equation}\label{eq:assembly-moments}
+ 1\le\E M<\infty,\qquad \E C_{\mathrm{coast}}<\infty,\qquad
+ A=\sum_{i\le M}R_i+C_{\mathrm{coast}}.
+\end{equation}
+The separately established second departure moment remains available
+for the triple-sector argument; it is not a scalar assembly hypothesis.
+
+\begin{proof}[Proof of the shortcut assertion in Theorem~\ref{thm:exact}]
+Apply Lemma~\ref{renew:weighted} with $w_i=1$ at each actual departure
+and $C=C_{\mathrm{coast}}$. Equations
+\eqref{eq:assembly-input}--\eqref{eq:assembly-moments} supply precisely
+its conditional laws and budgets. Hence
+\begin{equation}\label{eq:assembly-lower}
+ \sqrt t\,\PP(A>t)\longrightarrow\kappa=c\E M\in(0,\infty).
+\end{equation}
+\end{proof}
+
+\subsection{Initial returns and random entrances}
+
+Suppose the process first enters at a finite stopping time $\Theta$
+with an ordinary random state of positive level $S$, and the initial
+return $R_0$ has conditional coefficient $cS$ and envelope
+$C_1S/\sqrt t$. After that return its $M_*$ departure excursions have
+coefficient $c$ and envelope $30/\sqrt t$. Include a zero initial
+interval when $S=0$. If
+\[
+ \E S+\E M_*+\E C_*<\infty,\qquad
+ \sqrt t\,\PP(\Theta>t)\longrightarrow0,\qquad
+ A=\Theta+R_0+C_*+\sum_{i\le M_*}R_i,
+\]
+Lemma~\ref{renew:weighted}, after relabelling interval zero as the first
+index, gives
+\begin{equation}\label{renew:initial-return}
+ \sqrt t\,\PP(A>t)\longrightarrow c\E(S+M_*).
+\end{equation}
+Use weights $S,1,\ldots,1$, envelope constant $\max(C_1,30)$, and
+remainder $\Theta+C_*$. Its tail is negligible by a union bound.
+The initial state's law is the actual entrance law: conditioning there
+holds each finite realized state fixed, and its linear envelope is
+integrable because $\E S<\infty$. In particular no moment of $S^2$,
+$SM_*$, or $M_*^2$ is required. This single specialization supplies the
+scalar assembly both for a fixed positive starting level and for the
+random two-class entrance of a finite family.
+
+% ---- exact/capacity ----
+\section{Scalar capacity, conditioned histories, and the absorption domain}
+\label{harm:section}
+
+The renewal theorem turns one scalar observable into the coefficient of
+survival. From an integer canonical state $(s,D)$ let $M_{s,D}$ count every future
+level-zero odd departure, including those in compact trials, and set
+\begin{equation}\label{harm:capacity}
+ h_{\rm cap}(s,D)=s+\E_{s,D}M_{s,D},\qquad h_{\rm cap}(0,0)=0.
+\end{equation}
+For $z=(s,D)$ abbreviate $M_z=M_{s,D}$ and $h_{\rm cap}(z)=h_{\rm cap}(s,D)$.
+The initial level weighs the first positive-level return; each subsequent
+departure has weight one. This notation leaves the ordinary halving
+count $H(x,m)$ untouched. We first supply the scalar return law needed
+for this interpretation, independently of any family theorem.
+
+\subsection{The scalar positive-level supplier}
+
+\begin{lemma}[Return from a fixed positive level]\label{pair:fixed-return}\label{family:fixed-return}
+Start from any fixed canonical state $(s,D)$ with $s\ge1$, integer
+$D$, and a fresh Haar base. If $R_{s,D}$ is its first physical return to level zero, then
+\[
+ \sqrt t\,\mathbb P(R_{s,D}>t)\longrightarrow cs,
+ \qquad c=2/\sqrt\pi,
+ \qquad \mathbb P(R_{s,D}>t)\le\min(1,Cs/\sqrt t).
+\]
+No onset uniform in an unbounded initial level is asserted.
+\end{lemma}
+\begin{proof}
+The domination is Lemma~\ref{pair:return-bound}. We give the
+adapter needed for the exact coefficient, retaining
+the source occupation normalization.
+
+For odd $s=2j+1$ and odd offset, the killed epoch chain of
+\eqref{occ:killed-level} starts at the fixed $j$. Its Green function is
+\[
+ G_j(k)=2\min(2j+1,2k+1).
+\]
+This follows by multiplying its affine hitting probability by the mean
+$2(2k+1)$ visits from $k$. In particular its mean zero visits is still
+two. If $K_s$ is the direction count to zero, reflection gives
+\[
+ \mathbb P(K_s>n)\sim s\sqrt{2/(\pi n)},\qquad
+ \mathbb P(K_s>n)\le\min(1,Cs/\sqrt{n+1}).
+\]
+The epoch lifetime is $(K_s+1)/2$, and its expected prefix occupation
+normalizer therefore satisfies
+\[
+ a_m(j)\sim2s\sqrt{m/\pi},\qquad a_m(j)\le Cs\sqrt m.
+\]
+The periodic level corrector has bounded starting value at $j$ and the
+same two-visit zero boundary payment. Fixed ordinary levels have
+occupation at most $2s(C+1)/a_m(j)$. Corollary~\ref{occ:fc} applies
+with the actual initial law $\xi=\delta_j\otimes\delta_D$ and its
+own denominator $a_m(j)$; it supplies the same fixed-grid product Haar
+factorization. No denominator from the $j=0$ chain is substituted.
+
+In the unbounded level corrector the additional starting term is the
+fixed number $-g(j)$, and $J_v\le j+v$ keeps the same logarithmic
+martingale variance estimates with fixed-$j$ constants. The small
+excursion Legendre corrector starts at $s$ and gives
+\[
+ \mathbb E[R_{s,D}\mathbf1_{\{K_s\le L\}}]
+ \le\tfrac92\mathbb E[K_s\wedge(L+1)]-g(s)
+ \le C_s\sqrt L.
+\]
+The optional direction index is bounded and $-g(s)$ is finite. The
+Haar-replica estimate concerns high current levels and is unchanged;
+the actual-source typicality and dyadic prefix argument now use the
+factorization above and $a_m(j)\le Cs\sqrt m$. The dyadic-bias
+constant becomes $CsG$, still multiplied by $\theta_{k,L}\to0$;
+the level-corrector payment retains $p=4$ when $J_0=j$.
+
+There is no initial departure or initial odd-level holding. To fix the
+clock convention, number the direction landings $0,1,\ldots,K_s$ and
+let $H_q$ be the holding after landing $q$. At this odd-offset entrance
+$H_0=H_{K_s}=0$, and the physical direction clocks are
+\[
+ \sigma_0=0,\qquad \sigma_q=q+\sum_{r<q}H_r,\qquad
+ R_{s,D}=\sigma_{K_s}.
+\]
+For $q=2m$ the noninitial holdings consist of $m$ even-level holdings
+and $m-1$ odd-level holdings. The odd holdings therefore number one
+less than the epoch count. With the holding martingales defined as in
+\eqref{clk:decomposition}, this gives the exact terminal identity
+\[
+ R_{s,D}-2(K_s+1)
+ =W^o+W^e+\sum_{v<\tau_e}(\bar\eta(Z_v)-1)-2.
+\]
+The holding martingale, cap, corrector, and lagged bias payments of
+Section~\ref{clk:section}, with the fixed starting terms just specified,
+prove
+\[
+ \mathbb P(|R_{s,D}-2K_s|>qK_s,K_s>n)=o(n^{-1/2}).
+\]
+The small-excursion bound and the same two-sided squeeze give coefficient
+$cs$ from the reflected $K_s$ tail.
+
+An initial even offset first has a holding with mean at most $e_s+1$.
+At its actual completion the offset is an odd integer and the future
+base is Haar. The coefficient limits for this selected law are dominated
+by $Cs/\sqrt t$, and the holding has negligible square-root tail.
+For even $s\ge2$, after that holding take one direction and complete its
+odd-level holding, of conditional mean at most two in either branch.
+The odd entrance levels are
+$s-1,s+1$ with fair probabilities. Their dominated coefficients average
+to $cs$, while the initial step and holding are negligible. All entrance
+mixtures use conditional laws at their actual stopping times. Explicitly,
+if $L$ is one of these finite initial prefixes and $Q$ its remaining
+return time, dominated convergence at the actual entrance gives the
+coefficient for $Q$. For $0<\eta<1$,
+\[
+ \{L+Q>t\}\mathbin{\triangle}\{Q>t\}
+ \subset\{L>\eta t\}\cup\{(1-\eta)t<Q\le t\}.
+\]
+The first event has probability $O_s(t^{-1})$, and the second has
+$\sqrt t$-normalized limiting mass bounded by
+$cs((1-\eta)^{-1/2}-1)$ after averaging the entrance levels.
+First let $t\to\infty$ and then $\eta\downarrow0$. This pays the
+prefix in the coefficient, without conditioning its holding on future
+survival.
+\end{proof}
+
+\subsection{Harmonic cancellation and survival conditioning}
+
+\begin{theorem}[Harmonic capacity and conditioned histories]\label{harm:law}
+Write $K_{\rm pair}$ for the six-row kernel, including its boundary
+orientation swap. The capacity is finite at every integer state and
+positive at every nonabsorbed state,
+and
+\[
+ \sqrt t\,\PP_z(A_z>t)\longrightarrow\frac2{\sqrt\pi}h_{\rm cap}(z),
+ \qquad K_{\rm pair}h_{\rm cap}=h_{\rm cap}.
+\]
+For $z\ne(0,0)$ and every fixed integer history length $h\ge0$, its labelled-history law conditioned
+on $A_z>t$ converges in total variation to
+\[
+ \PP_z^{h_{\rm cap}}(E)=\frac{\E_z[\one_E h_{\rm cap}(Z_h)]}{h_{\rm cap}(z)}.
+\]
+These consistent laws have the Doob transition kernel
+$K_{\rm pair}^{h_{\rm cap}}(z,z')=K_{\rm pair}(z,z')h_{\rm cap}(z')/h_{\rm cap}(z)$ on nonabsorbed states.
+\end{theorem}
+\begin{proof}
+At positive level, first return to zero has raw offset $U$ satisfying
+\[
+ \E_z|U|^\alpha\le r^s|D/3^s|^\alpha+b_\infty.
+\]
+The boundary reward theorem at that return gives finite future departure
+mean and coast mean. At level zero these are the existing reward bounds.
+Lemma~\ref{pair:fixed-return} supplies the initial interval coefficient
+$2s/\sqrt\pi$ and linear domination. Subsequent departing intervals have
+coefficient $2/\sqrt\pi$ and the universal envelope.
+The initial-return specialization \eqref{renew:initial-return} applies with the initial return weighted
+by $s$ (omitted at $s=0$), every subsequent departure weighted by one,
+and integrable boundary coasts. It yields the coefficient
+$2(s+\E_zM_z)/\sqrt\pi$.
+No product of the initial level and future count is used. Positivity
+follows from $s>0$, or from the first genuine departure after the finite
+coast of a nonzero level-zero offset.
+
+Put $b(z)=\one_{\{s=0,D\text{ odd}\}}$. The exact kernel gives
+$\E_z s_1=s+b(z)$, while the full count satisfies
+$\E_zM_z=b(z)+\E_z\E_{Z_1}M$. Thus the level gains exactly the
+amount lost from the future departure count. All expectations are
+finite, so adding these identities cancels the drift and proves
+$K_{\rm pair}h_{\rm cap}=h_{\rm cap}$. The assigned value at the
+absorbing state is zero.
+
+There are only finitely many labelled histories of a fixed length $h$.
+On each history the state $Z_h$ is a fixed integer state.
+Markov conditioning gives, for $t>h$,
+\[
+ \PP_z(E,A_z>t)=
+ \E_z[\one_E\one_{\{A_z>h\}}\PP_{Z_h}(A>t-h)].
+\]
+Apply the state tail on that finite set and divide by its value from $z$.
+This proves the history limit atom by atom, hence in total variation.
+Repeated harmonicity normalizes the limits and makes them consistent.
+Their one-step likelihood ratio is exactly $h_{\rm cap}(z')/h_{\rm cap}(z)$.
+The survival indicator may be omitted in the limiting formula because
+$h_{\rm cap}(0,0)=0$. Duplicate successors are aggregated in the state kernel;
+for example both labels from $(2,4)$ lead to $(2,2)$.
+The driver becomes biased by capacity; no fresh fair-bit assertion under
+the limiting survival-conditioned law is made.
+\end{proof}
+
+This is microscopic survival conditioning, distinct from the diffusive
+meander law. The Doob construction is classical; the explicit harmonic
+function comes from the canonical level drift and the expected full
+departure count. The result has fixed-state, fixed-history scope and
+claims no convergence rate, stationary law of $K_{\rm pair}^{h_{\rm cap}}$, prescribed integer
+trajectory law, or no-divergence consequence.
+
+\subsection{The exact arithmetic domain of absorption}\label{triad:section}
+
+The integer-offset assumption admits a sharp extension. Denote by
+$\Z[1/3]$ the rationals with denominator a power of three, embedded
+in $\Ztwo$.
+
+\begin{theorem}[Admissible offsets]\label{triad:domain}
+Start the actual canonical fresh-bit kernel from $(s,D)$, where $s$ is
+a nonnegative integer and $D\in\Ztwo$. If $D\notin\Z[1/3]$, no
+finite label word reaches absorption. If $D\in\Z[1/3]$, absorption
+is almost sure, $\E_{s,D}M<\infty$, and
+\[
+ \sqrt t\,\PP_{s,D}(A>t)
+       \longrightarrow\frac2{\sqrt\pi}(s+\E_{s,D}M).
+\]
+The coefficient is zero at $(0,0)$ and positive elsewhere.
+For a Haar pair $(x,x+d)$, every fixed nonzero $d\in\Z[1/3]$ has
+the shortcut and ordinary coefficients $\kappa_d=2\E M_d/\sqrt\pi$
+and $\beta_d=\sqrt{3/2}\kappa_d$. For fixed $d\notin\Z[1/3]$,
+balanced absorption is impossible for every root, and the unrestricted
+ordinary first meeting is infinite Haar-almost surely.
+\end{theorem}
+\begin{proof}
+Every six-row step at an ordinary level has
+\[
+ D'=(aD+b)/2,\qquad a\in\{1,3,-3\},\quad b\in\Z.
+\]
+Thus a length-$h$ word has offset
+$(\epsilon3^qD+B)/2^h$, $\epsilon\in\{-1,1\}$, $q\ge0$, $B\in\Z$.
+Its vanishing forces $D\in\Z[1/3]$, proving necessity pointwise.
+
+Now let $D$ be triadic. Let $r(D)$ be its denominator exponent in lowest
+terms, zero for integers. The rows preserve $\Z[1/3]$: their parity
+condition makes the numerator divisible by two. When $r(D)>0$, a row
+with coefficient magnitude one preserves that exponent, and a row with
+coefficient magnitude three reduces it by exactly one. At positive
+level and at an even level-zero offset, one fair label has the latter
+coefficient; at an odd level-zero offset both do. The stopping time
+\[
+ \tau=\inf\{h:D_h\in\Z\}
+\]
+is therefore dominated by the waiting time for $r(D)$ fair Bernoulli
+successes. Choose predictably one clearing label at each noncleared state;
+these indicators are fresh fair bits, while any additional clearing helps.
+Consequently
+\begin{equation}\label{triad:clearing}
+ \E e^{u\tau}\le\left(\frac{e^u}{2-e^u}\right)^{r(D)}<\infty,
+ \qquad 0<u<\log2.
+\end{equation}
+
+Use the real rational embedding before clearing and put
+$w_h=D_h/3^{s_h}$. The normalized rows give
+$|w_{h+1}|\le(3/2)|w_h|+1/2$, hence
+\[
+ |w_h|\le(3/2)^h(|w_0|+1).
+\]
+For any fixed $0<\alpha<1$, $\alpha\log(3/2)<\log2$, so
+\eqref{triad:clearing} gives
+\[
+ \E(1+|w_\tau|^\alpha)<\infty,\qquad
+ \E s_\tau\le s+\E\tau<\infty.
+\]
+At clearing the offset is integer. If $S=s_\tau>0$, its first raw
+return offset $V$ satisfies
+\[
+ \E(|V|^\alpha\mid\mathcal F_\tau)
+       \le r_\alpha^S|w_\tau|^\alpha+b_\infty,
+ \qquad r_\alpha<1,
+\]
+by Lemma~\ref{pair:returnmoments}; if $S=0$, take $V=D_\tau=w_\tau$.
+The integer-boundary reward theorem then gives finite future departure
+mean and finite future coast mean. Integer-state absorption after this
+entry is almost sure. All entry values are selected before fresh future
+bits, so these conditional source estimates apply.
+
+Let $M_{\rm pre}$ count departures starting before $\tau$, and
+$M_{\rm post}$ the subsequent departures. An excursion straddling
+$\tau$ is not recounted. With $R_0$ the initial positive-level return
+from $S$ (zero for $S=0$), the future decomposition is
+\[
+ A=\tau+R_0+C_{\rm post}+\sum_{i\le M_{\rm post}}R_i.
+\]
+The initial-return specialization \eqref{renew:initial-return} applies with integrable $S$, finite
+future count and coast means, and negligible prefix $\tau$.
+It gives coefficient $c\E(S+M_{\rm post})$, $c=2/\sqrt\pi$;
+the initial return uses domination $CS/\sqrt t$, and every later
+charged interval is a standard integer departure. No product moment
+or second count moment is required.
+
+The exact level-minus-departure martingale, stopped at $\tau\wedge n$,
+gives $\E S=s+\E M_{\rm pre}$ after dominated convergence:
+its absolute stopped value is at most $s+2\tau$ and $\E\tau<\infty$.
+Since $M=M_{\rm pre}+M_{\rm post}$ and $M_{\rm pre}\le\tau$,
+the asserted coefficient and finite count mean follow. Positivity is
+immediate at $s>0$. At level zero a nonzero offset has a finite even
+coast followed by a genuine departure.
+
+For initial level zero, the first-clock identity of
+Lemma~\ref{ordinary:exactclock} and original-root parity fairness in
+\eqref{ordinary:parities} use the literal kernel and Haar translation
+for every fixed two-adic shift. The stopped concentration and ordinary
+squeeze of Theorem~\ref{ordinary:tail} therefore transfer the triadic
+shortcut coefficient to both ordinary clocks.
+Outside the domain no balanced witness exists. At a fixed ordinary time $j$,
+an unbalanced meeting on a fixed pair of realizing words has unequal
+affine slopes $3^j/6^{H_1}\ne3^j/6^{H_2}$, so it fixes at most one two-adic root. There are finitely
+many words at each time and countably many times; their union is Haar-null.
+\end{proof}
+
+The harmonic-prefix proof extends to triadic offsets. Away from absorption,
+the function $h_{\rm cap}(s,D)=s+\E_{s,D}M$ is finite and its drift cancellation
+remains valid. Every fixed history has only finitely many triadic
+successors, so the proof of Theorem~\ref{harm:law} applies.
+
+The earlier raw-kernel analysis already identifies the carrier
+$\Z\times\Z[1/3]$. Here the scalar capacity determines the exact
+absorption domain and its physical coefficient. The domain includes $d=1/3$ and excludes
+$d=1/5$. The result keeps each offset fixed and gives no empirical
+Brownian law for positive rational starting values.
+
+% ---- exact/ordinary ----
+\section{The first ordinary meeting clock}\label{sec:ordinary}
+
+For the original adjacent roots $a,b=a+1$, use the ordinary clocks
+$B$ and $U$ of Section~\ref{sec:intro}, including for deterministic
+integer realizations.
+
+\begin{lemma}[Exact first balanced ordinary clock]\label{ordinary:exactclock}
+For distinct integer or $2$-adic roots $a,b=a+d$ with $d\ne0$, $B<\infty$ if and only
+if $A<\infty$. On this event,
+\[
+ B=A+o_A(a)-1=A+o_A(b)-1,
+ \qquad H(a,B)=H(b,B)=A-1,
+ \qquad A\le B\le2A-1.
+\]
+On this event the first unrestricted ordinary meeting satisfies $U=B$.
+Writing $\tau_h(x)=h+o_h(x)$ for the completed-grid time, one also has
+\[
+ A\le h\Longrightarrow B\le\tau_h(a)-1,
+ \qquad h<A<\infty\Longrightarrow B\ge\tau_h(a).
+\]
+\end{lemma}
+\begin{proof}
+Inspection of the six canonical rows shows that a first transition into
+$(0,0)$ is necessarily the down-step from $(1,1)$ with odd oriented base
+$X$. Set $h=A-1$. Immediately before this transition the other entry is
+$Y=3X+1$, which is even. The signed odd-count identity through swaps says
+that the root represented by $Y$ has one more odd shortcut branch than
+the root represented by $X$. Write their counts at height $h$ as $q+1$
+and $q$. Their completed ordinary grids end at times $h+q+1$ and $h+q$.
+At time $h+q+1$ the latter trajectory has taken its next ordinary odd
+branch and is at $3X+1=Y$, while the former is at its completed endpoint
+$Y$. Each has $h$ halvings and $q+1$ odd branches. Completing the next
+halving gives shortcut absorption at height $A$, with common odd count
+$o_A(a)=o_A(b)=q+1$. Thus a balanced merger occurs at $A+o_A(a)-1$.
+
+Conversely, suppose a balanced ordinary merger exists and take its first
+time $B$. Put $H=H(a,B)=H(b,B)$ and $R=B-H$. Its final branches cannot
+both be even or both be odd: injectivity on either parity class would
+give equal penultimate endpoints, and deleting equal branch types would
+preserve equal counts, contradicting firstness. Thus the final branches
+are mixed. The odd-final path has odd penultimate value $u$ and common
+endpoint $y=3u+1$. At shortcut height $H$ this path has endpoint $u$ and
+odd count $R-1$, while the even-final path has endpoint $y$ and odd count
+$R$. Since $y$ is even, one further shortcut step gives equal endpoints
+$y/2$ and equal odd counts $R$. The dictionary implies $A\le q:=H+1$.
+If $A<q$, monotonicity of original odd counts and the merger constructed
+above give a balanced merger at
+\[
+ A+o_A(a)-1\le q+o_q(a)-2=B-1,
+\]
+a contradiction. Hence $A=q$ and $B=A+o_A(a)-1$, with $H=A-1$.
+Finally $1\le o_A(a)\le A$. Nothing in this argument uses positivity
+or an ordering on the roots.
+
+After any ordinary meeting, endpoints and branch types coincide forever,
+so the difference of the two halving counts remains constant. Since it
+is zero at $B$, it was already zero at $U\le B$, proving $U=B$.
+Finally $\tau_h$ is strictly increasing with increments one or two.
+Thus $B=\tau_A(a)-1$ gives both displayed comparisons. If $A=\infty$,
+the equivalence already proved gives $B=\infty$.
+\end{proof}
+
+\begin{lemma}[Original-root parities under the full revealed history]
+\label{ordinary:parities}
+Under Haar initial law, each original trajectory's shortcut odd indicators
+are iid Bernoulli$(1/2)$. Let $\mathcal F_h$ be the sigma-field generated by the canonical
+labels through $h-1$, together with the symbolic states, orientations,
+swaps, counts, and absorption flags determined by those labels.
+Then each original root's next odd indicator is conditionally fair
+ given $\mathcal F_h$.
+\end{lemma}
+\begin{proof}
+The current oriented-base parity $\epsilon_h$ is fresh and fair given
+$\mathcal F_h$. If a fixed original root is currently the base, its parity
+is $\epsilon_h$. If it is the second entry, its parity is
+$\epsilon_h\mathbin{\mathrm{xor}}(D_h\bmod2)$, since $3^{s_h}$ is odd.
+Which case applies and $D_h\bmod2$ are $\mathcal F_h$-measurable.
+Thus the original-root parity is a predictable permutation of the next
+fair bit. Conditional fairness gives the iid claim by induction. Retaining
+the common base after absorption proves the assertion at all heights.
+The two original parity sequences are not claimed independent of each
+other, and the entire current $2$-adic base is not included in the
+revealed-history sigma-field.
+\end{proof}
+
+\begin{lemma}[Joint stopped-time concentration]\label{ordinary:concentration}
+For $0<\delta<1/2$ and integer $n\ge0$,
+\[
+ \PP\bigl(A>n,\ |o_A(a)-A/2|>\delta A\bigr)
+ \le \frac{2e^{-2\delta^2(n+1)}}{1-e^{-2\delta^2}}.
+\]
+The same bound applies to the event that the deviation occurs at any
+integer height $h>n$. In particular, $\delta=n^{-1/4}$ (for $n>16$) makes the bound
+$O(\sqrt n\,e^{-2\sqrt n})=o(n^{-1/2})$ as $n\to\infty$.
+\end{lemma}
+\begin{proof}
+Hoeffding's inequality and Lemma~\ref{ordinary:parities} give
+$\PP(|o_h(a)-h/2|>\delta h)\le2e^{-2\delta^2h}$.
+Sum this over $h>n$. Almost-sure finiteness of $A$ makes the stopped-time
+event a subset of this union. No independence from $A$ is used.
+\end{proof}
+
+\begin{theorem}[Exact ordinary meeting tail]\label{ordinary:tail}
+Under Haar initial law,
+\[
+ \sqrt t\,\PP(B>t)\longrightarrow\sqrt{\frac32}\,\kappa,
+ \qquad
+ \sqrt t\,\PP(U>t)\longrightarrow\sqrt{\frac32}\,\kappa.
+\]
+In fact $U=B$ on $\{A<\infty\}$, and hence Haar-almost surely.
+\end{theorem}
+\begin{proof}
+Set $\delta_t=t^{-1/4}$, and let $E_t$ be the event that
+$|o_h(a)-h/2|>\delta_t h$ at some integer $h>\lfloor t/2\rfloor$.
+The preceding geometric bound gives
+$\PP(E_t)=O(\sqrt t\,e^{-\sqrt t})=o(t^{-1/2})$.
+The bound $B\le2A-1$ implies that $B>t$ forces $A>\lfloor t/2\rfloor$.
+Outside $E_t$, at such an absorption height,
+\[
+ (3/2-\delta_t)A-1\le B\le(3/2+\delta_t)A-1.
+\]
+Therefore, for all sufficiently large $t$,
+\begin{align*}
+ \PP\left(A>\frac{t+1}{3/2-\delta_t}\right)-\PP(E_t)
+ &\le\PP(B>t)\\
+ &\le\PP\left(A>\frac{t+1}{3/2+\delta_t}\right)+\PP(E_t).
+\end{align*}
+Both thresholds divided by $t$ tend to $2/3$. The established asymptotic
+$\sqrt h\,\PP(A>h)\to\kappa$, applied to their integer parts, proves
+the first assertion.
+
+Lemma~\ref{ordinary:exactclock} gives $U=B$ on finite absorption.
+Almost-sure Haar absorption therefore proves the second tail assertion.
+\end{proof}
+
+\begin{remark}[The exceptional roots and the positive-root transfer]
+The equality $U=B$ has an almost-sure, rather than unrestricted pointwise,
+scope. The adjacent $2$-adic roots $a=-8/5$, $b=-3/5$ satisfy
+$C(a)=a/2=-4/5=3b+1=C(b)$ at time one with unequal halving counts.
+Hence $U=1$ but $B=A=\infty$.
+
+For deterministic integer roots, $\{B\le k\}$ is decided by the first
+$k$ canonical labels because $A\le B$ and $o_A$ is revealed at absorption.
+It therefore has exact cylinders modulo $2^k$. For positive roots,
+$C^j(x)\ge x/2^{H(x,j)}$; since the first balanced merger has $A-1$
+halvings, $x>2^{A-1}$ ensures that its entire prefix stays strictly above
+one. These facts preserve the before-one clause needed for Gao's predicate.
+\end{remark}
+\begin{corollary}[Every fixed integer offset]\label{ordinary:fixedoffset}
+For each fixed nonzero $d\in\Z$, start the Haar pair from $(x,x+d)$,
+and let $A_d,B_d,U_d,M_d$ denote its corresponding clocks and departure
+count. Then
+\[
+ 1\le\E M_d<\infty,\qquad
+ \kappa_d:=\frac{2\E M_d}{\sqrt\pi}.
+\]
+\begin{align*}
+ \sqrt t\,\PP(A_d>t)&\longrightarrow\kappa_d,\\
+ \sqrt t\,\PP(B_d>t)&\longrightarrow\sqrt{3/2}\,\kappa_d,\\
+ \sqrt t\,\PP(U_d>t)&\longrightarrow\sqrt{3/2}\,\kappa_d.
+\end{align*}
+The equality of the ordinary tails is an almost-sure equality of their
+clocks. No uniform asymptotic as $d$ grows with $t$ is asserted.
+\end{corollary}
+\begin{proof}
+Lemma~\ref{pair:rewards} applies to every integer boundary offset $d$.
+A nonzero initial even offset has a finite
+coast of exactly $v_2(d)$ steps and cannot be absorbed during it; thus
+$M_d\ge1$ and the total coast still has finite mean. The decomposition
+$A_d=\sum_{i\le M_d}R_i+C_{\mathrm{coast}}$ and
+Lemma~\ref{renew:weighted}, with unit weight at each departure,
+now apply with this initial law. Each
+realized departure remains one fixed signed odd integer and has the same
+excursion coefficient and uniform domination.
+
+The first-clock identity, predictable parity permutation, and the argument
+that $U=B$ on finite absorption use only distinct roots with initial level
+zero. They apply verbatim to $(x,x+d)$. The stopped parity concentration
+therefore transfers $\kappa_d$ to both ordinary clocks.
+\end{proof}
+
+% ---- exact/populations ----
+\section{One transfer to finite integer populations}\label{sec:population}
+
+All population estimates below use the same counting fact. Its error
+retains the size of the selected residue set.
+
+\begin{lemma}[Periodic-set discrepancy]\label{pop:periodic}
+Let $E\subseteq\Z$ be a union of $K$ classes modulo $Q\ge1$, and put
+$p=K/Q$. For any interval $I$ of $N$ consecutive integers,
+\[
+ \left|\frac{\#(I\cap E)}N-p\right|\le\frac{Qp(1-p)}N,
+ \qquad
+ \frac{\#(I\cap E)}N\le(1+Q/N)p.
+\]
+For a complete union of periods the discrepancy is zero.
+\end{lemma}
+\begin{proof}
+Write $N=\ell Q+r$, $0\le r<Q$. Complete periods contribute $\ell K$.
+The remaining interval contains $a$ selected residues with
+$\max(0,r-(Q-K))\le a\le\min(r,K)$. Hence
+$a-rp\le K(1-p)$; applying the same inequality to the complementary
+residues gives $rp-a\le(Q-K)p=K(1-p)$. Division by $N$ proves both bounds.
+\end{proof}
+
+\begin{proposition}[Exact absorption-cylinder discrepancy]\label{pop:discrepancy}
+Let $B_t$ be the positive integer starts whose adjacent pair has not
+undergone balanced shortcut absorption by height $t$. For every interval
+$I$ of $N$ consecutive positive integers and every integer $t\ge0$,
+\begin{equation}\label{eq:population-error}
+ \left|\frac{\#(I\cap B_t)}N-p_t\right|
+ \le\frac{2^tp_t(1-p_t)}N,\qquad p_t=\PP(A>t).
+\end{equation}
+Thus, if $t\to\infty$ and $2^t/N(t)\to0$,
+\[
+ \sqrt t\,\frac{\#(I(t)\cap B_t)}{N(t)}\longrightarrow\kappa.
+\]
+\end{proposition}
+\begin{proof}
+Lemma~\ref{pair:cylinders} identifies exactly $2^tp_t$ nonabsorbed
+classes modulo $2^t$. Apply Lemma~\ref{pop:periodic}. Multiplication of
+its error by $\sqrt t$ leaves at most
+$(2^t/N)\sqrt t\,p_t\to0$, by the shortcut assertion of
+Theorem~\ref{thm:exact}.
+\end{proof}
+For complete periods this gives the exact residue identity
+\eqref{eq:duran-law}, hence the sequence asymptotic
+\eqref{eq:sequence-asymptotic}, without a population-size restriction.
+The same discrepancy bound holds for every fixed or specified integer
+offset $d$, with $p_t$ replaced by $S_t(d)$.
+
+\subsection{Gao's dyadic population}\label{sec:gao}
+
+\begin{lemma}[Ordinary balanced cylinders]\label{gaoexact:cylinders}
+For every integer $k\ge0$, the event $B(n)\le k$ is a union of residue
+classes modulo $2^k$. Its earliest witness, the ordinary parity words
+through time $k$, and their branch counts are fixed on each class. Thus,
+with $Q_k=\PP(B>k)$,
+\[
+ \#\{0\le n<2^k:B(n)>k\}=2^kQ_k.
+\]
+\end{lemma}
+\begin{proof}
+A canonical word of length $k$ fixes both original shortcut parity words
+through height $k$, by tracking orientation and the offset parity.
+Expanding these words fixes both ordinary words through time $k$.
+If $A>k$, then $B>k$ by Lemma~\ref{ordinary:exactclock}; otherwise the
+word fixes $A$ and $o_A$, hence $B=A+o_A-1$ and all branch counts.
+Lemma~\ref{pair:cylinders} gives one such word per residue modulo $2^k$
+and Haar mass $2^{-k}$ per class. Endpoint values themselves may vary
+between lifts; the witness and its counts do not.
+\end{proof}
+
+\begin{lemma}[Exponentially sparse visits to one]\label{gaoexact:one}
+Let $F_0=0$, $F_1=1$ and $F_{j+2}=F_{j+1}+F_j$. For every integer $k\ge0$,
+\[
+ \#\{x\ge1:\exists j\le k,\ C^j(x)=1\}\le F_{k+3}-1.
+\]
+\end{lemma}
+\begin{proof}
+An ordinary odd branch is followed by an even branch when the next branch
+is present. Words of length $j$ without consecutive odd branches number
+$F_{j+2}$, by their final symbols. A first visit to one at time $j\ge1$
+has final even branch, because two is its unique positive preimage. Its
+preceding word therefore has at most $F_{j+1}$ possibilities. The affine
+map for a fixed word has nonzero slope $3^R/2^H$, so at most one positive
+preimage of one. Including the start one and summing over first hitting
+times gives $1+\sum_{j=1}^kF_{j+1}=F_{k+3}-1$.
+\end{proof}
+
+\begin{proposition}[Exact Gao adapter]\label{gaoexact:adapter}
+For Gao's strict interval $1\le n<2^k-1$, denominator $2^k$, and balanced
+merger by $k$ before either trajectory visits one through that merger,
+\[
+ 0\le(1-\bar d_k)-Q_k\le 2^{1-k}F_{k+3}
+ =O((\varphi/2)^k),\qquad \varphi=(1+\sqrt5)/2.
+\]
+Consequently $\sqrt k(1-\bar d_k)\to\sqrt{3/2}\,\kappa$.
+\end{proposition}
+\begin{proof}
+The complete period contains $2^k(1-Q_k)$ balanced successes. Gao removes
+the two starts $0,2^k-1$. Any further lost success has one of its roots
+visit one by time $k$. Lemma~\ref{gaoexact:one} bounds these losses by
+$2(F_{k+3}-1)$, so the total loss is at most $2F_{k+3}$. Divide by $2^k$.
+The resulting exponentially small error and Theorem~\ref{ordinary:tail}
+give the limit.
+\end{proof}
+
+\subsection{All integer cutoffs and the logarithmic deadline}
+
+The predicate $\mathcal G$ permits an unrestricted ordinary meeting by
+$\lfloor\log_2n\rfloor$. Unlike Gao's predicate it imposes neither
+balanced counts nor a before-one condition. The following affine count
+pays for unbalanced meetings directly.
+
+\begin{lemma}[Bad original parity residues]\label{gaoexact:bad}
+For $0<\delta<1/2$, put
+\[
+ E_h(\delta)=\{n\ge0:|o_h(n)-h/2|\ge\delta h
+            \text{ or }|o_h(n+1)-h/2|\ge\delta h\}.
+\]
+For integers $N,h\ge1$,
+\[
+ \frac{\#(E_h(\delta)\cap[0,N))}N
+ \le4(1+2^h/N)e^{-2\delta^2h}=:e_h(N,\delta).
+\]
+\end{lemma}
+\begin{proof}
+Original parities are conditionally fair by Lemma~\ref{ordinary:parities}.
+Hoeffding's bound and a union bound give Haar probability at most
+$4e^{-2\delta^2h}$; no independence between the two roots is required.
+The first $h$ canonical labels fix both original parity words, so this
+is a union of classes modulo $2^h$. The upper bound of
+Lemma~\ref{pop:periodic} proves the stated integer estimate.
+\end{proof}
+
+\begin{lemma}[Localized unbalanced meetings]\label{gao:unbalanced-count}
+For integers $k,h\ge1$, let $L_{k,h}$ be the positive starts with
+$\tau_h(n)>k$, $\tau_h(n+1)>k$ and an ordinary meeting at some
+$1\le j\le k$ with unequal halving counts. Then $\#L_{k,h}\le k2^h$.
+\end{lemma}
+\begin{proof}
+The first $h$ shortcut words are fixed on each residue modulo $2^h$.
+On a class where both completed-grid times exceed $k$, these words fix
+both ordinary words through $k$: fewer than $h$ complete blocks have
+finished, and a possible final odd branch belongs to a block among the
+first $h$. At a fixed $j\le k$, the endpoint maps in the common variable
+$n$ have slopes $3^j/6^{H_1}$ and $3^j/6^{H_2}$. Unequal halving counts
+make these slopes distinct. Their equality has at most one real solution,
+hence at most one positive lift in that residue. Sum over the $2^h$
+residues and $k$ times.
+\end{proof}
+
+\begin{lemma}[Deadline comparisons]\label{gaoexact:deadline}
+\begin{enumerate}
+\item If $n>2^{h-1}$, $A(n)\le h$, $n\notin E_h(\delta)$, and
+$(3/2+\delta)h\le\lfloor\log_2n\rfloor$, then $n\in\mathcal G$.
+Its first balanced witness also precedes either root's visit to one.
+\item If $n\ge1$, $A(n)>h$, $n\notin E_h(\delta)$, and
+$(3/2-\delta)h>k\ge\lfloor\log_2n\rfloor$, no balanced merger
+occurs by $k$. Any witness to $n\in\mathcal G$ belongs to $L_{k,h}$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+In the first case, Lemma~\ref{ordinary:exactclock} gives
+$B(n)\le\tau_h(n)-1<(3/2+\delta)h$. Each prefix value on either root
+is at least $n/2^{A(n)-1}>1$, since each path has at most $A(n)-1$
+halvings through $B(n)$.
+In the second case the same dictionary gives
+$B(n)\ge\tau_h(n)\ge(3/2-\delta)h>k$, interpreting $B=\infty$
+when $A=\infty$. Good parities give $\tau_h(n+1)>k$ as well, so any
+remaining deadline witness is one of the counted unbalanced meetings.
+\end{proof}
+
+\begin{theorem}[Exact logarithmic deficiency]\label{gaoexact:loglimit}
+For integer cutoffs $N\to\infty$,
+\[
+ \sqrt{\log_2N}\,f_N\longrightarrow\sqrt{3/2}\,\kappa.
+\]
+\end{theorem}
+\begin{proof}
+Write $L=\log_2N$, $k=\lfloor L\rfloor$. Fix $0<\varepsilon<1/6$ and set
+\[
+ a_\pm=2/3\pm\varepsilon,\quad h_\pm=\lfloor a_\pm L\rfloor,
+ \quad\delta=\varepsilon/4,\quad R_N=\lceil N/L^2\rceil.
+\]
+One has $(3/2+\delta)a_-<1<(3/2-\delta)a_+$. For sufficiently large
+$N$ the linear margins dominate rounding and $2\log_2L$, so
+\[
+ (3/2-\delta)h_+>k,\qquad
+ (3/2+\delta)h_-\le\lfloor L-2\log_2L\rfloor.
+\]
+For $n\ge R_N$ the latter bound is at most $\lfloor\log_2n\rfloor$,
+and $R_N>2^{h_--1}$. Apply Lemma~\ref{gaoexact:deadline}, the absorption
+discrepancy of Proposition~\ref{pop:discrepancy}, the bad-word estimate,
+and the $k2^{h_+}$ unbalanced-witness count. Discard $[0,R_N)$ for the
+upper bound. Zero belongs to the complement for the lower bound. This gives
+\[
+ S_{h_+}(1)-\frac{(k+1)2^{h_+}}N-e_{h_+}(N,\delta)
+ \le f_N\le
+ S_{h_-}(1)+\frac{2^{h_-}}N+e_{h_-}(N,\delta)+\frac{R_N}N.
+\]
+For fixed $\varepsilon$, each error is $o(L^{-1/2})$: the cylinder errors
+are $O(L2^{-(1-a_+)L})$, the parity errors decay exponentially in $L$,
+and $R_N/N\le L^{-2}+N^{-1}$. The shortcut tail therefore gives
+\[
+ \frac{\kappa}{\sqrt{2/3+\varepsilon}}
+ \le\liminf\sqrt L\,f_N\le\limsup\sqrt L\,f_N
+ \le\frac{\kappa}{\sqrt{2/3-\varepsilon}}.
+\]
+Let $\varepsilon\downarrow0$. This proof uses the unequal-slope count,
+with no pointwise deadline bridge as a premise.
+\end{proof}
+
+\begin{remark}[The before-one endpoint convention]
+Gao excludes one in the ``first $k$ iterations'' \cite[p.~264]{Gao1993}.
+If the forbidden prefix omits the merger endpoint, the existence predicate
+is unchanged: a balanced merger at one has previous endpoints two on both
+paths, since two is the unique positive preimage of one. Deleting that
+last halving preserves both endpoint equality and balanced counts and
+gives an earlier merger strictly above one. The finite adapter error is
+also valid if forbidden visits are read over the entire horizon $k$.
+\end{remark}
+
+% ---- exact/descent ----
+\section{Early merger and published descent witnesses}\label{sec:windows}
+
+The exact laws also provide short synchronized applications of Korec's
+and Tao's published singleton theorems. We first obtain the merger set,
+then transfer either descent witness by one deterministic ordering argument.
+Natural density one means complement counting function $o(N)$;
+logarithmic density one means complementary harmonic sum $o(\log N)$.
+
+\begin{lemma}[Finite block counts]\label{pop:blockcounts}\label{lem:window-count}
+Let $I$ consist of $N$ consecutive positive anchors and let $h\ge1$.
+For an integer $H\ge0$, the number of anchors whose block
+$n,\ldots,n+H$ has an adjacent edge unabsorbed at height $h$ is at most
+\[
+ H\bigl(NS_h(1)+2^hS_h(1)(1-S_h(1))\bigr).
+\]
+Every other block agrees at ordinary time $2h$ and all later times.
+For $H\ge1$, put
+\[
+ r_{H,h}(n)=\frac1H\#\{0\le d<H:C^{2h}(n+d)\ne C^{2h}(n)\}.
+\]
+For an absolute constant $C_0$ supplied by Theorem~\ref{pair:uniform-tail},
+\[
+ \frac1N\sum_{n\in I}r_{H,h}(n)
+ \le C_0\sqrt{\frac{1+\log H}{h}}+\frac{2^h}{N}.
+\]
+\end{lemma}
+\begin{proof}
+For each adjacent edge, its translated anchors form an interval of exactly
+$N$ integers. Proposition~\ref{pop:discrepancy} bounds the nonabsorbed
+count on that interval. Sum over the $H$ edges. Absorbed pairs agree by
+ordinary time $2h$ by Lemma~\ref{ordinary:exactclock}, hence still agree
+at $2h$; equality along the edges synchronizes the whole block.
+
+For each $1\le d<H$, disagreement at time $2h$ implies nonabsorption
+at height $h$. The offset version of the same discrepancy bounds its
+count by $NS_h(d)+2^h$. Theorem~\ref{pair:uniform-tail} gives
+$S_h(d)\le C_0\sqrt{(1+\log(1+d))/h}$, and $1+d\le H$.
+The term $d=0$ is zero. Average these bounds over $d$ and divide by $N$.
+No independence of edges or offsets is used.
+\end{proof}
+
+\begin{lemma}[Two early-merger regimes]\label{lem:early}
+Fix $0<\delta<1$ and set $M_j=2\lfloor\delta j\rfloor$.
+\begin{enumerate}
+\item For every prescribed integer-valued $L(n)\ge0$ with
+$L(n)=o(\sqrt{\log n})$, a set of natural density one has
+\[
+ C^{M_j}(n+d)=C^{M_j}(n)\quad(0\le d\le L(n)),
+ \qquad 2^j\le n<2^{j+1}.
+\]
+\item For prescribed integers $H_j\ge1$ with $\log H_j=o(j)$, there
+are $\varepsilon_j\to0$ and a set of natural density one on which
+\[
+ \#\{0\le d<H_j:C^{M_j}(n+d)=C^{M_j}(n)\}
+ \ge(1-\varepsilon_j)H_j.
+\]
+\end{enumerate}
+The assertions hold for all sufficiently large anchors in their sets.
+\end{lemma}
+\begin{proof}
+Write $X=2^j$, $h=\lfloor\delta j\rfloor$. For the first assertion let
+$H_j=\max_{X\le n<2X}L(n)$. The hypothesis gives $H_j=o(\sqrt j)$,
+without a monotonicity assumption on $L$. Lemma~\ref{pop:blockcounts}
+and $S_h(1)=O(h^{-1/2})$ show that the defective fraction is at most
+\[
+ H_j\bigl(S_h(1)+2^{h-j}\bigr)=o(1).
+\]
+For the second assertion the same lemma bounds the mean omitted fraction by
+\[
+ a_j=C_0\sqrt{\frac{1+\log H_j}{\lfloor\delta j\rfloor}}
+             +2^{\lfloor\delta j\rfloor-j}\longrightarrow0.
+\]
+Markov's inequality with $\varepsilon_j=\sqrt{a_j}$ gives defective
+fraction at most $\varepsilon_j$; assign the finitely many initial
+$\varepsilon_j$ arbitrarily.
+
+In either case the defective fraction tends to zero in full dyadic shells.
+Their union has natural density zero: if each shell beyond a fixed index
+has at most $\eta2^j$ defects, summing through the shell containing an
+arbitrary cutoff $N$ bounds its counting function by a finite prefix plus
+$2\eta N$. Let $\eta\downarrow0$. Equality persists after $M_j$.
+\end{proof}
+
+\begin{lemma}[Early-merger witness transfer]\label{descent:transfer}
+Suppose a natural-density-one set $E$ has, for each sufficiently large
+$n\in E$, a nonnegative integer merger time $m(n)$ and a finite set of offsets
+$D(n)\subseteq\N$ containing zero such that
+\[
+ C^{m(n)}(n+d)=C^{m(n)}(n)\quad(d\in D(n)).
+\]
+Let $v(n)>0$ satisfy $v(n)\le n2^{-m(n)}$ eventually. Suppose a set $W$
+of natural or logarithmic density one supplies an ordinary witness
+$t(n)$ with $C^{t(n)}(n)<v(n)$. Then a set of that same density has
+\[
+ t(n)>m(n),\qquad C^{t(n)}(n+d)=C^{t(n)}(n)<v(n)\quad(d\in D(n)).
+\]
+Any upper deadline for the singleton witness remains valid.
+\end{lemma}
+\begin{proof}
+For every positive start, $C^i(n)\ge n2^{-i}$ by induction. Thus for
+$i\le m(n)$ its value is at least $n2^{-m(n)}\ge v(n)$, forcing
+$t(n)>m(n)$. Equality at merger persists until that witness time.
+The intersection $E\cap W$ has natural density one when $W$ does.
+If $W$ has logarithmic density one, the same holds for the intersection:
+for a set with counting function $A(x)=o(x)$, partial summation gives
+\[
+ \sum_{\substack{n\le N\\n\in A}}\frac1n
+ =\frac{A(N)}N+\int_1^N\frac{A(x)}{x^2}\,dx=o(\log N).
+\]
+So the natural-density-zero complement of $E$ has logarithmic density zero.
+\end{proof}
+
+\begin{corollary}[Synchronized Korec descent]\label{thm:power-window}\label{cor:majority-power}
+Fix $\log_4 3<c<1$. For every prescribed integer-valued $L(n)\ge0$
+with $L(n)=o(\sqrt{\log n})$,
+natural-density-almost every positive $n$ admits a positive value $y<n^c$
+and one ordinary time $t\le2\log_2n$ with
+\[
+ C^t(n+d)=y\qquad(0\le d\le L(n)).
+\]
+For every shellwise integer schedule $H_j\ge1$ with $\log H_j=o(j)$, the same
+conclusion holds for at least $(1-\varepsilon_j)H_j$ members of
+$[n,n+H_j)$, including its anchor, where $\varepsilon_j\to0$ and the
+set of anchors has natural density one.
+\end{corollary}
+\begin{proof}
+Korec's published theorem supplies natural-density-almost every $n$ with
+$T^r(n)<n^c$ for some integer $0\le r\le\log_2n$
+\cite[Theorem~1 and pp.~86--88]{Korec1994}. The deadline is retained from
+his construction: successful inputs satisfy $r=m$ and $m2^m<n$.
+Expanding the shortcut word gives ordinary time $t=r+o_r(n)\le2r$.
+
+Choose $0<\delta<(1-c)/2$ and use the relevant regime of
+Lemma~\ref{lem:early}, with $m(n)=M_j$. Since $M_j\le2\delta\log_2n$,
+\[
+ n2^{-M_j}\ge n^{1-2\delta}>n^c\qquad(n>1).
+\]
+Apply Lemma~\ref{descent:transfer} with $v(n)=n^c$ and with $D(n)$ either
+the whole prescribed block or the offsets already equal to its anchor.
+This preserves Korec's density and the displayed ordinary deadline.
+\end{proof}
+
+\begin{corollary}[Synchronized Tao descent]\label{thm:window}\label{descent:majority-tao}
+For every $f(n)\to+\infty$ and every prescribed integer-valued $L(n)\ge0$
+with $L(n)=o(\sqrt{\log n})$, logarithmic-density-almost every positive $n$
+admits one ordinary time $t$ and positive value $y<f(n)$ with
+\[
+ C^t(n+d)=y\qquad(0\le d\le L(n)).
+\]
+For every shellwise integer $H_j\ge1$ with $\log H_j=o(j)$, at least
+$(1-\varepsilon_j)H_j$ members of $[n,n+H_j)$ share such a $y$ at one
+time, including the anchor, on a set of anchors of logarithmic density one.
+In both cases the witness follows the merger deadline
+$2\lfloor j/4\rfloor$, where $2^j\le n<2^{j+1}$.
+\end{corollary}
+\begin{proof}
+Tao's published Theorem~1.3 gives, for every real-valued $u(n)\to+\infty$,
+a logarithmic-density-one set of positive starts with an ordinary iterate
+strictly below $u(n)$ \cite{Tao2022}. Use
+$u(n)=\min\{f(n),n^{1/4}\}$ and Lemma~\ref{lem:early} with $\delta=1/4$.
+Its merger deadline satisfies $M_j\le(\log_2n)/2$, so
+$n2^{-M_j}\ge\sqrt n\ge u(n)$ eventually. Apply
+Lemma~\ref{descent:transfer} with $v=u$. Tao supplies no upper deadline
+for this small-value witness, and none is asserted here.
+\end{proof}
+
+The every-member blocks use adjacent edges; the larger blocks average
+fixed offsets and omit a vanishing fraction. For example,
+$H_j=\lceil\exp(\sqrt j)\rceil$ permits $\varepsilon_j=O_\delta(j^{-1/8})$.
+The singleton imports supply the descent thresholds and densities;
+the pair laws supply synchronization. These applications retain exceptional
+anchors and, in the larger regime, omitted members.
+
+% ---- exact/closing ----
+\section{Scope and open questions}\label{sec:scope}
+The tail laws concern Haar or fresh-label laws; the population conclusions
+use exact integer cylinders. They give no merger or termination theorem
+for every positive integer. A pair may share a nontrivial cycle or an
+unbounded future. The growing-block descent applications preserve the
+density and witness deadline of their published singleton inputs.
+
+The proof uses fixed observer precision and gives no effective remainder
+or numerical value of $\E M$. The harmonic capacity concerns fixed states
+and fixed histories. The triadic obstruction is pointwise, whereas its
+absorption sufficiency uses fair labels.
+
+\subsection*{Assurance of the results and their inputs}
+All proofs in this paper are written in full and have been independently
+reviewed. In addition, the first limit of Theorem~\ref{thm:exact},
+$\sqrt t\,\PP(A>t)\to2\E M/\sqrt\pi$ with $1\le\E M<\infty$, is
+kernel-checked in the author's Lean~4 development, which is not yet
+public, in the following form. The declaration
+\nolinkurl{Collatz.N04CanonicalHaarTail.canonical_haar_absorption_tail}
+states that $\sqrt t$ times the Haar measure of the set of
+$x\in\Ztwo$ whose canonical state started from $(0,1)$ is not absorbed
+at time $\lfloor t\rfloor$ tends to $2c/\sqrt\pi$, where $c$ is the mean
+of the canonical departure count under fair labels;
+\nolinkurl{Collatz.N04HaarDepartureCount.canonical_haar_tail_with_haar_departure_mean}
+shows that $c$ is the Haar mean of the number $M$ of level-zero
+departures along the actual two-adic trajectory, and the bounds
+$1\le\E M<\infty$ are checked in the same development. This is a
+statement about Haar measure on $\Ztwo$, not about integer counts. The
+equality of the canonical absorption time with the balanced merger time
+$A$ is Lemma~\ref{pair:dictionary}, a written proof. The remaining limits of
+Theorem~\ref{thm:exact} and all other results are written proofs only.
+The imported inputs are published: the Terras--Lagarias parity
+correspondence \cite{Terras1976,Lagarias1985}, the reflection principle
+and central binomial estimates \cite{Feller}, Korec's Theorem~1
+\cite{Korec1994} and Tao's Theorem~1.3 \cite{Tao2022}, each used only as
+stated in the cited source. Duran's preprint \cite{Duran2026} and the
+OEIS entry \cite{OEIS398792} are compared with our results and are not
+used in any proof.
+
+Gao's separate question remains open: if adjacent positive starts first
+reach one at the same finite ordinary time, must their halving counts up
+to that time agree? The exact synchronization rates do not settle it.
+Quantitative occupation remainders and computable tail constants are
+further questions suggested by the method.
+
+\begin{thebibliography}{99}
+\bibitem{Feller}
+W.~Feller,
+\emph{An Introduction to Probability Theory and Its Applications},
+vol.~I, third edition, John Wiley \& Sons, New York, 1968.
+
+\bibitem{Gao1993}
+G.-G.~Gao,
+\emph{On consecutive numbers of the same height in the Collatz problem},
+Discrete Math. \textbf{112} (1993), 261--267.
+\href{https://doi.org/10.1016/0012-365X(93)90240-T}
+{doi:10.1016/0012-365X(93)90240-T}.
+
+\bibitem{Duran2026}
+O.~J.~Said Duran,
+\emph{Consecutive integers coalesce with density one under the Collatz map:
+a formally verified proof of a conjecture of Gao},
+Zenodo preprint, version~1, September~27, 2026.
+\href{https://doi.org/10.5281/zenodo.23003524}{doi:10.5281/zenodo.23003524}.
+
+\bibitem{Lagarias1985}
+J.~C.~Lagarias,
+\emph{The $3x+1$ problem and its generalizations},
+Amer. Math. Monthly \textbf{92} (1985), no.~1, 3--23.
+\href{https://doi.org/10.2307/2322189}{doi:10.2307/2322189}.
+
+\bibitem{Terras1976}
+R.~Terras,
+\emph{A stopping time problem on the positive integers},
+Acta Arith. \textbf{30} (1976), 241--252.
+\href{https://doi.org/10.4064/aa-30-3-241-252}{doi:10.4064/aa-30-3-241-252}.
+
+\bibitem{OEIS398792}
+OEIS Foundation Inc.,
+\emph{The On-Line Encyclopedia of Integer Sequences}, entry A398792,
+\url{https://oeis.org/A398792}, accessed October~8, 2026.
+
+\bibitem{Korec1994}
+I.~Korec, \emph{A density estimate for the $3x+1$ problem},
+Math. Slovaca \textbf{44} (1994), no.~1, 85--89,
+\href{https://dml.cz/bitstream/handle/10338.dmlcz/133225/MathSlov_44-1994-1_8.pdf}{primary article}.
+
+\bibitem{Tao2022}
+T.~Tao, \emph{Almost all orbits of the Collatz map attain almost bounded values},
+Forum Math. Pi \textbf{10} (2022), e12,
+\href{https://doi.org/10.1017/fmp.2022.8}{doi:10.1017/fmp.2022.8}.
+
+\bibitem{GaoDensityOne}
+D.~Leen, \emph{Gao's dyadic density-one coalescence conjecture},
+preprint, Zenodo, 2026.
+\url{https://doi.org/10.5281/zenodo.23268762}.
+
+\bibitem{GaoTao}
+D.~Leen, \emph{Quantitative synchronization of Collatz trajectories},
+preprint, Zenodo, 2026.
+\url{https://doi.org/10.5281/zenodo.23268755}.
+
+\bibitem{GeometryCompanion}
+D.~Leen, \emph{Late synchronization and the geometry of Collatz families},
+preprint, Zenodo, 2026.
+\url{https://doi.org/10.5281/zenodo.23268753}.
+
+\bibitem{Umbrella}
+D.~Leen, \emph{The stochastic $3x+1$ model is a theorem: Brownian
+structure of Collatz orbits}, preprint, Zenodo, 2026.
+\url{https://doi.org/10.5281/zenodo.23268765}.
+
+\end{thebibliography}
+\end{document}

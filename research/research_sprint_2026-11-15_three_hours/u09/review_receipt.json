@@ -1,0 +1,70 @@
+{
+  "status": "PASS_ON_PAPER",
+  "recorded_at_utc": "2026-11-15T22:38:07.995905+00:00",
+  "reviewer": "/root/u09_tail_formal_review",
+  "scope": "Semantic source review of two new modules and independent finite dyadic-tail derivation. No new Lean compile, kernel replay, orbit experiment or GPU.",
+  "reviewed_sources": {
+    "lean/CollatzShadowing/FiniteHorizonBudget.lean": {
+      "sha256": "acddcaf114d5a8dff1d118df3fa88f00ab4956e38f987c45e7f5f347bb2dc9a5",
+      "public_theorems": 8
+    },
+    "lean/CollatzShadowing/QuadraticOccupation.lean": {
+      "sha256": "5af51a6b1a263905d324a2f76b9aea3e11b22843c3e293d664ad1d6fc2f0c935",
+      "public_theorems": 8
+    },
+    "lean/CollatzShadowing/OrbitReciprocal.lean": {
+      "sha256": "750ee15525eea3dd9f7ea7cb1a90a9d07425680555949e322251a073c24875e0",
+      "public_theorems": 19
+    },
+    "lean/CollatzShadowing/WordProductEnvelope.lean": {
+      "sha256": "85b5ad253999ac5f6786f203b114511a9418cf6757c02fae69c509d3de4a355b",
+      "public_theorems": 7
+    },
+    "lean/CollatzShadowing/FirstArrivalBudget.lean": {
+      "sha256": "cb9230c960720263a30f910e4acb51101bd3639b7736bbf122a23343db1789c7",
+      "public_theorems": 13
+    }
+  },
+  "semantic_checks": {
+    "finite_horizon_domain_explicit": true,
+    "source_positivity_from_R": true,
+    "fixed_depth_cycles_allowed": true,
+    "nonreturn_shared_budget_requires_nonreturn": true,
+    "quadratic_catalogue_repeated_sources_allowed": true,
+    "quadratic_n_zero_only_empty_catalogue": true,
+    "no_analytic_law_imported": true
+  },
+  "rational_constants": {
+    "q": "3125/3456",
+    "light_q": "27/32",
+    "heavy_coefficient": "19626/331",
+    "light_coefficient": "102/5",
+    "total_coefficient": "135202/1655",
+    "total_less_than_82": true,
+    "terminal_ratio_bound_le_q": true,
+    "light_ratio_le_q": true
+  },
+  "tail_statement": "For every finite injective positive shortcut segment, sum of 1/x over states x >= 2^(5R) is at most ((10R+2)/32^R)+(19626/331)q^R+(102/5)(27/32)^R <= (135202/1655)q^R < 82q^R.",
+  "tail_formalized_in_Lean": false,
+  "bibliography": {
+    "url": "https://rstation.ai/problems/collatz/papers/9/v1",
+    "section": "8.1, Proposition11",
+    "meaning": "Tilted integer Green finiteness and its cyclic extension were already public. The new module is local verification, not a priority claim."
+  },
+  "H_proved": false,
+  "Collatz_proved": false,
+  "finished_at_utc": "2026-11-15T22:39:52.042730+00:00",
+  "note": {
+    "path": "notes/research_sprint_2026-11-15_three_hours/agents/U09_TAIL_AND_SEMANTICS_IT.md",
+    "sha256": "858374ce7d22eb22f8864b92f1698fa620b041c544bce35f4cb41e3c21e2a85b"
+  },
+  "reviewed_originals_still_match": {
+    "lean/CollatzShadowing/FiniteHorizonBudget.lean": true,
+    "lean/CollatzShadowing/QuadraticOccupation.lean": true,
+    "lean/CollatzShadowing/OrbitReciprocal.lean": true,
+    "lean/CollatzShadowing/WordProductEnvelope.lean": true,
+    "lean/CollatzShadowing/FirstArrivalBudget.lean": true
+  },
+  "new_module_public_theorems_reviewed": 16,
+  "note_links_valid": true
+}

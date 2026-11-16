@@ -1,0 +1,15 @@
+{
+  "status": "MINIMUM_RESEARCH_DURATION_SATISFIED",
+  "research_start_utc": "2026-11-15T21:55:33+00:00",
+  "research_stop_utc": "2026-11-16T00:55:52.638276+00:00",
+  "elapsed_seconds": 10819.638276,
+  "requested_minimum_seconds": 10800,
+  "initial_commit": "203cbb868b2ba19e51e16feeede253a42dd821c3",
+  "code_checkpoint": "b20698f854b72e8bbeba0aa9d7c89ad351422dae",
+  "meaning": "Research, proof checking and primary-source comparison completed for at least three wall-clock hours after the initial push. Final Git delivery and CI observation follow this receipt.",
+  "distinct_agents": 15,
+  "maximum_simultaneous_including_root": 4,
+  "new_exploration_stopped": true,
+  "final_report_in_chat_only": true,
+  "PDF_created": false
+}

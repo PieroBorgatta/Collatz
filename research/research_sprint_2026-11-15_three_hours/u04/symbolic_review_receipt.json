@@ -1,0 +1,33 @@
+{
+  "status": "PASS_WITH_DECLARED_SCOPE",
+  "recorded_at_utc": "2026-11-15T23:59:33.731269+00:00",
+  "reviewer": "/root/u04_independent_review",
+  "scope": "Independent paper reconstruction of the U13 own lemmas and calibrated certificate logic; no numerical rerun or broad external symbolic theorem audit.",
+  "results": {
+    "least_counterexample_minimality": "PASS_ALL_DEPTHS",
+    "closed_V_and_VU_certificates": "PASS_UNIT_DOMAIN_DISTINGUISHED",
+    "calibration_of_all_31_to_911_prefixes": "PASS_GLOBAL_VIA_POTENTIAL",
+    "failure_of_raw_factor_closure": "PASS_WEIGHTED_CALIBRATION_PRESERVED",
+    "arbitrarily_long_minimal_prefixes": "PASS_VARIABLE_SOURCES",
+    "bounded_cylinder_representatives": "PASS_POSITIVE_INTEGER_IFF_STABILIZES",
+    "exponential_complexity_protected_language_example": "PASS_CONDITIONAL_ON_CITED_PROTECTION",
+    "external_automatic_morphic_Sturmian_exclusions": "NOT_FULLY_REAUDITED"
+  },
+  "source_snapshots": {
+    "notes/research_sprint_2026-11-15_three_hours/agents/U13_INFINITE_MINIMAL_IT.md": {
+      "sha256": "f3629483d810711afbfc943105e90f8d43636fde76122debf50248219fa4ca57",
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/symbolic_snapshots/U13_INFINITE_MINIMAL_IT.md"
+    },
+    "notes/research_sprint_2026-11-15_three_hours/agents/U13_CALIBRATED_COUNTEREXAMPLE_IT.md": {
+      "sha256": "808d958ccde4bfee9b9ada4261f0887eac7cb96ee408f2228354e5f935b68897",
+      "snapshot": "research/research_sprint_2026-11-15_three_hours/u04/symbolic_snapshots/U13_CALIBRATED_COUNTEREXAMPLE_IT.md"
+    }
+  },
+  "report": "notes/research_sprint_2026-11-15_three_hours/agents/U04_SYMBOLIC_REVIEW_IT.md",
+  "report_sha256": "7948e9092970d3620749a783b11cd14f3f69fbb2bcbf5d58ee269ab457303adf",
+  "experiments_run": false,
+  "build_run": false,
+  "GPU_used": false,
+  "H_proved": false,
+  "Collatz_proved": false
+}

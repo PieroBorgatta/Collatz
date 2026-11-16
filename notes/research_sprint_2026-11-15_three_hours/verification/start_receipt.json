@@ -1,0 +1,14 @@
+{
+  "research_start_utc": "2026-11-15T21:55:33+00:00",
+  "research_stop_not_before_utc": "2026-11-16T00:55:33+00:00",
+  "requested_minimum_seconds": 10800,
+  "initial_commit": "203cbb868b2ba19e51e16feeede253a42dd821c3",
+  "initial_push_verified": true,
+  "branch": "phase10-wip",
+  "initial_status": "",
+  "gpu_authorized_if_needed": true,
+  "runpod_resources_must_be_stopped": true,
+  "external_research_contacts_authorized": false,
+  "new_paper_publication_authorized": false,
+  "final_report": "Very concise, in chat only; no PDF."
+}
