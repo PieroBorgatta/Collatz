@@ -6,6 +6,27 @@ to v4; subsequent working-tree developments are separate from its frozen
 supplementary archive. This working tree targets pinned Lean v4.29.1 and Mathlib
 v4.29.1; portability to later toolchains has not been checked.
 
+**Second conceptual hour, 16 November:** a
+[paired-word construction](../notes/research_ideas_2026-11-16_second_hour/REPORT_IT.md)
+intertwines `12 → 21` and `212 → 113` by the translation `x ↦ x−2`.
+Mixed concatenations retain an actual nearby companion; an attributed
+terminal gate gives a different last parent, with explicit unit repairs.
+A minimum divergent unit seed cannot stay in this infinite block language:
+its first gap must be one, and the companion would give a smaller divergent
+unit seed. No coverage of all exits is proved. An explicit exit family
+shows that bounded observed gaps alone do not bound the pair carry;
+subsequent forced contractions must be accounted for. This is a paper
+deduction using classical paired-word mechanisms, not a new Lean proof or
+a universal novelty claim.
+
+The same hour obtains the finite prefix-free witness upper
+`ΣΓ ≤ bP₀(8/α+1)`, allowing a possible entry into a cycle. It uses the
+external atom floor only on nonperiodic seeds. New literature was read
+through papers149–154; linear chosen resets and linear modular routing
+were already available. None supplies the missing source-specific exit
+coverage or a nonsummable lateral allocation. No computation, build,
+GPU work or formal declaration was added in either conceptual hour.
+
 **Conceptual audit, 16 November:** no new computation or formal declaration
 was added. Ancestor decay already supplied by Valbuena and
 [paper12](https://rstation.ai/problems/collatz/papers/12) gives nonatomicity

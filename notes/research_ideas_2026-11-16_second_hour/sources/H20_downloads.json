@@ -1,0 +1,22 @@
+[
+  {
+    "paper_id": "collatz_153",
+    "version": 1,
+    "url": "https://rstation.ai/api/v1/papers/collatz_153/versions/1/download",
+    "sha256": "3f0d86f2e7e367c1e094c822694a0b49806b4421935ce5eaca1daf1ebc8af11d",
+    "bytes": 24981,
+    "temporary_path": "/tmp/collatz_h20_p153_v1.md",
+    "checked_at_utc": "2026-11-16T13:43:22.448255+00:00",
+    "license": "No license verified; full text retained only in temporary directory; repository contains metadata and original notes."
+  },
+  {
+    "paper_id": "collatz_151",
+    "version": 2,
+    "url": "https://rstation.ai/api/v1/papers/collatz_151/versions/2/download",
+    "sha256": "0c28412dc92d58730904925a54502b5586b2f418718d1adba31e8d0e4838ecbc",
+    "bytes": 33907,
+    "temporary_path": "/tmp/collatz_h20_p151_v2.md",
+    "checked_at_utc": "2026-11-16T13:43:23.334500+00:00",
+    "license": "No license verified; full text retained only in temporary directory; repository contains metadata and original notes."
+  }
+]

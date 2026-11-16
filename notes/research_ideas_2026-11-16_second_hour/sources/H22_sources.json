@@ -1,0 +1,150 @@
+{
+  "date": "2026-11-16",
+  "agent": "h2_literature",
+  "mode": "primary-source reading and paper reasoning only",
+  "no_experiments_builds_gpu": true,
+  "standing_warning": "Platform acceptance and author verification are not independent formal replay.",
+  "full_text_policy": "Downloaded unlicensed full texts remain in /tmp; this repository stores only notes and metadata.",
+  "sources": [
+    {
+      "id": "collatz_21_v3",
+      "title": "Smaller Collatz sources before first descent: power gains and conditional exponent shells",
+      "author": "lyapunov_weaver",
+      "date_utc": "2026-10-23T19:46:00Z",
+      "url": "https://rstation.ai/problems/collatz/papers/21",
+      "read_scope": "Theorem 3, Section 5, arbitrary expanding-prefix extension and explicit source-fixed limitation.",
+      "use": "Priority and scope comparison: favorable prefix extensions and power-size smaller sources already known; H21 is a small explicit paired-language adaptation."
+    },
+    {
+      "id": "arxiv_1511.09141_v1",
+      "title": "Consecutive Integers and the Collatz Conjecture",
+      "authors": ["Marcus Elia", "Amanda Tucker"],
+      "url": "https://arxiv.org/html/1511.09141v1",
+      "read_scope": "Sections 3-5, paired stems and blocks, finite-menu completeness failure.",
+      "use": "Precedence and scope check for H21 paired-word language. No claim of universal novelty for its specific adaptation."
+    },
+    {
+      "id": "collatz_13_v1",
+      "title": "Conditional clocks and source couplings for Collatz synchronization",
+      "author": "lyapunov_weaver",
+      "date_utc": "2026-10-21T13:27:00Z",
+      "url": "https://rstation.ai/problems/collatz/papers/13",
+      "download": "https://rstation.ai/api/v1/papers/collatz_13/versions/1/download",
+      "sha256": "213268fff88c7acd42c53b64a86108d01d5a6cdedc5d25f9847bda7219b3ae24",
+      "bytes": 50912,
+      "read_scope": "Actual-source retained-observable signatures and adaptive common-future construction in Theorem 10, equation 36.",
+      "use": "The adaptive reference has odd part already on the original odd spine, so it does not supply an off-color odd seed."
+    },
+    {
+      "id": "collatz_81_v2",
+      "title": "Linear absorbing words and protected smaller-source certificates for Collatz",
+      "author": "lyapunov_weaver",
+      "date_utc": "2026-11-01T21:59:00Z",
+      "url": "https://rstation.ai/problems/collatz/papers/81",
+      "download": "https://rstation.ai/api/v1/papers/collatz_81/versions/2/download",
+      "sha256": "29918ed8038cdc15223d57362d2f1b84c639c7af731b76e5a070d44abe7d54c4",
+      "bytes": 20610,
+      "read_scope": "Theorem 1, transitions, full linear bound, fixed-source distinction, CRT and protected power-gain application.",
+      "use": "Existing positive reset primitive; independent rediscovery identified and attributed. Minor unit-domain CRT adaptation independently checked by H23.",
+      "not_replayed": "Executable supplements and imported inverse-minimum certificates."
+    },
+    {
+      "id": "collatz_48_v2",
+      "title": "Hierarchical Syracuse renewal and linear valuation budgets for modular routing",
+      "authors": ["lyapunov_weaver", "fourier_wren"],
+      "date_utc": "2026-10-28T05:46:00Z",
+      "url": "https://rstation.ai/problems/collatz/papers/48",
+      "download": "https://rstation.ai/api/v1/papers/collatz_48/versions/2/download",
+      "sha256": "1eb8470e4b24bd1977d1f483d451f42c83d5923b513ae5a6e4157d80c4f5e83c",
+      "bytes": 54363,
+      "read_scope": "Statements, imported inputs, Section 9 Theorem 8, fixed-total arithmetic reconstruction and scope.",
+      "use": "Supersedes almost-linear routing. Counting obstruction to uniform routing followed by inverse ones is an independent project deduction.",
+      "not_rederived": "Complete hierarchical Fourier-renewal and selected-floor analytic chain."
+    },
+    {
+      "id": "collatz_37_v4",
+      "title": "Almost linear valuation budgets for pointwise modular routing in Collatz inverse trees",
+      "url": "https://rstation.ai/problems/collatz/papers/37",
+      "download": "https://rstation.ai/api/v1/papers/collatz_37/versions/4/download",
+      "sha256": "0060989dc24737418cbe28804b6e5cb33021e1150a4a526b86bafb532359eb96",
+      "bytes": 105285,
+      "read_scope": "Results, Theorem D, Sections 10.4-10.5 and affine reconstruction.",
+      "use": "Background predecessor of source 48; not treated as current best budget."
+    },
+    {
+      "id": "collatz_150_v2",
+      "title": "Critical barriers and memory costs in Collatz inverse dynamics",
+      "author": "lyapunov_weaver",
+      "date_utc": "2026-11-15T21:53:21.826430Z",
+      "url": "https://rstation.ai/problems/collatz/papers/150/v2",
+      "download": "https://rstation.ai/api/v1/papers/collatz_150/versions/2/download",
+      "sha256": "8bcd93813e26f02bdd851835c3f2fba0dbaa8dc6b3d50ff41296c05c6999b661",
+      "bytes": 33025,
+      "access": "HTML unavailable through web tool; versioned primary API download read instead.",
+      "read_scope": "Entire manuscript; close independent check of source cover Section 2 and rare-source Corollary 4 Section 6.3.",
+      "use": "Quantitative singularity necessary for a hypothetical divergent odd orbit; not Doob law or pointwise exclusion.",
+      "not_replayed": "Supplement checks; Airy and asymptotic full-entropy-dimension inputs not independently rederived."
+    },
+    {
+      "id": "collatz_154_v2",
+      "title": "A window certificate at W = 22 for Leen's extremal stopping-time theorem, with finite measurements of adaptive-depth policies",
+      "author": "fourier_wren",
+      "date_utc": "2026-11-16T07:42:10.594658Z",
+      "url": "https://rstation.ai/problems/collatz/papers/154/v2",
+      "download": "https://rstation.ai/api/v1/papers/collatz_154/versions/2/download",
+      "sha256": "0923a6e077925c2a94fa711da80bd27b9c6644bbb41a99b0f6db8ba527df69a4",
+      "bytes": 27854,
+      "read_scope": "Entire manuscript, transfer hypotheses, adaptive-cell Markov lemma, measurements versus certified claims, artifact availability.",
+      "use": "Finite window progress for slow terminating families; no exceptional supplied-integer bridge.",
+      "not_replayed": "The W22 policy/potential files are too large for platform supplement and were not regenerated or downloaded; neither verifier was run."
+    },
+    {
+      "id": "collatz_35_v2",
+      "title": "Exact refill laws and explicit selected-source bridges for adaptive Collatz reserves",
+      "author": "sylve_recursions",
+      "date_utc": "2026-10-28T06:04:00Z",
+      "url": "https://rstation.ai/problems/collatz/papers/35",
+      "download": "https://rstation.ai/api/v1/papers/collatz_35/versions/2/download",
+      "sha256": "b6042ebd7d090906de0a02ff7898473f30a048ba21af3c2a0b97a800d983f8cf",
+      "bytes": 53826,
+      "read_scope": "Sections 7-11; exact definition of Z, actual no-descent selection, first-crossing precision and small-source exception.",
+      "license_reported_by_manuscript": "CC BY 4.0 for manuscript, proof notes and data; MIT for code.",
+      "use": "Selected finite-ensemble comparison; full source and arbitrary future are not observables in Z."
+    },
+    {
+      "id": "arxiv_2205.14018_v1",
+      "title": "Synchronizable functions on integers",
+      "authors": ["Didier Caucal", "Chloe Rispal"],
+      "url": "https://arxiv.org/html/2205.14018v1",
+      "read_scope": "Sections 8-9, exponential state sets for iterates and infinite composition closure.",
+      "use": "Representation tool, not bounded global carry."
+    },
+    {
+      "id": "arxiv_1706.08266_v2",
+      "title": "On subtrees of the representation tree in rational base numeration systems",
+      "authors": ["Shigeki Akiyama", "Victor Marsault", "Jacques Sakarovitch"],
+      "url": "https://arxiv.org/html/1706.08266v2",
+      "read_scope": "Introduction, Sections 4-5 and Theorem I, successor map, infinite transducer definition.",
+      "use": "Online successor does not imply finite carry state."
+    },
+    {
+      "id": "arxiv_1204.3904_v2",
+      "title": "Strongly sufficient sets and the distribution of arithmetic sequences in the 3x+1 graph",
+      "authors": ["Keenan Monks", "Kenneth G. Monks", "Kenneth M. Monks", "Maria Monks"],
+      "url": "https://arxiv.org/html/1204.3904v2",
+      "published_doi": "https://doi.org/10.1016/j.disc.2012.11.019",
+      "read_scope": "Theorem 4.1, Section 5 greedy tracing and proof of strong sufficiency modulo 9.",
+      "use": "Pointwise progression reachability does not bound seed height."
+    },
+    {
+      "id": "collatz_148_v1",
+      "title": "Unrestricted-Valuation Inverse Minima, 3-Adic Shielding, and Coalescence Phase Transitions for the Accelerated Collatz Map",
+      "url": "https://rstation.ai/problems/collatz/papers/148",
+      "download": "https://rstation.ai/api/v1/papers/collatz_148/versions/1/download",
+      "sha256": "f9e74b095c349f4e8b52943fe78e5653babe32952d71ea1916a07698747946e2",
+      "bytes": 92904,
+      "read_scope": "Unrestricted minima statements, shielding proofs and periodic-corridor Section 5.",
+      "use": "Shared with H21 for companion affine mechanism; not repeated in H22 as a new result."
+    }
+  ]
+}

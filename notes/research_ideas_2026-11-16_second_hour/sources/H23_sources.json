@@ -1,0 +1,92 @@
+{
+  "agent": "H23",
+  "retrieved_date_utc": "2026-11-16",
+  "scope": "Primary-source reading and paper-only audits; no mathematical experiments, formal replay, or compilation.",
+  "sources": [
+    {
+      "id": "rstation12v1",
+      "title": "First-landing bounds and canonical inverse laws for Collatz",
+      "url": "https://rstation.ai/problems/collatz/papers/12",
+      "version": "v1 displayed 2026-10-21 08:59 UTC",
+      "read_scope": "Section 2 logarithmic lower from Input D; finite-antichain consequence.",
+      "status": "External manuscript; cited analytic inputs not rebuilt by us.",
+      "use": "Uniform lower logarithmic density for a nonperiodic positive odd unit target. No natural density needed."
+    },
+    {
+      "id": "rstation81v2",
+      "title": "Linear absorbing words and protected smaller-source certificates for Collatz",
+      "url": "https://rstation.ai/problems/collatz/papers/81",
+      "version": "v2 displayed 2026-11-01 21:59 UTC",
+      "read_scope": "Linear reset construction cross-checked with H22 and source1 proposition17.",
+      "status": "External manuscript, no certificate replay by us.",
+      "use": "Recognize the independently reconstructed linear reset as prior work; source-choosing quantifier remains."
+    },
+    {
+      "id": "rstation1v3",
+      "title": "Inverse minima and escape to smaller Collatz sources",
+      "url": "https://rstation.ai/problems/collatz/papers/1",
+      "version": "v3 displayed 2026-10-25 07:59 UTC",
+      "read_scope": "Counted-state definition and propositions 12-17; boundary reset rules and CRT source construction.",
+      "status": "External manuscript. Reviewer Accept is not treated as certification. No finite data replay.",
+      "use": "Audit of counted-state transitions; contrast older quadratic reset bound with known linear reset."
+    },
+    {
+      "id": "sultanow2026landing",
+      "title": "Same Shadows, Different Forests: Cycles and Basin Densities of Collatz-Type Maps",
+      "author": "Eldar Sultanow",
+      "url": "https://www.preprints.org/manuscript/202610.2552",
+      "version": "v2 posted 2026-11-12; submitted 2026-11-11",
+      "license_displayed": "CC BY 4.0",
+      "status": "Preprint, explicitly not peer reviewed. Landing page and abstract read; download returned inaccessible.",
+      "use": "Bibliographic metadata only; substantive current arguments read in separate GitHub snapshot."
+    },
+    {
+      "id": "sultanow2026github",
+      "title": "Same Shadows, Different Forests - current author manuscript",
+      "author": "Eldar Sultanow",
+      "url": "https://github.com/Sultanow/collatz/blob/cfdd47eee9cb307f4ab928aa4c99fad6d3e460b0/07%20Basins%20of%20Attraction/docs/main.tex",
+      "raw_url": "https://raw.githubusercontent.com/Sultanow/collatz/cfdd47eee9cb307f4ab928aa4c99fad6d3e460b0/07%20Basins%20of%20Attraction/docs/main.tex",
+      "commit": "cfdd47eee9cb307f4ab928aa4c99fad6d3e460b0",
+      "commit_date_utc": "2026-11-16T10:55:36Z",
+      "sha256": "1f18c1c83484e4992e520d3c8e91f62fb3b85f7e325aab244ac4525b158b06eb",
+      "read_scope": "Local structure and local indistinguishability; predecessor potential; first-passage tail programme; two-level return certificates; fixed-modulus obstruction.",
+      "status": "Working author manuscript expanded after the v2 landing page. Its mathematical statements were read on paper, not formally replayed.",
+      "use": "Scope control: congruence-test densities do not determine cycles; finite certificate versus uniform actual-entry average; return tail and residual remain distinct."
+    },
+    {
+      "id": "rstation150v2",
+      "title": "Critical barriers and memory costs in Collatz inverse dynamics",
+      "url": "https://rstation.ai/problems/collatz/papers/150",
+      "download_url": "https://rstation.ai/api/v1/papers/collatz_150/versions/2/download",
+      "version": "v2 downloaded 2026-11-16",
+      "sha256": "8bcd93813e26f02bdd851835c3f2fba0dbaa8dc6b3d50ff41296c05c6999b661",
+      "read_scope": "Definitions and source cover in sections1-2; section6.3 Corollary4 and its full proof; remaining questions.",
+      "status": "External analytic manuscript; no finite-checker replay or formal import.",
+      "use": "Distinguish empirical Syracuse orbit residue laws from Q. Audit the singular-component condition and derive a separate elementary finite-quotient entropy criterion with H22."
+    },
+    {
+      "id": "rstation152v1",
+      "title": "Slope-Ballot Duality, Exact Binary Escape Thresholds, and Parity-Trap Shifts Exceeding the 3/4 Collatz Survival Barrier",
+      "url": "https://rstation.ai/problems/collatz/papers/152",
+      "download_url": "https://rstation.ai/api/v1/papers/collatz_152/versions/1/download",
+      "version": "v1; locally read from shared primary download",
+      "sha256": "b7d8dd4f3cbe5dbfc7bf9ce687fd98c1eb518cccdea6205274c51399f9c9e759",
+      "read_scope": "Introduction and quantifier definitions; H21 gate w22 primitive and symbolic paired-word composition independently audited.",
+      "status": "External manuscript; its enumerations and all-prefix certificates not replayed.",
+      "use": "Prior terminal merge gate; distinguish legal finite identities, all-prefix expansion, and full source coverage."
+    },
+    {
+      "id": "elia_tucker2015",
+      "title": "Consecutive Integers and the Collatz Conjecture",
+      "authors": [
+        "Marcus Elia",
+        "Amanda Tucker"
+      ],
+      "url": "https://arxiv.org/html/1511.09141v1",
+      "version": "arXiv1511.09141v1, 2015-11-30",
+      "read_scope": "Sections3-5, definitions of block prefixes/stems, specific Garner conjecture and infinite counterexample family.",
+      "status": "Primary paper; no computations replayed.",
+      "use": "Paired-word antecedent and scope warning: incompleteness of one proposed stem classification is not a universal finite-automaton impossibility."
+    }
+  ]
+}

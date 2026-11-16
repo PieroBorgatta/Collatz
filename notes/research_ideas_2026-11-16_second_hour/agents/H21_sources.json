@@ -1,0 +1,71 @@
+{
+  "created_utc": "2026-11-16T14:10:40.072365+00:00",
+  "agent": "h2_editor_constructive",
+  "baseline_commit": "bfa35c3",
+  "experiments_run": false,
+  "compilations_run": false,
+  "new_lean_proofs": false,
+  "external_certificates_replayed": false,
+  "sources": [
+    {
+      "id": "p148_v1",
+      "url": "https://rstation.ai/api/v1/papers/collatz_148/versions/1/download",
+      "sha256_downloaded_bytes": "f9e74b095c349f4e8b52943fe78e5653babe32952d71ea1916a07698747946e2",
+      "bytes": 92904,
+      "temporary_copy_only": true,
+      "scope": "Read section 5 corridor partner proof; finite certificates not replayed.",
+      "status": "primary manuscript or author preprint read; not a Lean replay"
+    },
+    {
+      "id": "p149_v1",
+      "url": "https://rstation.ai/api/v1/papers/collatz_149/versions/1/download",
+      "sha256_downloaded_bytes": "35cd13bb51700f1c4bbe9b346ca7bf27997a4c5aa1bd8ce8280d576432e3765a",
+      "bytes": 81671,
+      "temporary_copy_only": true,
+      "scope": "Read section 2 first-merger injectivity and reachable-set quantifiers, theorem statements, scope; no external certificates replayed.",
+      "status": "primary manuscript or author preprint read; not a Lean replay"
+    },
+    {
+      "id": "p152_v1",
+      "url": "https://rstation.ai/api/v1/papers/collatz_152/versions/1/download",
+      "sha256_downloaded_bytes": "b7d8dd4f3cbe5dbfc7bf9ce687fd98c1eb518cccdea6205274c51399f9c9e759",
+      "bytes": 74958,
+      "temporary_copy_only": true,
+      "scope": "Read sections 2-4, exact symbolic pullback and binary gate w22/g22. Base gate used as manuscript input; its supplied search/certificates not executed.",
+      "status": "primary manuscript or author preprint read; not a Lean replay"
+    },
+    {
+      "id": "monks_1204.3904_v2",
+      "url": "https://arxiv.org/html/1204.3904v2",
+      "sha256_downloaded_bytes": "7ca96f5d72a9843a5b7de13b8c8c7b899dc1d0df697228912b23556701035b8d",
+      "bytes": 898783,
+      "temporary_copy_only": true,
+      "scope": "Read definitions of residue graph and theorem 6.4 proof; no claimed positive-frequency upgrade.",
+      "status": "primary manuscript or author preprint read; not a Lean replay"
+    },
+    {
+      "id": "elia_tucker_1511.09141_v1",
+      "url": "https://arxiv.org/html/1511.09141v1",
+      "scope": "Read web HTML sections 3-5: paired block prefixes and failure of Garner stem completeness. Used for attribution and scope, not to claim a new universal pair mechanism.",
+      "retrieval": "web tool; no local full-text copy retained in repository"
+    }
+  ],
+  "deductions": [
+    "Cylinder shared-prefix bound and weighted cost counting",
+    "Finite rough-part obstruction for commuting monomial companions",
+    "Shift-minus-two intertwining menu 12->21 and 212->113, with unit/color guards",
+    "Composition of the menu with the reported paper152 terminal gate",
+    "Minimum-divergent-source cannot stay forever in the proper paired language",
+    "Finite exit13 carry-collapse family and exact forced-gap2 buffer charge",
+    "Exit11 large hidden gap produces observed third gap4 and an exact forced-gap2 buffer charge"
+  ],
+  "peer_review": "H23 reviewed the explicit algebraic rules, all unit repairs, macro expansion guards, exit formulas, congruence family and buffer charge; root reviewed selected items. This is paper reasoning, not formal verification.",
+  "limitations": [
+    "No pointwise lower on alternative-branch mass",
+    "No complete coverage of exits",
+    "No bound O(log j) for the global editor",
+    "No proof of Collatz or universal co-divergence",
+    "No universal novelty claim"
+  ],
+  "note_sha256_final": "dfe560eeacb49bb8d8f4274118e5947e197a707bc912e179141fd5ec90ebf10e"
+}

@@ -1,0 +1,26 @@
+{
+  "request": "Un’altra ora di letteratura e ragionamento con agenti",
+  "research_start_utc": "2026-11-16T13:22:33+00:00",
+  "research_deadline_utc": "2026-11-16T14:22:33+00:00",
+  "baseline_commit": "bfa35c3e1bebed5ff6eda77702d6d18ecf8cff4f",
+  "branch": "phase10-wip",
+  "agents": [
+    "h2_editor_constructive",
+    "h2_literature",
+    "h2_adversarial"
+  ],
+  "scope": [
+    "Fonti primarie e deduzioni su carta",
+    "Controllo di percorsi alternativi e carry",
+    "Critica del valore e dei quantificatori",
+    "Revisione incrociata"
+  ],
+  "excluded": [
+    "Esperimenti numerici",
+    "Compilazioni Lean o test matematici",
+    "GPU e server",
+    "Pubblicazione di manoscritti"
+  ],
+  "delivery": "Note e fonti nel repository, commit/push autorizzati, rapporto breve in chat",
+  "formal_status": "Nessuna nuova prova verificata da Lean; input esterni non riprodotti in questa sessione"
+}

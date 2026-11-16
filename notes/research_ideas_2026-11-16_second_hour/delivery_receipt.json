@@ -1,0 +1,113 @@
+{
+  "research_start_utc": "2026-11-16T13:22:33+00:00",
+  "research_stop_utc": "2026-11-16T14:22:50+00:00",
+  "elapsed_research_seconds": 3617.0,
+  "requested_minimum_seconds": 3600,
+  "baseline_commit": "bfa35c3e1bebed5ff6eda77702d6d18ecf8cff4f",
+  "branch": "phase10-wip",
+  "agents": [
+    "h2_editor_constructive",
+    "h2_literature",
+    "h2_adversarial"
+  ],
+  "review_method": "Separate paper reasoning in shared context and cross-review; no formal proof check or executable mathematical verification in this session.",
+  "reviews": {
+    "REPORT_IT.md": [
+      "H21 PASS final hash",
+      "H22 PASS final hash",
+      "H23 PASS; final edit only clarifies the minimum-divergent-seed hypothesis"
+    ],
+    "ROOT_ROUTING_COST_IT.md": [
+      "H22 PASS",
+      "H23 PASS"
+    ],
+    "agents/H21_EDITOR_IT.md": [
+      "H23 PASS final hash",
+      "H22 PASS main construction and local buffer bounds"
+    ],
+    "agents/H23_ADVERSARIAL_IT.md": [
+      "root PASS finite antichain budget",
+      "H21 PASS",
+      "H22 PASS entropy argument"
+    ]
+  },
+  "actions_not_performed": [
+    "No numerical experiments",
+    "No Lean builds or new Lean declarations",
+    "No GPU, Runpod, or server use",
+    "No external certificate replay",
+    "No publication of a manuscript"
+  ],
+  "change_scope": "Research notes and STATUS only. All earlier research snapshots and Lean source files remain unchanged.",
+  "git_commit_policy": "Documentation commit uses [skip ci] to avoid starting computational workflows.",
+  "files": [
+    {
+      "path": "notes/research_ideas_2026-11-16_second_hour/REPORT_IT.md",
+      "bytes": 9084,
+      "sha256": "d6f21e1231a079a553acf31ddf7cf4e88ae286439504c5dd5e2346928c1dddf2"
+    },
+    {
+      "path": "notes/research_ideas_2026-11-16_second_hour/ROOT_LATEST_SCOPE_IT.md",
+      "bytes": 3477,
+      "sha256": "9b61f762658f81bdc8f965892e6c872d52af65c67215363592fed8893cfdd64b"
+    },
+    {
+      "path": "notes/research_ideas_2026-11-16_second_hour/ROOT_ROUTING_COST_IT.md",
+      "bytes": 4130,
+      "sha256": "b0a40afb613985eb568045d1ecb8946de6998a350f8e54ce94e397d22107b6fc"
+    },
+    {
+      "path": "notes/research_ideas_2026-11-16_second_hour/agents/H21_EDITOR_IT.md",
+      "bytes": 24692,
+      "sha256": "dfe560eeacb49bb8d8f4274118e5947e197a707bc912e179141fd5ec90ebf10e"
+    },
+    {
+      "path": "notes/research_ideas_2026-11-16_second_hour/agents/H21_sources.json",
+      "bytes": 3721,
+      "sha256": "60377eb57dd286d95e61ffb1ff5d7236a93da32a46b71b928e27fd2cec94f53e"
+    },
+    {
+      "path": "notes/research_ideas_2026-11-16_second_hour/agents/H22_LITERATURE_IT.md",
+      "bytes": 8568,
+      "sha256": "b2183f0bd945ff35ba351dcfb19ed723753f45757d9290bdc71b7dc89f3b1418"
+    },
+    {
+      "path": "notes/research_ideas_2026-11-16_second_hour/agents/H23_ADVERSARIAL_IT.md",
+      "bytes": 21558,
+      "sha256": "363ad08f468019268ea91cbc0d16530d2ed87af118b00c5dfa050f32e3e55d1e"
+    },
+    {
+      "path": "notes/research_ideas_2026-11-16_second_hour/protocol.json",
+      "bytes": 902,
+      "sha256": "4f43c6e175e953cec3151295ba1c2c65af0761a2530b88524b06e99b59d6ba55"
+    },
+    {
+      "path": "notes/research_ideas_2026-11-16_second_hour/sources/H20_downloads.json",
+      "bytes": 975,
+      "sha256": "fb9fe44f2e26551ba47398f6de2531617751e29b945b3abb2ff7b3a8f5828901"
+    },
+    {
+      "path": "notes/research_ideas_2026-11-16_second_hour/sources/H20_latest_metadata.json",
+      "bytes": 2914,
+      "sha256": "9c296669f633de90ddb9f625ee47fd3cd36d14727a21e95bb6875477df08faa3"
+    },
+    {
+      "path": "notes/research_ideas_2026-11-16_second_hour/sources/H22_sources.json",
+      "bytes": 9205,
+      "sha256": "f66f9fb830481f7c2a71cb97a8dd9284760bb43e1e7c08621dce269c25a34f57"
+    },
+    {
+      "path": "notes/research_ideas_2026-11-16_second_hour/sources/H23_sources.json",
+      "bytes": 5908,
+      "sha256": "6c8124450ca19fc3f193f982af93274f75d3484c4741a6bd447b2e69561b86ef"
+    },
+    {
+      "path": "lean/STATUS.md",
+      "bytes": 31376,
+      "sha256": "3df991da6332910d3673a4a651aff9e505bf5488e172c999c3e1a1c0dfb1cd9d"
+    }
+  ],
+  "receipt_excludes_itself": true,
+  "receipt_created_utc": "2026-11-16T14:23:37.475121+00:00",
+  "research_stop_evidence": "Final H22 stop message explicitly timestamped 14:22:50 UTC, following root stop instructions after the one-hour deadline. Receipt creation is recorded separately."
+}
