@@ -1,0 +1,17 @@
+{
+  "research_start_utc": "2026-11-16T01:04:54.001737+00:00",
+  "research_stop_not_before_utc": "2026-11-16T02:04:54.001737+00:00",
+  "minimum_seconds": 3600,
+  "initial_commit": "c74fe0c5c5c90e72d8b6ae433bc7672059a6f8f8",
+  "initial_push": "Already up to date, working tree clean",
+  "scope": "Conceptual research, primary literature and critical value assessment only",
+  "excluded": [
+    "Numerical experiments",
+    "GPU/server use",
+    "New Lean proofs or compilations",
+    "Paper publication",
+    "External researcher messages"
+  ],
+  "final_report": "Very concise, chat only",
+  "worker_limit_including_root": 4
+}

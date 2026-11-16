@@ -1,0 +1,90 @@
+{
+  "recorded_at_utc": "2026-11-16T01:37:26.894780+00:00",
+  "sources": [
+    {
+      "title": "Ternary Syracuse laws: tail conditioning, moment growth, and predecessor bounds",
+      "url": "https://rstation.ai/problems/collatz/papers/9/v1",
+      "version": 1,
+      "primary": true,
+      "scope_read": [
+        "Sections2-6 scalar tail, prefix likelihood, tilted coding and joint tail",
+        "Section8.1 integer squared-weight dictionary"
+      ],
+      "temporary_file": "/tmp/collatz_h03_p9_v1.md",
+      "full_text_archived": false,
+      "mathematical_role": "Explicit predecessor of tail tilt and joint law; source of the conditional scalar tail used in H03 corollary",
+      "sha256": "87a87f521a247f6d09a4e04caa96fc61b92fb433f22193e0023cc29af42be7a5",
+      "bytes": 56075,
+      "license_in_download": null
+    },
+    {
+      "title": "Geometry, integer fibres, and dyadic equidistribution of the joint Collatz affine law",
+      "url": "https://rstation.ai/problems/collatz/papers/19",
+      "version": 2,
+      "primary": true,
+      "scope_read": [
+        "Section9 integer-code residual",
+        "Section9.2 canonical Cesaro real fibres",
+        "Bibliography and scoped prior-work discussion"
+      ],
+      "temporary_file": "/tmp/collatz_h03_p19_v2.md",
+      "full_text_archived": false,
+      "mathematical_role": "Disproves identification of canonical real fibre with the diagonal R=n; not a moving-integer estimate",
+      "sha256": "f68a3a5877d49862c1981478488ee2838ff555265161a879bfd7d8b9db73dbbf",
+      "bytes": 73372,
+      "license_in_download": null
+    },
+    {
+      "title": "Implicit Renewal Theory and Tails of Solutions of Random Equations",
+      "url": "https://doi.org/10.1214/aoap/1177005985",
+      "year": 1991,
+      "primary": true,
+      "scope_read": [
+        "Publisher metadata and source9 explicit theorem invocation"
+      ],
+      "full_original_text_read": false,
+      "access_limitation": "Publisher full text returned an iframe and direct PDF was inaccessible via browsing; no full theorem replay claimed",
+      "mathematical_role": "Classical scalar renewal input, explicitly assumed rather than newly reproved"
+    },
+    {
+      "title": "Stochastic Models for the 3x+1 and 5x+1 Problems",
+      "url": "https://arxiv.org/html/0910.1944v1",
+      "version": 1,
+      "primary": true,
+      "scope_read": [
+        "Sections1.3-1.4 model-versus-integer distinctions",
+        "Section6.2 backward branching models"
+      ],
+      "full_text_archived": false,
+      "mathematical_role": "Prior art for branching models and warning about transferring them to deterministic integer trees"
+    },
+    {
+      "title": "Conceptual Proofs of L log L Criteria for Mean Behavior of Branching Processes",
+      "url": "https://arxiv.org/html/math/0404083v1",
+      "version": 1,
+      "primary": true,
+      "scope_read": [
+        "Section2 size-biased trees and independent off-spine descendant trees"
+      ],
+      "full_text_archived": false,
+      "mathematical_role": "Exploratory analogy only; independence assumptions are not established for Collatz"
+    },
+    {
+      "title": "Convergence in law of the minimum of a branching random walk",
+      "url": "https://arxiv.org/html/1101.1810v3",
+      "version": 3,
+      "primary": true,
+      "scope_read": [
+        "Theorem1.1 and hypotheses",
+        "Section2 Lyons change of measure and spine construction"
+      ],
+      "full_text_archived": false,
+      "mathematical_role": "Exploratory analogy; no theorem imported into the integer problem"
+    }
+  ],
+  "downloaded_source_code_executed": false,
+  "experiments_run": false,
+  "Lean_or_GPU_used": false,
+  "no_global_priority_claim": true,
+  "web_summaries_are_not_formal_verification": true
+}

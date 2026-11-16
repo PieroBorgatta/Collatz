@@ -6,6 +6,30 @@ to v4; subsequent working-tree developments are separate from its frozen
 supplementary archive. This working tree targets pinned Lean v4.29.1 and Mathlib
 v4.29.1; portability to later toolchains has not been checked.
 
+**Conceptual audit, 16 November:** no new computation or formal declaration
+was added. Ancestor decay already supplied by Valbuena and
+[paper12](https://rstation.ai/problems/collatz/papers/12) gives nonatomicity
+of the canonical inverse law and `K₂^m(g²)(n)→0` at every fixed unit root,
+including periodic roots. The earlier warning that the unweighted Green
+budget alone does not prove this remains valid; the additional literature
+input closes that qualitative interface. A uniform critical clock for
+moving roots remains open.
+
+The [minimal research contract](../notes/research_ideas_2026-11-16_one_hour/ROOT_MINIMAL_PROGRAM_IT.md)
+uses a direct positive telescope and actual off-spine word certificates;
+it can omit natural-density and clock-CLT inputs, Q, F and trace caps from
+that implication. Harmonicity, the unit floor and the nonperiodic linear
+upper give one sufficient set of external analytic inputs. The
+[final dependency reduction](../notes/research_ideas_2026-11-16_one_hour/ROOT_ATOM_FLOOR_CORE_IT.md)
+obtains the global budget from the atom floor and a lower logarithmic
+density already in paper12, without natural-density existence or the
+canonical trace theorem. An optional Abel extraction supplies a positive
+superharmonic function instead of identifying a canonical harmonic trace.
+Variable clock and finite prefix-free witness families are allowed; no
+required editor has been constructed. The [critical value audit](../notes/research_ideas_2026-11-16_one_hour/agents/H02_VALUE_AUDIT_IT.md)
+and [sparse-support obstruction](../notes/research_ideas_2026-11-16_one_hour/agents/H01_SPARSE_SUPPORT_IT.md)
+distinguish this simplification from an advance on the missing lower bound.
+
 **Research follow-up, 16 November:** four modules add 28 public theorem
 declarations. The full incremental build passes (3404 jobs); a strict
 transitive audit of all 68 compiled declarations, including five

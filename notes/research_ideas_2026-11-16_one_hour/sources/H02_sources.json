@@ -1,0 +1,60 @@
+{
+  "agent": "/root/h02_counterfactual_value",
+  "access_date": "2026-11-16",
+  "mode": "Read-only conceptual audit; no experiments, mathematical numerical calculation, build or external source-code execution",
+  "initial_repository_commit": "c74fe0c5c5c90e72d8b6ae433bc7672059a6f8f8",
+  "sources": [
+    {
+      "title": "Almost all orbits of the Collatz map attain almost bounded values",
+      "author": "Terence Tao",
+      "url": "https://arxiv.org/abs/1909.03562v7",
+      "version": "v7, 16 July 2026; journal reference Forum of Mathematics Pi 10 (2022), e12",
+      "read_scope": "Primary abstract, statement of almost-boundedness and version history; no re-audit of its proof",
+      "full_text_archived": false,
+      "use": "Counterfactual compatibility of almost-bounded minima with an assumed positive basin of a divergent fixed seed"
+    },
+    {
+      "title": "First-landing bounds and canonical inverse laws for Collatz",
+      "author": "lyapunov_weaver",
+      "url": "https://rstation.ai/problems/collatz/papers/12",
+      "download_url": "https://rstation.ai/api/v1/papers/collatz_12/versions/1/download",
+      "version": 1,
+      "read_scope": "Inputs and dependency distinctions; existing fixed-root nonatomicity statement after Theorem9; equations36/48; Corollary16 and Theorem17 with normalization and unit exceptions",
+      "status": "Research manuscript with declared external analytic inputs; no claim of independent formal replay",
+      "full_text_archived": false,
+      "use": "Close an already-known qualitative interface and identify the actual finite-sample normalization loss; derive a conditional heavy-class corollary"
+    },
+    {
+      "title": "Local research records and frozen v6 source",
+      "paths": [
+        "README.md",
+        "lean/STATUS.md",
+        "paper/collatz_spectral_reduction_v6.tex",
+        "notes/post_v6_reset_2026-09-26/RESULTS_IT.md",
+        "notes/research_sprint_2026-11-13/REPORT_IT.md",
+        "notes/research_sprint_2026-11-13/V7_OUTLINE_IT.md",
+        "notes/research_sprint_2026-11-15/REPORT_IT.md",
+        "notes/research_sprint_2026-11-15_three_hours/agents/U07_BELLMAN_IT.md",
+        "notes/research_sprint_2026-11-15_three_hours/agents/U11_BOUNDED_SLOPE_IT.md",
+        "notes/research_sprint_2026-11-15_three_hours/agents/U12_TWO_SEEDS_IT.md",
+        "notes/research_sprint_2026-11-15_three_hours/agents/U14_ADAPTIVE_CERTIFICATE_IT.md",
+        "notes/research_sprint_2026-11-15_three_hours/agents/U15_PHASE_BARRIER_IT.md",
+        "notes/research_sprint_2026-11-15_three_hours/agents/U15_ZERO_TEMPERATURE_IT.md",
+        "notes/research_sprint_2026-11-15_three_hours/agents/U15_LADDER_OBSTRUCTION_IT.md"
+      ],
+      "use": "Assess logical force, actual scope of obstructions, and separation of infrastructure, finite validation and open obligations"
+    }
+  ],
+  "independent_mathematical_checks": [
+    "Finite-pool proof of uniform ancestor decay at fixed nonperiodic root",
+    "Cycle exit argument for fixed-root nonatomicity",
+    "Positive linear-terminal remainder from the existing correction-product bound",
+    "Direct harmonic telescoping for variable-depth lateral witnesses",
+    "Finite inverse prefix-free extension with explicit orientation",
+    "Heavy-class finite-window normalization and the lower-density annulus guard"
+  ],
+  "new_uniform_lateral_lower_proved": false,
+  "Collatz_proved": false,
+  "global_priority_claimed": false,
+  "git_operations_by_agent": false
+}

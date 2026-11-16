@@ -1,0 +1,19 @@
+{
+  "frozen_at_utc": "2026-11-16T01:46:51.545084+00:00",
+  "note": "notes/research_ideas_2026-11-16_one_hour/agents/H03_NEW_MECHANISMS_IT.md",
+  "note_sha256": "388cf7a346e6d7f2c3007a483163ce57c3eb58d01bb287ea66bf958699d84165",
+  "sources": "notes/research_ideas_2026-11-16_one_hour/sources/H03_sources.json",
+  "sources_sha256": "379df2dedce1776d050c93b122a8b2b12f0742cb46ab0e0217062fcc4560dabf",
+  "mode": "Conceptual primary-source research only",
+  "new_uniform_editor_proved": false,
+  "new_Collatz_solution": false,
+  "Goldie_scalar_tail_and_tilt_priority_claimed": false,
+  "reviews": [
+    "root checked Goldie corollary and scope",
+    "H01 checked variable-clock affine identity, scalar-to-prefix remainder and ng obstruction; final domain guard included",
+    "H02 checked affine identity and Goldie corollary/remainder; canonical fibre guard included"
+  ],
+  "experiments_or_compilations": false,
+  "superseded_editorial_freeze_sha256": "fe4014e7df89710b35336706736b3390e0dfa353402b3c320dcb2c1d55b72c2d",
+  "final_editorial_guard": "Negative point -1 does not refute a property restricted to positive fixed-seed roots."
+}

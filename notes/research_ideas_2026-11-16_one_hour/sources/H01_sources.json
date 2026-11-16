@@ -1,0 +1,194 @@
+{
+  "recorded_at_utc": "2026-11-16T01:38:18.019958+00:00",
+  "reviewer": "/root/h01_primary_literature",
+  "scope": "Primary-source reading and static endpoint inspection only. No numerical experiments, builds, kernel replays or source execution.",
+  "sources": [
+    {
+      "title": "ElJaouhari uniform atom manuscript",
+      "url": "https://zenodo.org/records/23377671",
+      "version": "Preprint, record23377671; metadata publication_date2026-10-14",
+      "license": "cc-by-4.0",
+      "source_sha256": "93b001f062794cbec6efe142bb382c983f64a7a1d0db10e72b44003dc9966521",
+      "read_scope": "TheoremA; selected approximation and weighted residue counting; selected blocks, uniformincrements; formal-scope section",
+      "temporary_local_copy": "/tmp/pdfs/u04/analytic_inputs/el_jaouhari.tex",
+      "full_text_archived_in_repository": false,
+      "downloaded_code_executed": false
+    },
+    {
+      "title": "Valbuena basin manuscript",
+      "url": "https://zenodo.org/records/23025885",
+      "version": "Software archive v2026.09.28.5, manuscript28Sept2026",
+      "license": "mit-license",
+      "source_sha256": "d5c61f228ece84aae6d565c777de84089c016073df19d7b0e6974e1cfa2bb258",
+      "read_scope": "Introduction/dependency split; weighted density and Theorem8; Proposition9 full proof; distinction natural upgrade",
+      "temporary_local_copy": "/tmp/pdfs/u04/analytic_inputs/valbuena_basin.tex",
+      "full_text_archived_in_repository": false,
+      "downloaded_code_executed": false
+    },
+    {
+      "title": "Leen Brownian motion",
+      "url": "https://zenodo.org/records/23252395",
+      "version": "Preprint, record23252395; metadata publication_date2026-10-09",
+      "license": "cc-by-4.0",
+      "source_sha256": "43635af89c6727e4a7d5065d2621477913f58fb8d6570de16396168bbe49a5f1",
+      "read_scope": "Abstract, fate/minimum law, input scopes, clock-landing independence, density and label interfaces; no full Brownian proof audit",
+      "temporary_local_copy": "/tmp/pdfs/u04/analytic_inputs/leen_brownian.tex",
+      "full_text_archived_in_repository": false,
+      "downloaded_code_executed": false
+    },
+    {
+      "title": "Leen Gaussian law",
+      "url": "https://zenodo.org/records/23046896",
+      "version": "Preprint, record23046896; metadata publication_date2026-09-29",
+      "license": "cc-by-4.0",
+      "source_sha256": "7e5cb6a6ab3404c5cfe74ad425d69bb5d470eef3bbb30869936719f51d1628fc",
+      "read_scope": "Imported hypotheses, timed passage interface, natural density argument, formal-scope and conditioned-mixing appendix",
+      "temporary_local_copy": "/tmp/pdfs/u04/analytic_inputs/leen_gaussian.tex",
+      "full_text_archived_in_repository": false,
+      "downloaded_code_executed": false
+    },
+    {
+      "title": "rStation12/v1",
+      "url": "https://rstation.ai/problems/collatz/papers/12/v1",
+      "version": "Version1",
+      "license": "not established in this audit",
+      "source_sha256": "7f6bc94e4e24e714bc3740bcc5a066582a0f6af064180ae38cabe0174488b185",
+      "read_scope": "Introduction; source interfaces; odd-parent harmonicity; Theorem9 and explicit prior nonatomicity paragraph; natural-density law",
+      "temporary_local_copy": "/tmp/pdfs/u04/analytic_inputs/paper12.md",
+      "full_text_archived_in_repository": false,
+      "downloaded_code_executed": false
+    },
+    {
+      "title": "Tao: Almost all orbits of the Collatz map attain almost bounded values",
+      "url": "https://doi.org/10.1017/fmp.2022.8",
+      "publisher_url": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/almost-all-orbits-of-the-collatz-map-attain-almost-bounded-values/1008CC2DF91AF87F66D190C5E01C907F",
+      "version": "Forum of Mathematics, Pi10(2022),e12",
+      "read_scope": "Main theorem; Proposition1.14 exact full range and normalization; Remarks1.15–1.18; source-averaging hypothesis of Proposition1.9",
+      "license": "No full text redistributed"
+    },
+    {
+      "title": "Krasikov–Lagarias: Bounds for the3x+1problem using difference inequalities",
+      "url": "https://arxiv.org/abs/math/0205002",
+      "publisher_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/81918",
+      "version": "Acta Arithmetica109(2003),237–258; arXiv2002",
+      "read_scope": "Primary abstract, theorem scope and benchmark; no LP certificate execution",
+      "license": "No full text redistributed"
+    },
+    {
+      "title": "Kontorovich–Lagarias: Stochastic Models for the3x+1and5x+1Problems",
+      "url": "https://arxiv.org/abs/0910.1944",
+      "author_reference": "https://websites.umich.edu/lagarias/3x%2B1.html",
+      "version": "arXiv2009; AMS2010chapter",
+      "read_scope": "Primary abstract and author bibliography: distinction analyzable stochastic models versus heuristic arithmetic predictions",
+      "license": "No full text redistributed"
+    },
+    {
+      "title": "ElJaouhari: ConjectureA repository and preprint",
+      "url": "https://github.com/neljaouh/ConjectureA",
+      "zenodo_url": "https://zenodo.org/records/23025918",
+      "version": "Main repository page consulted16Nov2026; record23025918preprint29Sept2026",
+      "read_scope": "Exact endpoint statements, dependencyM2, target-dependent coefficients, declared verification and status",
+      "license": "RepositoryApache2.0; papercc-by-4.0 according to Zenodo record; no complete text redistributed"
+    },
+    {
+      "title": "Curry: An Explicit Windowed Sparsity Bound for Divergent3x+1Orbits",
+      "url": "https://doi.org/10.5281/zenodo.22087163",
+      "version": "24Aug2026",
+      "read_scope": "Attribution of convergent correction product already checked in projectT01/U14; no new complete primary rereading in this hour. The phase consequence here is deduced from the local product bound.",
+      "license": "CC-BY4.0 according to prior pinned project source review; no full text redistributed"
+    }
+  ],
+  "uniform_atom_formal_source": {
+    "repo": "neljaouh/uniform-syracuse-atoms-lean",
+    "commit_read": "17e43a340f22ccc0cbd7063a0862a93f72373979",
+    "tag_read": "paper-draft-2026-10-14h",
+    "zenodo_metadata_link_tag": "paper-draft-2026-10-14b",
+    "zenodo_metadata_tag_commit": "6beb8dd1881ed3d782d5f3c94d958f4f025605fa",
+    "manuscript_sha_matches_pinned_README": true,
+    "files_read": [
+      {
+        "path": "README.md",
+        "url": "https://raw.githubusercontent.com/neljaouh/uniform-syracuse-atoms-lean/17e43a340f22ccc0cbd7063a0862a93f72373979/README.md",
+        "sha256": "75fd848a3dea7460e987756dab2821a0b96b8f4f7e0bcc0467e36ba23658861e",
+        "executed_or_built": false
+      },
+      {
+        "path": "CheckMainTheorems.lean",
+        "url": "https://raw.githubusercontent.com/neljaouh/uniform-syracuse-atoms-lean/17e43a340f22ccc0cbd7063a0862a93f72373979/CheckMainTheorems.lean",
+        "sha256": "04217046661e660332de7bc52a39498681f5edb424f07b6e4f6684e755e83b33",
+        "executed_or_built": false
+      },
+      {
+        "path": "MainStatements.lean",
+        "url": "https://raw.githubusercontent.com/neljaouh/uniform-syracuse-atoms-lean/17e43a340f22ccc0cbd7063a0862a93f72373979/MainStatements.lean",
+        "sha256": "246b17d5f7b20fddff328fd21824377431427bcc4f84a2b636ab8e7b7d7c867c",
+        "executed_or_built": false
+      },
+      {
+        "path": "SelectedKernel.lean",
+        "url": "https://raw.githubusercontent.com/neljaouh/uniform-syracuse-atoms-lean/17e43a340f22ccc0cbd7063a0862a93f72373979/SelectedKernel.lean",
+        "sha256": "77b5312c68ac6938e946a3354ececc209a80859135a03bd1cdd212367cb39163",
+        "executed_or_built": false
+      },
+      {
+        "path": "CorePositiveApproximants.lean",
+        "url": "https://raw.githubusercontent.com/neljaouh/uniform-syracuse-atoms-lean/17e43a340f22ccc0cbd7063a0862a93f72373979/CorePositiveApproximants.lean",
+        "sha256": "52b0d9b938527ffd6ff1670f0a5e8222569ac88f2e84ec7604fb2137a7ee8029",
+        "executed_or_built": false
+      },
+      {
+        "path": "PaperProofs.lean",
+        "url": "https://raw.githubusercontent.com/neljaouh/uniform-syracuse-atoms-lean/17e43a340f22ccc0cbd7063a0862a93f72373979/PaperProofs.lean",
+        "sha256": "c1968148753cef8dbacdb9a49c5ee848b88198e7ec9b7d91d9ae8a00c0ecaf91",
+        "executed_or_built": false
+      },
+      {
+        "path": "UnitDensityFloor.lean",
+        "url": "https://raw.githubusercontent.com/neljaouh/uniform-syracuse-atoms-lean/17e43a340f22ccc0cbd7063a0862a93f72373979/UnitDensityFloor.lean",
+        "sha256": "4b59ab2e7d7885cecc7d1420044d6052baf5d9ec36c95db8f6a18ecdc6e4bcfd",
+        "executed_or_built": false
+      },
+      {
+        "path": "SyracuseLaw.lean",
+        "url": "https://raw.githubusercontent.com/neljaouh/uniform-syracuse-atoms-lean/17e43a340f22ccc0cbd7063a0862a93f72373979/SyracuseLaw.lean",
+        "sha256": "123763d13ff2c4d5bab8eb0cbee5b3a4a9aa9c9503447cd167c0cc2d85b630a0",
+        "executed_or_built": false
+      },
+      {
+        "path": "ConcreteKernel.lean",
+        "url": "https://raw.githubusercontent.com/neljaouh/uniform-syracuse-atoms-lean/17e43a340f22ccc0cbd7063a0862a93f72373979/ConcreteKernel.lean",
+        "sha256": "947da7eb4289bac8601f563160e88a6214673447da394db8b25c059bf9d6bb7a",
+        "executed_or_built": false
+      }
+    ]
+  },
+  "mathematical_error_found_in_read_exact_kernel_step": false,
+  "full_external_analytic_proof_verified": false,
+  "external_formal_proof_replayed": false,
+  "research_contact_made": false,
+  "GPU_used": false,
+  "outputs": {
+    "agents/H01_PRIMARY_LITERATURE_IT.md": {
+      "sha256": "acd14c1aa5ae1e7bf5fcb3e4ce4dd7af1a2083e2cd3fe9d17c444c51cc7b58b1",
+      "scope": "Conceptual primary-source audit and conditional phase template"
+    },
+    "agents/H01_SPARSE_SUPPORT_IT.md": {
+      "sha256": "fb904cd1f9d89927626d2fc1589bf89fe2c6edca33cb0095cda81d4eb80b2317",
+      "scope": "Paper support/TV proof, including iid tilt and variable-clock guards"
+    }
+  },
+  "independent_paper_review": {
+    "reviewers": [
+      "/root/h03_new_mechanisms",
+      "/root/h02_counterfactual_value"
+    ],
+    "scope": [
+      "H03: bounded selected component and finite-resolution positive norm lower bound PASS",
+      "H03: sparse count, exactLambda and TV obstruction PASS; final iid-tilt extension PASS on prior frozen hash945c7ca3...",
+      "H02: weighted-debt variable-clock extension derived and communicated",
+      "Root/H02/H03: phase rotation and bounded-pattern selector; upper/lower-density and harmonic-weight distinctions recorded"
+    ],
+    "status": "PASS for stated paper interfaces; no external full-proof certification",
+    "kernel_or_numerical_verification": false
+  }
+}

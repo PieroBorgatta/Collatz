@@ -1,0 +1,42 @@
+{
+  "scope": "Primary literature read for representations, legal paths and boundary conditioning; no downloaded code executed.",
+  "sources": [
+    {
+      "authors": "David Applegate; Jeffrey C. Lagarias",
+      "title": "The 3x+1 Semigroup",
+      "version": "arXiv math/0411140v2, 4 May 2005",
+      "url": "https://arxiv.org/html/math/0411140v2",
+      "journal": "Journal of Number Theory 117 (2006), 146–159",
+      "publisher_url": "https://doi.org/10.1016/j.jnt.2005.06.010",
+      "bibliographic_note": "Publisher and author give146–159; arXiv abstract metadata gives147–159.",
+      "read_scope": "Introduction, Theorem1.1 and modified-iteration interface",
+      "license_displayed": "arXiv perpetual non-exclusive distribution license",
+      "full_text_archived": false
+    },
+    {
+      "authors": "Sara Brofferio",
+      "title": "The Poisson boundary of random rational affinities",
+      "version": "arXiv math/0403198v1; journal publication2006",
+      "url": "https://arxiv.org/html/math/0403198v1",
+      "journal_url": "https://www.numdam.org/articles/10.5802/aif.2191/",
+      "read_scope": "Introduction, first-moment assumptions and boundary theorem",
+      "license_displayed": "No license for repository redistribution established in this reading",
+      "full_text_archived": false
+    },
+    {
+      "authors": "Emre Yolcu; Scott Aaronson; Marijn J. H. Heule",
+      "title": "An Automated Approach to the Collatz Conjecture",
+      "version": "arXiv2105.14697v3, 31 December2022",
+      "url": "https://arxiv.org/html/2105.14697v3",
+      "read_scope": "Sections3.1.1–3.2 and abstract; no solver experiments replayed",
+      "license_displayed": "CC BY4.0",
+      "full_text_archived": false
+    },
+    {
+      "title": "GitHub documentation: Skipping workflow runs",
+      "url": "https://docs.github.com/en/actions/how-tos/manage-workflow-runs/skip-workflow-runs",
+      "read_scope": "Documentation-only delivery can skip push CI using commit annotation; not a mathematical source",
+      "full_text_archived": false
+    }
+  ]
+}
