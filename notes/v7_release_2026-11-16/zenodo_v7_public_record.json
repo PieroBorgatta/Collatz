@@ -1,0 +1,201 @@
+{
+  "created": "2026-11-16T15:36:24.087929+00:00",
+  "modified": "2026-11-16T15:36:24.480787+00:00",
+  "id": 24284425,
+  "conceptrecid": "20021537",
+  "doi": "10.5281/zenodo.24284425",
+  "conceptdoi": "10.5281/zenodo.20021537",
+  "doi_url": "https://doi.org/10.5281/zenodo.24284425",
+  "metadata": {
+    "title": "Finite Orbit Budgets, Arithmetic Transport Barriers, and Paired-Path Certificates for Collatz",
+    "doi": "10.5281/zenodo.24284425",
+    "publication_date": "2026-11-16",
+    "description": "<p><strong>Version 7.0.0 \u2014 technical continuation of the phantom-shadowing programme.</strong> This English manuscript reports finite arithmetic results, paper proofs, and a source-bound verification record. It does not claim a proof of the Collatz conjecture.</p>\n\n<p>The finite core gives an explicit reciprocal budget <code>133547/1655 &lt; 81</code> for every finite injective shortcut trajectory, a first-arrival correction-product bound of <code>exp(27)</code>, and height constraints on existing inverse-word transports. A quadratic occupation estimate covers repeated sources and cyclic targets and implies finiteness of bounded-slope inverse catalogues. The resulting time bound is existential; it is not an effective search cutoff. Prior qualitative reciprocal/product bounds and antecedent counting methods are explicitly credited.</p>\n\n<p>A separate conditional argument pays finite prefix-free off-path catalogues from one stated external lower logarithmic-density input, including a possible entry into a cycle. The external input is not a theorem imported into the local Lean development. A paper-level paired-path construction composes two classical word rules with an attributed terminal merger, proves that a minimum divergent unit seed must leave the resulting language, and derives exact charges for several exits. Universal exit coverage and global amortization remain open.</p>\n\n<p>The PDF includes self-contained proofs, nineteen references, a comparison with version 6, and explicit distinctions between Lean-checked declarations, paper proofs, finite arithmetic checks, external results, and open obligations. The supplementary ZIP contains the complete canonical package of ninety Lean source files, pinned build files, the English manuscript sources and audits, selected strict dependency-audit programs and fresh outputs, and a reproducible archive builder with a SHA-256 manifest. It excludes build caches and third-party manuscripts.</p>\n\n<p>The build uses Lean and Mathlib 4.29.1. Selected arithmetic declarations use only the three recorded standard axioms; older parts of the full library additionally use documented native computation assumptions. This pinned toolchain predates later published kernel soundness fixes. Acceptance by the pinned checker is reported honestly; an independent replay under a current checker has not been performed. AI assistance and shared-context review are disclosed and are not represented as independent human peer review.</p>\n\n<p>The PDF and source archive are distributed under CC BY 4.0. Earlier published versions remain immutable. Canonical research repository: <a href=\"https://github.com/PieroBorgatta/Collatz\">PieroBorgatta/Collatz</a>. Standalone Lean export: <a href=\"https://github.com/PieroBorgatta/CollatzShadowing\">PieroBorgatta/CollatzShadowing</a>. Previous version: <a href=\"https://doi.org/10.5281/zenodo.22936057\">10.5281/zenodo.22936057</a>. All versions: <a href=\"https://doi.org/10.5281/zenodo.20021537\">10.5281/zenodo.20021537</a>.</p>",
+    "access_right": "open",
+    "creators": [
+      {
+        "name": "Borgatta, Piero",
+        "affiliation": null,
+        "orcid": "0009-0001-8025-2405"
+      }
+    ],
+    "keywords": [
+      "Collatz conjecture",
+      "Syracuse dynamics",
+      "Lean 4",
+      "finite orbit budgets",
+      "exact exponent cylinders",
+      "paired paths",
+      "formal verification",
+      "AI-assisted mathematics"
+    ],
+    "related_identifiers": [
+      {
+        "identifier": "https://github.com/PieroBorgatta/Collatz",
+        "relation": "isSupplementedBy",
+        "resource_type": "software",
+        "scheme": "url"
+      },
+      {
+        "identifier": "https://github.com/PieroBorgatta/CollatzShadowing",
+        "relation": "isSupplementedBy",
+        "resource_type": "software",
+        "scheme": "url"
+      }
+    ],
+    "version": "7.0.0",
+    "references": [
+      "Piero Borgatta. Exact Exponent Cylinders, Precision Budgets, and Singular Coding in Accelerated Syracuse Dynamics. Version 6.0.0, Zenodo preprint, 24 September 2026. https://doi.org/10.5281/zenodo.22936057",
+      "Riho Terras. A stopping time problem on the positive integers. Acta Arithmetica 30 (1976), no. 3, 241\u2013252. https://doi.org/10.4064/aa-30-3-241-252",
+      "Jeffrey C. Lagarias. The 3x+1 problem: An annotated bibliography (1963\u20131999) (sorted by author). arXiv:math/0309224, first submitted 13 September 2003; version 13, 11 January 2011. https://arxiv.org/abs/math/0309224v13",
+      "Ilia Krasikov and Jeffrey C. Lagarias. Bounds for the 3x+1 problem using difference inequalities. Acta Arithmetica 109 (2003), no. 3, 237\u2013258. https://doi.org/10.4064/aa109-3-4 ; https://arxiv.org/abs/math/0205002v1",
+      "Lynn E. Garner. On heights in the Collatz 3n+1 problem. Discrete Mathematics 55 (1985), no. 1, 57\u201364. https://doi.org/10.1016/S0012-365X(85)80020-0",
+      "Marcus Elia and Amanda Tucker. Consecutive integers and the Collatz conjecture. Integers 15 (2015), Article A54, 30 December 2015. https://math.colgate.edu/~integers/p54/p54.pdf ; arXiv:1511.09141v1, 30 November 2015, https://arxiv.org/abs/1511.09141v1",
+      "Michael John Curry. An Explicit Windowed Sparsity Bound for Divergent 3x+1 Orbits, with Logarithmic-Floor Exclusion beyond the Harmonic Barrier. Zenodo preprint, 24 August 2026. https://doi.org/10.5281/zenodo.22087163",
+      "Lucas Valbuena. Collatz matrix obstructions, synchronization, and basin densities: three papers and Lean artifacts. Software and manuscript archive, version 2026.09.28.5, Zenodo, 28 September 2026. https://doi.org/10.5281/zenodo.23025885 . The manuscript Collatz basin densities and canonical traces from first-passage stabilization is cited at source snapshot a7275d5a73814d3d9a400c6fe6577de9542b03a3: https://github.com/x1xhlol/collatz-two-coordinate-obstruction/blob/a7275d5a73814d3d9a400c6fe6577de9542b03a3/paper/tao-basin-densities.tex",
+      "Lyapunov Weaver. Ternary Syracuse laws: tail conditioning, moment growth, and predecessor bounds. rStation Collatz paper 9, version 1, 21 October 2026, 04:48 UTC, preprint. https://rstation.ai/problems/collatz/papers/9/v1 ; pinned source: https://rstation.ai/api/v1/papers/collatz_9/versions/1/download",
+      "Lyapunov Weaver. First-landing bounds and canonical inverse laws for Collatz. rStation Collatz paper 12, version 1, 21 October 2026, 08:59 UTC, preprint. https://rstation.ai/problems/collatz/papers/12/v1 ; pinned source: https://rstation.ai/api/v1/papers/collatz_12/versions/1/download",
+      "Lyapunov Weaver. Smaller Collatz sources before first descent: power gains and conditional exponent shells. rStation Collatz paper 21, version 3, 23 October 2026, 19:46 UTC, preprint. https://rstation.ai/problems/collatz/papers/21/v3 ; pinned source: https://rstation.ai/api/v1/papers/collatz_21/versions/3/download",
+      "Lyapunov Weaver and Fourier Wren. Hierarchical Syracuse renewal and linear valuation budgets for modular routing. rStation Collatz paper 48, version 2, 28 October 2026, 05:46 UTC, preprint. https://rstation.ai/problems/collatz/papers/48/v2 ; pinned source: https://rstation.ai/api/v1/papers/collatz_48/versions/2/download",
+      "Lyapunov Weaver. Linear absorbing words and protected smaller-source certificates for Collatz. rStation Collatz paper 81, version 2, 1 November 2026, 21:59 UTC, preprint. https://rstation.ai/problems/collatz/papers/81/v2 ; pinned source: https://rstation.ai/api/v1/papers/collatz_81/versions/2/download",
+      "Lyapunov Weaver. Critical barriers and memory costs in Collatz inverse dynamics. rStation Collatz paper 150, version 2, 15 November 2026, 21:53 UTC, preprint. https://rstation.ai/problems/collatz/papers/150/v2 ; pinned source: https://rstation.ai/api/v1/papers/collatz_150/versions/2/download",
+      "Cassian Mahler. Slope\u2013Ballot Duality, Exact Binary Escape Thresholds, and Parity-Trap Shifts Exceeding the 3/4 Collatz Survival Barrier. rStation Collatz paper 152, version 1, 15 November 2026, 21:47 UTC, preprint. https://rstation.ai/problems/collatz/papers/152/v1 ; pinned source: https://rstation.ai/api/v1/papers/collatz_152/versions/1/download",
+      "Naoufal El Jaouhari. Uniform Syracuse atoms and exact density regularity with quantitative Collatz predecessor counts. Version 1, Zenodo preprint, 14 October 2026. https://doi.org/10.5281/zenodo.23377671",
+      "Terence Tao. Almost all orbits of the Collatz map attain almost bounded values. Forum of Mathematics, Pi 10 (2022), e12, 1\u201356. https://doi.org/10.1017/fmp.2022.8 ; https://arxiv.org/abs/1909.03562v7",
+      "Lean Language Reference. Lean 4.32.2 release notes. 28 July 2026. https://lean-lang.org/doc/reference/latest/releases/v4.32.2/",
+      "Lean Language Reference. Lean 4.34.0 release notes. 14 September 2026. https://lean-lang.org/doc/reference/latest/releases/v4.34.0/"
+    ],
+    "language": "eng",
+    "custom": {
+      "code:codeRepository": "https://github.com/PieroBorgatta/Collatz",
+      "code:programmingLanguage": [
+        {
+          "id": "python",
+          "title": {
+            "en": "Python"
+          }
+        },
+        {
+          "id": "lean",
+          "title": {
+            "en": "Lean"
+          }
+        }
+      ],
+      "code:developmentStatus": {
+        "id": "active",
+        "title": {
+          "en": "Active"
+        }
+      }
+    },
+    "resource_type": {
+      "title": "Preprint",
+      "type": "publication",
+      "subtype": "preprint"
+    },
+    "alternate_identifiers": [
+      {
+        "identifier": "https://github.com/PieroBorgatta/Collatz"
+      }
+    ],
+    "license": {
+      "id": "cc-by-4.0"
+    },
+    "relations": {
+      "version": [
+        {
+          "index": 6,
+          "is_last": true,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "20021537"
+          }
+        }
+      ]
+    }
+  },
+  "title": "Finite Orbit Budgets, Arithmetic Transport Barriers, and Paired-Path Certificates for Collatz",
+  "links": {
+    "self": "https://zenodo.org/api/records/24284425",
+    "self_html": "https://zenodo.org/records/24284425",
+    "preview_html": "https://zenodo.org/records/24284425?preview=1",
+    "doi": "https://doi.org/10.5281/zenodo.24284425",
+    "self_doi": "https://doi.org/10.5281/zenodo.24284425",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.24284425",
+    "reserve_doi": "https://zenodo.org/api/records/24284425/draft/pids/doi",
+    "parent": "https://zenodo.org/api/records/20021537",
+    "parent_html": "https://zenodo.org/records/20021537",
+    "parent_doi": "https://doi.org/10.5281/zenodo.20021537",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.20021537",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:24284425/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:24284425/sequence/default",
+    "files": "https://zenodo.org/api/records/24284425/files",
+    "media_files": "https://zenodo.org/api/records/24284425/media-files",
+    "thumbnails": {
+      "10": "https://zenodo.org/api/iiif/record:24284425:collatz_spectral_reduction_v7.pdf/full/%5E10,/0/default.jpg",
+      "50": "https://zenodo.org/api/iiif/record:24284425:collatz_spectral_reduction_v7.pdf/full/%5E50,/0/default.jpg",
+      "100": "https://zenodo.org/api/iiif/record:24284425:collatz_spectral_reduction_v7.pdf/full/%5E100,/0/default.jpg",
+      "250": "https://zenodo.org/api/iiif/record:24284425:collatz_spectral_reduction_v7.pdf/full/%5E250,/0/default.jpg",
+      "750": "https://zenodo.org/api/iiif/record:24284425:collatz_spectral_reduction_v7.pdf/full/%5E750,/0/default.jpg",
+      "1200": "https://zenodo.org/api/iiif/record:24284425:collatz_spectral_reduction_v7.pdf/full/%5E1200,/0/default.jpg"
+    },
+    "latest": "https://zenodo.org/api/records/24284425/versions/latest",
+    "latest_html": "https://zenodo.org/records/24284425/latest",
+    "versions": "https://zenodo.org/api/records/24284425/versions",
+    "draft": "https://zenodo.org/api/records/24284425/draft",
+    "access_links": "https://zenodo.org/api/records/24284425/access/links",
+    "access_grants": "https://zenodo.org/api/records/24284425/access/grants",
+    "access_users": "https://zenodo.org/api/records/24284425/access/users",
+    "access_request": "https://zenodo.org/api/records/24284425/access/request",
+    "access": "https://zenodo.org/api/records/24284425/access",
+    "communities": "https://zenodo.org/api/records/24284425/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/24284425/communities-suggestions",
+    "request_deletion": "https://zenodo.org/api/records/24284425/request-deletion",
+    "file_modification": "https://zenodo.org/api/records/24284425/file-modification",
+    "quota_increase": "https://zenodo.org/api/records/24284425/quota-increase",
+    "requests": "https://zenodo.org/api/records/24284425/requests"
+  },
+  "updated": "2026-11-16T15:36:24.480787+00:00",
+  "recid": "24284425",
+  "revision": 3,
+  "files": [
+    {
+      "id": "c3d7e142-f712-4673-af3f-e99542c26afa",
+      "key": "collatz_spectral_reduction_v7.pdf",
+      "size": 162848,
+      "checksum": "md5:f078f9825f0d906e8069640ee7a74393",
+      "links": {
+        "self": "https://zenodo.org/api/records/24284425/files/collatz_spectral_reduction_v7.pdf/content"
+      }
+    },
+    {
+      "id": "32c2c9ab-6005-4eaa-8b06-606bf609d3a1",
+      "key": "collatz_spectral_reduction_v7_supplementary.zip",
+      "size": 454358,
+      "checksum": "md5:36ee48161d8ecbab8ff94279cd36ec38",
+      "links": {
+        "self": "https://zenodo.org/api/records/24284425/files/collatz_spectral_reduction_v7_supplementary.zip/content"
+      }
+    }
+  ],
+  "swh": {},
+  "owners": [
+    {
+      "id": "1634158"
+    }
+  ],
+  "status": "published",
+  "stats": {
+    "downloads": 394,
+    "unique_downloads": 325,
+    "views": 563,
+    "unique_views": 498,
+    "version_downloads": 0,
+    "version_unique_downloads": 0,
+    "version_unique_views": 0,
+    "version_views": 0
+  },
+  "state": "done",
+  "submitted": true
+}

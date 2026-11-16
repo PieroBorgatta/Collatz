@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check the repository copies of the immutable Zenodo v1–v6 PDFs offline."""
+"""Check the repository copies of the immutable Zenodo v1–v7 PDFs offline."""
 
 import hashlib
 import json
@@ -14,8 +14,8 @@ MANIFEST = Path(__file__).with_name("published_pdf_checksums.json")
 def check() -> int:
     records = json.loads(MANIFEST.read_text(encoding="utf-8"))["files"]
     versions = [record["version"] for record in records]
-    if versions != [f"v{i}" for i in range(1, 7)]:
-        print("Published PDF manifest must list v1 through v6 exactly once.", file=sys.stderr)
+    if versions != [f"v{i}" for i in range(1, 8)]:
+        print("Published PDF manifest must list v1 through v7 exactly once.", file=sys.stderr)
         return 1
 
     failed = False

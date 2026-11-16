@@ -1,0 +1,430 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{geometry,booktabs,longtable,array,enumitem,microtype,seqsplit}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\geometry{margin=2.65cm}
+\setlength{\emergencystretch}{2em}
+\newcommand{\ttbr}[1]{\texttt{\seqsplit{#1}}}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\U}{\mathcal U}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\hypersetup{colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,
+ urlcolor=blue!45!black,pdftitle={Finite Orbit Budgets, Arithmetic Transport Barriers, and Paired-Path Certificates for Collatz},pdfauthor={Piero Borgatta}}
+\title{Finite Orbit Budgets, Arithmetic Transport Barriers,\\
+and Paired-Path Certificates for Collatz\\[0.4em]
+\large Version 7: a technical continuation of the phantom-shadowing programme}
+\author{Piero Borgatta\thanks{Independent researcher.
+Correspondence: \texttt{info@pieroborgatta.com}.
+ORCID: \href{https://orcid.org/0009-0001-8025-2405}{0009-0001-8025-2405}.}}
+\date{16 November 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This technical continuation of version~6 reports finite arithmetic results
+and a more precise research boundary for a Lean-assisted Collatz programme.
+For every finite injective shortcut orbit we prove an explicit reciprocal
+budget smaller than~81. It yields a uniform first-arrival correction product
+at most $e^{27}$ and exact height constraints on existing inverse-word
+transports. A quadratic occupation inequality handles repeated sources and
+cyclic targets, and gives finiteness of every fixed bounded-slope catalogue;
+its time bound is existential, not an effective search cutoff.
+We distinguish these results from conditional mass arguments. A single
+lower logarithmic-density input pays finite prefix-free off-path catalogues,
+including a possible entry into a cycle, without identifying a canonical
+harmonic trace. On paper, two classical paired-word rules are composed
+into an explicit mixed language with a nearby smaller companion and an
+attributed terminal merger. A minimum divergent unit seed must leave that
+language. Several exits admit exact local charges against subsequent
+forced contractions, but their global composition remains open.
+The manuscript supplies proofs, attribution, a comparison with version~6,
+and a source-bound verification record. The finite core is checked in
+the pinned Lean~4.29.1 development; the paired-path and conditional results
+are paper proofs. No exclusion of all divergent orbits or all nontrivial
+cycles, universal smaller-source cover, or solution of Collatz is claimed.
+\end{abstract}
+
+\begingroup\small\tableofcontents\endgroup
+
+\section{Purpose, contribution, and status}
+\label{sec:scope}
+Version~6 \cite{borgatta_v6} established the local exact-cylinder and
+precision-budget interfaces used here, corrected an earlier global
+continuity claim, and explained why an unrestricted infinite-code
+exclusion would restate the divergence problem. This version is a
+standalone continuation, not a replacement of the frozen version~6 files.
+It selects results from the subsequent development that have explicit
+mathematical statements and an inspectable proof boundary.
+
+There are three different kinds of assertion in this paper.
+\begin{enumerate}[leftmargin=*]
+\item The finite estimates in Section~\ref{sec:v7-finite-core} have
+corresponding checked declarations in the local Lean project. Their paper
+proofs make the estimates readable without requiring Lean.
+\item Sections~\ref{sec:transport-barriers}, \ref{sec:conditional-budget},
+and~\ref{sec:paired-paths} give paper proofs. They are not represented as
+new checked Lean theorems. The logarithmic-density premise in
+Section~\ref{sec:conditional-budget} is stated as an external input.
+\item The final research obligations are questions. A finite certificate
+interface, a locally correct paired rule, or a positive result on a
+constructed family is not a proof of coverage of every integer orbit.
+\end{enumerate}
+
+The formalization and AI-assisted review are methods of producing and
+checking statements, not grounds for a claim of mathematical priority.
+Parity cylinders, inverse trees, multiplicative potentials, and paired
+parity words have substantial precedents
+\cite{terras1976,lagarias2003,krasikovlagarias2003,garner1985,eliatucker2015}.
+Qualitative integer Green finiteness was already explicit in
+\cite[Proposition~11]{weaver9v1}. We therefore claim a local formal
+integration, explicit finite constants, and the specific proved
+interfaces below; we do not claim the first general use of these tools.
+
+\subsection{What changed after version~6}
+\begin{center}\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.22\linewidth}>{\raggedright\arraybackslash}p{0.33\linewidth}>{\raggedright\arraybackslash}p{0.34\linewidth}}
+\toprule
+Topic & Version~6 or earlier boundary & Present continuation\\
+\midrule
+Exact words & Final odd bit and exact residue cylinder & Retained as the legality test for all recodings\\
+Precision & One fixed expansive word consumes precision; unrestricted switches can reset it & First-arrival product and explicit finite transport constraints\\
+Orbit packing & No pointwise descent cover & Universal finite injective reciprocal budget; no new descent cover\\
+Inverse catalogues & Arithmetic interfaces and selected searches & Finite bounded-slope catalogue, including returns; no effective time bound\\
+Mass comparison & Relative-mass lower bound missing & Smaller conditional dependency interface; lower construction still missing\\
+Paired paths & No global rank for arbitrary switching & Mixed exact rules, terminal merger, necessary exits, local contraction charges\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Conventions}
+Natural numbers used as orbit states are positive. The shortcut map is
+$T(n)=n/2$ for even $n$ and $(3n+1)/2$ for odd $n$; the Syracuse map
+is $S(n)=(3n+1)/2^{a(n)}$ on positive odd integers, with
+$a(n)=\nu_2(3n+1)\ge1$. A \emph{unit} is a positive odd integer
+not divisible by~3. Write $\U$ for this set. Every positive odd
+Syracuse image is a unit, even when its source is divisible by~3.
+An orbit point is \emph{periodic} if it has a positive return to itself.
+A nonperiodic point may still be preperiodic; this distinction matters
+in the finite argument allowing a later entry into a cycle.
+A divergent orbit has no repeated state and tends to infinity.
+
+The gain of a forward word of length $k$ and exponent sum $A$ is
+$\Omega=3^k/2^A$. A gain is a homogeneous affine slope, not the
+actual ratio of the terminal and initial states. The latter includes
+the positive correction product. Inverse words are read from target
+to seed; prefix-free always refers to that orientation.
+
+\input{v7_sections/finite_core}
+
+\section{Arithmetic transport barriers and the tower boundary}
+\label{sec:transport-barriers}
+
+\subsection{A small new seed requires an early change}
+\begin{proposition}[A preserved-prefix obstruction]
+Suppose two distinct positive odd seeds $b,v$ realize the same first
+$r$ Syracuse exponents, of total $A$. Then
+\[
+ 2^{A+1}\mid(v-b).
+\]
+Consequently a witness with $v\le C_b j\log j$ can preserve at most
+$O_b(\log j)$ initial exponent bits. The conclusion is unaffected
+by allowing a different final word length.
+\end{proposition}
+\begin{proof}
+The affine constants cancel, giving
+$S^r(v)-S^r(b)=3^r(v-b)/2^A$. Both endpoints are odd, so the
+difference is even; $3$ is invertible modulo every power of~$2$.
+Thus $2^{A+1}\le |v-b|\le b+C_b j\log j$.
+\end{proof}
+This is the classical cylinder constraint in a useful orientation, not
+a new cylinder theorem. It rules out changing only a short terminal
+window while retaining a long forward prefix, if a genuinely small
+new seed is required. It does not rule out a global change beginning
+near the source. If the rival word ends earlier, the shared prefix is
+only defined up to that endpoint.
+
+\subsection{Uniform routing does not buy a contracting return}
+Uniform legal modular routing with linear total valuation is available
+in \cite[Theorem~8]{weaver48}; its absolute constants are not numerically tabulated.
+The following elementary count concerns the real cost of a particular
+way of using such a primitive.
+\begin{proposition}[Fixed-total routing cost]\label{prop:routing-cost}
+Fix length $b\ge1$, total $E\ge b$, precision $r\ge1$, and a unit
+residue $a$ modulo $3^r$. Suppose words of length $b$ and total $E$
+route every positive odd unit root into that residue. Then
+\[
+ \binom{E-1}{b-1}\ge2\cdot3^{b+r-1},\qquad
+ \frac{2^E}{3^b}\ge4\cdot3^{r-1}.
+\]
+If routing into $-1$ modulo $3^{k+1}$ is followed by $k$ inverse
+steps of exponent~$1$, the composed inverse real slope is at least
+$4\cdot2^k$.
+\end{proposition}
+\begin{proof}
+A word has the inverse form $I_w(x)=(2^Ex-C_w')/3^b$.
+Prescribing its terminal residue modulo $3^r$ fixes one root residue
+modulo $3^{b+r}$, because $2^E$ is invertible. There are
+$2\cdot3^{b+r-1}$ unit root residues and only
+$\binom{E-1}{b-1}$ positive compositions of $E$ into $b$ parts.
+Legality restrictions cannot increase coverage.
+Use $\binom{E-1}{b-1}\le2^{E-1}$. Finally,
+$I_1^k(y)+1=(2/3)^k(y+1)$; the extra terminal ternary digit
+preserves the unit guard and gives the stated slope.
+\end{proof}
+For fixed parameters the menu is finite. Its offsets cannot overcome
+this slope at all arbitrarily large roots. This is not a pointwise
+lower bound on every routed seed and not a no-go for arbitrary
+root-dependent clocks. If only a fraction $\delta$ of the root
+residues must be covered, the same count has the additional factor
+$\delta$, leaving a possible role for rare conditioning.
+
+\subsection{What exact tower information does and does not say}
+The post-v6 tower is
+\[
+ Q_v(q)=\frac{9^{2^v q}-1}{2^{v+3}},\qquad q>0\text{ odd},
+ \qquad Q_v=Q_v(1).
+\]
+For distinct positive odd parameters $q,r$, the elementary lifting
+identity gives
+\[
+ \nu_2\bigl(Q_v(q)-Q_v(r)\bigr)=\nu_2(q-r).
+\]
+Indeed factor out $9^{2^v\min(q,r)}$ and use
+$\nu_2(9^m-1)=3+\nu_2(m)$ for nonzero integer $m$.
+This exact isometry, its finite residue bijections, and finite-word
+transport are integrated in \texttt{TowerParameter.lean} and
+\texttt{TowerSuffix.lean}. They explain why a finite suffix can be
+realized by choosing its parameter. They do not imply that the one
+fixed parameter $q=1$ realizes an arbitrary suffix, or that one
+positive parameter realizes an arbitrary infinite word.
+
+The source-specific squaring and carry constraints retain more
+information than a generic cylinder. The archived post-v6 experiments
+nevertheless refuted several proposed finite completion filters, not
+the tower itself. None supplies a uniform bound for the total parity
+weight of the exact tower. The release preserves these negative
+results as research history; it does not turn another exact source
+description into a new dynamical inequality.
+
+\section{A conditional finite budget for off-path certificates}
+\label{sec:conditional-budget}
+This section is a paper argument. Its external analytic input is
+separated from the unconditional first-arrival estimate. It avoids
+assuming natural-density existence or identifying a canonical trace.
+
+\begin{definition}[Logarithmic-density input]\label{def:log-input}
+For a nonperiodic unit $v$, let $\mathcal B(v)$ be the set of positive
+odd integers whose forward Syracuse orbit reaches $v$, allowing
+zero time. Assume there is $\alpha>0$ such that for every such $v$,
+\begin{equation}\label{eq:log-input}
+ \liminf_{X\to\infty}\frac{2}{\log X}
+ \sum_{\substack{u\le X\\u\in\mathcal B(v)}}\frac1u
+ \ge\frac{\alpha}{4v}.
+\end{equation}
+\end{definition}
+The lower logarithmic statement is already given from an atom-floor
+input in \cite[Section~2]{weaver12}. The corresponding atom-floor
+manuscript is \cite{eljaouhari2026}. These are external preprint
+inputs here, not theorems imported into the local Lean development.
+Their published formal artifacts were not rebuilt for this release.
+All subsequent uses of~\eqref{eq:log-input} remain conditional on it.
+
+\begin{lemma}[Finite antichain packing]\label{lem:log-antichain}
+Under~\eqref{eq:log-input}, a finite forward antichain $V$ of
+nonperiodic units satisfies $\sum_{v\in V}1/v\le4/\alpha$.
+\end{lemma}
+\begin{proof}
+If two predecessor basins intersect, determinism makes their targets
+forward comparable. Thus these basins are disjoint. The normalized
+sum of reciprocals of all positive odd integers tends to~$1$.
+Apply finite additivity and the lower bounds in~\eqref{eq:log-input};
+no interchange of an infinite family and a liminf is used.
+\end{proof}
+
+\begin{theorem}[A budget with the cycle status undecided]
+\label{thm:finite-offpath}
+Let $n_0=b,n_1,\ldots,n_J$ be an actual Syracuse segment of units
+with distinct states. For each $1\le j\le J$, take a finite family
+$\mathcal W_j$ of nonempty actual words from unit seeds $v_w$ to
+$n_j$, satisfying all three conditions:
+\begin{enumerate}[label=(\roman*),leftmargin=*]
+\item each word is a first arrival at $n_j$;
+\item its last parent differs from the observed parent $n_{j-1}$;
+\item the family is prefix-free when read inversely from $n_j$.
+\end{enumerate}
+Write $\Omega_j$ for the observed gain and
+$\Gamma_w=\Omega(w)/\Omega_j$. Under~\eqref{eq:log-input},
+\begin{equation}\label{eq:finite-budget}
+ \sum_{j=1}^J\sum_{w\in\mathcal W_j}\Gamma_w
+ \le b e^{27}\left(\frac8\alpha+1\right).
+\end{equation}
+If all observed targets are nonperiodic, $4be^{27}/\alpha$ suffices.
+No decision about the orbit after the displayed prefix is required
+as an input to the finite certificate.
+\end{theorem}
+\begin{proof}
+For both first-arrival segments,
+$n_j=b\Omega_jP_j=v_w\Omega(w)P_w$, with
+$1\le P_j,P_w\le e^{27}$ by
+Proposition~\ref{prop:v7-first-arrival}. Hence
+$\Gamma_w=bP_j/(v_wP_w)\le be^{27}/v_w$.
+
+If the targets are all nonperiodic, so are the seeds. At a common
+target, prefix-freeness and first arrival make the seeds a forward
+antichain. Between two distinct off-path ingress times, a seed
+already entering the observed path must thereafter use the observed
+parent at the later target. Therefore such seeds are incomparable,
+and Lemma~\ref{lem:log-antichain} pays the whole family once.
+
+If the prefix contains periodic points, let $i$ be the first such
+index. For $j>i$, the observed parent is the unique cyclic parent
+of $n_j$. An off-path word must enter the cycle for the first time
+at $n_j$ itself; otherwise its last parent would be cyclic. For
+$j<i$ the targets and seeds are nonperiodic. All seeds for
+$j\ne i$ form one nonperiodic antichain: an earlier path enters
+the cycle at $n_i$, whereas a later off-path ingress enters at a
+different displayed cycle point. Distinctness of the observed
+segment is used here. If $i=0$, no exceptional catalogue is present.
+
+For $i\ge1$, separate $\mathcal W_i$. Its nonperiodic seeds form
+a second antichain, by prefix-freeness and first arrival. A seed
+from this family may also occur in a later catalogue, which is why
+one cannot simply pay all terms once. Periodic seeds in
+$\mathcal W_i$ lie on the unique inverse cyclic chain; prefix-freeness
+allows at most one of them, with reciprocal at most~$1$.
+The two nonperiodic budgets and this one possible term give
+$\sum 1/v_w\le8/\alpha+1$, proving~\eqref{eq:finite-budget}.
+\end{proof}
+
+For a hypothetical divergent path, a construction of such catalogues
+whose total relative gain is unbounded would contradict the theorem.
+This is a sufficient research criterion, not an already proved lower
+bound. With a rival word of length $\ell$ and total $B$, its cost is
+\[
+ \Gamma=3^{\ell-j}2^{A_j-B}=2^{-E},\qquad
+ E=(B-A_j)-(\ell-j)\log_2 3.
+\]
+The clock is free. Moreover $\Gamma=bP_j/(vP_w)$, so the cost is
+the logarithm of the new seed within a bounded correction. Renaming
+that seed as a debt does not make its construction easier.
+
+\input{v7_sections/paired_paths}
+
+\section{Literature boundary and the next mathematical obligation}
+\label{sec:next}
+The rStation references are version-pinned manuscripts attributed to
+their named platform accounts. Their platform acceptance is not treated
+as evidence of independent peer review or formal correctness. Results
+used only as precedents are distinguished from the explicit external
+premise of Section~\ref{sec:conditional-budget}.
+
+Tao's theorem \cite{tao2022} gives almost-bounded minima in logarithmic
+density, not descent for every positive integer. Predecessor-count
+and canonical-trace results likewise have their own domains and
+quantifiers. In particular, fixed-root nonatomicity of a canonical
+inverse law is already available from ancestor decay
+\cite{valbuena2026,weaver12}; it does not supply a uniform critical
+clock for moving targets. The nonperiodic linear trace upper bound
+must not be extended to arbitrary cycles without its return factor.
+
+Several tempting subproblems are already solved in the literature.
+Chosen absorbing words of linear length are given in
+\cite{weaver81}, and modular routes with linear total valuation in
+\cite{weaver48}. An absorbing word selects a compatible source
+cylinder; it does not prescribe the future bits of a supplied
+integer. A modular route controls a residue, not the height of the
+new seed. Proposition~\ref{prop:routing-cost} explains one specific
+failure of combining those tools without conditioning.
+
+A recent manuscript \cite{weaver150} makes a possible divergent
+orbit's exceptional ternary behaviour quantitative: any weak limit
+of its empirical Syracuse-state measures has a positive singular
+component, with the stated lower fraction about~0.08855. This is a
+necessary restriction, not a divergence exclusion. None of our
+pointwise floor, telescope, or finite packing estimates forces the
+opposite regularity. We do not identify these empirical measures
+with an inverse Doob law or a Haar-stationary control model.
+
+The concrete continuation suggested by Section~\ref{sec:paired-paths}
+is to handle exits from the paired language by one of three verified
+outcomes: a merger, a controlled change to another companion, or
+descent below the original minimum seed. The large-parameter exits
+already display a charge against later forced contractions. Those
+charges depend on a growth buffer, not on $O(\log j)$, and expansive
+blocks can replenish that buffer. A global amortization has therefore
+not been proved. Adding more terminal words without such an argument
+would repeat the incomplete-classification problem illustrated by
+\cite{eliatucker2015}.
+
+The cycle problem is separate. Finite product constraints and
+restricted-height cycle exclusions do not exclude every positive
+cycle. No analytic result cited here is promoted into the checked
+library merely by being referenced, and no large external
+computational certificate is claimed as independently reproduced.
+
+\section{Verification, release contents, and limitations}
+\label{sec:verification}
+The release binds the paper, its English supporting audits, the
+canonical Lean sources, build pins, selected strict dependency
+audits, and their recorded outputs in a reproducible source archive.
+The canonical package has~90 Lean files including its entrypoint;
+26 files are generated finite-certificate modules. The release
+manifest, rather than a mutable branch name, identifies the bytes.
+The standalone \texttt{CollatzShadowing} repository is a documented
+export of this package; it is not an independent proof implementation.
+
+The fresh pinned incremental build completes~3404 jobs. It reuses
+the existing dependency cache and is not a cold rebuild of Mathlib.
+The selected new arithmetic declarations are checked transitively
+using only \texttt{propext}, \texttt{Classical.choice}, and
+\texttt{Quot.sound}. Historical receipts cover the earlier post-v6
+modules; their source hashes are checked individually, since later
+imports changed the main entrypoint. The whole library additionally
+contains a documented finite list of earlier \texttt{native\_decide}
+proofs. Their native compilation assumptions are not part of the
+strict arithmetic-core claim.
+
+Lean and Mathlib are pinned to~4.29.1. This predates the documented
+kernel soundness fix in~4.32.2 and further soundness fixes and defensive
+checks in~4.34.0 \cite{lean4322,lean4340}. No exploit is established
+in this development. The reported result is acceptance by the pinned
+toolchain, with explicit dependency audits, not an independent
+current-kernel validation or a claim that pinning removes those
+limitations. Migration and a fresh independent checker replay remain
+separate verification work. Source scans for placeholders alone do
+not settle this trust question.
+
+AI assistants supported literature retrieval, drafting, symbolic
+derivations, Lean development, and adversarial review. Several agents
+reviewed one another's work in shared context; they are not independent
+human referees. The named human author directs the programme and is
+responsible for the manuscript. Cross-review and successful finite
+checks do not certify mathematical novelty. Authorship and the wider
+methodology are described in the repository's \texttt{METHODOLOGY.md}.
+
+\section{Conclusion}
+The finite reciprocal and occupation budgets make the arithmetic
+interfaces more explicit and reproducible. The conditional antichain
+argument reduces a sufficient mass criterion to one stated external
+input, while the paired-word construction demonstrates a legal
+source-specific mechanism on a proper language. Its exits already
+show why local correctness and a global descent argument are different
+tasks. The missing results are a coverage theorem and a global cost
+bound, or another argument that genuinely excludes the exceptional
+integer orbit. They remain open.
+
+\input{v7_sections/bibliography}
+\end{document}

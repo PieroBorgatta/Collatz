@@ -73,3 +73,7 @@ lean/lakefile.olean
 
 # Exact tower parameter verification evidence
 !notes/post_v6_transport_2026-09-24/*.log
+
+# Version 7 release: retain verification evidence, omit TeX intermediates.
+notes/v7_release_2026-11-16/build/
+!notes/v7_release_2026-11-16/verification/*.log

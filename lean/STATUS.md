@@ -1,6 +1,21 @@
 # Current mathematical status
 
-Updated 2026-11-16. The published v1–v6 Zenodo PDFs are frozen snapshots.
+**Version 7 published, 16 November 2026:** the English
+[manuscript](../paper/collatz_spectral_reduction_v7.pdf) and
+[release evidence](../notes/v7_release_2026-11-16/) bind the present
+canonical package of 90 Lean files, including 26 generated modules.
+A fresh pinned incremental build completed 3404 jobs; strict audits
+passed for the selected groups of 69 roots, 136 declarations and 68
+declarations. The paper distinguishes checked finite estimates from
+conditional external inputs and paper-only paired-path arguments.
+Lean 4.29.1 predates later published kernel soundness fixes; no
+independent current-checker replay is claimed. The PDF and reproducible
+source archive are published at
+[doi:10.5281/zenodo.24284425](https://doi.org/10.5281/zenodo.24284425), and
+both public downloads match the local release bytes. The existing v1–v6
+publications and their checksums remain unchanged.
+
+Updated 2026-11-16. The published v1–v7 Zenodo PDFs are frozen snapshots.
 Published [v6](https://doi.org/10.5281/zenodo.22936057) includes the erratum
 to v4; subsequent working-tree developments are separate from its frozen
 supplementary archive. This working tree targets pinned Lean v4.29.1 and Mathlib

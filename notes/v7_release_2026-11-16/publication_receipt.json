@@ -1,0 +1,35 @@
+{
+  "schema": "collatz-v7-publication-receipt-1",
+  "verified_at_utc": "2026-11-16T15:39:13.369686+00:00",
+  "record_id": 24284425,
+  "doi": "10.5281/zenodo.24284425",
+  "concept_doi": "10.5281/zenodo.20021537",
+  "record_url": "https://zenodo.org/records/24284425",
+  "version": "7.0.0",
+  "title": "Finite Orbit Budgets, Arithmetic Transport Barriers, and Paired-Path Certificates for Collatz",
+  "publication_date": "2026-11-16",
+  "status": "published and publicly retrievable without authentication",
+  "reference_count": 19,
+  "metadata_checks": "Exact title, version, date, English language, author ORCID, CC BY4.0 license, nineteen reference strings and normalized description agree with the prepared release.",
+  "files": [
+    {
+      "name": "collatz_spectral_reduction_v7.pdf",
+      "bytes": 162848,
+      "sha256": "5baf5fe0ca6663e9ce47d1d00ecefc5405e694d40a43d1348e01991dd464ed93",
+      "md5": "f078f9825f0d906e8069640ee7a74393",
+      "public_download": "https://zenodo.org/api/records/24284425/files/collatz_spectral_reduction_v7.pdf/content",
+      "byte_identical_to_local": true
+    },
+    {
+      "name": "collatz_spectral_reduction_v7_supplementary.zip",
+      "bytes": 454358,
+      "sha256": "37fb481237e5ee39c53ef80b1f8c4a9f1ab13752ac72d0129ec02ed3a9409af1",
+      "md5": "36ee48161d8ecbab8ff94279cd36ec38",
+      "public_download": "https://zenodo.org/api/records/24284425/files/collatz_spectral_reduction_v7_supplementary.zip/content",
+      "byte_identical_to_local": true
+    }
+  ],
+  "proof_snapshot_baseline": "fd58ccd52b9fda44197d9c13afd6c1ae8200585e",
+  "source_archive_manifest": "paper/zenodo_v7_manifest.json",
+  "boundary": "This receipt records publication and byte identity, not independent mathematical refereeing or a current-kernel replay."
+}

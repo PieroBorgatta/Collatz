@@ -1,5 +1,28 @@
 # Methodology and Research Program
 
+## Version 7 verification and publication practice
+
+The version 7 continuation distinguishes checked Lean declarations, paper
+proofs, finite executable arithmetic checks, external results, and open
+assumptions. Its English release audits identify the source bytes and the
+scope of each check. Multiple assistants reviewed arguments in shared
+context; this is adversarial internal review, not independent human peer
+review. The human author remains responsible for the publication.
+
+The canonical package is pinned to Lean and Mathlib 4.29.1. The reported
+build reuses cached dependencies. Strict dependency audits isolate the
+selected arithmetic core from the older native-computation assumptions
+elsewhere in the library. Later Lean releases document kernel soundness
+fixes; the v7 record therefore does not claim an independent replay under
+a current checker. Refer to the manuscript and release receipt for the
+precise verification boundary.
+
+Both repositories remain public. Research checkpoints may be committed
+locally, but remote pushes occur only at an explicitly agreed completed
+research or release milestone, or at the author's express request.
+Publication versions receive a stable archive and explicit attribution;
+an incremental push alone is not treated as a scientific result.
+
 ## Research program
 
 This document is the methodological backbone of an ongoing personal
@@ -30,9 +53,10 @@ The intended pattern across multiple problems is:
 5. **External submission**: the artifact is published openly with
    full disclosure of methodology, and submitted to domain experts
    for scrutiny.
-6. **Formal verification (planned)**: the rigorously stated lemmas
-   are mechanically verified in a proof assistant (Lean 4 with
-   Mathlib is the intended target).
+6. **Formal verification (implemented for the finite core)**: selected
+   rigorously stated lemmas are checked in Lean 4 with Mathlib. Paper
+   arguments and external premises are identified separately; checker
+   acceptance has the toolchain and assumption limits recorded above.
 
 The program is conscious of its limits. It does not claim to compete
 with state-of-the-art AI-for-math systems such as DeepMind's

@@ -1,5 +1,5 @@
 {
-  "source": "Zenodo published records; MD5 and size verified against the records on 2026-09-24. SHA-256 computed from the matching local files.",
+  "source": "Zenodo published records. v1-v6 MD5 and size verified on 2026-09-24; v7 public PDF and source archive downloaded and verified byte for byte on 2026-11-16. SHA-256 computed from the matching local files.",
   "files": [
     {
       "version": "v1",
@@ -48,6 +48,14 @@
       "size_bytes": 104734,
       "zenodo_md5": "0cfd141d9f4ff80954846075bf711975",
       "sha256": "a959282145d5042550c3938b445a4964305299b4eca71bcc62539804c5b585f9"
+    },
+    {
+      "version": "v7",
+      "doi": "10.5281/zenodo.24284425",
+      "path": "paper/collatz_spectral_reduction_v7.pdf",
+      "size_bytes": 162848,
+      "zenodo_md5": "f078f9825f0d906e8069640ee7a74393",
+      "sha256": "5baf5fe0ca6663e9ce47d1d00ecefc5405e694d40a43d1348e01991dd464ed93"
     }
   ]
 }

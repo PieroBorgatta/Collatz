@@ -1,0 +1,352 @@
+\section{Finite orbit budgets and exact predecessor catalogues}
+\label{sec:v7-finite-core}
+
+This section records finite arithmetic statements in the post-v6 Lean
+development. Their proofs do not import a predecessor-density theorem,
+an atom floor, a mixing estimate, or a conjecture about divergent orbits.
+The parity-cylinder geometry is classical
+\cite{terras1976,lagarias2003}. Uniform reciprocal and correction-product
+bounds for finite distinct trajectories are already proved in
+\cite[Section~2]{valbuena2026}. A related separation by odd-step count
+appears in Curry's collision-free window estimate
+\cite[Theorem~2.3]{curry2026}. The contribution asserted here is the
+specific parity-moment proof, its explicit rational constant, and its
+integration into the local formal development. Qualitative Green
+finiteness is not claimed as new.
+
+Write
+\[
+ T(n)=\begin{cases}n/2,&n\text{ even},\\(3n+1)/2,&n\text{ odd},\end{cases}
+ \qquad
+ S(n)=\frac{3n+1}{2^{\nu_2(3n+1)}}\quad(n>0\text{ odd}).
+\]
+For an actual Syracuse segment $x_i=S^i(u)$, put
+\[
+ A_k=\sum_{i<k}\nu_2(3x_i+1),\qquad
+ \Omega_k=\frac{3^k}{2^{A_k}}.
+\]
+For an exact exponent word $w$, the corresponding seed-independent gain
+is $\Omega(w)=3^{|w|}/2^{\sum w}$. An exact word includes the prescribed
+valuations and the odd terminal state, rather than only an affine identity.
+A first arrival at $n$ at time $k$ means $x_k=n$ and $x_i\ne n$ for
+every $i<k$. The odd-unit restriction $3\nmid u$ used in the subsequent
+research programme is not needed for most estimates below; where only
+positive odd seeds are specified, multiples of three are allowed as seeds.
+
+\subsection{An explicit reciprocal budget for finite injective orbits}
+
+\begin{theorem}[Finite reciprocal budget]\label{thm:v7-reciprocal}
+Let $u>0$ and $L\ge0$. If $T^0(u),\ldots,T^{L-1}(u)$ are distinct, then
+\begin{equation}\label{eq:v7-reciprocal}
+ \sum_{i=0}^{L-1}\frac1{T^i(u)}
+ \le\frac{133547}{1655}<81.
+\end{equation}
+No assumption is made about the orbit after time $L-1$.
+\end{theorem}
+\begin{proof}
+Let $J_N(s)$ count the odd entries among
+$T^0(s),\ldots,T^{N-1}(s)$. The exact parity lift and its moment identity
+are
+\begin{align}
+ T^N(s+2^N)&=T^N(s)+3^{J_N(s)},
+ &J_N(s+2^N)&=J_N(s),\label{eq:v7-parity-lift}\\
+ \sum_{0\le s<2^N}q^{J_N(s)}&=(1+q)^N.\label{eq:v7-parity-moment}
+\end{align}
+The first identity follows by induction through the $N$ exposed parity
+bits. The last newly exposed bit is complemented by adding $2^N$;
+pairing the two lifts therefore multiplies the preceding moment by
+$1+q$, proving the second identity. Here the auxiliary representative
+$s=0$ is permitted, with $T(0)=0$.
+Induction also gives
+\[
+ 2^N T^N(s)<3^{J_N(s)}(s+2^N),
+ \qquad 0\le s<2^N,
+\]
+so $T^N(s)<2\cdot3^{J_N(s)}$.
+
+Consider a finite set $B$ in $[2^N,2^{N+1})$ on which $T^N$ is
+injective. Write $n=2^N+s$. At a fixed value $J_N(s)=m$, distinct $n$
+give distinct reduced endpoints $T^N(s)$ by
+\eqref{eq:v7-parity-lift}. There are at most $2\cdot3^m$ such
+endpoints. Consequently the number of elements with $J_N(s)<M$ is
+less than $3^M$. On the other hand, substituting $q=3/2$ in
+\eqref{eq:v7-parity-moment} bounds the number with $J_N(s)\ge M$ by
+$(5/2)^N(2/3)^M$. Thus
+\[
+ \frac{\#B}{2^N}\le
+ \frac{3^M}{2^N}+\left(\frac54\right)^N\left(\frac23\right)^M.
+\]
+
+Let $b_N$ count the states of the segment in the $N$th dyadic band.
+Delete its last $N$ time indices, or the whole segment if it has fewer
+than $N$ entries. The map $T^N$ is injective on the remaining states:
+their images are still distinct states of the original segment.
+Restoring the deleted indices costs at most $N$. With
+$M=\lfloor3N/5\rfloor$, it follows that
+\begin{align}
+ \frac{b_N}{2^N}&\le\frac{N}{2^N}+h_N+\ell_N,
+ \label{eq:v7-band-bound}\\
+ h_N&=\left(\frac54\right)^N\left(\frac23\right)^{\lfloor3N/5\rfloor},
+ \qquad \ell_N=\frac{3^{\lfloor3N/5\rfloor}}{2^N}.\notag
+\end{align}
+Only finitely many bands are occupied. Their reciprocal contribution is
+at most $\sum_N b_N/2^N$. Grouping the upper envelopes into blocks of
+five gives
+\[
+ h_{5r+s}=\left(\frac{3125}{3456}\right)^r h_s,
+ \qquad
+ \ell_{5r+s}=\left(\frac{27}{32}\right)^r\ell_s
+ \quad(0\le s<5),
+\]
+with $\sum_{s<5}h_s=3271/576$ and
+$\sum_{s<5}\ell_s=51/16$. Finite geometric sums therefore give the
+respective bounds $19626/331$ and $102/5$. The terminal error costs at
+most $\sum_N N/2^N\le2$. At $N=0$, however, the actual band contains
+only the possible state $1$, whereas \eqref{eq:v7-band-bound} assigns
+two units. Saving that extra unit yields
+\[
+ \sum_{i<L}\frac1{T^i(u)}
+ \le 2+\frac{19626}{331}+\frac{102}{5}-1
+ =\frac{133547}{1655}.
+\]
+All estimates used in the implementation are finite rational inequalities;
+the displayed geometric bounds do not require an asymptotic counting
+hypothesis.
+\end{proof}
+
+The principal declaration is
+\ttbr{CollatzShadowing.OrbitReciprocal.finite\_orbit\_reciprocal\_sum\_le}.
+The companion real-scalar theorem is
+\ttbr{finite\_orbit\_reciprocal\_sum\_real\_lt\_eighty\_one}
+in the same namespace. The temporal deletion, which is essential for the
+injectivity assertion used above, is formalized in
+\texttt{FiniteOrbitTransfer.lean}; injectivity of the full Collatz map on
+arbitrary integer sets is not assumed.
+
+\subsection{First arrivals and the additive correction product}
+
+\begin{proposition}[First-arrival envelope]\label{prop:v7-first-arrival}
+For every positive odd first-arrival segment $u\to n$ of length $k$,
+\begin{equation}\label{eq:v7-product}
+ n=\Omega_k u \mathcal P_k,
+ \qquad
+ \mathcal P_k=\prod_{i<k}\left(1+\frac1{3x_i}\right),
+ \qquad 1\le \mathcal P_k\le P_0:=\exp(27).
+\end{equation}
+In particular, $\Omega_k u\le n\le P_0\Omega_k u$.
+\end{proposition}
+\begin{proof}
+A finite trajectory through its first arrival at a target is injective,
+including its endpoint. Indeed, a repetition before the endpoint would
+make the remaining future repeat and would produce an earlier visit to
+that same target. Every Syracuse step at an odd state has positive
+exponent, and the elapsed shortcut time at $S^i(u)$ is exactly $A_i$.
+All strictly interior shortcut states of such an episode are even.
+Hence a first Syracuse arrival at the odd target $n$ is a first shortcut
+arrival at time $A_k$. Its shortcut segment is injective, and the
+Syracuse states $x_i$, $i<k$, are a subset of that segment. Theorem
+\ref{thm:v7-reciprocal} gives $\sum_{i<k}1/x_i<81$.
+
+Multiplying the exact identities
+$x_{i+1}=(3/2^{a_i})x_i(1+1/(3x_i))$ proves
+\eqref{eq:v7-product}. Each factor is at least one, and
+$1+t\le e^t$ gives
+$\mathcal P_k\le\exp(\sum_{i<k}1/(3x_i))\le e^{27}$.
+\end{proof}
+
+The first-arrival sum and exact shortcut-clock interface are the
+declarations
+\ttbr{FirstArrivalBudget.first\_arrival\_reciprocal\_sum\_lt\_eighty\_one}
+and \ttbr{FirstArrivalBudget.shortcut\_clock}, under the common
+\texttt{CollatzShadowing} prefix. The product identity and its exponential
+estimate are
+\ttbr{WordProductEnvelope.inflation\_eq\_product} and
+\ttbr{WordProductEnvelope.inflation\_le\_exp\_of\_reciprocal\_budget}.
+The identity itself allows repeated visits; the uniform constant $P_0$
+here is justified by the first-arrival hypothesis. It must not be
+reused for arbitrarily many turns around a cycle.
+
+\begin{corollary}[Height of an existing recoding]
+\label{cor:v7-height}
+Suppose $w:u\to n$ is as in Proposition~\ref{prop:v7-first-arrival}
+and $w':v\to y$ is another exact positive odd-source word. If
+$\Omega(w')\ge\Omega(w)/C$ for $C>0$, then
+\begin{equation}\label{eq:v7-height}
+ v\le C\frac{y}{n}P_0u.
+\end{equation}
+In particular, equal word lengths and equal exponent totals allow $C=1$.
+If additionally $y\le21n$, then $v\le21e^{27}u$.
+\end{corollary}
+\begin{proof}
+The nonnegative affine constant of the exact word $w'$ gives
+$\Omega(w')v\le y$. The first-arrival product for $w$ gives
+$1/\Omega(w)=u\mathcal P_k/n\le P_0u/n$. Combining the two inequalities proves
+\eqref{eq:v7-height}.
+\end{proof}
+
+This is implemented by
+\ttbr{WordProductEnvelope.comparable\_slope\_height} and, for the
+same-profile specialization,
+\ttbr{FirstArrivalBudget.first\_arrival\_same\_profile\_height}.
+The canonical unit sibling of a unit $n$ is $4n+1$ if it is a unit,
+and $16n+5$ otherwise; both possibilities are at most $21n$.
+The canonical-sibling specialization is
+\ttbr{FirstArrivalBudget.canonical\_first\_arrival\_profile\_height}.
+These are bounds on a recoding \emph{that exists}. They supply neither
+that recoding nor a positive proportion of successfully recoded sources.
+
+\subsection{Squared occupation, including repeated cyclic visits}
+
+Let $\phi_k=\Omega_k/x_k$. The exact decrement of its square is
+\begin{equation}\label{eq:v7-square-loss}
+ \phi_k^2-\phi_{k+1}^2
+ =\Omega_k^2\frac{6x_k+1}{x_k^2(3x_k+1)^2}.
+\end{equation}
+This follows directly from
+$\phi_{k+1}=3\Omega_k/(3x_k+1)$ and does not require first arrival.
+Put
+\[
+ V(n)=\frac{n^2(3n+1)^2}{6n+1}\quad(n>0).
+\]
+
+\begin{theorem}[Finite quadratic occupation]\label{thm:v7-square}
+For a fixed positive odd seed $u$, a target $n>0$, and any finite set
+$H$ of times with $S^k(u)=n$ for all $k\in H$,
+\begin{equation}\label{eq:v7-visit-bound}
+ \sum_{k\in H}\Omega_k^2\le\frac{V(n)}{u^2}.
+\end{equation}
+For any finite catalogue $\mathcal W$ of distinct exact words ending at
+$n$, with arbitrary positive odd sources, even when sources repeat,
+\begin{equation}\label{eq:v7-catalogue-square}
+ \sum_{w\in\mathcal W}\Omega(w)^2\le2V(n).
+\end{equation}
+Periodic targets and the empty word are allowed.
+\end{theorem}
+\begin{proof}
+The nonnegative losses \eqref{eq:v7-square-loss} telescope from
+$\phi_0^2=1/u^2$. At a visit to $n$, the loss is exactly
+$\Omega_k^2/V(n)$, proving \eqref{eq:v7-visit-bound} for every finite
+set of visiting times. From one fixed source there is only one actual
+word of any specified length; distinct words in its fibre therefore
+correspond to distinct visiting times, including returns. Group the
+catalogue by source and use
+\[
+ \sum_{u\in U}\frac1{u^2}\le2
+\]
+for any finite set $U$ of positive integers. The latter estimate follows,
+for example, by telescoping $1/u^2\le2/u-2/(u+1)$.
+\end{proof}
+
+The exact loss, repeated-visit bound, and arbitrary-source catalogue
+bound are respectively
+\ttbr{QuadraticOccupation.potential\_sq\_sub\_succ},
+\ttbr{QuadraticOccupation.sum\_weight\_sq\_visits\_le}, and
+\ttbr{QuadraticOccupation.tilted\_catalogue\_le}.
+The simpler fixed-depth estimate $\sum\Omega(w)^2\le2n^2$ is
+\ttbr{IntegerAtomTilt.tilted\_integer\_atom\_le}; it uses source
+injectivity at that depth. The same constant is shared across arbitrary
+depths if the target has no positive return, as stated by
+\ttbr{IntegerAtomTilt.tilted\_nonreturn\_catalogue\_le}.
+At a cyclic target this additional hypothesis cannot be dropped from
+the $2n^2$ argument; Theorem~\ref{thm:v7-square} supplies the separate
+repeated-visit estimate.
+
+The corresponding infinite integer Green sum was already shown finite
+in \cite[Proposition~11]{weaver9v1}. Equation
+\eqref{eq:v7-catalogue-square} is a finite elementary realization with
+an explicit constant; it is not a priority claim for Green finiteness.
+
+\begin{corollary}[Finite bounded-slope catalogue]
+\label{cor:v7-bounded-catalogue}
+For every positive integer target $n$ and positive rational $R$, the
+set of all exact words from positive odd sources to $n$ satisfying
+$\Omega(w)\ge1/R$ is finite, and
+\begin{equation}\label{eq:v7-catalogue-card}
+ \#\mathcal W_R(n)\le2V(n)R^2.
+\end{equation}
+Every corresponding source satisfies $u\le Rn$. There exist integers
+$K,A$ bounding all their word lengths and exponent totals, respectively.
+The conclusion includes cyclic targets.
+\end{corollary}
+\begin{proof}
+Each selected word contributes at least $1/R^2$ to
+\eqref{eq:v7-catalogue-square}. Hence every finite subcatalogue has
+cardinality at most the fixed number $2V(n)R^2$; an infinite set would
+have finite subsets of arbitrarily large cardinality, a contradiction.
+The source bound follows from $\Omega(w)u\le n$. The length and total
+bounds are maxima of two functions on the resulting finite set.
+\end{proof}
+
+The five public results in \texttt{BoundedSlopeCatalogue.lean} are
+\ttbr{subcatalogue\_card\_le}, \ttbr{catalogue\_finite},
+\ttbr{catalogue\_ncard\_le}, \ttbr{catalogue\_parameter\_bounds}, and
+\ttbr{catalogue\_source\_bound}. Its implemented catalogue is slightly
+larger than the odd-source catalogue displayed here: only positivity of
+the source is imposed. The numerical source and cardinality bounds are
+explicit. The proof supplies the temporal bounds $K,A$ only
+\emph{existentially}; neither a numerical hitting-time cutoff nor a
+procedure whose stopping criterion follows from the cardinality bound
+is asserted.
+
+\subsection{Finite horizons and the direction of collision certificates}
+
+Two additional interfaces delimit what these finite upper bounds can
+and cannot provide. First, every positive odd segment obeys
+\begin{equation}\label{eq:v7-shifted-growth}
+ 2^k(S^k(u)+1)\le3^k(u+1).
+\end{equation}
+Thus a word of length at most $K$ ending at $n$ has source at least
+$R\ge1$ whenever $3^K(R+1)\le2^K(n+1)$. For a finite catalogue with
+distinct sources at least $R$,
+\[
+ \sum_w\Omega(w)^2\le n^2\sum_u\frac1{u^2}
+ \le\frac{2n^2}{R}.
+\]
+Distinctness is automatic at one fixed depth, and across arbitrary
+depths at a target without positive return. These are
+\ttbr{FiniteHorizonBudget.iterate\_shifted\_growth},
+\ttbr{tilted\_tail\_catalogue}, \ttbr{tilted\_fixed\_depth\_tail},
+and \ttbr{tilted\_nonreturn\_horizon}. Repeated sources at a cyclic
+target require their own occupation budget; they are not silently
+treated as distinct.
+
+Second, let $R_0,\ldots,R_N$ be nondecreasing real numbers with
+$R_i\ge a>0$. Suppose a finite subprobability catalogue $P_i$ contains
+a distinguished branch with mass $R_i/R_{i+1}$, and let
+$D_i=1-\sum_{j\in P_i}p_{i,j}^2$. Then
+\begin{equation}\label{eq:v7-collision-budget}
+ 0\le D_i\le1-\left(\frac{R_i}{R_{i+1}}\right)^2,
+ \qquad
+ \sum_{i<N}D_i\le\frac2a(R_N-R_0).
+\end{equation}
+Indeed $1-r^2\le2(1-r)$, and
+$(R_{i+1}-R_i)/R_{i+1}\le(R_{i+1}-R_i)/a$; the increments telescope.
+The finite algebra is
+\ttbr{SpineDispersion.collision\_spine\_budget}.
+
+If two distinct actual branches each have mass at least $c$, every
+branch has mass at most $1-c$, whence $D_i\ge c$. This is
+\ttbr{SpineDispersion.collision\_defect\_ge\_of\_two\_branches};
+the more general lower-allocation certificate is
+\ttbr{collision\_defect\_ge\_lower\_allocations}. These statements
+do not prove that such branches exist. Moreover, a truncated catalogue
+has \emph{larger} defect than an extension, because adding squared
+masses decreases $1-\sum p^2$. Its computed defect is therefore an
+\emph{upper}, not a lower, bound on the full law's defect. A branch
+lower certificate transfers only when it remains valid with the actual
+unnormalized masses for every finite extension and the corresponding
+limit is justified. Renormalized sample frequencies do not supply this
+certificate.
+
+The named declarations are tied to the repository's pinned verification
+record. The seven-module integration on 15 November audited all 136
+compiled declarations in that scope; the subsequent four-module
+integration audited all 68 declarations, including five encoded-private
+helpers, and passed an incremental full-library build of 3404 jobs.
+The permitted transitive axioms in those audits were
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
+A separate Ubuntu replay reproduced the latter audit and finite
+arithmetic outputs. Those recorded checks use Lean and Mathlib
+\texttt{v4.29.1}; they are not a cold rebuild of all dependencies or a
+replay with an independently implemented kernel. The release manifest
+identifies the sources and evidence included in this version.

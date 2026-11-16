@@ -1,0 +1,269 @@
+{
+  "arithmetic": "exact Python integers and fractions.Fraction; no floating-point comparisons",
+  "check_count": 14,
+  "checks": [
+    {
+      "affine_constants": [
+        5,
+        7
+      ],
+      "companion": {
+        "least_endpoint": 11,
+        "least_last_parent": 7,
+        "modulus": 16,
+        "residue": 9,
+        "word": [
+          2,
+          1
+        ]
+      },
+      "name": "paired block 12 to 21",
+      "observed": {
+        "least_endpoint": 13,
+        "least_last_parent": 17,
+        "modulus": 16,
+        "residue": 11,
+        "word": [
+          1,
+          2
+        ]
+      },
+      "status": "pass"
+    },
+    {
+      "affine_constants": [
+        29,
+        19
+      ],
+      "companion": {
+        "least_endpoint": 47,
+        "least_last_parent": 125,
+        "modulus": 64,
+        "residue": 55,
+        "word": [
+          1,
+          1,
+          3
+        ]
+      },
+      "name": "paired block 212 to 113",
+      "observed": {
+        "least_endpoint": 49,
+        "least_last_parent": 65,
+        "modulus": 64,
+        "residue": 57,
+        "word": [
+          2,
+          1,
+          2
+        ]
+      },
+      "status": "pass"
+    },
+    {
+      "W1_fixed_point": -5,
+      "W2_fixed_point": "29/5",
+      "name": "observed block fixed points",
+      "status": "pass"
+    },
+    {
+      "companion": {
+        "least_endpoint": 62263490321,
+        "least_last_parent": 166035974189,
+        "modulus": 34359738368,
+        "residue": 34086759077,
+        "word": [
+          4,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          4,
+          3,
+          3
+        ]
+      },
+      "constants": [
+        118309227953,
+        181071347171
+      ],
+      "difference": 62762119218,
+      "name": "length-22 terminal merger",
+      "observed": {
+        "least_endpoint": 62263490321,
+        "least_last_parent": 41508993547,
+        "modulus": 34359738368,
+        "residue": 34086759079,
+        "word": [
+          1,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          2,
+          2,
+          2,
+          1,
+          2,
+          1,
+          2,
+          2,
+          1
+        ]
+      },
+      "status": "pass"
+    },
+    {
+      "crt_representatives": [
+        {
+          "repaired_seed_increment": "824633720832",
+          "repaired_unit_seed": 580055155289,
+          "seed": 580055155291,
+          "seed_class_mod_3": 1,
+          "seed_increment": 824633720832
+        },
+        {
+          "repaired_seed_increment": "618475290624",
+          "repaired_unit_seed": 22724506051,
+          "seed": 30299341403,
+          "seed_class_mod_3": 2,
+          "seed_increment": 824633720832
+        }
+      ],
+      "first_gap": 2,
+      "name": "unit repair: prefix W1",
+      "status": "pass",
+      "stripped_gamma": "4/3"
+    },
+    {
+      "crt_representatives": [
+        {
+          "repaired_seed_increment": "3298534883328",
+          "repaired_unit_seed": 773406873719,
+          "seed": 773406873721,
+          "seed_class_mod_3": 1,
+          "seed_increment": 3298534883328
+        },
+        {
+          "repaired_seed_increment": "4947802324992",
+          "repaired_unit_seed": 2809377752243,
+          "seed": 1872918501497,
+          "seed_class_mod_3": 2,
+          "seed_increment": 3298534883328
+        }
+      ],
+      "first_gap": 1,
+      "name": "unit repair: prefix W2",
+      "status": "pass",
+      "stripped_gamma": "2/3"
+    },
+    {
+      "crt_representatives": [
+        {
+          "repaired_seed_increment": "103079215104",
+          "repaired_unit_seed": 34086759077,
+          "seed": 34086759079,
+          "seed_class_mod_3": 1,
+          "seed_increment": 103079215104
+        },
+        {
+          "repaired_seed_increment": "19327352832",
+          "repaired_unit_seed": 19276169215,
+          "seed": 102806235815,
+          "seed_class_mod_3": 2,
+          "seed_increment": 103079215104
+        }
+      ],
+      "first_gap": 4,
+      "name": "unit repair: empty prefix",
+      "status": "pass",
+      "stripped_gamma": "16/3"
+    },
+    {
+      "final": "6561/4096",
+      "minimum": "9/8",
+      "name": "all prefix gains: A",
+      "status": "pass"
+    },
+    {
+      "final": "19683/16384",
+      "minimum": "2187/2048",
+      "name": "all prefix gains: B",
+      "status": "pass"
+    },
+    {
+      "final": "31381059609/17179869184",
+      "minimum": "10460353203/8589934592",
+      "name": "all prefix gains: w_star",
+      "status": "pass"
+    },
+    {
+      "name": "macro prefix code and distinct word powers",
+      "status": "pass"
+    },
+    {
+      "block_mass": "5/32",
+      "geometric_value": "1/14495514624",
+      "name": "finite rational value of the cylinder-mass formula",
+      "status": "pass",
+      "terminal_mass": "1/17179869184"
+    },
+    {
+      "K": 5,
+      "gain": "531441/524288",
+      "name": "collapse-family expansion threshold",
+      "status": "pass"
+    },
+    {
+      "exponential_coefficient": 27,
+      "high_base": "3271/576",
+      "high_bound": "19626/331",
+      "high_ratio": "3125/3456",
+      "low_base": "51/16",
+      "low_bound": "102/5",
+      "low_ratio": "27/32",
+      "name": "finite-packing displayed rational constants",
+      "positive_margin": "508/1655",
+      "status": "pass",
+      "terminal_error_bound": 2,
+      "total": "133547/1655",
+      "upper_bound": 81,
+      "zero_band_saving": 1
+    }
+  ],
+  "limitations": [
+    "not a Lean check",
+    "not an external-certificate replay",
+    "does not parse or prove every LaTeX statement",
+    "no infinite-orbit coverage or global Collatz conclusion"
+  ],
+  "paper_source_sha256": {
+    "paper/v7_sections/finite_core.tex": "c6c517431cccfe9e8e3c04f07f67787f0a5402ce0d793e04f77ac8ed3e260302",
+    "paper/v7_sections/paired_paths.tex": "ab96f955f8721832c094d86d8416e6098c4f9047448a1c4911c90ce65bafaa13"
+  },
+  "schema_version": 1,
+  "scope": "literal finite arithmetic certificates transcribed from the identified paper sources",
+  "status": "pass"
+}

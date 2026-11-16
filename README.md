@@ -1,5 +1,27 @@
 # Phantom Orbit Shadowing for the Collatz Conjecture
 
+**Version 7 release, 16 November 2026:** the English continuation
+[Finite Orbit Budgets, Arithmetic Transport Barriers, and Paired-Path
+Certificates for Collatz](paper/collatz_spectral_reduction_v7.pdf)
+collects the post-v6 finite estimates, a conditional off-path budget,
+and paper proofs for a mixed paired-word language and several necessary
+exits. It includes nineteen references and distinguishes precedents,
+checked declarations, paper arguments, and open coverage obligations.
+The [release audits](notes/v7_release_2026-11-16/) and
+[reproducible source manifest](paper/zenodo_v7_manifest.json) record the
+verification boundary. The PDF and source archive are published as
+[version 7.0.0](https://doi.org/10.5281/zenodo.24284425) of the existing
+Zenodo series. Both public downloads were verified byte for byte against
+the local release files.
+
+Both repositories remain public. Future research is committed locally;
+remote pushes are made only at an expressly requested or agreed completed
+milestone. The standalone
+[CollatzShadowing](https://github.com/PieroBorgatta/CollatzShadowing)
+repository is an export of the same proof sources, not an independent
+implementation. The pinned Lean 4.29.1 build and selected strict audits
+pass; an independent replay under a current checker remains outstanding.
+
 **16 November 2026:** four further modules formalize finite-horizon tail
 budgets, squared occupation with returns, finite bounded-slope catalogues,
 and finite collision certificates. The full build (3404 jobs) and strict
@@ -29,11 +51,12 @@ integrates ten modules for root-pool charges, capacity allocation, exact
 joint-word counting and finite transport interfaces. Its paper-level
 finite-sparsity height argument is now strengthened and formalized above;
 relative mass remains open. The [v7 assessment](notes/research_sprint_2026-11-13/V7_OUTLINE_IT.md)
-recommends preparing a technical continuation; no new version has been deposited.
+motivated the technical continuation now published as v7.
 
 **26 September, H.2:** [signed-transport follow-up](notes/post_v6_signed_mass_2026-09-26/RESULTS_IT.md) proves on paper that all final-exponent corrections have only o(X) distinct images within a fixed dilation, even with arbitrary dyadic lifts. Six arithmetic lemmas are formalized; H remains open.
 
 [![DOI (latest)](https://img.shields.io/badge/DOI%20(latest)-10.5281%2Fzenodo.20021537-1682d4?logo=doi&logoColor=white)](https://doi.org/10.5281/zenodo.20021537)
+[![DOI (v7)](https://img.shields.io/badge/DOI%20(v7)-10.5281%2Fzenodo.24284425-1682d4?logo=doi&logoColor=white)](https://doi.org/10.5281/zenodo.24284425)
 [![DOI (v6)](https://img.shields.io/badge/DOI%20(v6)-10.5281%2Fzenodo.22936057-1682d4?logo=doi&logoColor=white)](https://doi.org/10.5281/zenodo.22936057)
 [![DOI (v5)](https://img.shields.io/badge/DOI%20(v5)-10.5281%2Fzenodo.20554750-1682d4?logo=doi&logoColor=white)](https://doi.org/10.5281/zenodo.20554750)
 [![DOI (v4)](https://img.shields.io/badge/DOI%20(v4)-10.5281%2Fzenodo.20544464-1682d4?logo=doi&logoColor=white)](https://doi.org/10.5281/zenodo.20544464)
@@ -47,8 +70,8 @@ no-infinite-shadowing corollary, finite Collatz–Wielandt spectral-radius
 certificates, and a phantom-set taxonomy), all formalized in Lean 4 +
 Mathlib and `sorry`-free.
 
-> **This is not a proof of the Collatz conjecture.** The working tree now
-> includes results produced after the published v1–v6 papers. Published v6
+> **This is not a proof of the Collatz conjecture.** Published v7 collects
+> selected finite post-v6 results and explicit open obligations. Published v6
 > corrects the accelerated 2-adic continuity claim made in v4 and
 > records the precise limit of its coding argument.
 
@@ -60,9 +83,14 @@ Mathlib and `sorry`-free.
 
 ## Paper
 
-The latest published version is **v6**, published on 24 September 2026 at
-[doi:10.5281/zenodo.22936057](https://doi.org/10.5281/zenodo.22936057).
-The v1–v6 PDFs are immutable Zenodo snapshots; their checksums are fixed in
+The latest published version is **v7**, published on 16 November 2026 at
+[doi:10.5281/zenodo.24284425](https://doi.org/10.5281/zenodo.24284425).
+The [English paper](paper/collatz_spectral_reduction_v7.pdf) has seventeen
+pages and nineteen references. Its supplementary archive contains 119
+payload files, including all 90 canonical Lean sources, plus the checksum
+manifest. The [publication receipt](notes/v7_release_2026-11-16/publication_receipt.json)
+records the public file checks.
+The v1–v7 PDFs are immutable Zenodo snapshots; their checksums are fixed in
 [`scripts/published_pdf_checksums.json`](scripts/published_pdf_checksums.json)
 and checked by
 [`scripts/check_published_pdfs.py`](scripts/check_published_pdfs.py).
@@ -70,11 +98,12 @@ The v6 manuscript ([TeX](paper/collatz_spectral_reduction_v6.tex),
 [local PDF](paper/collatz_spectral_reduction_v6.pdf)) contains the
 mathematical continuation and an explicit erratum to v4. Its PDF and
 supplementary archive have been verified against the published record.
-Further working-tree developments are post-v6 and are not part of that archive.
+The later results selected for v7 are not part of the frozen v6 archive.
 
 | Version | Framing | LaTeX | Publication |
 |---|---|---|---|
-| **v6 (latest published)** | Exact cylinders, precision budgets, singularity and v4 erratum | [`paper/collatz_spectral_reduction_v6.tex`](paper/collatz_spectral_reduction_v6.tex) | [Zenodo doi:10.5281/zenodo.22936057](https://doi.org/10.5281/zenodo.22936057) |
+| **v7 (latest published)** | Finite budgets, transport barriers, conditional packing and paired-path certificates | [`paper/collatz_spectral_reduction_v7.tex`](paper/collatz_spectral_reduction_v7.tex) | [Zenodo doi:10.5281/zenodo.24284425](https://doi.org/10.5281/zenodo.24284425) |
+| v6 | Exact cylinders, precision budgets, singularity and v4 erratum | [`paper/collatz_spectral_reduction_v6.tex`](paper/collatz_spectral_reduction_v6.tex) | [Zenodo doi:10.5281/zenodo.22936057](https://doi.org/10.5281/zenodo.22936057) |
 | v5 | Methodology retrospective; verified core + Reservoir library | [`paper/collatz_spectral_reduction_v5.tex`](paper/collatz_spectral_reduction_v5.tex) | [Zenodo doi:10.5281/zenodo.20554750](https://doi.org/10.5281/zenodo.20554750) |
 | v4 | Verified core, two barriers, repositioning | [`paper/collatz_spectral_reduction_v4.tex`](paper/collatz_spectral_reduction_v4.tex) | [Zenodo doi:10.5281/zenodo.20544464](https://doi.org/10.5281/zenodo.20544464) |
 | v3 | Conditional spectral reduction + taxonomy + extended Lean | [`paper/collatz_spectral_reduction_v3.tex`](paper/collatz_spectral_reduction_v3.tex) | [Zenodo doi:10.5281/zenodo.20160154](https://doi.org/10.5281/zenodo.20160154) |

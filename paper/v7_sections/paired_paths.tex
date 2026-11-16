@@ -1,0 +1,309 @@
+\section{Paired paths and the cost of leaving a block language}
+\label{sec:paired-paths}
+
+This section gives paper proofs, not new Lean declarations. Paired parity
+words and their concatenation are classical tools
+\cite{garner1985,eliatucker2015}. Our purpose is to give a small, explicit
+instance with positive integer states, unit repairs, a different final
+parent, and quantified exit costs. Neither the mechanism nor the first
+construction of a smaller source before descent is claimed as new;
+the latter already has substantially stronger constructions in
+\cite[Theorem~3]{weaver21}. The open issue here is coverage of an already
+specified integer orbit.
+
+\subsection{An exact block relation}
+
+For a positive-exponent word $w=(a_1,\ldots,a_k)$, write
+$A(w)=\sum_i a_i$ and
+\[
+ F_w(x)=\frac{3^k x+C_w}{2^{A(w)}},\qquad
+ C_{()}=0,\qquad C_{w\mathbin{\|}(a)}=3C_w+2^{A(w)}.
+\]
+The function $F_w$ is an affine expression; it equals $S^k$ only on the
+exact valuation cylinder of $w$. We use the exact-cylinder criterion
+established in v6 \cite{borgatta_v6}: for a positive odd integer $x$,
+the word $w$ is realized precisely when $F_w(x)$ is an odd integer.
+For completeness, the reverse implication follows by induction from
+$C_w=3^{k-1}+2^{a_1}C_{(a_2,\ldots,a_k)}$: oddness of the final quotient
+forces the first valuation to be $a_1$, after which the same argument
+applies to the remaining word. All actual intermediate states are
+positive because the initial state is positive.
+
+\begin{lemma}[Translation of exact blocks]\label{pp:translation}
+Let $W,V$ have the same length $k\ge1$ and total exponent $A$.
+For an even integer $c$,
+\[
+ F_V(x+c)=F_W(x)+c
+ \quad\Longleftrightarrow\quad
+ C_V-C_W=c(2^A-3^k).
+\]
+If this identity holds, $x$ realizes $W$, and both $x+c$ and
+$F_W(x)+c$ are positive, then $x+c$ realizes $V$ exactly.
+\end{lemma}
+\begin{proof}
+Compare the affine constants. The second assertion follows because
+$F_W(x)+c$ is then a positive odd integer and the exact-cylinder
+criterion applies to the positive odd input $x+c$.
+\end{proof}
+
+The translation $H(x)=x-2$ gives two rules:
+\begin{equation}\label{pp:rules}
+ W_1=(1,2)\longmapsto V_1=(2,1),\qquad
+ W_2=(2,1,2)\longmapsto V_2=(1,1,3).
+\end{equation}
+Their affine constants and cylinders are
+\[
+\begin{array}{c|c|c|c|c}
+ W&V&(3^k,2^A)&(C_W,C_V)&\text{source cylinders }W,V\\ \hline
+ (1,2)&(2,1)&(9,8)&(5,7)&11,9\pmod {16}\\
+ (2,1,2)&(1,1,3)&(27,32)&(29,19)&57,55\pmod {64}.
+\end{array}
+\]
+In each row $F_V(x-2)=F_W(x)-2$. The least positive inputs
+in these cylinders exceed $2$, and the block endpoints also exceed $2$.
+Consequently any actual concatenation $p\in\{W_1,W_2\}^*$ starting
+at $b>2$ is followed by an actual concatenation $\sigma(p)$ starting
+at $b-2$, with a difference of $2$ at every block boundary.
+The substitution $\sigma$ is defined by \eqref{pp:rules}.
+This is intertwining between different affine maps. It does not require
+one companion map to commute with every observed block. Indeed, the
+fixed points of $F_{W_1}$ and $F_{W_2}$ are $-5$ and $29/5$.
+The second block has gain $27/32<1$; the entire block language is not
+an expansive language.
+
+\subsection{An attributed terminal word and a mixed family}
+
+The binary word used below comes from Cassian Mahler's manuscript
+\cite[Section~4, Equation~(4.4)]{mahler152}. Its broader search and
+survival certificates are not inputs to the following direct proof.
+Set
+\begin{align*}
+ w_*={}&(1,1,2,1,2,1,2,1,2,1,2,1,2,2,2,2,1,2,1,2,2,1),\\
+ g_*={}&(4,\underbrace{1,\ldots,1}_{15},2,2,1,4,3,3).
+\end{align*}
+Both have length $22$ and total exponent $34$. The recursive definition
+of the affine constant gives
+\[
+ C_{w_*}=118309227953,\qquad C_{g_*}=181071347171,
+ \qquad C_{g_*}-C_{w_*}=2\cdot3^{22}.
+\]
+Thus $F_{g_*}(x-2)=F_{w_*}(x)$. These integers provide a direct finite
+check of the displayed identity; they do not certify the other results
+of \cite{mahler152}.
+
+\begin{proposition}[A mixed paired family]\label{pp:mixed-family}
+Suppose a positive odd integer $b$ realizes $p w_*$, where
+$p\in\{W_1,W_2\}^*$. Then $b-2$ realizes $\sigma(p)g_*$ and the
+two paths have the same endpoint, length, total exponent, and gain.
+Their last parents are different. For a unit input $b$, a unit source
+for the alternative path is given by the following table; $\Gamma$
+denotes its gain divided by the observed gain:
+\[
+\begin{array}{c|c|c}
+\text{condition}&\text{alternative unit source}&\Gamma\\ \hline
+b\equiv1\pmod3&b-2&1\\
+b\equiv2\pmod3,\ p\text{ begins with }W_1&(3b-5)/4&4/3\\
+b\equiv2\pmod3,\ p\text{ begins with }W_2&(3b-5)/2&2/3\\
+b\equiv2\pmod3,\ p=()&(3b-5)/16&16/3.
+\end{array}
+\]
+The last three paths have one fewer odd step.
+\end{proposition}
+\begin{proof}
+The seed cannot be $1$: its valuation word consists of $2$'s, whereas
+$p w_*$ contains a $1$. Hence $b>2$, so the companion seed is positive.
+Iterate Lemma~\ref{pp:translation} along $p$, then use the displayed
+terminal identity. Exact oddness of its endpoint proves the legality
+of $g_*$. The observed last exponent is $1$, whereas the alternative
+last exponent is $3$. Equal last parents would have the same valuation,
+so the parents are different.
+
+If $b\equiv1\pmod3$, the source $b-2$ is a unit. If
+$b\equiv2\pmod3$, it is a positive odd multiple of $3$.
+Delete its first actual step. That step has exponent $f=2,1,4$
+in the three respective cases, and its endpoint is
+$(3b-5)/2^f$. This endpoint is a positive odd unit. Deleting the
+step multiplies the gain by $2^f/3$ and leaves the last parent
+unchanged. The remaining length is at least $21$.
+\end{proof}
+
+The third unit source in the table can exceed $b$. It is not a
+unit descent certificate. A useful subclass avoids this issue. Put
+\[
+ A=W_1^4,\qquad B=W_1^3 W_2.
+\]
+These blocks form a prefix code, have lengths $8,9$ and exponent totals
+$12,14$, and are not powers of one common word. Every nonempty prefix
+of either block has gain greater than $1$. For the last three letters
+of $B$, the smallest intermediate gain is
+$(9/8)^3(3/4)=2187/2048>1$; its total gain is $19683/16384>1$.
+The exponent totals of the prefixes of $w_*$ are
+\[
+ (1,2,4,5,7,8,10,11,13,14,16,17,19,21,23,25,26,28,29,31,33,34).
+\]
+Each is below the corresponding $i\log_2 3$; their smallest gain is
+$3^{21}/2^{33}>1$. Hence every actual word in
+$\{A,B\}^*w_*$ stays above its initial source at every nonempty
+prefix, while Proposition~\ref{pp:mixed-family} supplies a smaller
+unit source with the same future. This includes the empty macro prefix.
+
+These are identities on proper cylinders, not coverage of a supplied
+infinite orbit. The relative odd Haar measure of all cylinders
+$\{W_1,W_2\}^*w_*$ is only
+\[
+ \sum_{r\ge0}(2^{-3}+2^{-5})^r2^{-34}
+ =\frac{2^{-29}}{27}.
+\]
+They are disjoint because $w_*$ starts with $11$, whereas the two
+blocks start with $12$ or $212$. Nor does a merger alone certify a
+first arrival. The first-arrival and prefix-free guards must be checked
+when the earlier mass budgets are applied; for a nonperiodic target,
+an actual arrival is automatically its unique arrival from that source.
+
+\subsection{A minimum divergent seed must leave the language}
+
+\begin{proposition}[A necessary exit; no analytic input]
+\label{pp:minimum-exit}
+If a divergent positive odd unit orbit exists, let $b$ be its least
+unit starting value. Its infinite valuation word does not belong to
+$\{W_1,W_2\}^{\mathbb N}$.
+\end{proposition}
+\begin{proof}
+The seed satisfies $b>1$. Its first valuation must be $1$, since a
+valuation at least $2$ gives the smaller divergent unit
+$S(b)\le(3b+1)/4<b$. If its word were an infinite block concatenation,
+its first block would therefore be $W_1$.
+
+At block boundaries the actual orbit of $b-2$ differs from that of $b$
+by $2$. Those values tend to infinity. An orbit of a deterministic map
+on the positive integers that has an unbounded subsequence cannot
+repeat a state, and therefore also tends to infinity. Thus $b-2$
+diverges. If it is a unit, this contradicts minimality. Otherwise its
+first valuation is the first alternative valuation of $V_1$, namely
+$2$, and $S(b-2)=(3b-5)/4$ is a divergent unit smaller than $b$.
+This is again a contradiction.
+\end{proof}
+
+The proposition requires neither a merger nor an atom-floor theorem.
+It constrains the \emph{minimum} divergent unit seed, not every
+divergent seed. It leaves open all exits not covered by a further
+certificate. Elia and Tucker's counterexamples to a specific proposed
+classification of paired stems \cite{eliatucker2015} are a relevant
+warning: a collection of valid local rules does not establish their
+completeness.
+
+\subsection{Local costs and subsequent forced contraction}
+
+At a block boundary write the pair as $(x,x-2)$, and let $x'$ be the
+next observed state. If the observed exponent is $e\ge2$, the
+companion exponent is exactly $1$ and the new relation is
+$y'=2^{e-1}x'-3$. If $e=1$, the companion exponent is
+$f=1+\nu_2(x'-3)\ge2$ and $y'=(x'-3)/2^{f-1}$.
+These follow directly by subtracting $6$ from $3x+1$.
+After the prefix $21$ the relation is $y=2x-5$.
+An exit $13$ or $213$ consequently produces
+\[
+ y'=\operatorname{oddpart}(z-1),\qquad z=x' >1.
+\]
+Here $z=1$ is incompatible with an integral preceding state of
+valuation $3$ in either case.
+
+\begin{lemma}[A forced run]\label{pp:forced-two}
+If $z=2^t u+1$, where $u$ is positive odd and $t\ge1$, then the next
+$r=\lfloor(t-1)/2\rfloor$ valuations are all $2$ and
+\[
+ S^r(z)=(3/4)^r(z-1)+1.
+\]
+\end{lemma}
+\begin{proof}
+For $s\ge3$,
+$3(2^s u+1)+1=4(3\cdot2^{s-2}u+1)$, with the factor in parentheses
+odd. Iterate while the remaining exponent of $2$ is at least $3$.
+\end{proof}
+
+\begin{proposition}[Local cost or a drop below the reference seed]
+\label{pp:buffer-cost}
+Let $b>1$ be a reference value and suppose an observed path reaches
+$z=2^t u+1$. Either one of $z,S(z),\ldots,S^r(z)$ lies below $b$,
+where $r$ is as in Lemma~\ref{pp:forced-two}, or
+\begin{equation}\label{pp:t-charge}
+ t\le 2+\frac{2\log((z-1)/(b-1))}{\log(4/3)}.
+\end{equation}
+In particular the inequality holds along the orbit of a minimum
+divergent unit seed $b$ at an exit $13$ or $213$.
+For an exit beginning with $11$, if the first companion valuation is
+$f\ge7$, the corresponding bound is
+\begin{equation}\label{pp:f-charge}
+ f\le 8+\frac{2\log((z-1)/(b-1))}{\log(4/3)}
+\end{equation}
+unless the observed path subsequently falls below $b$.
+\end{proposition}
+\begin{proof}
+If there is no drop, the last forced state gives
+$(3/4)^r(z-1)+1\ge b$. Hence
+$r\log(4/3)\le\log((z-1)/(b-1))$, and $t\le2r+2$ proves
+\eqref{pp:t-charge}. All later states of a minimum divergent unit
+orbit are units at least $b$.
+
+For the last assertion put $u=S(x-2)$, where $x$ is the boundary
+state. From $3(x-2)+1=2^f u$, the first observed states are
+\[
+ x_1=3+2^{f-1}u,\quad x_2=5+3\cdot2^{f-2}u,\quad
+ z=x_3=1+9\cdot2^{f-6}u.
+\]
+For $f\ge7$ the three observed exponents are exactly $1,1,4$.
+Apply \eqref{pp:t-charge} with $t=f-6$.
+\end{proof}
+
+The cost in these inequalities is controlled by the actual height
+buffer $\log((z-1)/(b-1))$. It is not an $O(\log j)$ cost at time $j$.
+The remaining cases $f=3,4,5,6$ are four parametric classes, with
+unbounded integer states, not four finite numerical states.
+
+\begin{proposition}[A local loss of the same companion]
+\label{pp:collapse-family}
+For every fixed $K\ge5$, there are arbitrarily large positive odd
+units $b$ whose observed word begins with $W_1^K(1,3)$, all its
+nonempty prefixes have gain greater than $1$, and the companion
+$b-2$ reaches $1$ while the observed path reaches an arbitrarily
+large value.
+\end{proposition}
+\begin{proof}
+Choose arbitrarily large $t=6m$ satisfying
+$3^{2K+3}\mid 2^{t+1}+7$. Such $m$ exist because $64$ has order
+$3^{N-2}$ modulo $3^N$ on $1+9\mathbb Z/3^N\mathbb Z$, for $N\ge2$,
+as follows from $\nu_3(64^h-1)=2+\nu_3(h)$. The target $-7/2$
+belongs to that subgroup. Put
+\[
+ x=\frac{2^{t+4}+11}{9},\qquad
+ b=\frac{8^{K+1}(2^{t+1}+7)}{9^{K+1}}-5.
+\]
+For sufficiently large $t$ these are positive odd integers, with
+$b\equiv1\pmod3$, so both initial seeds are units. The identity
+$x+5=(9/8)^K(b+5)$ and the exact block cylinders give
+\[
+ b\xrightarrow{W_1^K}x\xrightarrow{(1,3)}2^t+1,
+ \qquad
+ b-2\xrightarrow{V_1^K}x-2\xrightarrow{(2,t+2)}1.
+\]
+The last intermediate states are $(2^{t+3}+7)/3$ and
+$(2^{t+2}-1)/3$, which verify the last valuations exactly.
+The smallest gain on the final two observed letters is
+$(9/8)^K(9/16)>1$ for $K\ge5$, since $9^6>16\cdot8^5$.
+All preceding prefixes are also expansive.
+\end{proof}
+
+This is not a divergent orbit construction or a counterexample to
+Collatz. For fixed $K$, the ratio $(2^t)/(b-1)$ stays bounded as
+$t\to\infty$, while the following forced run has unbounded length.
+It therefore eventually drops below $b$. The example rules out a
+uniformly bounded local cost for keeping this particular companion;
+it does not rule out paying the cost using later contraction.
+
+The next required result is a composition theorem: at every exit,
+either certify a drop below the original seed, or choose another
+positive unit companion and control the accumulated costs. The local
+bounds above do not prove that result, since later expansive blocks
+can replenish the height buffer. No universal descent, no complete
+exit classification, and no nonsummable allocation of alternative
+paths follows from this section.

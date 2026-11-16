@@ -1,0 +1,41 @@
+{
+  "status": "completed: new version published; public PDF and source ZIP downloaded and verified byte for byte",
+  "operation": "Create or resume a new version of the existing Zenodo concept, preserving v1-v6",
+  "concept_doi": "10.5281/zenodo.20021537",
+  "title": "Finite Orbit Budgets, Arithmetic Transport Barriers, and Paired-Path Certificates for Collatz",
+  "version": "7.0.0",
+  "publication_date": "2026-11-16",
+  "resource_type": "Preprint",
+  "language": "English",
+  "creators": [
+    {
+      "name": "Borgatta, Piero",
+      "orcid": "0009-0001-8025-2405"
+    }
+  ],
+  "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+  "description_html_file": "paper/zenodo_v7_description.html",
+  "keywords": [
+    "Collatz conjecture",
+    "Syracuse dynamics",
+    "Lean 4",
+    "finite orbit budgets",
+    "exact exponent cylinders",
+    "paired paths",
+    "formal verification",
+    "AI-assisted mathematics"
+  ],
+  "related_repositories": [
+    "https://github.com/PieroBorgatta/Collatz",
+    "https://github.com/PieroBorgatta/CollatzShadowing"
+  ],
+  "files": [
+    "paper/collatz_spectral_reduction_v7.pdf",
+    "collatz_spectral_reduction_v7_supplementary.zip"
+  ],
+  "file_policy": "Upload only the new PDF and new source ZIP to the new version. Do not replace or delete any published v6 file. Verify the final file names and checksums after public publication.",
+  "version_doi": "10.5281/zenodo.24284425",
+  "published_record_url": "https://zenodo.org/records/24284425",
+  "previous_version_doi": "10.5281/zenodo.22936057",
+  "latest_confirmed_published_version_doi": "10.5281/zenodo.24284425"
+}
